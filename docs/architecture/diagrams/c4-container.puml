@@ -1,0 +1,72 @@
+@startuml
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Enterprise AI Platform - Container Diagram
+
+Person(businessUser, "Business User")
+Person(developer, "Developer")
+Person(aiArchitect, "AI Architect")
+
+System_Ext(foundationModels, "Foundation Models", "Bedrock, OpenAI, Anthropic or other LLM providers")
+System_Ext(corporateSystems, "Corporate Systems", "ERP, CRM, Core Banking, Legacy Systems and internal APIs")
+System_Ext(identityProvider, "Identity Provider", "OIDC, SSO, IAM and RBAC")
+System_Ext(observabilityStack, "Observability Stack", "Logs, metrics, traces and dashboards")
+
+System_Boundary(platform, "Enterprise AI Platform") {
+
+    Container(aiPortal, "AI Portal", "React", "Self-service portal for agents, copilots, governance and operations")
+    Container(agentGateway, "Agent Gateway", ".NET", "Unified entry point for agent invocations, authentication, routing and rate limiting")
+    Container(agentRuntime, "Agent Runtime", ".NET / LangGraph / Semantic Kernel", "Executes and orchestrates agents, prompts, tools and model calls")
+    Container(agentRegistry, "Agent Registry", ".NET", "Catalog, metadata, versioning and lifecycle of agents")
+    Container(mcpRegistry, "MCP Registry", ".NET", "Catalog and discovery of MCP servers and enterprise tools")
+    Container(knowledgeService, "Knowledge Service", ".NET", "Document ingestion, embeddings, vector search and RAG orchestration")
+    Container(memoryService, "Memory Service", ".NET", "Session, short-term, long-term and user profile memory")
+    Container(evaluationService, "Evaluation Service", ".NET", "Evaluates groundedness, relevance, hallucination, toxicity and regression quality")
+    Container(governanceService, "Governance Service", ".NET", "Approval workflow, AI risk management, policy enforcement and lifecycle governance")
+    Container(auditService, "Audit Service", ".NET", "Immutable audit trail for agent usage, tool calls and governance actions")
+    Container(billingService, "Billing Service", ".NET", "FinOps, token tracking, cost allocation, chargeback and showback")
+
+    ContainerDb(postgres, "PostgreSQL", "Relational Database", "Platform metadata, catalog, governance and configuration")
+    ContainerDb(mongo, "MongoDB", "Document Database", "Conversation memory and flexible context storage")
+    ContainerDb(openSearch, "OpenSearch", "Vector Search", "Embeddings, semantic search and knowledge retrieval")
+    ContainerDb(redis, "Redis", "Cache", "Session cache, throttling and short-lived context")
+    ContainerQueue(kafka, "Kafka", "Event Streaming", "Platform events, audit events and async processing")
+}
+
+Rel(businessUser, aiPortal, "Uses")
+Rel(developer, aiPortal, "Registers and tests agents")
+Rel(aiArchitect, aiPortal, "Reviews governance and standards")
+
+Rel(aiPortal, agentGateway, "Invokes agents", "HTTPS")
+Rel(aiPortal, agentRegistry, "Manages agent catalog", "HTTPS")
+Rel(aiPortal, governanceService, "Submits approvals", "HTTPS")
+
+Rel(agentGateway, identityProvider, "Authenticates and authorizes", "OIDC")
+Rel(agentGateway, agentRuntime, "Routes invocation", "HTTPS")
+
+Rel(agentRuntime, foundationModels, "Invokes models", "HTTPS")
+Rel(agentRuntime, knowledgeService, "Retrieves knowledge", "HTTPS")
+Rel(agentRuntime, memoryService, "Reads and writes memory", "HTTPS")
+Rel(agentRuntime, mcpRegistry, "Discovers tools", "HTTPS")
+Rel(agentRuntime, corporateSystems, "Executes business tools", "HTTPS / MCP")
+Rel(agentRuntime, evaluationService, "Requests response evaluation", "Async / HTTPS")
+
+Rel(knowledgeService, openSearch, "Stores and searches embeddings")
+Rel(memoryService, mongo, "Stores context")
+Rel(agentRegistry, postgres, "Stores agent metadata")
+Rel(governanceService, postgres, "Stores governance records")
+Rel(billingService, postgres, "Stores cost allocation data")
+Rel(agentGateway, redis, "Uses cache and rate limits")
+
+Rel(agentRuntime, kafka, "Publishes agent events")
+Rel(knowledgeService, kafka, "Publishes knowledge events")
+Rel(governanceService, kafka, "Publishes governance events")
+Rel(kafka, auditService, "Consumes events")
+Rel(kafka, evaluationService, "Consumes evaluation events")
+Rel(kafka, billingService, "Consumes usage events")
+
+Rel(auditService, observabilityStack, "Publishes audit logs and traces")
+Rel(agentRuntime, observabilityStack, "Publishes traces and metrics")
+
+@enduml
