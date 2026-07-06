@@ -1,0 +1,31 @@
+@startuml
+
+title Agent Publishing - Sequence Diagram
+
+autonumber
+
+actor "Developer" as Developer
+actor "AI Architect" as Architect
+participant "AI Portal" as Portal
+participant "Agent Registry" as Registry
+participant "Governance Service" as Governance
+participant "Evaluation Service" as Evaluation
+queue "Kafka" as Kafka
+participant "Audit Service" as Audit
+
+Developer -> Portal: Create or update agent
+Portal -> Registry: Save draft version
+Registry -> Kafka: Publish agent.updated
+Developer -> Portal: Submit for review
+Portal -> Governance: Submit agent version
+Governance -> Evaluation: Run required evaluations
+Evaluation --> Governance: Evaluation results
+Architect -> Portal: Review risk, quality and compliance
+Portal -> Governance: Approve version
+Governance -> Registry: Mark version as published
+Governance -> Kafka: Publish governance.approved
+Governance -> Kafka: Publish agent.published
+Kafka -> Audit: Consume governance and agent events
+Portal --> Developer: Version published
+
+@enduml

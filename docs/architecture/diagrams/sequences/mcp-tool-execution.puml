@@ -1,0 +1,28 @@
+@startuml
+
+title MCP Tool Execution - Sequence Diagram
+
+autonumber
+
+participant "Agent Runtime" as Runtime
+participant "Policy Enforcer" as Policy
+participant "MCP Registry" as Registry
+participant "MCP Server" as MCP
+participant "Corporate System" as System
+queue "Kafka" as Kafka
+participant "Audit Service" as Audit
+participant "Billing Service" as Billing
+
+Runtime -> Policy: Validate tool permission
+Policy --> Runtime: Allowed
+Runtime -> Registry: Discover tool schema and endpoint
+Registry --> Runtime: Tool metadata, version and policies
+Runtime -> MCP: Execute tool
+MCP -> System: Call corporate API
+System --> MCP: Business response
+MCP --> Runtime: Tool result
+Runtime -> Kafka: Publish tool.executed
+Kafka -> Audit: Consume tool.executed
+Kafka -> Billing: Consume tool usage
+
+@enduml

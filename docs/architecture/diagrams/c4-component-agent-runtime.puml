@@ -1,0 +1,51 @@
+@startuml
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Enterprise AI Platform - Agent Runtime Component Diagram
+
+Container_Boundary(agentRuntime, "Agent Runtime") {
+    Component(invocationController, "Invocation Controller", ".NET API", "Receives agent invocation requests")
+    Component(agentExecutor, "Agent Executor", ".NET", "Controls the execution lifecycle")
+    Component(promptEngine, "Prompt Engine", ".NET", "Builds prompts, system instructions and context")
+    Component(toolExecutor, "Tool Executor", ".NET", "Executes approved tools")
+    Component(mcpClient, "MCP Client", ".NET", "Discovers and invokes MCP tools")
+    Component(memoryAdapter, "Memory Adapter", ".NET", "Reads and writes conversational memory")
+    Component(knowledgeAdapter, "Knowledge Adapter", ".NET", "Retrieves knowledge for RAG")
+    Component(modelAdapter, "Model Adapter", ".NET", "Invokes foundation models")
+    Component(evaluationAdapter, "Evaluation Adapter", ".NET", "Submits responses for quality evaluation")
+    Component(eventPublisher, "Event Publisher", ".NET", "Publishes platform events")
+    Component(policyEnforcer, "Policy Enforcer", ".NET", "Applies execution, security and cost policies")
+}
+
+Container(agentGateway, "Agent Gateway", ".NET", "Agent entry point")
+Container(agentRegistry, "Agent Registry", ".NET", "Agent metadata and versions")
+Container(knowledgeService, "Knowledge Service", ".NET", "RAG retrieval")
+Container(memoryService, "Memory Service", ".NET", "Conversation memory")
+Container(mcpRegistry, "MCP Registry", ".NET", "Tool discovery")
+Container(evaluationService, "Evaluation Service", ".NET", "Response evaluation")
+ContainerQueue(kafka, "Kafka", "Event Streaming", "Platform events")
+System_Ext(foundationModels, "Foundation Models", "LLM providers")
+System_Ext(corporateSystems, "Corporate Systems", "Internal APIs and tools")
+
+Rel(agentGateway, invocationController, "Invokes agent")
+Rel(invocationController, agentExecutor, "Starts execution")
+Rel(agentExecutor, agentRegistry, "Loads agent configuration")
+Rel(agentExecutor, policyEnforcer, "Validates policies")
+Rel(agentExecutor, memoryAdapter, "Loads context")
+Rel(agentExecutor, knowledgeAdapter, "Retrieves knowledge")
+Rel(agentExecutor, promptEngine, "Builds prompt")
+Rel(agentExecutor, modelAdapter, "Calls model")
+Rel(agentExecutor, toolExecutor, "Executes tools")
+Rel(toolExecutor, mcpClient, "Uses")
+Rel(mcpClient, mcpRegistry, "Discovers tools")
+Rel(mcpClient, corporateSystems, "Executes business actions")
+Rel(memoryAdapter, memoryService, "Reads and writes memory")
+Rel(knowledgeAdapter, knowledgeService, "Searches knowledge")
+Rel(modelAdapter, foundationModels, "Inference")
+Rel(agentExecutor, evaluationAdapter, "Submits evaluation")
+Rel(evaluationAdapter, evaluationService, "Evaluates response")
+Rel(agentExecutor, eventPublisher, "Publishes events")
+Rel(eventPublisher, kafka, "agent.invoked / tool.executed")
+
+@enduml

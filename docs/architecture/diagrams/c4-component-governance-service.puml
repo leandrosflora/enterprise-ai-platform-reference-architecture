@@ -1,0 +1,11 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary(governance,"Governance Service") {
+Component(workflow,"Approval Workflow")
+Component(risk,"Risk Engine")
+Component(policy,"Policy Engine")
+Component(compliance,"Compliance Validator")
+Component(publisher,"Publishing Manager")
+}
+@enduml

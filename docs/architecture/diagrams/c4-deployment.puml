@@ -1,0 +1,38 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+
+Deployment_Node(aws,"AWS") {
+
+Deployment_Node(edge,"Edge") {
+Container(route53,"Route53")
+Container(cloudfront,"CloudFront")
+Container(waf,"WAF")
+}
+
+Deployment_Node(eks,"Amazon EKS") {
+Container(agentGateway,"Agent Gateway")
+Container(agentRuntime,"Agent Runtime")
+Container(knowledgeService,"Knowledge Service")
+Container(memoryService,"Memory Service")
+Container(governanceService,"Governance Service")
+Container(evaluationService,"Evaluation Service")
+Container(agentRegistry,"Agent Registry")
+Container(mcpRegistry,"MCP Registry")
+}
+
+ContainerDb(rds,"PostgreSQL RDS")
+ContainerDb(opensearch,"OpenSearch")
+ContainerDb(mongo,"MongoDB")
+ContainerDb(redis,"Redis")
+ContainerQueue(msk,"Amazon MSK")
+System_Ext(bedrock,"Amazon Bedrock")
+}
+
+Rel(agentRuntime,bedrock,"Inference")
+Rel(agentRuntime,opensearch,"RAG")
+Rel(agentRuntime,mongo,"Memory")
+Rel(agentRuntime,msk,"Events")
+Rel(governanceService,rds,"Metadata")
+Rel(agentRegistry,rds,"Versions")
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+
+title Agent Invocation - Sequence Diagram
+
+autonumber
+
+actor "Business User" as User
+participant "AI Portal" as Portal
+participant "Agent Gateway" as Gateway
+participant "Agent Runtime" as Runtime
+participant "Agent Registry" as Registry
+participant "Memory Service" as Memory
+participant "Knowledge Service" as Knowledge
+participant "Foundation Model" as Model
+participant "Evaluation Service" as Evaluation
+queue "Kafka" as Kafka
+participant "Audit Service" as Audit
+participant "Billing Service" as Billing
+
+User -> Portal: Send prompt
+Portal -> Gateway: POST /agents/{id}/invoke
+Gateway -> Gateway: Authenticate and authorize
+Gateway -> Runtime: Route invocation
+Runtime -> Registry: Load agent configuration
+Registry --> Runtime: Agent config and policies
+Runtime -> Memory: Load session context
+Memory --> Runtime: Conversation context
+Runtime -> Knowledge: Search relevant knowledge
+Knowledge --> Runtime: Retrieved chunks and citations
+Runtime -> Model: Invoke model with prompt and context
+Model --> Runtime: Model response
+Runtime -> Evaluation: Queue response evaluation
+Runtime -> Kafka: Publish agent.invoked
+Runtime --> Gateway: Return answer
+Gateway --> Portal: Return response
+Portal --> User: Display answer
+Kafka -> Audit: Consume agent.invoked
+Kafka -> Billing: Consume usage data
+
+@enduml

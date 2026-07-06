@@ -1,0 +1,12 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary(knowledge,"Knowledge Service") {
+Component(ingestion,"Ingestion Engine")
+Component(chunking,"Chunking Engine")
+Component(embedding,"Embedding Engine")
+Component(retrieval,"Retrieval Engine")
+Component(reranker,"Reranker")
+Component(indexer,"Indexer")
+}
+@enduml
