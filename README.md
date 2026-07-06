@@ -82,6 +82,7 @@ Capacidades abordadas:
 ## Contratos
 
 - docs/contracts/apis.md
+- docs/contracts/openapi.yaml
 - docs/contracts/events.md
 - docs/contracts/async-api.yaml
 - docs/contracts/data-stores.md
@@ -129,6 +130,12 @@ Capacidades abordadas:
 
 ---
 
+## Exemplos End-to-End
+
+- docs/examples/end-to-end-agent-rag-mcp.md
+
+---
+
 ## ADRs
 
 - ADR-001 Estratégia de Agent Runtime
@@ -162,6 +169,20 @@ Capacidades abordadas:
 - React
 - Kafka
 - MCP
+
+---
+
+# Artefatos Implementáveis
+
+| Artefato | Finalidade |
+|---|---|
+| `docs/contracts/openapi.yaml` | Contratos HTTP com endpoints, schemas, scopes, paginação e erros padronizados. |
+| `docs/contracts/async-api.yaml` | Contratos assíncronos Kafka. |
+| `docs/contracts/mcp-contracts.md` | Contratos MCP com JSON Schemas, segurança, auditoria e runtime policy. |
+| `docs/security/authorization.md` | Matriz papel x escopo x recurso x condição. |
+| `docs/governance/ai-risk-framework.md` | Matriz risco x controle x evidência x owner. |
+| `docs/observability/tracing.md` | Spans, atributos, métricas, SLOs, alertas e logs estruturados. |
+| `docs/examples/end-to-end-agent-rag-mcp.md` | Fluxos completos Agent + RAG + MCP. |
 
 ---
 
