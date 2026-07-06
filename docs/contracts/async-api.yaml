@@ -2,16 +2,312 @@ asyncapi: '3.0.0'
 info:
   title: Enterprise AI Platform Events
   version: 1.0.0
+  description: Event contracts for the Enterprise AI Platform.
+
+defaultContentType: application/json
+
+servers:
+  kafka:
+    host: kafka:9092
+    protocol: kafka
+    description: Corporate Kafka cluster
+
 channels:
   agent.invoked:
     address: agent.invoked
+    messages:
+      AgentInvokedMessage:
+        $ref: '#/components/messages/AgentInvokedMessage'
   agent.published:
     address: agent.published
+    messages:
+      AgentPublishedMessage:
+        $ref: '#/components/messages/AgentPublishedMessage'
   tool.executed:
     address: tool.executed
+    messages:
+      ToolExecutedMessage:
+        $ref: '#/components/messages/ToolExecutedMessage'
   knowledge.ingested:
     address: knowledge.ingested
+    messages:
+      KnowledgeIngestedMessage:
+        $ref: '#/components/messages/KnowledgeIngestedMessage'
   evaluation.completed:
     address: evaluation.completed
+    messages:
+      EvaluationCompletedMessage:
+        $ref: '#/components/messages/EvaluationCompletedMessage'
   governance.approved:
     address: governance.approved
+    messages:
+      GovernanceApprovedMessage:
+        $ref: '#/components/messages/GovernanceApprovedMessage'
+
+operations:
+  publishAgentInvoked:
+    action: send
+    channel:
+      $ref: '#/channels/agent.invoked'
+  publishAgentPublished:
+    action: send
+    channel:
+      $ref: '#/channels/agent.published'
+  publishToolExecuted:
+    action: send
+    channel:
+      $ref: '#/channels/tool.executed'
+  publishKnowledgeIngested:
+    action: send
+    channel:
+      $ref: '#/channels/knowledge.ingested'
+  publishEvaluationCompleted:
+    action: send
+    channel:
+      $ref: '#/channels/evaluation.completed'
+  publishGovernanceApproved:
+    action: send
+    channel:
+      $ref: '#/channels/governance.approved'
+
+components:
+  messages:
+    AgentInvokedMessage:
+      name: AgentInvokedMessage
+      title: Agent Invoked
+      payload:
+        $ref: '#/components/schemas/AgentInvokedEvent'
+      examples:
+        - name: agentInvokedSuccess
+          payload:
+            eventId: evt-001
+            eventType: agent.invoked
+            eventVersion: 1.0.0
+            occurredAt: '2026-01-01T10:00:00Z'
+            correlationId: corr-001
+            causationId: cmd-001
+            payload:
+              agentId: internal-copilot
+              agentVersion: 1.0.0
+              tenantId: tenant-default
+              businessUnit: Atendimento
+              status: SUCCESS
+              latencyMs: 2400
+              inputTokens: 1200
+              outputTokens: 350
+              modelProvider: bedrock
+              modelId: anthropic.claude
+    AgentPublishedMessage:
+      name: AgentPublishedMessage
+      title: Agent Published
+      payload:
+        $ref: '#/components/schemas/AgentPublishedEvent'
+    ToolExecutedMessage:
+      name: ToolExecutedMessage
+      title: Tool Executed
+      payload:
+        $ref: '#/components/schemas/ToolExecutedEvent'
+    KnowledgeIngestedMessage:
+      name: KnowledgeIngestedMessage
+      title: Knowledge Ingested
+      payload:
+        $ref: '#/components/schemas/KnowledgeIngestedEvent'
+    EvaluationCompletedMessage:
+      name: EvaluationCompletedMessage
+      title: Evaluation Completed
+      payload:
+        $ref: '#/components/schemas/EvaluationCompletedEvent'
+    GovernanceApprovedMessage:
+      name: GovernanceApprovedMessage
+      title: Governance Approved
+      payload:
+        $ref: '#/components/schemas/GovernanceApprovedEvent'
+
+  schemas:
+    EventEnvelope:
+      type: object
+      required:
+        - eventId
+        - eventType
+        - eventVersion
+        - occurredAt
+        - correlationId
+        - payload
+      properties:
+        eventId:
+          type: string
+        eventType:
+          type: string
+        eventVersion:
+          type: string
+        occurredAt:
+          type: string
+          format: date-time
+        correlationId:
+          type: string
+        causationId:
+          type: string
+        payload:
+          type: object
+
+    AgentInvokedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            payload:
+              $ref: '#/components/schemas/AgentInvokedPayload'
+
+    AgentInvokedPayload:
+      type: object
+      required:
+        - agentId
+        - agentVersion
+        - tenantId
+        - status
+      properties:
+        agentId:
+          type: string
+        agentVersion:
+          type: string
+        tenantId:
+          type: string
+        businessUnit:
+          type: string
+        status:
+          type: string
+          enum: [SUCCESS, FAILED, PARTIAL]
+        latencyMs:
+          type: integer
+        inputTokens:
+          type: integer
+        outputTokens:
+          type: integer
+        modelProvider:
+          type: string
+        modelId:
+          type: string
+
+    AgentPublishedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            payload:
+              $ref: '#/components/schemas/AgentPublishedPayload'
+
+    AgentPublishedPayload:
+      type: object
+      required: [agentId, agentVersion, owner, riskClassification]
+      properties:
+        agentId:
+          type: string
+        agentVersion:
+          type: string
+        owner:
+          type: string
+        businessUnit:
+          type: string
+        riskClassification:
+          type: string
+          enum: [LOW, MEDIUM, HIGH]
+
+    ToolExecutedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            payload:
+              $ref: '#/components/schemas/ToolExecutedPayload'
+
+    ToolExecutedPayload:
+      type: object
+      required: [agentId, toolName, toolVersion, status]
+      properties:
+        agentId:
+          type: string
+        toolName:
+          type: string
+        toolVersion:
+          type: string
+        status:
+          type: string
+          enum: [SUCCESS, FAILED]
+        latencyMs:
+          type: integer
+        errorCode:
+          type: string
+
+    KnowledgeIngestedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            payload:
+              $ref: '#/components/schemas/KnowledgeIngestedPayload'
+
+    KnowledgeIngestedPayload:
+      type: object
+      required: [knowledgeBaseId, documentId, status]
+      properties:
+        knowledgeBaseId:
+          type: string
+        documentId:
+          type: string
+        sourceSystem:
+          type: string
+        status:
+          type: string
+          enum: [INGESTED, FAILED]
+
+    EvaluationCompletedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            payload:
+              $ref: '#/components/schemas/EvaluationCompletedPayload'
+
+    EvaluationCompletedPayload:
+      type: object
+      required: [evaluationId, agentId, status]
+      properties:
+        evaluationId:
+          type: string
+        agentId:
+          type: string
+        status:
+          type: string
+          enum: [APPROVED, REJECTED, WARNING]
+        groundedness:
+          type: number
+        relevance:
+          type: number
+        hallucinationRisk:
+          type: number
+        toxicity:
+          type: number
+
+    GovernanceApprovedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            payload:
+              $ref: '#/components/schemas/GovernanceApprovedPayload'
+
+    GovernanceApprovedPayload:
+      type: object
+      required: [approvalId, agentId, approvedBy, decision]
+      properties:
+        approvalId:
+          type: string
+        agentId:
+          type: string
+        approvedBy:
+          type: string
+        decision:
+          type: string
+          enum: [APPROVED, REJECTED]
+        riskClassification:
+          type: string
