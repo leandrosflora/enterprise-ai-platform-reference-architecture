@@ -1,184 +1,202 @@
-# Enterprise AI Platform - Arquitetura de Referência
+# Enterprise AI Platform - Reference Architecture
 
-> Arquitetura de referência para uma Plataforma Corporativa de IA, demonstrando governança, orquestração multiagentes, integração via MCP, RAG, observabilidade, avaliação de modelos, segurança e FinOps para adoção de IA em escala empresarial.
-
-## Status do Projeto
-
-Este repositório evoluiu de uma visão conceitual para uma arquitetura documentada contendo:
-
-- C4 Context Diagram
-- C4 Container Diagram
-- C4 Component Diagram (Agent Runtime)
-- Sequence Diagrams
-- Contratos de Eventos
-- Documentação de Serviços
-- Architecture Decision Records (ADRs)
+> Enterprise-grade AI Platform reference architecture covering Agentic AI, MCP, RAG, Memory, Governance, Evaluation, Observability, Security and FinOps.
 
 ---
 
-## Navegação Rápida
+## Architecture Overview
 
-### Arquitetura
+This repository demonstrates how to design, govern and operate an Enterprise AI Platform at scale.
 
-| Artefato | Link |
-|-----------|------|
-| C4 Context | docs/architecture/diagrams/c4-context.puml |
-| C4 Container | docs/architecture/diagrams/c4-container.puml |
-| C4 Component - Agent Runtime | docs/architecture/diagrams/c4-component-agent-runtime.puml |
-|
-| Agent Invocation Sequence | docs/architecture/diagrams/sequences/agent-invocation.puml |
-| RAG Query Sequence | docs/architecture/diagrams/sequences/rag-query.puml |
-| MCP Tool Execution Sequence | docs/architecture/diagrams/sequences/mcp-tool-execution.puml |
-| Agent Publishing Sequence | docs/architecture/diagrams/sequences/agent-publishing.puml |
+Capabilities covered:
 
-### Contratos
-
-| Documento | Link |
-|-----------|------|
-| Eventos Kafka | docs/contracts/events.md |
-
-### Serviços
-
-| Serviço | Link |
-|----------|------|
-| Agent Runtime | docs/services/agent-runtime.md |
-| Knowledge Service | docs/services/knowledge-service.md |
-| Governance Service | docs/services/governance-service.md |
-
-### Architecture Decision Records
-
-| ADR | Link |
-|-----|------|
-| ADR-001 Agent Runtime Strategy | docs/adr/ADR-001-agent-runtime-strategy.md |
-| ADR-002 Vector Database Selection | docs/adr/ADR-002-vector-database-selection.md |
-| ADR-003 MCP Strategy | docs/adr/ADR-003-mcp-strategy.md |
-| ADR-004 Observability Strategy | docs/adr/ADR-004-observability-strategy.md |
-| ADR-005 Evaluation Framework | docs/adr/ADR-005-evaluation-framework.md |
+- Agent Platform
+- Knowledge Platform
+- Memory Platform
+- MCP Platform
+- Governance Platform
+- Evaluation Platform
+- Observability Platform
+- FinOps Platform
 
 ---
 
-## Estrutura de Documentação
+# Documentation Map
 
-Consulte também:
+## Architecture
 
-- docs/README.md
+### C4 Model
 
----
+- docs/architecture/diagrams/c4-context.puml
+- docs/architecture/diagrams/c4-container.puml
+- docs/architecture/diagrams/c4-component-agent-runtime.puml
+- docs/architecture/diagrams/c4-component-knowledge-service.puml
+- docs/architecture/diagrams/c4-component-governance-service.puml
+- docs/architecture/diagrams/c4-deployment.puml
 
-## Visão da Plataforma
+### Sequence Diagrams
 
-A Enterprise AI Platform fornece capacidades corporativas para:
+- docs/architecture/diagrams/sequences/agent-invocation.puml
+- docs/architecture/diagrams/sequences/rag-query.puml
+- docs/architecture/diagrams/sequences/mcp-tool-execution.puml
+- docs/architecture/diagrams/sequences/agent-publishing.puml
 
-- Construção de agentes
-- Governança de IA
-- Integração via MCP
-- RAG corporativo
-- Memória conversacional
-- Observabilidade
-- Avaliação contínua
-- FinOps para IA
-- Segurança e conformidade
+### Event Storming
 
----
-
-## Principais Capacidades
-
-### Agent Platform
-
-- Agent Runtime
-- Agent Gateway
-- Agent Registry
-- Multi-Agent Orchestration
-- Tool Calling
-
-### Knowledge Platform
-
-- Ingestão documental
-- Embeddings
-- Busca Vetorial
-- RAG
-
-### MCP Platform
-
-- MCP Registry
-- Tool Discovery
-- Tool Governance
-
-### AI Governance
-
-- Catálogo de Agentes
-- Aprovação
-- Gestão de Riscos
-- Auditoria
-
-### AI Evaluation
-
-- Groundedness
-- Hallucination Detection
-- Relevância
-- Toxicidade
-
-### AI Observability
-
-- Tracing
-- Logs
-- Métricas
-- Custos
-
-### AI FinOps
-
-- Chargeback
-- Showback
-- Token Analytics
+- docs/architecture/diagrams/event-storming.md
 
 ---
 
-## Tecnologias de Referência
+## Domains
+
+- docs/domains/agent-platform.md
+- docs/domains/knowledge-platform.md
+- docs/domains/memory-platform.md
+- docs/domains/mcp-platform.md
+- docs/domains/governance-platform.md
+- docs/domains/evaluation-platform.md
+- docs/domains/observability-platform.md
+- docs/domains/finops-platform.md
+
+---
+
+## Services
+
+- docs/services/agent-runtime.md
+- docs/services/agent-registry.md
+- docs/services/knowledge-service.md
+- docs/services/memory-service.md
+- docs/services/mcp-registry.md
+- docs/services/governance-service.md
+
+---
+
+## Contracts
+
+- docs/contracts/apis.md
+- docs/contracts/events.md
+- docs/contracts/async-api.yaml
+- docs/contracts/data-stores.md
+- docs/contracts/mcp-contracts.md
+
+---
+
+## Governance
+
+- docs/governance/approval-workflow.md
+- docs/governance/ai-catalog.md
+- docs/governance/ai-risk-framework.md
+- docs/governance/model-lifecycle.md
+
+---
+
+## Security
+
+- docs/security/authentication.md
+- docs/security/authorization.md
+- docs/security/lgpd.md
+
+---
+
+## Observability
+
+- docs/observability/tracing.md
+- docs/observability/dashboards.md
+
+---
+
+## FinOps
+
+- docs/finops/token-costs.md
+
+---
+
+## Integrations
+
+- docs/integrations/foundation-models.md
+- docs/integrations/identity-provider.md
+- docs/integrations/corporate-systems.md
+- docs/integrations/observability-stack.md
+- docs/integrations/external-tools.md
+
+---
+
+## ADRs
+
+- ADR-001 Agent Runtime Strategy
+- ADR-002 Vector Database Selection
+- ADR-003 MCP Strategy
+- ADR-004 Observability Strategy
+- ADR-005 Evaluation Framework
+
+---
+
+# Reference Technology Stack
+
+## Platform
 
 - AWS
+- Kubernetes (EKS)
+- Amazon MSK
 - Amazon Bedrock
-- AgentCore
-- OpenSearch
+- OpenTelemetry
+
+## Data
+
 - PostgreSQL
 - MongoDB
+- OpenSearch
 - Redis
-- Kafka
-- OpenTelemetry
-- Kubernetes
+
+## Development
+
 - .NET
 - React
+- Kafka
+- MCP
 
 ---
 
-## Roadmap
+# Implementation Roadmap
 
-### Foundation
+## Phase 1
 
-- Agent Gateway
-- Agent Runtime
-- MCP Registry
+Foundation Platform
 
-### Knowledge
+## Phase 2
 
-- RAG
-- Knowledge Service
-- Memory Service
+Knowledge Platform and Enterprise RAG
 
-### Governance
+## Phase 3
 
-- Evaluation Service
-- Governance Service
-- Observability
+MCP and Corporate Integrations
 
-### Scale
+## Phase 4
 
-- Multi-Agent Platform
-- Self-Service Portal
-- Agent Marketplace
-- FinOps
+Governance and Evaluation
+
+## Phase 5
+
+Scale, Marketplace and FinOps
+
+Roadmap details:
+
+- docs/roadmap/implementation-roadmap.md
 
 ---
 
-## Licença
+# Target Audience
+
+- Enterprise Architects
+- Solution Architects
+- AI Architects
+- Platform Engineers
+- Technical Leads
+- Governance Teams
+- Security Teams
+
+---
+
+# License
 
 MIT
