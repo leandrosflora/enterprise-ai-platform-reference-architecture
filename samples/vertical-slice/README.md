@@ -19,7 +19,7 @@ docker compose up --build
 Após a API ficar saudável:
 
 ```bash
-./scripts/demo.sh
+bash scripts/demo.sh
 ```
 
 ## Testes
