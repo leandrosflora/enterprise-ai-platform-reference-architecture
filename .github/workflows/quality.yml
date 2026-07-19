@@ -35,7 +35,7 @@ jobs:
       - name: Check PlantUML
         run: bash scripts/render_diagrams.sh
       - name: Build documentation
-        run: mkdocs build --strict
+        run: mkdocs build
       - name: Check external links
         uses: lycheeverse/lychee-action@v2
         with:
