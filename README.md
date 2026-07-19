@@ -50,7 +50,7 @@ docker compose up --build
 Em outro terminal:
 
 ```bash
-./scripts/demo.sh
+bash scripts/demo.sh
 ```
 
 A demo executa:
