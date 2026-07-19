@@ -102,7 +102,7 @@ def as_front_matter(path: Path) -> str:
     text = normalize_links(path, path.read_text(encoding="utf-8").strip())
     return text.replace(
         "# Enterprise AI Platform Book",
-        "# Como ler este livro {.unnumbered}",
+        '<h1 class="unnumbered">Como ler este livro</h1>',
         1,
     )
 
@@ -118,7 +118,7 @@ def build() -> None:
         "",
         '<div class="title-page">',
         "",
-        "# Enterprise AI Platform Book {.unnumbered}",
+        "<h1>Enterprise AI Platform Book</h1>",
         "",
         "Estratégia, arquitetura, governança e operação",
         "",
@@ -130,7 +130,7 @@ def build() -> None:
         "",
         "</div>",
         "",
-        "# Sumário {.unnumbered}",
+        '<h1 class="unnumbered">Sumário</h1>',
         "",
         '<div class="book-summary">',
         "",
