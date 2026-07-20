@@ -1,6 +1,8 @@
 # Documentação
 
-Esta pasta contém o **Enterprise AI Platform Book**, a arquitetura de referência, contratos executáveis, policies, controles de governança e guias operacionais.
+Esta pasta contém o **Enterprise AI Platform Reference Book** e os artefatos que apoiam organizações no desenho e na implementação de suas próprias plataformas corporativas de IA.
+
+O conteúdo é uma referência documental e arquitetural. Ele não entrega uma plataforma pronta, não define uma implementação obrigatória e não substitui decisões específicas de infraestrutura, segurança, sizing ou compliance.
 
 ## Comece pelo book
 
@@ -23,22 +25,24 @@ architecture/             Princípios, NFRs, C4 e separação de planos
 adr/                      Architecture Decision Records
 contracts/                OpenAPI, AsyncAPI, MCP, eventos e data stores
 domains/                  Domínios funcionais da plataforma
-services/                 Responsabilidades e contratos por serviço
+services/                 Capacidades e responsabilidades lógicas por serviço
 governance/               Workflow, risco, catálogo e ciclo de modelos
 security/                 Autenticação, autorização, LGPD, RAG/memória e threat model
 observability/            Tracing, métricas, dashboards, alertas e SLOs
 finops/                   Custos, budgets, chargeback e showback
-runbooks/                 Procedimentos operacionais e troubleshooting
+runbooks/                 Procedimentos operacionais de referência
 examples/                 Exemplos ponta a ponta
 reference-architectures/  Blueprints por caso de uso
-roadmap/                  Sequenciamento técnico de implantação
+roadmap/                  Sequenciamento recomendado para implementação
 ```
 
-## Relação entre book e referência
+## Relação entre book e artefatos
 
 - O **book** explica problema, decisão, trade-offs, operating model e critérios de sucesso.
-- A **referência técnica** define contratos, policies, componentes, eventos e procedimentos.
-- A **vertical slice** demonstra partes dos controles de forma executável.
+- A **arquitetura de referência** define contratos, policies, capacidades, eventos e procedimentos que podem orientar diferentes implementações.
+- A **amostra técnica** demonstra partes dos controles de forma executável para validar a documentação.
+
+A amostra técnica não representa uma arquitetura física recomendada nem uma plataforma pronta para produção.
 
 O conteúdo editorial não pode redefinir enums, envelopes, policies ou metas diferentes das fontes canônicas.
 
@@ -62,7 +66,7 @@ O conteúdo editorial não pode redefinir enums, envelopes, policies ou metas di
 - [Control plane e data plane](architecture/control-plane-data-plane.md)
 - [Event Storming](architecture/diagrams/event-storming.md)
 
-## Serviços principais
+## Capacidades e serviços de referência
 
 - [Agent Gateway](services/agent-gateway.md)
 - [Agent Runtime](services/agent-runtime.md)
@@ -76,7 +80,9 @@ O conteúdo editorial não pode redefinir enums, envelopes, policies ou metas di
 - [Audit Service](services/audit-service.md)
 - [Billing Service](services/billing-service.md)
 
-## Operação
+Esses nomes representam responsabilidades arquiteturais. Eles não exigem que cada capacidade seja implementada como um microsserviço independente.
+
+## Operação de referência
 
 - [Onboarding de agente](runbooks/onboarding-agent.md)
 - [Onboarding MCP](runbooks/onboarding-mcp.md)
