@@ -1,8 +1,10 @@
-# Enterprise AI Platform
+# Enterprise AI Platform Reference Book
 
-Este site apresenta um **book executável** sobre estratégia, arquitetura, governança e operação de plataformas corporativas de IA.
+Este site apresenta um **book de referência para orientar o desenho, a governança, a implementação e a operação de plataformas corporativas de IA**.
 
-Ele combina narrativa editorial, referências técnicas, contratos versionados, policies e uma vertical slice executável.
+Ele combina narrativa editorial, modelos arquiteturais, contratos, policies, checklists e uma pequena amostra técnica usada apenas para validar parte dos artefatos documentados.
+
+> Este projeto não entrega uma plataforma pronta nem prescreve uma implementação tecnológica única. Os componentes e serviços representam capacidades lógicas que devem ser adaptadas ao contexto de cada organização.
 
 ## Comece pelo seu objetivo
 
@@ -48,7 +50,7 @@ Ele combina narrativa editorial, referências técnicas, contratos versionados, 
 
     [Ver segurança de RAG e memória](security/rag-memory-security.md)
 
--   :material-flask-outline: **Caso prático**
+-   :material-flask-outline: **Estudo de caso**
 
     ---
 
@@ -101,6 +103,8 @@ flowchart TB
     CP --> DP
 ```
 
+A decomposição acima é lógica. Ela não determina quantidade de serviços, tecnologia, produto ou topologia de implantação.
+
 ## Referências canônicas
 
 | Assunto | Fonte |
@@ -110,8 +114,8 @@ flowchart TB
 | Segurança de RAG e memória | [Padrão](security/rag-memory-security.md) |
 | Risco | [AI Risk Framework](governance/ai-risk-framework.md) |
 | SLOs | [Requisitos não funcionais](architecture/non-functional-requirements.md) |
-| Deployment | [C4 Deployment](architecture/diagrams/c4-deployment.puml) |
-| Demo | [Vertical slice](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/tree/main/samples/vertical-slice) |
+| Deployment de referência | [C4 Deployment](architecture/diagrams/c4-deployment.puml) |
+| Amostra de validação | [Vertical slice](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/tree/main/samples/vertical-slice) |
 
 ## PDF
 
