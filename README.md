@@ -3,6 +3,7 @@
 [![Quality](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/quality.yml/badge.svg)](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/quality.yml)
 [![Docs](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/docs.yml/badge.svg)](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/docs.yml)
 [![Book](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/book.yml/badge.svg)](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/book.yml)
+[![Documentação online](https://img.shields.io/badge/Documentação-Acessar%20site-2ea44f?logo=materialformkdocs&logoColor=white)](https://leandrosflora.github.io/enterprise-ai-platform-demo-arch/)
 
 ## Visão rápida
 
