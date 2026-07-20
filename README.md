@@ -6,7 +6,7 @@
 
 ## Visão rápida
 
- <img src="media/vision.png" alt="Enterprise AI Platform — arquitetura, observabilidade e reference book" width="60%"></a>
+ <img src="media/vision.png" alt="Enterprise AI Platform — arquitetura, observabilidade e reference book" width="100%"></a>
 
 > Visão rápida da arquitetura, tracing, logs, métricas e reference book. Clique na imagem para assistir ao vídeo de 15 segundos.
 
