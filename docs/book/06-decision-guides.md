@@ -1,4 +1,4 @@
-# 6. Decision Guides
+# 7. Decision Guides
 
 ## Como usar este capítulo
 
