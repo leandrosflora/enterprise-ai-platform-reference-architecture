@@ -129,4 +129,4 @@ Quando a resposta é não, a capacidade provavelmente deve permanecer na aplica�
 
 ## Próximo capítulo
 
-O [Capability Map](02-capability-map.md) transforma essa definição em um mapa de capacidades e fronteiras de responsabilidade.
+O [Business Outcomes Framework](02-business-outcomes.md) conecta a estratégia da plataforma aos resultados mensuráveis que justificam capacidades e investimento.
