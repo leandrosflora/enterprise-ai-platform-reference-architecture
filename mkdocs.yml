@@ -59,6 +59,10 @@ nav:
       - Princípios: architecture/principles/principles.md
       - Requisitos não funcionais: architecture/non-functional-requirements.md
       - Control plane e data plane: architecture/control-plane-data-plane.md
+      - Decision Matrix: architecture/ai-decision-matrix.md
+      - Model Selection Framework: architecture/model-selection-framework.md
+      - Prompt Engineering Guide: architecture/prompt-engineering-guide.md
+      - Hallucination Strategies: architecture/hallucination-strategies.md
       - Event Storming: architecture/diagrams/event-storming.md
   - Contratos:
       - Convenções de eventos: contracts/events.md
@@ -66,11 +70,15 @@ nav:
       - MCP: contracts/mcp-contracts.md
       - Data stores: contracts/data-stores.md
   - Governança:
+      - Enterprise AI Governance: governance/ai-governance-framework.md
+      - Responsible AI: governance/responsible-ai.md
       - Fluxo de aprovação: governance/approval-workflow.md
       - AI Risk Framework: governance/ai-risk-framework.md
+      - Evaluation Framework: governance/evaluation-framework.md
       - Catálogo de IA: governance/ai-catalog.md
       - Ciclo de modelos: governance/model-lifecycle.md
   - Segurança:
+      - AI Security Architecture: security/ai-security-architecture.md
       - Autenticação: security/authentication.md
       - Autorização: security/authorization.md
       - Segurança de RAG e memória: security/rag-memory-security.md
