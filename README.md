@@ -1,17 +1,17 @@
-# Enterprise AI Platform — Book de Referência
+# Enterprise AI Platform Reference Architecture
 
-[![Quality](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/quality.yml/badge.svg)](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/quality.yml)
-[![Docs](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/docs.yml/badge.svg)](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/docs.yml)
-[![Book](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/book.yml/badge.svg)](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/actions/workflows/book.yml)
-[![Documentação online](https://img.shields.io/badge/Documentação-Acessar%20site-2ea44f?logo=materialformkdocs&logoColor=white)](https://leandrosflora.github.io/enterprise-ai-platform-demo-arch/)
+[![Quality](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/actions/workflows/quality.yml/badge.svg)](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/actions/workflows/quality.yml)
+[![Docs](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/actions/workflows/docs.yml/badge.svg)](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/actions/workflows/docs.yml)
+[![Book](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/actions/workflows/book.yml/badge.svg)](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/actions/workflows/book.yml)
+[![Documentação online](https://img.shields.io/badge/Documentação-Acessar%20site-2ea44f?logo=materialformkdocs&logoColor=white)](https://leandrosflora.github.io/enterprise-ai-platform-reference-architecture/)
 
 ## Visão rápida
 
- <img src="media/vision.png" alt="Enterprise AI Platform — arquitetura, observabilidade e reference book" width="100%"></a>
+ <img src="media/vision.png" alt="Enterprise AI Platform Reference Architecture — arquitetura, observabilidade e governança" width="100%"></a>
 
-> Visão rápida da arquitetura, tracing, logs, métricas e reference book.
+> Visão rápida da arquitetura de referência, tracing, logs, métricas, governança e documentação técnica.
 
-Um **book de referência para orientar o desenho, a governança, a implementação e a operação de plataformas corporativas de IA**.
+Uma **arquitetura de referência para orientar o desenho, a governança, a implementação e a operação de plataformas corporativas de IA**.
 
 O repositório organiza estratégia, capacidades, decisões arquiteturais, operating model, contratos, controles e caminhos de adoção para organizações que precisam construir sua própria Enterprise AI Platform.
 
