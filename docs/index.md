@@ -1,6 +1,6 @@
 # Enterprise AI Platform Reference Book
 
-<a href="https://raw.githubusercontent.com/leandrosflora/enterprise-ai-platform-demo-arch/main/media/enterprise-ai-platform-reference-book.mp4"><img src="https://raw.githubusercontent.com/leandrosflora/enterprise-ai-platform-demo-arch/main/media/enterprise-ai-platform-overview.svg" alt="Enterprise AI Platform — arquitetura, observabilidade e reference book" width="100%"></a>
+<a href="media/enterprise-ai-platform-reference-book.mp4"><img src="media/enterprise-ai-platform-overview.svg" alt="Enterprise AI Platform — arquitetura, observabilidade e reference book" width="100%"></a>
 
 > Arquitetura, tracing, logs, métricas e reference book em uma visão rápida. Clique na imagem para assistir ao vídeo de 15 segundos.
 
