@@ -1,4 +1,4 @@
-# 3. Operating Model
+# 4. Operating Model
 
 ## O desafio organizacional
 

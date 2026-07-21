@@ -47,13 +47,14 @@ nav:
   - Book:
       - Visão geral: book/index.md
       - 1. Por que uma AI Platform?: book/01-why-ai-platform.md
-      - 2. Capability Map: book/02-capability-map.md
-      - 3. Operating Model: book/03-operating-model.md
-      - 4. Ciclo de vida de agentes: book/04-agent-lifecycle.md
-      - 5. Caso de agente documental: book/05-case-study-document-agent.md
-      - 6. Decision Guides: book/06-decision-guides.md
-      - 7. Maturidade e roadmap: book/07-adoption-roadmap.md
-      - 8. Checklists de produção: book/08-production-checklists.md
+      - 2. Business Outcomes: book/02-business-outcomes.md
+      - 3. Capability Map: book/02-capability-map.md
+      - 4. Operating Model: book/03-operating-model.md
+      - 5. Ciclo de vida de agentes: book/04-agent-lifecycle.md
+      - 6. Caso de agente documental: book/05-case-study-document-agent.md
+      - 7. Decision Guides: book/06-decision-guides.md
+      - 8. Maturidade e roadmap: book/07-adoption-roadmap.md
+      - 9. Checklists de produção: book/08-production-checklists.md
       - Glossário: book/glossary.md
   - Arquitetura:
       - Princípios: architecture/principles/principles.md
