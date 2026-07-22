@@ -132,7 +132,7 @@ Uma plataforma corporativa deve convergir para Model Gateway, mas não precisa b
 
 Evite adicionar uma tecnologia apenas porque ela é popular. Faça benchmark com corpus, filtros, atualização, disponibilidade e custo reais.
 
-Consulte [ADR-002](../adr/ADR-002-vector-database-selection.md).
+Consulte [ADR-005 — Estratégia de busca vetorial e híbrida](../adrs/005-vector-search-strategy.md).
 
 ## 9. Cachear ou não cachear?
 
