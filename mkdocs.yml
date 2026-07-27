@@ -77,7 +77,7 @@ nav:
       - Observabilidade: adrs/006-observability-strategy.md
       - Avaliação: adrs/007-evaluation-strategy.md
   - Casos aplicados:
-      - IA conversacional para renegociação: case-studies/conversational-ai.md
+      - Plataforma conversacional bancária multi-skill: case-studies/conversational-ai.md
   - FinOps:
       - FinOps para IA: finops/ai-finops.md
   - Contratos:
