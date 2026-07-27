@@ -75,3 +75,5 @@ sequenceDiagram
 ## Resultado arquitetural
 
 O case valida que a arquitetura é decomponível e executável, sem afirmar que toda organização precise da mesma quantidade de serviços. Em ambientes menores, componentes podem ser agrupados; em escala corporativa, os limites permitem ownership, segurança e evolução independentes.
+
+<!-- pages-publish-trigger: 2026-07-27 -->
