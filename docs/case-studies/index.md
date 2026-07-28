@@ -31,7 +31,23 @@ Eles não definem uma implementação única. Cada caso explicita:
 
     [Abrir o caso de backoffice](intelligent-backoffice.md)
 
+-   :material-source-branch: **Agentic SDLC governado**
+
+    ---
+
+    Agentes especializados do requisito ao feedback de produção, workflow durável, Model Gateway, MCP, OPA, evidências, aprovação por digest, release observado e rollback.
+
+    [Abrir o caso de Agentic SDLC](agentic-sdlc.md)
+
 </div>
+
+## Comparação rápida
+
+| Caso | Unidade principal de interação | Autonomia inteligente | Efeito real governado |
+|---|---|---|---|
+| Plataforma conversacional | conversa e jornada do cliente | selecionar skill, responder e usar tools | operações bancárias mediadas por serviços de domínio |
+| Intelligent Backoffice | caso, documento e evidência | classificar, investigar e recomendar | aprovação humana e execution service |
+| Agentic SDLC | mudança de software e evidence bundle | refinar, desenhar, implementar e revisar | tools via MCP, aprovação por digest, release e rollback |
 
 ## Como interpretar os estados
 

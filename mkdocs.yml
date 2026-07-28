@@ -80,6 +80,7 @@ nav:
       - Visão geral: case-studies/index.md
       - Plataforma conversacional bancária multi-skill: case-studies/conversational-ai.md
       - Intelligent Backoffice — contestação bancária: case-studies/intelligent-backoffice.md
+      - Agentic SDLC governado: case-studies/agentic-sdlc.md
   - FinOps:
       - FinOps para IA: finops/ai-finops.md
   - Contratos:
