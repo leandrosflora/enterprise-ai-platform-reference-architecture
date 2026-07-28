@@ -54,15 +54,22 @@ Ele combina narrativa editorial, modelos arquiteturais, contratos, policies, che
 
     [Abrir o crosswalk de compliance](governance/compliance-crosswalk.md)
 
--   :material-flask-outline: **Estudo de caso**
+-   :material-flask-outline: **Casos aplicados**
 
     ---
 
-    Acompanhe um agente documental com RAG do problem statement ao checklist de produção.
+    Compare materializações concretas para IA conversacional bancária e automação inteligente de backoffice regulado.
 
-    [Abrir o estudo de caso](book/05-case-study-document-agent.md)
+    [Abrir os casos aplicados](case-studies/index.md)
 
 </div>
+
+## Casos aplicados em destaque
+
+| Caso | Capacidades demonstradas | Estado |
+|---|---|---|
+| [Plataforma conversacional bancária multi-skill](case-studies/conversational-ai.md) | Agent Runtimes, MCP, RAG, memória, jornadas, eventing, auditoria e evals | referência executável e POC endurecida |
+| [Intelligent Backoffice — contestação bancária](case-studies/intelligent-backoffice.md) | workflow persistente, Document Intelligence, investigação, recomendação, aprovação humana, OPA, execução idempotente e reconciliação | baseline demonstrada; backend e frontend em implementação |
 
 ## Livro
 
