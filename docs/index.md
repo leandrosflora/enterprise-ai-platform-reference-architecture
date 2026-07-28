@@ -58,7 +58,7 @@ Ele combina narrativa editorial, modelos arquiteturais, contratos, policies, che
 
     ---
 
-    Compare materializações concretas para IA conversacional bancária e automação inteligente de backoffice regulado.
+    Compare materializações concretas para IA conversacional bancária, automação de backoffice regulado e engenharia de software orientada por agentes.
 
     [Abrir os casos aplicados](case-studies/index.md)
 
@@ -70,6 +70,7 @@ Ele combina narrativa editorial, modelos arquiteturais, contratos, policies, che
 |---|---|---|
 | [Plataforma conversacional bancária multi-skill](case-studies/conversational-ai.md) | Agent Runtimes, MCP, RAG, memória, jornadas, eventing, auditoria e evals | referência executável e POC endurecida |
 | [Intelligent Backoffice — contestação bancária](case-studies/intelligent-backoffice.md) | workflow persistente, Document Intelligence, investigação, recomendação, aprovação humana, OPA, execução idempotente e reconciliação | baseline demonstrada; backend e frontend em implementação |
+| [Agentic SDLC governado](case-studies/agentic-sdlc.md) | oito papéis de agente, workflow durável, Model Gateway, MCP, OPA, checkpoints, evidence bundles, aprovação por digest, release observado e rollback | runtime funcional e integração controlada; produção pendente |
 
 ## Livro
 
