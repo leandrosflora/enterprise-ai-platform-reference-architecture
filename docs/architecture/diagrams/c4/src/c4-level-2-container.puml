@@ -93,6 +93,4 @@ Lay_R(governance_service, evaluation_service)
 Lay_D(ai_catalog, event_backbone)
 Lay_R(event_backbone, telemetry_collector)
 
-UpdateLayoutConfig($c4ShapeInRow="4", $c4BoundaryInRow="1")
-
 @enduml
