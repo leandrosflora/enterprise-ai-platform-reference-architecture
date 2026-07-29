@@ -1,0 +1,46 @@
+@startuml
+!include <C4/C4_Context>
+
+title C4 Context — Estado de referência
+
+LAYOUT_TOP_DOWN()
+LAYOUT_WITH_LEGEND()
+
+skinparam shadowing false
+skinparam linetype ortho
+
+Person(user, "Cliente / Colaborador", "Consome agentes, copilots e automações pelos canais corporativos.")
+Person(platform_team, "Squads e equipe de plataforma", "Desenvolvem, publicam e operam agentes e capacidades de IA.")
+Person(governance, "Arquitetura, Segurança, Risco, Jurídico e LGPD", "Definem políticas, aprovam riscos e auditam o uso da plataforma.")
+
+System_Ext(channels, "Canais e aplicações digitais", "Web, mobile, WhatsApp, portais internos, APIs e sistemas consumidores.")
+System(ai_platform, "Enterprise AI Platform", "Plataforma corporativa para construir, governar, executar e observar agentes e soluções de IA.")
+
+SystemDb_Ext(knowledge_sources, "Fontes de dados e conhecimento", "Data lake, bancos, documentos e repositórios corporativos.")
+System_Ext(model_providers, "Provedores de modelos", "Foundation models, embeddings e serviços gerenciados de IA.")
+System_Ext(corporate_systems, "APIs e sistemas corporativos", "Core systems, CRM, BPM, backoffice e serviços de negócio.")
+System_Ext(identity_provider, "Identity Provider", "Autenticação de usuários, aplicações e workloads.")
+System_Ext(human_service, "Atendimento e operação humana", "Handoff, aprovação de decisões e tratamento de exceções.")
+
+Rel_D(user, channels, "Interage por", "Web / mobile / WhatsApp")
+Rel_D(channels, ai_platform, "Invoca agentes e capacidades de IA", "HTTPS / eventos")
+Rel_D(platform_team, ai_platform, "Configura, publica e opera", "Portal / APIs / CI/CD")
+Rel_D(governance, ai_platform, "Define políticas, aprova riscos e audita", "Workflow / evidências")
+
+Rel_D(ai_platform, model_providers, "Executa inferência e embeddings", "APIs")
+Rel_D(ai_platform, knowledge_sources, "Ingere e recupera conhecimento", "Batch / streaming / retrieval")
+Rel_D(ai_platform, corporate_systems, "Consulta dados e executa ações", "APIs / MCP / eventos")
+Rel_D(ai_platform, identity_provider, "Valida identidades e tokens", "OIDC / OAuth 2.0")
+Rel_D(ai_platform, human_service, "Escala casos e solicita aprovações", "APIs / filas")
+
+Lay_D(user, channels)
+Lay_D(channels, ai_platform)
+Lay_L(ai_platform, platform_team)
+Lay_R(ai_platform, governance)
+Lay_D(ai_platform, model_providers)
+Lay_L(model_providers, knowledge_sources)
+Lay_R(model_providers, corporate_systems)
+Lay_R(corporate_systems, identity_provider)
+Lay_R(identity_provider, human_service)
+
+@enduml

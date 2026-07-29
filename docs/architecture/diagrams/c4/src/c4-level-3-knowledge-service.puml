@@ -1,0 +1,66 @@
+@startuml
+!include <C4/C4_Component>
+
+title C4 Component — Knowledge Service
+
+LAYOUT_TOP_DOWN()
+LAYOUT_WITH_LEGEND()
+
+skinparam shadowing false
+skinparam linetype ortho
+
+SystemDb_Ext(knowledge_sources, "Fontes de dados e conhecimento", "Documentos, bancos, data lake e APIs corporativas.")
+Container_Ext(agent_runtime, "Agent Runtime", "Kubernetes / containers", "Solicita contexto com citações e metadados de autorização.")
+Container_Ext(policy_decision, "Policy Decision Point", "OPA / policy engine", "Avalia políticas de classificação, acesso e retenção.")
+Container_Ext(telemetry_audit, "Telemetry and Audit", "OTLP / events", "Recebe métricas, logs, traces e evidências de acesso.")
+ContainerDb_Ext(knowledge_index, "Knowledge Index", "Object storage + vector / hybrid index", "Chunks, embeddings, ACLs, lineage e versionamento.")
+
+Container_Boundary(knowledge_service, "Knowledge Service — API + workers") {
+  Boundary(ingestion_pipeline, "Pipeline de ingestão") {
+    Component(ingestion_api, "Ingestion API", "HTTP / batch / streaming", "Recebe conteúdo e solicitações de atualização.")
+    Component(parser_adapter, "Parser Adapter", "Workers / adapters", "Executa OCR, parsing e normalização.")
+    Component(classification_dlp, "Classification and DLP", "Policy-aware worker", "Classifica risco, PII, retenção e restrições.")
+    Component(chunking, "Chunking", "Worker", "Segmenta conteúdo preservando estrutura e metadados.")
+    Component(embedding, "Embedding", "Model client", "Gera embeddings usando modelo aprovado.")
+  }
+
+  Boundary(retrieval_pipeline, "Pipeline de retrieval") {
+    Component(retrieval_api, "Retrieval API", "HTTP / gRPC", "Recebe query, filtros, tenant e contexto de autorização.")
+    Component(metadata_acl, "Metadata and ACL Filter", "Policy-aware component", "Aplica autorização por documento e chunk.")
+    Component(hybrid_search, "Hybrid Search", "Search component", "Combina busca lexical, vetorial e filtros.")
+    Component(reranking, "Reranking", "Model / rules", "Reordena resultados por relevância, diversidade e risco.")
+    Component(citation_builder, "Citation Builder", "Response component", "Monta trechos, proveniência, versão e evidências.")
+  }
+}
+
+Rel_R(knowledge_sources, ingestion_api, "Envia conteúdo", "Connectors / SQL / object storage")
+Rel_R(ingestion_api, parser_adapter, "Agenda parsing e normalização")
+Rel_R(parser_adapter, classification_dlp, "Entrega conteúdo normalizado")
+Rel_R(classification_dlp, chunking, "Entrega conteúdo classificado")
+Rel_R(chunking, embedding, "Entrega chunks e metadados")
+Rel_D(classification_dlp, policy_decision, "Consulta políticas de classificação e retenção", "HTTP / gRPC")
+Rel_D(embedding, knowledge_index, "Indexa chunks, embeddings, ACLs e lineage", "Native protocols")
+
+Rel_L(agent_runtime, retrieval_api, "Solicita contexto e citações", "HTTP / gRPC")
+Rel_R(retrieval_api, metadata_acl, "Normaliza query e contexto")
+Rel_R(metadata_acl, hybrid_search, "Aplica filtros autorizados")
+Rel_R(hybrid_search, reranking, "Retorna candidatos")
+Rel_R(reranking, citation_builder, "Entrega resultados ranqueados")
+Rel_R(citation_builder, agent_runtime, "Retorna contexto com evidências", "HTTP / gRPC")
+Rel_U(metadata_acl, policy_decision, "Consulta políticas e ACLs", "HTTP / gRPC")
+Rel_U(hybrid_search, knowledge_index, "Executa busca lexical e vetorial", "Native protocols")
+
+Rel_D(classification_dlp, telemetry_audit, "Publica decisões de classificação", "OTLP / events")
+Rel_D(citation_builder, telemetry_audit, "Publica retrieval, citações e acesso", "OTLP / events")
+
+Lay_R(ingestion_api, parser_adapter)
+Lay_R(parser_adapter, classification_dlp)
+Lay_R(classification_dlp, chunking)
+Lay_R(chunking, embedding)
+Lay_D(ingestion_api, retrieval_api)
+Lay_R(retrieval_api, metadata_acl)
+Lay_R(metadata_acl, hybrid_search)
+Lay_R(hybrid_search, reranking)
+Lay_R(reranking, citation_builder)
+
+@enduml
