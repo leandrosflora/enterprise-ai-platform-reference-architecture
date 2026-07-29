@@ -22,7 +22,7 @@ System_Ext(human_service, "Atendimento e operação humana", "Executa aprovaçõ
 System_Ext(observability_backend, "Plataforma corporativa de observabilidade", "Armazena e apresenta logs, métricas e traces.")
 
 System_Boundary(platform, "Enterprise AI Platform") {
-  Container_Boundary(data_plane, "Data plane") {
+  Boundary(data_plane, "Data plane") {
     Container(channel_bff, "Channel BFF / AI Experience API", "REST / GraphQL", "Adapta contratos dos canais e mantém contexto de experiência.")
     Container(agent_gateway, "Agent Gateway", "API Gateway / service", "Autentica, autoriza, aplica rate limit e roteia invocações.")
     Container(agent_runtime, "Agent Runtime", "Kubernetes / containers", "Executa agentes e orquestra prompts, modelos, conhecimento, memória e ferramentas.")
@@ -37,7 +37,7 @@ System_Boundary(platform, "Enterprise AI Platform") {
     Container(policy_decision, "Policy Decision Point", "OPA / policy engine", "Avalia políticas de acesso, dados, modelos, ferramentas e risco.")
   }
 
-  Container_Boundary(control_plane, "Control plane e fundação operacional") {
+  Boundary(control_plane, "Control plane e fundação operacional") {
     Container(ai_catalog, "AI Catalog & Agent Registry", "Web / API", "Gerencia agentes, versões imutáveis, owners, contratos, datasets e budgets.")
     ContainerDb(platform_metadata, "Platform Metadata Store", "PostgreSQL / document database", "Metadados, políticas, aprovações, evidências e configurações publicadas.")
     Container(governance_service, "Governance Service", "Workflow service", "Orquestra análises, segregação de funções, decisões e evidências.")
