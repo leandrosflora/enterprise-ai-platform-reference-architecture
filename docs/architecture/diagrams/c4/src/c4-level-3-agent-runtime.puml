@@ -1,0 +1,75 @@
+@startuml
+!include <C4/C4_Component>
+
+title C4 Component — Agent Runtime
+
+LAYOUT_LEFT_RIGHT()
+LAYOUT_WITH_LEGEND()
+
+skinparam shadowing false
+skinparam linetype ortho
+
+Container_Ext(agent_gateway, "Agent Gateway", "API Gateway / service", "Entrega invocações autorizadas ao runtime.")
+Container_Ext(ai_catalog, "AI Catalog & Agent Registry", "Web / API", "Mantém versões imutáveis e configurações publicadas.")
+Container_Ext(model_gateway, "Model Gateway", "Service / managed gateway", "Executa inferência, embeddings, fallback e guardrails.")
+Container_Ext(knowledge_memory, "Knowledge and Memory Services", "APIs", "Fornecem contexto, memória e estado autorizado.")
+Container_Ext(mcp_services, "MCP Tool Services", "MCP / REST", "Expõem ferramentas permitidas.")
+Container_Ext(event_telemetry, "Event Backbone and Telemetry", "Kafka / OTLP", "Recebem eventos, métricas, logs e traces.")
+
+Container_Boundary(runtime, "Agent Runtime — Kubernetes / containers") {
+  Component(invocation_api, "Invocation API", "HTTP / gRPC", "Valida contrato, correlation ID, timeout e metadados da execução.")
+  Component(definition_loader, "Agent Definition Loader", "Runtime component", "Carrega somente versões imutáveis e configurações publicadas.")
+  Component(orchestrator, "Graph / Workflow Orchestrator", "Runtime component", "Coordena passos, retries, timeouts, compensações e estado.")
+
+  Component(policy_hooks, "Policy Hooks", "Runtime component", "Aplica decisões de política antes e depois de etapas críticas.")
+  Component(prompt_builder, "Prompt Builder", "Runtime component", "Monta templates, contexto, instruções e histórico autorizado.")
+
+  Component(model_client, "Model Client", "Runtime adapter", "Streaming, fallback, usage e integração com o Model Gateway.")
+  Component(tool_executor, "Tool Executor", "Runtime adapter", "Executa ferramentas MCP com idempotência e auditoria.")
+  Component(memory_adapter, "Memory Adapter", "Runtime adapter", "Gerencia sessão, perfil, consentimento e contexto recuperado.")
+  ComponentDb(checkpoint_store, "Checkpoint Store", "State store", "Persiste estado intermediário para recuperação e continuidade.")
+
+  Component(telemetry_adapter, "Telemetry Adapter", "OpenTelemetry", "Emite logs, métricas e traces correlacionados.")
+  Component(event_publisher, "Event Publisher", "Kafka / events", "Publica execução, custo, auditoria e resultados.")
+  Component(safety_guard, "Safety / Output Guard", "Runtime component", "Valida schema, conteúdo, redaction e resposta final.")
+}
+
+Rel_R(agent_gateway, invocation_api, "Invoca versão publicada", "HTTP / gRPC")
+Rel_R(invocation_api, definition_loader, "Solicita definição e configuração")
+Rel_R(definition_loader, orchestrator, "Inicializa execução")
+Rel_U(definition_loader, ai_catalog, "Carrega versão publicada", "API / cache")
+
+Rel_U(orchestrator, policy_hooks, "Executa policy hooks")
+Rel_R(orchestrator, prompt_builder, "Monta prompts e contexto")
+Rel_D(orchestrator, model_client, "Solicita inferência")
+Rel_D(orchestrator, tool_executor, "Executa ferramentas")
+Rel_D(orchestrator, memory_adapter, "Lê e grava contexto")
+Rel_D(orchestrator, checkpoint_store, "Persiste checkpoints")
+
+Rel_R(model_client, model_gateway, "Executa inferência", "HTTPS")
+Rel_R(memory_adapter, knowledge_memory, "Recupera contexto e memória", "HTTP / gRPC")
+Rel_R(tool_executor, mcp_services, "Executa ferramenta autorizada", "MCP")
+
+Rel_D(model_client, telemetry_adapter, "Registra uso, latência e falhas")
+Rel_D(tool_executor, event_publisher, "Publica execução da ferramenta")
+Rel_D(memory_adapter, safety_guard, "Entrega contexto para validação")
+Rel_U(safety_guard, orchestrator, "Valida e devolve output")
+
+Rel_R(telemetry_adapter, event_telemetry, "Exporta telemetria", "OTLP")
+Rel_R(event_publisher, event_telemetry, "Publica eventos", "Kafka / events")
+
+Lay_R(invocation_api, definition_loader)
+Lay_R(definition_loader, orchestrator)
+Lay_U(orchestrator, policy_hooks)
+Lay_R(orchestrator, prompt_builder)
+Lay_D(invocation_api, model_client)
+Lay_R(model_client, tool_executor)
+Lay_R(tool_executor, memory_adapter)
+Lay_R(memory_adapter, checkpoint_store)
+Lay_D(model_client, telemetry_adapter)
+Lay_R(telemetry_adapter, event_publisher)
+Lay_R(event_publisher, safety_guard)
+
+UpdateLayoutConfig($c4ShapeInRow="4", $c4BoundaryInRow="1")
+
+@enduml
