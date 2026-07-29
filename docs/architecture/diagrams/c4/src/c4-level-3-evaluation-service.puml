@@ -81,6 +81,4 @@ Lay_D(evaluation_runner, evaluation_registry)
 Lay_R(evaluation_registry, drift_regression)
 Lay_R(drift_regression, human_approval_queue)
 
-UpdateLayoutConfig($c4ShapeInRow="4", $c4BoundaryInRow="1")
-
 @enduml
