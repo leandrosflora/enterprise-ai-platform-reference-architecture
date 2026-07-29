@@ -70,6 +70,4 @@ Lay_D(model_client, telemetry_adapter)
 Lay_R(telemetry_adapter, event_publisher)
 Lay_R(event_publisher, safety_guard)
 
-UpdateLayoutConfig($c4ShapeInRow="4", $c4BoundaryInRow="1")
-
 @enduml
