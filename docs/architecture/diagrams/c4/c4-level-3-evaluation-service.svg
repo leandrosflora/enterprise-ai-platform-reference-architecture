@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1750" height="1050" viewBox="0 0 1750 1050">
+<defs><marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#52606d"/></marker><style>text{font-family:Arial,sans-serif}.t{font-size:30px;font-weight:700;fill:#102a43}.h{font-size:16px;font-weight:700}.s{font-size:12px}.b{rx:14;ry:14;stroke-width:2}.run{fill:#438dd5;stroke:#1168bd}.data{fill:#e8f5e9;stroke:#4c8c4a}.ctrl{fill:#7e57c2;stroke:#5e35b1}.ext{fill:#d9eaf7;stroke:#4a90c2}.infra{fill:#607d8b;stroke:#455a64}.warn{fill:#fff3cd;stroke:#b7791f}.w{fill:#fff}.d{fill:#102a43}.e{fill:none;stroke:#52606d;stroke-width:2;marker-end:url(#a)}.ep{fill:none;stroke:#7353a3;stroke-width:2.5;marker-end:url(#a)}</style></defs>
+<rect width="1750" height="1050" fill="#fff"/><text x="875" y="52" text-anchor="middle" class="t">C4 — Component Diagram — Evaluation Service</text>
+<rect x="180" y="130" width="1390" height="820" rx="22" fill="#fbf8ff" stroke="#7e57c2" stroke-width="3"/><text x="210" y="115" class="h" fill="#7e57c2">Evaluation Service — batch / online workers</text>
+<rect x="25" y="205" width="130" height="100" class="b data"/><text x="90" y="245" text-anchor="middle" class="h d">Datasets</text><text x="90" y="273" text-anchor="middle" class="s d">Golden sets</text>
+<rect x="25" y="365" width="130" height="100" class="b ext"/><text x="90" y="405" text-anchor="middle" class="h d">AI Catalog</text><text x="90" y="433" text-anchor="middle" class="s d">Versões e thresholds</text>
+<rect x="25" y="525" width="130" height="100" class="b infra"/><text x="90" y="565" text-anchor="middle" class="h w">Runtime events</text><text x="90" y="593" text-anchor="middle" class="s w">Online telemetry</text>
+<rect x="1595" y="215" width="130" height="100" class="b ext"/><text x="1660" y="255" text-anchor="middle" class="h d">CI/CD</text><text x="1660" y="283" text-anchor="middle" class="s d">Release decision</text>
+<rect x="1595" y="410" width="130" height="100" class="b ext"/><text x="1660" y="450" text-anchor="middle" class="h d">Governance</text><text x="1660" y="478" text-anchor="middle" class="s d">Evidence review</text>
+<rect x="1595" y="605" width="130" height="100" class="b ext"/><text x="1660" y="645" text-anchor="middle" class="h d">Observability</text><text x="1660" y="673" text-anchor="middle" class="s d">Dashboards</text>
+<rect x="230" y="250" width="230" height="130" class="b run"/><text x="345" y="297" text-anchor="middle" class="h w">Evaluation Runner</text><text x="345" y="326" text-anchor="middle" class="s w">Offline, canary e contínua</text><text x="345" y="347" text-anchor="middle" class="s w">Reprodutibilidade e sampling</text>
+<rect x="520" y="195" width="210" height="105" class="b ctrl"/><text x="625" y="237" text-anchor="middle" class="h w">Rule Judges</text><text x="625" y="265" text-anchor="middle" class="s w">Schemas, policies e invariants</text>
+<rect x="520" y="335" width="210" height="105" class="b run"/><text x="625" y="377" text-anchor="middle" class="h w">Model Judges</text><text x="625" y="405" text-anchor="middle" class="s w">Rubrics e calibration</text>
+<rect x="520" y="475" width="210" height="105" class="b warn"/><text x="625" y="517" text-anchor="middle" class="h d">Human Review</text><text x="625" y="545" text-anchor="middle" class="s d">Amostra e exceções</text>
+<rect x="790" y="250" width="235" height="130" class="b run"/><text x="907" y="297" text-anchor="middle" class="h w">Metrics Aggregator</text><text x="907" y="326" text-anchor="middle" class="s w">Qualidade, segurança, custo,</text><text x="907" y="347" text-anchor="middle" class="s w">latência e robustez</text>
+<rect x="790" y="475" width="235" height="105" class="b data"/><text x="907" y="517" text-anchor="middle" class="h d">Evidence Store</text><text x="907" y="545" text-anchor="middle" class="s d">Runs, prompts, outputs e lineage</text>
+<rect x="1085" y="195" width="220" height="105" class="b ctrl"/><text x="1195" y="237" text-anchor="middle" class="h w">Threshold Engine</text><text x="1195" y="265" text-anchor="middle" class="s w">Critérios por risco e caso</text>
+<rect x="1085" y="335" width="220" height="105" class="b ctrl"/><text x="1195" y="377" text-anchor="middle" class="h w">Release Gate</text><text x="1195" y="405" text-anchor="middle" class="s w">Pass, conditional ou block</text>
+<rect x="1085" y="475" width="220" height="105" class="b infra"/><text x="1195" y="517" text-anchor="middle" class="h w">Dashboard Exporter</text><text x="1195" y="545" text-anchor="middle" class="s w">Métricas, tendências e alerts</text>
+<rect x="1365" y="250" width="155" height="105" class="b run"/><text x="1442" y="292" text-anchor="middle" class="h w">Result API</text><text x="1442" y="320" text-anchor="middle" class="s w">Status e evidências</text>
+<rect x="1365" y="475" width="155" height="105" class="b infra"/><text x="1442" y="517" text-anchor="middle" class="h w">Event Publisher</text><text x="1442" y="545" text-anchor="middle" class="s w">Metrics e violations</text>
+<rect x="310" y="705" width="240" height="105" class="b data"/><text x="430" y="747" text-anchor="middle" class="h d">Evaluation Registry</text><text x="430" y="775" text-anchor="middle" class="s d">Suites, rubrics e baselines</text>
+<rect x="665" y="705" width="240" height="105" class="b ctrl"/><text x="785" y="747" text-anchor="middle" class="h w">Drift / Regression</text><text x="785" y="775" text-anchor="middle" class="s w">Comparação entre versões</text>
+<rect x="1020" y="705" width="240" height="105" class="b warn"/><text x="1140" y="747" text-anchor="middle" class="h d">Human Approval Queue</text><text x="1140" y="775" text-anchor="middle" class="s d">Decisões condicionais</text>
+<path d="M155 255H230M155 415H200V315H230M155 575H200V350H230" class="ep"/>
+<path d="M460 315H490V247H520M460 315H520V387M460 315H490V527H520" class="e"/>
+<path d="M730 247H760V315H790M730 387H790M730 527H760V350H790" class="e"/>
+<path d="M1025 315H1085V247M1025 315H1085V387M1025 315V527H1085" class="ep"/>
+<path d="M1305 247H1365V302M1305 387H1335V265H1595M1305 527H1365M1520 527H1560V655H1595M1520 302H1560V460H1595" class="e"/>
+<path d="M907 380V475M345 380V665H430V705M907 580V665H785V705M1195 440V665H1140V705M1140 810V855H907V580" class="e"/>
+<text x="875" y="1000" text-anchor="middle" class="s" fill="#6b7c93">O gate depende de evidências reproduzíveis, thresholds por risco e aprovação humana quando necessária.</text>
+</svg>
