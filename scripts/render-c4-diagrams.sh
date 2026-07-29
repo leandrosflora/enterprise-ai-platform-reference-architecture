@@ -28,6 +28,7 @@ mkdir -p "$CACHE_DIR" "$OUTPUT_DIR"
 if [ ! -f "$PLANTUML_JAR" ]; then
   echo "Baixando PlantUML ${PLANTUML_VERSION}..."
   curl --fail --location --silent --show-error \
+    --retry 4 --retry-delay 2 --retry-all-errors \
     --output "$PLANTUML_JAR" \
     "$PLANTUML_URL"
 fi
