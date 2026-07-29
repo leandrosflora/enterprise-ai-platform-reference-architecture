@@ -1,0 +1,102 @@
+@startuml
+!include <C4/C4_Container>
+
+title C4 Container — Estado de referência
+
+LAYOUT_TOP_DOWN()
+LAYOUT_WITH_LEGEND()
+
+skinparam shadowing false
+skinparam linetype ortho
+
+Person(user, "Cliente / Colaborador", "Consome capacidades de IA pelos canais corporativos.")
+Person(platform_team, "Squads e equipe de plataforma", "Publicam agentes, contratos, datasets, políticas e budgets.")
+Person(governance, "Arquitetura, Segurança, Risco, Jurídico e LGPD", "Analisam riscos, aprovam e auditam o ciclo de vida.")
+
+System_Ext(channels, "Canais e aplicações digitais", "Web, mobile, WhatsApp, portais internos e APIs consumidoras.")
+System_Ext(identity_provider, "Identity Provider", "Emite e valida identidades e tokens.")
+System_Ext(model_providers, "Provedores de modelos", "Foundation models, embeddings e serviços gerenciados de IA.")
+System_Ext(corporate_systems, "APIs e sistemas corporativos", "Core systems, CRM, BPM, backoffice e serviços de negócio.")
+SystemDb_Ext(knowledge_sources, "Fontes corporativas", "Data lake, bancos, documentos e repositórios de conhecimento.")
+System_Ext(human_service, "Atendimento e operação humana", "Executa aprovações, handoff e tratamento de exceções.")
+System_Ext(observability_backend, "Plataforma corporativa de observabilidade", "Armazena e apresenta logs, métricas e traces.")
+
+System_Boundary(platform, "Enterprise AI Platform") {
+  Container_Boundary(data_plane, "Data plane") {
+    Container(channel_bff, "Channel BFF / AI Experience API", "REST / GraphQL", "Adapta contratos dos canais e mantém contexto de experiência.")
+    Container(agent_gateway, "Agent Gateway", "API Gateway / service", "Autentica, autoriza, aplica rate limit e roteia invocações.")
+    Container(agent_runtime, "Agent Runtime", "Kubernetes / containers", "Executa agentes e orquestra prompts, modelos, conhecimento, memória e ferramentas.")
+    Container(model_gateway, "Model Gateway", "Service / managed gateway", "Roteia modelos, aplica guardrails, quotas, fallback e telemetria.")
+
+    Container(knowledge_service, "Knowledge Service", "API + workers", "Ingere conteúdo e executa retrieval com filtros de autorização e citações.")
+    ContainerDb(knowledge_index, "Knowledge Index", "Object storage + vector / hybrid index", "Documentos, chunks, metadados, embeddings e ACLs.")
+    Container(memory_service, "Memory Service", "API service", "Gerencia memória de sessão e perfil com consentimento, TTL e descarte.")
+    ContainerDb(memory_store, "Memory Store", "Redis + database", "Persiste estado conversacional e memória autorizada.")
+
+    Container(mcp_services, "MCP Tool Services", "MCP / REST", "Expõem ferramentas permitidas com contratos, idempotência e auditoria.")
+    Container(policy_decision, "Policy Decision Point", "OPA / policy engine", "Avalia políticas de acesso, dados, modelos, ferramentas e risco.")
+  }
+
+  Container_Boundary(control_plane, "Control plane e fundação operacional") {
+    Container(ai_catalog, "AI Catalog & Agent Registry", "Web / API", "Gerencia agentes, versões imutáveis, owners, contratos, datasets e budgets.")
+    ContainerDb(platform_metadata, "Platform Metadata Store", "PostgreSQL / document database", "Metadados, políticas, aprovações, evidências e configurações publicadas.")
+    Container(governance_service, "Governance Service", "Workflow service", "Orquestra análises, segregação de funções, decisões e evidências.")
+    Container(evaluation_service, "Evaluation Service", "Batch / online workers", "Executa avaliações e aplica release gates.")
+    ContainerQueue(event_backbone, "Event Backbone", "Kafka / EventBridge", "Eventos de execução, auditoria, avaliação, custo e ciclo de vida.")
+    Container(telemetry_collector, "Telemetry Collector", "OpenTelemetry Collector", "Coleta, correlaciona e exporta logs, métricas e traces.")
+  }
+}
+
+Rel_D(user, channels, "Interage por")
+Rel_R(channels, channel_bff, "Envia solicitações e recebe respostas", "HTTPS")
+Rel_R(channel_bff, agent_gateway, "Encaminha invocações autenticadas", "HTTPS")
+Rel_R(agent_gateway, agent_runtime, "Roteia invocações autorizadas", "HTTP / gRPC")
+Rel_R(agent_runtime, model_gateway, "Solicita inferência e embeddings", "HTTPS")
+Rel_R(model_gateway, model_providers, "Invoca modelos aprovados", "Provider APIs")
+
+Rel_D(agent_gateway, identity_provider, "Valida identidade e token", "OIDC / OAuth 2.0")
+Rel_D(agent_gateway, policy_decision, "Solicita decisão inicial de acesso", "HTTP / gRPC")
+Rel_D(agent_runtime, policy_decision, "Avalia políticas de execução", "HTTP / gRPC")
+
+Rel_D(agent_runtime, knowledge_service, "Recupera contexto e citações", "HTTP / gRPC")
+Rel_R(knowledge_service, knowledge_index, "Indexa e recupera conteúdo", "Native protocols")
+Rel_R(knowledge_index, knowledge_sources, "Ingere e consulta fontes", "Connectors / SQL / object storage")
+Rel_D(agent_runtime, memory_service, "Lê e grava memória autorizada", "HTTP / gRPC")
+Rel_R(memory_service, memory_store, "Persiste e recupera memória", "Native protocols")
+
+Rel_D(agent_runtime, mcp_services, "Executa ferramentas permitidas", "MCP")
+Rel_R(mcp_services, corporate_systems, "Consulta dados e executa ações", "APIs / eventos")
+Rel_R(agent_runtime, human_service, "Solicita aprovação ou handoff", "APIs / filas")
+
+Rel_D(platform_team, ai_catalog, "Registra e publica agentes e artefatos", "Portal / API / CI/CD")
+Rel_D(platform_team, evaluation_service, "Executa avaliações e release gates", "Portal / API / CI/CD")
+Rel_D(governance, governance_service, "Analisa riscos, aprova e audita", "Portal / workflow")
+Rel_R(ai_catalog, platform_metadata, "Persiste metadados e configurações", "SQL / document API")
+Rel_R(platform_metadata, governance_service, "Fornece metadados e evidências", "SQL / API")
+Rel_R(governance_service, evaluation_service, "Define condições e gates", "API / eventos")
+Rel_D(governance_service, policy_decision, "Publica políticas aprovadas", "Bundles / API")
+
+Rel_D(agent_runtime, event_backbone, "Publica eventos de execução, custo e auditoria", "Eventos")
+Rel_D(evaluation_service, event_backbone, "Consome eventos e publica métricas", "Eventos")
+Rel_R(event_backbone, telemetry_collector, "Encaminha sinais operacionais", "Eventos / OTLP")
+Rel_R(telemetry_collector, observability_backend, "Exporta logs, métricas e traces", "OTLP")
+
+Lay_R(channel_bff, agent_gateway)
+Lay_R(agent_gateway, agent_runtime)
+Lay_R(agent_runtime, model_gateway)
+Lay_D(channel_bff, knowledge_service)
+Lay_R(knowledge_service, knowledge_index)
+Lay_R(knowledge_index, memory_service)
+Lay_R(memory_service, memory_store)
+Lay_D(knowledge_service, mcp_services)
+Lay_R(mcp_services, policy_decision)
+Lay_D(mcp_services, ai_catalog)
+Lay_R(ai_catalog, platform_metadata)
+Lay_R(platform_metadata, governance_service)
+Lay_R(governance_service, evaluation_service)
+Lay_D(ai_catalog, event_backbone)
+Lay_R(event_backbone, telemetry_collector)
+
+UpdateLayoutConfig($c4ShapeInRow="4", $c4BoundaryInRow="1")
+
+@enduml
