@@ -1,0 +1,86 @@
+@startuml
+!include <C4/C4_Component>
+
+title C4 Component — Evaluation Service
+
+LAYOUT_LEFT_RIGHT()
+LAYOUT_WITH_LEGEND()
+
+skinparam shadowing false
+skinparam linetype ortho
+
+ContainerDb_Ext(datasets, "Evaluation Datasets", "Object storage / database", "Golden sets, adversarial sets, rubrics e baselines.")
+Container_Ext(ai_catalog, "AI Catalog & Agent Registry", "Web / API", "Fornece versões, thresholds, owners e classificação de risco.")
+ContainerQueue_Ext(runtime_events, "Runtime Events", "Kafka / EventBridge", "Eventos online de execução, custo, segurança e qualidade.")
+System_Ext(cicd, "CI/CD", "Solicita decisão para promoção e release.")
+Container_Ext(governance, "Governance Service", "Workflow service", "Analisa evidências e aprova decisões condicionais.")
+System_Ext(observability, "Plataforma de observabilidade", "Dashboards, métricas, logs, traces e alertas.")
+
+Container_Boundary(evaluation_service, "Evaluation Service — batch / online workers") {
+  Component(evaluation_runner, "Evaluation Runner", "Batch / online worker", "Executa avaliações offline, canary e contínuas com sampling reproduzível.")
+
+  Component(rule_judges, "Rule Judges", "Deterministic evaluators", "Valida schemas, policies, invariants e regras de segurança.")
+  Component(model_judges, "Model Judges", "LLM evaluators", "Aplica rubrics, calibration e comparação por pares.")
+  Component(human_review, "Human Review", "Review workflow", "Revisa amostras, exceções e resultados de maior risco.")
+
+  Component(metrics_aggregator, "Metrics Aggregator", "Evaluation component", "Agrega qualidade, segurança, custo, latência e robustez.")
+  ComponentDb(evidence_store, "Evidence Store", "Database / object storage", "Persiste runs, prompts, outputs, métricas, versões e lineage.")
+
+  Component(threshold_engine, "Threshold Engine", "Policy-aware component", "Aplica critérios e thresholds por risco e caso de uso.")
+  Component(release_gate, "Release Gate", "Decision component", "Produz pass, conditional ou block com justificativa.")
+  Component(dashboard_exporter, "Dashboard Exporter", "Telemetry adapter", "Exporta métricas, tendências, violações e alertas.")
+
+  Component(result_api, "Result API", "HTTP / gRPC", "Expõe status, métricas e evidências de avaliação.")
+  Component(event_publisher, "Event Publisher", "Kafka / events", "Publica métricas, violações, drift e decisões.")
+
+  ComponentDb(evaluation_registry, "Evaluation Registry", "Database", "Suites, rubrics, baselines, datasets e configurações.")
+  Component(drift_regression, "Drift / Regression", "Analysis worker", "Compara versões, períodos e segmentos.")
+  Component(human_approval_queue, "Human Approval Queue", "Workflow queue", "Mantém decisões condicionais e aprovações pendentes.")
+}
+
+Rel_R(datasets, evaluation_runner, "Fornece datasets e casos de teste", "Batch / API")
+Rel_R(ai_catalog, evaluation_runner, "Fornece versão, thresholds e risco", "API")
+Rel_R(runtime_events, evaluation_runner, "Fornece amostras online", "Eventos")
+Rel_D(evaluation_registry, evaluation_runner, "Carrega suites, rubrics e baselines", "SQL / API")
+
+Rel_R(evaluation_runner, rule_judges, "Executa verificações determinísticas")
+Rel_R(evaluation_runner, model_judges, "Executa avaliações baseadas em modelo")
+Rel_R(evaluation_runner, human_review, "Encaminha amostras e exceções")
+
+Rel_R(rule_judges, metrics_aggregator, "Entrega resultados")
+Rel_R(model_judges, metrics_aggregator, "Entrega scores e justificativas")
+Rel_R(human_review, metrics_aggregator, "Entrega parecer humano")
+Rel_D(metrics_aggregator, evidence_store, "Persiste métricas e evidências")
+
+Rel_R(metrics_aggregator, threshold_engine, "Entrega métricas consolidadas")
+Rel_R(threshold_engine, release_gate, "Aplica thresholds por risco")
+Rel_D(release_gate, human_approval_queue, "Encaminha decisões condicionais")
+Rel_U(human_approval_queue, release_gate, "Devolve decisão humana")
+Rel_R(release_gate, result_api, "Publica decisão e evidências")
+Rel_R(release_gate, cicd, "Retorna pass, conditional ou block", "HTTP / events")
+Rel_R(result_api, governance, "Disponibiliza evidências para revisão", "HTTP / gRPC")
+
+Rel_D(metrics_aggregator, drift_regression, "Compara versões e períodos")
+Rel_U(drift_regression, evidence_store, "Lê histórico e baselines")
+Rel_R(metrics_aggregator, dashboard_exporter, "Entrega métricas e tendências")
+Rel_R(dashboard_exporter, observability, "Exporta dashboards e alertas", "OTLP / APIs")
+Rel_R(metrics_aggregator, event_publisher, "Publica métricas e violações")
+Rel_R(event_publisher, runtime_events, "Publica eventos de avaliação", "Eventos")
+
+Lay_R(evaluation_runner, rule_judges)
+Lay_D(rule_judges, model_judges)
+Lay_D(model_judges, human_review)
+Lay_R(rule_judges, metrics_aggregator)
+Lay_D(metrics_aggregator, evidence_store)
+Lay_R(metrics_aggregator, threshold_engine)
+Lay_D(threshold_engine, release_gate)
+Lay_D(release_gate, dashboard_exporter)
+Lay_R(release_gate, result_api)
+Lay_D(result_api, event_publisher)
+Lay_D(evaluation_runner, evaluation_registry)
+Lay_R(evaluation_registry, drift_regression)
+Lay_R(drift_regression, human_approval_queue)
+
+UpdateLayoutConfig($c4ShapeInRow="4", $c4BoundaryInRow="1")
+
+@enduml
