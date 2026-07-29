@@ -9,17 +9,34 @@ if (( ${#diagrams[@]} == 0 )); then
   exit 1
 fi
 
+check_with_plantuml() {
+  local diagram="$1"
+  echo "Checking PlantUML: ${diagram#"$ROOT/"}"
+  plantuml -verbose -checkonly "$diagram"
+}
+
+check_with_docker() {
+  local diagram="$1"
+  local relative="${diagram#"$ROOT/"}"
+  echo "Checking PlantUML: $relative"
+  docker run --rm \
+    -v "$ROOT:/work" \
+    -w /work \
+    plantuml/plantuml:1.2026.4 \
+    -verbose -checkonly "$relative"
+}
+
 if command -v plantuml >/dev/null 2>&1; then
-  plantuml -checkonly "${diagrams[@]}"
+  for diagram in "${diagrams[@]}"; do
+    check_with_plantuml "$diagram"
+  done
   exit 0
 fi
 
 if command -v docker >/dev/null 2>&1; then
-  relative=()
   for diagram in "${diagrams[@]}"; do
-    relative+=("${diagram#"$ROOT/"}")
+    check_with_docker "$diagram"
   done
-  docker run --rm -v "$ROOT:/work" -w /work plantuml/plantuml:1.2026.4 -checkonly "${relative[@]}"
   exit 0
 fi
 
