@@ -40,5 +40,9 @@ echo "${PLANTUML_SHA256}  ${PLANTUML_JAR}" | sha256sum --check --status || {
 
 for diagram in "${diagrams[@]}"; do
   echo "Checking PlantUML syntax: ${diagram#"$ROOT/"}"
-  java -DPLANTUML_LIMIT_SIZE=16384 -jar "$PLANTUML_JAR" --check-syntax "$diagram"
+  if ! java -DPLANTUML_LIMIT_SIZE=16384 -jar "$PLANTUML_JAR" --check-syntax "$diagram"; then
+    echo "PlantUML parser diagnostic for ${diagram#"$ROOT/"}:" >&2
+    java -DPLANTUML_LIMIT_SIZE=16384 -jar "$PLANTUML_JAR" -syntax < "$diagram" || true
+    exit 1
+  fi
 done
