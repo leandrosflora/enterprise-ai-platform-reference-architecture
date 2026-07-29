@@ -1,10 +1,10 @@
-name: Render C4 diagram PNGs
+name: Render C4 PlantUML diagrams
 
 on:
   push:
     paths:
-      - "docs/architecture/diagrams/c4/*.svg"
-      - "scripts/render-c4-png.sh"
+      - "docs/architecture/diagrams/c4/src/*.puml"
+      - "scripts/render-c4-diagrams.sh"
       - ".github/workflows/render-c4-diagrams.yml"
   workflow_dispatch:
 
@@ -18,29 +18,53 @@ concurrency:
 jobs:
   render:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Install SVG renderer
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Install Graphviz
         run: |
           sudo apt-get update
-          sudo apt-get install -y librsvg2-bin
+          sudo apt-get install -y graphviz
 
-      - name: Render PNG assets
-        run: bash scripts/render-c4-png.sh
+      - name: Render SVG and PNG assets
+        run: bash scripts/render-c4-diagrams.sh
 
-      - name: Commit generated PNGs
+      - name: Validate generated assets
         run: |
-          if [ -z "$(git status --porcelain -- docs/architecture/diagrams/c4)" ]; then
-            echo "PNG assets already synchronized."
+          expected=(
+            c4-level-1-context
+            c4-level-2-container
+            c4-level-3-agent-runtime
+            c4-level-3-knowledge-service
+            c4-level-3-evaluation-service
+          )
+
+          for name in "${expected[@]}"; do
+            test -s "docs/architecture/diagrams/c4/${name}.svg"
+            test -s "docs/architecture/diagrams/c4/${name}.png"
+            grep -q '<svg' "docs/architecture/diagrams/c4/${name}.svg"
+            file "docs/architecture/diagrams/c4/${name}.png" | grep -q 'PNG image data'
+          done
+
+      - name: Commit generated assets
+        run: |
+          if [ -z "$(git status --porcelain -- docs/architecture/diagrams/c4/*.svg docs/architecture/diagrams/c4/*.png)" ]; then
+            echo "C4 assets already synchronized."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/architecture/diagrams/c4/*.png
-          git commit -m "generate C4 diagram PNGs"
+          git add docs/architecture/diagrams/c4/*.svg docs/architecture/diagrams/c4/*.png
+          git commit -m "generate C4 PlantUML assets"
           git push origin "HEAD:${GITHUB_REF_NAME}"
