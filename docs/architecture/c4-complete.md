@@ -67,7 +67,7 @@ sequenceDiagram
 
 ```bash
 sudo apt-get install librsvg2-bin
-./scripts/render-c4-png.sh
+bash scripts/render-c4-png.sh
 ```
 
 O workflow `render-c4-diagrams.yml` executa o mesmo processo quando um SVG é alterado e versiona os PNGs gerados.
