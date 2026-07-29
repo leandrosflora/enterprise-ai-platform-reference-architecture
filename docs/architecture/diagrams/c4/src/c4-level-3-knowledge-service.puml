@@ -63,6 +63,4 @@ Lay_R(metadata_acl, hybrid_search)
 Lay_R(hybrid_search, reranking)
 Lay_R(reranking, citation_builder)
 
-UpdateLayoutConfig($c4ShapeInRow="5", $c4BoundaryInRow="1")
-
 @enduml
