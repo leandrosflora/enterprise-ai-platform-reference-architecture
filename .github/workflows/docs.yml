@@ -8,13 +8,10 @@ on:
       - 'mkdocs.yml'
       - 'scripts/validate_docs_i18n.py'
       - 'scripts/repair_english_markdown.py'
+      - 'scripts/mkdocs_english_default.py'
       - 'scripts/prepare_mkdocs_publish.py'
       - '.github/workflows/docs.yml'
   workflow_dispatch:
-
-env:
-  # English documentation is now validated and published alongside Portuguese.
-  PUBLISH_ENGLISH_DOCS: 'true'
 
 permissions:
   contents: read
