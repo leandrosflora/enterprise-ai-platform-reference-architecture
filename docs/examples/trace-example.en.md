@@ -1,8 +1,8 @@
-# Exemplo - Trace de Execução
+# Example - Trace of execution
 
-## Objetivo
+## Objective
 
-Exemplo de rastreabilidade ponta a ponta para uma invocação de agente.
+Example of end-to-end traceability for an agent invoking.
 
 ```text
 traceId: trace-001
@@ -42,12 +42,12 @@ spans:
       relevanceScore: 0.88
 ```
 
-## Aplicação
+## Application of this Regulation
 
-O trace permite diagnosticar:
+The trace makes it possible to diagnose:
 
-- Latência por componente
-- Consumo de tokens
-- Qualidade da resposta
-- Falhas de integração
-- Gargalos de retrieval
+- Latent by component
+- Use of tokens
+- Quality of response
+- Failure to integrate
+- Other, not further worked than hot-rolled

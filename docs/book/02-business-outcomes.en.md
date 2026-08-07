@@ -1,27 +1,27 @@
 # 2. Business Outcomes
 
-## Objetivo
+## Objective
 
-Uma Enterprise AI Platform não existe para disponibilizar modelos, agentes ou infraestrutura.
+A Enterprise AI Platform does not exist to make models, agents or infrastructure available.
 
-Ela existe para acelerar a geração de valor para o negócio de forma governada, repetível e escalável.
+It exists to accelerate the generation of business value in a governed, repeatable and scalable way.
 
-O sucesso da plataforma deve ser medido pelos resultados produzidos para clientes, colaboradores, áreas de negócio, operações e ecossistema regulatório — não pela quantidade de modelos, componentes ou agentes em produção.
+The success of the platform should be measured by the results produced for customers, employees, business areas, operations and regulatory ecosystems  not by the number of models, components or agents in production.
 
-## Da tecnologia para o valor
+## From technology to value
 
-Um erro frequente em iniciativas de IA é iniciar a discussão pelas tecnologias:
+A common mistake in AI initiatives is to start the discussion about technologies:
 
 - qual LLM utilizar;
 - qual vector database adotar;
-- qual framework de agentes empregar;
+- which agent framework to employ;
 - qual cloud provider escolher.
 
-Essas decisões são importantes, mas secundárias. A pergunta principal é:
+These decisions are important, but secondary.
 
-> Quais resultados de negócio queremos atingir e quais capacidades precisamos desenvolver para alcançá-los?
+> What business outcomes do we want to achieve and what capabilities do we need to develop to achieve them?
 
-A plataforma habilita capacidades. As capacidades, quando combinadas em produtos e jornadas, produzem resultados mensuráveis.
+The platform enables capabilities, and when combined in products and journeys, they produce measurable results.
 
 ```mermaid
 flowchart TB
@@ -37,102 +37,102 @@ flowchart TB
     V -->|sem valor ou risco excessivo| X[Stop]
 ```
 
-## Domínios estratégicos de outcomes
+## Strategic outcome areas
 
-### 1. Crescimento de receita
+### 1. Increase in revenue
 
-**Objetivo:** aumentar aquisição, conversão, retenção e relacionamento com clientes.
+**Objective:** increase acquisition, conversion, retention and relationship with customers.
 
-| Exemplos de aplicação | Indicadores de resultado |
+| Examples of application | Indicators of outcome |
 |---|---|
-| recomendações personalizadas | conversão |
+| Personalised recommendations | conversion |
 | next best action | receita incremental |
-| ofertas inteligentes | cross-sell e upsell |
+| ofertas inteligentes | cross-sell and upsell |
 | assistentes comerciais | produtividade comercial |
-| hiperpersonalização | retenção e churn |
+| the use of the information referred to in paragraph 1 | retention and churn |
 
-### 2. Eficiência operacional
+### 2. operational efficiency
 
-**Objetivo:** reduzir esforço humano, tempo de ciclo e desperdício, aumentando a capacidade operacional.
+**Objective:** reduce human effort, cycle time and waste by increasing operational capacity.
 
-| Exemplos de aplicação | Indicadores de resultado |
+| Examples of application | Indicators of outcome |
 |---|---|
-| automação documental | tempo médio de processamento |
-| agentes operacionais | taxa de automação |
-| resolução automática de chamados | redução de backlog |
-| processamento de contratos | custo por transação |
-| classificação de documentos | horas economizadas e retrabalho |
+| documentary automation | Average processing time |
+| Operating agents | Automation rate |
+| Automatic call resolution | Reduction of backlog |
+| processing of contracts | Cost per transaction |
+| classification of documents | Saved hours and rework |
 
-### 3. Experiência do cliente
+### 3. Customer experience
 
-**Objetivo:** oferecer interações mais rápidas, contextuais, acessíveis e consistentes.
+**Objective:** to provide faster, more contextual, more accessible and consistent interactions.
 
-| Exemplos de aplicação | Indicadores de resultado |
+| Examples of application | Indicators of outcome |
 |---|---|
-| assistentes conversacionais | FCR e contenção |
-| atendimento omnichannel | tempo médio de atendimento |
-| busca inteligente | tempo até a resolução |
-| autoatendimento | CSAT e taxa de conclusão |
-| atendimento assistido | NPS e qualidade percebida |
+| assistentes conversacionais | FCR and containment |
+| atendimento omnichannel | average attendance time |
+| Smart search | time until resolution |
+| autoatendimento | CSAT and completion rate |
+| atendimento assistido | NPS and perceived quality |
 
-### 4. Gestão de riscos e compliance
+### 4. Risk management and compliance
 
-**Objetivo:** reduzir riscos operacionais, regulatórios, de privacidade e reputacionais.
+**Objective:** to reduce operational, regulatory, privacy and reputational risks.
 
-| Exemplos de aplicação | Indicadores de resultado |
+| Examples of application | Indicators of outcome |
 |---|---|
-| monitoramento contínuo | incidentes e perdas evitadas |
-| revisão documental automatizada | não conformidades detectadas |
-| due diligence assistida | tempo de análise |
-| governança de IA | cobertura e eficácia de controles |
-| controles LGPD | violações e tempo de resposta |
+| continuous monitoring | Incidents and losses avoided |
+| Automated document review | Non-conformity detected |
+| due diligence assistida | time of analysis |
+| AI governance | coverage and effectiveness of controls |
+| Controls LGPD | breaches and response time |
 
-### 5. Inteligência organizacional
+### 5. organizational intelligence
 
-**Objetivo:** transformar conhecimento institucional em ativo acessível, reutilizável e confiável.
+**Objective:** transform institutional knowledge into an accessible, reusable and reliable asset.
 
-| Exemplos de aplicação | Indicadores de resultado |
+| Examples of application | Indicators of outcome |
 |---|---|
-| RAG corporativo | tempo para encontrar informação |
-| knowledge graphs | cobertura e conexão do conhecimento |
-| busca unificada | taxa de sucesso da busca |
-| copilots internos | tempo economizado por tarefa |
-| assistentes especializados | satisfação e reutilização do conhecimento |
+| RAG corporativo | time to find information |
+| knowledge graphs | knowledge coverage and connection |
+| Unified search | Search success rate |
+| copilots internos | time saved per task |
+| assistentes especializados | knowledge satisfaction and reuse |
 
 ## Mapeamento Outcome → Capability
 
-Cada outcome depende de um conjunto de capacidades. Não existe correspondência exclusiva: uma mesma capacidade pode suportar diferentes resultados, e um outcome normalmente exige a combinação de várias capacidades.
+Each outcome depends on a set of capabilities. There is no exclusive correspondence: the same capability can support different outcomes, and an outcome typically requires the combination of several capabilities.
 
-| Outcome | Capacidades necessárias |
+| Outcome | Capacities required |
 |---|---|
-| Crescimento de receita | personalização, analytics, agent platform, experimentation |
-| Eficiência operacional | workflow automation, document intelligence, agent runtime, tool execution |
-| Experiência do cliente | conversational AI, search, omnichannel, personalization |
-| Gestão de riscos e compliance | AI governance, risk management, policy enforcement, observability, audit |
-| Inteligência organizacional | knowledge platform, RAG, retrieval, knowledge graph, authorization |
+| Increase in revenue | This is the main reason why the Commission is not prepared to take any further action. |
+| Operational efficiency | workflow automation, document intelligence, agent runtime, tool execution |
+| Customer experience | conversational AI, search, omnichannel, personalization |
+| Risk management and compliance | AI governance, risk management, policy enforcement, observability, audit |
+| This is the case in the European Union. | knowledge platform, RAG, retrieval, knowledge graph, authorization |
 
-Nenhuma tecnologia gera valor isoladamente. O valor surge quando capacidades são combinadas para resolver um problema real e sua contribuição pode ser demonstrada com evidências.
+No technology generates value alone. Value arises when capabilities are combined to solve a real problem and its contribution can be demonstrated with evidence.
 
 ## Outcome Card
 
-Todo caso de uso deve registrar uma hipótese mensurável antes da implementação.
+Each use case shall record a measurable chance before implementation.
 
-| Campo | Definição |
+| Campo | Definition of the term |
 |---|---|
-| Objetivo estratégico | direção empresarial à qual o caso contribui |
-| Problema | condição atual que precisa mudar |
-| Outcome | mudança mensurável esperada |
-| Baseline | situação atual, com fonte e período |
+| Strategic objective | business management to which the case contributes |
+| Problema | current condition that needs to change |
+| Outcome | expected measurable change |
+| Baseline | current situation with source and period |
 | Target | meta quantitativa ou qualitativa |
-| Horizonte | prazo para avaliar o resultado |
-| Indicadores principais | métricas finais de negócio |
-| Leading indicators | sinais antecipados de progresso |
-| Guardrails | limites de qualidade, risco, custo e compliance |
-| Capacidades | capacidades necessárias para produzir o resultado |
-| Produtos e agentes | soluções que materializam as capacidades |
-| Owner | accountable pelo resultado |
-| Evidências | sistemas e método de medição |
-| Decisão | escalar, ajustar, pausar ou descontinuar |
+| Horizonte | time limit for evaluating the result |
+| Indicadores principais | final business metrics |
+| Leading indicators | Early signs of progress |
+| Guardrails | limits on quality, risk, cost and compliance |
+| Capacities | the capacity required to produce the result |
+| Products and agents | solutions that materialize the capabilities |
+| Owner | accountable for the outcome |
+| Evidence | Measurement systems and method |
+| Decision | escalar, ajustar, pausar ou descontinuar |
 
 ### Template
 
@@ -167,80 +167,80 @@ owner: backoffice-product-owner
 reviewCadence: mensal
 ```
 
-## Hierarquia de métricas
+## Hierarchy of metrics
 
-Métricas técnicas são necessárias, mas não comprovam valor sozinhas.
+Technical metrics are necessary, but they do not prove value on their own.
 
-| Nível | Pergunta | Exemplos |
+| Level | Pergunta | Examples |
 |---|---|---|
-| Business KPI | O resultado empresarial mudou? | receita, FCR, tempo de ciclo, perdas evitadas |
-| Product outcome | O comportamento do usuário ou processo mudou? | adoção, conclusão, resolução, satisfação |
-| Leading indicator | Estamos avançando na direção esperada? | task success, uso recorrente, taxa de automação |
-| Platform KPI | A plataforma acelera e sustenta a entrega? | lead time, reuso, golden path, custo por solução |
-| Technical metric | A solução funciona adequadamente? | latência, groundedness, erros, disponibilidade |
-| Guardrail | O ganho permanece aceitável? | incidentes, vieses, reclamações, custo e violações |
+| Business KPI | Has the business outcome changed? | The Commission shall take into account the following information: |
+| Product outcome | Has the user's behavior or process changed? | The Commission shall adopt implementing acts in accordance with the procedure referred to in paragraph 1 of this Article. |
+| Leading indicator | Are we moving in the desired direction? | The following information shall be provided: |
+| Platform KPI | The platform speeds up and supports delivery? | Lead time, reuse, golden path, cost per solution |
+| Technical metric | Does the solution work properly? | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
+| Guardrail | Does the gain remain acceptable? | Incidents, biases, complaints, costs and infringements |
 
-A disponibilidade de um agente, por exemplo, é uma condição operacional. Ela não demonstra que o processo ficou mais eficiente ou que o cliente teve seu problema resolvido.
+The availability of an agent, for example, is an operational condition. It does not demonstrate that the process became more efficient or that the client had his problem solved.
 
 ## Value Realization
 
 ### Baseline
 
-A baseline deve ser registrada antes do piloto. Sem ela, melhoria e atribuição se tornam opiniões. Quando não houver histórico confiável, execute uma medição inicial limitada e registre a incerteza.
+The baseline must be recorded before the pilot. Without it, improvement and assignment become opinions. When there is no reliable history, run a limited initial measurement and register uncertainty.
 
 ### Target
 
-A meta deve possuir valor, prazo e população. “Melhorar produtividade” não é um target; “reduzir o tempo mediano de 18 para 6 horas em seis meses” é.
+Improving productivity is not a target; Reducing median time from 18 to 6 hours in six months is.
 
-### Atribuição
+### Allocation
 
-Resultados podem depender de mudanças de processo, treinamento, comunicação ou políticas além da IA. Sempre que possível, use comparação com baseline, rollout progressivo, coorte de controle ou teste A/B. Não atribua todo ganho automaticamente ao modelo.
+Results may depend on process changes, training, communication or policies beyond AI. Wherever possible, use comparison with baseline, progressive rollout, control cohort, or A/B testing. Do not automatically attribute all gains to the model.
 
-### Cadência de revisão
+### Date of revision
 
-| Momento | Pergunta de decisão |
+| Momento | Question for a decision |
 |---|---|
-| Intake | existe problema, baseline, outcome e owner? |
-| Piloto | os leading indicators justificam continuar? |
-| 30 dias | qualidade, adoção e guardrails estão dentro do esperado? |
-| 60–90 dias | há evidência de impacto operacional ou de negócio? |
-| Trimestral | o investimento deve escalar, ajustar ou parar? |
+| Intake | Is there a problem, baseline, outcome and owner? |
+| Piloto | Do the leading indicators justify continuing? |
+| 30 dias | Are the quality, adoption and guardrails within expectations? |
+| 60–90 dias | is there evidence of operational or business impact? |
+| Trimestral | Should the investment scale, adjust or stop? |
 
-### Critérios de decisão
+### Decision criteria
 
-- **Escalar:** target ou trajetória atingida, guardrails atendidos e custo sustentável.
-- **Ajustar:** sinais de valor existem, mas produto, processo ou capacidade limita o resultado.
-- **Pausar:** evidência insuficiente, dependência crítica ou risco temporariamente não tratado.
-- **Descontinuar:** ausência persistente de valor, custo desproporcional ou risco inaceitável.
+- **Scaling:** target or trajectory reached, guardrails served and sustainable cost.
+- ** Adjust:** value signals exist, but the product, process or capacity limits the result.
+- **Pause:** insufficient evidence, critical dependence or temporarily untreated risk.
+- **Descontinued:** persistent lack of value, disproportionate cost or unacceptable risk.
 
-## Exemplo — eficiência operacional
+## Example  operational efficiency
 
-| Elemento | Definição |
+| Elemento | Definition of the term |
 |---|---|
-| Objetivo estratégico | reduzir esforço operacional em processos de backoffice |
-| Outcome | reduzir tempo de ciclo e backlog |
-| Capacidades | document intelligence, agent platform, workflow orchestration, knowledge retrieval |
-| Soluções possíveis | automação jurídica, assistente de RH, agentes operacionais |
-| KPIs | tempo de processamento, taxa de automação, horas economizadas, backlog |
-| Guardrails | erros, retrabalho, acesso indevido e custo por processo |
+| Strategic objective | reduce operational stress in back office processes |
+| Outcome | reducing cycle time and backlog |
+| Capacities | document intelligence, agent platform, workflow orchestration, knowledge retrieval |
+| Possible solutions | Legal automation, HR assistant, operational staff |
+| KPIs | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. |
+| Guardrails | errors, retrofitting, misuse and cost per process |
 
-## Exemplo — experiência do cliente
+## Example  customer experience
 
-| Elemento | Definição |
+| Elemento | Definition of the term |
 |---|---|
-| Objetivo estratégico | melhorar a experiência e a resolução do cliente |
-| Outcome | aumentar a resolução no primeiro contato |
-| Capacidades | conversational AI, voice analytics, search, personalization |
-| Soluções possíveis | voz do cliente, agente virtual, atendimento assistido |
-| KPIs | FCR, NPS, CSAT e tempo de atendimento |
-| Guardrails | reclamações, respostas incorretas, handoffs inadequados e custo por jornada |
+| Strategic objective | Improve customer experience and resolve |
+| Outcome | increase resolution at first contact |
+| Capacities | conversational AI, voice analytics, search, personalization |
+| Possible solutions | the customer's voice, virtual agent, assisted service |
+| KPIs | FCR, NPS, CSAT and time of service |
+| Guardrails | complaints, incorrect replies, inadequate handoffs and cost per trip |
 
 ## Ownership
 
-O owner do caso de uso responde pelo outcome. O time de plataforma responde pela capacidade compartilhada e por métricas como adoção, lead time, confiabilidade, custo e reuso. Governança, Segurança, Privacidade, Jurídico, Data, SRE e FinOps definem ou monitoram guardrails conforme o risco.
+The use case owner is responsible for the outcome. The platform team is responsible for the shared capacity and metrics such as adoption, lead time, reliability, cost and reuse. Governance, Security, Privacy, Legal, Date, SRE, and FinOps define or monitor guardrails as risk.
 
-A plataforma não deve assumir crédito por todo resultado de negócio nem permitir que uma solução permaneça indefinidamente em produção apenas porque suas métricas técnicas estão saudáveis.
+The platform should not take credit for any business outcome or allow a solution to remain in production indefinitely simply because its technical metrics are sound.
 
-## Próximo capítulo
+## Next chapter
 
-O [Capability Map](02-capability-map.md) transforma os outcomes em capacidades organizacionais e técnicas necessárias para produzi-los.
+The [Capability Map](02-capability-map.md) transforms outcomes into the organizational and technical capabilities needed to produce them.

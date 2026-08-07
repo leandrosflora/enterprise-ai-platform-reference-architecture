@@ -1,54 +1,54 @@
-# 1. Por que uma AI Platform?
+# Why a AI Platform?
 
-## O problema não é apenas acessar um modelo
+## The problem is not just accessing a model.
 
-A primeira geração de iniciativas corporativas de IA normalmente começa com experimentos independentes: um chatbot em uma área, um copiloto em outra, uma automação documental e alguns testes com agentes. Cada iniciativa pode demonstrar valor isoladamente, mas a organização passa a repetir as mesmas decisões e os mesmos riscos.
+The first generation of corporate AI initiatives usually starts with independent experiments: a chatbot in one area, a co-pilot in another, document automation and some testing with agents.
 
-Os sintomas mais comuns são:
+The most common symptoms are:
 
-- integrações diferentes para cada provedor de modelo;
-- prompts, datasets e avaliações sem versionamento;
-- acesso a dados decidido dentro de cada aplicação;
-- logs com conteúdo sensível;
-- custos difíceis de atribuir;
-- publicação sem evidências comparáveis;
-- ferramentas com privilégios excessivos;
-- dependência direta entre produto, modelo e infraestrutura;
-- ausência de um processo claro de desativação.
+- different integrations for each model provider;
+- The following information shall be provided in accordance with the provisions of this Regulation:
+- access to data decided within each application;
+- logs with sensitive content;
+- costs that are difficult to attribute;
+- publication without comparable evidence;
+- tools with excessive privileges;
+- direct dependence between product, model and infrastructure;
+- the absence of a clear deactivation process.
 
-Esse cenário não é resolvido apenas escolhendo um framework de agentes. A organização precisa de capacidades compartilhadas para transformar experimentos em produtos operáveis.
+This scenario is not solved just by choosing an agent framework. The organization needs shared capabilities to turn experiments into viable products.
 
-## Definição
+## Definition of the term
 
-Uma **AI Platform corporativa** é um conjunto de capacidades, padrões, serviços e processos que permite criar e operar soluções de IA com autonomia controlada.
+A corporate AI Platform** is a set of capabilities, standards, services and processes that allows AI solutions to be created and operated with controlled autonomy.
 
-Ela deve fornecer:
+It shall provide:
 
-- caminhos padronizados para construir e publicar;
-- fronteiras claras entre produto, plataforma e governança;
-- políticas aplicadas durante a execução, não apenas em documentos;
-- portabilidade entre modelos e provedores;
-- conhecimento e memória com autorização e ciclo de vida;
-- avaliação contínua de qualidade, segurança, custo e desempenho;
-- rastreabilidade ponta a ponta;
-- mecanismos de contenção, rollback e desativação.
+- standardized pathways for building and publishing;
+- clear boundaries between product, platform and governance;
+- policies applied during implementation, not just in documents;
+- portability between models and suppliers;
+- authorised knowledge and memory and life cycle;
+- continuous evaluation of quality, safety, cost and performance;
+- end-to-end traceability;
+- containment, rollback and deactivation mechanisms.
 
-## Plataforma não é um único produto
+## Platform is not a single product
 
-Uma plataforma pode conter produtos internos, serviços compartilhados, contratos e processos. Ela não deve ser confundida com:
+A platform may contain internal products, shared services, contracts and processes.
 
-| Não é | Por quê |
+| It 's not . | Why ? |
 |---|---|
-| um portal com catálogo de prompts | o portal é apenas uma experiência sobre capacidades mais profundas |
-| um framework de orquestração | frameworks mudam; contratos, políticas e operação precisam sobreviver à troca |
-| um único provedor de foundation models | a plataforma deve reduzir acoplamento e aplicar políticas de roteamento |
-| um time central que desenvolve todos os agentes | isso cria fila, baixa escala organizacional e pouco ownership de negócio |
-| um comitê de aprovação | governança é parte do ciclo de vida e precisa produzir decisões verificáveis |
-| uma infraestrutura Kubernetes | infraestrutura é necessária, mas não define as capacidades de produto e confiança |
+| a portal with a catalogue of prompts | The portal is just an experiment on deeper capabilities. |
+| an orchestration framework | Framework changes; contracts, policies and operations need to survive the exchange |
+| a single supplier of foundation models | the platform shall reduce coupling and implement routing policies; |
+| A central team that develops all the agents | This creates queue, low organizational scale and little business ownership. |
+| an approval committee | Governance is part of the life cycle and needs to produce verifiable decisions |
+| a Kubernetes infrastructure | infrastructure is needed but does not define product capabilities and reliability |
 
-## Tensão central: autonomia e controle
+## Central voltage: autonomy and control
 
-O objetivo não é maximizar controle nem maximizar autonomia. A plataforma deve aumentar a autonomia das squads enquanto reduz a variação perigosa.
+The goal is not to maximize control or maximize autonomy, the platform should increase the autonomy of the squads while reducing dangerous variation.
 
 ```mermaid
 flowchart LR
@@ -58,75 +58,75 @@ flowchart LR
     D --> E[Operação com evidências]
 ```
 
-O equilíbrio é obtido por meio de:
+The balance is obtained by:
 
-- templates e SDKs em vez de implementações obrigatoriamente centralizadas;
-- políticas declarativas em vez de validações manuais repetitivas;
+- Templates and SDKs instead of mandatory centralised implementations;
+- declarative policies instead of repetitive manual validations;
 - gates proporcionais ao risco;
-- contratos versionados;
-- observabilidade e auditoria por padrão;
-- ownership do caso de uso mantido na squad responsável pelo resultado.
+- versioned contracts;
+- Observability and auditing by default;
+- ownership of the use case kept in the resulting squad.
 
-## Quando construir uma plataforma
+## When building a platform
 
-A construção passa a ser justificável quando vários sinais aparecem simultaneamente:
+The construction becomes justifiable when several signs appear simultaneously:
 
-- três ou mais squads repetem integrações e controles;
-- agentes precisam acessar dados ou ferramentas corporativas;
-- existe mais de um provedor ou família de modelos;
-- a organização precisa demonstrar conformidade e rastreabilidade;
-- custos de IA já precisam de budget e atribuição;
-- soluções possuem requisitos de disponibilidade e suporte;
-- riscos de vazamento, prompt injection ou ações indevidas são materiais;
-- o ciclo entre experimento e produção é bloqueado por aprovações não padronizadas.
+- three or more squads repeat integrations and controls;
+- agents need access to corporate data or tools;
+- there is more than one supplier or model family;
+- the organisation needs to demonstrate compliance and traceability;
+- AI costs already need budgeting and allocation;
+- solutions have availability and support requirements;
+- leakage risks, prompt injection or wrongful actions are material;
+- the cycle between experiment and production is blocked by non-standard approvals.
 
-## Quando não construir
+## When not to build
 
-Uma plataforma completa provavelmente é prematura quando:
+A complete platform is likely to be premature when:
 
-- existe apenas um experimento de baixo risco;
-- nenhuma solução será operada em produção;
-- não há equipe para manter serviços compartilhados;
-- a organização ainda não definiu ownership de produto;
-- o caso pode ser atendido com um SaaS aprovado e isolado;
-- a complexidade operacional custa mais do que a reutilização esperada.
+- there is only one low-risk experiment;
+- no solution shall be operated in production;
+- there is no team to maintain shared services;
+- the organisation has not yet defined product ownership;
+- the case can be handled with an approved and isolated SaaS;
+- the operational complexity costs more than the expected reuse.
 
-Nesses casos, a recomendação é adotar padrões mínimos e evoluir conforme a repetição surgir.
+In such cases, the recommendation is to adopt minimum standards and evolve as repetition arises.
 
-## Resultados esperados
+## Expected results
 
-Uma AI Platform deve ser medida pelos resultados que habilita, e não pela quantidade de componentes implantados.
+A AI Platform shall be measured by the results it enables, not by the number of components implanted.
 
-| Dimensão | Resultado esperado |
+| Size | Expected result |
 |---|---|
-| Time-to-market | redução do tempo entre ideia aprovada e primeira versão controlada |
-| Segurança | políticas aplicadas de forma consistente nas fronteiras de execução |
-| Qualidade | regressões detectadas antes e depois da publicação |
-| Portabilidade | troca de modelo ou provedor sem reescrever o produto inteiro |
-| Operação | incidentes diagnosticáveis por traces, eventos e evidências |
-| FinOps | custos atribuíveis por agente, área, modelo e ambiente |
-| Governança | decisões rastreáveis e proporcionais ao risco |
-| Reuso | menor duplicação de conectores, pipelines e controles |
+| Time-to-market | reducing the time between an approved idea and the first controlled version |
+| Security | policies consistently implemented at implementing borders |
+| Qualidade | Returns detected before and after publication |
+| Portabilidade | change of model or supplier without rewriting the whole product |
+| Operations | incidents that can be diagnosed by traces, events and evidence |
+| FinOps | costs attributable by agent, area, model and environment |
+| Governance | Traceable and risk-proportionate decisions |
+| Reuso | Less duplication of connectors, pipelines and controls |
 
 ## Antiobjetivos
 
-A plataforma não deve:
+The platform shall not:
 
-- esconder custos ou riscos atrás de abstrações;
-- permitir que agentes contornem sistemas de registro;
-- criar um runtime universal para qualquer problema;
-- transformar toda automação em agente;
-- eliminar decisões locais que pertencem ao produto;
-- substituir engenharia de software, segurança ou gestão de dados.
+- concealing costs or risks behind abstractions;
+- allow agents to circumvent registration systems;
+- create a universal runtime for any problem;
+- transform all automation into an agent;
+- eliminate local decisions relating to the product;
+- replace software engineering, security or data management.
 
-## Pergunta de decisão
+## Question for a decision
 
-Antes de adicionar uma capacidade, pergunte:
+Before you add a capability, ask:
 
-> Este componente reduz uma repetição relevante ou aplica um controle que precisa ser consistente em vários produtos?
+> Does this component reduce a relevant repetition or does it apply a control that needs to be consistent across multiple products?
 
-Quando a resposta é não, a capacidade provavelmente deve permanecer na aplicação até que exista evidência de reutilização.
+If the answer is no, the capacity should probably remain in use until there is evidence of reuse.
 
-## Próximo capítulo
+## Next chapter
 
-O [Business Outcomes Framework](02-business-outcomes.md) conecta a estratégia da plataforma aos resultados mensuráveis que justificam capacidades e investimento.
+The [Business Outcomes Framework](02-business-outcomes.md) connects the platform strategy to measurable results that justify capacity and investment.

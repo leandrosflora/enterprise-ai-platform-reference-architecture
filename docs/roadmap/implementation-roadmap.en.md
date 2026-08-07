@@ -1,139 +1,139 @@
 # Implementation Roadmap
 
-## Baseline entregue neste repositório
+## Baseline delivered to this repository
 
-A referência já contém:
+The reference already contains:
 
-- Enterprise AI Platform Book com jornadas por perfil;
-- capability map e fronteiras de responsabilidade;
-- operating model, RACI, fóruns e golden path;
-- ciclo de vida de agentes baseado em risco e evidências;
-- estudo de caso ponta a ponta de agente documental com RAG;
-- decision guides e checklists de produção;
-- exportação automatizada do book para Markdown e PDF;
-- contratos OpenAPI e AsyncAPI canônicos;
-- policies e validações de contrato em CI;
-- C4 de container e deployment com control plane/data plane;
-- Model Gateway explícito;
-- segurança executável de RAG e memória;
+- Enterprise AI Platform Book with journeys by profile;
+- capability map and boundaries of responsibility;
+- the operating model, RACI, forums and golden path;
+- the life cycle of risk-based and evidence-based agents;
+- the end-to-end case study of a documentary agent with RAG;
+- decision guides and production checklists;
+- Automated export of the book to Markdown and PDF;
+- contracts OpenAPIand AsyncAPIcanonical;
+- policies and contract validations in CI;
+- the container C4 and deployment with control plane/data plane;
+- Model Gatewayexplicitly;
+- the executable security of RAG and memory;
 - runbooks operacionais;
-- vertical slice executável com Docker Compose;
-- documentação publicável via MkDocs e GitHub Pages.
+- a vertical slice executable with Docker Composite;
+- documentation that can be published via MkDocs and GitHub Pages.
 
-A vertical slice é deliberadamente pequena. As fases abaixo descrevem a evolução de uma implementação real para produção.
+The vertical slice is deliberately small. The phases below describe the evolution of an actual implementation to production.
 
 ## Fase 1 — Foundation
 
-### Objetivo
+### Objective
 
-Criar o data plane mínimo para execução controlada de agentes.
+Create the minimum data plane for the controlled execution of agents.
 
 ### Entregas
 
 - Agent Gateway;
 - Agent Runtime;
 - Agent Registry;
-- OIDC e workload identity;
-- Policy Decision Point e Policy Enforcement Points;
+- OIDCand workload identity;
+- Policy Decision Points and Policy Enforcement Points
 - Model Gateway;
 - baseline OpenTelemetry;
 - backbone Kafka;
-- CI/CD com contract tests.
+- CI/CD with contract tests.
 
-### Critérios de sucesso
+### Criteria for success
 
-- primeiro agente publicado por pipeline;
-- trace ponta a ponta;
-- eventos canônicos publicados;
-- autorização `deny by default` exercitada;
+- first agent issued by pipeline;
+- draw a line from end to end;
+- published canonical events;
+- the `deny by default` authorisation has been exercised;
 - rollback validado;
-- SLO de `INTERACTIVE_SIMPLE` medido.
+- The value of the measured SLO of `INTERACTIVE_SIMPLE`.
 
-## Fase 2 — Knowledge e Memory
+## Stage 2  Knowledge and Memory
 
 ### Entregas
 
 - Knowledge Service;
-- pipeline de ingestão com quarantine;
-- ACL por documento e chunk;
+- the intake pipeline with quarantine;
+- ACL per document and chunk;
 - embeddings versionados;
-- busca híbrida;
-- citações;
-- Memory Service com TTL, consentimento e exclusão;
-- avaliação separada de retrieval e geração.
+- hybrid search;
+- quotes;
+- Memory Service with TTL, consent and exclusion;
+- separate retrieval and generation assessment.
 
-### Critérios de sucesso
+### Criteria for success
 
-- acesso cross-tenant bloqueado em testes;
-- documentos eliminados deixam de aparecer no retrieval;
-- groundedness e retrieval metrics coletadas;
-- memory poisoning coberto por testes.
+- cross-tenant access blocked in tests;
+- deleted documents no longer appear in retrieval;
+- groundedness and retrieval metrics collected;
+- memory poisoning covered by tests.
 
-## Fase 3 — MCP e ferramentas corporativas
+## Phase 3  MCP and corporate tools
 
 ### Entregas
 
 - MCP Registry;
 - onboarding automatizado;
 - tool contracts versionados;
-- idempotência e outbox para escrita;
-- human approval para ações críticas;
-- auditoria e métricas por tool.
+- idempotence and outbox for writing;
+- human approval for critical actions;
+- auditing and metrics per tool.
 
-### Critérios de sucesso
+### Criteria for success
 
-- descoberta limitada por agente e política;
-- repetição não duplica efeitos;
-- tools podem ser bloqueadas sem indisponibilizar o Runtime;
-- rollback ou compensação testados.
+- limited agent and policy discovery;
+- repetition does not duplicate effects;
+- tools can be blocked without making Runtime unavailable;
+- rollback or compensation tested.
 
-## Fase 4 — Governance e Evaluation
+## Stage 4  Governance and Evaluation
 
 ### Entregas
 
 - AI Catalog;
-- workflow com segregação de funções;
+- a workflow with function segregation;
 - risk assessment automatizado;
-- datasets e baselines;
+- data sets and baselines;
 - quality gates;
-- evidências imutáveis;
+- the evidence is unchanging;
 - model lifecycle.
 
-### Critérios de sucesso
+### Criteria for success
 
-- nenhuma versão HIGH/CRITICAL publicada sem evidências;
-- mesma identidade não submete e aprova;
-- regressões bloqueiam deploy;
-- thresholds são rastreáveis ao dataset e versão.
+- no HIGH/CRITICAL version published without evidence;
+- the same identity does not submit and approve;
+- the regression blocks deployment;
+- thresholds are traceable to the dataset and version.
 
-## Fase 5 — Scale e FinOps
+## Phase 5 Scale and FinOps
 
 ### Entregas
 
 - multi-tenant isolation endurecido;
-- autoscaling por concorrência e backlog;
-- budgets, quotas e chargeback;
+- competition and backlog autoscaling;
+- budgets, quotas and chargeback;
 - marketplace interno;
 - disaster recovery;
 - dashboards executivos;
-- operação multi-região quando justificada.
+- multi-regional operation where justified.
 
-### Critérios de sucesso
+### Criteria for success
 
-- custos atribuídos por área, agente e modelo;
+- costs assigned by area, agent and model;
 - noisy neighbor controlado;
-- testes de capacidade a 2x do pico;
+- capacity tests at 2x peak;
 - RTO/RPO exercitados;
-- error budgets usados nas decisões de release.
+- error budgets used in release decisions.
 
-## Sequenciamento de referência
+## Sequencing of reference
 
-| Fase | Horizonte inicial | Resultado |
+| Fase | Horizonte inicial | Results |
 |---|---|---|
-| 1 | 0–3 meses | agente interno controlado em produção |
-| 2 | 3–6 meses | RAG e memória com autorização e descarte |
+| 1 | 0–3 meses | Internal controlled agent in production |
+| 2 | 3–6 meses | RAG and memory with authorisation and discard |
 | 3 | 6–9 meses | tools corporativas governadas |
-| 4 | 9–12 meses | publicação baseada em risco e evidências |
-| 5 | 12+ meses | escala, marketplace e controle financeiro |
+| 4 | 9–12 meses | Risk-based and evidence-based publication |
+| 5 | 12+ meses | Scale, marketplace and financial control |
 
-Para a perspectiva organizacional e de adoção, consulte [Modelo de maturidade e roadmap](../book/07-adoption-roadmap.md).
+For the organisational and adoption perspective, see [Maturity model and roadmap](../book/07-adoption-roadmap.md).

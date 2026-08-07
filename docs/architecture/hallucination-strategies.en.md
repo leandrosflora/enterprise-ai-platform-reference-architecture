@@ -1,10 +1,10 @@
 # Hallucination Mitigation Strategies
 
-## Objetivo
+## Objective
 
-Reduzir a probabilidade, detectar ocorrências e limitar o impacto de respostas factualmente incorretas ou sem evidência.
+Reducing the likelihood, detecting occurrences and limiting the impact of factually incorrect or unproven responses.
 
-## Modelo prevent, detect, recover
+## Model prevent, detect, recover
 
 ```mermaid
 flowchart LR
@@ -16,42 +16,42 @@ flowchart LR
 
 ## Prevent
 
-- restringir o escopo do caso de uso;
-- usar RAG com fontes aprovadas, atuais e rastreáveis;
-- exigir citações e trechos de evidência;
-- instruir o modelo a declarar insuficiência de contexto;
-- reduzir temperature em tarefas factuais;
-- usar structured output e validação de schema;
-- escolher modelo adequado ao domínio e idioma;
-- separar geração criativa de resposta factual;
-- usar ferramentas determinísticas para cálculo, consulta e regras.
+- restrict the scope of the use case;
+- use RAG with approved, current and traceable sources;
+- require submissions and evidence;
+- instruct the model to declare a lack of context;
+- reducing temperature in factual tasks;
+- use structured output and schema validation;
+- choose a model appropriate to the domain and language;
+- separate creative generation from factual response;
+- use deterministic tools for calculation, consultation and rules.
 
 ## Detect
 
-| Técnica | Aplicação |
+| Technical | Application of this Regulation |
 |---|---|
-| Groundedness | verifica se afirmações são suportadas pelo contexto |
-| Citation correctness | confirma se a fonte citada sustenta a resposta |
-| Entailment | compara afirmação e evidência |
-| Self-check | segunda passagem identifica inconsistências |
-| Cross-model review | modelo diferente revisa a resposta |
-| Rule validation | valida datas, IDs, cálculos e formatos |
-| Human review | obrigatório para decisões de alto impacto |
+| Groundedness | verify that statements are supported by context |
+| Citation correctness | confirms whether the cited source supports the answer |
+| Entailment | Comparison of claim and evidence |
+| Self-check | The second paragraph identifies inconsistencies |
+| Cross-model review | A different model reviews the answer |
+| Rule validation | validates dates, IDs, calculations and formats |
+| Human review | Mandatory for high impact decisions |
 
-Self-check e LLM-as-judge são sinais, não provas. Eles podem repetir o mesmo erro do gerador.
+Self-check and LLM-as-judge are signals, not evidence.
 
 ## Recover
 
-Quando a confiança ou evidência for insuficiente, o sistema deve:
+Where confidence or evidence is insufficient, the system shall:
 
-1. não inventar uma resposta;
-2. solicitar contexto adicional quando necessário;
-3. retornar fontes encontradas e explicitar a limitação;
-4. encaminhar para humano ou sistema oficial;
-5. impedir tool call baseada em informação não confirmada;
-6. registrar o caso para avaliação e correção.
+1. not to invent an answer;
+2. request additional context where necessary;
+3. return found sources and explain the limitation;
+4. refer to a human or an official system;
+5. prevent tool call based on unconfirmed information;
+6. record the case for assessment and correction.
 
-## Padrão de resposta segura
+## Safe response pattern
 
 ```text
 Não encontrei evidência suficiente nas fontes autorizadas para confirmar essa informação.
@@ -59,32 +59,32 @@ Fontes consultadas: {fontes}.
 Próxima ação segura: {consulta adicional ou escalonamento}.
 ```
 
-## Estratégias por caso de uso
+## Strategy by use case
 
-| Caso | Controles prioritários |
+| Case in point | Priority controls |
 |---|---|
-| Q&A documental | RAG, citação, groundedness e abstention |
-| Resumo | cobertura, fidelidade e comparação com trechos |
-| Extração | schema, validação e confidence por campo |
-| Código | testes, lint, sandbox e revisão |
-| Agente transacional | confirmação, fonte oficial e human approval |
-| Decisão regulada | explicação, regra determinística e decisão humana final |
+| Documentary Q&A | RAG, submission, groundedness and abstention |
+| Summary | coverage, fidelity and comparison with excerpts |
+| Mining | Schema, validation and confidence by field |
+| Code | Tests, lint, sandbox and review |
+| Transactional agent | Confirmation, official source and human approval |
+| Regulated decision | Explanation, deterministic rule and final human decision |
 
-## Métricas
+## The following information shall be provided:
 
 - hallucination rate;
 - unsupported claim rate;
 - citation precision;
-- abstention precision e recall;
+- abstention precision and recall;
 - correction rate;
 - human override rate;
-- impacto por severidade.
+- impact by severity.
 
-## Anti-padrões
+## The following information shall be provided:
 
-- confiar apenas na confiança declarada pelo modelo;
-- adicionar RAG sem medir retrieval;
-- permitir respostas sem fonte em contexto regulado;
-- usar cadeia de pensamento como evidência;
-- executar ação irreversível com base em texto gerado;
-- ocultar incerteza do usuário.
+- rely solely on the confidence declared by the model;
+- add RAG without measuring retrieval;
+- allowing sourceless responses in a regulated context;
+- use chain of thought as evidence;
+- execute an irreversible action based on generated text;
+- conceal the user's uncertainty.

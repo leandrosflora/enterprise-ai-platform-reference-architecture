@@ -1,32 +1,32 @@
 # Memory Service
 
-## Visão Geral
+## General view
 
-O Memory Service persiste somente contexto necessário e autorizado. Ele não é um log de conversa e não aceita que o modelo transforme inferências em fatos permanentes.
+The Memory Service persists only in necessary and authorized context. It is not a conversation log and does not accept the model to turn inferences into permanent facts.
 
-Padrão obrigatório: [Segurança de RAG e Memória](../security/rag-memory-security.md).
+Mandatory standard: [Security of RAGand Memory](../security/rag-memory-security.md).
 
 ## Responsabilidades
 
-- manter memória de sessão, curto prazo, longo prazo e perfil;
-- aplicar tenant e isolamento por sujeito;
-- validar finalidade, consentimento, origem, confiança e classificação;
-- impor TTL por tipo;
+- maintain session memory, short-term, long-term and profile;
+- apply tenant and insulation per subject;
+- validate purpose, consent, origin, trust and classification;
+- imposing TTL by type;
 - detectar memory poisoning;
-- versionar alterações;
-- excluir ou anonimizar após expiração ou revogação;
-- emitir eventos sem valores sensíveis.
+- to make changes;
+- delete or anonymise after expiry or revocation;
+- broadcast events without sensitive values.
 
-## Tipos de Memória
+## Types of memory
 
-| Tipo | Finalidade | TTL máximo | Consentimento |
+| Tipo | Finalidade | Maximum TTL | Consentimento |
 |---|---|---:|---|
-| `SESSION` | Contexto da conversa atual | 24 horas | Conforme dado |
+| `SESSION` | Context of the current conversation | 24 horas | Conforme dado |
 | `SHORT_TERM` | Continuidade operacional | 7 dias | Conforme finalidade |
-| `LONG_TERM` | Fatos reutilizados | 365 dias | Obrigatório |
-| `PROFILE` | Preferências explícitas | 365 dias | Obrigatório |
+| `LONG_TERM` | Fatos reutilizados | 365 dias | Compulsory |
+| `PROFILE` | Explained preferences | 365 dias | Compulsory |
 
-## Modelo de Item
+## Model of Item
 
 ```json
 {
@@ -41,57 +41,57 @@ Padrão obrigatório: [Segurança de RAG e Memória](../security/rag-memory-secu
 }
 ```
 
-O valor é criptografado em repouso e não aparece em logs ou eventos.
+The value is encrypted at rest and does not appear in logs or events.
 
-## Política de Escrita
+## Writing policy
 
-A decisão padrão é negar. A escrita só ocorre quando:
+The default decision is to deny.
 
-- o tenant e sujeito vêm da identidade autenticada;
-- a finalidade está permitida;
-- o TTL respeita o tipo;
-- a classificação pode ser persistida;
-- a origem é compatível com o tipo;
-- não há indicador de poisoning;
-- existe consentimento para `LONG_TERM` e `PROFILE`.
+- the tenant and subject come from the authenticated identity;
+- the purpose is permitted;
+- the TTL respects the type;
+- the classification may be continued;
+- the origin is compatible with the type;
+- there is no indicator of poisoning;
+- there is consent for `LONG_TERM` and `PROFILE`.
 
-### Origem e confiança
+### Origin and Confidence
 
-| Origem | Sessão | Curto prazo | Longo prazo / Perfil |
+| Origem | Meeting | Curto prazo | Longo prazo / Perfil |
 |---|---:|---:|---:|
 | `USER_CONFIRMED` | Sim | Sim | Sim |
 | `SYSTEM_VERIFIED` | Sim | Sim | Sim |
-| `TOOL_OUTPUT` | Sim | Conforme política | Não sem verificação |
-| `MODEL_INFERRED` | Sim | Não | Não |
+| `TOOL_OUTPUT` | Sim | Political | Not without verification |
+| `MODEL_INFERRED` | Sim | No , it 's not . | No , it 's not . |
 
-`RESTRICTED` é não persistente por padrão.
+`RESTRICTED` is not persistent by default.
 
-## Proteção contra Memory Poisoning
+## Protection against memory poisoning
 
-O serviço rejeita:
+The service rejects:
 
-- instruções apresentadas como fatos;
-- tentativas de sobrescrever system/developer instructions;
-- conteúdo pedindo execução de ferramenta;
-- dados derivados exclusivamente do modelo para memória persistente;
-- alteração de preferência sem confirmação;
-- conflito com fato verificado sem reconciliação.
+- instructions presented as facts;
+- attempts to overwrite system/developer instructions;
+- Content requesting the execution of the tool;
+- data derived exclusively from the model for persistent memory;
+- change of preference without confirmation;
+- conflict with verified fact without reconciliation.
 
-Indicadores geram `policy_denials_total{resource_type="memory"}` e evento de auditoria sem o valor rejeitado.
+Indicators generate `policy_denials_total{resource_type="memory"}` and an audit event without the rejected value.
 
 ## Isolamento
 
-A chave lógica é:
+The logical key is:
 
 ```text
 tenantId + subjectHash + sessionId + memoryType
 ```
 
-- `subjectHash` é derivado da identidade;
-- chamadas não aceitam um sujeito arbitrário no payload;
-- workloads técnicos usam workload identity com escopo mínimo;
-- consultas administrativas são separadas e auditadas;
-- caches preservam a mesma chave de isolamento.
+- `subjectHash` is derived from the identity;
+- calls do not accept an arbitrary subject on the payload;
+- technical workloads use workload identity with minimal scope;
+- administrative consultations are separate and audited;
+- caches retain the same lock.
 
 ## APIs
 
@@ -121,46 +121,46 @@ DELETE /v1/sessions/{sessionId}/memory
 }
 ```
 
-## Ciclo de Vida
+## Life cycle
 
-1. validar política;
-2. gravar versão imutável;
-3. atualizar ponteiro da versão ativa;
+1. validate policy;
+2. recording an unchanged version;
+3. update the active version pointer;
 4. registrar TTL;
-5. emitir `memory.updated` sem conteúdo;
+5. to issue `memory.updated` without content;
 6. expirar automaticamente;
 7. excluir ou anonimizar;
 8. emitir `memory.deleted`.
 
-Revogação de consentimento bloqueia leitura e escrita antes do processamento assíncrono de exclusão.
+Withdrawal of consent blocks reading and writing before the asynchronous processing of exclusion.
 
-## Eventos
+## Events
 
 - `memory.updated`
 - `memory.expired`
 - `memory.deleted`
 - `memory.consent_revoked`
 
-Campos permitidos: sessão, sujeito em hash, tipo, quantidade, versão, expiração e presença de consentimento. Valores são proibidos.
+Allowed fields: session, hash subject, type, quantity, version, expiration and presence of consent.
 
 ## Armazenamento
 
-MongoDB ou banco equivalente com:
+MongoDB or equivalent bank with:
 
-- criptografia em repouso;
+- encryption at rest;
 - TTL index;
-- chave composta de tenant e sujeito;
+- a key composed of tenant and subject;
 - versionamento otimista;
-- backup compatível com exclusão;
-- trilha de descarte.
+- a back-up compatible with exclusion;
+- the landfill track.
 
-## Requisitos Não Funcionais
+## Non-functional requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Segurança | Deny by default e anti-poisoning |
-| Privacidade | Consentimento, minimização e descarte |
+| Security | Deny by default and anti-poisoning |
+| Privacidade | Consent, minimization and discard |
 | Isolamento | Tenant + subject hash |
-| Rastreabilidade | Origem, confiança, versão e finalidade |
-| Disponibilidade | Degradação sem memória quando indisponível |
-| Consistência | Controle de concorrência e reconciliação |
+| Rastreabilidade | Origin, confidence, version and purpose |
+| Disponibilidade | Degradation without memory when unavailable |
+| Consistency | Competition control and reconciliation |

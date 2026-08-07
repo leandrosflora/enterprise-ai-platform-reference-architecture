@@ -1,20 +1,20 @@
 # MCP Contracts
 
-Este documento define o contrato mínimo para ferramentas MCP corporativas expostas para agentes da Enterprise AI Platform.
+This document defines the minimum contract for corporate MCP tools exposed to Enterprise AI Platform agents.
 
-## Princípios
+## Principles
 
-- Todo tool contract deve ter `toolName`, `version`, `description`, `inputSchema`, `outputSchema`, `security`, `audit` e `runtimePolicy`.
-- Schemas devem usar JSON Schema Draft 2020-12.
-- Ferramentas são versionadas semanticamente.
-- RBAC e escopos são obrigatórios por ferramenta.
-- Toda execução deve carregar `correlationId`, `causationId`, `agentId`, `sessionId` e `tenantId`.
-- Dados sensíveis devem ser classificados e mascarados em logs.
-- Nenhuma ferramenta crítica pode ser executada sem política explícita de timeout, retry e idempotência.
+- Each tool contract shall have `toolName`, `version`, `description`, `inputSchema`, `outputSchema`, `security`, `audit` and `runtimePolicy`.
+- Schemes shall use JSON Schema Draft 2020-12.
+- Tools are versioned semantically.
+- RBAC and brushes are required per tool.
+- Each execution shall include `correlationId`, `causationId`, `agentId`, `sessionId` and `tenantId`.
+- Sensitive data shall be classified and disguised in logs.
+- No critical tool can be run without an explicit policy of timeout, retry and idempotence.
 
 ---
 
-## Envelope Padrão de Tool Contract
+## Standard tool contract envelope
 
 ```json
 {
@@ -52,7 +52,7 @@ Este documento define o contrato mínimo para ferramentas MCP corporativas expos
 
 ### Finalidade
 
-Localizar clientes em sistemas corporativos para apoiar agentes de atendimento, crédito ou backoffice.
+Locate customers in corporate systems to support service, credit or back office agents.
 
 ### Contract
 
@@ -131,7 +131,7 @@ Localizar clientes em sistemas corporativos para apoiar agentes de atendimento, 
 
 ### Finalidade
 
-Executar busca controlada em bases documentais corporativas via Knowledge Service.
+Run a controlled search on corporate document bases via Knowledge Service.
 
 ### Contract
 
@@ -209,7 +209,7 @@ Executar busca controlada em bases documentais corporativas via Knowledge Servic
 
 ### Finalidade
 
-Atualizar um caso operacional em sistema corporativo. Esta ferramenta executa escrita e exige idempotência.
+Updating an operational case in a corporate system.
 
 ### Contract
 
@@ -295,20 +295,20 @@ Atualizar um caso operacional em sistema corporativo. Esta ferramenta executa es
 }
 ```
 
-## Eventos Obrigatórios
+## Compulsory events
 
-Toda execução deve publicar `tool.executed` com os campos mínimos:
+Each execution shall publish `tool.executed` with the following minimum fields:
 
-| Campo | Obrigatório | Observação |
+| Campo | Compulsory | The Commission shall adopt implementing acts. |
 |---|---:|---|
 | `eventId` | Sim | UUID |
 | `eventType` | Sim | `tool.executed` |
 | `schemaVersion` | Sim | SemVer |
-| `correlationId` | Sim | Propagado da invocação do agente |
-| `causationId` | Sim | Comando ou mensagem que causou a execução |
-| `agentId` | Sim | Agente solicitante |
-| `toolName` | Sim | Nome da ferramenta |
-| `toolVersion` | Sim | Versão executada |
+| `correlationId` | Sim | Propagation of the agent's summons |
+| `causationId` | Sim | Command or message that caused execution |
+| `agentId` | Sim | Applicant agent |
+| `toolName` | Sim | Name of the tool |
+| `toolVersion` | Sim | Running version |
 | `status` | Sim | `SUCCESS`, `FAILED` ou `BLOCKED` |
-| `latencyMs` | Sim | Duração total |
-| `errorCode` | Não | Obrigatório quando `status != SUCCESS` |
+| `latencyMs` | Sim | Total duration |
+| `errorCode` | No , it 's not . | Mandatory when `status != SUCCESS` |

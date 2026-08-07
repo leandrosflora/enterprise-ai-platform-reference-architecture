@@ -1,47 +1,47 @@
 # Authorization
 
-## Modelo
+## Model
 
-A plataforma usa RBAC + Policy Based Access Control.
+The platform uses RBAC + Policy Based Access Control.
 
-- **RBAC** define papéis humanos e técnicos.
-- **Policy Based Access Control** aplica regras por recurso, escopo, tenant, classificação de dado, risco do agente e criticidade da ferramenta.
-- O enforcement ocorre no **Agent Gateway**, **Agent Runtime**, **Governance Service**, **Knowledge Service** e **MCP Registry**.
+- **RBAC** defines human and technical roles.
+- **Policy Based Access Control** applies rules by resource, scope, tenant, data classification, agent risk and tool criticality.
+- Enforcement takes place in **Agent Gateway**, **Agent Runtime**, **Governance Service**, **Knowledge Service** and **MCP Registry**.
 
-## Papéis
+## Paperwork
 
-| Papel | Descrição |
+| Papel | Other information |
 |---|---|
-| Platform Admin | Administra configuração da plataforma, tenants, integrações e políticas globais. |
-| AI Architect | Define padrões, revisa arquitetura, governança e risco de agentes. |
-| Developer | Cria agentes, ferramentas, knowledge bases e datasets de avaliação. |
-| Business User | Usa agentes publicados e aprovados para sua unidade de negócio. |
-| Auditor | Consulta trilhas de auditoria, decisões, execuções e evidências. |
-| Service Account | Identidade técnica usada por serviços internos e pipelines. |
+| Platform Admin | Manages platform configuration, tenants, integrations and global policies. |
+| AI Architect | It sets standards, reviews architecture, governance and agent risk. |
+| Developer | It creates agents, tools, knowledge bases and assessment datasets. |
+| Business User | Use published and approved agents for your business unit. |
+| Auditor | It consults audit trails, decisions, executions and evidence. |
+| Service Account | Technical identity used by internal services and pipelines. |
 
 ## Escopos
 
 | Escopo | Uso |
 |---|---|
-| `agent.read` | Consultar catálogo e metadados de agentes. |
-| `agent.write` | Criar ou alterar agente em estado draft. |
-| `agent.invoke` | Invocar agente publicado. |
-| `agent.publish` | Publicar agente aprovado. |
-| `tool.read` | Consultar catálogo MCP. |
+| `agent.read` | See the agent catalog and metadata. |
+| `agent.write` | Creating or changing agent in draft status. |
+| `agent.invoke` | Call in a posted agent. |
+| `agent.publish` | Release an approved agent. |
+| `tool.read` | See the catalogue MCP. |
 | `tool.register` | Registrar tool contract MCP. |
 | `tool.execute` | Executar ferramenta aprovada. |
 | `knowledge.read` | Consultar knowledge bases autorizadas. |
 | `knowledge.write` | Ingerir ou atualizar documentos. |
-| `memory.read` | Ler memória de sessão/contexto permitido. |
-| `memory.write` | Atualizar memória de sessão/contexto permitido. |
-| `governance.submit` | Submeter agente/ferramenta para aprovação. |
-| `governance.review` | Revisar risco, segurança, LGPD e arquitetura. |
-| `governance.approve` | Aprovar ou rejeitar publicação. |
-| `evaluation.read` | Consultar resultados de avaliação. |
-| `evaluation.write` | Criar execução de avaliação. |
-| `audit.read` | Consultar trilhas de auditoria. |
-| `billing.read` | Consultar custos e showback/chargeback. |
-| `platform.admin` | Administrar políticas globais. |
+| `memory.read` | Read session memory/context allowed. |
+| `memory.write` | Updating session/context memory allowed. |
+| `governance.submit` | Submit the agent/tool for approval. |
+| `governance.review` | Reviewing risk, security, LGPD and architecture. |
+| `governance.approve` | Approve or reject publication. |
+| `evaluation.read` | See the results of the evaluation. |
+| `evaluation.write` | Create an evaluation execution. |
+| `audit.read` | Look for audit trails. |
+| `billing.read` | Consult costs and showback/chargeback. |
+| `platform.admin` | Manage global policies. |
 
 ---
 
@@ -54,66 +54,66 @@ A plataforma usa RBAC + Policy Based Access Control.
 | Developer | `agent.read`, `agent.write`, `tool.read`, `tool.register`, `knowledge.read`, `knowledge.write`, `evaluation.read`, `evaluation.write`, `governance.submit` |
 | Business User | `agent.read`, `agent.invoke`, `knowledge.read` limitado ao tenant/unidade |
 | Auditor | `agent.read`, `tool.read`, `evaluation.read`, `audit.read`, `billing.read` |
-| Service Account | Escopos mínimos por serviço, definidos por workload identity |
+| Service Account | Minimum scope per service, defined by workload identity |
 
 ---
 
-## Matriz Recurso x Ação
+## Matrix Recourse x Action
 
-| Recurso | Ação | Escopo requerido | Papéis típicos | Condições obrigatórias |
+| Recurso | Action | Escopo requerido | Typical papers | Compulsory conditions |
 |---|---|---|---|---|
-| Agent | Listar | `agent.read` | Todos | Respeitar tenant e unidade de negócio. |
-| Agent | Criar/editar draft | `agent.write` | Developer | Owner obrigatório. |
-| Agent | Submeter aprovação | `governance.submit` | Developer | Evidências de teste e risco obrigatório. |
-| Agent | Aprovar/rejeitar | `governance.approve` | AI Architect | Não pode ser o mesmo usuário que submeteu. |
-| Agent | Publicar | `agent.publish` | AI Architect, Service Account | Requer decisão `APPROVED`. |
-| Agent | Invocar | `agent.invoke` | Business User | Agente precisa estar `PUBLISHED`. |
-| Tool MCP | Registrar | `tool.register` | Developer | Contract com schemas válidos. |
-| Tool MCP | Executar | `tool.execute` | Service Account via Agent Runtime | Ferramenta aprovada e vinculada ao agente. |
-| Knowledge Base | Ingerir documento | `knowledge.write` | Developer | Classificação de dado obrigatória. |
-| Knowledge Base | Consultar | `knowledge.read` | Business User, Developer | Política por classificação e tenant. |
-| Memory | Ler | `memory.read` | Service Account | Apenas sessão/usuário autorizado. |
-| Memory | Escrever | `memory.write` | Service Account | Dados sensíveis mascarados quando exigido. |
+| Agent | Listar | `agent.read` | Todos | Respect tenant and business unit. |
+| Agent | Criar/editar draft | `agent.write` | Developer | Obligatory owner. |
+| Agent | Submission of approval | `governance.submit` | Developer | Test evidence and mandatory risk. |
+| Agent | Aprovar/rejeitar | `governance.approve` | AI Architect | It can't be the same user you submitted. |
+| Agent | Publicar | `agent.publish` | AI Architect, Service Account | It requires a decision `APPROVED`. |
+| Agent | Invocar | `agent.invoke` | Business User | Agent needs to be `PUBLISHED`. |
+| Tool MCP | Registrar | `tool.register` | Developer | Contract with valid schemes. |
+| Tool MCP | Executar | `tool.execute` | Service Account via Agent Runtime | Approved tool and attached to the agent. |
+| Knowledge Base | Ingerir documento | `knowledge.write` | Developer | This is a mandatory data classification. |
+| Knowledge Base | Consultar | `knowledge.read` | Business User, Developer | Policy by rank and tenant. |
+| Memory | Ler | `memory.read` | Service Account | Only session/authorized user. |
+| Memory | Escrever | `memory.write` | Service Account | Sensitive data disguised when required. |
 | Evaluation | Criar | `evaluation.write` | Developer, Service Account | Dataset aprovado. |
 | Evaluation | Consultar | `evaluation.read` | Developer, AI Architect, Auditor | Respeitar tenant. |
-| Audit | Consultar | `audit.read` | Auditor, AI Architect | Consulta registrada em auditoria. |
-| Billing | Consultar custos | `billing.read` | AI Architect, Auditor, Platform Admin | Visão limitada por unidade ou tenant. |
+| Audit | Consultar | `audit.read` | Auditor, AI Architect | Registered audit consultation. |
+| Billing | Consulting costs | `billing.read` | AI Architect, Auditor, Platform Admin | Limited vision per unit or tenant. |
 
 ---
 
-## Políticas por Classificação de Dados
+## Classification of data policies
 
-| Classificação | Acesso | Restrições |
+| Classification | Acesso | Restrictions |
 |---|---|---|
-| PUBLIC | Todos os usuários autenticados | Sem dados pessoais. |
-| INTERNAL | Usuários do tenant/unidade | Não pode sair do tenant. |
-| CONFIDENTIAL | Usuários autorizados por papel e escopo | Mascaramento obrigatório em logs. |
-| RESTRICTED | Apenas papéis explicitamente autorizados | Exige aprovação de governança e auditoria reforçada. |
+| PUBLIC | All authenticated users | No personal data. |
+| INTERNAL | Users of the tenant/unit | You can't leave the tenant. |
+| CONFIDENTIAL | Users authorised by paper and scope | Compulsory log masking. |
+| RESTRICTED | Only explicitly authorised papers | It requires governance approval and enhanced auditing. |
 
 ---
 
-## Políticas por Risco do Agente
+## Risk policies of the agent
 
-| Risco | Exigência mínima |
+| Risco | Minimum requirement |
 |---|---|
-| LOW | Avaliação automática, owner definido e logs básicos. |
-| MEDIUM | Revisão de AI Architect, avaliação de segurança e observabilidade ativa. |
-| HIGH | Aprovação humana, matriz de ferramentas permitidas, testes de regressão e auditoria completa. |
-| CRITICAL | Comitê de governança, revisão LGPD/Jurídico/Security e plano de rollback. |
+| LOW | Automatic evaluation, owner defined and basic logs. |
+| MEDIUM | AI Architect review, safety assessment and active observability. |
+| HIGH | Human approval, permissible toolkit, regression testing and full audit. |
+| CRITICAL | Governance committee, review LGPDLegal/Security and rollback plan. |
 
 ---
 
 ## Enforcement
 
-| Componente | Responsabilidade |
+| Component | Responsabilidade |
 |---|---|
-| Agent Gateway | Validar JWT, tenant, escopos e rate limit. |
-| Agent Runtime | Aplicar policy por agente, ferramenta, risco, custo e contexto. |
-| MCP Registry | Permitir descoberta apenas de ferramentas aprovadas e autorizadas. |
-| Knowledge Service | Aplicar filtros por tenant, unidade, classificação e documento. |
-| Governance Service | Controlar separação de funções e estado de aprovação. |
-| Audit Service | Registrar decisões de autorização, negações e execuções críticas. |
+| Agent Gateway | Validate JWT, tenant, scopes and rate limit. |
+| Agent Runtime | Apply policy by agent, tool, risk, cost and context. |
+| MCP Registry | Allow discovery only of approved and authorised tools. |
+| Knowledge Service | Apply filters by tenant, unit, classification and document. |
+| Governance Service | Control separation of functions and approval status. |
+| Audit Service | Register authorisation decisions, denials and critical executions. |
 
-## Decisão Padrão
+## Standard decision
 
-A decisão padrão é **deny by default**. Qualquer recurso, ferramenta, knowledge base ou agente sem política explícita é bloqueado.
+The default decision is **deny by default**. Any resource, tool, knowledge base or agent without explicit policy is blocked.

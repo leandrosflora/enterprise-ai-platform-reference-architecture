@@ -1,63 +1,63 @@
-# Casos aplicados
+# Applied cases
 
-Os casos aplicados demonstram como as capacidades lógicas da Enterprise AI Platform podem ser materializadas em domínios, jornadas e topologias concretas.
+The cases used demonstrate how the logical capabilities of Enterprise AI Platform can be materialized in specific domains, journeys and topologies.
 
-Eles não definem uma implementação única. Cada caso explicita:
+They don't define a single implementation.
 
-- o problema de negócio;
-- onde a IA participa da jornada;
-- quais capacidades da plataforma são utilizadas;
-- quais controles permanecem determinísticos;
-- o que está implementado, demonstrado ou apenas planejado;
-- os gaps para integração e produção.
+- the business problem;
+- where the AI participates in the journey;
+- which platform capabilities are used;
+- which controls remain deterministic;
+- what is being implemented, demonstrated or just planned;
+- the gaps for integration and production.
 
-## Casos disponíveis
+## Available cases
 
 <div class="grid cards" markdown>
 
--   :material-message-processing-outline: **Plataforma conversacional bancária multi-skill**
+-   This is the first of a series of reports on the implementation of the European Union's Strategy for Sustainable Development.
 
     ---
 
-    Jornadas bancárias via WhatsApp, múltiplas skills, Agent Runtimes, ferramentas MCP, RAG, memória, eventing, auditoria e evals.
+    Banking days via WhatsApp, multiple skills, Agent Runtimes, tools MCP, RAG, memory, eventing, audit and evals.
 
-    [Abrir o caso conversacional](conversational-ai.md)
+    [Open the conversation case](conversational-ai.md)
 
--   :material-clipboard-flow-outline: **Intelligent Backoffice — contestação bancária**
+-   :material-clipboard-flow-outline: **Intelligent Backoffice  banking dispute**
 
     ---
 
-    Workflow persistente, processamento documental, investigação assistida, recomendação, aprovação humana, policy enforcement, execução idempotente e reconciliação.
+    This appropriation is intended to cover expenditure relating to the implementation of the common agricultural policy and the management of the common agricultural policy.
 
-    [Abrir o caso de backoffice](intelligent-backoffice.md)
+    [Opening the backoffice case](intelligent-backoffice.md)
 
 -   :material-source-branch: **Agentic SDLC governado**
 
     ---
 
-    Agentes especializados do requisito ao feedback de produção, workflow durável, Model Gateway, MCP, OPA, evidências, aprovação por digest, release observado e rollback.
+    Specialized agents of the production feedback requirement, durable workflow, Model Gateway, MCP, OPA, evidence, digest approval, observed release and rollback.
 
-    [Abrir o caso de Agentic SDLC](agentic-sdlc.md)
+    [Opening the Agentic SDLC case](agentic-sdlc.md)
 
 </div>
 
-## Comparação rápida
+## Rapid comparison
 
-| Caso | Unidade principal de interação | Autonomia inteligente | Efeito real governado |
+| Case in point | Main unit of interaction | Autonomia inteligente | Efeito real governado |
 |---|---|---|---|
-| Plataforma conversacional | conversa e jornada do cliente | selecionar skill, responder e usar tools | operações bancárias mediadas por serviços de domínio |
-| Intelligent Backoffice | caso, documento e evidência | classificar, investigar e recomendar | aprovação humana e execution service |
-| Agentic SDLC | mudança de software e evidence bundle | refinar, desenhar, implementar e revisar | tools via MCP, aprovação por digest, release e rollback |
+| A conversation platform | Customer conversation and journey | Select skill, respond and use tools | Banking operations mediated by domain services |
+| Intelligent Backoffice | case, document and evidence | classify, investigate and recommend | Human approval and execution service |
+| Agentic SDLC | Software change and evidence bundle | refining, designing, implementing and revising | tools via MCP, approval by digest, release and rollback |
 
-## Como interpretar os estados
+## How to Interpret States
 
-| Estado | Significado |
+| State of origin | Significado |
 |---|---|
-| `CONTRACT_DEFINED` | Arquitetura, contrato, policy ou responsabilidade versionada, ainda sem integração comprovada |
-| `IMPLEMENTATION_STARTED` | Código de produto iniciado, mas sem evidência suficiente de integração ponta a ponta |
-| `DEMONSTRATED_LOCAL` | Capacidade executada localmente ou no CI com dados e integrações sintéticos |
-| `VALIDATED_INTEGRATION` | Integração validada contra serviços reais em ambiente controlado |
-| `PASSED_PRODUCTION` | Capacidade aprovada para produção com evidência, operação, segurança e ownership |
+| `CONTRACT_DEFINED` | Architecture, contract, policy or versioned liability, yet without proven integration |
+| `IMPLEMENTATION_STARTED` | Product code initiated but without sufficient evidence of end-to-end integration |
+| `DEMONSTRATED_LOCAL` | Capacity executed locally or in CI with synthetic data and integrations |
+| `VALIDATED_INTEGRATION` | Valid integration against real services in controlled environment |
+| `PASSED_PRODUCTION` | Approved production capacity with evidence, operation, safety and ownership |
 
-!!! warning "Caso aplicado não significa produção"
-    Diagramas, código e testes locais demonstram decisões e mecanismos. Produção exige integração real, dados autorizados, segurança corporativa, operação, SLOs, suporte, risco e aprovação formal.
+!!! warning "If applied does not mean production"
+    Local diagrams, code and testing demonstrate decisions and mechanisms.Production requires real integration, authorized data, corporate security, operation, SLOs, support, risk and formal approval.

@@ -1,10 +1,10 @@
 # Corporate Systems Integration
 
-## Objetivo
+## Objective
 
-Definir padrões para integração de agentes com sistemas corporativos internos.
+Set standards for the integration of agents with internal corporate systems.
 
-## Sistemas Típicos
+## Typical systems
 
 - CRM
 - ERP
@@ -14,26 +14,26 @@ Definir padrões para integração de agentes com sistemas corporativos internos
 - Data Platform
 - Workflow/BPM
 
-## Padrões de Integração
+## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
 
-| Padrão | Uso |
+| Standard | Uso |
 |---|---|
-| REST | Consultas e comandos síncronos |
-| gRPC | Integrações internas de baixa latência |
-| Kafka | Eventos de domínio e integração assíncrona |
-| MCP | Ferramentas expostas para agentes |
+| REST | Synchronous queries and commands |
+| gRPC | Low latency internal integrations |
+| Kafka | Domain events and asynchronous integration |
+| MCP | Tools exposed to agents |
 | Batch | Processamentos programados |
 
-## Princípios
+## Principles
 
-- Agentes não acessam bancos corporativos diretamente
-- Integrações devem passar por APIs, eventos ou MCP
-- Tool calls devem ser autorizados e auditados
-- Sistemas críticos exigem aprovação de governança
+- Agents do not access corporate banks directly
+- Integrations shall be through APIs, events or MCP
+- Tool calls must be authorised and audited
+- Critical systems require governance approval
 
-## Requisitos
+## Requirements
 
-- CorrelationId fim a fim
-- Timeout e retry controlado
-- Idempotência para comandos críticos
-- Observabilidade por integração
+- End to end correlation
+- Timeout and retry controlled
+- Idempotence for critical commands
+- Observability by integration

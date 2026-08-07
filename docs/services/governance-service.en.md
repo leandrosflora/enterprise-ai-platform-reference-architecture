@@ -1,19 +1,19 @@
 # Governance Service
 
-## Visão Geral
+## General view
 
-O Governance Service centraliza o ciclo de aprovação, publicação, controle de risco e conformidade dos agentes e soluções de IA da plataforma.
+Governance Service centralizes the approval, publication, risk control and compliance cycle of AI agents and solutions on the platform.
 
 ## Responsabilidades
 
-- Gerenciar fluxo de aprovação de agentes
-- Aplicar políticas corporativas de IA
-- Registrar avaliações de risco
-- Controlar publicação, suspensão e aposentadoria de agentes
-- Integrar resultados de AI Evaluation ao processo decisório
-- Manter trilha auditável de decisões
+- Manage the approval flow of agents
+- Implementing corporate AI policies
+- Registering risk assessments
+- Monitoring the publication, suspension and retirement of agents
+- Integrating AI Evaluation results into the decision-making process
+- Maintaining an auditable decision track
 
-## Ciclo de Vida do Agente
+## Life cycle of the agent
 
 ```text
 Draft
@@ -35,62 +35,62 @@ Retired
 
 ## APIs
 
-### Submeter Agente para Aprovação
+### Submitting Agent for Approval
 
 ```http
 POST /governance/agents/{agentId}/submit
 ```
 
-### Aprovar Versão
+### Approve version
 
 ```http
 POST /governance/agents/{agentId}/versions/{version}/approve
 ```
 
-### Rejeitar Versão
+### Rejected Version
 
 ```http
 POST /governance/agents/{agentId}/versions/{version}/reject
 ```
 
-## Critérios de Aprovação
+## Criteria for approval
 
-| Critério | Descrição |
+| Criterion of use | Other information |
 |---|---|
-| Segurança | Autenticação, autorização, segredos e exposição de dados |
-| LGPD | Tratamento de dados pessoais e dados sensíveis |
-| Risco de IA | Alucinação, viés, explicabilidade e impacto operacional |
-| Observabilidade | Logs, métricas, traces e auditoria |
-| Custos | Modelo, volume esperado e limite de consumo |
-| Qualidade | Resultado mínimo nas avaliações definidas |
+| Security | Authentication, authorisation, secrecy and data exposure |
+| LGPD | Processing of personal data and sensitive data |
+| Risk of AI | Allucination, bias, explainability and operational impact |
+| Observability | Logs, metrics, traces and audit |
+| Costs | Model, expected volume and consumption limit |
+| Qualidade | Minimum result in defined assessments |
 
-## Dependências
+## Dependencies
 
-| Dependência | Uso |
+| Dependence | Uso |
 |---|---|
-| Agent Registry | Consultar metadados e versões |
-| Evaluation Service | Consultar resultados de avaliação |
-| Audit Service | Registrar decisões |
-| PostgreSQL | Persistir workflows e pareceres |
-| Kafka | Publicar eventos de governança |
+| Agent Registry | Reviewing metadata and versions |
+| Evaluation Service | See the results of the evaluation |
+| Audit Service | Registering decisions |
+| PostgreSQL | Persistent workflows and opinions |
+| Kafka | Publishing governance events |
 
-## Eventos Publicados
+## Events Published
 
 - `governance.approved`
 - `governance.rejected`
 - `agent.published`
 - `agent.retired`
 
-## Requisitos Não Funcionais
+## Non-functional requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Auditoria | Todas as decisões devem ser rastreáveis |
-| Segregação | Papéis distintos para criador, aprovador e operador |
-| Conformidade | Guardar evidências de aprovação |
-| Segurança | Aplicar RBAC por domínio, área e criticidade |
-| Escalabilidade | Suportar múltiplas áreas e esteiras de aprovação |
+| Auditoria | All decisions must be traceable |
+| Separation | Roles distinct for creator, authorising officer and operator |
+| Conformidade | Keeping evidence of approval |
+| Security | Apply RBAC by domain, area and critical |
+| Escalabilidade | Support multiple areas and approval treadmills |
 
-## Decisões Relacionadas
+## Related Decisions
 
-- [ADR-007 — Avaliação híbrida e contínua de IA](../adrs/007-evaluation-strategy.md)
+- [ADR-007  Hybrid and continuous assessment of AI](../adrs/007-evaluation-strategy.md)

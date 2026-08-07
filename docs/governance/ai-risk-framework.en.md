@@ -1,109 +1,109 @@
 # AI Risk Framework
 
-## Objetivo
+## Objective
 
-Classificar riscos de IA, definir controles proporcionais e estabelecer evidências verificáveis para publicação e operação.
+Classify AI risks, define proportional controls and establish verifiable evidence for publication and operation.
 
 ## Categorias
 
-| Categoria | Exemplos |
+| Categoria | Examples |
 |---|---|
-| Segurança | Prompt injection, tool abuse, exfiltração, excessive agency. |
-| Privacidade e compliance | LGPD, retenção, consentimento, transferência internacional. |
-| Operacional | Indisponibilidade, falhas de integração, degradação de modelo. |
-| Modelo | Hallucination, bias, toxicidade, regressão e baixa explicabilidade. |
-| Financeiro | Consumo inesperado, ausência de quotas e chargeback. |
-| Reputacional | Respostas inadequadas e decisões opacas. |
+| Security | Prompt injection, tool abuse, exfiltration, excessive agency |
+| Privacy and compliance | LGPD, withholding, consent, international transfer. |
+| Operacional | Unavailability, failure of integration, degradation of the model. |
+| Model | Hallucination, bias, toxicity, regression and low explainability. |
+| Financeiro | Unexpected consumption, no quotas and chargeback. |
+| Reputacional | Inadequate answers and opaque decisions. |
 
-## Classificação
+## Classification
 
-| Nível | Critério |
+| Level | Criterion of use |
 |---|---|
-| LOW | Uso interno, sem dados sensíveis, sem ação transacional. |
-| MEDIUM | Dados internos/confidenciais, RAG ou apoio à decisão humana. |
-| HIGH | Dados pessoais/sensíveis, ferramenta de escrita ou impacto operacional relevante. |
-| CRITICAL | Decisão automatizada regulada, impacto material em cliente, financeiro ou legal. |
+| LOW | Internal use, no sensitive data, no transactional action. |
+| MEDIUM | Internal/confidential data, RAG or human decision support. |
+| HIGH | Personal/sensitive data, writing tool or relevant operational impact. |
+| CRITICAL | Automated regulated decision, material impact on client, financial or legal. |
 
-## Matriz de riscos e controles
+## Risk matrix and controls
 
-| Risco | Severidade padrão | Controles obrigatórios | Evidências |
+| Risco | Standard severity | Compulsory checks | Evidence |
 |---|---:|---|---|
-| Direct/indirect prompt injection | HIGH | segmentação de instruções, content scanning, tool allowlist, adversarial evaluation | testes de ataque e logs de bloqueio |
-| Data leakage | CRITICAL | classificação, masking, tenant isolation, DLP, output filtering | teste de isolamento e relatório de classificação |
-| Tool abuse | HIGH | escopos mínimos, policy enforcement, idempotência, aprovação humana | contrato aprovado, matriz de autorização, eventos |
-| Excessive agency | HIGH | limites de autonomia, transaction boundary, human-in-the-loop | cenários de bloqueio e rollback |
-| Hallucination | MEDIUM | RAG, citações, groundedness, fallback | dataset e relatório de avaliação |
-| Poisoned knowledge | HIGH | proveniência, quarantine, aprovação de fonte, reindexação controlada | checksum, lineage e teste de conteúdo malicioso |
-| Memory poisoning | HIGH | origem dos fatos, TTL, confirmação, isolamento por usuário | testes de contaminação cruzada |
-| Bias | HIGH | revisão de dataset, fairness quando aplicável, revisão humana | critérios e relatório |
-| Uso de dado sem base legal | CRITICAL | finalidade, minimização, retenção e aprovação LGPD | DPIA/LIA quando aplicável |
-| Provider outage | MEDIUM | timeout, circuit breaker, bulkhead, fallback | teste de resiliência e runbook |
-| Custo inesperado | MEDIUM | quotas, budgets, rate limits, alertas e bloqueio | dashboard e teste de limite |
-| Falta de rastreabilidade | HIGH | trace context, audit trail, retenção e policy version | trace e evento de auditoria |
-| Regressão de qualidade | MEDIUM | baseline, regression dataset e gate de deploy | relatório comparativo |
-| Acesso indevido a KB | HIGH | ACL por documento/chunk, ABAC e filtros server-side | teste de acesso negado |
+| Direct/indirect prompt injection | HIGH | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. | Attack tests and lock logs |
+| Data leakage | CRITICAL | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EC) No 1069/2009. | isolation test and classification report |
+| Tool abuse | HIGH | The Commission will examine whether the measures are compatible with the internal market and whether they are compatible with the internal market. | The Commission shall adopt delegated acts in accordance with the opinion of the Standing Committee. |
+| Excessive agency | HIGH | The following information is provided for in the Annex to Implementing Regulation (EU) No 1303/2013.human-in-the-loop | Locking and rollback scenarios |
+| Hallucination | MEDIUM | RAG, quotes, groundedness, fallback | Data set and evaluation report |
+| Poisoned knowledge | HIGH | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1308/2013. | checksum, lineage and testing of malicious content |
+| Memory poisoning | HIGH | the origin of the facts, TTL, confirmation, isolation per user | Cross-contamination tests |
+| Bias | HIGH | the data set review, fairness where applicable, human review | Criteria and report |
+| Use of data without legal basis | CRITICAL | the purpose, minimisation, retention and approval of LGPD | DPIA/LIA where applicable |
+| Provider outage | MEDIUM | timeout, circuit breaker, bulkhead, fallback | Resilience test and runbook |
+| Custo inesperado | MEDIUM | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. | dashboard and limit test |
+| Lack of traceability | HIGH | traces context, audit trail, retention and policy version | audit trail and event |
+| The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation. | MEDIUM | Baseline, regression dataset and deployment gate | Comparative report |
+| Misappropriated access to KB | HIGH | ACL by document/chunk, ABAC and server-side filters | denied access test |
 
-## Controles por nível
+## Controls by level
 
 | Controle | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
-| Owner definido | Obrigatório | Obrigatório | Obrigatório | Obrigatório |
-| Avaliação automática | Obrigatório | Obrigatório | Obrigatório | Obrigatório |
-| Revisão AI Architect | Opcional | Obrigatório | Obrigatório | Obrigatório |
-| Revisão Security | Conforme escopo | Conforme escopo | Obrigatório | Obrigatório |
-| Revisão LGPD | Conforme dados | Conforme dados | Obrigatório | Obrigatório |
-| Jurídico/Regulatório | Não | Conforme escopo | Conforme escopo | Obrigatório |
-| Auditoria | Básica | Completa | Completa | Completa + retenção estendida |
-| Human-in-the-loop | Não | Conforme ação | Obrigatório para escrita crítica | Obrigatório |
-| Rollback | Recomendado | Recomendado | Obrigatório | Obrigatório |
-| FinOps budget | Recomendado | Obrigatório | Obrigatório | Obrigatório + bloqueio |
+| Owner definido | Compulsory | Compulsory | Compulsory | Compulsory |
+| Automated assessment | Compulsory | Compulsory | Compulsory | Compulsory |
+| I'm not going to lie. | Opcional | Compulsory | Compulsory | Compulsory |
+| Security Review | Conforme escopo | Conforme escopo | Compulsory | Compulsory |
+| Revised .LGPD | According to data | According to data | Compulsory | Compulsory |
+| Legal and regulatory matters | No , it 's not . | Conforme escopo | Conforme escopo | Compulsory |
+| Auditoria | Basics | Completa | Completa | Complete + extended retention |
+| Human-in-the-loop | No , it 's not . | As an action | Mandatory for critical writing | Compulsory |
+| Rollback | Recommended | Recommended | Compulsory | Compulsory |
+| FinOps budget | Recommended | Compulsory | Compulsory | Compulsory + blocked |
 
-## Evidências mínimas
+## Minimum evidence
 
 - Agent Card versionado;
-- risk assessment com justificativa;
-- evaluation report reproduzível;
-- security review e threat model do caso de uso;
-- LGPD review quando houver dado pessoal;
-- matriz de autorização;
-- traces, dashboards e alertas;
-- budget e quotas;
-- plano de rollback;
+- risk assessment with justification;
+- the evaluation report is reproduced;
+- the security review and threat model of the use case;
+- LGPD review where there has been personal data;
+- the authorisation matrix;
+- Traces, dashboards and alerts;
+- budget and quotas;
+- rollback plan;
 - runbook operacional.
 
-## Gates de publicação
+## Publication gates
 
-| Gate | Condição |
+| Gate | Condition |
 |---|---|
-| G1 — Design | domínio, contratos, dados, dependências e owner definidos |
-| G2 — Security/LGPD | classificação, autorização e threat model aprovados |
-| G3 — Evaluation | thresholds do caso de uso atingidos |
-| G4 — Observability | telemetria e alertas validados |
-| G5 — FinOps | budget, quota e atribuição configurados |
-| G6 — Operational readiness | runbook, capacidade, backup e rollback testados |
-| G7 — Go-live | segregação de função e aprovação final registradas |
+| G1 — Design | Defined domain, contracts, data, dependencies and owner |
+| G2 — Security/LGPD | approved classification, authorisation and threat model |
+| G3 — Evaluation | the thresholds of the use case reached |
+| G4 — Observability | validated telemetry and alerts |
+| G5 — FinOps | Budget, quota and allocation configured |
+| G6 — Operational readiness | runbook, capacity, backup and rollback tested |
+| G7 — Go-live | the function segregation and final approval recorded |
 
-## Thresholds de qualidade
+## Quality thresholds
 
-Thresholds são definidos por caso de uso e dataset. Valores iniciais:
+Thresholds are defined by use case and dataset.
 
-| Métrica | LOW | MEDIUM | HIGH | CRITICAL |
+| Other information | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
-| Groundedness mínimo para RAG | 0,80 | 0,85 | 0,90 | 0,95 |
-| Relevance mínimo | 0,75 | 0,80 | 0,85 | 0,90 |
-| Hallucination risk máximo | 0,15 | 0,10 | 0,05 | 0,03 |
-| Toxicity máximo | 0,05 | 0,03 | 0,02 | 0,01 |
+| Minimum groundedness for RAG | 0,80 | 0,85 | 0,90 | 0,95 |
+| Minimum relevance | 0,75 | 0,80 | 0,85 | 0,90 |
+| Maximum hallucination risk | 0,15 | 0,10 | 0,05 | 0,03 |
+| Maximum toxicity | 0,05 | 0,03 | 0,02 | 0,01 |
 
-Latência não é threshold de risco. Ela segue a classe de workload definida nos requisitos não funcionais.
+Latency is not a risk threshold. It follows the workload class defined in nonfunctional requirements.
 
-## Policy as code
+## Policy codes
 
-Controles bloqueantes devem ser automatizados sempre que possível:
+Blocking controls shall be automated whenever possible:
 
-- agente sem owner ou risco não pode ser submetido;
-- ferramenta não aprovada não pode ser vinculada;
-- agente HIGH/CRITICAL sem dataset aprovado não pode ser publicado;
+- agent without owner or risk cannot be submitted;
+- an unapproved tool cannot be linked;
+- a HIGH/CRITICAL agent without an approved dataset may not be published;
 - budget ausente bloqueia MEDIUM ou superior;
-- mesma identidade não pode submeter e aprovar;
-- versão publicada é imutável;
-- política inexistente resulta em `deny by default`.
+- the same identity cannot be submitted and approved;
+- the published version is unchanged;
+- The lack of policy results in `deny by default`.

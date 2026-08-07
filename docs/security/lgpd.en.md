@@ -1,6 +1,6 @@
 # LGPD
 
-## Controles
+## Controls
 
 - Data Classification
 - Consent Management
@@ -8,15 +8,15 @@
 - Data Masking
 - Audit Trail
 
-## Direitos do Titular
+## Rights of the holder
 
 - Acesso
-- Correção
-- Exclusão
+- Correction
+- Exclusion
 - Portabilidade
 
 ## IA
 
-- Avaliação de risco
-- Explicabilidade quando aplicável
-- Controle de exposição de dados pessoais
+- The risk assessment
+- Explanation where applicable
+- Control of exposure to personal data

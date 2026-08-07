@@ -1,18 +1,18 @@
-# Arquitetura de Referência - Agente de Análise Documental
+# This appropriation is intended to cover expenditure on technical assistance for the implementation of the programme.
 
-## Objetivo
+## Objective
 
-Automatizar a análise de documentos corporativos, extraindo informações, classificando conteúdo, validando regras e apoiando decisões operacionais.
+Automate the analysis of corporate documents, extracting information, classifying content, validating rules and supporting operational decisions.
 
-## Casos de Uso
+## Cases of use
 
-- Extração de dados de documentos
-- Classificação documental
-- Validação de campos obrigatórios
-- Comparação com políticas internas
-- Geração de parecer assistido
+- Extraction of data from documents
+- Classification of documents
+- Validation of compulsory fields
+- Comparison with internal policies
+- Supported opinion generation
 
-## Componentes Envolvidos
+## Components involved
 
 - Agent Gateway
 - Agent Runtime
@@ -23,7 +23,7 @@ Automatizar a análise de documentos corporativos, extraindo informações, clas
 - External OCR Service
 - Document Management System
 
-## Integrações
+## Integrations
 
 - OCR
 - GED / ECM
@@ -31,27 +31,27 @@ Automatizar a análise de documentos corporativos, extraindo informações, clas
 - Workflow / BPM
 - Sistemas transacionais
 
-## Fluxo de Alto Nível
+## High-level flow
 
-1. Documento é recebido por upload, fila ou sistema corporativo.
-2. Pipeline extrai texto e metadados.
-3. Knowledge Service indexa ou consulta referências aplicáveis.
-4. Agent Runtime analisa o documento com regras e contexto.
-5. Evaluation Service valida qualidade e consistência.
-6. Resultado é registrado e encaminhado para revisão ou workflow.
+1. Document is received by upload, queue or corporate system.
+2. Pipeline extracts text and metadata.
+3. Knowledge Service index or refer to relevant references.
+4. Agent Runtime analyses the document with rules and context.
+5. Evaluation Service validates quality and consistency.
+6. Results are recorded and forwarded for review or workflow.
 
-## Controles
+## Controls
 
-- Classificação de dados
-- Mascaramento de informações sensíveis
-- Retenção conforme política corporativa
-- Evidências para auditoria
-- Revisão humana para decisões críticas
+- Classification of data
+- Masking of sensitive information
+- Withholding according to corporate policy
+- Evidence for audit
+- Human review for critical decisions
 
-## Métricas
+## The following information shall be provided:
 
-- Taxa de extração correta
-- Tempo médio de análise
-- Taxa de revisão humana
-- Falhas por tipo documental
-- Custo por documento processado
+- Rate of correct extraction
+- Average time of analysis
+- Human review rate
+- Failure by type of document
+- Cost per document processed

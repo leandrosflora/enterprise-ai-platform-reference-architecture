@@ -1,66 +1,66 @@
-# ADR-004 — Agent Runtime com núcleo estável e adaptadores
+# ADR-004  Agent Runtime with stable core and adapters
 
 **Status:** Aceito
 
 ## Contexto
 
-A plataforma precisa executar agentes corporativos integrando modelos, memória, RAG, ferramentas, avaliação, políticas e observabilidade. O ecossistema de frameworks muda rapidamente; acoplar contratos corporativos a um framework específico aumenta lock-in e dificulta governança consistente.
+The platform needs to execute corporate agents by integrating models, memory, RAG, tools, evaluation, policies, and observability. The framework ecosystem changes rapidly; linking corporate contracts to a specific framework increases lock-in and makes consistent governance difficult.
 
-## Decisão
+## Decision
 
-Adotar um **Agent Runtime corporativo com núcleo estável e adaptadores** para frameworks e provedores de orquestração.
+Adopting a **Agent Runtimea stable core and adapters** for frameworks and orchestration providers.
 
-O núcleo deve controlar:
+The core shall control:
 
-- identidade do agente e versão publicada;
-- carregamento de configuração imutável;
-- aplicação de políticas e limites de autonomia;
-- execução de prompts, workflows e tools;
-- integração com Model Gateway, Knowledge Service e Memory Service;
-- checkpoint, timeout, retry e cancelamento;
-- eventos, auditoria, avaliação e telemetria.
+- the identity of the agent and the published version;
+- the unchanging configuration load;
+- the implementation of policies and limits of autonomy;
+- execution of prompts, workflows and tools;
+- integration with Model Gateway, Knowledge Serviceand Memory Service;
+- the checkpoint, timeout, retry and cancellation;
+- The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof.
 
-Adaptadores podem integrar LangGraph, Semantic Kernel, serviços gerenciados de agentes ou implementações customizadas, desde que preservem os contratos e controles do núcleo.
+Adapters can integrate LangGraph, Semantic Kernel, agent-managed services or custom implementations, provided they preserve the core contracts and controls.
 
 ## Limites
 
-- regras de negócio permanecem nos serviços de domínio;
-- credenciais de provedores permanecem no Model Gateway;
-- aprovação e catálogo permanecem no Control Plane;
-- tools são acessadas por fronteiras governadas, preferencialmente MCP;
-- o framework não define o formato canônico de auditoria, eventos ou políticas.
+- business rules remain in the domain services;
+- supplier credentials remain in the Model Gateway;
+- approval and catalogue remain in the Control Plane;
+- tools are accessed by governed borders, preferably MCP;
+- the framework does not define the canonical format of audits, events or policies.
 
 ## Alternativas
 
-| Alternativa | Vantagem | Limitação |
+| Alternativa | Vantagem | Limitation |
 |---|---|---|
-| Framework único | menor esforço inicial | lock-in e controles dependentes do framework |
-| Runtime por squad | autonomia local | fragmentação de segurança, telemetria e custos |
-| Serviço gerenciado único | operação simplificada | portabilidade e extensibilidade limitadas |
+| Single framework | lower initial effort | Lock-in and framework-dependent controls |
+| Runtime by squad | autonomia local | The Commission shall adopt delegated acts in accordance with the opinion of the Standing Committee on Planning and Budgetary Control. |
+| Single managed service | Simplified operation | Limited portability and extensibility |
 
-## Consequências positivas
+## Positive consequences
 
-- contratos corporativos permanecem estáveis durante trocas de framework;
-- políticas, observabilidade e FinOps são uniformes;
-- evolução tecnológica ocorre por adaptadores;
-- agentes podem usar padrões distintos sem perder governança.
+- corporate contracts remain stable during framework exchanges;
+- the policies, observability and FinOps are uniform;
+- technological development is carried out by adaptors;
+- agents can use distinct standards without losing governance.
 
-## Consequências negativas
+## Negative consequences
 
-- aumenta a complexidade inicial do runtime;
-- exige testes de conformidade para adaptadores;
-- recursos exclusivos de frameworks podem precisar de extensão controlada;
-- o núcleo pode se tornar gargalo se acumular responsabilidades de domínio.
+- increases the initial complexity of the runtime;
+- require conformity tests for adapters;
+- the unique features of frameworks may require controlled extension;
+- The core can become a bottleneck if it accumulates domain responsibilities.
 
-## Evidências mínimas
+## Minimum evidence
 
-- contrato de invocação versionado;
-- testes de conformidade do adaptador;
-- traces de model call, retrieval, memória e tool call;
-- teste de timeout, cancelamento, retry e rollback;
-- policy decision registrada por execução;
-- compatibilidade documentada entre versão do runtime e adaptadores.
+- the versioned invocation contract;
+- conformity tests of the adapter;
+- the model call, retrieval, memory and tool call traces;
+- timeout, cancellation, retry and rollback testing;
+- policy decision recorded by execution;
+- documented compatibility between runtime version and adapters.
 
-## Critérios de revisão
+## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
 
-Revisar quando um padrão aberto ou runtime gerenciado fornecer portabilidade, controles e observabilidade equivalentes, ou quando a camada de adaptação gerar mais custo e risco do que o lock-in que busca evitar.
+Review when an open or managed runtime standard provides equivalent portability, controls and observability, or when the adaptation layer generates more cost and risk than the lock-in it seeks to avoid.

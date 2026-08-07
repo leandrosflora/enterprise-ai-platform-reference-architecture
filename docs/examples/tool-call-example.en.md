@@ -1,8 +1,8 @@
-# Exemplo - Tool Call MCP
+# Example - Tool Call MCP
 
-## Objetivo
+## Objective
 
-Exemplo de chamada de ferramenta exposta via MCP Server.
+Example of a tool call exposed via MCP Server.
 
 ```json
 {
@@ -35,9 +35,9 @@ Exemplo de chamada de ferramenta exposta via MCP Server.
 }
 ```
 
-## Controles
+## Controls
 
-- Validação por JSON Schema
-- Autorização por escopo
-- Auditoria do tool call
-- Mascaramento de dados sensíveis em logs
+- Validation by JSON Scheme
+- Permission by scope
+- Audit of the tool call
+- Masking of sensitive data in logs

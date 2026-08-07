@@ -1,25 +1,25 @@
 # Model Selection Framework
 
-## Objetivo
+## Objective
 
-Selecionar modelos com base em evidências do caso de uso, evitando decisões orientadas apenas por benchmark genérico, marca ou tamanho.
+Select models based on evidence from the use case, avoiding decisions guided only by generic benchmark, brand or size.
 
-## Critérios
+## Criteria for the application of this Regulation
 
-| Dimensão | Perguntas |
+| Size | Perguntas |
 |---|---|
-| Qualidade | O modelo atinge os thresholds no golden dataset? |
-| Modalidade | Suporta texto, imagem, áudio ou documentos exigidos? |
-| Contexto | A janela efetiva atende o caso sem degradar qualidade? |
-| Tool use | Chama ferramentas com precisão e segue schema? |
-| Segurança | Resiste a ataques e atende políticas de conteúdo? |
-| Privacidade | Qual é a política de retenção, treinamento e residência? |
-| Latência | Atende p95 e throughput esperados? |
-| Custo | Qual é o custo por tarefa bem-sucedida, não apenas por token? |
-| Operação | Há SLA, observabilidade, quotas e fallback? |
-| Portabilidade | O contrato reduz lock-in e permite substituição? |
+| Qualidade | Does the model meet the thresholds in the golden dataset? |
+| Modalidade | Does it support required text, image, audio or documents? |
+| Contexto | Does the effective window serve the case without degrading quality? |
+| Tool use | You call tools accurately and follow a pattern? |
+| Security | Resistant to attacks and complying with content policies? |
+| Privacidade | What is the retention, training and residence policy? |
+| Latency | Does it respond to p95 and the expected throughput? |
+| Custo | What's the cost per successful task, not just per token? |
+| Operations | Is there ALS, observability, quotas and fallback? |
+| Portabilidade | The contract reduces lock-in and allows replacement? |
 
-## Processo
+## The procedure
 
 ```mermaid
 flowchart LR
@@ -34,71 +34,71 @@ flowchart LR
 
 ## Scorecard sugerido
 
-| Critério | Peso inicial |
+| Criterion of use | Peso inicial |
 |---|---:|
-| Qualidade no caso de uso | 30% |
-| Segurança e compliance | 20% |
-| Latência e disponibilidade | 15% |
-| Custo por tarefa | 15% |
-| Tool use e structured output | 10% |
-| Operabilidade e portabilidade | 10% |
+| Quality in case of use | 30% |
+| Safety and compliance | 20% |
+| Latency and availability | 15% |
+| Cost per task | 15% |
+| Tool use and structured output | 10% |
+| Operational and portability | 10% |
 
-Os pesos devem mudar conforme o risco. Para casos CRITICAL, segurança, explicabilidade e compliance prevalecem sobre custo.
+Weights must change as the risk increases, and for CRITICAL cases, safety, explainability and compliance prevail over cost.
 
-## Classes de modelo
+## Model classes
 
-| Classe | Uso típico | Trade-off |
+| Classe | Typical use | Trade-off |
 |---|---|---|
-| Pequeno e rápido | classificação, roteamento, extração simples | menor capacidade de raciocínio |
-| Geral balanceado | chat, RAG e automação comum | custo e latência médios |
-| Reasoning | planejamento, análise complexa e código | maior custo e tempo |
-| Embedding | busca semântica e clustering | exige avaliação específica do corpus |
-| Multimodal | documentos, imagens e áudio | custo e riscos adicionais de privacidade |
-| Especializado/fine-tuned | domínio ou formato restrito | manutenção e lock-in maiores |
+| Small and fast | Classification, routing, simple extraction | Less reasoning ability |
+| Geral balanceado | chat, RAGand common automation | Average cost and latency |
+| Reasoning | planning, complex analysis and coding | higher cost and time |
+| Embedding | Semantic search and clustering | requires a specific assessment of the corpus |
+| Multimodal | Documents, images and audio | cost and additional privacy risks |
+| Especializado/fine-tuned | Restricted domain or format | Larger maintenance and lock-in |
 
-## Router de modelos
+## Model routers
 
-O Model Gateway pode rotear por:
+The Model Gateway may be routed by:
 
-- risco e classificação dos dados;
-- complexidade da tarefa;
-- modalidade e idioma;
-- latência disponível;
+- risk and classification of data;
+- the complexity of the task;
+- modality and language;
+- the available latency;
 - budget;
-- disponibilidade do provedor;
-- requisitos de residência;
+- availability of the provider;
+- residence requirements;
 - desempenho observado.
 
-Fallback não deve reduzir silenciosamente segurança ou qualidade. Mudanças de modelo precisam ser registradas no trace e avaliadas por regressão.
+Fallback should not silently reduce safety or quality. Model changes need to be recorded in the trace and evaluated by regression.
 
 ## Benchmark correto
 
-- usar dados reais anonimizados ou sintéticos representativos;
-- medir tarefa completa, incluindo retrieval e ferramentas;
-- repetir testes para variabilidade;
-- avaliar idiomas e segmentos relevantes;
-- separar qualidade média de falhas críticas;
-- medir custo por resposta aprovada ou tarefa concluída;
-- registrar versão exata do modelo e parâmetros.
+- use real anonymised or representative synthetic data;
+- Measuring complete task, including retrieval and tools;
+- repeat tests for variability;
+- evaluate relevant languages and segments;
+- separating average quality from critical defects;
+- measuring cost per approved response or completed task;
+- record the exact version of the model and parameters.
 
-## ADR mínimo
+## Minimum ADR
 
-A decisão deve documentar:
+The decision shall document:
 
-- modelos avaliados e motivo da shortlist;
-- dataset, rubrica e thresholds;
-- resultados de qualidade, segurança, custo e latência;
-- restrições contratuais e de dados;
-- modelo primário e fallback;
-- riscos residuais;
-- gatilhos para reavaliação.
+- the models evaluated and the reason for the shortlist;
+- data set, heading and thresholds;
+- quality, safety, cost and latency results;
+- contractual and data restrictions;
+- primary model and fallback;
+- residual risks;
+- triggers for reassessment.
 
-## Gatilhos de reavaliação
+## Reassessment triggers
 
-- nova versão do modelo;
-- mudança de preço ou SLA;
-- regressão detectada;
-- incidente de segurança;
-- nova exigência regulatória;
-- aumento relevante de volume;
-- alteração de domínio, idioma ou fonte de dados.
+- new version of the model;
+- price change or SLA;
+- detected regression;
+- the safety incident;
+- the new regulatory requirement;
+- a significant increase in volume;
+- change of domain, language or data source.

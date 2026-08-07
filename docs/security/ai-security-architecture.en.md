@@ -1,10 +1,10 @@
 # AI Security Architecture
 
-## Objetivo
+## Objective
 
-Aplicar defesa em profundidade em todas as fronteiras da plataforma: identidade, entrada, contexto, modelo, ferramentas, memória, saída e auditoria.
+Apply in-depth defense across all platform boundaries: identity, input, context, model, tools, memory, output and audit.
 
-## Arquitetura de referência
+## Reference architecture
 
 ```mermaid
 flowchart LR
@@ -28,65 +28,65 @@ flowchart LR
     MCP --> AUD
 ```
 
-## Controles por camada
+## Layered controls
 
-| Camada | Controles mínimos |
+| Layer | Minimum controls |
 |---|---|
-| Edge | WAF, rate limit, bot protection, quotas e proteção contra abuso |
-| Identidade | OIDC, MFA, workload identity, tokens curtos e menor privilégio |
-| Autorização | RBAC/ABAC, PDP/PEP, deny by default e policy versionada |
-| Entrada | validação, limites, detecção de prompt injection e classificação de dados |
-| RAG | fontes aprovadas, quarentena, proveniência, ACL por chunk e DLP |
-| Modelo | gateway central, allowlist de modelos, parâmetros limitados e guardrails |
-| Ferramentas | schemas, allowlist, idempotência, timeout e aprovação humana |
-| Memória | finalidade, consentimento, isolamento por sujeito, TTL e exclusão |
-| Saída | groundedness, redaction, content safety, schema validation e citações |
-| Auditoria | correlation ID, identidade, versão de política, modelo, prompt e decisão |
+| Edge | WAF, rate limit, bot protection, quotas and protection against abuse |
+| Identidade | OIDC, MFA, workload identity, short tokens and minor privilege |
+| Authorization | RBAC/ABAC, PDP/PEP, deny by default and policy versioned |
+| Entrada | the validation, limits, detection of prompt injection and data classification; |
+| RAG | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1308/2013. |
+| Model | Central gateway, model allowlist, restricted parameters and guardrails |
+| Ferramentas | Schemes, allowlist, idempotence, timeout and human approval |
+| The memory | purpose, consent, isolation by subject, TTL and exclusion |
+| Exit | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
+| Auditoria | correlation ID, identity, policy version, model, prompt and decision |
 
-## Zero trust para IA
+## Zero trust for AI
 
-Nenhum componente confia implicitamente em conteúdo gerado ou recuperado. Cada chamada deve autenticar a identidade, autorizar a ação, validar o payload e registrar a decisão.
+Each call must authenticate the identity, authorize the action, validate the payload, and record the decision.
 
-Princípios:
+The following principles:
 
 - verificar explicitamente cada acesso;
-- assumir comprometimento de documentos, prompts e ferramentas;
-- limitar blast radius por tenant, agente, modelo e ferramenta;
-- usar credenciais temporárias;
-- manter dados sensíveis fora de logs e traces.
+- to commit to documents, prompts and tools;
+- limiting the blast radii per tenant, agent, model and tool;
+- use temporary credentials;
+- Keep sensitive data out of logs and traces.
 
-## Fronteiras críticas
+## Critical boundaries
 
 ### RAG
 
-Documentos passam por malware scan, classificação, DLP, validação de origem e quarentena antes da indexação. O filtro de autorização deve ocorrer na consulta e novamente antes da montagem do prompt.
+Documents undergo malware scan, classification, DLP, origin validation and quarantine before indexing.
 
 ### Tool use
 
-Toda ferramenta possui contrato, escopo, risco, owner e política. Operações com efeito colateral usam idempotency key, transaction boundary e confirmação explícita.
+Each tool has a contract, scope, risk, owner and policy, and collateral transactions use idempotency key, transaction boundary, and explicit confirmation.
 
 ### Provider externo
 
-O Model Gateway impede acesso direto ao provedor, aplica política de residência e retenção, remove dados proibidos, controla modelos aprovados e registra metadados de consumo.
+The Model Gateway prevents direct access to the provider, implements a residence and retention policy, removes prohibited data, controls approved models and records consumption metadata.
 
-## Segredos e chaves
+## Secrets and keys
 
-- armazenar em secret manager ou KMS;
-- nunca incluir em prompt, memória ou repositório;
+- store in secret manager or KMS;
+- Never include in prompt, memory or repository;
 - rotacionar automaticamente;
-- separar chaves por ambiente e finalidade;
-- bloquear saída de padrões de segredo por DLP.
+- separating keys by environment and purpose;
+- block the output of secret patterns by DLP.
 
 ## Incident response
 
-Eventos mínimos:
+Minimum events:
 
-- tentativa de prompt injection;
-- exfiltração ou acesso cross-tenant;
-- tool call negada ou anômala;
-- aumento abrupto de custo ou tokens;
-- mudança de modelo ou política sem aprovação;
-- conteúdo sensível em saída;
-- poisoning detectado em conhecimento ou memória.
+- the attempt of prompt injection;
+- Exfiltration or cross-tenant access;
+- tool call denied or abnormal;
+- a sharp increase in cost or tokens;
+- change of model or policy without approval;
+- sensitive output content;
+- Poisoning detected in knowledge or memory.
 
-A resposta deve permitir revogar credenciais, desabilitar agente, bloquear modelo ou ferramenta, retirar índice, preservar evidências e executar rollback.
+The response shall allow credentials to be revoked, agent disabled, model or tool blocked, index removed, evidence preserved and rollback performed.

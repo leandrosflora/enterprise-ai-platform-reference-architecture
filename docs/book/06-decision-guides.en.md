@@ -1,221 +1,221 @@
 # 7. Decision Guides
 
-## Como usar este capítulo
+## How to Use This Chapter
 
-Os guias abaixo não substituem ADRs. Eles ajudam a identificar a opção inicial mais adequada e os fatores que precisam ser registrados na decisão final.
+The guides below do not replace ADRs. They help identify the most appropriate initial option and the factors that need to be recorded in the final decision.
 
-## 1. Agente ou workflow determinístico?
+## 1. Deterministic agent or workflow?
 
-| Use agente quando | Use workflow quando |
+| Use agent when | Use workflow when |
 |---|---|
-| entrada e linguagem são variáveis | sequência e regras são conhecidas |
-| seleção de ferramentas depende de contexto | passos precisam ser reproduzíveis |
-| existe necessidade de interpretação | erro precisa ser praticamente nulo |
-| caminhos não podem ser enumerados facilmente | auditoria exige transições explícitas |
-| resultado pode ser avaliado por rubrica | resultado é validado por regra objetiva |
+| input and language are variables | sequence and rules are known |
+| tool selection depends on context | steps need to be reproducible |
+| There is a need for interpretation | erro precisa ser praticamente nulo |
+| roads cannot be easily enumerated | Auditing requires explicit transitions |
+| The result can be evaluated by heading | The result is validated by objective rule |
 
-### Recomendação
+### Recommendation
 
-Use o menor nível de autonomia que resolva o problema. Um agente pode interpretar a intenção e delegar a execução para um workflow determinístico.
+Use the lowest level of autonomy that solves the problem. An agent can interpret the intent and delegate execution to a deterministic workflow.
 
-### Sinais de alerta
+### Warning signs
 
-- agente usado apenas para encadear APIs conhecidas;
-- ausência de limite claro de autonomia;
-- ferramenta transacional sem idempotência;
-- decisão crítica baseada apenas em texto gerado.
+- agent used only to chain known APIs;
+- the absence of a clear autonomy limit;
+- a transactional tool without idempotence;
+- critical decision based only on generated text.
 
 ## 2. RAG ou fine-tuning?
 
-| Critério | RAG | Fine-tuning |
+| Criterion of use | RAG | Fine-tuning |
 |---|---|---|
-| conhecimento muda com frequência | forte | fraco |
-| necessidade de citações | forte | fraco |
-| controle por documento | forte | difícil |
-| adaptação de estilo ou formato | moderado | forte |
-| conhecimento muito especializado e estável | possível | forte em alguns casos |
-| remoção imediata de informação | forte | difícil |
-| custo de preparação | ingestão e retrieval | dataset e treinamento |
+| Knowledge changes frequently | forte | fraco |
+| need for citations | forte | fraco |
+| control by document | forte | difficult |
+| adaptation of style or format | moderado | forte |
+| very specialized and stable knowledge | possible | strong in some cases |
+| immediate removal of information | forte | difficult |
+| cost of preparation | ingestion and recovery | Data set and training |
 
-### Recomendação
+### Recommendation
 
-Comece com RAG para conhecimento corporativo mutável. Use fine-tuning para comportamento, formato, classificação ou linguagem especializada quando houver dataset e ganho mensurável.
+Start with RAG for changing corporate knowledge. Use fine-tuning for behavior, format, classification, or specialized language when there is a measurable dataset and earnings.
 
-### Combinação
+### Combination
 
-Um modelo ajustado pode continuar usando RAG. Fine-tuning não elimina a necessidade de autorização, citações e lifecycle do conhecimento.
+An adjusted model can continue to use RAG. Fine-tuning does not eliminate the need for authorization, citation and lifecycle of knowledge.
 
-## 3. Memória ou estado transacional?
+## 3. Memory or transactional status?
 
-| Memória de IA | Estado transacional |
+| AI memory | The amount to be reported shall be reported in the following table: |
 |---|---|
-| preferência, contexto ou resumo | saldo, status, contrato, pedido ou decisão oficial |
-| pode expirar ou ser recalculada | exige consistência e sistema de registro |
-| confiança e origem precisam ser registradas | regras de integridade são obrigatórias |
-| pode ser probabilística | deve ser determinístico |
+| preference, context or summary | Balance, status, contract, application or official decision |
+| may expire or be recalculated | It requires consistency and a record system |
+| Trust and origin must be recorded | Integrity rules are mandatory |
+| It can be probabilistic. | must be deterministic |
 
-### Recomendação
+### Recommendation
 
-Nunca use memória do agente como sistema de registro. O agente deve consultar o sistema autoritativo para fatos transacionais.
+The agent should consult the authoritative system for transactional facts.
 
 ## 4. MCP ou API tradicional?
 
-| MCP é útil quando | API direta é melhor quando |
+| MCP is useful when | API direct is better when |
 |---|---|
-| múltiplos agentes descobrem tools padronizadas | existe um único consumidor estável |
-| descrição e schema precisam ser expostos ao runtime | integração possui contrato já consolidado |
-| a plataforma controla catálogo e autorização | baixa latência e caminho mínimo são prioritários |
-| tools precisam ser habilitadas por política | descoberta dinâmica não traz valor |
+| Multiple agents discover standardized tools | there is only one stable consumer |
+| Description and schema need to be exposed to runtime | integration has a consolidated contract |
+| the platform controls catalogue and authorisation | Low latency and minimum path are priorities |
+| tools need to be enabled by policy | Dynamic discovery does not bring value |
 
-### Recomendação
+### Recommendation
 
-Use MCP como camada de exposição governada para agentes, sem transformar o MCP Server em novo sistema de negócio. A lógica e as regras permanecem nos serviços responsáveis.
+Use MCP as a controlled exposure layer for agents, without turning the MCP Server into a new business system.
 
 ## 5. Single-agent ou multi-agent?
 
 | Single-agent | Multi-agent |
 |---|---|
-| menor complexidade | especialização explícita |
-| avaliação mais simples | domínios e tools muito distintos |
-| menos hops e custo | separação de contexto necessária |
-| tracing direto | colaboração traz ganho comprovado |
+| menor complexidade | explicit specialization |
+| simpler evaluation | Very different domains and tools |
+| less hops and cost | necessary separation of context |
+| tracing direto | Collaboration brings proven gains |
 
-### Recomendação
+### Recommendation
 
-Comece com um agente e tools bem definidas. Introduza múltiplos agentes apenas quando a decomposição melhorar qualidade, segurança ou ownership de forma mensurável.
+Start with a well-defined agent and tools. Introduce multiple agents only when decomposition improves quality, safety, or ownership in a measurable way.
 
-### Custos ocultos de multi-agent
+### Hidden costs of multi-agent
 
-- mais tokens e latência;
-- falhas de handoff;
-- dificuldade de atribuir responsabilidade;
-- avaliação combinatória;
-- propagação excessiva de contexto;
-- observabilidade mais complexa.
+- more tokens and latency;
+- handoff failure;
+- difficulty in assigning responsibility;
+- a combined assessment;
+- excessive dissemination of context;
+- more complex observability.
 
-## 6. Síncrono ou assíncrono?
+## 6. Synchronous or asynchronous?
 
-| Síncrono | Assíncrono |
+| Synchronous | Asynchronous |
 |---|---|
-| interação humana imediata | tarefas longas ou em lote |
-| resposta dentro do SLO do canal | dependências com latência variável |
-| efeito simples e controlado | múltiplas etapas e retries |
-| cancelamento ligado à sessão | processamento independente da conexão |
+| immediate human interaction | Long-term or batch tasks |
+| the response within the SLO channel | dependencies with variable latency |
+| Simple and controlled effect | Multiple stages and retries |
+| cancellation of the session | Processing independent of the connection |
 
-### Recomendação
+### Recommendation
 
-Use assíncrono para ingestão, avaliações extensas, geração em lote e workflows longos. Retorne `202 Accepted`, um identificador e um endpoint ou evento de status.
+Use asynchronous for intake, extensive evaluations, batch generation and long workflows. Return `202 Accepted`, an identifier and an endpoint or status event.
 
-## 7. Modelo único ou Model Gateway?
+## 7. Single model or Model Gateway?
 
-| Integração direta | Model Gateway |
+| Direct integration | Model Gateway |
 |---|---|
-| experimento isolado | múltiplos produtos ou provedores |
-| baixo risco e curta duração | políticas de região, custo e modelos aprovados |
-| nenhuma necessidade de fallback | roteamento e observabilidade comuns |
-| simplicidade local é mais importante | portabilidade e governança são necessárias |
+| experimento isolado | Multiple products or suppliers |
+| low risk and short duration | Regional policies, cost and models approved |
+| No need for fallback | Common routing and observability |
+| Local simplicity is more important | portability and governance are necessary |
 
-### Recomendação
+### Recommendation
 
-Uma plataforma corporativa deve convergir para Model Gateway, mas não precisa bloquear protótipos de curta duração. A transição deve ocorrer antes da produção ou do uso de dados relevantes.
+A corporate platform should converge to Model Gateway but need not block short-lived prototypes.
 
 ## 8. Vector database dedicada ou banco existente?
 
-| Banco existente com busca vetorial | Vector database dedicada |
+| Existing bank with vector search | Vector database dedicada |
 |---|---|
-| volume e throughput moderados | escala ou padrões de busca especializados |
-| consistência com metadados é importante | indexação distribuída e baixa latência em grande escala |
-| equipe já opera a tecnologia | recursos avançados justificam nova plataforma |
-| menor complexidade operacional | isolamento e tuning independentes são necessários |
+| Moderate volume and throughput | Specialized scale or search patterns |
+| Consistency with metadata is important | Distributed indexation and low latency on a large scale |
+| The team already operates the technology. | Advanced resources justify a new platform |
+| menor complexidade operacional | Independent insulation and tuning are required |
 
-### Recomendação
+### Recommendation
 
-Evite adicionar uma tecnologia apenas porque ela é popular. Faça benchmark com corpus, filtros, atualização, disponibilidade e custo reais.
+Avoid adding a technology just because it's popular, benchmark it with corpus, filters, update, availability, and real cost.
 
-Consulte [ADR-005 — Estratégia de busca vetorial e híbrida](../adrs/005-vector-search-strategy.md).
+Consulte [ADR-005  Vector and hybrid search strategy](../adrs/005-vector-search-strategy.md).
 
-## 9. Cachear ou não cachear?
+## 9. To hide or not to hide?
 
-Cache pode reduzir custo e latência, mas precisa incorporar:
+Cache can reduce cost and latency, but it needs to incorporate:
 
 - identidade ou grupo autorizado;
 - tenant;
-- versão do agente;
-- versão das fontes;
-- classificação;
+- the agent's version;
+- version of the sources;
+- the classification;
 - finalidade;
-- modelo e configuração;
-- prazo de validade.
+- model and configuration;
+- the period of validity.
 
-Não reutilize uma resposta entre usuários quando a autorização ou o contexto puderem alterar o resultado.
+Do not reuse a user response when authorisation or context may change the result.
 
 ## 10. Build ou buy?
 
 | Pergunta | Favorece build | Favorece buy |
 |---|---|---|
-| capacidade diferencia o negócio? | sim | não |
-| requisitos de integração são específicos? | sim | não |
-| controle de dados é crítico? | sim | depende do fornecedor |
-| time possui capacidade de operar? | sim | não |
-| time-to-market é prioridade absoluta? | não | sim |
-| commodity madura existe no mercado? | não | sim |
-| lock-in é aceitável? | não | sim |
+| capacity differentiates the business? | sim | No |
+| are integration requirements specific? | sim | No |
+| is data control critical? | sim | depends on the supplier |
+| Do you have the ability to operate? | sim | No |
+| Time-to-market is a top priority? | No | sim |
+| Is there a mature commodity on the market? | No | sim |
+| Lock-in is acceptable? | No | sim |
 
-### Componentes frequentemente compráveis
+### Frequently purchased components
 
-- observabilidade gerenciada;
+- managed observability;
 - model APIs;
-- scanners e DLP;
+- scanners and DLP;
 - vector search gerenciada;
-- gateways ou catálogos, quando atendem às políticas.
+- gateways or catalogs, when they meet policies.
 
-### Componentes frequentemente estratégicos
+### Often strategic components
 
 - operating model;
-- contratos corporativos;
-- políticas e risk gates;
-- integração com identidade e sistemas internos;
-- datasets e avaliações do domínio;
-- experiência do desenvolvedor;
-- telemetria e atribuição de custos.
+- corporate contracts;
+- policies and risk gates;
+- integration with identity and internal systems;
+- domain datasets and assessments;
+- the experience of the developer;
+- the use of telemetry and cost allocation.
 
-## 11. Provedor único ou multi-provider?
+## 11. Single provider or multi-provider?
 
-Multi-provider deve resolver um requisito concreto:
+The multi-provider shall fulfil a specific requirement:
 
 - disponibilidade;
-- residência de dados;
-- capacidade específica;
-- negociação de custo;
-- redução de concentração;
-- necessidade regulatória.
+- the data residence;
+- specific capacity;
+- cost negotiation;
+- concentration reduction;
+- the need for regulation.
 
-Não implemente portabilidade abstrata completa sem consumidores. Padronize contratos e telemetria, mas aceite diferenças de capacidade entre modelos.
+It doesn't implement complete abstract portability without consumers, it standardizes contracts and telemetry, but it accepts differences in capacity between models.
 
-## 12. Guardrail no prompt ou policy enforcement externo?
+## 12. Guardrail on prompt or external policy enforcement?
 
-Prompts são úteis para orientar comportamento, mas não devem ser a única barreira para:
+Prompts are useful for guiding behavior, but they should not be the only barrier to:
 
-- autorização;
-- acesso a dados;
-- seleção de tools;
+- authorisation;
+- access to data;
+- selection of tools;
 - limites financeiros;
-- ações críticas;
-- retenção e descarte;
-- regiões e modelos permitidos.
+- critical actions;
+- retention and disposal;
+- regions and permitted models.
 
-Esses controles devem ser aplicados por componentes determinísticos antes ou depois da geração.
+These controls shall be applied by deterministic components before or after generation.
 
 ## 13. Human in the loop ou human on the loop?
 
-- **Human in the loop:** a execução pausa e exige aprovação.
-- **Human on the loop:** a execução ocorre, mas é supervisionada e pode ser interrompida.
+- **Human in the loop:** the implementation pauses and requires approval.
+- **Human on the loop:** execution occurs, but is monitored and may be interrupted.
 
-Use HITL quando o efeito for irreversível, regulado, financeiro ou de alto impacto. Use supervisão quando o volume impedir aprovação individual e existirem limites, detecção e rollback adequados.
+Use HITL when the effect is irreversible, regulated, financial or high impact; use supervision when the volume prevents individual approval and there are appropriate limits, detection and rollback.
 
-## Template de ADR
+## The ADR template
 
-Para cada decisão relevante, registre:
+For each relevant decision, register:
 
 ```text
 Title
@@ -232,6 +232,6 @@ Validation plan
 Revisit triggers
 ```
 
-## Próximo capítulo
+## Next chapter
 
-O [modelo de maturidade e roadmap](07-adoption-roadmap.md) organiza essas escolhas em uma sequência de adoção sustentável.
+The [maturity model and roadmap](07-adoption-roadmap.md) organizes these choices into a sustainable adoption sequence.

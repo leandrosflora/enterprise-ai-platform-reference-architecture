@@ -31,13 +31,17 @@ def prose(markdown: str) -> str:
     return LINK_TARGET.sub("]", markdown)
 
 
+def portuguese_marker_count(markdown: str) -> int:
+    return len(PORTUGUESE_MARKERS.findall(prose(markdown)))
+
+
 def main() -> int:
     portuguese_pages = sorted(
         path for path in DOCS_DIR.rglob("*.md") if not path.name.endswith(".en.md")
     )
     english_pages = sorted(DOCS_DIR.rglob("*.en.md"))
     missing: list[Path] = []
-    identical: list[Path] = []
+    identical_untranslated: list[Path] = []
     portuguese_heavy: list[tuple[Path, int]] = []
 
     for source in portuguese_pages:
@@ -48,24 +52,30 @@ def main() -> int:
 
         source_text = source.read_text(encoding="utf-8")
         translation_text = translation.read_text(encoding="utf-8")
-        if source_text == translation_text:
-            identical.append(translation)
+        source_markers = portuguese_marker_count(source_text)
 
-        marker_count = len(PORTUGUESE_MARKERS.findall(prose(translation_text)))
-        # A few Portuguese names may be referenced intentionally. A page with ten
-        # or more prose markers is almost certainly untranslated or only partial.
+        # Some canonical pages are already written entirely in English. Their
+        # localized variant may legitimately be byte-identical. Only reject an
+        # identical pair when the canonical source actually contains Portuguese.
+        if source_text == translation_text and source_markers > 0:
+            identical_untranslated.append(translation)
+
+        marker_count = portuguese_marker_count(translation_text)
+        # A few Portuguese proper names may be referenced intentionally. A page
+        # with ten or more prose markers is almost certainly untranslated or only
+        # partially translated and must receive editorial review.
         if marker_count >= 10:
             portuguese_heavy.append((translation, marker_count))
 
-    print(f"Portuguese pages: {len(portuguese_pages)}")
+    print(f"Canonical pages: {len(portuguese_pages)}")
     print(f"English pages: {len(english_pages)}")
     print(f"Missing English pages: {len(missing)}")
-    print(f"Identical PT/EN pages: {len(identical)}")
+    print(f"Identical untranslated PT/EN pages: {len(identical_untranslated)}")
     print(f"English pages with substantial Portuguese prose: {len(portuguese_heavy)}")
 
     for heading, entries in (
         ("Missing English variants", missing),
-        ("Identical PT/EN files", identical),
+        ("Identical untranslated PT/EN files", identical_untranslated),
     ):
         if entries:
             print(f"\n{heading}:")
@@ -77,7 +87,7 @@ def main() -> int:
         for path, count in portuguese_heavy:
             print(f"- {path} ({count} Portuguese markers)")
 
-    return 1 if missing or identical or portuguese_heavy else 0
+    return 1 if missing or identical_untranslated or portuguese_heavy else 0
 
 
 if __name__ == "__main__":

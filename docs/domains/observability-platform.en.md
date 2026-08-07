@@ -1,10 +1,10 @@
 # Observability Platform
 
-## Objetivo
+## Objective
 
-Fornecer rastreabilidade, métricas, logs e dashboards para operação da Enterprise AI Platform.
+Provide traceability, metrics, logs and dashboards for the operation of Enterprise AI Platform.
 
-## Capacidades
+## Capacities
 
 - Agent Tracing
 - Distributed Tracing
@@ -14,14 +14,14 @@ Fornecer rastreabilidade, métricas, logs e dashboards para operação da Enterp
 - Cost Observability
 - Alerting
 
-## Serviços Relacionados
+## Other services
 
 - Agent Runtime
 - Audit Service
 - Billing Service
 - Observability Stack
 
-## Eventos
+## Events
 
 - agent.invoked
 - tool.executed
@@ -29,17 +29,17 @@ Fornecer rastreabilidade, métricas, logs e dashboards para operação da Enterp
 
 ## KPIs
 
-| Indicador | Descrição |
+| Indicador | Other information |
 |---|---|
-| Latency P95 | Latência por agente e serviço |
-| Error Rate | Taxa de erro por componente |
-| Token Usage | Consumo de tokens |
-| Trace Coverage | Cobertura de traces por execução |
+| Latency P95 | Latency by agent and service |
+| Error Rate | Error rate per component |
+| Token Usage | Use of tokens |
+| Trace Coverage | Trace coverage by execution |
 
-## Requisitos Não Funcionais
+## Non-functional requirements
 
-- OpenTelemetry como padrão
-- CorrelationId obrigatório
-- Mascaramento de dados sensíveis
-- Retenção definida por tipo de telemetria
-- Dashboards por plataforma, agente e área
+- OpenTelemetry as standard
+- Compulsory correlation
+- Masking of sensitive data
+- Retention defined by type of telemetry
+- Dashboards by platform, agent and area

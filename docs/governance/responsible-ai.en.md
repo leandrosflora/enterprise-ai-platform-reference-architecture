@@ -1,23 +1,23 @@
 # Responsible AI
 
-## Objetivo
+## Objective
 
-Definir princípios, decisões, controles e evidências para que soluções de IA sejam justas, transparentes, seguras, confiáveis e supervisionáveis ao longo de todo o ciclo de vida.
+Defining principles, decisions, controls and evidence to ensure that AI solutions are fair, transparent, secure, reliable and supervised throughout the lifecycle.
 
-## Princípios
+## Principles
 
-| Princípio | Pergunta de arquitetura | Evidência esperada |
+| This is a principle. | Question on architecture | Expected evidence |
 |---|---|---|
-| Fairness | O sistema produz impacto desproporcional entre grupos? | métricas por segmento, dataset de teste e plano de mitigação |
-| Transparência | O usuário sabe que interage com IA e quais são seus limites? | aviso de uso, Agent Card e limitações publicadas |
-| Explicabilidade | É possível justificar respostas ou decisões? | citações, fatores relevantes, rationale permitido e trilha de decisão |
-| Accountability | Existe um responsável por risco, operação e resultado? | owner, aprovadores, RACI e registro de decisão |
-| Privacidade | O uso de dados respeita finalidade, minimização e retenção? | classificação, base legal, DPIA/LIA quando aplicável e TTL |
-| Segurança | Entradas, contexto, memória, ferramentas e saídas são tratados como não confiáveis? | threat model, testes adversariais e controles técnicos |
-| Robustez | O sistema degrada de forma segura diante de falhas ou mudanças? | fallback, circuit breaker, testes de resiliência e rollback |
-| Supervisão humana | A autonomia é proporcional ao impacto? | human-in-the-loop, limites transacionais e segregação de função |
+| Fairness | Does the system produce disproportionate impact between groups? | Metrics by segment, test dataset and mitigation plan |
+| Transparency | Does the user know that they're interacting with AI, and what are their limits? | Notice of use, Agent Card and published limitations |
+| Explicabilidade | Is it possible to justify answers or decisions? | The Commission considers that the Commission should take into account the fact that, in the light of the above, it is not possible to determine whether the aid is compatible with the internal market. |
+| Accountability | Is there someone responsible for risk, operation and outcome? | owner, approvers, RACI and decision record |
+| Privacidade | Does the use of data respect purpose, minimisation and retention? | Classification, legal basis, DPIA/LIA where applicable and TTL |
+| Security | Are inputs, context, memory, tools and exits treated as unreliable? | threat model, adverse testing and technical controls |
+| Robustez | Does the system degrade safely in the face of failures or changes? | The manufacturer shall ensure that the following conditions are met: |
+| Human supervision | Is the autonomy proportional to the impact? | human-in-the-loop, transaction limits and function segregation |
 
-## Ciclo de vida
+## Life cycle
 
 ```mermaid
 flowchart LR
@@ -31,77 +31,77 @@ flowchart LR
     H --> I[Reavaliação ou retirada]
 ```
 
-## Requisitos por etapa
+## Requirements by stage
 
-### Descoberta e design
+### Discovery and design
 
-- definir finalidade, usuários, impacto e limites de uso;
-- classificar risco e dados;
+- define purpose, users, impact and limits of use;
+- classify risk and data;
 - identificar grupos potencialmente afetados;
-- decidir o grau máximo de autonomia;
-- registrar alternativas não baseadas em IA.
+- determine the maximum degree of autonomy;
+- registering alternatives that are not based on AI.
 
-### Construção
+### Construction
 
-- usar fontes aprovadas e rastreáveis;
-- versionar prompts, modelos, políticas e datasets;
-- separar instruções confiáveis de conteúdo não confiável;
-- aplicar minimização, mascaramento e controles de acesso;
-- implementar explicações proporcionais ao caso de uso.
+- use approved and traceable sources;
+- to publish prompts, templates, policies and datasets;
+- separate reliable instructions from unreliable content;
+- apply minimisation, masking and access controls;
+- implement explanations proportionate to the use case.
 
-### Avaliação
+### Assessment
 
-- medir qualidade, groundedness, segurança, viés e robustez;
-- executar testes adversariais e por segmentos relevantes;
-- comparar contra baseline e versão anterior;
-- exigir revisão humana para riscos HIGH e CRITICAL.
+- measuring quality, groundedness, safety, bias and robustness;
+- perform adverse and relevant segmental testing;
+- compare against baseline and previous version;
+- require human review for HIGH and CRITICAL risks.
 
-### Operação
+### Operations
 
-- monitorar drift, regressão, toxicidade, incidentes e custo;
-- registrar decisões e tool calls sem expor conteúdo sensível;
-- manter canal de contestação e escalonamento humano;
-- reavaliar após mudança de modelo, prompt, fonte ou finalidade.
+- monitoring drift, regression, toxicity, incidents and cost;
+- record decisions and tool calls without exposing sensitive content;
+- maintain a challenge channel and human scale;
+- re-evaluate after a change in model, prompt, source or purpose.
 
-## Fairness e viés
+## Fairness and prejudice
 
-Fairness deve ser avaliada somente com atributos e segmentos legítimos para o contexto. A remoção de um atributo sensível não elimina necessariamente o viés, pois proxies podem permanecer.
+Fairness should only be assessed with attributes and segments that are legitimate for the context.
 
-Controles mínimos:
+Minimum controls:
 
-1. definir grupos e métricas antes do teste;
-2. analisar disparidade de precisão, falsos positivos e falsos negativos;
-3. revisar representatividade e qualidade dos dados;
-4. documentar trade-offs entre performance e equidade;
-5. bloquear publicação quando o impacto residual não for aceito.
+1. define groups and metrics before the test;
+2. analyze disparities in accuracy, false positives and false negatives;
+3. review the representativeness and quality of data;
+4. document trade-offs between performance and equity;
+5. block publication when the residual impact is not accepted.
 
-## Transparência para o usuário
+## Transparency for the user
 
-Toda experiência deve informar:
+Each experience shall inform:
 
-- que há IA envolvida;
-- quais dados são usados;
-- quais ações o sistema pode executar;
-- limitações conhecidas;
-- como solicitar revisão humana;
-- como contestar ou corrigir uma decisão.
+- that there is AI involved;
+- which data are used;
+- which actions the system can perform;
+- known limitations;
+- how to request human review;
+- How to challenge or correct a decision.
 
 ## Human-in-the-loop
 
-| Impacto | Padrão de supervisão |
+| Impacto | Standard of supervision |
 |---|---|
-| Informativo | revisão por amostragem |
-| Recomendação | humano decide |
-| Escrita reversível | confirmação explícita |
-| Escrita crítica | dupla aprovação ou segregação de função |
-| Decisão regulada | decisão humana final ou controle legal específico |
+| Informativo | sampling review |
+| Recommendation | humano decide |
+| Reversible writing | explicit confirmation |
+| Critical writing | dual approval or function segregation |
+| Regulated decision | final human decision or specific legal control |
 
-## Evidências obrigatórias
+## Compulsory evidence
 
 - Agent Card ou Model Card;
 - risk assessment;
-- dataset e relatório de avaliação;
-- matriz de autorização;
-- justificativa do nível de autonomia;
-- registro de limitações e riscos residuais;
-- plano de monitoramento, rollback e retirada.
+- data set and assessment report;
+- the authorisation matrix;
+- justification of the level of autonomy;
+- the recording of limitations and residual risks;
+- monitoring plan, rollback and withdrawal.

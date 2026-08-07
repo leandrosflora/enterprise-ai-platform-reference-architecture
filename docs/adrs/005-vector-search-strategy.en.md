@@ -1,59 +1,59 @@
-# ADR-005 — Estratégia de busca vetorial e híbrida
+# ADR-005  Vector and hybrid search strategy
 
 **Status:** Aceito
 
 ## Contexto
 
-A plataforma precisa suportar busca semântica e híbrida para cenários de RAG corporativo, preservando filtros por metadados, isolamento por tenant, autorização por documento e operação em escala.
+The platform needs to support semantic and hybrid search for corporate RAG scenarios, preserving metadata filters, tenant isolation, document authorisation and scale operation.
 
-## Decisão
+## Decision
 
-Adotar **OpenSearch como implementação inicial de referência** para busca vetorial e híbrida, acessado exclusivamente por meio do Knowledge Service.
+Adopt **OpenSearch as the initial reference implementation** for vector and hybrid search, accessed exclusively through Knowledge Service.
 
-A arquitetura deve manter uma abstração de índice e retrieval para permitir outros mecanismos quando requisitos de domínio, custo, escala ou residência de dados justificarem a troca.
+The architecture shall maintain index abstraction and retrieval to allow for other mechanisms where domain, cost, scale or data residency requirements justify the exchange.
 
-## Requisitos obrigatórios
+## Mandatory requirements
 
-- busca vetorial, textual e híbrida;
-- filtros server-side por tenant, classificação, ACL, finalidade e retenção;
-- versionamento do modelo de embedding e do índice;
-- aliases ou mecanismo equivalente para promoção e rollback;
-- exclusão verificável por `documentId` e `tenantId`;
-- telemetria de latência, recall, custo e resultados filtrados;
-- reindexação idempotente e sem indisponibilidade evitável.
+- vector, textual and hybrid search;
+- server-side filters by tenant, rating, ACL, purpose and retention;
+- versioning of the embedding model and index;
+- aliases or equivalent mechanism for promotion and rollback;
+- the verifiable exclusion by `documentId` and `tenantId`;
+- the latency, recall, cost and filtered results telemetry;
+- The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof.
 
 ## Alternativas
 
-| Alternativa | Vantagem | Limitação |
+| Alternativa | Vantagem | Limitation |
 |---|---|---|
-| OpenSearch | busca híbrida, filtros e maturidade operacional | exige tuning e pode ter custo relevante |
-| pgvector | simplicidade e proximidade com dados relacionais | menor especialização para busca híbrida em grande escala |
-| MongoDB Vector Search | integração com documentos e memória | acopla retrieval ao datastore operacional |
-| Vector database especializado | recursos vetoriais avançados | dependência adicional, custo e governança própria |
+| OpenSearch | Hybrid search, filters and operational maturity | requires tuning and may have a relevant cost |
+| pgvector | simplicity and proximity to relational data | less specialization for large-scale hybrid search |
+| MongoDB Vector Search | integration with documents and memory | acopla retrieval ao datastore operacional |
+| Vector database especializado | Advanced vector resources | Additional dependency, cost and own governance |
 
-## Consequências positivas
+## Positive consequences
 
-- reduz a quantidade inicial de componentes especializados;
-- permite busca textual e vetorial no mesmo mecanismo;
-- aproveita filtros, aliases e práticas operacionais maduras;
-- mantém a decisão reversível por meio do Knowledge Service.
+- reduce the initial quantity of specialised components;
+- enables text and vector search on the same mechanism;
+- use mature filters, aliases and operational practices;
+- maintain the decision reversible through Knowledge Service.
 
-## Consequências negativas
+## Negative consequences
 
-- OpenSearch pode não ser a melhor opção para todos os workloads;
-- tuning de índices, shards, refresh e embeddings exige capacidade especializada;
-- abstração excessiva pode esconder recursos úteis do mecanismo;
-- migração exige reindexação e validação de qualidade.
+- OpenSearch may not be the best option for all workloads;
+- tuning of indexes, shards, refresh and embeddings requires specialized capability;
+- excessive abstraction may hide useful resources from the mechanism;
+- Migration requires re-indexation and quality validation.
 
-## Evidências mínimas
+## Minimum evidence
 
-- benchmark com dataset representativo;
-- métricas de recall, precision, MRR ou nDCG conforme o caso;
-- teste de isolamento e acesso negado;
-- plano de versionamento e rollback do índice;
-- custo estimado e observado por volume;
-- procedimento de exclusão e reindexação.
+- a benchmark with a representative dataset;
+- Recall, accuracy, MRR or nDCG metrics as appropriate;
+- isolation test and denied access;
+- the index versioning and rollback plan;
+- estimated and observed cost per volume;
+- the exclusion and re-indexation procedure.
 
-## Critérios de revisão
+## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
 
-Revisar quando qualidade, escala, custo, requisitos de filtros ou residência de dados deixarem de ser atendidos, ou quando outro mecanismo demonstrar ganho mensurável sem reduzir governança e portabilidade.
+Review when quality, scale, cost, filtering requirements or data residency are no longer met, or when another mechanism demonstrates measurable gain without reducing governance and portability.

@@ -1,8 +1,8 @@
 # AI Catalog
 
-## Catálogo Corporativo
+## This is the list of companies.
 
-Todos os agentes devem ser registrados.
+All agents must be registered.
 
 ## Metadados
 
@@ -25,9 +25,9 @@ Todos os agentes devem ser registrados.
 - Published
 - Retired
 
-## Objetivos
+## Objectives
 
-- Governança
+- Governance
 - Descoberta
 - Auditoria
 - Reuso

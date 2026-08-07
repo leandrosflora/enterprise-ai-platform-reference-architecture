@@ -1,271 +1,271 @@
-# 8. Modelo de maturidade e roadmap de adoção
+# 8. Maturity model and adoption roadmap
 
-## Princípio
+## This is a principle.
 
-A maturidade de uma AI Platform não é definida pelo número de serviços implantados. Ela é demonstrada pela capacidade de entregar casos de uso com qualidade, controle, operação e custo previsíveis.
+The maturity of a AI Platform is not determined by the number of services deployed, but by the ability to deliver use cases with predictable quality, control, operation and cost.
 
-## Modelo de maturidade
+## The maturity model
 
-### Nível 0 — Experimentos isolados
+### Level 0  Isolated experiments
 
-**Características**
+**Characteristics**
 
-- notebooks, scripts e SaaS sem padrão comum;
-- credenciais e configurações locais;
+- Notebooks, scripts and SaaS without a common standard;
+- credentials and local settings;
 - pouca rastreabilidade;
-- avaliação manual;
-- custos não atribuídos;
-- conhecimento e prompts copiados entre projetos.
+- manual evaluation;
+- unallocated costs;
+- knowledge and prompts copied between projects.
 
-**Objetivo para avançar**
+** Goal to move forward**
 
-Identificar padrões repetidos, owners e riscos materiais.
+Identify repeated patterns, owners and material risks.
 
-### Nível 1 — Padrões mínimos
+### Level 1  Minimum standards
 
-**Características**
+**Characteristics**
 
-- templates de projeto;
-- identidade e secrets adequados;
-- logging básico;
-- inventário inicial de casos;
-- provedores e modelos aprovados;
-- checklist de publicação.
+- design templates;
+- appropriate identity and secrecy;
+- basic logging;
+- initial case inventory;
+- approved providers and models;
+- the publication checklist.
 
-**Evidência de maturidade**
+** Evidence of maturity**
 
-Primeiros casos de baixo risco chegam à produção sem controles ad hoc.
+The first low-risk cases reach production without ad hoc controls.
 
-### Nível 2 — Golden path executável
+### Level 2  Golden path executable
 
-**Características**
+**Characteristics**
 
-- Agent Registry e ciclo de vida;
+- Agent Registry and life cycle;
 - Model Gateway;
-- contratos e eventos versionados;
-- CI/CD com avaliações e policies;
-- observabilidade ponta a ponta;
-- runbooks e rollback;
-- primeiro serviço de knowledge ou tools.
+- Contracts and versioned events;
+- CI/CD with assessments and policies;
+- end-to-end observability;
+- runbooks and rollback;
+- first knowledge or tools service.
 
-**Evidência de maturidade**
+** Evidence of maturity**
 
-Squads conseguem publicar versões controladas sem depender de implementação manual do time central.
+Squads can publish controlled versions without relying on manual implementation from the central team.
 
-### Nível 3 — Governança baseada em risco
+### Level 3  Risk-based governance
 
-**Características**
+**Characteristics**
 
 - AI Catalog completo;
-- risk tiers e gates proporcionais;
-- RAG e memória com lifecycle;
-- datasets e baselines versionados;
+- risk tiers and proportional gates;
+- RAG and lifecycle memory;
+- versioned datasets and baselines;
 - approval evidence;
-- revisão periódica;
+- periodic review;
 - incident management especializado.
 
-**Evidência de maturidade**
+** Evidence of maturity**
 
-A organização demonstra por que uma versão foi publicada e consegue suspender ou retirar rapidamente.
+The organisation demonstrates why a version has been published and can quickly suspend or withdraw it.
 
-### Nível 4 — Escala federada
+### Level 4  Federated scale
 
-**Características**
+**Characteristics**
 
-- múltiplas unidades e tenants;
-- marketplace de capacidades;
-- MCP e tools governadas;
+- multiple units and tenants;
+- the capacity marketplace;
+- MCP and controlled tools;
 - chargeback ou showback;
 - capacity management;
 - community of practice;
 - platform product management maduro.
 
-**Evidência de maturidade**
+** Evidence of maturity**
 
-A adoção cresce sem crescimento proporcional de exceções, incidentes ou esforço central.
+Adoption grows without proportionate growth of exceptions, incidents or central effort.
 
-### Nível 5 — Otimização contínua
+### Level 5  Continuous optimisation
 
-**Características**
+**Characteristics**
 
-- routing orientado por qualidade, custo e disponibilidade;
-- avaliações online e shadow traffic;
+- quality, cost and availability-oriented routing;
+- online assessments and shadow traffic;
 - error budgets influenciam releases;
-- otimização por outcome;
-- automação de revisão e evidências;
-- resiliência multi-região quando justificada.
+- the results of the evaluation shall be presented in accordance with the methodology set out in Annex II.
+- automation of review and evidence;
+- multi-regional resilience when justified.
 
-**Evidência de maturidade**
+** Evidence of maturity**
 
-Qualidade, risco, custo e velocidade são geridos como dimensões do mesmo produto plataforma.
+Quality, risk, cost and speed are managed as dimensions of the same platform product.
 
-## Matriz de maturidade
+## Mature matrix
 
-| Dimensão | N0 | N1 | N2 | N3 | N4 | N5 |
+| Size | N0 | N1 | N2 | N3 | N4 | N5 |
 |---|---|---|---|---|---|---|
-| Delivery | artesanal | templates | golden path | gates por risco | self-service federado | otimização contínua |
-| Governança | inexistente | checklist | workflow | evidências e revisão | policies em escala | automação adaptativa |
-| Segurança | projeto a projeto | baseline | enforcement comum | threat model e testes | isolamento endurecido | continuous assurance |
-| Evaluation | manual | amostras | datasets | baselines e regressão | online + offline | otimização por outcome |
-| Operação | best effort | logs | SLOs e runbooks | incidentes e reviews | capacity e DR | error-budget driven |
-| FinOps | fatura agregada | tags | custo por agente | budgets e quotas | showback/chargeback | routing econômico |
-| Organização | iniciativas | champions | platform team | modelo federado | CoE e comunidade | product portfolio otimizado |
+| Delivery | artesanal | templates | golden path | Cat at risk | self-service federado | continuous optimisation |
+| Governance | inexistente | Checklist | workflow | Evidence and review | policies at scale | The following information shall be provided: |
+| Security | project to project | baseline | enforcement comum | threat model and testing | isolamento endurecido | continuous assurance |
+| Evaluation | manual | amostras | datasets | Baselines and regression | online + offline | Optimization by outcome |
+| Operations | best effort | logs | SLOs and runbooks | Incidents and reviews | capacity and DR | error-budget driven |
+| FinOps | fatura agregada | tags | Cost per agent | budgets and quotas | showback/chargeback | economic routing |
+| The Commission shall adopt implementing acts. | iniciativas | champions | platform team | Federated model | CoE and Community | product portfolio otimizado |
 
-## Roadmap de referência em 12 meses
+## Reference roadmap in 12 months
 
-O calendário deve ser adaptado ao contexto. A sequência abaixo prioriza aprendizado operacional antes da expansão.
+The timetable should be adapted to the context.The following sequence prioritizes operational learning before expansion.
 
-### Trimestre 1 — Foundation e primeiro golden path
+### Quarter 1  Foundation and first golden path
 
 **Entregas**
 
-- platform charter e owners;
-- capability map e backlog;
-- Agent Registry mínimo;
-- Agent Gateway e Runtime;
+- platform charters and owners;
+- capability map and backlog;
+- the minimum Agent Registry;
+- Agent Gatewayand Runtime;
 - Model Gateway;
-- identidade, policies e telemetria;
-- CI/CD com contratos;
-- primeiro caso interno de baixo ou médio risco.
+- identity, policies and telemetry;
+- CI/CD with contracts;
+- the first low- or medium-risk internal case.
 
-**Resultados**
+** Results**
 
-- primeira versão publicada por pipeline;
-- trace ponta a ponta;
-- custo por invocação conhecido;
+- the first version published by pipeline;
+- draw a line from end to end;
+- cost per known invocation;
 - rollback exercitado;
-- feedback da primeira squad.
+- First squad feedback.
 
-### Trimestre 2 — Knowledge, memória e evaluation
+### Quarter 2  Knowledge, memory and evaluation
 
 **Entregas**
 
-- ingestão com quarentena;
-- ACL por documento e chunk;
-- citations e groundedness;
-- memória com TTL e consentimento;
-- datasets e baseline;
+- ingestion with quarantine;
+- ACL per document and chunk;
+- citations and groundedness;
+- memory with TTL and consent;
+- data sets and baseline;
 - risk workflow proporcional;
-- dashboards de qualidade e custo.
+- quality and cost dashboards.
 
-**Resultados**
+** Results**
 
-- agente documental operando com acesso controlado;
-- regressões bloqueadas no pipeline;
-- exclusão e expiração testadas;
-- revisão de 30 ou 60 dias executada.
+- a documentary agent operating with controlled access;
+- blocked regressions in the pipeline;
+- Tested exclusion and expiration;
+- 30 or 60 day review carried out.
 
-### Trimestre 3 — Tools e integração corporativa
+### Quarter 3  Tools and corporate integration
 
 **Entregas**
 
 - MCP Registry;
-- onboarding de tools;
-- idempotência, outbox e compensação;
-- HITL para ações críticas;
-- tool metrics e audit;
-- segundo e terceiro casos de uso.
+- onboarding of tools;
+- idempotence, outbox and compensation;
+- HITL for critical actions;
+- tool metrics and audits;
+- second and third use cases.
 
-**Resultados**
+** Results**
 
-- ação corporativa governada;
-- tools bloqueáveis por política;
-- falhas e retries sem duplicar efeitos;
-- reutilização comprovada entre squads.
+- governed corporate shares;
+- policy-blocking tools;
+- failures and retries without duplicate effects;
+- proven reuse between squads.
 
-### Trimestre 4 — Escala, FinOps e operating model
+### Quarter 4  Scale, FinOps and operating model
 
 **Entregas**
 
-- quotas e budgets por tenant e agente;
+- quotas and budgets per tenant and agent;
 - showback;
 - marketplace interno;
 - maturity assessment;
 - community of practice;
 - capacity tests;
-- DR e incident simulation;
-- roadmap do próximo ano baseado em adoção.
+- DR and incident simulation;
+- the next year's roadmap based on adoption.
 
-**Resultados**
+** Results**
 
-- custos atribuídos;
+- assigned costs;
 - lead time reduzido;
-- operação com SLOs;
-- crescimento sem aumento proporcional do time central.
+- operation with SLOs;
+- growth without a proportionate increase in the central team.
 
-## Backlog orientado a outcomes
+## Results-oriented backlog
 
-Evite um backlog composto apenas por componentes. Estruture épicos como:
+Avoid a backlog composed only of components.
 
-- reduzir o onboarding de uma squad de quatro semanas para cinco dias;
-- garantir que nenhuma fonte não autorizada seja retornada;
-- detectar regressão de groundedness antes do deploy;
-- atribuir 95% dos custos a agentes e áreas;
-- suspender uma versão em menos de cinco minutos;
-- executar uma ação transacional sem duplicidade após retry.
+- reduce the onboarding of a squad from four weeks to five days;
+- ensure that no unauthorised source is returned;
+- detecting groundedness regression prior to deployment;
+- allocate 95% of the costs to agents and areas;
+- suspend a version in less than five minutes;
+- execute a transaction without duplicity after retry.
 
-Os componentes técnicos são entregas necessárias para atingir esses outcomes.
+The technical components are the necessary deliveries to achieve these results.
 
-## KPIs da plataforma
+## Platform KPIs
 
-### Adoção e experiência
+### Adoption and experience
 
 - squads onboarded;
-- agentes publicados e ativos;
-- tempo para primeiro deploy;
-- percentual no golden path;
-- satisfação do desenvolvedor;
-- taxa de reuso de capabilities.
+- published agents and assets;
+- time for first deployment;
+- percentage on the golden path;
+- the developer's satisfaction;
+- capacity reuse rate.
 
-### Qualidade e risco
+### Quality and risk
 
-- regressões bloqueadas;
-- policy denials por categoria;
-- incidentes de segurança ou privacidade;
+- blocked regressions;
+- policy denials by category;
+- security or privacy incidents;
 - respostas grounded;
-- taxa de fallback e abstention;
-- exceções abertas e vencidas.
+- fallback and abstention rates;
+- Open and expired exceptions.
 
-### Operação
+### Operations
 
-- disponibilidade e p95 por workload;
+- Availability and p95 per workload;
 - MTTR;
-- saturação e backlog;
-- taxa de sucesso de invocação;
-- incidentes por agente e dependência;
-- cumprimento de revisões periódicas.
+- saturation and backlog;
+- the success rate of the invocation;
+- incidents per agent and dependency;
+- compliance with periodic reviews.
 
-### FinOps e valor
+### FinOps and value
 
-- custo por agente, área e modelo;
-- custo por tarefa concluída;
+- cost per agent, area and model;
+- cost per completed task;
 - budget variance;
-- economia de tempo ou redução de esforço;
-- receita, conversão ou risco evitado quando aplicável;
-- custo de plataforma por consumidor ativo.
+- time savings or reduction of effort;
+- revenue, conversion or risk avoided where applicable;
+- the cost of the platform per active consumer.
 
-## Guardrails de investimento
+## Investment guardrails
 
-Antes de expandir uma capability, valide:
+Before expanding a capability, validate:
 
-- ao menos dois consumidores ou um requisito corporativo forte;
-- owner de produto e operação;
-- SLO e custo esperados;
-- contrato e estratégia de versionamento;
-- plano de depreciação;
-- métrica de sucesso;
-- alternativa gerenciada ou comprável analisada.
+- at least two consumers or a strong corporate requirement;
+- owner of the product and operation;
+- SLO and expected cost;
+- contract and versioning strategy;
+- the depreciation plan;
+- the success metric;
+- managed or analyzed purchasable alternative.
 
-## Antipadrões de roadmap
+## Roadmap anti-patterns
 
-- implantar todos os componentes antes do primeiro caso real;
-- medir progresso por quantidade de ferramentas;
-- adotar multi-agent, memória longa e fine-tuning simultaneamente;
-- construir marketplace sem consumidores;
-- expandir para casos HIGH antes de operar um caso simples;
-- ignorar suporte, incidentes e custos durante a POC;
-- tratar governança como fase posterior.
+- deploy all components before the first actual case;
+- measuring progress by number of tools;
+- adopt multi-agent, long memory and fine-tuning at the same time;
+- building a marketplace without consumers;
+- expanding to HIGH cases before operating a simple case;
+- ignore support, incidents and costs during the POC;
+- to treat governance as a later stage.
 
-## Próximo capítulo
+## Next chapter
 
-Os [checklists de produção](08-production-checklists.md) convertem maturidade e lifecycle em verificações objetivas para cada release.
+The [production checklists](08-production-checklists.md) convert maturity and lifecycle into objective checks for each release.

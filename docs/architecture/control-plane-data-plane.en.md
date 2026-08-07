@@ -1,70 +1,70 @@
-# Control Plane e Data Plane
+# Control Planeand Data Plane
 
-## Decisão
+## Decision
 
-A plataforma separa **gestão e governança** de **execução online**.
+The platform separates management and governance from online execution.
 
-- O **control plane** administra metadados, políticas, versões, aprovações e evidências.
-- O **data plane** executa invocações, recuperação, memória, modelos e ferramentas sob políticas publicadas.
+- The control plane** manages metadata, policies, versions, approvals and evidence.
+- The data plane** executes invocations, recovery, memory, templates and tools under published policies.
 
-Essa separação reduz o blast radius, permite escalar cada plano de forma independente e impede que indisponibilidades administrativas interrompam workloads já publicados.
+This separation reduces the blast radius, allows each plane to be scaled independently and prevents administrative unavailabilities from disrupting already published workloads.
 
 ## Control plane
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
-| Agent Registry | Metadados, versões imutáveis e estado do ciclo de vida. |
-| Governance Service | Workflow, segregação de funções e evidências. |
-| Evaluation Service | Datasets, baselines, thresholds e relatórios. |
-| MCP Registry | Catálogo e versões aprovadas de ferramentas. |
-| Policy Administration Point | Autoria, revisão e publicação de políticas. |
-| Model Catalog | Allowlist de modelos, regiões, capacidades e restrições. |
-| FinOps Administration | Budgets, quotas e regras de atribuição de custo. |
+| Agent Registry | Metadata, unchanged versions and life cycle status. |
+| Governance Service | Workflow, segregation of functions and evidence. |
+| Evaluation Service | Data sets, baselines, thresholds and reports. |
+| MCP Registry | Catalogue and approved versions of tools. |
+| Policy Administration Point | Author, review and publication of policies. |
+| Model Catalog | Allowlist of models, regions, capabilities and restrictions. |
+| FinOps Administration | Budgets, quotas and cost allocation rules. |
 
 ## Data plane
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
-| Agent Gateway | Autenticação, autorização inicial, rate limit e roteamento. |
-| Agent Runtime | Orquestração da execução do agente. |
-| Policy Enforcement Points | Aplicação local de decisões em Gateway, Runtime, Knowledge e MCP. |
-| Policy Decision Point | Decisão de política com baixa latência e cache controlado. |
-| Knowledge Service | Retrieval com filtros de autorização por documento e chunk. |
-| Memory Service | Memória de sessão e perfil com TTL, consentimento e descarte. |
-| Model Gateway | Roteamento, guardrails, quotas, fallback e telemetria de modelos. |
-| MCP Execution | Execução de ferramentas com allowlist, idempotência e auditoria. |
+| Agent Gateway | Authentication, initial authorization, rate limit and routing. |
+| Agent Runtime | Orchestration of the execution of the agent. |
+| Policy Enforcement Points | Local decision-making in Gateway, Runtime, Knowledge and MCP. |
+| Policy Decision Point | Policy decision with low latency and cached control. |
+| Knowledge Service | Retrieval with authorization filters by document and chunk. |
+| Memory Service | Session memory and TTL profile, consent and discard. |
+| Model Gateway | Routing, guardrails, quotas, fallback and model telemetry. |
+| MCP Execution | Implementing tools with allowlist, idempotence and audit. |
 
-## Fluxo de publicação
+## Flow of publication
 
-1. O developer cria uma versão imutável do agente.
-2. Contratos, datasets, budgets e políticas são validados.
-3. Governance Service registra as decisões e evidências.
-4. As políticas aprovadas são publicadas no Policy Decision Point.
-5. Agent Registry muda a versão para `PUBLISHED`.
-6. O data plane passa a aceitar invocações dessa versão.
+1. The developer creates an unchanging version of the agent.
+2. Contracts, datasets, budgets and policies are validated.
+3. Governance Service records the decisions and evidence.
+4. Approved policies are published in the Policy Decision Point.
+5. Agent Registry changes the version to `PUBLISHED`
+6. data plane is now accepting claims for this version.
 
-## Fluxo de invocação
+## Invocation flow
 
-1. Agent Gateway valida identidade, tenant, escopo e limite de consumo.
-2. Runtime carrega somente uma versão `PUBLISHED`.
-3. Policy Decision Point avalia agente, usuário, ferramenta, dado e risco.
-4. Knowledge, Memory, Model Gateway e MCP aplicam enforcement local.
-5. Eventos e traces registram decisões, custo e resultado.
+1. Agent Gateway validates identity, tenant, scope and limit of consumption.
+2. Runtime only carries one version of `PUBLISHED`.
+3. Policy Decision Point assesses agent, user, tool, data and risk.
+4. Knowledge, Memory, Model Gateway and MCP apply local enforcement.
+5. Events and traces record decisions, cost and outcome.
 
 ## Disponibilidade
 
-O data plane não depende de chamadas síncronas ao control plane durante cada invocação. Configurações e políticas publicadas são distribuídas e armazenadas em cache com:
+data plane is not dependent on calls synchronized to control plane during each call. Published settings and policies are distributed and cached with:
 
-- versão e checksum;
-- TTL explícito;
-- invalidação por evento;
-- fallback para a última política válida;
-- comportamento `deny by default` quando não existe política aplicável.
+- version and checksum;
+- the TTL explicitly;
+- invalidation by event;
+- fallback to the last valid policy;
+- `deny by default` behaviour where there is no applicable policy.
 
 ## Isolamento
 
-- namespaces e service accounts separados por plano;
-- bancos de metadados não são acessados diretamente pelo data plane;
-- políticas de rede restringem comunicação lateral;
-- identidades de workload usam privilégio mínimo;
-- operações administrativas exigem MFA e segregação de funções.
+- plan separate namespaces and service accounts;
+- the metadata banks are not directly accessed by the data plane;
+- network policies restrict lateral communication;
+- workload identities use minimum privilege;
+- administrative operations require MFA and segregation of functions.

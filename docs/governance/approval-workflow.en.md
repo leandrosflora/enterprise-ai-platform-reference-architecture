@@ -1,8 +1,8 @@
 # Approval Workflow
 
-## Objetivo
+## Objective
 
-Garantir que agentes corporativos sejam avaliados antes da publicação.
+Ensure that corporate agents are evaluated prior to publication.
 
 ## Workflow
 
@@ -31,8 +31,8 @@ Published
 - Privacy
 - Business Owner
 
-## Evidências
+## Evidence
 
-- Avaliações
+- Assessments
 - Logs
-- Aprovação formal
+- Formal approval

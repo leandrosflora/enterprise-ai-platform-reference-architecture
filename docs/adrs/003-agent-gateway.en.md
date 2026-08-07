@@ -1,36 +1,36 @@
-# ADR-003 — Agent Gateway como ponto de entrada
+# ADR-003  Agent Gateway as an entry point
 
 **Status:** Aceito
 
 ## Contexto
 
-Canais, agentes e provedores de modelos evoluem em ritmos diferentes. Sem uma fronteira comum, autenticação, quotas, roteamento, proteção de dados e telemetria são duplicados.
+Channels, agents and model providers are evolving at different speeds. Without a common border, authentication, quotas, routing, data protection and telemetry are duplicated.
 
-## Decisão
+## Decision
 
-Introduzir um **Agent Gateway** entre canais/BFFs e runtimes. Ele não contém lógica de negócio nem prompts específicos da jornada.
+Introduce a **Agent Gateway** between channels/BFFs and runtimes. It does not contain business logic or specific journey prompts.
 
 ## Responsabilidades
 
-- autenticação, autorização e resolução de tenant;
-- rate limit, quotas e budget enforcement;
-- roteamento por agente, versão e capacidade;
-- normalização de streaming e respostas assíncronas;
-- correlação, tracing, métricas e auditoria;
-- políticas de entrada, classificação e mascaramento de dados;
-- circuit breaker e fallback controlado.
+- authentication, authorisation and tenant resolution;
+- rate limit, quotas and budget enforcement;
+- routing by agent, version and capacity;
+- standardisation of streaming and asynchronous responses;
+- correlation, tracing, metrics and audit;
+- policies for data entry, classification and masking;
+- Circuit breaker and controlled fallback.
 
-## Não responsabilidades
+## No responsibilities
 
-- raciocínio do agente;
-- execução direta de ferramentas de domínio;
-- armazenamento de memória de longo prazo;
-- definição de regras de negócio.
+- the reasoning of the agent;
+- direct implementation of domain tools;
+- long-term memory storage;
+- the definition of business rules.
 
-## Consequências
+## Consequences
 
-O gateway torna-se componente crítico e deve ser stateless, horizontalmente escalável e degradar com segurança. Configurações de agente devem ser versionadas no Control Plane.
+The gateway becomes a critical component and must be stateless, horizontally scalable, and degrade safely.Control Plane.
 
-## Evidência no case
+## Evidence in the case
 
-No case conversacional, o Channel BFF e o Conversation Orchestrator materializam parte dessa fronteira. A evolução recomendada é consolidar políticas comuns sem concentrar a lógica da jornada.
+In the conversational case, Channel BFF and Conversation Orchestrator materialize part of this boundary.

@@ -1,26 +1,26 @@
 # Knowledge Service
 
-## Visão Geral
+## General view
 
-O Knowledge Service ingere, classifica, coloca em quarentena, indexa e recupera conhecimento corporativo para fluxos RAG. Segurança é aplicada por documento e por chunk; o serviço nunca confia no conteúdo recuperado como instrução.
+Knowledge Service ingests, classifies, quarantines, indexes and retrieves corporate knowledge for RAG flows. Security is applied by document and by chunk; the service never relies on retrieved content as instruction.
 
-Padrão obrigatório: [Segurança de RAG e Memória](../security/rag-memory-security.md).
+Mandatory standard: [Security of RAGand Memory](../security/rag-memory-security.md).
 
 ## Responsabilidades
 
-- validar tipo, tamanho, checksum e origem;
-- executar antivírus e detecção de payload ativo;
+- validate type, size, checksum and origin;
+- run antivirus and active payload detection;
 - detectar indirect prompt injection;
-- manter documentos em quarentena até aprovação;
-- extrair texto e metadados;
-- propagar tenant, classificação, ACL, finalidade e retenção para chunks;
-- gerar embeddings e versionar o modelo utilizado;
-- indexar conteúdo em aliases/índices isolados por tenant;
-- aplicar autorização antes e depois da busca;
-- retornar citações com proveniência e decisão de política;
-- excluir, reindexar e invalidar embeddings antigos.
+- keep documents in quarantine until approved;
+- extract text and metadata;
+- the spread of tenant, classification, ACL, purpose and retention to chunks;
+- generate embeddings and version the model used;
+- index content in aliases/indices isolated by tenant;
+- applying authorisation before and after the search;
+- return quotations with provenance and policy decision;
+- delete, re-index and invalidate old embeddings.
 
-## Pipeline de Ingestão
+## Injection pipeline
 
 ```text
 Source
@@ -48,17 +48,17 @@ Indexing
 
 ### Estados
 
-| Estado | Significado |
+| State of origin | Significado |
 |---|---|
-| `QUEUED` | Solicitação aceita. |
-| `QUARANTINED` | Aguardando aprovação ou bloqueada por controle. |
-| `INGESTING` | Extração e chunking em andamento. |
-| `INDEXED` | Disponível para retrieval autorizado. |
-| `FAILED` | Falha técnica ou política não recuperável. |
+| `QUEUED` | Request is accepted. |
+| `QUARANTINED` | Waiting for approval or blocked by control. |
+| `INGESTING` | Extraction and chunking in progress. |
+| `INDEXED` | Available for authorised retrieval. |
+| `FAILED` | Technical or policy failure not recoverable. |
 
-Um documento `QUARANTINED` ou expirado nunca participa da busca.
+A `QUARANTINED` or expired document never participates in the search.
 
-## Contrato de segurança do documento
+## Security of the document
 
 ```yaml
 documentId: policy-001
@@ -78,7 +78,7 @@ retentionPolicy:
   deletionMode: DELETE
 ```
 
-Todos os chunks herdam a política. Redução de classificação ou ampliação de ACL exige nova aprovação e reindexação.
+All chunks inherit the policy. Reducing the classification or expanding the ACL requires new approval and re-indexation.
 
 ## Retrieval seguro
 
@@ -96,16 +96,16 @@ Prompt-injection sanitization
 <untrusted_document> context
 ```
 
-### Regras
+### Rules
 
-- tenant e sujeito são derivados da identidade, não do payload;
-- ACL é aplicada no documento e no chunk;
-- clearance deve ser igual ou superior à classificação;
-- finalidade da consulta deve estar autorizada;
-- resultados negados são removidos sem revelar sua existência;
-- a citação retorna `policyDecisionId`, checksum e origem;
-- somente chunks autorizados podem ser enviados ao modelo;
-- conteúdo recuperado é delimitado e não altera system/developer instructions.
+- tenant and subject are derived from identity, not payload;
+- ACL is applied to the document and to the chunk;
+- the clearance shall be equal to or greater than the classification;
+- the purpose of the consultation must be authorised;
+- negative results are removed without revealing their existence;
+- the quote returns `policyDecisionId`, checksum and origin;
+- only authorised chunks may be sent to the model;
+- the recovered content is limited and does not change the system/developer instructions.
 
 ## APIs
 
@@ -114,7 +114,7 @@ POST /v1/knowledge-bases/{knowledgeBaseId}/documents
 POST /v1/knowledge-bases/{knowledgeBaseId}:search
 ```
 
-## Eventos Publicados
+## Events Published
 
 - `knowledge.ingested`
 - `knowledge.quarantined`
@@ -122,44 +122,44 @@ POST /v1/knowledge-bases/{knowledgeBaseId}:search
 - `document.deleted`
 - `embedding.generated`
 
-Eventos não carregam texto integral. Devem conter IDs, classificação, checksum, status e motivos de quarentena.
+Events do not contain full text, they must contain IDs, classification, checksum, status and quarantine grounds.
 
-## Exclusão e Reindexação
+## Exclusion and re-indexation
 
-A exclusão remove:
+The deletion removes:
 
 1. documento original;
 2. chunks;
 3. embeddings;
 4. caches;
-5. referências em datasets derivados quando aplicável.
+5. references in derived datasets where applicable.
 
-Reindexação cria nova versão imutável e invalida a anterior. O índice precisa suportar remoção por `documentId` e `tenantId`.
+The index must support removal by `documentId` and `tenantId`
 
-## Dependências
+## Dependencies
 
-| Dependência | Uso |
+| Dependence | Uso |
 |---|---|
-| Object Storage | Originais em quarentena e aprovados |
-| Malware/DLP Scanner | Análise de conteúdo |
-| Policy Decision Point | ACL, finalidade e classificação |
-| OpenSearch | Busca vetorial e híbrida |
-| PostgreSQL | Metadados, proveniência e retenção |
+| Object Storage | Originals quarantined and approved |
+| Malware/DLP Scanner | Content analysis |
+| Policy Decision Point | ACL, purpose and classification |
+| OpenSearch | Vector search and hybrid search |
+| PostgreSQL | Metadata, origin and retention |
 | Foundation Models | Embeddings aprovados |
-| Kafka | Eventos auditáveis |
+| Kafka | Auditable events |
 
-## Requisitos Não Funcionais
+## Non-functional requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Segurança | Deny by default, ACL por chunk e quarantine-first |
-| Privacidade | Minimização, retenção e exclusão verificável |
-| Rastreabilidade | Origem, checksum, versão e decisão de política |
-| Qualidade | Avaliar retrieval separadamente da geração |
-| Resiliência | Reprocessamento idempotente e DLQ |
-| Escalabilidade | Ingestão assíncrona separada de consulta |
+| Security | Deny by default, ACL by chunk and quarantine-first |
+| Privacidade | Minimization, retention and verifiable exclusion |
+| Rastreabilidade | Origin, checksum, version and policy decision |
+| Qualidade | Assess retrieval separately from generation |
+| Resilience | Impotent reprocessing and DLQ |
+| Escalabilidade | Asynchronous intake separate from consultation |
 
-## Decisões Relacionadas
+## Related Decisions
 
-- [ADR-005 — Estratégia de busca vetorial e híbrida](../adrs/005-vector-search-strategy.md)
-- [ADR-007 — Avaliação híbrida e contínua de IA](../adrs/007-evaluation-strategy.md)
+- [ADR-005  Vector and hybrid search strategy](../adrs/005-vector-search-strategy.md)
+- [ADR-007  Hybrid and continuous assessment of AI](../adrs/007-evaluation-strategy.md)

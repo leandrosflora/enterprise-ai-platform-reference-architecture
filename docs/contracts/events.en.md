@@ -1,20 +1,20 @@
-# Contratos de Eventos
+# Contracts for Events
 
-## Fonte canônica
+## Canonical source
 
-O arquivo [`async-api.yaml`](async-api.yaml) é a fonte executável dos eventos. Este documento define as convenções normativas. Exemplos e implementações não podem criar envelopes ou enums alternativos.
+The file [`async-api.yaml`](async-api.yaml) is the executable source of events. This document defines normative conventions. Examples and implementations cannot create alternative envelopes or enums.
 
-## Transporte e versionamento
+## Transport and versioning
 
-- Transporte de referência: Kafka.
-- Serialização de referência: JSON UTF-8.
-- Tópicos usam o formato `<evento>.v<major>`, por exemplo `agent.invoked.v1`.
+- Reference transport: Kafka.
+- Reference serialization: JSON UTF-8.
+- Topics use the format `<evento>.v<major>`, for example `agent.invoked.v1`.
 - `schemaVersion` usa SemVer.
-- Mudanças incompatíveis exigem novo major e novo tópico.
-- Produtores não removem campos durante a vida de um major.
+- Uncompatible changes require a new major and a new topic.
+- Producers don't remove fields during a major's lifetime.
 - Consumidores ignoram campos desconhecidos.
 
-## Envelope obrigatório
+## Compulsory envelope
 
 ```json
 {
@@ -32,21 +32,21 @@ O arquivo [`async-api.yaml`](async-api.yaml) é a fonte executável dos eventos.
 }
 ```
 
-Campos obrigatórios:
+Compulsory fields:
 
-| Campo | Regra |
+| Campo | Rule |
 |---|---|
-| `eventId` | UUID único usado para deduplicação. |
-| `eventType` | Nome sem versão, igual ao domínio sem o sufixo do tópico. |
-| `schemaVersion` | Versão SemVer do schema. Não usar `eventVersion`. |
+| `eventId` | Unique UUID used for deduplication. |
+| `eventType` | Name without version, equal to domain without subject suffix. |
+| `schemaVersion` | Do not use `eventVersion`. |
 | `occurredAt` | ISO 8601 UTC. |
-| `correlationId` | Correlação funcional de toda a execução. |
-| `tenantId` | Tenant derivado da identidade ou contexto confiável. |
-| `source` | Serviço produtor. |
+| `correlationId` | Functional correlation of the entire execution. |
+| `tenantId` | Tenant derived from a trusted identity or context. |
+| `source` | Producer service. |
 | `dataClassification` | `PUBLIC`, `INTERNAL`, `CONFIDENTIAL` ou `RESTRICTED`. |
 | `payload` | Payload tipado pelo AsyncAPI. |
 
-`causationId` e `traceparent` são obrigatórios quando existe uma causa ou contexto distribuído anterior.
+`causationId` and `traceparent` are mandatory where there is a previous cause or distributed context.
 
 ## Enums compartilhados
 
@@ -54,17 +54,17 @@ Campos obrigatórios:
 
 `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
 
-### Estado de execução
+### State of enforcement
 
 `SUCCESS`, `FAILED`, `BLOCKED`, `PARTIAL`.
 
-### Classificação de dados
+### Classification of data
 
 `PUBLIC`, `INTERNAL`, `CONFIDENTIAL`, `RESTRICTED`.
 
-## Catálogo de tópicos
+## Catalogue of topics
 
-| Evento | Tópico | Produtor principal | Consumidores típicos |
+| Event | Subjects | Produtor principal | Typical consumers |
 |---|---|---|---|
 | `agent.created` | `agent.created.v1` | Agent Registry | Governance, Audit |
 | `agent.updated` | `agent.updated.v1` | Agent Registry | Governance, Audit |
@@ -83,39 +83,39 @@ Campos obrigatórios:
 | `governance.rejected` | `governance.rejected.v1` | Governance | Registry, Audit |
 | `audit.created` | `audit.created.v1` | Audit Service | Observability / Archive |
 
-## Entrega, idempotência e ordenação
+## Delivery, idempotence and ordering
 
-- Semântica padrão: **at-least-once**.
-- Consumidores deduplicam por `eventId`.
-- Chaves de partição:
-  - agente: `tenantId + agentId`;
-  - sessão: `tenantId + sessionId`;
+- Standard semantics is at-least-once.
+- Consumers deduct by `eventId`.
+- Partition keys:
+  - Agent: `tenantId + agentId`;
+  - session: `tenantId + sessionId`;
   - documento: `tenantId + knowledgeBaseId + documentId`.
-- Não existe garantia global de ordenação entre tópicos.
-- Comandos críticos usam outbox transacional no produtor.
-- Consumidores persistem offset somente após concluir o processamento idempotente.
+- There is no overall guarantee of topical ordering.
+- Critical commands use transactional outbox on the manufacturer.
+- Consumers shall continue to offset only after completion of idempotent processing.
 
-## Erros e DLQ
+## Error and DLQ
 
-- Retry com backoff apenas para falhas transitórias.
-- Eventos inválidos não são repetidos indefinidamente.
-- DLQ por domínio com payload original, erro sanitizado e metadados de tentativa.
-- Reprocessamento exige autorização, auditoria e preservação do `eventId` original.
+- Retry with backoff only for transient failures.
+- Invalid events are not repeated indefinitely.
+- DLQ by domain with original payload, sanitized error and attempted metadata.
+- Reprocessing requires authorisation, audit and preservation of the original `eventId`.
 
-## Segurança
+## Security
 
-- Payloads não devem transportar prompts completos ou dados pessoais quando metadados bastarem.
-- Campos sensíveis são mascarados antes da publicação.
-- ACLs de tópicos seguem least privilege.
-- Eventos `CONFIDENTIAL` e `RESTRICTED` usam criptografia e retenção compatíveis com a classificação.
+- Payloads shall not carry complete prompts or personal data when metadata is sufficient.
+- Sensitive fields are masked before publication.
+- Topical ACLs follow least privilege.
+- `CONFIDENTIAL` and `RESTRICTED` events use encryption and retention compatible with the classification.
 
-## Retenção de referência
+## Reference retention
 
-| Classe | Retenção inicial | Observação |
+| Classe | Initial withholding | The Commission shall adopt implementing acts. |
 |---|---:|---|
-| Operacional | 90 dias | Diagnóstico e replay limitado. |
-| Billing | 24 meses | Showback e chargeback. |
-| Auditoria | 5 anos | Ajustar à obrigação regulatória aplicável. |
+| Operacional | 90 dias | Diagnosis and limited replay. |
+| Billing | 24 meses | Showback and chargeback. |
+| Auditoria | 5 anos | Adjust to the applicable regulatory obligation. |
 | DLQ | 30 dias | Reprocessamento controlado. |
 
-Prazos são referências e devem ser aprovados por Jurídico, Segurança e LGPD para cada organização.
+Timelines are reference and must be approved by Law, Security and LGPD for each organisation.

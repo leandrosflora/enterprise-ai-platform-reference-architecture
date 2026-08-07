@@ -1,110 +1,110 @@
-# Runbook — Onboarding de MCP Server e Tool
+# Runbook  Onboarding of MCP Server and Tool
 
-## Objetivo
+## Objective
 
-Registrar e liberar uma ferramenta MCP com contrato, autenticação, autorização, idempotência, auditoria e rollback definidos.
+Register and release a MCP tool with defined contract, authentication, authorisation, idempotence, audit and rollback.
 
-## Pré-requisitos
+## Pre-requisites
 
-- owner técnico e de negócio;
-- ambiente de teste;
-- autenticação por workload identity;
-- OpenAPI ou contrato do sistema de destino;
-- classificação de dados;
-- definição de leitura ou escrita;
-- runbook do sistema corporativo.
+- technical and business owner;
+- the test environment;
+- the workload identity authentication;
+- OpenAPI or the destination system contract;
+- the classification of data;
+- the definition of reading or writing;
+- runbook of the corporate system.
 
 ## Procedimento
 
-### 1. Classificar a tool
+### 1. Classification of the tool
 
 Documentar:
 
 - finalidade;
 - efeitos colaterais;
-- sistemas e dados acessados;
+- systems and data accessed;
 - risco `LOW`, `MEDIUM`, `HIGH` ou `CRITICAL`;
-- necessidade de human approval;
-- timeout e limite de concorrência.
+- the need for human approval;
+- timeout and limit of competition.
 
-### 2. Definir o contrato
+### 2. Defining the contract
 
-Obrigatório:
+This is mandatory:
 
-- nome e versão SemVer;
-- JSON Schema de entrada e saída;
-- campos obrigatórios e limites;
-- códigos de erro estáveis;
-- política de idempotência;
+- name and version of SemView;
+- JSON Entry and exit scheme;
+- compulsory fields and limits;
+- stable error codes;
+- the policy of impotence;
 - escopos;
-- exemplos válidos e inválidos.
+- valid and invalid examples.
 
-### 3. Implementar controles
+### Implementing controls
 
-- validação server-side de todos os argumentos;
-- allowlist de operações;
-- autorização no sistema de destino, não apenas no Runtime;
+- the server-side validation of all arguments;
+- allowlist of operations;
+- authorisation in the destination system, not only in Runtime;
 - secret manager;
-- timeout, circuit breaker e bulkhead;
-- idempotency key para escrita;
-- redaction de logs;
-- operação reversível ou compensação quando possível.
+- timeout, circuit breaker and bulkhead;
+- idempotency key for writing;
+- the redaction of logs;
+- reverse operation or compensation where possible.
 
 ### 4. Testar
 
-Casos mínimos:
+Minimum cases:
 
-- entrada válida;
-- campo ausente e formato inválido;
-- identidade sem escopo;
+- valid entry;
+- missing field and invalid format;
+- identity without scope;
 - acesso cross-tenant;
-- timeout do destino;
-- repetição com mesma idempotency key;
-- tentativa de prompt/tool injection;
+- timeout from destination;
+- repeat with the same idempotency key;
+- the prompt/tool injection attempt;
 - falha parcial;
-- rollback ou compensação.
+- rollback or compensation.
 
-### 5. Registrar no MCP Registry
+### Registration at the MCP Registry
 
-Registrar contrato, owner, risco, endpoint, identidade de workload, SLO e evidências.
+Register contract, owner, risk, endpoint, workload identity, SLO and evidence.
 
-**Critério de saída:** status `SUBMITTED`, nunca disponível para descoberta produtiva.
+**Exit criterion:** status `SUBMITTED`, never available for productive discovery.
 
 ### 6. Aprovar
 
-- Security valida autenticação, egress e secrets;
-- LGPD valida finalidade e minimização quando aplicável;
-- AI Architect valida escopo e uso por agentes;
-- owner do sistema de destino valida capacidade e rollback.
+- Security validates authentication, exit and secrecy;
+- LGPD validates purpose and minimization where applicable;
+- AI Architect validates scope and use by agents;
+- owner of the destination system validates capacity and rollback.
 
-### 7. Publicar e vincular
+### 7. Publish and link
 
-A publicação torna a versão descobrível apenas para agentes explicitamente autorizados. Não usar wildcard de tool em produção.
+The publication makes the version uncoverable only to explicitly authorized agents.
 
 ### 8. Smoke test
 
 - descoberta autorizada funciona;
-- descoberta não autorizada retorna vazio ou negação;
-- execução gera `tool.executed`;
-- trace contém tool, versão, status e operation ID;
-- repetição idempotente não duplica efeito;
-- métricas e alertas estão ativos.
+- unauthorised discovery returns empty or denied;
+- the execution generates `tool.executed`;
+- trace contains tool, version, status and operation ID;
+- idempotent repetition does not duplicate effect;
+- Metrics and alerts are active.
 
 ## Rollback
 
-1. retirar a versão da descoberta;
-2. bloquear execução no policy enforcement;
-3. manter a versão anterior quando segura;
-4. compensar operações pendentes quando aplicável;
+1. remove the version of the discovery;
+2. block execution in policy enforcement;
+3. maintain the previous version when closed;
+4. to offset outstanding transactions where applicable;
 5. preservar auditoria;
-6. notificar owners dos agentes consumidores.
+6. notify the owners of the consumer agents.
 
-## Critérios de rejeição imediata
+## Criteria for immediate rejection
 
-- secret no contrato ou código;
-- autorização apenas no prompt;
-- escrita sem idempotência;
-- ausência de timeout;
-- schema aberto sem justificativa;
-- tool genérica que permite executar comandos arbitrários;
-- ausência de owner ou rollback.
+- secret in the contract or code;
+- authorisation only on the prompt;
+- written without idempotence;
+- absence of timeout;
+- Open scheme without justification;
+- a generic tool that enables the execution of arbitrary commands;
+- No owner or rollback.

@@ -1,10 +1,10 @@
 # Prompt Engineering Guide
 
-## Objetivo
+## Objective
 
-Padronizar a criação, versionamento, teste e publicação de prompts usados por agentes, workflows e aplicações de IA.
+Standardize the creation, versioning, testing and publication of prompts used by AI agents, workflows and applications.
 
-## Estrutura recomendada
+## Recommended structure
 
 ```text
 SYSTEM
@@ -23,19 +23,19 @@ OUTPUT CONTRACT
   schema, idioma, tamanho, citações e critérios de qualidade
 ```
 
-Conteúdo recuperado, mensagens do usuário e respostas de ferramentas devem ser delimitados e tratados como dados não confiáveis, nunca como instruções de maior prioridade.
+Recovered content, user messages and tool responses should be delimited and treated as unreliable data, never as top-priority instructions.
 
-## Padrões
+## Standards
 
-| Padrão | Uso recomendado | Risco principal |
+| Standard | Recommended use | Risco principal |
 |---|---|---|
-| Zero-shot | tarefas simples e bem definidas | interpretação ambígua |
-| Few-shot | classificação, extração e formato consistente | exemplos enviesados ou extensos |
-| Structured output | integração máquina a máquina | schema incompatível ou resposta inválida |
-| ReAct | raciocínio intercalado com ferramentas | loops e tool abuse |
-| Planner-executor | tarefas longas e decomponíveis | plano excessivo ou execução fora do escopo |
-| Retrieval-grounded | respostas baseadas em conhecimento corporativo | prompt injection indireta |
-| Critic/reviewer | revisão de qualidade antes da saída | custo e falsa confiança |
+| Zero-shot | Simple and well defined tasks | Amplified interpretation |
+| Few-shot | consistently classified, extracted and formatted | worn or extended examples |
+| Structured output | machine to machine integration | Incompatible scheme or invalid response |
+| ReAct | Interspersed reasoning with tools | Loops and tool abuse |
+| Planner-executor | Long and decomposable tasks | Excessive planning or out-of-scope execution |
+| Retrieval-grounded | Corporate knowledge-based responses | prompt injection indireta |
+| Critic/reviewer | Quality review before departure | Cost and false confidence |
 
 ## Template base
 
@@ -68,50 +68,50 @@ Critérios de qualidade:
 {groundedness, completude, idioma, citações e limites}
 ```
 
-## Parâmetros de inferência
+## Parameters of inference
 
-| Parâmetro | Diretriz enterprise |
+| Parameters | Diretriz enterprise |
 |---|---|
-| Temperature | baixa para extração, decisão e resposta factual; maior somente para criação controlada |
-| Top-p / top-k | calibrar junto com temperature; evitar mudanças sem regressão |
-| Max tokens | limitar por caso de uso e orçamento |
-| Stop sequences | usar quando houver contrato textual previsível |
-| Seed | usar quando suportado para testes reproduzíveis |
+| Temperature | Low for extraction, decision and factual response; higher only for controlled breeding |
+| Top-p / top-k | calibrate together with temperature; avoid changes without regression |
+| Max tokens | limiting by use case and budget |
+| Stop sequences | use when there is a foreseeable written contract |
+| Seed | use when supported for reproducible testing |
 
 ## Versionamento
 
-Cada prompt publicado deve possuir:
+Each prompt published shall contain:
 
-- identificador e versão semântica;
-- owner e caso de uso;
-- modelo e parâmetros compatíveis;
-- schemas de entrada e saída;
-- dependências de contexto e ferramentas;
-- dataset de regressão;
-- métricas e thresholds;
-- changelog e plano de rollback.
+- identifier and semantic version;
+- owner and use case;
+- compatible model and parameters;
+- entry and exit schemes;
+- context dependencies and tools;
+- the regression data set;
+- metrics and thresholds;
+- Changelog and rollback plan.
 
-## Segurança
+## Security
 
-Controles mínimos:
+Minimum controls:
 
-- separação explícita entre instrução e dados;
-- allowlist de ferramentas;
-- validação de argumentos com JSON Schema;
-- limites de iteração e tempo;
-- redaction de dados sensíveis;
+- explicit separation between instruction and data;
+- allowlist of tools;
+- the validation of arguments with the JSON Scheme;
+- iteration and time limits;
+- the drafting of sensitive data;
 - output filtering;
-- testes de direct e indirect prompt injection;
-- proibição de segredos, tokens e credenciais em prompts.
+- direct and indirect testing of prompt injection;
+- Prohibition of secrets, tokens and credentials on prompts.
 
-## Checklist de revisão
+## Checklist for revision
 
-- [ ] objetivo e público estão claros;
-- [ ] instruções conflitantes foram eliminadas;
-- [ ] saída possui contrato verificável;
-- [ ] contexto não confiável está delimitado;
-- [ ] falha e falta de evidência têm comportamento definido;
-- [ ] ferramentas possuem escopo mínimo;
-- [ ] prompt passou por regressão e testes adversariais;
-- [ ] custo e latência estão dentro do SLO;
-- [ ] versão anterior pode ser restaurada.
+- [ ] objective and audience are clear;
+- [ ] conflicting instructions have been deleted;
+- [ ] the exit has a verifiable contract;
+- [ ] unreliable context is limited;
+- [ ] failure and lack of evidence have defined behaviour;
+- [ ] tools have a minimum scope;
+- [ ] prompt has undergone regression and adverse testing;
+- [ ] cost and latency are within SLO;
+- [ ] previous version may be restored.

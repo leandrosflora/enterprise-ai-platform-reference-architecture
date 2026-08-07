@@ -1,59 +1,59 @@
 # AI Evaluation Framework
 
-## Objetivo
+## Objective
 
-Estabelecer uma abordagem reproduzível para avaliar qualidade, segurança, custo e impacto de soluções de IA antes e depois da publicação.
+Establish a reproducible approach to evaluate the quality, safety, cost and impact of AI solutions before and after publication.
 
-## Camadas de avaliação
+## Layer of evaluation
 
-| Camada | Questão principal | Exemplos de métricas |
+| Layer | The main issue | Examples of metrics |
 |---|---|---|
-| Componente | O retriever, prompt, modelo ou ferramenta funciona isoladamente? | recall@k, precision@k, schema validity, tool success |
-| Sistema | A aplicação entrega resposta correta e segura ponta a ponta? | groundedness, answer relevance, task success, toxicity |
-| Operação | O serviço atende SLO e orçamento? | latência, erro, tokens, custo, disponibilidade |
-| Negócio | O caso de uso gera o resultado esperado? | conversão, tempo economizado, resolução, satisfação |
+| Component | Does the retriever, prompt, model or tool work in isolation? | recall@k, precision@k, schema validity, tool success |
+| Sistema | Does the application deliver a correct and secure end-to-end response? | groundedness, answer relevance, task success, toxicity |
+| Operations | Does the service meet SLO and budget? | The following information is included in the calculation: |
+| Business | Does the use case produce the desired result? | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. |
 
-## Tipos de avaliação
+## Types of evaluation
 
 ### Offline
 
-Executada em dataset versionado antes do deploy. Deve comparar candidato, baseline e versão em produção.
+It must compare candidate, baseline and production version.
 
 ### Online
 
-Executada com tráfego controlado, shadow mode, canary ou A/B test. Métricas de negócio não substituem testes de segurança.
+Running with controlled traffic, shadow mode, canary or A/B testing.
 
 ### Humana
 
-Usada quando critérios automáticos não capturam precisão contextual, utilidade, tom ou impacto. Avaliadores precisam de rubrica e exemplos calibrados.
+Used when automatic criteria do not capture contextual accuracy, utility, tone or impact.
 
 ### LLM-as-judge
 
-Adequado para escala e comparação relativa, mas não deve ser a única evidência para riscos HIGH e CRITICAL. O judge deve ser versionado, calibrado contra humanos e protegido contra contaminação pelo conteúdo avaliado.
+Appropriate for scale and relative comparison, but should not be the only evidence for HIGH and CRITICAL risks.
 
 ## Golden dataset
 
-Cada caso de uso deve manter um conjunto versionado com:
+Each use case shall maintain a versioned set with:
 
 - happy paths;
-- casos limítrofes;
-- perguntas sem resposta;
-- conteúdo adversarial;
-- grupos e idiomas relevantes;
-- falhas conhecidas e incidentes anteriores;
-- tool calls permitidas e proibidas;
-- expectativa de citação e fonte.
+- boundary cases;
+- unanswered questions
+- adverse content;
+- relevant groups and languages;
+- known failures and previous incidents;
+- permitted and prohibited tool calls;
+- Expectation of citation and source.
 
-## Métricas recomendadas
+## Recommended metrics
 
-| Dimensão | Métricas |
+| Size | The following information shall be provided: |
 |---|---|
 | RAG | context recall, context precision, groundedness, citation correctness |
 | Resposta | relevance, completeness, factuality, format compliance |
-| Segurança | attack success rate, leakage rate, toxicity, policy violation |
-| Agentes | task success, tool selection accuracy, loop rate, unauthorized action rate |
-| Operação | p50/p95/p99, error rate, tokens, cost per successful task |
-| Responsible AI | disparidade por segmento, contestação, override humano |
+| Security | attack success rate, leakage rate, toxicity, policy violation |
+| Agents | task success, tool selection accuracy, loop rate, unauthorized action rate |
+| Operations | p50/p95/p99, error rate, tokens, cost per successful task |
+| Responsible AI | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
 
 ## Pipeline
 
@@ -74,25 +74,25 @@ flowchart LR
 
 ## Release gates
 
-O deploy deve ser bloqueado quando:
+The deployment shall be blocked when:
 
-- houver regressão acima da tolerância;
-- qualquer teste crítico de segurança falhar;
-- schema de saída ou tool contract estiver inválido;
+- there is a regression above tolerance;
+- failure of any critical safety test;
+- the output scheme or tool contract is invalid;
 - custo projetado exceder budget;
-- dataset, prompt, modelo ou política não estiver versionado;
-- evidências obrigatórias não forem reproduzíveis.
+- the dataset, prompt, template or policy is not versioned;
+- compulsory evidence is not reproducible.
 
-## Monitoramento contínuo
+## Continuous monitoring
 
-Produção deve alimentar novos casos para regressão. Incidentes, avaliações negativas, respostas corrigidas e mudanças nas fontes devem gerar novos testes.
+Production should fuel new cases for regression. Incidents, negative assessments, corrected responses and changes in sources should generate new testing.
 
-## Relatório mínimo
+## Minimum reporting
 
-- versões de modelo, prompt, política e dataset;
-- ambiente e parâmetros;
-- métricas, thresholds e comparação com baseline;
+- template, prompt, policy and dataset versions;
+- environment and parameters;
+- metrics, thresholds and comparison with baseline;
 - falhas conhecidas;
-- resultado dos testes adversariais;
-- decisão de aprovação;
-- riscos residuais e plano de monitoramento.
+- the result of the adverse test;
+- the approval decision;
+- residual risks and monitoring plan.

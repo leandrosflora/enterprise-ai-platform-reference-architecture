@@ -1,8 +1,8 @@
-# Exemplo - Resultado de Avaliação
+# Example - Result of the evaluation
 
-## Objetivo
+## Objective
 
-Exemplo de resultado produzido pelo Evaluation Service após uma invocação de agente.
+Example of result produced by Evaluation Service after an agent invocation.
 
 ```json
 {
@@ -28,10 +28,10 @@ Exemplo de resultado produzido pelo Evaluation Service após uma invocação de 
 
 ## Uso
 
-O resultado é usado para:
+The result is used for:
 
-- Aprovação de agentes
-- Regressão entre versões
-- Monitoramento de qualidade
-- Evidência de governança
-- Alertas de degradação
+- Approval of agents
+- Regression between versions
+- Quality monitoring
+- Evidence of governance
+- Alerts for degradation

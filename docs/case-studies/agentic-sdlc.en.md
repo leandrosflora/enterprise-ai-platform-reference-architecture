@@ -1,31 +1,31 @@
-# Case aplicado — Agentic SDLC governado
+# Applied case  Agentic SDLC governed
 
-[📘 Abrir documentação publicada da Agentic SDLC Reference Architecture](https://leandrosflora.github.io/agentic-sdlc-reference-architecture/){ .md-button .md-button--primary target="_blank" }
+[ Open published documentation from Agentic SDLC Reference Architecture](https://leandrosflora.github.io/agentic-sdlc-reference-architecture/){ .md-button .md-button--primary target="_blank" }
 
-Este caso demonstra como as capacidades da Enterprise AI Platform Reference Architecture podem ser aplicadas à engenharia de software orientada por agentes, cobrindo o fluxo entre demanda, arquitetura, implementação, verificação, aprovação, release, observação e recuperação.
+This case demonstrates how the capabilities of Enterprise AI Platform Reference Architecture can be applied to agent-driven software engineering, covering the flow between demand, architecture, implementation, verification, approval, release, observation and recovery.
 
-O objetivo não é construir apenas um agente que escreve código. A proposta materializa um **sistema sociotécnico governado**, no qual agentes especializados produzem propostas e evidências, enquanto workflow, policies, quality gates, aprovação humana e serviços de execução mantêm a autoridade sobre efeitos reais.
+The aim is not just to build an agent that writes code, the proposal materializes a governed socio-technical system in which specialized agents produce proposals and evidence, while workflow, policies, quality gates, human approval and enforcement services maintain authority over real effects.
 
-!!! info "Estado atual"
-    A solução possui arquitetura, contratos, golden paths e um runtime compartilhado funcional. O ambiente demonstra o ciclo ponta a ponta com adapters locais, integração controlada com GitHub e suporte a Model Gateway e MCP reais. Os controles P7 representam uma base implantável e adapters substituíveis, mas não comprovam operação produtiva corporativa.
+The Commission shall adopt implementing acts in accordance with the opinion of the European Parliament and of the Council.
+    The solution features architecture, contracts, golden paths, and a functional shared runtime. The environment demonstrates end-to-end cycle with local adapters, controlled integration with GitHub, and support for real Model Gateway and MCP. The P7 controls represent an implantable base and replaceable adapters, but do not prove corporate productive operation.
 
 ## Problema
 
-Ferramentas de geração de código aceleram apenas uma parte do Software Development Lifecycle. Os principais atrasos e riscos continuam distribuídos por:
+Code generation tools accelerate only one part of the Software Development Lifecycle.
 
-- requisitos incompletos;
-- refinamentos e handoffs;
-- decisões arquiteturais sem rastreabilidade;
-- implementação fora do escopo aprovado;
-- cobertura e testes insuficientes;
-- vulnerabilidades e dependências inseguras;
-- revisão sem contexto consolidado;
-- aprovações desacopladas do artefato final;
-- releases sem evidência de observação;
-- rollback manual e tardio;
-- dificuldade para relacionar requisito, código, teste, aprovação e deploy.
+- incomplete requirements;
+- refinements and handoffs;
+- architectural decisions without traceability;
+- implementation outside the approved scope;
+- insufficient coverage and testing;
+- vulnerabilities and insecure dependencies;
+- review without a consolidated context;
+- Uncoupled approvals of the final device;
+- releases without evidence of observation;
+- manual and late rollback;
+- difficulty relating requirement, code, test, approval and deployment.
 
-A arquitetura transforma esse fluxo em uma jornada durável, governada e auditável.
+Architecture transforms this flow into a sustainable, governed and auditable journey.
 
 ## Jornada aplicada
 
@@ -57,102 +57,102 @@ Concluído ou rollback
 Incident Agent e feedback governado
 ```
 
-Cada etapa produz resultados estruturados, eventos, checkpoints e um **evidence bundle**. O orquestrador somente avança quando contratos, policies e gates da etapa são satisfeitos.
+Each stage produces structured results, events, checkpoints and an evidence bundle. The orchestrator only advances when stage contracts, policies and gates are satisfied.
 
-## Agentes especializados
+## Specialised agents
 
-| Agente | Responsabilidade principal | Efeito permitido | Limite de autoridade |
+| Agent | Responsabilidade principal | Efeito permitido | Limit of authority |
 |---|---|---|---|
-| Product | estruturar objetivo, escopo e critérios de aceite | backlog e requisitos | não altera código nem aprova release |
-| Architecture | produzir abordagem, C4, ADRs, contratos e impacto | artefatos arquiteturais | não implementa nem publica |
-| Developer | propor e implementar mudança delimitada | branch e draft PR | não faz merge nem acessa produção |
-| Test | criar e executar verificações | testes e evidências | não reduz gates |
-| Security | executar scans e threat analysis | findings e evidências | não altera silenciosamente a implementação |
-| Reviewer | revisar qualidade, escopo e evidências | parecer independente | não implementa nem publica |
-| Release | promover digest autorizado e operar rollback | ambiente controlado | não ignora aprovação ou policy |
-| Incident | correlacionar mudança e telemetria | timeline e proposta de remediação | não executa ação destrutiva sem autorização |
+| Product | structure the objective, scope and acceptance criteria | Backlog and requirements | Does not change code or approve release |
+| Architecture | to produce approach, C4, ADRs, contracts and impact | artefatos arquiteturais | does not implement or publish |
+| Developer | Propose and implement a delimited change | branch and draft PR | does not merge or access production |
+| Test | create and execute checks | Tests and evidence | Do not reduce gates |
+| Security | Run scans and threat analysis | findings and evidence | does not silently alter the implementation |
+| Reviewer | review the quality, scope and evidence | parecer independente | does not implement or publish |
+| Release | promoting authorised digest and rollback operation | ambiente controlado | does not ignore approval or policy |
+| Incident | correlate change and telemetry | timeline and proposed remedy | does not perform destructive action without authorisation |
 
-Os agentes representam papéis lógicos executados por um runtime compartilhado. Eles não precisam ser oito serviços persistentes.
+Agents represent logical roles performed by a shared runtime. They don't have to be eight persistent services.
 
-## Onde a IA participa
+## Where AI is involved
 
-A IA entra nas atividades que exigem interpretação, síntese, geração e avaliação contextual:
+AI is involved in activities that require interpretation, synthesis, generation and contextual evaluation:
 
 ### Product Agent
 
-- interpreta requisitos e Issues;
+- interpret requirements and Issues;
 - identifica lacunas;
-- propõe critérios de aceite estruturados;
-- registra riscos e dúvidas para refinamento.
+- It proposes structured acceptance criteria;
+- It shall record risks and doubts for refining.
 
 ### Architecture Agent
 
-- analisa contexto e restrições;
-- propõe decisões e alternativas;
-- produz contratos e análise de impacto;
-- relaciona a mudança com ADRs e padrões existentes.
+- analyses context and restrictions;
+- propose decisions and alternatives;
+- produce contracts and impact analyses;
+- the change relates to existing ADRs and standards.
 
 ### Developer Agent
 
-- gera uma proposta estruturada de alteração;
+- generate a structured proposal for amendment;
 - seleciona arquivos permitidos;
-- produz código e testes dentro do escopo;
+- produce code and tests within the scope;
 - abre somente draft PR.
 
-### Test e Security Agents
+### Test and Security Agents
 
-- propõem cenários e verificações;
-- analisam falhas, cobertura e regressões;
-- sintetizam findings de segurança;
-- não podem reduzir thresholds ou remover controles.
+- propose scenarios and verifications;
+- they analyse failures, coverage and regressions;
+- synthesize safety findings;
+- they cannot reduce thresholds or remove controls.
 
-### Reviewer e Incident Agents
+### Reviewer and incident agents
 
-- consolidam evidências de múltiplas etapas;
-- verificam aderência ao requisito e arquitetura;
-- correlacionam deploys, logs, traces e incidentes;
-- recomendam rework, recuperação ou investigação adicional.
+- consolidate multi-stage evidence;
+- verify compliance with the requirement and architecture;
+- correlate deployments, logs, traces and incidents;
+- recommend rework, recovery or further research.
 
-A resposta de um modelo **não possui autoridade direta**. Todo efeito colateral passa pelo MCP Gateway, por policy enforcement e pelos contratos do workflow.
+All side effects go through the MCP Gateway, through policy enforcement and workflow contracts.
 
-## O que permanece determinístico
+## What remains deterministic
 
-| Responsabilidade | Por que não deve depender de decisão probabilística |
+| Responsabilidade | Why it shouldn't depend on a probabilistic decision |
 |---|---|
-| máquina de estados | progressão, timeout, retry e compensação precisam ser reproduzíveis |
-| policy enforcement | autorização deve ser explícita e fail-closed |
-| segregação de funções | autor, aprovador e executor precisam ser verificáveis |
-| aprovação humana | deve referenciar identidade, decisão e digest exato |
-| execução de tools | schemas, grants, paths e ambientes devem ser controlados |
-| CI quality gates | testes, scans e thresholds precisam produzir resultado objetivo |
-| release | somente o digest aprovado pode ser promovido |
-| idempotência | retries não podem duplicar efeitos |
-| observação e rollback | decisões devem usar health checks e SLOs versionados |
-| evidence store | hashes, cadeia de integridade e retenção não dependem do modelo |
+| State machine | Progression, timeout, retry and compensation need to be reproducible |
+| policy enforcement | authorisation must be explicit and fail-closed |
+| segregation of functions | the author, authorising officer and executor must be verifiable |
+| human approval | must refer to identity, decision and exact digest |
+| Implementation of tools | schemes, grants, paths and environments must be controlled |
+| CI quality gates | Tests, scans and thresholds must produce an objective result |
+| release | Only approved digest may be promoted |
+| Impotence | Retries cannot duplicate effects |
+| Observation and rollback | Decisions should use health checks and SLOs versions |
+| evidence store | hashes, chain integrity and retention are not dependent on the model |
 
-## Mapeamento para a Enterprise AI Platform
+## Mapping for the Enterprise AI Platform
 
-| Capacidade da plataforma | Materialização no Agentic SDLC | Estado atual |
+| Platform capacity | Materialisation in the Agentic SDLC | Current status |
 |---|---|---|
-| Agent Gateway | GitHub Issues, PRs, Developer Portal, CI/CD e ChatOps como canais | arquitetura definida; integrações GitHub demonstradas |
-| Agent Runtime | runtime compartilhado com oito definições declarativas | implementado e testado |
-| Agent Registry | definições versionadas com prompt, tools, limites e schemas | implementado no runtime e contratos |
-| Model Gateway | provider fake determinístico e gateway HTTP OpenAI-compatible | implementado; seleção corporativa e governança central ainda evolutivas |
-| MCP Gateway | MCP fake para testes e transporte stdio JSON-RPC para servidores reais | implementado; HTTP/SSE permanece evolução |
-| Policy Enforcement | grants por papel e OPA no tool loop, remoto ou CLI | implementado; produção requer OPA HA e bundles assinados |
-| Knowledge Service | Context Builder, documentos, ADRs, contratos e memória de projeto | baseline implementada; knowledge lifecycle corporativo pendente |
-| Memory Service | checkpoints, contexto aprovado e histórico por mudança | baseline implementada |
-| Evaluation Service | testes, scans, schemas, groundedness e quality gates | baseline implementada; evals contínuos com modelos reais ainda evolutivos |
-| Governance Service | workflow durável, segregação, aprovação por digest e policy-as-code | demonstrado localmente |
-| Evidence and Audit | evidence bundles write-once, SHA-256 e manifest com hash chain | implementado localmente; storage WORM corporativo pendente |
-| Workload Identity | suporte a GitHub OIDC nos adapters P7 | implementado como adapter; trust policies reais pendentes |
-| Observability | eventos correlacionados e exportador OTLP HTTP | adapter implementado; backend corporativo e SLOs reais pendentes |
-| FinOps | limites por agente e Budget Ledger | implementado como controle; backend compartilhado pendente |
-| Supply Chain | Syft, Cosign, digest e manifesto Kubernetes | adapters implementados; registry e admission verification pendentes |
-| Sandbox | Docker restrito, sem rede, read-only e limites | demonstrado; isolamento de produção pendente |
-| Event Backbone | eventos por `change_id`, `project_id` e `agent_run_id` | baseline baseada em arquivos; mensageria gerenciada é evolução |
+| Agent Gateway | GitHub Issues, PRs, Developer Portal, CI/CDand ChatOps as channels | defined architecture; demonstrated GitHub integrations |
+| Agent Runtime | shared runtime with eight declarative definitions | Implemented and tested |
+| Agent Registry | Definitions rendered with prompt, tools, limits and schemes | implemented in runtime and contracts |
+| Model Gateway | Deterministic fake provider and gateway HTTP OpenAI-compatible | Implemented; still evolving corporate selection and central governance |
+| MCP Gateway | MCP fake for testing and transporting JSON-RPC studio to real servers | implementado; HTTP/SSE remains evolving |
+| Policy Enforcement | Grants per paper and OPA in the tool loop, remote or CLI | implemented; production requires OPA HA and signed bundles |
+| Knowledge Service | Context Builder, documents, ADRs, contracts and project memory | baseline implementada; knowledge lifecycle corporativo pendente |
+| Memory Service | Checkpoints, approved context and historical change | baseline implementada |
+| Evaluation Service | Tests, scans, schemes, groundedness and quality gates | Baseline implemented; ongoing evals with real models still evolving |
+| Governance Service | Sustainable workflow, segregation, digest approval and policy-as-code | demonstrado localmente |
+| Evidence and Audit | evidence bundles write-once, SHA-256 and manifest with hash chain | implementado localmente; storage WORM corporativo pendente |
+| Workload Identity | support for GitHub OIDC in the P7 adapters | implemented as an adapter; actual trust policies pending |
+| Observability | correlated events and exporter OTLP HTTP | the adapter implemented; corporate backend and SLOs actual pending |
+| FinOps | limits per agent and Budget Ledger | Implemented as control; pending shared backend |
+| Supply Chain | Syft, Cosign, digest and manifest Kubernetes | Adapters implemented; pending registration and admission verification |
+| Sandbox | Restricted docker, no network, read-only and limits | demonstrated; outstanding production insulation |
+| Event Backbone | Events by `change_id`, `project_id`and `agent_run_id` | File-based baseline; managed messaging is evolution |
 
-## Arquitetura implementada
+## Implemented architecture
 
 ```mermaid
 flowchart TB
@@ -218,15 +218,15 @@ flowchart TB
     CICD --> EV
 ```
 
-A arquitetura separa cinco planos:
+The architecture separates five planes:
 
-1. **Experience and Integration:** pontos de entrada e sistemas de registro;
-2. **Agent Control Plane:** workflow, catálogo, policies, avaliações e budgets;
-3. **Agent Plane:** papéis especializados com identidades e permissões próprias;
-4. **Knowledge and Evidence:** contexto, memória, checkpoints e rastreabilidade;
-5. **Execution Plane:** modelos, MCP, sandboxes e ferramentas com efeito real.
+1. ** Experience and Integration:** entry points and registration systems;
+2. **Agent Control Plane:** workflow, catalogue, policies, assessments and budgets;
+3. **Agent Plane:** specialised roles with their own identities and permissions;
+4. **Knowledge and Evidence:** context, memory, checkpoints and traceability;
+5. **Execution Plane:** models, MCP, sandboxes and tools with real effect.
 
-## Fluxo ponta a ponta
+## End to end flow
 
 ```mermaid
 sequenceDiagram
@@ -261,51 +261,51 @@ sequenceDiagram
     end
 ```
 
-## Garantias demonstradas
+## Provided guarantees
 
 | Aspecto | Garantia atual |
 |---|---|
-| Workflow | ordem explícita, estados persistidos e checkpoints por etapa |
-| Retomada | resposta de modelo concluída pode ser reutilizada sem nova cobrança ou efeito |
-| Tool use | grants por agente, schemas e policy antes da execução |
-| Contexto | classificação, proveniência, redaction, limites e hashes |
-| Evidência | arquivos write-once, SHA-256 e manifest append-only com hash chain |
-| Aprovação | independente do autor e vinculada ao digest exato |
-| Developer Agent | paths permitidos, arquivos sensíveis bloqueados e somente draft PR |
-| Release | promoção somente após gate humano e com o digest aprovado |
-| Observação | health check e decisão explícita após deployment |
-| Recuperação | rollback restaura o digest estável anterior e mantém histórico |
-| Budgets | reserva e bloqueio antes de ultrapassar limite configurado |
-| Segurança | OPA fail-closed, sandbox restrito e supply-chain adapters |
+| Workflow | explicit order, persistent states and checkpoints per step |
+| Retomada | completed model response can be reused without new charge or effect |
+| Tool use | Grants per agent, schemes and policy before execution |
+| Contexto | Classification, origin, wording, limits and hashes |
+| Evidence | write-once, SHA-256 and manifest append-only files with hash chain |
+| Approval | independent of the author and linked to the exact digest |
+| Developer Agent | Paths allowed, sensitive files blocked and only draft PR |
+| Release | Promotion only after human gate and with approved digest |
+| The Commission shall adopt implementing acts. | Health check and explicit decision after deployment |
+| Recycling | rollback restores the previous stable digest and keeps historical |
+| Budgets | reservation and lock before exceeding the set limit |
+| Security | OPA fail-closed, restricted sandbox and supply chain adapters |
 
 ## Runtime compartilhado
 
-O [agentic-sdlc-runtime](https://github.com/leandrosflora/agentic-sdlc-runtime) concentra a execução dos agentes e fornece:
+The [agentic-sdlc-runtime](https://github.com/leandrosflora/agentic-sdlc-runtime) focuses on the execution of agents and provides:
 
-- registry JSON de agentes;
-- Context Builder com proveniência e minimização;
-- Model Gateway fake e OpenAI-compatible;
-- MCP fake e MCP real via stdio;
+- the JSON registry of agents;
+- Context Builder with provenance and minimization;
+- Model Gatewaythe manufacturer shall provide the manufacturer with the following information:
+- MCP fake and MCP real by studio;
 - tool loop limitado;
-- autorização OPA;
-- eventos e evidence bundles;
-- checkpoints e retomada;
-- CLI, demos e testes;
-- integração com Issues, comentários, Checks e draft PRs;
-- adapters P7 para OIDC, S3, OTLP, budgets, filas, sandbox e supply chain.
+- the authorisation OPA;
+- events and evidence bundles;
+- checkpoints and resumed;
+- CLI, demos and tests;
+- integration with issues, comments, checks and draft PRs;
+- P7 adapters for OIDC, S3, OTLP, budgets, rows, sandbox and supply chain.
 
-## Repositórios do caso
+## Repositories of the case
 
-| Repositório | Responsabilidade |
+| Repository | Responsabilidade |
 |---|---|
-| [agentic-sdlc-reference-architecture](https://github.com/leandrosflora/agentic-sdlc-reference-architecture) | arquitetura, contratos, policies, documentação, golden path e governança |
-| [agentic-sdlc-runtime](https://github.com/leandrosflora/agentic-sdlc-runtime) | runtime compartilhado, agentes declarativos, gateways, workflow e adapters |
-| [agentic-sdlc-demo-app](https://github.com/leandrosflora/agentic-sdlc-demo-app) | aplicação alvo usada para validar branch, alteração, PR, release e rollback |
-| `sdlc-<role>-agent` | adapters e scaffolds específicos dos oito papéis; definições canônicas ficam no runtime |
+| [agentic-sdlc-reference-architecture](https://github.com/leandrosflora/agentic-sdlc-reference-architecture) | The Commission will examine the following aspects of the implementation of this Regulation: |
+| [agentic-sdlc-runtime](https://github.com/leandrosflora/agentic-sdlc-runtime) | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
+| [agentic-sdlc-demo-app](https://github.com/leandrosflora/agentic-sdlc-demo-app) | Target application used to validate branch, change, PR, release and rollback |
+| `sdlc-<role>-agent` | adapters and scaffolds specific to the eight roles; canonical definitions remain in runtime |
 
-## Relação com o ciclo de vida de agentes
+## Relationship to the life cycle of agents
 
-O caso aplica o lifecycle da Enterprise AI Platform aos próprios agentes de engenharia:
+The case applies the lifecycle of Enterprise AI Platform to the engineering agents themselves:
 
 ```text
 Definir finalidade e owner
@@ -323,83 +323,83 @@ Coletar qualidade, custo, traces e evidências
 Promover, limitar, suspender ou retirar a versão
 ```
 
-Nenhum agente pode modificar seus próprios prompts, policies, thresholds ou grants e promovê-los automaticamente.
+No agent can modify its own prompts, policies, thresholds or grants and automatically promote them.
 
-## Segurança e threat boundaries
+## Security and threat boundaries
 
-Os principais limites de confiança são:
+The main confidence limits are:
 
-- conteúdo de Issue, PR e repositório é entrada não confiável;
-- output do modelo é proposta não autorizada;
-- MCP Gateway é a única saída para tools corporativas;
-- execução de código ocorre em sandbox efêmero;
-- segredos são obtidos just-in-time e não entram no contexto;
-- runners de desenvolvimento e produção não devem compartilhar trust zone;
-- indisponibilidade de policy, identidade ou auditoria bloqueia escrita;
-- telemetria insuficiente impede promoção, mas não deve impedir rollback manual.
+- Content of the Issue, PR and repository is unreliable input;
+- the model output is an unauthorised proposal;
+- MCP Gateway is the only exit for corporate tools;
+- code execution occurs in ephemeral sandbox;
+- Secrets are obtained just-in-time and do not fall into context;
+- development and production runners shall not share a trust zone;
+- unavailability of policy, identity or written blocking audit;
+- insufficient telemetry prevents promotion but should not prevent manual rollback.
 
-## Estado atual
+## Current status
 
-| Camada | Classificação | Evidência |
+| Layer | Classification | Evidence |
 |---|---|---|
-| Arquitetura, contratos e policies | `CONTRACT_DEFINED` | documentação, schemas, ADRs e Rego versionados |
-| Golden path | `DEMONSTRATED_LOCAL` | fluxo determinístico e evidence bundle |
-| Runtime compartilhado | `DEMONSTRATED_LOCAL` | testes, CLI, gateways, checkpoints e workflow E2E |
-| Model Gateway real | `IMPLEMENTATION_STARTED` | integração OpenAI-compatible disponível e opcional |
-| MCP real | `IMPLEMENTATION_STARTED` | transporte stdio disponível |
-| Integração GitHub | `DEMONSTRATED_LOCAL` | Issue, comentário, Checks, branch e draft PR |
-| Release e rollback demo | `DEMONSTRATED_LOCAL` | caminho saudável e caminho de rollback |
-| Adapters P7 | `IMPLEMENTATION_STARTED` | OIDC, S3, OTLP, SQS, Syft, Cosign e Kubernetes |
-| Operação corporativa | Pendente | providers, ambientes e controles reais ainda não homologados |
-| Production readiness | `NOT_PRODUCTION_READY` | faltam evidências operacionais e aprovação formal |
+| Architecture, contracts and policies | `CONTRACT_DEFINED` | the documentation, schemes, ADRs and Rego versions |
+| Golden path | `DEMONSTRATED_LOCAL` | Deterministic flow and evidence bundle |
+| Runtime compartilhado | `DEMONSTRATED_LOCAL` | testes, CLI, gateways, checkpoints and E2E workflow |
+| Model Gateway real | `IMPLEMENTATION_STARTED` | Available and optional OpenAI-compatible integration |
+| MCP real | `IMPLEMENTATION_STARTED` | studio transportation available |
+| It's a bit of a mess. | `DEMONSTRATED_LOCAL` | Issue, comment, checks, branch and draft PR |
+| Release and rollback demo | `DEMONSTRATED_LOCAL` | Healthy path and rollback path |
+| Adapters P7 | `IMPLEMENTATION_STARTED` | OIDC, S3, OTLP, SQS, Syft, Cosign and Kubernetes |
+| Corporate operations | Pendente | Providers, environments and controls not yet approved |
+| Production readiness | `NOT_PRODUCTION_READY` | lack of operational evidence and formal approval |
 
 ## Limites declarados
 
-- Model Gateway fake é o padrão das demos determinísticas;
-- provider real depende de endpoint e credenciais configurados externamente;
-- MCP real suporta stdio; outros transportes ainda são evolução;
-- evidence store local é tamper-evident, não storage WORM corporativo;
-- ambiente demo persiste estado localmente;
+- Model Gateway fake is the standard for deterministic demos;
+- Real provider relies on externally configured endpoints and credentials;
+- Real MCP supports studio; other transport is still evolving;
+- the local evidence store is tamper-evident, not corporate WORM storage;
+- the demo environment persists locally;
 - adapters P7 precisam ser configurados contra providers reais;
 - manifesto Kubernetes possui placeholders;
-- integração, performance, segurança e recuperação ainda precisam ser validadas em ambiente representativo;
-- agentes não possuem autorização para merge ou publicação produtiva autônoma.
+- integration, performance, safety and recovery still need to be validated in a representative environment;
+- agents are not authorised to merge or self-publish.
 
-## Próximos gates
+## Next gates
 
-1. executar o workflow completo contra um Model Gateway corporativo;
-2. conectar servidores MCP reais por ferramenta e trust zone;
-3. implantar OPA HA com bundles assinados;
-4. usar workload identity e credenciais just-in-time;
-5. mover evidências para storage WORM com KMS e retenção;
-6. publicar artefatos por digest com SBOM e assinatura verificada;
-7. executar workers em filas gerenciadas com DLQ e autoscaling;
-8. validar sandbox isolado, egress allowlist e limites de recursos;
-9. integrar métricas, traces, custo e SLOs à operação corporativa;
-10. executar game days de rollback, indisponibilidade do PDP e recuperação de checkpoints.
+1. execute the full workflow against a corporate Model Gateway;
+2. connect real MCP servers by tool and trust zone;
+3. to deploy OPA HA with signed bundles;
+4. use workload identity and just-in-time credentials;
+5. move evidence to WORM storage with KMS and retention;
+6. publish digested artefacts with SBOM and verified signature;
+7. run workers in rows managed with DLQ and autoscaling;
+8. validate isolated sandbox, allowlist and resource limits;
+9. integrate metrics, traces, cost and SLOs into the business operation;
+10. Run game days of rollback, PDP unavailability and checkpoint recovery.
 
-## Valor demonstrado para a Enterprise AI Platform
+## Value demonstrated for Enterprise AI Platform
 
-O Agentic SDLC mostra que a Enterprise AI Platform pode governar não apenas agentes de atendimento ou backoffice, mas também agentes que participam da própria produção de software.
+The Agentic SDLC shows that Enterprise AI Platform can govern not only service agents or backoffice, but also agents involved in software production itself.
 
-O caso evidencia que autonomia útil depende de:
+The case shows that useful autonomy depends on:
 
-- workflow durável;
-- contexto com proveniência;
+- sustainable workflow;
+- the context from which it originates;
 - tools governadas;
-- segregação de funções;
-- aprovação vinculada ao artefato;
-- evidências verificáveis;
-- observação e rollback;
-- identidade, budget e policy por workload.
+- the segregation of functions;
+- approval linked to the device;
+- verifiable evidence;
+- observation and rollback;
+- Identity, budget and policy by workload.
 
-A produtividade não vem apenas de gerar código mais rápido. Ela vem de reduzir handoffs e retrabalho **sem remover os controles que tornam uma mudança segura, auditável e recuperável**.
+Productivity doesn't just come from generating faster code, it comes from reducing handoffs and rework without removing the controls that make change safe, auditable and recoverable.
 
-## Referências
+## References
 
-- [Documentação publicada](https://leandrosflora.github.io/agentic-sdlc-reference-architecture/)
-- [Repositório de arquitetura](https://github.com/leandrosflora/agentic-sdlc-reference-architecture)
+- [Documentation published](https://leandrosflora.github.io/agentic-sdlc-reference-architecture/)
+- [Architecture repository](https://github.com/leandrosflora/agentic-sdlc-reference-architecture)
 - [Runtime funcional](https://github.com/leandrosflora/agentic-sdlc-runtime)
-- [Aplicação demo](https://github.com/leandrosflora/agentic-sdlc-demo-app)
-- [Integração ponta a ponta](https://leandrosflora.github.io/agentic-sdlc-reference-architecture/end-to-end-workflow/)
-- [P7 — Produção e governança](https://leandrosflora.github.io/agentic-sdlc-reference-architecture/p7-production-governance/)
+- [Demo app](https://github.com/leandrosflora/agentic-sdlc-demo-app)
+- [End to end integration]https://leandrosflora.github.io/agentic-sdlc-reference-architecture/end-to-end-workflow/]
+- (P7  Production and governance) (https://leandrosflora.github.io/agentic-sdlc-reference-architecture/p7-production-governance/)

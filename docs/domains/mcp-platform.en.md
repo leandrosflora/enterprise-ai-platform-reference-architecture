@@ -1,10 +1,10 @@
 # MCP Platform
 
-## Objetivo
+## Objective
 
-Padronizar a exposição, descoberta, governança e execução de ferramentas corporativas por agentes.
+Standardize the exposure, discovery, governance and execution of corporate tools by agents.
 
-## Capacidades
+## Capacities
 
 - MCP Registry
 - MCP Discovery
@@ -13,30 +13,30 @@ Padronizar a exposição, descoberta, governança e execução de ferramentas co
 - Tool Authorization
 - Tool Auditing
 
-## Serviços Relacionados
+## Other services
 
 - MCP Registry
 - Agent Runtime
 - Governance Service
 - Audit Service
 
-## Eventos
+## Events
 
 - tool.executed
 
 ## KPIs
 
-| Indicador | Descrição |
+| Indicador | Other information |
 |---|---|
-| Registered Tools | Ferramentas disponíveis no catálogo |
-| Tool Calls | Execuções de ferramentas |
-| Tool Error Rate | Taxa de erro por ferramenta |
-| Tool Latency P95 | Latência percentil 95 por ferramenta |
+| Registered Tools | Tools available in the catalogue |
+| Tool Calls | Execution of tools |
+| Tool Error Rate | Error rate per tool |
+| Tool Latency P95 | 95 per cent latency per tool |
 
-## Requisitos Não Funcionais
+## Non-functional requirements
 
-- Contratos versionados
-- Autorização por ferramenta
-- Auditoria obrigatória
-- Timeout e circuit breaker
-- Controle de exposição de sistemas corporativos
+- Versions of contracts
+- Authorisation by tool
+- Compulsory audit
+- Timeout and circuit breaker
+- Exposure control of corporate systems

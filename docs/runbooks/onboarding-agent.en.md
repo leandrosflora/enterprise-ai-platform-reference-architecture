@@ -1,36 +1,36 @@
-# Runbook — Onboarding e Publicação de Agente
+# Runbook  Onboarding and Agent Publishing
 
-## Objetivo
+## Objective
 
-Publicar uma versão de agente com contratos, risco, segurança, avaliação, observabilidade, budget e rollback validados.
+Publish an agent version with validated contracts, risk, security, valuation, observability, budget and rollback.
 
-## Pré-requisitos
+## Pre-requisites
 
-- owner técnico e owner de negócio definidos;
+- defined technical owner and business owner;
 - Agent Card versionado;
-- dataset de avaliação aprovado;
-- knowledge bases e tools já registradas;
-- budget e centro de custo definidos;
-- acesso `agent.write`, `governance.submit` e permissões de teste.
+- an approved evaluation dataset;
+- knowledge bases and tools already registered;
+- defined budget and cost centre;
+- acesso `agent.write`, `governance.submit`and test permits.
 
 ## Procedimento
 
-### 1. Validar o Agent Card
+### Validate the Agent Card
 
-Obrigatório:
+This is mandatory:
 
-- `agentId`, nome e versão SemVer;
-- owner e unidade de negócio;
-- objetivo, usuários e dados utilizados;
+- `agentId`, name and version of SemVer;
+- owner and business unit;
+- the target, users and data used;
 - risco inicial;
-- model policy por capacidade, sem credencial de provedor;
-- tools e knowledge bases permitidas;
-- classe de workload e SLO;
-- política de memória.
+- capacity model policy, without provider credential;
+- tools and knowledge bases permitted;
+- the workload class and SLO;
+- the memory policy.
 
-**Critério de saída:** schema válido e nenhum campo bloqueante ausente.
+**Exit criterion:** Valid scheme and no blocking field missing.
 
-### 2. Registrar a versão em DRAFT
+### 2. Record the version in DRAFT
 
 ```bash
 curl -sS -X POST http://localhost:8080/v1/agents \
@@ -39,39 +39,39 @@ curl -sS -X POST http://localhost:8080/v1/agents \
   -d @agent-card.json
 ```
 
-**Esperado:** HTTP `201`, status `DRAFT` e `ETag`.
+**Expected:** HTTP `201`, status `DRAFT` and `ETag`.
 
-### 3. Validar dependências
+### 3. Validation of dependencies
 
-- todos os MCP contracts estão aprovados;
-- KBs aplicam ACL por documento/chunk;
-- modelos solicitados estão no Model Catalog;
-- secrets e regiões estão aprovados;
-- política `deny by default` foi exercitada.
+- all MCP contracts are approved;
+- KBs apply ACL per document/chunk;
+- the models requested are in the Model Catalogue;
+- Secrets and regions are approved;
+- The policy of `deny by default` has been implemented.
 
-### 4. Executar avaliações
+### 4. carry out assessments
 
 Executar ao menos:
 
 - regression;
-- groundedness/retrieval quando houver RAG;
+- groundedness/retrieval where there is RAG;
 - safety/adversarial;
-- latência da classe de workload;
-- custo por cenário.
+- the latency of the workload class;
+- cost per scenario.
 
-**Critério de saída:** relatório reproduzível e thresholds atingidos.
+**Exit criterion:** Reproducible report and thresholds reached.
 
-### 5. Validar observabilidade
+### 5. Validate the observability
 
-Executar uma invocação em ambiente de teste e confirmar:
+Run an invocation in a test environment and confirm:
 
 - trace completo;
-- decisão de política e versão;
-- tokens e custo;
-- eventos `agent.invoked` e dependências;
-- ausência de payload sensível em logs.
+- policy decision and version;
+- tokens and cost;
+- Events`agent.invoked`and dependencies;
+- No sensitive payload in logs.
 
-### 6. Submeter para governança
+### 6. Submitting to governance
 
 ```bash
 curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:submit \
@@ -84,13 +84,13 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:submit \
   }'
 ```
 
-**Esperado:** HTTP `202`, decisão `PENDING`.
+**Esperado:** HTTP `202`, decision `PENDING`.
 
-### 7. Aprovar com segregação de função
+### 7. Approval by functional segregation
 
-A identidade que submeteu não pode aprovar. O aprovador valida os gates G1–G7.
+The identity you submitted cannot be approved.
 
-**Esperado:** decisão `APPROVED`, com `approvalId` e trilha de auditoria.
+**Expected:** decision `APPROVED`, with `approvalId` and audit trail.
 
 ### 8. Publicar
 
@@ -101,30 +101,30 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:publish \
   -d '{"approvalId":"apv-001","releaseNotes":"Primeira versão"}'
 ```
 
-**Esperado:** HTTP `202`, status `PUBLISHED` e evento `agent.published`.
+**Expected:** HTTP `202`, status `PUBLISHED` and event `agent.published`.
 
 ### 9. Smoke test
 
-- invocação autorizada retorna `SUCCESS` ou `PARTIAL` esperado;
-- invocação sem escopo retorna `403`;
-- tool não permitida retorna `BLOCKED`;
-- dashboard mostra latência, tokens e custo;
-- alertas de teste chegam ao canal correto.
+- the authorised invocation returns the expected `SUCCESS` or `PARTIAL`;
+- the purposeless invocation returns `403`;
+- the tool not allowed returns `BLOCKED`;
+- dashboard shows latency, tokens and cost;
+- Test alerts are coming to the correct channel.
 
 ## Rollback
 
-1. bloquear novas invocações da versão;
-2. restaurar a versão publicada anterior;
-3. invalidar cache de configuração e políticas;
+1. block new invocations of the version;
+2. restore the previously published version;
+3. invalidate the configuration cache and policies;
 4. desabilitar tools afetadas;
-5. preservar eventos, traces e evidências;
-6. abrir incidente e registrar causa.
+5. preserve events, traces and evidence;
+6. Open an incident and file a lawsuit.
 
 ## Erros comuns
 
-| Sintoma | Causa provável | Ação |
+| Sintoma | Probable cause | Action |
 |---|---|---|
-| `409 Conflict` | versão ou idempotency key já utilizada | consultar estado antes de repetir |
-| `422 Policy Violation` | evidência, budget ou dependência ausente | corrigir o gate indicado |
-| agente aprovado não publica | approval ID não corresponde à versão | refazer a publicação com a decisão correta |
-| `BLOCKED` na invocação | policy bundle ausente ou desatualizado | validar distribuição e versão da política |
+| `409 Conflict` | version or idempotency key already used | Check the status before repeating |
+| `422 Policy Violation` | Evidence, budget or dependency absent | correct the indicated gate |
+| approved agent not publishing | approval ID does not match the version | Re-publishing with the correct decision |
+| `BLOCKED` in the appeal | policy bundle ausente ou desatualizado | validate distribution and policy version |

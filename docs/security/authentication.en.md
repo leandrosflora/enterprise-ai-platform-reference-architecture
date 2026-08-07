@@ -1,10 +1,10 @@
 # Authentication
 
-## Padrão
+## Standard
 
 OIDC + OAuth2
 
-## Fluxos
+## Flows
 
 - User Authentication
 - Service Authentication
@@ -16,6 +16,6 @@ OIDC + OAuth2
 - Refresh Token
 - Service Token
 
-## Provedor
+## Provider
 
 Enterprise Identity Provider

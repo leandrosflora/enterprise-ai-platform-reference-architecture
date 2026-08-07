@@ -1,64 +1,64 @@
-# 6. Estudo de caso: agente documental com RAG
+# Case study: documentary agent with RAG
 
 ## Contexto
 
-Uma organização possui políticas, normas e procedimentos distribuídos em repositórios corporativos. Usuários gastam tempo procurando documentos, interpretando versões e confirmando se uma regra ainda está válida.
+An organization has policies, norms, and procedures distributed in corporate repositories. Users spend time searching for documents, interpreting versions, and confirming whether a rule is still valid.
 
-O objetivo é oferecer um agente interno capaz de:
+The objective is to provide an internal agent capable of:
 
-- responder perguntas sobre políticas aprovadas;
-- apresentar citações verificáveis;
-- respeitar classificação e permissões do usuário;
-- não executar ações transacionais;
-- manter apenas memória de sessão por padrão;
-- produzir evidências de qualidade, segurança, custo e uso.
+- answering questions on policies adopted;
+- provide verifiable citations;
+- respect user classification and permissions;
+- not to execute transactional actions;
+- maintain only session memory by default;
+- produce evidence of quality, safety, cost and use.
 
 ## Problem statement
 
-> Como reduzir o tempo para localizar e compreender políticas corporativas sem permitir que o agente revele documentos não autorizados ou apresente conhecimento não sustentado como regra oficial?
+> How can we reduce the time to locate and understand corporate policies without allowing the agent to reveal unauthorized documents or present unsupported knowledge as an official rule?
 
-## Outcome e métricas
+## Outcome and metrics
 
-| Dimensão | Métrica inicial |
+| Size | Initial metric |
 |---|---|
-| Eficiência | redução do tempo mediano de busca e interpretação |
-| Adoção | usuários ativos e taxa de retorno |
-| Qualidade | percentual de respostas aceitas sem nova busca manual |
-| Groundedness | respostas sustentadas por citações autorizadas |
-| Retrieval | recall@k e precision@k em dataset de perguntas |
-| Segurança | zero recuperação cross-tenant ou acima do clearance |
-| Operação | disponibilidade e latência dentro do SLO |
-| Custo | custo por pergunta respondida com sucesso |
+| Efficiency | Reduction of average search and interpretation time |
+| Adoption | Active users and rate of return |
+| Qualidade | Percentage of responses accepted without a new manual search |
+| Groundedness | replies supported by authorised submissions |
+| Retrieval | recall@k and precision@k in the query dataset |
+| Security | Zero cross-tenant recovery or above clearance |
+| Operations | Availability and latency within the SLO |
+| Custo | Cost per question successfully answered |
 
-## Classificação inicial
+## Initial classification
 
-| Aspecto | Decisão |
+| Aspecto | Decision |
 |---|---|
 | Risco | MEDIUM |
-| Usuários | colaboradores autenticados |
-| Dados | PUBLIC, INTERNAL e CONFIDENTIAL conforme clearance |
-| Ações | leitura; nenhuma escrita em sistema de registro |
-| Memória | SESSION; LONG_TERM desabilitada no MVP |
+| Users | colaboradores autenticados |
+| The data | Public, internal and confidential as clearance |
+| Shares | reading; no writing in a recording system |
+| The memory | SESSION; LONG_TERM disabled in MVP |
 | Canal | portal interno |
-| Human in the loop | não obrigatório para resposta; usuário acessa fonte citada |
-| Aprovação | arquitetura, segurança, privacidade e owner da base |
+| Human in the loop | Not required to reply; user accessed the cited source |
+| Approval | architecture, security, privacy and owner of the base |
 
-O risco deve ser reclassificado se o agente passar a orientar decisões reguladas, atender clientes externos ou executar ações.
+The risk shall be reclassified if the agent goes on to guide regulated decisions, serve external clients or execute actions.
 
-## Capacidades usadas
+## Capacities used
 
 - Agent Registry;
 - Agent Gateway;
 - Agent Runtime;
 - Policy Enforcement;
 - Knowledge Service;
-- Memory Service para sessão;
+- Memory Servicefor a session;
 - Model Gateway;
 - Evaluation Service;
-- Audit e observabilidade;
-- FinOps por agente e modelo.
+- Audit and observability;
+- FinOps by agent and model.
 
-## Arquitetura
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -81,16 +81,16 @@ flowchart LR
     CAT[Agent and AI Catalog] --> R
 ```
 
-## Fronteiras de confiança
+## Boundaries of trust
 
-1. **Canal para Gateway:** identidade e sessão são validadas.
-2. **Runtime para Knowledge Service:** tenant, subject, purpose e clearance são propagados.
-3. **Knowledge Service para índices:** apenas documentos aprovados e não expirados são elegíveis.
-4. **Knowledge para modelo:** trechos são marcados como conteúdo não confiável.
-5. **Model Gateway para provedor:** políticas de região, modelo, tokens e redaction são aplicadas.
-6. **Eventos para observabilidade:** conteúdo integral não é registrado por padrão.
+1. **Channel to Gateway:** Identity and session are validated.
+2. **Runtime for Knowledge Service:** tenant, subject, purpose and clearance are propagated.
+3. **Knowledge Service for indexes:** only approved and non-expired documents are eligible.
+4. **Knowledge for model:** excerpts are marked as unreliable content.
+5. **Model Gateway for provider:** Region, model, tokens and wording policies are applied.
+6. **Event for observability:** Full content is not recorded by default.
 
-## Pipeline de ingestão
+## Injection pipeline
 
 ```mermaid
 flowchart LR
@@ -104,50 +104,50 @@ flowchart LR
     IX --> AP[Approval and activation]
 ```
 
-### Metadados obrigatórios
+### Mandatory metadata
 
 - `tenantId`;
 - `knowledgeBaseId`;
-- `documentId` e `documentVersion`;
-- source URI e source system;
+- `documentId`and `documentVersion`;
+- source URI and source system;
 - checksum;
-- classificação;
+- the classification;
 - owner;
 - allowed roles ou subjects;
 - purpose;
-- valid from e expires at;
+- valid from and expires at;
 - ingestion status;
-- embedding model e versão;
+- embedding model and version;
 - chunk strategy version.
 
-### Regras de segurança
+### Safety rules
 
-- decisão padrão `DENY`;
-- documento permanece em quarentena até os checks terminarem;
-- conteúdo com indirect prompt injection é bloqueado ou submetido à revisão;
-- ACL é copiada para cada chunk;
-- chunks não podem reduzir a classificação do documento;
-- exclusão ou expiração remove o item do retrieval;
-- logs não armazenam o texto integral.
+- the standard decision `DENY`;
+- the document remains in quarantine until the checks are completed;
+- content with indirect prompt injection is blocked or subject to revision;
+- ACL is copied for each chunk;
+- chunks shall not reduce the classification of the document;
+- exclusion or expiry removes the item from retrieval;
+- logs do not store the full text.
 
-Consulte [Segurança de RAG e memória](../security/rag-memory-security.md) e a policy executável [`policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml).
+Please refer to [RAG security and memory](../security/rag-memory-security.md) and the executable policy [`policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml).
 
-## Fluxo de invocação
+## Invocation flow
 
-1. Gateway autentica o usuário e estabelece tenant, subject e scopes.
-2. Runtime carrega a versão publicada do agente.
-3. Policy Enforcement valida se o usuário pode invocar o agente.
-4. Session Memory retorna apenas contexto do mesmo tenant, subject e sessão.
-5. Knowledge Service executa retrieval com filtros obrigatórios.
-6. Post-filter remove qualquer chunk que não atenda ACL, purpose, validade e clearance.
-7. Runtime monta o contexto com delimitadores de conteúdo não confiável.
-8. Model Gateway seleciona o modelo permitido e aplica limites.
-9. Resposta é validada para citações e políticas.
-10. Eventos e métricas são publicados sem conteúdo sensível desnecessário.
+1. Gateway authenticates the user and establishes tenant, subject, and scopes.
+2. Runtime carries the published version of the agent.
+3. Policy Enforcement validates whether the user can invoke the agent.
+4. Session Memory returns only context from the same tenant, subject and session.
+5. Knowledge Service shall perform retrieval with mandatory filters.
+6. Post-filter removes any chunk that does not meet ACL, purpose, validity and clearance.
+7. Runtime builds the context with unreliable content delimiters.
+8. Model Gateway shall select the permitted model and apply limits.
+9. Response is validated for citations and policies.
+10. Events and metrics are published without unnecessary sensitive content.
 
 ## Prompt boundary
 
-O conteúdo recuperado não deve ser concatenado como instrução confiável. Um padrão mínimo é:
+Recovered content must not be concatenated as reliable instruction.
 
 ```text
 SYSTEM POLICY
@@ -161,9 +161,9 @@ SYSTEM POLICY
 </untrusted_document>
 ```
 
-## Contratos principais
+## Main contracts
 
-### Ingestão
+### Injection
 
 ```http
 POST /v1/knowledge-bases/{knowledgeBaseId}/documents
@@ -175,145 +175,145 @@ POST /v1/knowledge-bases/{knowledgeBaseId}/documents
 POST /v1/knowledge-bases/{knowledgeBaseId}:search
 ```
 
-### Invocação
+### Invocation
 
 ```http
 POST /v1/agents/{agentId}:invoke
 ```
 
-Os schemas completos estão em [`openapi.yaml`](../contracts/openapi.yaml). Eventos de ingestão, invocação, modelo e avaliação estão em [`async-api.yaml`](../contracts/async-api.yaml).
+The full schemes are at [`openapi.yaml`](../contracts/openapi.yaml. Event intake, invocation, model and evaluation are at [`async-api.yaml`](../contracts/async-api.yaml).
 
-## Avaliação
+## Assessment
 
 ### Dataset
 
-O dataset deve incluir:
+The dataset shall include:
 
-- perguntas com resposta explícita;
-- perguntas que exigem múltiplos trechos;
-- perguntas sem evidência;
+- questions with an explicit answer;
+- questions requiring multiple sections;
+- questions without evidence;
 - documentos expirados;
-- documentos não autorizados;
-- termos ambíguos;
-- tentativas de prompt injection;
-- conteúdo contraditório entre versões;
-- perguntas fora da finalidade.
+- unauthorised documents;
+- ambiguous terms;
+- attempts at prompt injection;
+- content that is contradictory between versions;
+- questions out of the question.
 
 ### Gates sugeridos
 
-| Dimensão | Gate inicial |
+| Size | Gate inicial |
 |---|---|
-| unauthorized retrieval | 0 casos permitidos |
+| unauthorized retrieval | Permitted cases |
 | citation correctness | >= 95% |
-| grounded answer rate | >= 90% no dataset elegível |
-| abstention | agente deve recusar quando não houver evidência suficiente |
-| prompt injection | cenários críticos bloqueados |
-| retrieval recall@5 | threshold definido com o owner da base |
+| grounded answer rate | >= 90% in the eligible dataset |
+| abstention | The agent must refuse when there is insufficient evidence. |
+| prompt injection | Blocked critical scenarios |
+| retrieval recall@5 | threshold set with the owner of the base |
 | p95 latency | conforme classe `INTERACTIVE_RAG` |
-| cost per successful answer | dentro do budget aprovado |
+| cost per successful answer | within the approved budget |
 
-Thresholds exatos devem ser calibrados com o domínio e a baseline, não copiados sem validação.
+Accurate thresholds shall be calibrated with the domain and the baseline, not copied without validation.
 
-## SLO de referência
+## SLOof reference
 
-| Indicador | Objetivo inicial |
+| Indicador | Initial objective |
 |---|---|
-| disponibilidade | 99,5% mensal para o canal interno |
+| disponibilidade | 99,5% per month for the internal channel |
 | p95 end-to-end | <= 8 segundos |
 | retrieval p95 | <= 1,5 segundo |
 | policy decision p95 | <= 100 ms |
-| successful invocation | >= 99% excluindo entrada inválida |
-| citation presence | 100% das respostas factuais |
+| successful invocation | >= 99% excluding invalid input |
+| citation presence | 100% of the factual answers |
 
-Os objetivos canônicos por workload estão em [Requisitos não funcionais](../architecture/non-functional-requirements.md).
+The canonical workload targets are in [Non-functional requirements](../architecture/non-functional-requirements.md).
 
-## Modelo de custo
+## Cost model
 
-A estimativa deve separar:
+The estimate shall separate:
 
 ```text
 Custo total = ingestão + embeddings + storage + retrieval + geração + observabilidade + plataforma
 ```
 
-Métricas mínimas:
+Minimum metrics:
 
-- custo de ingestão por documento e GB;
-- custo de reindexação;
-- custo médio e p95 por invocação;
-- tokens de entrada e saída;
-- custo por modelo;
-- custo por resposta aceita;
-- custo por área ou tenant;
-- economia estimada de tempo do usuário.
+- the cost of input per document and GB;
+- the cost of re-indexation;
+- average cost and p95 per invocation;
+- entry and exit tokens;
+- cost per model;
+- cost per response accepted;
+- cost per area or tenant;
+- estimated user time savings.
 
-## Estratégias de redução de custo
+## Cost reduction strategies
 
-- limitar `topK` e tamanho de chunks;
-- usar reranking apenas quando necessário;
-- aplicar cache somente para respostas compatíveis com identidade e versão;
-- rotear consultas simples para modelos menores;
-- resumir histórico de sessão com política explícita;
-- eliminar fontes duplicadas;
-- controlar reindexação;
-- usar budgets e quotas por agente.
+- limit `topK` and the size of the chunks;
+- use reranking only when necessary;
+- Cache only responses that are compatible with identity and version;
+- routing simple queries for smaller models;
+- summarise session history with explicit policy;
+- eliminate duplicate sources;
+- control of re-indexation;
+- use budgets and quotas per agent.
 
-## Plano de release
+## Release plan
 
-1. dark launch com dataset replay;
-2. allowlist para time de políticas;
-3. canary para grupo interno pequeno;
-4. coleta de feedback e análise de queries sem resposta;
-5. expansão por unidade de negócio;
-6. revisão após 30 dias;
-7. publicação geral se gates permanecerem atendidos.
+1. dark launch with dataset replay;
+2. allowlist for policy team;
+3. canary for small domestic group;
+4. collection of feedback and analysis of unanswered queries;
+5. expansion per business unit;
+6. review after 30 days;
+7. general release if gates remain serviced.
 
-## Failure modes e resposta
+## Failure modes and response
 
-| Falha | Contenção |
+| Falha | Containment |
 |---|---|
-| modelo indisponível | fallback permitido ou resposta de indisponibilidade |
-| retrieval indisponível | não responder com conhecimento geral como se fosse política |
-| policy engine indisponível | fail closed para conteúdo não público |
-| fonte expirada | remover do retrieval e disparar alerta ao owner |
-| citação inválida | bloquear resposta factual ou retornar warning controlado |
-| custo acima do budget | reduzir quota, rotear modelo ou suspender expansão |
-| incidente de acesso | suspender agente, preservar evidências e executar runbook |
+| Model not available | Permitted fallback or unavailability response |
+| Retrieval is not available | Do not respond with general knowledge as if it were political. |
+| policy engine unavailable | fail closed for non-public content |
+| Expired source | Remove from retrieval and fire an alert to the owner |
+| invalid citation | bloquear resposta factual ou retornar warning controlado |
+| Cost above budget | reduce quota, rotate model or suspend expansion |
+| Access incident | Suspend agent, preserve evidence and run runbook |
 
-## Checklist para produção
+## Checklist for production
 
-- [ ] owner de negócio, técnico e da base definidos;
-- [ ] fontes aprovadas e classificadas;
-- [ ] ACL por documento e chunk validada;
-- [ ] quarentena e checks de ingestão ativos;
-- [ ] dataset de avaliação versionado;
-- [ ] testes negativos de autorização e injection aprovados;
-- [ ] SLO, dashboards e alertas configurados;
-- [ ] budget e quotas definidos;
-- [ ] runbook de incidente e rollback publicado;
-- [ ] estratégia de expiração e exclusão testada;
-- [ ] aprovação corresponde exatamente à versão publicada;
-- [ ] revisão periódica agendada.
+- [ ] defined business, technical and base owner;
+- [ ] approved and classified sources;
+- [ ] ACL per document and validated chunk;
+- [ ] active quarantine and intake checks;
+- [ ] versioned evaluation dataset;
+- [ ] negative authorisation and injection tests approved;
+- [ ] SLO, dashboards and alerts configured;
+- [ ] defined budget and quotas;
+- [ ] published incident and rollback runbook;
+- [ ] the expiry and exclusion strategy tested;
+- [ ] approval corresponds exactly to the published version;
+- [ ] scheduled periodic review.
 
 ## Trade-offs assumidos
 
-- o MVP prioriza precisão e autorização sobre cobertura máxima;
-- não existe long-term memory;
-- respostas sem evidência são recusadas;
-- documentos precisam passar por pipeline controlado;
-- o agente não substitui o repositório oficial;
-- o usuário deve conseguir abrir a fonte citada.
+- the MVP prioritizes accuracy and authorisation over maximum coverage;
+- there is no long-term memory;
+- answers without evidence are refused;
+- documents need to pass through a controlled pipeline;
+- the agent does not replace the official repository;
+- the user must be able to open the cited source.
 
-## Evoluções possíveis
+## Possible developments
 
 - feedback supervisionado;
 - query rewriting controlado;
 - reranking especializado;
 - suporte multimodal;
-- analytics sobre gaps de conhecimento;
-- integração com workflow de atualização de políticas;
-- múltiplas bases com policy routing;
-- avaliações online e shadow models.
+- knowledge gap analytics;
+- integration with policy update workflow;
+- Multiple bases with policy routing;
+- online reviews and shadow models.
 
-## Próximo capítulo
+## Next chapter
 
-Os [Decision Guides](06-decision-guides.md) ajudam a decidir quando esse padrão deve ser adaptado ou substituído.
+The [Decision Guides](06-decision-guides.md) help decide when this standard should be adapted or replaced.

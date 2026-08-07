@@ -1,18 +1,18 @@
-# Arquitetura de Referência - Agente de Automação Backoffice
+# This is the total amount of assigned revenue in accordance with Article 21 (3) of the Financial Regulation.
 
-## Objetivo
+## Objective
 
-Automatizar tarefas operacionais repetitivas de backoffice usando agentes com integração a sistemas internos, workflow e governança de ações.
+Automate repetitive backoffice operational tasks using agents with integration into internal systems, workflow and action governance.
 
-## Casos de Uso
+## Cases of use
 
-- Triagem de solicitações
-- Consulta e atualização de sistemas internos
-- Apoio a contestação
-- Preparação de documentos
-- Execução assistida de tarefas operacionais
+- Selection of requests
+- Consultation and updating of internal systems
+- I support the challenge
+- Preparation of documents
+- Assisted execution of operational tasks
 
-## Componentes Envolvidos
+## Components involved
 
 - Agent Gateway
 - Agent Runtime
@@ -24,27 +24,27 @@ Automatizar tarefas operacionais repetitivas de backoffice usando agentes com in
 - Governance Service
 - Billing Service
 
-## Fluxo de Alto Nível
+## High-level flow
 
-1. Evento ou solicitação inicia o processo.
-2. Agent Runtime interpreta o objetivo e consulta contexto.
-3. MCP Server executa ações em sistemas autorizados.
-4. Workflow recebe status e próximos passos.
-5. Casos críticos são enviados para revisão humana.
-6. Audit Service registra decisões, comandos e evidências.
+1. Event or request starts the process.
+2. Agent Runtime interprets the objective and consults the context.
+3. MCP Server performs actions on authorised systems.
+4. Workflow receives status and next steps.
+5. Critical cases are sent for human review.
+6. Audit Service records decisions, commands and evidence.
 
-## Controles
+## Controls
 
-- Idempotência para comandos
-- Aprovação humana para ações irreversíveis
-- Limite de autonomia por risco
-- Segregação de funções
-- Auditoria obrigatória de tool calls
+- Idempotence for commands
+- Human approval for irreversible actions
+- Limit of autonomy by risk
+- Separation of functions
+- Compulsory auditing of tool calls
 
-## Métricas
+## The following information shall be provided:
 
-- Tempo economizado por processo
-- Volume de tarefas automatizadas
-- Taxa de erro operacional
-- Taxa de intervenção humana
-- Custo por processo
+- Time saved by process
+- Automated tasks volume
+- Operational error rate
+- Human intervention rate
+- Cost per process

@@ -1,10 +1,10 @@
 # Governance Platform
 
-## Objetivo
+## Objective
 
-Controlar o ciclo de vida, aprovação, risco e conformidade das soluções de IA.
+Control the life cycle, approval, risk and compliance of AI solutions.
 
-## Capacidades
+## Capacities
 
 - AI Catalog
 - Approval Workflow
@@ -13,14 +13,14 @@ Controlar o ciclo de vida, aprovação, risco e conformidade das soluções de I
 - Policy Enforcement
 - Evidence Management
 
-## Serviços Relacionados
+## Other services
 
 - Governance Service
 - Evaluation Service
 - Agent Registry
 - Audit Service
 
-## Eventos
+## Events
 
 - governance.approved
 - governance.rejected
@@ -29,17 +29,17 @@ Controlar o ciclo de vida, aprovação, risco e conformidade das soluções de I
 
 ## KPIs
 
-| Indicador | Descrição |
+| Indicador | Other information |
 |---|---|
-| Approved Agents | Agentes aprovados |
-| Rejected Agents | Agentes rejeitados |
-| Review Lead Time | Tempo médio de aprovação |
-| High Risk Agents | Agentes classificados como alto risco |
+| Approved Agents | Approved agents |
+| Rejected Agents | Rejected agents |
+| Review Lead Time | Average time of approval |
+| High Risk Agents | Agents classified as high risk |
 
-## Requisitos Não Funcionais
+## Non-functional requirements
 
-- Segregação de funções
-- Aprovação rastreável
-- Evidências persistidas
-- Integração com avaliação automática
-- Histórico completo de decisões
+- Separation of functions
+- Traceable approval
+- Persistent evidence
+- Integration with automatic evaluation
+- Complete history of decisions

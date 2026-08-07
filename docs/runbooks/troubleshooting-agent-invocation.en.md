@@ -1,55 +1,55 @@
-# Runbook — Troubleshooting de Invocação de Agente
+# Runbook  Troubleshooting of Agent Invocation
 
-## Entrada mínima
+## Minimum entry
 
-Colete sem expor dados sensíveis:
+Collect without exposing sensitive data:
 
-- horário UTC;
+- UTC time;
 - `correlationId`;
-- agente e versão;
+- agent and version;
 - tenant;
-- classe de workload;
+- the workload class;
 - status HTTP ou `executionStatus`;
-- policy ID/version quando houver bloqueio.
+- policy ID/version when there is a block.
 
-## Sequência de diagnóstico
+## Diagnostic sequence
 
-1. localizar o trace pelo `correlationId`;
-2. verificar autenticação e autorização no Gateway;
-3. confirmar versão `PUBLISHED` no cache do Runtime;
-4. revisar decisão do Policy Decision Point;
-5. identificar primeiro span com erro ou latência anormal;
-6. verificar backlog e DLQ;
-7. confirmar budget e quota;
-8. aplicar fallback ou bloquear componente afetado.
+1. locate the trace by `correlationId`;
+2. verify authentication and authorisation on the Gateway;
+3. confirm the `PUBLISHED` version in the Runtime cache;
+4. review a decision of the Policy Decision Point;
+5. identify first span with error or abnormal latency;
+6. verify backlog and DLQ;
+7. confirm the budget and quota;
+8. apply fallback or block the affected component.
 
-## Árvore rápida
+## Fast tree
 
-| Sintoma | Verificação | Ação inicial |
+| Sintoma | Verification | Initial action |
 |---|---|---|
-| `401` | token, issuer, audience e clock skew | corrigir identidade |
-| `403` | escopo, tenant e policy decision | revisar autorização, não liberar bypass |
-| `404` | visibilidade do recurso e versão publicada | validar catálogo e tenant |
-| `409` | idempotência ou estado | consultar operação original |
-| `422` | policy violation e evidência faltante | corrigir configuração |
+| `401` | token, issuer, audience and clock skew | corrigir identidade |
+| `403` | scope, tenant and policy decision | review authorisation, not release bypass |
+| `404` | visibility of the resource and published version | validate catalogue and tenant |
+| `409` | Impotence or state | to consult original operation |
+| `422` | policy violation and lack of evidence | correct the configuration |
 | `429` | quota, rate limit ou budget | reduzir consumo ou aprovar novo limite |
 | `BLOCKED` | policy/guardrail | confirmar bloqueio esperado |
-| `PARTIAL` | dependência degradada | informar limitação e acionar fallback |
-| timeout | span mais lento e deadline | isolar provedor/tool e usar assíncrono |
+| `PARTIAL` | degraded dependence | report limitation and trigger fallback |
+| timeout | slower span and deadline | isolate provider/tool and use asynchronous |
 
-## Contenção
+## Containment
 
-- desabilitar versão ou tool específica, não a plataforma inteira;
-- forçar fallback somente para modelos e regiões aprovados;
+- disable a specific version or tool, not the entire platform;
+- Forcing fallback only for approved models and regions;
 - preservar `deny by default`;
-- pausar ações transacionais se auditoria estiver indisponível;
-- comunicar impacto, escopo e workaround.
+- to pause transactional actions if the audit is unavailable;
+- communicate impact, scope and workaround.
 
 ## Encerramento
 
 - causa identificada;
-- métricas normalizadas;
-- mensagens na DLQ tratadas;
-- smoke test concluído;
-- timeline e evidências anexadas;
-- ação preventiva registrada.
+- standardised metrics;
+- messages in the treated DLQ;
+- smoke test completed;
+- timeline and attached evidence;
+- registered preventive action.

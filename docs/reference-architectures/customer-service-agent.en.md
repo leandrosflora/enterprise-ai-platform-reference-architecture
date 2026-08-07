@@ -1,18 +1,18 @@
-# Arquitetura de Referência - Agente de Atendimento ao Cliente
+# This is the total amount of assigned revenue in accordance with Article 21 (3) of the Financial Regulation.
 
-## Objetivo
+## Objective
 
-Automatizar e apoiar jornadas de atendimento ao cliente usando agentes com RAG, integração a sistemas corporativos e governança de ações.
+Automate and support customer service journeys using agents with RAG, integration into corporate systems and equity governance.
 
-## Casos de Uso
+## Cases of use
 
-- Consulta de informações do cliente
-- Explicação de produtos e contratos
-- Apoio a renegociação
-- Triagem de solicitações
-- Criação de protocolos ou chamados
+- Consultation of customer information
+- Explanation of products and contracts
+- Support for renegotiation
+- Selection of requests
+- Creation of protocols or calls
 
-## Componentes Envolvidos
+## Components involved
 
 - Channel Adapter
 - Agent Gateway
@@ -24,35 +24,35 @@ Automatizar e apoiar jornadas de atendimento ao cliente usando agentes com RAG, 
 - Governance Service
 - Audit Service
 
-## Integrações
+## Integrations
 
 - CRM
 - Core Banking
-- Plataforma de atendimento
-- Sistema de protocolo
-- Base de conhecimento
+- Service platform
+- Protocol system
+- Knowledge base
 
-## Fluxo de Alto Nível
+## High-level flow
 
-1. Cliente inicia atendimento em canal digital.
-2. Channel Adapter encaminha a mensagem ao Agent Gateway.
-3. Agent Runtime recupera contexto, conhecimento e políticas.
+1. Customer starts service on the digital channel.
+2. Channel Adapter is forwarding the message to Agent Gateway.
+3. Agent Runtime recovers context, knowledge and policies.
 4. MCP Server consulta sistemas corporativos autorizados.
-5. Agente responde ou executa ação permitida.
-6. Audit Service registra conversa, tool calls e decisões.
+5. Agent responds or performs a permitted action.
+6. Audit Service records conversation, tool calls and decisions.
 
-## Controles
+## Controls
 
-- Autorização por escopo e canal
-- Mascaramento de dados sensíveis
-- Human-in-the-loop para ações críticas
-- Limites de autonomia por risco
-- Registro de consentimento quando aplicável
+- Scope and channel authorisation
+- Masking of sensitive data
+- Human-in-the-loopfor critical actions
+- Risk autonomy limits
+- Registration of consent where applicable
 
-## Métricas
+## The following information shall be provided:
 
 - Containment rate
-- Tempo médio de atendimento
-- Taxa de transferência para humano
-- Taxa de erro em tool calls
-- Custo por atendimento
+- Average attendance time
+- Transfer rate to human
+- Rate of error in tool calls
+- Cost of care

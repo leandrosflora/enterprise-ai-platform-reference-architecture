@@ -1,59 +1,59 @@
-# ADR-006 — OpenTelemetry como padrão de observabilidade
+# ADR-006  OpenTelemetry as an observability standard
 
 **Status:** Aceito
 
 ## Contexto
 
-Soluções com agentes e modelos generativos exigem rastreabilidade além de logs tradicionais. Uma execução pode atravessar gateway, runtime, políticas, memória, retrieval, modelos, ferramentas, avaliação e eventos, com impacto simultâneo em qualidade, segurança, custo e latência.
+Solutions with generative agents and models require traceability beyond traditional logs. An execution can go through gateway, runtime, policies, memory, retrieval, models, tools, evaluation and events, with simultaneous impact on quality, security, cost and latency.
 
-## Decisão
+## Decision
 
-Adotar **OpenTelemetry** como padrão de traces, métricas e logs correlacionados. Cada invocação deve possuir trace ponta a ponta e spans específicos para decisões de política, retrieval, memória, model calls, tool calls, avaliação e auditoria.
+Adopt **OpenTelemetry** as a pattern of related traces, metrics and logs. Each invocation must have end-to-end traces and specific spans for policy decisions, retrieval, memory, model calls, tool calls, evaluation and audit.
 
-Eventos assíncronos devem propagar contexto W3C e manter `correlationId` e `causationId` quando aplicável.
+Asynchronous events shall propagate the W3C context and maintain `correlationId` and `causationId` where applicable.
 
-## Requisitos obrigatórios
+## Mandatory requirements
 
-- `agent.id`, `agent.version`, `tenant.id` e classificação de risco na execução;
-- versão efetiva de modelo, prompt, policy, tool e knowledge snapshot;
-- tokens, custo, latência, retries e fallback;
-- decisão de autorização sem registrar secrets ou payload sensível bruto;
-- mascaramento antes da exportação;
-- controle de cardinalidade de métricas;
-- retenção e acesso proporcionais à classificação do dado;
-- correlação com eventos de auditoria e avaliação.
+- the risk classification in the execution of `agent.id`, `agent.version`, `tenant.id`;
+- the actual model version, prompt, policy, tool and knowledge snapshot;
+- The amount of the exposure value of the underlying exposure shall be calculated as follows:
+- an authorisation decision without recording secrets or gross sensitive payload;
+- masking before export;
+- the cardinality control of metrics;
+- retention and access proportional to the classification of the data;
+- correlation with audit and evaluation events.
 
 ## Alternativas
 
-| Alternativa | Vantagem | Limitação |
+| Alternativa | Vantagem | Limitation |
 |---|---|---|
-| Logs customizados por serviço | implementação local simples | correlação e semântica inconsistentes |
-| Instrumentação proprietária única | integração rápida com um fornecedor | lock-in e portabilidade reduzida |
-| Apenas eventos de auditoria | boa trilha de negócio | diagnóstico técnico e performance insuficientes |
+| Customized logs by service | Simple local implementation | inconsistent correlation and semantics |
+| Unique proprietary instrumentation | Rapid integration with a supplier | Lock-in and reduced portability |
+| Audit events only | Good business trail | Technical diagnosis and insufficient performance |
 
-## Consequências positivas
+## Positive consequences
 
-- correlação ponta a ponta entre capacidades;
-- integração com stacks corporativas existentes;
-- base comum para SRE, segurança, avaliação e FinOps;
-- troca de backend sem alterar a instrumentação principal.
+- end-to-end correlation between capacities;
+- integration with existing corporate stacks;
+- the common basis for SRE, security, evaluation and FinOps;
+- backend exchange without altering the main instrumentation.
 
-## Consequências negativas
+## Negative consequences
 
-- aumenta volume e custo de telemetria;
-- exige governança de atributos e cardinalidade;
-- instrumentação incorreta pode vazar dados ou gerar falsa confiança;
-- sampling precisa preservar eventos críticos.
+- increase the volume and cost of telemetry;
+- requires governance of attributes and cardinality;
+- incorrect instrumentation may leak data or generate false confidence;
+- sampling needs to preserve critical events.
 
-## Evidências mínimas
+## Minimum evidence
 
-- trace de referência cobrindo uma invocação completa;
-- catálogo de spans, atributos e métricas;
-- teste de propagação HTTP e assíncrona;
-- teste de redaction e ausência de secrets;
-- dashboards, alertas e SLOs associados;
-- política de retenção, sampling e acesso.
+- a reference line covering a full invocation;
+- the catalogue of spans, attributes and metrics;
+- the HTTP and asynchronous spread test;
+- proof-of-concept and absence of secrets;
+- dashboards, alerts and SLOs associados;
+- the retention, sampling and access policy.
 
-## Critérios de revisão
+## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
 
-Revisar quando o padrão deixar de atender interoperabilidade, volume ou requisitos de segurança, ou quando a instrumentação causar custo operacional desproporcional ao diagnóstico e à governança obtidos.
+Review when the standard fails to meet interoperability, volume or safety requirements, or when the instrumentation causes an operational cost disproportionate to the diagnosis and governance achieved.

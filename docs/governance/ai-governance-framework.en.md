@@ -1,10 +1,10 @@
 # Enterprise AI Governance Framework
 
-## Objetivo
+## Objective
 
-Definir como a organização decide, aprova, publica, monitora e retira soluções de IA com responsabilidades claras e evidências auditáveis.
+Defining how the organization decides, approves, publishes, monitors and withdraws AI solutions with clear responsibilities and auditable evidence.
 
-## Modelo operacional
+## Operational model
 
 ```mermaid
 flowchart LR
@@ -18,112 +18,112 @@ flowchart LR
     H --> I[Reassessment or Retirement]
 ```
 
-## Estrutura de decisão
+## Decision structure
 
 | Papel | Responsabilidade |
 |---|---|
-| Business Owner | finalidade, benefício, impacto e aceite do risco residual |
-| Product Owner | backlog, métricas e experiência do usuário |
-| AI Architect | padrões, arquitetura, autonomia e integração |
-| Data Owner | qualidade, acesso, finalidade e retenção dos dados |
-| Security | threat model, controles e resposta a incidentes |
-| Privacy / DPO | LGPD, base legal, minimização e direitos do titular |
-| Legal / Compliance | obrigações regulatórias, contratuais e propriedade intelectual |
-| Model Risk / Evaluation | metodologia, datasets, thresholds e independência da avaliação |
-| Platform Team | guardrails, gateways, observabilidade e policy as code |
-| Operations | SLO, runbook, capacidade, continuidade e rollback |
+| Business Owner | the purpose, benefit, impact and acceptance of residual risk; |
+| Product Owner | Backlog, metrics and user experience |
+| AI Architect | The Commission shall adopt delegated acts in accordance with the opinion of the Standing Committee on Planning and Development. |
+| Data Owner | quality, access, purpose and retention of data |
+| Security | threat model, controls and incident response |
+| Privacy / DPO | LGPD, legal basis, minimisation and rights of the holder |
+| Legal / Compliance | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
+| Model Risk / Evaluation | the methodology, datasets, thresholds and independence of the assessment; |
+| Platform Team | guardrails, gateways, observability and policy code |
+| Operations | SLO, runbook, capacity, continuity and rollback |
 
 ## Artefatos governados
 
-- AI use case, finalidade e Outcome Card;
+- AI use case, purpose and outcome card;
 - Agent Card ou Model Card;
 - risk assessment;
-- ADRs de arquitetura e seleção de modelo;
-- fontes de dados, data contracts e lineage;
-- datasets, prompts, modelos, embeddings, ferramentas e políticas versionados;
-- knowledge snapshot e release manifest;
-- golden dataset e evaluation report;
-- threat model e privacy assessment;
-- aprovações, exceções e riscos residuais;
-- dashboards, incidentes e plano de retirada.
+- architecture ADRs and model selection;
+- data sources, data contracts and lineage;
+- data sets, prompts, templates, embeddings, tools and versioned policies;
+- knowledge snapshot and release manifest;
+- the golden dataset and evaluation report;
+- threat model and privacy assessment;
+- approvals, exceptions and residual risks;
+- dashboards, incidents and withdrawal plan.
 
-O lifecycle detalhado desses ativos está em [Data, Model, Prompt and Knowledge Lifecycle](model-lifecycle.md).
+The detailed lifecycle of these assets is in [Data, Model, Prompt and Knowledge Lifecycle] ((model-lifecycle.md).
 
 ## Gates
 
-| Gate | Entrada | Saída |
+| Gate | Entrada | Exit |
 |---|---|---|
-| Intake | problema e sponsor | caso registrado e owner definido |
-| Risk | impacto, dados e autonomia | classificação LOW a CRITICAL |
-| Design | arquitetura e contratos | ADRs e controles definidos |
-| Assurance | security, privacy, legal e evaluation | evidências e pendências |
-| Release | readiness operacional | versão aprovada e imutável |
-| Operate | telemetria e feedback | monitoramento e ações corretivas |
-| Retire | decisão de encerramento | acesso revogado, dados tratados e evidência preservada |
+| Intake | Problem and sponsor | Registered case and defined owner |
+| Risk | Impact, data and autonomy | low to critical ratings |
+| Design | architecture and contracts | Defined ADRs and controls |
+| Assurance | Security, privacy, legal and evaluation | Evidence and pending |
+| Release | readiness operacional | approved and unchanging version |
+| Operate | telemetry and feedback | monitoring and corrective actions |
+| Retire | closing decision | Withdrawn access, processed data and preserved evidence |
 
-## Alinhamento a frameworks
+## Alignment to frameworks
 
-| Referência | Aplicação |
+| Reference | Application of this Regulation |
 |---|---|
-| NIST AI RMF | Govern, Map, Measure e Manage como ciclo de risco |
-| ISO/IEC 42001 | sistema de gestão de IA, papéis, controles e melhoria contínua |
-| ISO 27001 | controles de segurança da informação |
-| LGPD | finalidade, necessidade, transparência, segurança e direitos do titular |
-| EU AI Act | classificação por risco e obrigações proporcionais quando aplicável |
-| OWASP LLM | threat model e testes de segurança para aplicações com LLM |
+| NIST AI RMF | Governance, Map, Measure and Manage as a Risk Cycle |
+| ISO/IEC 42001 | AI management system, roles, controls and continuous improvement |
+| ISO 27001 | information security controls |
+| LGPD | purpose, necessity, transparency, security and rights of the holder |
+| EU AI Act | risk classification and proportional liabilities where applicable |
+| OWASP LLM | threat model and security tests for applications with LLM |
 
-A relação acima é conceitual. A rastreabilidade operacional entre controle, função normativa, evidência, owner, gate e enforcement está no [Crosswalk de Governança, Risco e Compliance](compliance-crosswalk.md).
+The operational traceability between control, regulatory function, evidence, owner, gate and enforcement is in the[Crosswalk of governance, risk and compliance](compliance-crosswalk.md).
 
-## Rastreabilidade de controle
+## Traceability of control
 
-Cada controle aplicável deve possuir:
+Each applicable control shall have:
 
-- identificador estável;
-- referência ao risco tratado;
-- owner e aprovador quando aplicável;
-- evidência mínima;
-- gate em que é verificado;
-- enforcement automático, humano ou híbrido;
-- regra de exceção e expiração;
-- indicador de eficácia.
+- a stable identifier;
+- reference to the risk treated;
+- owner and approval authority where applicable;
+- the minimum evidence;
+- the gate at which it is checked;
+- automatic enforcement, human or hybrid;
+- the exception and expiry rule;
+- the effectiveness indicator.
 
-Documentação sem evidência ou enforcement não é considerada controle implementado.
+Documentation without evidence or enforcement is not considered enforced control.
 
-## Exceções
+## Exceptions
 
-Exceções devem possuir:
+Exceptions shall include:
 
-- controle não atendido e justificativa;
-- risco residual e impacto;
-- controle compensatório;
-- owner e aprovador independente;
-- prazo de validade;
-- condição de revogação;
-- evidência e ticket rastreável.
+- unattended and justified checks;
+- residual risk and impact;
+- compensatory control;
+- the owner and independent authorising officer;
+- the period of validity;
+- the condition of revocation;
+- evidence and traceable ticket.
 
-Exceção sem data de expiração é inválida.
+Exception without expiry date is invalid.
 
-## Policy as code
+## Policy codes
 
-Automatizar controles objetivos:
+Automate targeted controls:
 
-- bloquear artefato sem owner ou classificação;
-- impedir modelo, fonte ou ferramenta não aprovada;
-- exigir avaliação e thresholds por nível de risco;
-- validar segregação de função;
-- aplicar budgets, quotas e limites de autonomia;
-- manter versões publicadas imutáveis;
-- negar por padrão quando não houver política.
+- blocking an artifact without owner or classification;
+- prevent an unapproved model, source or tool;
+- require assessment and thresholds by risk level;
+- validate function segregation;
+- apply budgets, quotas and autonomy limits;
+- keep published versions unchanged;
+- Denying by default when there's no politics.
 
-## Indicadores de governança
+## Governance indicators
 
-- tempo de aprovação por nível de risco;
-- percentual de soluções com evidências completas;
-- cobertura dos controles do crosswalk;
-- controles automatizados versus manuais;
-- exceções abertas e vencidas;
-- regressões e incidentes por versão;
-- cobertura de avaliação e red-team;
-- tempo para rollback ou desativação;
-- percentual de modelos, prompts e ferramentas fora do padrão;
-- custo por caso de uso e por tarefa concluída.
+- time of approval by risk level;
+- percentage of solutions with full evidence;
+- coverage of crosswalk controls;
+- automated or manual controls;
+- open and expired exceptions;
+- Regressions and incidents per version;
+- evaluation coverage and networking;
+- rollback or deactivation time;
+- percentage of models, prompts and off-the-shelf tools;
+- cost per use case and per completed task.

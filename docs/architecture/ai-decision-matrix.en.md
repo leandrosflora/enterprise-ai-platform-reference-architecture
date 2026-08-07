@@ -1,27 +1,27 @@
 # AI Solution Decision Matrix
 
-## Objetivo
+## Objective
 
-Evitar o uso indiscriminado de agentes e selecionar o padrão mais simples que satisfaça o requisito de negócio.
+Avoid the indiscriminate use of agents and select the simplest pattern that meets the business requirement.
 
 ## Matriz principal
 
-| Necessidade | Padrão preferencial | Quando evitar |
+| Necessidade | Preferential standard | When to Avoid |
 |---|---|---|
-| Resposta sobre conteúdo corporativo | RAG | quando regras determinísticas resolvem |
-| Conteúdo atualizado e citável | Search + RAG | quando a fonte não possui governança ou ACL |
-| Comportamento e estilo específicos | Prompt + few-shot | quando o problema é falta de conhecimento |
-| Conhecimento especializado estável | Fine-tuning | quando os dados mudam com frequência |
-| Processo previsível e auditável | Workflow determinístico | quando etapas precisam ser descobertas dinamicamente |
-| Escolha dinâmica de etapas | Agente | quando não há necessidade real de autonomia |
-| Acesso padronizado a ferramentas | MCP | quando uma API simples e exclusiva é suficiente |
-| Redução de latência e custo | Cache | quando dados são sensíveis, voláteis ou personalizados |
-| Contexto temporário de conversa | Short-term memory | quando não há consentimento ou finalidade |
-| Preferências persistentes | Long-term memory | quando o dado pode ser recuperado da fonte oficial |
-| Múltiplos provedores/modelos | Model Gateway + Router | quando existe apenas um modelo aprovado e estável |
-| Tarefa complexa com domínios separados | Multi-agent | quando um único agente com ferramentas resolve |
+| Corporate content response | RAG | when deterministic rules resolve |
+| Updated and cited content | Search + RAG | where the source has no governance or ACL |
+| Specific behaviour and style | Prompt + few-shot | When the problem is lack of knowledge |
+| Stable specialised knowledge | Fine-tuning | When data changes frequently |
+| Foreseeable and auditable process | Deterministic workflow | When stages need to be dynamically discovered |
+| Dynamic selection of steps | Agent | When there is no real need for autonomy |
+| Standardised access to tools | MCP | when a single API is sufficient |
+| Reduction of latency and cost | Cache | where data is sensitive, volatile or personalized |
+| Temporary context of the conversation | Short-term memory | where there is no consent or purpose |
+| Persistent preferences | Long-term memory | when the data can be retrieved from the official source |
+| Multiple providers/models | Model Gateway + Router | where there is only one approved and stable model |
+| Complex task with separate domains | Multi-agent | When a single agent with tools solves |
 
-## Árvore de decisão
+## Decision tree
 
 ```mermaid
 flowchart TD
@@ -40,30 +40,30 @@ flowchart TD
 
 ## RAG versus fine-tuning
 
-| Critério | RAG | Fine-tuning |
+| Criterion of use | RAG | Fine-tuning |
 |---|---|---|
-| Atualização de conhecimento | rápida | exige novo treino |
-| Citações e rastreabilidade | forte | limitada |
-| Alteração de comportamento | limitada | forte |
-| Dados privados | ficam fora dos pesos | podem ser incorporados aos pesos |
+| Updating of knowledge | rapidly | exige novo treino |
+| Citations and traceability | forte | limitada |
+| Changes in behaviour | limitada | forte |
+| Private data | They're out of bounds. | may be incorporated into weights |
 | Custo inicial | menor | maior |
-| Operação | índice e ingestão | pipeline de treino e registry |
+| Operations | Index and intake | Training and registration pipeline |
 
-Use RAG para conhecimento. Use fine-tuning para comportamento, formato ou especialização que não seja alcançada por prompt e exemplos.
+Use RAG for knowledge. Use fine-tuning for behavior, format or specialization that is not achieved by prompt and examples.
 
-## Agente versus workflow
+## Agent versus workflow
 
-Escolha agente somente quando houver valor real em decidir dinamicamente quais etapas ou ferramentas usar. Para processos regulados, financeiros ou com efeitos colaterais relevantes, prefira workflow explícito, transações delimitadas e aprovação humana.
+Choose an agent only when there is real value in dynamically deciding which steps or tools to use. For regulated, financial or relevant side-effects processes, prefer explicit workflow, delimited transactions and human approval.
 
-## Critérios de seleção
+## Selection criteria
 
-A decisão deve registrar:
+The decision shall record:
 
-- requisito funcional e alternativa mais simples;
-- nível de risco e autonomia;
-- latência e volume;
+- a simpler functional and alternative requirement;
+- the level of risk and autonomy;
+- latency and volume;
 - custo esperado;
-- dados e classificação;
-- necessidade de explicabilidade;
-- estratégia de avaliação;
-- fallback e rollback.
+- data and classification;
+- the need for explainability;
+- the evaluation strategy;
+- Fallback and rollback.

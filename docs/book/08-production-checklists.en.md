@@ -1,186 +1,186 @@
-# 9. Checklists de produção
+# 9. Checklists of production
 
-## Como usar
+## How to use
 
-Os checklists são instrumentos de verificação, não substitutos para análise. Itens não aplicáveis devem ser marcados com justificativa. Itens obrigatórios não atendidos precisam de bloqueio ou exceção formal com owner e validade.
+Checklists are verification tools, not substitutes for analysis.Non-applicable items must be marked with a justification.Compulsory items that are not met require a formal blocking or exception with owner and validity.
 
 ## 1. Business readiness
 
-- [ ] problema e usuário estão definidos;
-- [ ] outcome e métricas de sucesso foram acordados;
-- [ ] existe owner de negócio;
-- [ ] existe owner técnico;
-- [ ] a alternativa sem IA foi considerada;
-- [ ] impacto de respostas incorretas foi analisado;
-- [ ] processo de feedback foi definido;
-- [ ] estratégia de comunicação e adoção existe;
-- [ ] critérios de encerramento ou desativação estão definidos.
+- [ ] problem and user are defined;
+- [ ] outcome and success metrics have been agreed;
+- [ ] there is a business owner;
+- [ ] there is a technical owner;
+- [ ] the AI-free alternative has been considered;
+- [ ] the impact of incorrect responses has been analysed;
+- [ ] feedback process has been defined;
+- [ ] communication and adoption strategy exists;
+- [ ] closure or deactivation criteria are defined.
 
 ## 2. Architecture readiness
 
-- [ ] contexto e containers estão documentados;
-- [ ] fronteiras entre control plane e data plane são explícitas;
-- [ ] sistemas de registro permanecem autoritativos;
-- [ ] contratos de API, eventos e tools estão versionados;
-- [ ] decisão agent versus workflow está registrada;
-- [ ] sincronismo e processamento assíncrono estão justificados;
-- [ ] timeouts, retries e circuit breakers estão definidos;
-- [ ] idempotência existe para efeitos colaterais;
-- [ ] fallback e degradação controlada foram desenhados;
-- [ ] ADRs cobrem decisões relevantes;
-- [ ] dependências e failure modes foram identificados.
+- [ ] context and containers are documented;
+- [ ] boundaries between control plane and data plane are explicit;
+- [ ] registration systems remain authoritative;
+- [ ] API contracts, events and tools are versioned;
+- [ ] agent versus workflow decision is recorded;
+- [ ] synchronicity and asynchronous processing are warranted;
+- [ ] timeouts, retries and circuit breakers are defined;
+- [ ] impotence exists for side effects;
+- [ ] fallback and controlled degradation have been designed;
+- [ ] ADRs cover relevant decisions;
+- [ ] dependencies and failure modes have been identified.
 
 ## 3. Identity and authorization
 
-- [ ] usuários são autenticados por IdP aprovado;
-- [ ] workloads usam identidade própria;
-- [ ] tokens são validados por issuer, audience, validade e assinatura;
-- [ ] scopes mínimos estão definidos;
-- [ ] autorização é `deny by default`;
-- [ ] tenant e subject não são escolhidos livremente pelo cliente;
-- [ ] acesso a agentes, knowledge bases, memory e tools é independente;
+- [ ] users are authenticated by an approved IDP;
+- [ ] workloads use their own identity;
+- [ ] tokens are validated by issuer, audience, validity and signature;
+- [ ] minimum scopes are defined;
+- [ ] authorisation is `deny by default`;
+- [ ] tenant and subject are not freely chosen by the client;
+- [ ] access to agents, knowledge bases, memory and tools is independent;
 - [ ] service-to-service utiliza mecanismo aprovado;
-- [ ] elevação de privilégio foi testada;
-- [ ] revogação de acesso foi exercitada.
+- [ ] privilege elevation has been tested;
+- [ ] revocation of access has been exercised.
 
 ## 4. Data, RAG and memory
 
-- [ ] fontes possuem owner e classificação;
-- [ ] finalidade de uso está registrada;
-- [ ] pipeline de ingestão usa quarentena;
-- [ ] checksum e proveniência são preservados;
-- [ ] malware, conteúdo ativo e indirect prompt injection são tratados;
-- [ ] ACL é aplicada por documento e chunk;
-- [ ] filtros obrigatórios não dependem do texto da query;
-- [ ] conteúdo recuperado é tratado como não confiável;
-- [ ] citações apontam para fontes acessíveis ao usuário;
-- [ ] expiração e exclusão removem conteúdo do retrieval;
-- [ ] embeddings e chunking são versionados;
-- [ ] tipos de memória são explícitos;
-- [ ] TTL máximo é aplicado;
-- [ ] consentimento existe quando exigido;
-- [ ] memória não substitui sistema de registro;
-- [ ] memory poisoning e acesso cross-subject foram testados.
+- [ ] sources have owner and classification;
+- [ ] purpose of use is recorded;
+- [ ] intake pipeline uses quarantine;
+- [ ] checksum and provenance are preserved;
+- [ ] malware, active content and indirect prompt injection are treated;
+- [ ] ACL is applied by document and chunk;
+- [ ] mandatory filters are not dependent on query text;
+- [ ] recovered content is treated as unreliable;
+- [ ] citations point to sources accessible to the user;
+- [ ] expiration and deletion remove content from retrieval;
+- [ ] embeddings and chunking are versioned;
+- [ ] memory types are explicit;
+- [ ] maximum TTL is applied;
+- [ ] consent exists when required;
+- [ ] memory does not replace a recording system;
+- [ ] memory poisoning and cross-subject access were tested.
 
-Consulte [Segurança de RAG e memória](../security/rag-memory-security.md).
+Consulte [Security of RAGand memory](../security/rag-memory-security.md).
 
 ## 5. Model and prompt readiness
 
-- [ ] modelo está no catálogo aprovado;
-- [ ] região e processamento atendem às políticas;
-- [ ] prompt principal está versionado;
-- [ ] parâmetros possuem limites;
-- [ ] input e output token limits estão definidos;
-- [ ] custo máximo por execução é controlado;
-- [ ] fallback de modelo foi testado quando aplicável;
-- [ ] redaction e filtros estão configurados;
-- [ ] mudança de modelo dispara reavaliação;
-- [ ] dependência de capacidade proprietária foi registrada.
+- [ ] the model is in the approved catalogue;
+- [ ] region and processing are policy-friendly;
+- [ ] the main prompt is versioned;
+- [ ] parameters have limits;
+- [ ] input and output token limits are defined;
+- [ ] maximum cost per execution is controlled;
+- [ ] model fallback has been tested where applicable;
+- [ ] redaction and filters are configured;
+- [ ] change of model triggers reassessment;
+- [ ] dependency on ownership capacity was recorded.
 
 ## 6. Tool and MCP readiness
 
-- [ ] tool possui owner e versão;
-- [ ] schema de entrada e saída é restritivo;
-- [ ] scopes são mínimos;
-- [ ] operações de leitura e escrita são distinguíveis;
-- [ ] timeout e limites existem;
-- [ ] idempotência foi validada;
-- [ ] retries não duplicam efeitos;
-- [ ] compensação ou rollback foi definido;
-- [ ] HITL existe para ações críticas;
-- [ ] argumentos são validados fora do modelo;
-- [ ] tool pode ser bloqueada sem derrubar o runtime;
-- [ ] auditoria registra operação sem expor segredos.
+- [ ] tool has owner and version;
+- [ ] Entry and exit scheme is restrictive;
+- [ ] scopes are minimal;
+- [ ] read and write operations are distinguishable;
+- [ ] timeout and limits exist;
+- [ ] idempotence has been validated;
+- [ ] retries do not duplicate effects;
+- [ ] clearing or rollback has been defined;
+- [ ] HITL exists for critical actions;
+- [ ] arguments are validated outside the template;
+- [ ] tool can be locked without knocking down the runtime;
+- [ ] audit records operation without exposing secrets.
 
 ## 7. Security and privacy
 
-- [ ] threat model está atualizado;
-- [ ] classificação de risco foi confirmada;
-- [ ] secrets não estão no código ou prompt;
-- [ ] dados sensíveis são minimizados;
-- [ ] logs e traces possuem redaction;
-- [ ] retenção e descarte foram definidos;
-- [ ] base legal ou justificativa de finalidade foi analisada;
-- [ ] incidentes de vazamento possuem runbook;
-- [ ] dependências e imagens foram verificadas;
-- [ ] egress está controlado;
-- [ ] criptografia em trânsito e repouso está aplicada;
-- [ ] exceções possuem compensating controls e expiração.
+- [ ] threat model is updated;
+- [ ] risk classification has been confirmed;
+- [ ] secrets are not in the code or prompt;
+- [ ] sensitive data shall be minimised;
+- [ ] logs and traces have redaction;
+- [ ] retention and discard have been defined;
+- [ ] legal basis or justification for purpose has been examined;
+- [ ] leakage incidents have runbook;
+- [ ] dependencies and images have been verified;
+- [ ] egress is controlled;
+- [ ] transit and rest encryption is applied;
+- [ ] Exceptions have compensating controls and expiration.
 
 ## 8. Evaluation readiness
 
-- [ ] dataset representa casos reais e edge cases;
-- [ ] dataset e versão estão identificados;
-- [ ] baseline está definida;
-- [ ] qualidade da tarefa é medida separadamente;
-- [ ] retrieval e groundedness são avaliados separadamente;
-- [ ] prompt injection e leakage fazem parte dos testes;
-- [ ] tool selection e argumentos são avaliados;
-- [ ] performance e custo possuem thresholds;
-- [ ] regressões bloqueiam release conforme risco;
-- [ ] resultados são reproduzíveis;
-- [ ] amostras de produção alimentam revisão controlada;
-- [ ] avaliação humana possui rubrica e critérios consistentes.
+- [ ] dataset represents real cases and edge cases;
+- [ ] dataset and version are identified;
+- [ ] baseline is defined;
+- [ ] the quality of the task is measured separately;
+- [ ] retrieval and groundedness are assessed separately;
+- [ ] prompt injection and leakage are part of the tests;
+- [ ] tool selection and arguments are evaluated;
+- [ ] performance and cost have thresholds;
+- [ ] regressions block risk-based release;
+- [ ] results are reproducible;
+- [ ] production samples feed controlled review;
+- [ ] Human evaluation has consistent scope and criteria.
 
 ## 9. Observability and SRE
 
-- [ ] correlation ID é propagado;
-- [ ] agent, version, model, tenant e session são correlacionáveis;
-- [ ] métricas de sucesso, latência, tokens e custo existem;
-- [ ] policy denials são observáveis;
-- [ ] retrieval, memory e tools possuem spans;
-- [ ] logs não armazenam prompts completos por padrão;
-- [ ] SLO está definido por workload;
-- [ ] alertas possuem owner e ação esperada;
-- [ ] dashboards foram revisados com a equipe de suporte;
-- [ ] capacidade foi testada;
-- [ ] dependências críticas possuem circuit breaker ou fallback;
-- [ ] runbooks estão acessíveis;
-- [ ] on-call e escalonamento estão definidos;
+- [ ] correlation ID is propagated;
+- [ ] agent, version, model, tenant and session are correlated;
+- [ ] success, latency, tokens and cost metrics exist;
+- [ ] policy denials are observable;
+- [ ] retrieval, memory and tools have spans;
+- [ ] logs do not store full prompts by default;
+- [ ] SLO is defined by workload;
+- [ ] alerts have owner and expected action;
+- [ ] dashboards have been reviewed with the support team;
+- [ ] capacity has been tested;
+- [ ] critical dependencies have a circuit breaker or fallback;
+- [ ] runbooks are accessible;
+- [ ] on-call and staging are defined;
 - [ ] rollback foi exercitado.
 
 ## 10. FinOps readiness
 
-- [ ] custos possuem tags ou dimensões por agente e tenant;
-- [ ] tokens e custo são medidos por modelo;
-- [ ] budget mensal e diário estão definidos;
+- [ ] costs have tags or dimensions per agent and tenant;
+- [ ] tokens and cost are measured by model;
+- [ ] monthly and daily budgets are defined;
 - [ ] quotas preventivas existem;
-- [ ] alertas de anomalia estão configurados;
-- [ ] custo por tarefa bem-sucedida é acompanhado;
-- [ ] reindexação e embeddings entram no modelo de custo;
-- [ ] observabilidade e infraestrutura compartilhada estão consideradas;
-- [ ] showback ou chargeback foi definido quando necessário;
-- [ ] estratégia para reduzir custo sem degradar qualidade foi analisada.
+- [ ] anomaly alerts are set;
+- [ ] cost per successful task is accompanied;
+- [ ] re-indexation and embeddings enter the cost model;
+- [ ] observability and shared infrastructure are considered;
+- [ ] showback or chargeback has been defined where necessary;
+- [ ] strategy to reduce cost without degrading quality was analysed.
 
 ## 11. Governance and release
 
-- [ ] versão submetida está congelada;
-- [ ] evidências correspondem ao artefato publicado;
-- [ ] decisores possuem autoridade e independência necessárias;
-- [ ] condições de aprovação são verificáveis;
-- [ ] aprovação possui validade;
-- [ ] pipeline verifica decisão antes da publicação;
-- [ ] canary ou rollout progressivo está definido;
-- [ ] feature flags e kill switch existem quando aplicável;
-- [ ] comunicação de release foi preparada;
-- [ ] revisão pós-release está agendada;
-- [ ] gatilhos de reavaliação estão definidos.
+- [ ] the submitted version is frozen;
+- [ ] evidence corresponds to the published artifact;
+- [ ] decision-makers shall have the necessary authority and independence;
+- [ ] approval conditions are verifiable;
+- [ ] approval is valid;
+- [ ] pipeline verifies decision before publication;
+- [ ] canary or progressive rollout is defined;
+- [ ] feature flags and kill switch exist where applicable;
+- [ ] release notice has been prepared;
+- [ ] post-release review is scheduled;
+- [ ] reassessment triggers are set.
 
 ## 12. Retirement readiness
 
-- [ ] consumidores e usuários foram identificados;
-- [ ] plano de migração ou substituição existe;
-- [ ] novas invocações podem ser bloqueadas;
-- [ ] credenciais e scopes serão revogados;
-- [ ] knowledge e memory terão destinação adequada;
-- [ ] evidências de auditoria serão retidas conforme política;
-- [ ] budgets, dashboards e alertas serão encerrados;
-- [ ] documentação e catálogo serão atualizados;
-- [ ] owner aprovou a retirada.
+- [ ] consumers and users have been identified;
+- [ ] a migration or replacement plan exists;
+- [ ] new invocations may be blocked;
+- [ ] credentials and scopes shall be revoked;
+- [ ] knowledge and memory shall have an appropriate purpose;
+- [ ] audit evidence shall be retained in accordance with policy;
+- [ ] budgets, dashboards and alerts will be closed;
+- [ ] documentation and catalogue shall be updated;
+- [ ] owner approved the withdrawal.
 
 ## Release decision record
 
-A decisão final pode usar o seguinte resumo:
+The final decision may use the following summary:
 
 ```yaml
 agentId: policy-assistant
@@ -205,20 +205,20 @@ owners:
   technical: ai-product-squad
 ```
 
-## Definition of done para uma versão publicada
+## Definition of done for a published version
 
-Uma versão está pronta quando:
+A version is ready when:
 
-- entrega valor mensurável;
-- possui risco conhecido e controles aplicados;
-- pode ser observada e suportada;
+- deliver measurable value;
+- has a known risk and controls applied;
+- can be observed and sustained;
 - tem custo controlado;
-- pode ser revertida, suspensa e retirada;
-- possui evidências que permitem explicar por que foi publicada.
+- may be reversed, suspended and withdrawn;
+- has evidence to explain why it was published.
 
-## Próximos materiais
+## Next to materials
 
-- [Glossário](glossary.md)
+- [Glossary of terms](glossary.md)
 - [Runbooks](../runbooks/onboarding-agent.md)
 - [AI Risk Framework](../governance/ai-risk-framework.md)
-- [Requisitos não funcionais](../architecture/non-functional-requirements.md)
+- [Non-functional requirements](../architecture/non-functional-requirements.md)

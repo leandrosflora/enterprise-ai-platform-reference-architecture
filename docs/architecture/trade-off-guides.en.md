@@ -1,53 +1,53 @@
 # Trade-off Guides
 
-Guias para apoiar decisões. Não são regras universais; a escolha deve considerar risco, volume, latência, custo, mutabilidade do conhecimento e capacidade operacional.
+Guidelines for supporting decisions. These are not universal rules; the choice must take into account risk, volume, latency, cost, mutability of knowledge and operational capacity.
 
 ## RAG × Fine-tuning × Long Context
 
-| Critério | RAG | Fine-tuning | Long Context |
+| Criterion of use | RAG | Fine-tuning | Long Context |
 |---|---|---|---|
-| Conhecimento muda com frequência | Melhor opção | Fraco | Adequado em baixo volume |
-| Citações e rastreabilidade | Forte | Fraco | Médio |
-| Personalizar estilo/comportamento | Médio | Forte | Médio |
-| Custo operacional | índice + retrieval | treino + hosting | tokens elevados |
-| Governança de fontes | Forte | difícil remover fatos | depende do contexto enviado |
+| Knowledge changes frequently | Best option | Fraco | Suitable for low volume |
+| Citations and traceability | Forte | Fraco | Average |
+| Personalizar estilo/comportamento | Average | Forte | Average |
+| Custo operacional | index + retrieval | treino + hosting | tokens elevados |
+| Governance of sources | Forte | difficult to remove | Depends on the context |
 
-**Padrão:** começar com prompt + RAG; usar fine-tuning para comportamento comprovadamente repetitivo; usar long context para conjuntos pequenos e controlados.
+** Pattern:** start with prompt + RAG; use fine-tuning for proven repetitive behavior; use long context for small, controlled sets.
 
 ## MCP × REST × Event-Driven
 
-| Critério | MCP | REST | Eventos |
+| Criterion of use | MCP | REST | Events |
 |---|---|---|---|
-| Tool calling por agentes | Forte | exige adapter | inadequado para resposta imediata |
-| APIs de domínio | Médio | Forte | Médio |
-| Processos longos | Médio | polling/callback | Forte |
-| Descoberta de contratos | nativa | OpenAPI | AsyncAPI/catalog |
+| Tool calling by agents | Forte | exige adapter | unsuitable for immediate response |
+| APIsof domain | Average | Forte | Average |
+| Long-term processes | Average | polling/callback | Forte |
+| Discovery of contracts | nativa | OpenAPI | AsyncAPI/catalog |
 | Desacoplamento temporal | Fraco | Fraco | Forte |
 
-**Padrão:** MCP na interface do agente, REST no domínio e eventos para integração assíncrona e fatos de negócio.
+**Standard:** MCP in the agent interface, REST in the domain and events for asynchronous integration and business facts.
 
 ## Multi-Agent × Workflow × Single Agent
 
-| Opção | Use quando | Evite quando |
+| Option | Use when | Avoid when |
 |---|---|---|
-| Single Agent | escopo limitado, poucas ferramentas | coordenação complexa e alto risco |
-| Workflow | sequência conhecida, gates e previsibilidade | problema realmente aberto |
-| Multi-Agent | especializações autônomas trazem ganho mensurável | apenas para simular organogramas |
+| Single Agent | escopo limitado, poucas ferramentas | Complex and high risk coordination |
+| Workflow | Known sequence, gates and predictability | problema realmente aberto |
+| Multi-Agent | Autonomous specialisations bring measurable gains | only to simulate organograms |
 
-**Padrão:** single agent primeiro; workflow quando há processo; multi-agent somente após evidência de ganho.
+**Standard:** single agent first; workflow when there is a process; multi-agent only after evidence of gain.
 
-## Agentes síncronos × assíncronos
+## Synchronous agents × asynchronous agents
 
-- **Síncrono:** interações curtas, latência previsível, resposta necessária ao canal.
-- **Assíncrono:** tarefas longas, fan-out, retries, aprovação humana ou processamento em lote.
-- Para operações longas, retornar `202 Accepted`, `operationId` e endpoint/evento de status.
+- **Synchronous:** short interactions, predictable latency, required channel response.
+- **Asynchronous:** long tasks, fan-out, retries, human approval or batch processing.
+- For long operations, return `202 Accepted`, `operationId` and endpoint/event status.
 
 ## Graph DB × Vector DB × SQL
 
-| Banco | Melhor para | Não usar como padrão para |
+| Banco | Better to | Do not use as standard for |
 |---|---|---|
-| Vector DB | similaridade semântica e retrieval | transações e relacionamentos exatos |
-| Graph DB | relações profundas e travessias | simples lookup documental |
-| SQL | estado transacional, auditoria, metadados | busca semântica sem extensão vetorial |
+| Vector DB | Semantic similarity and retrieval | Exact transactions and relationships |
+| Graph DB | deep and transversal relationships | simples lookup documental |
+| SQL | The following information is included in the report: | Semantic search without vector extension |
 
-**Padrão:** SQL como sistema de registro, vector index para retrieval e graph apenas quando travessias forem requisito central.
+**Fact:** SQL as a recording system, vector index for retrieval and graph only when crossings are a central requirement.

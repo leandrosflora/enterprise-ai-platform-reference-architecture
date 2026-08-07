@@ -1,18 +1,18 @@
-# Arquitetura de Referência - Copilot Interno
+# This is the total amount of the project.
 
-## Objetivo
+## Objective
 
-Disponibilizar um assistente corporativo interno para apoiar colaboradores em busca de conhecimento, orientação operacional e execução assistida de tarefas.
+Provide an internal corporate assistant to support employees in the pursuit of knowledge, operational guidance and assisted execution of tasks.
 
-## Casos de Uso
+## Cases of use
 
-- Busca em políticas internas
-- Apoio a atendimento interno
-- Consulta a procedimentos
-- Geração de respostas com citação de fontes
-- Abertura assistida de chamados
+- Search for internal policies
+- Support for in-house care
+- Consultation of the procedures
+- Generating responses with citation of sources
+- Assisted opening of calls
 
-## Componentes Envolvidos
+## Components involved
 
 - AI Portal
 - Agent Gateway
@@ -24,29 +24,29 @@ Disponibilizar um assistente corporativo interno para apoiar colaboradores em bu
 - Evaluation Service
 - Audit Service
 
-## Fluxo de Alto Nível
+## High-level flow
 
-1. Usuário acessa o AI Portal.
-2. Agent Gateway autentica e autoriza a solicitação.
-3. Agent Runtime executa o agente.
+1. The user accesses the AI Portal.
+2. Agent Gateway authenticates and authorises the request.
+3. Agent Runtime executes the agent.
 4. Knowledge Service recupera documentos relevantes.
 5. Memory Service recupera contexto permitido.
-6. Agent Runtime chama o modelo fundacional.
-7. Evaluation Service avalia a resposta.
-8. Audit Service registra a execução.
+6. Agent Runtime calls it the foundation model.
+7. Evaluation Service shall assess the response.
+8. Audit Service shall record the execution.
 
-## Requisitos de Governança
+## Governance requirements
 
-- Aprovação do agente no AI Catalog
-- Classificação de risco
-- Base de conhecimento autorizada
-- Avaliação mínima de groundedness
-- Auditoria completa das interações
+- Approval of the agent in the AI Catalog
+- Classification of risk
+- Authorised knowledge base
+- Minimum groundedness assessment
+- Full audit of interactions
 
-## Métricas
+## The following information shall be provided:
 
-- Taxa de resolução sem escalonamento
+- Resolution rate without staggering
 - Groundedness score
-- Latência P95
-- Custo por interação
-- Satisfação do usuário
+- P95 latency
+- Cost per interaction
+- User satisfaction

@@ -1,18 +1,18 @@
-# Arquitetura de Referência - Conversational Analytics
+# This is a summary of the results of the analysis.
 
-## Objetivo
+## Objective
 
-Analisar interações conversacionais em escala para identificar causas raiz, temas recorrentes, oportunidades de automação e melhoria de experiência.
+Analyze conversational interactions at scale to identify root causes, recurring themes, opportunities for automation and experience improvement.
 
-## Casos de Uso
+## Cases of use
 
-- Classificação de motivos de contato
-- Identificação de causa raiz
-- Análise de sentimento
-- Agrupamento de temas recorrentes
-- Geração de insights executivos
+- Classification of reasons for contact
+- Identification of the root cause
+- Analysis of feelings
+- Grouping of recurring themes
+- Generating executive insights
 
-## Componentes Envolvidos
+## Components involved
 
 - Ingestion Pipeline
 - Knowledge Service
@@ -22,35 +22,35 @@ Analisar interações conversacionais em escala para identificar causas raiz, te
 - Data Platform
 - Observability Stack
 
-## Fontes de Dados
+## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
 
 - Chat
 - WhatsApp
 - E-mail
-- Transcrições de voz
-- Reclamações externas
-- Tickets e protocolos
+- Transcripts of voice
+- External claims
+- Tickets and protocols
 
-## Fluxo de Alto Nível
+## High-level flow
 
-1. Interações são ingeridas a partir de canais digitais e bases históricas.
-2. Pipeline normaliza, anonimiza e classifica os dados.
-3. Agentes analisam motivos, padrões e causas prováveis.
-4. Resultados são consolidados em dashboards e datasets.
-5. Insights são usados para melhoria de processos, produtos e atendimento.
+1. Interactions are ingested from digital channels and historical bases.
+2. Pipeline standardizes, anonymises and classifies the data.
+3. Agents analyze motives, patterns, and probable causes.
+4. Results are consolidated into dashboards and datasets.
+5. Insights are used to improve processes, products and service.
 
-## Controles
+## Controls
 
-- Anonimização de dados pessoais
-- Retenção controlada
-- Controle de acesso por área
-- Rastreabilidade da origem dos dados
-- Avaliação de qualidade das classificações
+- Anonymisation of personal data
+- Controlled retention
+- Access control by area
+- Traceability of the data source
+- Assessment of the quality of classifications
 
-## Métricas
+## The following information shall be provided:
 
-- Volume de interações processadas
-- Acurácia de classificação
-- Top motivos de contato
-- Tendência de temas críticos
-- Oportunidades de automação identificadas
+- Volume of processed interactions
+- Accuracy of classification
+- Top reasons for contact
+- Trend of critical topics
+- Automation opportunities identified

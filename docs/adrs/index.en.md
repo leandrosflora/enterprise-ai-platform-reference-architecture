@@ -1,46 +1,46 @@
 # Architecture Decision Records
 
-Os ADRs registram decisões estruturais da plataforma, seu contexto, alternativas, consequências, evidências e critérios de revisão. A pasta `docs/adrs/` é a única fonte canônica para decisões arquiteturais.
+The ADRs record the platform's structural decisions, their context, alternatives, consequences, evidence and review criteria.`docs/adrs/`It's the only canonical source for architectural decisions.
 
-## Catálogo
+## Catalogue
 
-| ADR | Decisão | Status |
+| ADR | Decision | Status |
 |---|---|---|
-| [ADR-001](001-mcp-vs-rest.md) | MCP para tool calling governado; REST para APIs de domínio | Aceito |
-| [ADR-002](002-persistent-memory.md) | Memória persistente somente sob critérios explícitos | Aceito |
-| [ADR-003](003-agent-gateway.md) | Agent Gateway como ponto de entrada e enforcement | Aceito |
-| [ADR-004](004-agent-runtime-strategy.md) | Agent Runtime com núcleo estável e adaptadores | Aceito |
-| [ADR-005](005-vector-search-strategy.md) | OpenSearch como referência inicial para busca vetorial e híbrida | Aceito |
-| [ADR-006](006-observability-strategy.md) | OpenTelemetry como padrão de observabilidade | Aceito |
-| [ADR-007](007-evaluation-strategy.md) | Avaliação híbrida, regressiva e contínua | Aceito |
+| [ADR-001](001-mcp-vs-rest.md) | MCP for tool calling governed; REST for APIs domain | Aceito |
+| [ADR-002](002-persistent-memory.md) | Persistent memory only under explicit criteria | Aceito |
+| [ADR-003](003-agent-gateway.md) | Agent Gateway as entry and enforcement point | Aceito |
+| [ADR-004](004-agent-runtime-strategy.md) | Agent Runtime with stable core and adapters | Aceito |
+| [ADR-005](005-vector-search-strategy.md) | OpenSearch as an initial reference for vector and hybrid search | Aceito |
+| [ADR-006](006-observability-strategy.md) | OpenTelemetry as an observability standard | Aceito |
+| [ADR-007](007-evaluation-strategy.md) | Hybrid, regressive and continuous evaluation | Aceito |
 
 ## Status permitidos
 
 | Status | Uso |
 |---|---|
-| Proposto | decisão em discussão, ainda não vinculante |
-| Aceito | decisão vigente |
-| Depreciado | ainda existente, mas não recomendada para novas implementações |
-| Substituído | decisão histórica substituída por outro ADR identificado |
-| Rejeitado | alternativa analisada e não adotada |
+| Proposto | Decision under consideration, not yet binding |
+| Aceito | Decision in force |
+| Depreciado | still existing but not recommended for new implementations |
+| Substituted | historical decision replaced by another identified ADR |
+| Rejeitado | Alternative analysed and not adopted |
 
-## Regras
+## Rules
 
-- um número identifica uma única decisão;
-- o número do arquivo deve coincidir com o título do ADR;
-- decisões aceitas não são reescritas para ocultar mudanças materiais;
-- mudanças de direção criam novo ADR e marcam o anterior como substituído;
-- cada ADR deve registrar consequências, evidências e critérios de revisão;
-- links internos devem apontar apenas para `docs/adrs/`.
+- a number identifies a single decision;
+- the file number shall coincide with the title of the ADR;
+- accepted decisions are not rewritten to conceal material changes;
+- direction changes create a new ADR and mark the previous one as a replacement;
+- each ADR shall record consequences, evidence and review criteria;
+- Internal links shall only point to `docs/adrs/`.
 
-## Migração do catálogo legado
+## Migration of the legacy catalogue
 
-| Decisão legada | Destino canônico |
+| Legacy decision | Canonical destiny |
 |---|---|
-| Estratégia de Agent Runtime | ADR-004 |
-| Seleção de banco vetorial | ADR-005 |
-| Estratégia de integração via MCP | conteúdo consolidado no ADR-001 |
-| Estratégia de observabilidade | ADR-006 |
-| Estratégia de avaliação de IA | ADR-007 |
+| Strategy of Agent Runtime | ADR-004 |
+| Selection of vector bench | ADR-005 |
+| Integration strategy via MCP | Consolidated content in ADR-001 |
+| Observability strategy | ADR-006 |
+| The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation. | ADR-007 |
 
-A validação documental bloqueia pastas concorrentes, IDs duplicados, divergência entre nome e título e ADRs ausentes deste índice.
+Document validation blocks competing folders, duplicate IDs, name and title divergence and ADRs missing from this index.

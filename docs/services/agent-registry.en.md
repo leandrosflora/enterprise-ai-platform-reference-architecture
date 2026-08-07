@@ -2,20 +2,20 @@
 
 ## Responsabilidades
 
-- Catálogo de agentes
+- Catalogue of agents
 - Versionamento
-- Publicação
+- Publication
 - Metadados
 - Ownership
 
-## Dados Armazenados
+## Stored data
 
 - Nome
-- Versão
+- This is the version.
 - Owner
 - Tags
 - Status
-- Dependências
+- Dependencies
 
 ## APIs
 
@@ -24,7 +24,7 @@ GET /agents
 GET /agents/{id}
 POST /agents/{id}/publish
 
-## Eventos
+## Events
 
 - agent.created
 - agent.updated

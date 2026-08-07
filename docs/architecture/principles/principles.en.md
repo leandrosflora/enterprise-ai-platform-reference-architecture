@@ -1,39 +1,39 @@
-# Princípios Arquiteturais
+# Architectural principles
 
-Estes princípios já estão implícitos nos contratos, domínios e serviços documentados neste repositório. Eles são explicitados aqui como referência única para quem propõe novos domínios, serviços ou integrações.
+These principles are already embedded in the contracts, domains and services documented in this repository and are explained here as a unique reference for those proposing new domains, services or integrations.
 
-## 1. Ownership de dados por serviço
+## 1. Ownership of data by service
 
-Cada serviço é dono do seu armazenamento; não há acesso direto a bancos de outros serviços. Integração entre serviços acontece por API síncrona ou evento assíncrono, nunca por acesso compartilhado a dados.
+Each service owns its own storage; there is no direct access to banks of other services.APIsynchronous or asynchronous event, never by shared data access.
 
 Ver: [docs/contracts/data-stores.md](../../contracts/data-stores.md).
 
-## 2. Integração orientada a eventos
+## 2. Events-oriented integration
 
-Mudanças de estado relevantes (criação, publicação, execução, aprovação) são publicadas como eventos versionados em Kafka, com envelope padrão (`eventId`, `correlationId`, `causationId`, `schemaVersion`). Consumidores reagem a eventos em vez de consultar o produtor de forma síncrona sempre que possível.
+Relevant status changes (creation, publication, execution, approval) are published as events versioned in Kafka, with a standard envelope (`eventId`, `correlationId`, `causationId`, `schemaVersion`).
 
 Ver: [docs/contracts/events.md](../../contracts/events.md).
 
-## 3. Segurança e governança por padrão
+## 3. Security and governance by default
 
-Toda capacidade de agente, ferramenta ou dado é protegida por autenticação (OIDC/OAuth2), autorização por escopo, e passa pelo ciclo de aprovação da Governance Service antes de ir para produção. Não há capacidade "não governada" na plataforma.
+Any agent, tool or data capability is protected by authentication (OIDC/OAuth2), scope authorisation, and undergoes the Governance Service approval cycle before going into production.
 
 Ver: [docs/governance/approval-workflow.md](../../governance/approval-workflow.md), [docs/security/authentication.md](../../security/authentication.md).
 
-## 4. Auditoria e observabilidade ponta a ponta
+## 4. Auditing and end-to-end traceability
 
-Toda execução relevante (invocação de agente, chamada de ferramenta, decisão de governança) gera trilha auditável e é rastreável via trace distribuído. Auditoria e observabilidade não são adicionadas depois — fazem parte do contrato de eventos desde o início.
+Every relevant execution (agent call, tool call, governance decision) generates an auditable track and is traceable via distributed trace.
 
 Ver: [docs/observability/tracing.md](../../observability/tracing.md), [docs/security/authorization.md](../../security/authorization.md).
 
-## 5. Consciência de custo (FinOps) desde o design
+## 5. Cost awareness (FinOps) from the design
 
-Uso de modelos, ferramentas e armazenamento é medido e atribuído por agente, time ou unidade de negócio, permitindo chargeback/showback. Custos não são uma preocupação apenas operacional — são um requisito nas fases de design de domínios e serviços.
+The use of models, tools and storage is measured and assigned by agent, team or business unit, allowing for chargeback/showback.
 
 Ver: [docs/finops/token-costs.md](../../finops/token-costs.md).
 
-## 6. Resiliência contra falhas de dependências externas
+## 6. resilience to failures of external dependencies
 
-Chamadas a modelos, ferramentas MCP e serviços corporativos aplicam timeout, retry controlado e circuit breaker. Nenhum serviço assume disponibilidade total de suas dependências externas.
+Model calls, MCP tools and corporate services apply timeout, controlled retry and circuit breaker.
 
 Ver: [docs/services/agent-runtime.md](../../services/agent-runtime.md).
