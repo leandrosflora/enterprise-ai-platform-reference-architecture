@@ -5,6 +5,10 @@ on:
   push:
     branches: [main]
 
+env:
+  # Quality validates the same publish shape used by the Docs workflow.
+  PUBLISH_ENGLISH_DOCS: 'false'
+
 permissions:
   contents: read
 
@@ -47,8 +51,10 @@ jobs:
           asyncapi validate docs/contracts/async-api.yaml
       - name: Check PlantUML
         run: bash scripts/render_diagrams.sh
+      - name: Prepare documentation publish configuration
+        run: python scripts/prepare_mkdocs_publish.py
       - name: Build documentation
-        run: mkdocs build
+        run: mkdocs build --clean --strict --config-file mkdocs.publish.yml
       - name: Check documentation links
         uses: lycheeverse/lychee-action@v2
         with:
