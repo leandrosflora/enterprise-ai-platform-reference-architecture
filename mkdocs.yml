@@ -7,9 +7,34 @@ edit_uri: edit/main/docs/
 
 copyright: Enterprise AI Platform Reference Architecture - Leandro Silva Flora
 
+# README files are repository landing pages. The documentation site uses index.md
+# for the same URLs, so exclude the README variants explicitly to avoid collisions.
+exclude_docs: |
+  /README.md
+  /README.en.md
+
+# These pages are intentionally reachable through contextual links rather than the
+# primary navigation. Declaring them here keeps strict builds useful without
+# changing the existing Portuguese navigation hierarchy.
+not_in_nav: |
+  /domains/*
+  /examples/*
+  /finops/token-costs.md
+  /finops/token-costs.en.md
+  /integrations/*
+  /reference-architectures/*
+  /services/agent-registry.md
+  /services/agent-registry.en.md
+  /services/audit-service.md
+  /services/audit-service.en.md
+  /services/billing-service.md
+  /services/billing-service.en.md
+  /services/mcp-registry.md
+  /services/mcp-registry.en.md
+
 theme:
   name: material
-  language: pt-BR
+  language: pt
   features:
     - navigation.tabs
     - navigation.sections
@@ -22,7 +47,70 @@ theme:
     - search.highlight
 
 plugins:
-  - search
+  - search:
+      lang:
+        - pt
+        - en
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: pt
+          name: Português (Brasil)
+          default: true
+          build: true
+        - locale: en
+          name: English
+          build: true
+          site_description: Enterprise reference architecture for designing, governing, securing, implementing, and operating AI platforms at scale.
+          nav_translations:
+            Início: Home
+            Visão geral: Overview
+            Arquitetura: Architecture
+            Princípios: Principles
+            Requisitos não funcionais: Non-functional requirements
+            Control plane e data plane: Control plane and data plane
+            C4 completo e publicação: Complete C4 model and publishing
+            Memória persistente: Persistent memory
+            Busca vetorial e híbrida: Vector and hybrid search
+            Observabilidade: Observability
+            Avaliação: Evaluation
+            Casos aplicados: Case studies
+            FinOps para IA: AI FinOps
+            Contratos: Contracts
+            Convenções de eventos: Event conventions
+            Governança: Governance
+            Fluxo de aprovação: Approval workflow
+            Catálogo de IA: AI catalog
+            Segurança: Security
+            Autenticação: Authentication
+            Autorização: Authorization
+            Segurança de RAG e memória: RAG and memory security
+            Serviços: Services
+            Runbooks: Runbooks
+            Onboarding de agente: Agent onboarding
+            Roadmap técnico: Technical roadmap
+            Glossário: Glossary
+            1. Por que uma AI Platform?: 1. Why an AI Platform?
+            2. Business Outcomes: 2. Business Outcomes
+            3. Capability Map: 3. Capability Map
+            4. Operating Model: 4. Operating Model
+            5. Ciclo de vida de agentes: 5. AI Agent lifecycle
+            6. Caso de agente documental: 6. Document agent case study
+            7. Decision Guides: 7. Decision Guides
+            8. Maturidade e roadmap: 8. Maturity and roadmap
+            9. Checklists de produção: 9. Production checklists
+            MCP e REST: MCP and REST
+            Agentic SDLC governado: Governed agentic SDLC
+            Intelligent Backoffice — contestação bancária: Intelligent Backoffice — banking dispute
+            Ciclo de vida de agentes: Agent lifecycle
+            Caso de agente documental: Document agent case study
+            Maturidade e roadmap: Maturity and roadmap
+            Checklists de produção: Production checklists
+            Plataforma conversacional bancária multi-skill: Multi-skill conversational banking platform
+            Tracing e SLOs: Tracing and SLOs
 
 markdown_extensions:
   - admonition
