@@ -1,65 +1,65 @@
-# FinOps para IA
+# FinOps for IA
 
-FinOps deve conectar consumo técnico, unidade de negócio, agente, sessão e resultado. Medir apenas a fatura do provedor não permite responsabilização nem otimização.
+FinOps must connect technical consumption, business unit, agent, session and result. limiting the load of the tester does not allow responsibility or omission.
 
-## Modelo de custos
+## Cost model
 
-### Custo por agente
+### Care by agent
 
 ```text
 custo_agente = modelos + embeddings + retrieval + ferramentas + infraestrutura + observabilidade
 ```
 
-Dimensões mínimas: `tenant_id`, `agent_id`, `agent_version`, `environment`, `model`, `provider`, `cost_center` e período.
+Minimum dimensions: `tenant_id`, `agent_id`, `agent_version`, `environment`, `model`, `provider`, `cost_center` and period.
 
-### Custo por sessão
+### Watch for sitting
 
 ```text
 custo_sessao = soma(tokens_entrada, tokens_saida, chamadas_modelo, retrievals, tools, retries e infraestrutura_alocada)
 ```
 
-Relacionar custo com sucesso da jornada, contenção, conversão, tempo economizado ou satisfação.
+Relacing costs with success of the story, content, conversation, economised time or satisfaction.
 
 ## Budget enforcement
 
-Aplicar limites em camadas:
+Apply limits in bed:
 
-- organização e centro de custo;
-- produto ou domínio;
-- agente e versão;
-- tenant, usuário e sessão;
-- requisição individual.
+- organisation and cost centre;
+- product or area;
+- agent and version;
+- tenant, user and sitting;
+- individual requirements.
 
-Ações progressivas: alertar, reduzir limite de tokens, trocar modelo, desabilitar ferramentas caras, migrar para assíncrono e bloquear com resposta controlada.
+Progressive actions: alert, reduce token limit, change model, degrade the face, migrate to a synchroon and block with control answers.
 
-## Cache semântico
+## Seductive cache
 
-Usar quando perguntas semanticamente equivalentes gerarem respostas estáveis. A chave deve considerar tenant, agente, versão do prompt, modelo, políticas e versão do conhecimento. Não cachear respostas personalizadas, sensíveis ou dependentes de estado sem escopo adequado.
+Use when semantically equivalent questions generate stable answers. The key must consider tenant, agent, prompt, model, policies and knowledge version. Don't cache personalised, sensitive or dependent responses without appropriate scope.
 
-## Routing por modelo
+## Routing for model
 
-O Model Gateway deve selecionar modelo por classificação de tarefa, risco, qualidade mínima, latência, disponibilidade e budget. Uma política comum:
+Model Gateway must select model by task classification, risk, minimum quality, latability, availability and budget. A common policy:
 
-1. modelo econômico para classificação e extração simples;
-2. modelo intermediário para RAG e tool calling comum;
-3. modelo avançado para casos complexos ou escalonados.
+1. economic model for simple classification and extraction;
+2. the standard intermediary model for RAG and tool calling;
+3. model advanced for complex or scaloned cases.
 
-## Fallback entre modelos
+## Fallback between models
 
-Fallback deve preservar compatibilidade de tool calling, tamanho de contexto, política de dados e qualidade mínima. Registrar motivo, custo adicional e diferença de resultado. Não usar fallback para contornar restrições de segurança.
+Fallback should preserve compatibility of tool calling, context size, data policy and minimum quality. Register motive, additional cost and result difference. Don't use fallback to contorn security restrictions.
 
-## Métricas recomendadas
+## recommendated methods
 
-| Métrica | Uso |
+| Medicinal | Uso |
 |---|---|
-| custo por sessão concluída | eficiência de jornada |
-| custo por resposta aceita | qualidade econômica |
-| tokens por etapa | detecção de prompts inchados |
-| taxa de cache | economia potencial |
-| custo de retries/fallback | instabilidade e desperdício |
-| custo por ferramenta | otimização de integrações |
-| orçamento consumido/projetado | controle preventivo |
+| cost for the sitting concluded | efficacy of a newspaper |
+| cost for accepted response | economic quality |
+| tokens per phase | a delay of a slut |
+| cache rate | economia potencial |
+| retries/fallback cost | instability and despair |
+| cost per sand | otimisation of integrations |
+| budget consumed/proposed | controle preventivo |
 
-## Controles de implementação
+## Implementing controls
 
-Emitir eventos de uso padronizados, calcular preço por tabela versionada e reconciliar estimativas com a fatura real do provedor. Custos devem aparecer nos dashboards de produto, não apenas no painel de cloud.
+Emit unused use events, calculate price by versioned table and reconcile estimates with the real weight of the tester. Costs must appear on product dashboards, not just in cloud screen.

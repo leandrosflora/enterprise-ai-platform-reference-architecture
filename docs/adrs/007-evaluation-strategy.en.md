@@ -1,67 +1,67 @@
-# ADR-007 — Avaliação híbrida e contínua de IA
+# ADR-007 — Hybrid and iA summary
 
 **Status:** Aceito
 
 ## Contexto
 
-Agentes corporativos precisam ser avaliados antes e depois da publicação para reduzir alucinação, baixa relevância, falhas de retrieval, uso incorreto de tools, respostas inseguras e regressões de qualidade. Avaliação apenas manual não escala; avaliação apenas em produção expõe usuários e processos a risco evitável.
+Corporate agents need to be assessed before and after publication to reduce alucination, low-resolution, retrieval failures, tool-incorrection, insecure responses and quality return. Assessment only manual does not escalate; assessment only in production using unused expenditures and processes at risk.
 
-## Decisão
+## Decision
 
-Adotar um **Evaluation Service** com avaliação híbrida:
+Adopt a **Evaluation Service** with a full assessment:
 
-- automática para escala e regressão;
-- baseada em regras para requisitos determinísticos;
-- model-based quando houver critérios subjetivos controlados;
-- humana para casos críticos, amostras e calibração;
-- offline antes da promoção e online durante a operação.
+- autometic for scala and return;
+- based on rules for certain requirements;
+- model-based when there are controlled sub-jet criteria;
+- human for critical, amothos and calibration cases;
+- offline before promotion and online during operation.
 
-Resultados devem ser versionados, reproduzíveis e rastreáveis a agente, prompt, modelo, dataset, policy, knowledge snapshot e código avaliados.
+Results shall be compiled, reproduced and rastreaved to the agent, prompt, model, dataset, policy, knowledge snapshot and code evaluated.
 
-## Dimensões mínimas
+## Minimum dimensions
 
-- qualidade da tarefa;
+- quality of the task;
 - retrieval e groundedness;
 - citation correctness;
-- segurança, toxicidade e leakage;
-- seleção e argumentos de tools;
-- latência e confiabilidade;
-- custo por invocação e tarefa concluída;
-- regressão contra baseline e versão anterior.
+- safety, toxicity and leakage;
+- selection and arguments of tools;
+- latability and confidentiality;
+- cost for invocation and completion of the task;
+- return against baseline and previous version.
 
 ## Alternativas
 
-| Alternativa | Vantagem | Limitação |
+| Alternativa | Vantagem | Limitation |
 |---|---|---|
-| Avaliação apenas manual | julgamento contextual | baixa escala, custo e variabilidade |
-| Avaliação apenas em produção | dados reais de uso | risco de publicar regressões não detectadas |
-| Apenas LLM-as-judge | cobertura rápida | viés, instabilidade e dependência do judge |
-| Nota agregada única | comunicação simples | esconde falhas críticas em dimensões específicas |
+| Assessment only manual | julgamento contextual | baixa escala, custo e variabilidade |
+| Assessment only in production | real usage data | risk of publicising unidentified regressives |
+| Just LLM-as-judge | quick coverage | you saw, instability and dependency of the judge |
+| Single agregated note | simple communication | squeezing critical words in specific dimensions |
 
-## Consequências positivas
+## Positive consequences
 
-- gates de publicação baseados em evidência;
-- comparação reproduzível entre versões;
-- detecção de degradação durante a operação;
-- combinação de escala automática com julgamento humano proporcional ao risco.
+- publications gates based on evidence;
+- reductive comparison of versions;
+- degradation detection during operation;
+- Combined automa-scaling with human judgment proportionate to risk.
 
-## Consequências negativas
+## Negative consequences
 
-- aumenta custo de execução e manutenção de datasets;
-- métricas e judges podem divergir da percepção do negócio;
-- datasets desatualizados geram falsa confiança;
-- cenários críticos continuam exigindo revisão independente.
+- increase the cost of execution and maintenance of datasets;
+- methods and judges may differ from the perception of the business;
+- datasets unattended have been false trust;
+- Critical scenarios remain required independent review.
 
-## Evidências mínimas
+## Minimum evidence
 
 - dataset versionado e aprovado;
-- baseline e thresholds por dimensão;
-- versão do evaluator e do judge;
-- relatório de regressão;
-- resultados de red-team e testes negativos;
-- amostra de revisão humana e concordância quando aplicável;
-- decisão de promoção, exceção ou bloqueio.
+- baseline and thresholds per dimension;
+- version of the assessor and judge;
+- report on return;
+- results of a team network and negative tests;
+- human review sample and consistency when applicable;
+- Decision of promotion, exemption or block.
 
-## Critérios de revisão
+## Review criteria
 
-Revisar quando métricas deixarem de correlacionar com resultados reais, quando houver drift do dataset ou do domínio, quando custos de avaliação se tornarem desproporcionais ou quando novos métodos oferecerem maior validade e reprodutibilidade.
+Review when methods are not able to match real results, when the dataset or field drifts, when assessment costs become unsuitable or when new methods offer greater validity and reproducibility.

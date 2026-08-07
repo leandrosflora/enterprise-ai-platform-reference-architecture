@@ -1,20 +1,20 @@
-# Contratos de Eventos
+# Event Contratos
 
-## Fonte canônica
+## Canomycin
 
-O arquivo [`async-api.yaml`](async-api.yaml) é a fonte executável dos eventos. Este documento define as convenções normativas. Exemplos e implementações não podem criar envelopes ou enums alternativos.
+The file (`async-api.yaml`)(async-api.yaml) is the executable source of the events. This document defines the normative conventions. Examples and implementations cannot create envelopes or any alternative.
 
 ## Transporte e versionamento
 
-- Transporte de referência: Kafka.
-- Serialização de referência: JSON UTF-8.
-- Tópicos usam o formato `<evento>.v<major>`, por exemplo `agent.invoked.v1`.
+- Reference transport: Kafka.
+- Reference serialisation: JSON UTF-8.
+- The graphs use the `<evento>.v<major>` format, for example `agent.invoked.v1`.
 - `schemaVersion` usa SemVer.
-- Mudanças incompatíveis exigem novo major e novo tópico.
-- Produtores não removem campos durante a vida de um major.
+- Incompatible changes require new major and new theory.
+- Producers don't remove fields during a major life.
 - Consumidores ignoram campos desconhecidos.
 
-## Envelope obrigatório
+## Obligatory envelope
 
 ```json
 {
@@ -32,21 +32,21 @@ O arquivo [`async-api.yaml`](async-api.yaml) é a fonte executável dos eventos.
 }
 ```
 
-Campos obrigatórios:
+compulsory fields:
 
 | Campo | Regra |
 |---|---|
-| `eventId` | UUID único usado para deduplicação. |
-| `eventType` | Nome sem versão, igual ao domínio sem o sufixo do tópico. |
-| `schemaVersion` | Versão SemVer do schema. Não usar `eventVersion`. |
+| `eventId` | Only used for decoding. |
+| `eventType` | Nom without verse, same as the subject without the syringe of the tyre. |
+| `schemaVersion` | - No use of `eventVersion`. |
 | `occurredAt` | ISO 8601 UTC. |
-| `correlationId` | Correlação funcional de toda a execução. |
-| `tenantId` | Tenant derivado da identidade ou contexto confiável. |
-| `source` | Serviço produtor. |
+| `correlationId` | Functional correction of all execution. |
+| `tenantId` | Having derived from identity or confidential context. |
+| `source` | Producer service. |
 | `dataClassification` | `PUBLIC`, `INTERNAL`, `CONFIDENTIAL` ou `RESTRICTED`. |
 | `payload` | Payload tipado pelo AsyncAPI. |
 
-`causationId` e `traceparent` são obrigatórios quando existe uma causa ou contexto distribuído anterior.
+`causationId` and `traceparent` are binding when there is a cause or context distributed earlier.
 
 ## Enums compartilhados
 
@@ -54,17 +54,17 @@ Campos obrigatórios:
 
 `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
 
-### Estado de execução
+### Implementation state
 
 `SUCCESS`, `FAILED`, `BLOCKED`, `PARTIAL`.
 
-### Classificação de dados
+### Data classification
 
 `PUBLIC`, `INTERNAL`, `CONFIDENTIAL`, `RESTRICTED`.
 
-## Catálogo de tópicos
+## Graphics catalog
 
-| Evento | Tópico | Produtor principal | Consumidores típicos |
+| Evento | Symbol | Produtor principal | Typical consumers |
 |---|---|---|---|
 | `agent.created` | `agent.created.v1` | Agent Registry | Governance, Audit |
 | `agent.updated` | `agent.updated.v1` | Agent Registry | Governance, Audit |
@@ -83,39 +83,39 @@ Campos obrigatórios:
 | `governance.rejected` | `governance.rejected.v1` | Governance | Registry, Audit |
 | `audit.created` | `audit.created.v1` | Audit Service | Observability / Archive |
 
-## Entrega, idempotência e ordenação
+## Entregation, idempotence and order
 
-- Semântica padrão: **at-least-once**.
-- Consumidores deduplicam por `eventId`.
-- Chaves de partição:
-  - agente: `tenantId + agentId`;
-  - sessão: `tenantId + sessionId`;
+- - 'Secretary: **at-east-one**.
+- Consumptors deduct by `eventId`.
+- Partition key:
+  - agent: `tenantId + agentId`;
+  - session: `tenantId + sessionId`;
   - documento: `tenantId + knowledgeBaseId + documentId`.
-- Não existe garantia global de ordenação entre tópicos.
-- Comandos críticos usam outbox transacional no produtor.
-- Consumidores persistem offset somente após concluir o processamento idempotente.
+- There is no global guarantee of order between the two.
+- Critical commands use transient outbox in the producer.
+- Consumers remain offset only after the idempotent procedure is completed.
 
 ## Erros e DLQ
 
-- Retry com backoff apenas para falhas transitórias.
-- Eventos inválidos não são repetidos indefinidamente.
-- DLQ por domínio com payload original, erro sanitizado e metadados de tentativa.
-- Reprocessamento exige autorização, auditoria e preservação do `eventId` original.
+- Retry with backoff only for transit failures.
+- Invariable events are not repeated indefinitely.
+- DLQ for a subject with original payload, sanitized error and tentative metades.
+- Reprocessing requires authorisation, audit and preservation of the original `eventId`.
 
-## Segurança
+## Security
 
-- Payloads não devem transportar prompts completos ou dados pessoais quando metadados bastarem.
-- Campos sensíveis são mascarados antes da publicação.
-- ACLs de tópicos seguem least privilege.
-- Eventos `CONFIDENTIAL` e `RESTRICTED` usam criptografia e retenção compatíveis com a classificação.
+- Payloads must not carry full or personal data when metadata are low.
+- Sensible fields are slacked before publication.
+- - The typics are the least privilege.
+- Events `CONFIDENTIAL` and `RESTRICTED` use criptography and retensiveness with classification.
 
-## Retenção de referência
+## Reference retention
 
-| Classe | Retenção inicial | Observação |
+| Classe | Initial retention | Observation |
 |---|---:|---|
-| Operacional | 90 dias | Diagnóstico e replay limitado. |
+| Operacional | 90 dias | Diagnotic and limited replay. |
 | Billing | 24 meses | Showback e chargeback. |
-| Auditoria | 5 anos | Ajustar à obrigação regulatória aplicável. |
+| Auditoria | 5 anos | Adjust the applicable regulatory obligation. |
 | DLQ | 30 dias | Reprocessamento controlado. |
 
-Prazos são referências e devem ser aprovados por Jurídico, Segurança e LGPD para cada organização.
+Time is reference and must be approved by the Court, Security and LGPD for each organisation.

@@ -1,22 +1,22 @@
 # Agent Gateway
 
-## Visão Geral
+## General view
 
-O Agent Gateway é o ponto único de entrada para invocações de agentes. Autentica e autoriza a chamada, aplica rate limiting e roteia a invocação para o Agent Runtime.
+The Agent Gateway is the only point of entry for agent calls. Authenticity and authorisation of the call, application rate limiting and rote the call for Agent Runtime.
 
 ## Responsabilidades
 
-- Expor a API pública de invocação de agentes
-- Autenticar requisições via Identity Provider (OIDC)
-- Autorizar acesso por agente e escopo
-- Aplicar rate limiting e cache de curta duração
-- Rotear a invocação para o Agent Runtime
+- Expose the API public voicemail of agents
+- Identifying requirements via Identity Provider (OIDC)
+- Authorize access by agent and escopo
+- Using limit rate and short-term cache
+- Rotate the voice for Agent Runtime
 
-## Fora de Escopo
+## Out of the scuff
 
-- Execução do agente e orquestração de prompts, ferramentas e memória
-- Avaliação de qualidade da resposta
-- Aprovação e ciclo de vida do agente
+- Execution of the agent and prompts, tools and memory
+- Quality assessment of response
+- Life cycle and adsorption of agent
 
 ## API Principal
 
@@ -26,23 +26,23 @@ GET /agents/{agentId}
 Authorization: Bearer <token>
 ```
 
-## Dependências
+## Dependencies
 
-| Dependência | Uso |
+| Dependence | Uso |
 |---|---|
-| Identity Provider | Autenticação e autorização (OIDC) |
-| Agent Runtime | Roteamento da invocação |
+| Identity Provider | Autensification and authorisation (OIDC) |
+| Agent Runtime | Rotation of the invocation |
 | Redis | Cache e rate limiting |
 
-## Requisitos Não Funcionais
+## Non-functioning requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Latência | Overhead mínimo antes de rotear para o Agent Runtime |
-| Segurança | Autenticação e autorização em toda requisição |
-| Escalabilidade | Escala horizontal por volume de invocações |
-| Resiliência | Rate limiting para proteger o Agent Runtime contra picos |
+| Latence | Minimum overhead before rote to Agent Runtime |
+| Security | Autendance and authorisation in all requirements |
+| Escalabilidade | horizontal column by volume of calls |
+| Resilience | Limiting rate to protect Agent Runtime against pigs |
 
-## Decisões Relacionadas
+## Related Decisions
 
-- [ADR-004 — Agent Runtime com núcleo estável e adaptadores](../adrs/004-agent-runtime-strategy.md)
+- (ADR-004 — Agent Runtime with stable and adaptable nerves)(../adrs/004-agent-runtime-strategy.md)

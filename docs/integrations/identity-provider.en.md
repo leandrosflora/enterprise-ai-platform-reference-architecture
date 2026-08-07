@@ -1,17 +1,17 @@
 # Identity Provider Integration
 
-## Objetivo
+## Objet
 
-Integrar a plataforma ao provedor corporativo de identidade para autenticação, autorização e auditoria.
+Integrate the plate to the identification material for authenticity, authorisation and audit.
 
-## Padrões
+## Daddy
 
 - OIDC
 - OAuth2
 - JWT
 - Service-to-service authentication
 
-## Provedores Compatíveis
+## Compatibility producers
 
 - Microsoft Entra ID
 - Okta
@@ -20,11 +20,11 @@ Integrar a plataforma ao provedor corporativo de identidade para autenticação,
 
 ## Fluxos
 
-| Fluxo | Uso |
+| Flux | Uso |
 |---|---|
-| Authorization Code | Usuários no AI Portal |
-| Client Credentials | Comunicação entre serviços |
-| Token Exchange | Delegação controlada para ferramentas |
+| Authorization Code | User in the AI Portal |
+| Client Credentials | Communication between services |
+| Token Exchange | Controlled decompression for ferrous |
 
 ## Claims Relevantes
 
@@ -35,8 +35,8 @@ Integrar a plataforma ao provedor corporativo de identidade para autenticação,
 - scopes
 - groups
 
-## Requisitos
+## Requirements
 
-- Validação de token no Agent Gateway
-- Propagação de identidade para auditoria
-- Controle de escopos por agente, tool e knowledge base
+- token validation in Agent Gateway
+- Identification for auditory
+- Escopos control by agent, tool and knowledge base

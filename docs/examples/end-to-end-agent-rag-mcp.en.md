@@ -1,27 +1,27 @@
 # Exemplos End-to-End: Agent + RAG + MCP
 
-Este documento mostra fluxos completos de uso da Enterprise AI Platform combinando agentes, RAG, memória, ferramentas MCP, avaliação, auditoria e FinOps.
+This document shows complete flow of use of Enterprise AI Platform combinating agents, RAG, memory, MCP, evaluation, audit and FinOps.
 
 ---
 
-## Exemplo 1: Agente de Políticas Internas com RAG
+## Example 1: Internal Policy Officer with RAG
 
-### Objetivo
+### Objet
 
-Permitir que um usuário consulte políticas corporativas aprovadas com respostas citadas e rastreáveis.
+Allow a user to consult a body-based policy with cited and rastreactive responses.
 
 ### Componentes envolvidos
 
 | Componente | Papel |
 |---|---|
-| AI Portal | Interface de uso e autoatendimento. |
-| Agent Gateway | Entrada única, autenticação, autorização e rate limit. |
-| Agent Runtime | Orquestra prompt, memória, RAG, modelo e avaliação. |
+| AI Portal | User interface and autoatendiment. |
+| Agent Gateway | Entry single, authentication, authorisation and limit rate. |
+| Agent Runtime | Quick order, memory, RAG, model and evaluation. |
 | Knowledge Service | Recupera documentos e chunks relevantes. |
-| Foundation Model | Gera resposta com base no contexto recuperado. |
-| Evaluation Service | Avalia groundedness, relevância e risco de hallucination. |
-| Audit Service | Registra trilha de execução. |
-| Billing Service | Atribui custo por agente/time. |
+| Foundation Model | - A logical answer on the basis of the context recovered. |
+| Evaluation Service | Avalance of groundedness, relevance and risk of hallucination. |
+| Audit Service | Check the execution line. |
+| Billing Service | I've given the cost by agent/time. |
 
 ### Agent Card
 
@@ -48,7 +48,7 @@ requiredEvaluations:
   - LATENCY
 ```
 
-### Fluxo
+### Flux
 
 ```text
 1. Business User envia pergunta no AI Portal.
@@ -146,22 +146,22 @@ Content-Type: application/json
 
 ---
 
-## Exemplo 2: Agente Operacional com MCP de Escrita Controlada
+## Example 2: Operations Officer with MCP of Controlled Writing
 
-### Objetivo
+### Objet
 
-Permitir que um agente auxilie uma operação de atendimento atualizando casos, mas somente com autorização e aprovação humana quando necessário.
+Allow an agent to assist in a process of updating cases, but only with human authorization and approval when necessary.
 
 ### Componentes envolvidos
 
 | Componente | Papel |
 |---|---|
-| Agent Runtime | Orquestra o fluxo e aplica políticas. |
+| Agent Runtime | Listen to the flow and apply policies. |
 | MCP Registry | Descobre ferramentas aprovadas. |
-| MCP Server | Expõe `case-update`. |
-| Corporate System | Sistema operacional que armazena casos. |
-| Governance Service | Define política para ferramenta de alto risco. |
-| Audit Service | Registra execução e decisão. |
+| MCP Server | Expenditure `case-update`. |
+| Corporate System | Operative system that carries cases. |
+| Governance Service | - Definition of high-risk steel. |
+| Audit Service | Check execution and decision. |
 
 ### Agent Card
 
@@ -186,7 +186,7 @@ humanApproval:
     - case-update
 ```
 
-### Fluxo
+### Flux
 
 ```text
 1. Usuário solicita atualização de caso via AI Portal.
@@ -203,7 +203,7 @@ humanApproval:
 12. Billing Service registra custo.
 ```
 
-### Proposta antes da execução
+### Proposal before implementation
 
 ```json
 {
@@ -275,13 +275,13 @@ humanApproval:
 
 ---
 
-## Exemplo 3: Pipeline de Publicação de Agente
+## Example 3: Agent Publication Pipeline
 
-### Objetivo
+### Objet
 
-Publicar um agente somente após validação de contratos, risco, segurança, avaliação, observabilidade e FinOps.
+Publicate an agent only after the validity of contracts, risk, security, assessment, observation and FinOps.
 
-### Fluxo
+### Flux
 
 ```text
 1. Developer cria Agent Card e tool allowlist.
@@ -295,9 +295,9 @@ Publicar um agente somente após validação de contratos, risco, segurança, av
 9. Agent Runtime passa a aceitar invocações da versão publicada.
 ```
 
-### Evidências de publicação
+### Publications evidence
 
-| Evidência | Obrigatória |
+| Evidence | Thank you. |
 |---|---:|
 | Agent Card | Sim |
 | OpenAPI/Tool contracts | Sim |
@@ -343,15 +343,15 @@ Publicar um agente somente após validação de contratos, risco, segurança, av
 
 ## Checklist End-to-End
 
-| Item | Critério de aceite |
+| Item | Acceptance criteria |
 |---|---|
-| Agent Card | Define owner, versão, risco, modelo, tools e KBs. |
-| OpenAPI | Endpoint documentado com request, response, erro e escopo. |
-| MCP Contract | Tool com input/output schema, security, audit e runtime policy. |
-| Authorization | Papel, escopo, recurso e condição definidos. |
-| Risk Controls | Riscos mapeados com controle, evidência e owner. |
-| Observability | Trace completo com spans e atributos obrigatórios. |
-| Evaluation | Thresholds definidos e relatório aprovado. |
+| Agent Card | Type owner, version, risk, model, tools and KBs. |
+| OpenAPI | Endpoint documented with request, response, error and escope. |
+| MCP Contract | Tool with input/output schema, security, audit and runtime policy. |
+| Authorization | - Pitch, escap, resource and defined conditions. |
+| Risk Controls | Printed with control, evidence and ownership. |
+| Observability | Completely with spans and binding attributes. |
+| Evaluation | Definitions and approved report. |
 | FinOps | Budget e cost attribution configurados. |
 | Audit | Eventos `agent.invoked`, `tool.executed` e `audit.created` registrados. |
-| Rollback | Processo definido para retirar agente ou ferramenta. |
+| Rollback | Process defined to remove agent or iron. |

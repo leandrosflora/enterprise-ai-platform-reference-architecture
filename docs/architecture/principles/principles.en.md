@@ -1,39 +1,39 @@
-# Princípios Arquiteturais
+# Agricultural principles
 
-Estes princípios já estão implícitos nos contratos, domínios e serviços documentados neste repositório. Eles são explicitados aqui como referência única para quem propõe novos domínios, serviços ou integrações.
+These principles are already in contract, domains and services documented in this repository. They are explicitly here as the only reference for which new domains, services or integrations are proposed.
 
-## 1. Ownership de dados por serviço
+## 1. Data ownership by service
 
-Cada serviço é dono do seu armazenamento; não há acesso direto a bancos de outros serviços. Integração entre serviços acontece por API síncrona ou evento assíncrono, nunca por acesso compartilhado a dados.
+Each service is part of its storage; there is no right access to other services. Integration between services occurs by Sncrone API or a sncrone event, never by comparing data.
 
 Ver: [docs/contracts/data-stores.md](../../contracts/data-stores.md).
 
-## 2. Integração orientada a eventos
+## 2. Integration oriented to events
 
-Mudanças de estado relevantes (criação, publicação, execução, aprovação) são publicadas como eventos versionados em Kafka, com envelope padrão (`eventId`, `correlationId`, `causationId`, `schemaVersion`). Consumidores reagem a eventos em vez de consultar o produtor de forma síncrona sempre que possível.
+Changes of relevant status (creation, publication, implementation, approval) are published as versions of events in Kafka, with a padrix envelope (`eventId`, `correlationId`, `causationId`, `schemaVersion`). Users return events instead of consulting the producer in a single manner as soon as possible.
 
 Ver: [docs/contracts/events.md](../../contracts/events.md).
 
-## 3. Segurança e governança por padrão
+## 3. Security and governance by pattern
 
-Toda capacidade de agente, ferramenta ou dado é protegida por autenticação (OIDC/OAuth2), autorização por escopo, e passa pelo ciclo de aprovação da Governance Service antes de ir para produção. Não há capacidade "não governada" na plataforma.
+All the agent, tool or device is protected by authenticity (OIDC/OAuth2), authorisation by esthetic, and passes by the approval cycle of Governance Service before it goes to production. There is no "ungoverned" capacity on the platform.
 
 Ver: [docs/governance/approval-workflow.md](../../governance/approval-workflow.md), [docs/security/authentication.md](../../security/authentication.md).
 
-## 4. Auditoria e observabilidade ponta a ponta
+## 4. Auditoria and observability point to point
 
-Toda execução relevante (invocação de agente, chamada de ferramenta, decisão de governança) gera trilha auditável e é rastreável via trace distribuído. Auditoria e observabilidade não são adicionadas depois — fazem parte do contrato de eventos desde o início.
+All relevant implementation (invocation of agent, called a tool, government decision) is auditable and is tracable via distributed trace. Auditoria and observability are not added after — are part of the event contract since the beginning.
 
 Ver: [docs/observability/tracing.md](../../observability/tracing.md), [docs/security/authorization.md](../../security/authorization.md).
 
-## 5. Consciência de custo (FinOps) desde o design
+## 5. Cost awareness (FinOps) since the design
 
-Uso de modelos, ferramentas e armazenamento é medido e atribuído por agente, time ou unidade de negócio, permitindo chargeback/showback. Custos não são uma preocupação apenas operacional — são um requisito nas fases de design de domínios e serviços.
+Use of models, tools and storage is measured and assigned by agent, time or unit of business, allowing chargeback/showback. Costs are not a sole concern — they are a requirement in the design stages of fields and services.
 
 Ver: [docs/finops/token-costs.md](../../finops/token-costs.md).
 
-## 6. Resiliência contra falhas de dependências externas
+## 6. Resistance against failures of external dependency
 
-Chamadas a modelos, ferramentas MCP e serviços corporativos aplicam timeout, retry controlado e circuit breaker. Nenhum serviço assume disponibilidade total de suas dependências externas.
+Compared to models, MCP and corporative services, they apply timeout, controlled retry and circuit breaker. No service assumes full availability of its external dependencies.
 
 Ver: [docs/services/agent-runtime.md](../../services/agent-runtime.md).

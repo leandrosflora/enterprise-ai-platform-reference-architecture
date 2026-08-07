@@ -1,21 +1,21 @@
-# Documentação
+# Documentation
 
-Esta pasta contém o **Enterprise AI Platform Reference Book** e os artefatos que apoiam organizações no desenho e na implementação de suas próprias plataformas corporativas de IA.
+This pasta contains the **Enterprise AI Platform Reference Book** and the articles supporting organisations in the development and implementation of their own corporative IA platforms.
 
-O conteúdo é uma referência documental e arquitetural. Ele não entrega uma plataforma pronta, não define uma implementação obrigatória e não substitui decisões específicas de infraestrutura, segurança, sizing ou compliance.
+The content is a documentary and architectural reference. It does not deliver a ready platform, does not define an obligation implementation and does not replace specific decisions of infrastructure, security, size or compliance.
 
 ## Comece pelo book
 
-1. [Entrada do livro](book/index.md)
-2. [Por que uma AI Platform?](book/01-why-ai-platform.md)
+1. [Input of the book](book/index.md)
+2. [Why a AI Platform?](book/01-why-ai-platform.md)
 3. [Capability Map](book/02-capability-map.md)
 4. [Operating Model](book/03-operating-model.md)
-5. [Ciclo de vida de agentes](book/04-agent-lifecycle.md)
-6. [Estudo de caso de agente documental](book/05-case-study-document-agent.md)
+5. [Life cycle of agents](book/04-agent-lifecycle.md)
+6. [Study of case of documentary agent](book/05-case-study-document-agent.md)
 7. [Decision Guides](book/06-decision-guides.md)
-8. [Roadmap de adoção](book/07-adoption-roadmap.md)
-9. [Checklists de produção](book/08-production-checklists.md)
-10. [Glossário](book/glossary.md)
+8. [Adoption button](book/07-adoption-roadmap.md)
+9. (production checklists)(book/08-production-checklists.md)
+10. [Glossary](book/glossary.md)
 
 ## Estrutura
 
@@ -36,29 +36,29 @@ reference-architectures/  Blueprints por caso de uso
 roadmap/                  Sequenciamento recomendado para implementação
 ```
 
-## Relação entre book e artefatos
+## Relationship between book and artefacts
 
-- O **book** explica problema, decisão, trade-offs, operating model e critérios de sucesso.
-- A **arquitetura de referência** define contratos, policies, capacidades, eventos e procedimentos que podem orientar diferentes implementações.
-- A **amostra técnica** demonstra partes dos controles de forma executável para validar a documentação.
+- **book** explains the problem, decision, tradeoffs, operating model and success criteria.
+- The ** Reference Framework** defines contracts, policies, capacities, events and procedures that can guide different implementations.
+- The technical **asshole** shows parts of the controls in a way that is able to validate the documentation.
 
-A amostra técnica não representa uma arquitetura física recomendada nem uma plataforma pronta para produção.
+The technical sample does not represent a recommended physical arrangement or a ready-made plate for production.
 
-O conteúdo editorial não pode redefinir enums, envelopes, policies ou metas diferentes das fontes canônicas.
+The editorial content cannot be re-defined in any, envelopes, policies or metas different from the canonical sources.
 
-## Fontes canônicas
+## Canopies
 
 | Assunto | Fonte |
 |---|---|
 | APIs HTTP | [`contracts/openapi.yaml`](contracts/openapi.yaml) |
 | Eventos | [`contracts/async-api.yaml`](contracts/async-api.yaml) |
-| Convenções de eventos | [`contracts/events.md`](contracts/events.md) |
+| Events Conventions | [`contracts/events.md`](contracts/events.md) |
 | SLOs | [`architecture/non-functional-requirements.md`](architecture/non-functional-requirements.md) |
-| Controles de risco | [`governance/ai-risk-framework.md`](governance/ai-risk-framework.md) |
-| Autorização | [`security/authorization.md`](security/authorization.md) |
-| Segurança de RAG e memória | [`security/rag-memory-security.md`](security/rag-memory-security.md) + [`../policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml) |
+| Risk controls | [`governance/ai-risk-framework.md`](governance/ai-risk-framework.md) |
+| Authorisation | [`security/authorization.md`](security/authorization.md) |
+| Security of RAG and memory | [`security/rag-memory-security.md`](security/rag-memory-security.md) + [`../policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml) |
 
-## Arquitetura
+## - Apocalypse
 
 - [C4 Context](architecture/diagrams/c4-context.puml)
 - [C4 Container](architecture/diagrams/c4-container.puml)
@@ -66,7 +66,7 @@ O conteúdo editorial não pode redefinir enums, envelopes, policies ou metas di
 - [Control plane e data plane](architecture/control-plane-data-plane.md)
 - [Event Storming](architecture/diagrams/event-storming.md)
 
-## Capacidades e serviços de referência
+## Reference Capacity and services
 
 - [Agent Gateway](services/agent-gateway.md)
 - [Agent Runtime](services/agent-runtime.md)
@@ -80,26 +80,26 @@ O conteúdo editorial não pode redefinir enums, envelopes, policies ou metas di
 - [Audit Service](services/audit-service.md)
 - [Billing Service](services/billing-service.md)
 
-Esses nomes representam responsabilidades arquiteturais. Eles não exigem que cada capacidade seja implementada como um microsserviço independente.
+These names represent architectural responsibility, and they do not require each capacity to be implemented as an independent microsystem.
 
-## Operação de referência
+## Reference operation
 
-- [Onboarding de agente](runbooks/onboarding-agent.md)
+- [Agentboarding](runbooks/onboarding-agent.md)
 - [Onboarding MCP](runbooks/onboarding-mcp.md)
-- [Troubleshooting de invocação](runbooks/troubleshooting-agent-invocation.md)
+- (Invocative troubles)(runbooks/troubleshooting-agent-invocation.md)
 
-## Gerar o book
+## Get the book
 
-Na raiz do repositório:
+In the midst of the repository:
 
 ```bash
 python scripts/build_book.py --check
 python scripts/build_book.py
 ```
 
-O PDF é gerado automaticamente pelo workflow `.github/workflows/book.yml` usando Pandoc e WeasyPrint.
+The PDF is automatically accessed by the `.github/workflows/book.yml` workflow using Pandoc and WeasyPrint.
 
-## Validação
+## Validation
 
 ```bash
 python scripts/validate_contracts.py

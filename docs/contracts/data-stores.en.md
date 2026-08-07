@@ -1,19 +1,19 @@
 # Data Stores
 
-| Serviço | Banco | Finalidade |
+| Service | Banco | Finalidade |
 |---|---|---|
-| Agent Registry | PostgreSQL | Metadados e versões |
-| Governance Service | PostgreSQL | Aprovações e riscos |
-| Billing Service | PostgreSQL | Custos e chargeback |
-| Memory Service | MongoDB | Memória conversacional |
-| Knowledge Service | OpenSearch | Busca vetorial |
+| Agent Registry | PostgreSQL | Metadates and versions |
+| Governance Service | PostgreSQL | Risks and risks |
+| Billing Service | PostgreSQL | Cost and chargeback |
+| Memory Service | MongoDB | Conversational memory |
+| Knowledge Service | OpenSearch | Veterinary surgery |
 | Agent Gateway | Redis | Cache e rate limiting |
-| Platform Events | Kafka | Integração assíncrona |
+| Platform Events | Kafka | Integrated asymmetric integration |
 
-## Princípios
+## Principles
 
-- Ownership por serviço
-- Sem acesso direto entre bancos
-- Integração por APIs e eventos
-- Dados auditáveis
-- Criptografia em repouso
+- Service ownership
+- No right access between banks
+- Integration by APIs and events
+- Audit data
+- Discography

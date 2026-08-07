@@ -1,29 +1,29 @@
 # Audit Service
 
-## Visão Geral
+## General view
 
-O Audit Service mantém a trilha de auditoria imutável da plataforma: uso de agentes, execução de ferramentas e decisões de governança. Consome eventos de praticamente todos os demais serviços e os torna disponíveis para conformidade e investigação.
+Audit Service maintains the mutable auditory trille of the platform: use of agents, implementation of tools and decisions of government. Concurrent events of practically all the same services and become available for compliance and research.
 
 ## Responsabilidades
 
-- Consumir eventos de todos os domínios (agentes, conhecimento, memória, governança, avaliação)
-- Persistir trilha de auditoria imutável e pesquisável
-- Publicar evento de confirmação de auditoria
-- Disponibilizar trilha para consulta por times de conformidade e segurança
-- Encaminhar registros de auditoria para o Observability Stack
+- Consume events in all fields (agentes, knowledge, memory, government, evaluation)
+- Maintain a stable and stable auditory trille
+- Publication of auditor confirmation event
+- Provide a trilha for consultation for time of conformity and safety
+- Checking auditor records for Observability Stack
 
-## Fora de Escopo
+## Out of the scuff
 
-- Decisão de aprovação ou rejeição de agentes
-- Cálculo de custo (papel da Billing Service)
-- Execução ou avaliação de agentes
+- Decision of approval or rejection of agents
+- Cost calculator (Billing Service)
+- Implementation or evaluation of agents
 
-## Dependências
+## Dependencies
 
-| Dependência | Uso |
+| Dependence | Uso |
 |---|---|
-| Kafka | Consome eventos de todos os domínios da plataforma |
-| Observability Stack | Publica logs e trilhas de auditoria |
+| Kafka | Confirm events from all areas of the platform |
+| Observability Stack | Public records and auditory journals |
 
 ## Eventos Consumidos
 
@@ -38,11 +38,11 @@ O Audit Service mantém a trilha de auditoria imutável da plataforma: uso de ag
 
 - `audit.created`
 
-## Requisitos Não Funcionais
+## Non-functioning requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Imutabilidade | Registros de auditoria não podem ser alterados ou apagados |
-| Retenção | 5 anos, conforme política regulatória (ver [docs/contracts/events.md](../contracts/events.md)) |
-| Disponibilidade | Consumo de eventos não pode perder mensagens (DLQ por domínio) |
-| Conformidade | Suporta investigação e relatórios para LGPD e auditorias regulatórias |
+| Imutabilidade | Audit records may not be amended or withdrawn |
+| Retention | 5 years, according to regulatory policy (see [docs/contracts/events.md](../contracts/events.md)) |
+| Disponibilidade | Consumption of events can't lose messages (DLQ for the purpose) |
+| Conformidade | Reports and investigations for LGPD and regulatory audits |

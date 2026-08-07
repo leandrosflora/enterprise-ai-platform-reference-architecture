@@ -1,63 +1,63 @@
 # Casos aplicados
 
-Os casos aplicados demonstram como as capacidades lógicas da Enterprise AI Platform podem ser materializadas em domínios, jornadas e topologias concretas.
+The cases applied show how the logic capabilities of Enterprise AI Platform can be materialised in fields, journals and concrete topologies.
 
-Eles não definem uma implementação única. Cada caso explicita:
+They do not define a single implementation. Each explicit case:
 
-- o problema de negócio;
-- onde a IA participa da jornada;
-- quais capacidades da plataforma são utilizadas;
-- quais controles permanecem determinísticos;
-- o que está implementado, demonstrado ou apenas planejado;
-- os gaps para integração e produção.
+- the business problem;
+- where the AI participates in the newspaper;
+- which the telecommunications capacity is used;
+- which controls remain determined;
+- what is implemented, demonstrated or only planned;
+- the gaps for integration and production.
 
-## Casos disponíveis
+## Availability
 
 <div class="grid cards" markdown>
 
--   :material-message-processing-outline: **Plataforma conversacional bancária multi-skill**
+-   :material-message-processing-outline: **Multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill**
 
     ---
 
-    Jornadas bancárias via WhatsApp, múltiplas skills, Agent Runtimes, ferramentas MCP, RAG, memória, eventing, auditoria e evals.
+    Banks via WhatsApp, mobile skills, Agent Runtimes, MCP, RAG, memory, eventing, auditory and evaluations.
 
-    [Abrir o caso conversacional](conversational-ai.md)
+    [Open the conversational case](conversational-ai.md)
 
--   :material-clipboard-flow-outline: **Intelligent Backoffice — contestação bancária**
+-   :material-clipboard-flow-outline: **Intelligent Backoffice — bank contest**
 
     ---
 
-    Workflow persistente, processamento documental, investigação assistida, recomendação, aprovação humana, policy enforcement, execução idempotente e reconciliação.
+    Continuous Workflow, document processing, assisted research, recommendation, human adoption, policy enforcement, indecent implementation and reconciliation.
 
-    [Abrir o caso de backoffice](intelligent-backoffice.md)
+    [Open the backoffice case](intelligent-backoffice.md)
 
 -   :material-source-branch: **Agentic SDLC governado**
 
     ---
 
-    Agentes especializados do requisito ao feedback de produção, workflow durável, Model Gateway, MCP, OPA, evidências, aprovação por digest, release observado e rollback.
+    Special agents of the requirement for production feedback, durable workflow, Model Gateway, MCP, OPA, evidence, digest, observed release and rollback.
 
-    [Abrir o caso de Agentic SDLC](agentic-sdlc.md)
+    [Open the case of Agentic SDLC](agentic-sdlc.md)
 
 </div>
 
-## Comparação rápida
+## Quick comparison
 
-| Caso | Unidade principal de interação | Autonomia inteligente | Efeito real governado |
+| Caso | Main unit of interaction | Autonomia inteligente | Efeito real governado |
 |---|---|---|---|
-| Plataforma conversacional | conversa e jornada do cliente | selecionar skill, responder e usar tools | operações bancárias mediadas por serviços de domínio |
-| Intelligent Backoffice | caso, documento e evidência | classificar, investigar e recomendar | aprovação humana e execution service |
-| Agentic SDLC | mudança de software e evidence bundle | refinar, desenhar, implementar e revisar | tools via MCP, aprovação por digest, release e rollback |
+| Plataforma conversacional | - Talk and message from the client | selecionar skill, responder e usar tools | Bank operations mediated by field services |
+| Intelligent Backoffice | case, document and evidence | classificar, investigar e recomendar | human approval and execution service |
+| Agentic SDLC | software change and evidence bundle | refinar, desenhar, implementar e revisar | tools via MCP, digest, release and rollback |
 
-## Como interpretar os estados
+## How to interpret the state
 
 | Estado | Significado |
 |---|---|
-| `CONTRACT_DEFINED` | Arquitetura, contrato, policy ou responsabilidade versionada, ainda sem integração comprovada |
-| `IMPLEMENTATION_STARTED` | Código de produto iniciado, mas sem evidência suficiente de integração ponta a ponta |
-| `DEMONSTRATED_LOCAL` | Capacidade executada localmente ou no CI com dados e integrações sintéticos |
-| `VALIDATED_INTEGRATION` | Integração validada contra serviços reais em ambiente controlado |
-| `PASSED_PRODUCTION` | Capacidade aprovada para produção com evidência, operação, segurança e ownership |
+| `CONTRACT_DEFINED` | Architecture, contract, policy or modified responsibility, still without compropriated integration |
+| `IMPLEMENTATION_STARTED` | Product code initiated, but without sufficient evidence of insertion point to point |
+| `DEMONSTRATED_LOCAL` | Capacity executed locally or in the CI with data and systotic integrations |
+| `VALIDATED_INTEGRATION` | Integration valid against real services in controlled environment |
+| `PASSED_PRODUCTION` | Productivity approved for evidence, operation, safety and ownership |
 
-!!! warning "Caso aplicado não significa produção"
-    Diagramas, código e testes locais demonstram decisões e mecanismos. Produção exige integração real, dados autorizados, segurança corporativa, operação, SLOs, suporte, risco e aprovação formal.
+!!! warning "The application does not mean production"
+    Diagrams, code and local tests demonstrate real decisions and mechanisms. Production requires real integration, auto-discounts, corporative security, operation, SLOs, support, risk and formal approval.

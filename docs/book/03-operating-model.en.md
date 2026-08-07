@@ -1,16 +1,16 @@
 # 4. Operating Model
 
-## O desafio organizacional
+## The organizational challenge
 
-Uma AI Platform falha quando a arquitetura está clara, mas o ownership não está. O operating model define quem decide, quem executa, quem aprova, quem opera e quem responde pelo resultado de negócio.
+A AI Platform fails when the architecture is clear, but ownership is not. The operating model defines who decides, who executes, who approves, who operates and who responds to the business outcome.
 
-A recomendação é adotar um modelo **federado com plataforma central**:
+The recommendation is to adopt a model federated with central platform**:
 
-- um time de plataforma mantém capacidades compartilhadas e golden paths;
-- squads de produto mantêm ownership dos casos de uso;
-- funções de confiança definem políticas e participam conforme o risco;
-- SRE e FinOps tornam operação e custo parte do produto;
-- um AI Enablement ou CoE acelera adoção sem concentrar toda entrega.
+- a time of a slut keeps a pair of sluts and golden paths;
+- products squads keep ownership of the cases of use;
+- trust functions define policies and participate in the risk;
+- SRE and FinOps take operation and cost of the product;
+- an AI Enablement or CoE that added without concentrating all delivery.
 
 ```mermaid
 flowchart TB
@@ -31,169 +31,169 @@ flowchart TB
     SRE --> PS
 ```
 
-## Papéis principais
+## - Main papers
 
 ### Executive Sponsor
 
-Responsável por mandato, funding, objetivos e remoção de impedimentos organizacionais. Não deve operar como aprovador técnico de cada agente.
+Responsible for the mandate, funding, objectives and reimbursement of organisational obstacles.
 
 ### AI Platform Team
 
-Responsável pelo produto plataforma:
+Responsible for the platelet product:
 
 - runtime, gateways, registries, SDKs e templates;
-- confiabilidade, segurança da plataforma e experiência do desenvolvedor;
-- contratos e políticas compartilhadas;
-- roadmap de capacidades;
-- suporte de segundo nível e gestão de dependências.
+- confidence, security of the platform and experience of the developer;
+- contracts and comparable policies;
+- roadmap of capacity;
+- Support of second level and management of dependencies.
 
-O time de plataforma deve ser medido por adoção, lead time, confiabilidade e redução de duplicação, não apenas por componentes entregues.
+The time of the plate must be measured by adoption, lead time, confidentiality and reduction of duplication, not just by components delivered.
 
 ### AI Enablement / CoE
 
-Responsável por:
+Responsible for:
 
-- padrões e referências;
-- capacitação e comunidade de prática;
-- assessment inicial de casos;
-- apoio a avaliações e threat modeling;
-- curadoria de exemplos e learnings;
-- facilitação dos fóruns de governança.
+- rules and references;
+- capacity and practice community;
+- initial assessment of cases;
+- support assessment and threat modeling;
+- a curricula of examples and learning;
+- facilitation of government operations.
 
-O CoE não deve se tornar uma fábrica central de agentes nem um gate manual para toda mudança.
+The EEC must not become a central factory of agents or a manual gate for all changes.
 
 ### Product Squad
 
-Mantém ownership do agente ou solução:
+Hold the agent or solution:
 
-- resultado de negócio e métricas;
-- UX, domínio e integração com sistemas de registro;
-- prompts, datasets e critérios de aceitação;
-- operação de primeiro nível;
-- correções, evolução e desativação;
-- evidências necessárias à publicação.
+- business and methods;
+- UX, domain and integration with register systems;
+- prompts, datasets and acceptance criteria;
+- first-level operation;
+- corrections, evolution and deactivation;
+- evidence necessary for publication.
 
 ### Security, Legal, Privacy and Data
 
-Definem políticas e participam proporcionalmente ao risco:
+Identify policies and participate appropriately to the risk:
 
-- classificação de dados e finalidade;
-- threat model e controles;
-- requisitos regulatórios e contratuais;
-- retenção, consentimento e descarte;
-- aprovação de exceções;
-- critérios de revisão periódica.
+- data classification and finality;
+- threat model and controls;
+- regulatory and contractual requirements;
+- retention, consent and discharge;
+- approval of exemptions;
+- periodical review criteria.
 
 ### SRE and FinOps
 
-Responsáveis por tornar operação e custo explícitos:
+Responsible for making operation and expenses:
 
 - SLOs e error budgets;
-- capacidade, resiliência e incidentes;
+- capacity, resilience and incidents;
 - dashboards e alertas;
 - budgets, quotas, showback e chargeback;
-- análise de custo versus valor;
+- cost analysis versus value analysis;
 - readiness operacional.
 
-## RACI de referência
+## Reference RACI
 
-Legenda: **R** responsável por executar, **A** accountable pela decisão final, **C** consultado, **I** informado.
+Legend: **R** responsible for executing, **A** accountable for the final decision, **C** consultated, **I** informed.
 
 | Atividade | Sponsor | Platform | CoE | Product Squad | Trust Functions | SRE/FinOps |
 |---|---|---|---|---|---|---|
-| definir estratégia e outcomes | A | C | R | C | C | C |
-| priorizar roadmap da plataforma | C | A/R | C | C | C | C |
-| selecionar caso de uso | I | C | C | A/R | C | C |
+| define strategy and outcomes | A | C | R | C | C | C |
+| Prioritize the platform roadmap | C | A/R | C | C | C | C |
+| select the use case | I | C | C | A/R | C | C |
 | classificar risco | I | C | R | R | A | C |
-| desenvolver agente | I | C | C | A/R | C | C |
+| develop agent | I | C | C | A/R | C | C |
 | manter SDKs e runtime | I | A/R | C | I | C | C |
-| produzir dataset de avaliação | I | C | C | A/R | C | C |
-| definir políticas de segurança | I | R | C | C | A | C |
-| aprovar exceção crítica | I | C | C | C | A/R | I |
-| publicar versão | I | R | I | A/R | C conforme risco | C |
-| operar em produção | I | R plataforma | I | A/R produto | I | R suporte |
-| responder incidente | I | R plataforma | I | R produto | C | A/R coordenação |
+| produce sample analysis | I | C | C | A/R | C | C |
+| define security policies | I | R | C | C | A | C |
+| appropriate criteria | I | C | C | C | A/R | I |
+| publish version | I | R | I | A/R | C conforme risco | C |
+| operate in production | I | R plataforma | I | A/R product | I | R suporte |
+| responder incidente | I | R plataforma | I | R produto | C | Coordination A/R |
 | revisar custo e valor | C | R | I | A/R | I | R |
-| desativar agente | I | C | I | A/R | C | C |
+| deactivating agent | I | C | I | A/R | C | C |
 
-## Intake de casos de uso
+## Intake of use cases
 
-O intake deve ser curto e orientado à decisão. Um formulário mínimo contém:
+The intake must be short and orientated to the decision. A minimum form contains:
 
-- problema e usuário afetado;
-- resultado esperado e métrica;
-- dados necessários e classificação;
-- ações que o agente poderá executar;
-- impacto de uma resposta incorreta;
+- problem and used;
+- a result sprained and measured;
+- necessary data and classification;
+- actions that the agent may execute;
+- impact of an incorrettuous response;
 - criticidade e volume estimado;
-- necessidade de memória;
-- modelos ou provedores pretendidos;
-- owner de produto e owner técnico;
-- estratégia de fallback.
+- memory need;
+- models or pretending witnesses;
+- product owner and technical owner;
+- fallback strategy.
 
-A saída do intake não é uma aprovação final. É uma classificação inicial e uma rota de delivery.
+The exit from the intake is not a final approval, it is an initial classification and a delivery route.
 
 ## Rotas proporcionais ao risco
 
 | Risco | Exemplo | Rota recomendada |
 |---|---|---|
-| LOW | sumarização interna sem dados sensíveis | self-service com controles automáticos |
-| MEDIUM | RAG corporativo com informação interna | avaliação, segurança e aprovação simplificada |
-| HIGH | recomendação que afeta cliente ou decisão relevante | revisão multidisciplinar, HITL e evidências adicionais |
-| CRITICAL | ação financeira, decisão regulada ou risco físico | controles reforçados, aprovação formal e escopo restrito |
+| LOW | Internal summary without sensitive data | self-service with automatic controls |
+| MEDIUM | RAG corporative with internal information | simplified assessment, safety and approval |
+| HIGH | recommendation that the relevant client or decision adopts | Multidisciplinar review, HITL and additional evidence |
+| CRITICAL | financial action, regulatory decision or physical risk | enhanced controls, formal approval and restricted scope |
 
-Consulte o [AI Risk Framework](../governance/ai-risk-framework.md) para a classificação canônica.
+Consult the [AI Risk Framework] (../governance/ai-risk-framework.md) for the canonical classification.
 
 ## Golden path
 
-O golden path é o caminho suportado para chegar à produção:
+The golden path is the way to the production:
 
-1. registrar o caso e o owner;
-2. classificar risco e dados;
-3. criar a solução a partir de template aprovado;
+1. registrating the case and the owner;
+2. classifying risk and data;
+3. creating the solution from the approved template;
 4. integrar identidade, policies e telemetria;
-5. executar avaliações obrigatórias;
-6. anexar evidências à versão;
-7. obter decisões necessárias;
-8. publicar por pipeline;
+5. executing mandatory assessments;
+6. annex evidence to the version;
+7. to take the necessary decisions;
+8. to publish by pipeline;
 9. monitorar SLOs, qualidade e custo;
-10. revisar ou retirar a versão.
+10. - Revision or re-removal of the version.
 
-A squad pode sair do golden path, mas a exceção deve ser explícita, possuir owner, prazo e compensating controls.
+The squad can get out of the golden path, but the exception must be explended, be owner, time limit and compensate for controls.
 
-## Fóruns e cadências
+## Fucking and tits
 
-| Fórum | Cadência | Objetivo |
+| Fruit | - Cadence | Objet |
 |---|---|---|
-| Platform Product Review | quinzenal | roadmap, adoção, capacidade e experiência |
-| AI Risk Review | semanal ou sob demanda | casos HIGH/CRITICAL e exceções |
-| Architecture Clinic | semanal | decisões e apoio às squads sem gate formal |
-| Model and Vendor Review | mensal | modelos aprovados, mudanças e riscos de fornecedor |
+| Platform Product Review | quinzenal | roadmap, adoption, capacity and experience |
+| AI Risk Review | semanal ou sob demanda | HI/CRITICAL cases and exceptions |
+| Architecture Clinic | semanal | Decisions and support to squads without formal gate |
+| Model and Vendor Review | mensal | approved models, changes and supply risks |
 | SRE and FinOps Review | mensal | SLOs, incidentes, capacidade, custo e quotas |
 | Executive Outcome Review | trimestral | valor, risco agregado e investimento |
 
-## Métricas do operating model
+## Operating model devices
 
-- lead time entre intake e primeira versão controlada;
-- percentual de soluções no golden path;
-- tempo de decisão por classe de risco;
-- número de exceções abertas e vencidas;
-- adoção de SDKs e serviços compartilhados;
-- incidentes por categoria e produto;
-- custo por outcome ou unidade de negócio;
-- taxa de regressão bloqueada antes da produção;
-- satisfação das squads consumidoras.
+- lead time between intake and first controlled version;
+- percentage of solutions on the golden path;
+- time of decision by risk class;
+- number of open and vengeable exceptions;
+- adoption of SDKs and comparable services;
+- incidents by category and product;
+- costs for the outcome or unit of business;
+- a return rate blocked before production;
+- satisfaction of consumers' squads.
 
-## Antipadrões
+## Antipadrones
 
-- CoE aprovando manualmente todas as mudanças;
-- plataforma sem product manager ou backlog orientado a consumidores;
-- squad entregando o agente e transferindo toda operação ao time central;
-- segurança consultada apenas no fim;
-- ausência de owner para dados e conhecimento;
-- aprovação sem validade ou revisão periódica;
-- métricas de plataforma baseadas apenas em disponibilidade técnica.
+- CoE manually adopted all changes;
+- a plate without product manager or a backlog for consumers;
+- sending the agent and transferring all operations to the central time;
+- safety only consultable at the end;
+- lack of ownership for data and knowledge;
+- approval without validity or periodic review;
+- - based on technical availability.
 
-## Próximo capítulo
+## Next chapter
 
-O [Ciclo de vida de agentes](04-agent-lifecycle.md) transforma esse operating model em gates, artefatos e evidências concretas.
+The [Life Cycle of Agents](04-agent-lifecycle.md) transforms that operating model into concrete elements, artefacts and evidence.

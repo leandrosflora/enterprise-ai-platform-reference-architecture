@@ -1,16 +1,16 @@
-# Arquitetura de Referência - Agente de Atendimento ao Cliente
+# Reference Access - Agent for Customer Support
 
-## Objetivo
+## Objet
 
-Automatizar e apoiar jornadas de atendimento ao cliente usando agentes com RAG, integração a sistemas corporativos e governança de ações.
+Automate and support customer feedback using agents with RAG, integration of corporate systems and governance of actions.
 
-## Casos de Uso
+## Usage casings
 
-- Consulta de informações do cliente
-- Explicação de produtos e contratos
-- Apoio a renegociação
-- Triagem de solicitações
-- Criação de protocolos ou chamados
+- Customer information consultation
+- Explication of products and contracts
+- I support the renegotiation
+- Triage of requests
+- Creating protocols or calls
 
 ## Componentes Envolvidos
 
@@ -24,35 +24,35 @@ Automatizar e apoiar jornadas de atendimento ao cliente usando agentes com RAG, 
 - Governance Service
 - Audit Service
 
-## Integrações
+## Integrations
 
 - CRM
 - Core Banking
-- Plataforma de atendimento
-- Sistema de protocolo
-- Base de conhecimento
+- Appendix plate
+- Protocol system
+- Knowledge base
 
-## Fluxo de Alto Nível
+## High-level flux
 
-1. Cliente inicia atendimento em canal digital.
-2. Channel Adapter encaminha a mensagem ao Agent Gateway.
-3. Agent Runtime recupera contexto, conhecimento e políticas.
+1. Client starts implementing digital channel.
+2. Channel Adapter sends the message to Agent Gateway.
+3. Agent Runtime recovers context, knowledge and policies.
 4. MCP Server consulta sistemas corporativos autorizados.
-5. Agente responde ou executa ação permitida.
-6. Audit Service registra conversa, tool calls e decisões.
+5. Agent responds or executes the action permitted.
+6. Audit Service registers conversation, tool calls and decisions.
 
-## Controles
+## Controls
 
-- Autorização por escopo e canal
-- Mascaramento de dados sensíveis
-- Human-in-the-loop para ações críticas
-- Limites de autonomia por risco
-- Registro de consentimento quando aplicável
+- Authorisation for esthetic and canal
+- Sensitive data masking
+- Human-in-the-loop for critical actions
+- Risk-free auto limits
+- Registration of consent when applicable
 
-## Métricas
+## Mechanics
 
 - Containment rate
-- Tempo médio de atendimento
-- Taxa de transferência para humano
-- Taxa de erro em tool calls
-- Custo por atendimento
+- Average time of application
+- Transfer rate to human
+- error rate in tool calls
+- Care for maintenance

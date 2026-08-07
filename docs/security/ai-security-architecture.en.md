@@ -1,10 +1,10 @@
 # AI Security Architecture
 
-## Objetivo
+## Objet
 
-Aplicar defesa em profundidade em todas as fronteiras da plataforma: identidade, entrada, contexto, modelo, ferramentas, memória, saída e auditoria.
+Putting defence in depth on all fronts of the platform: identity, entry, context, model, tools, memory, exit and auditory.
 
-## Arquitetura de referência
+## Reference window
 
 ```mermaid
 flowchart LR
@@ -28,65 +28,65 @@ flowchart LR
     MCP --> AUD
 ```
 
-## Controles por camada
+## Controls by slut
 
-| Camada | Controles mínimos |
+| Camada | Minimum controls |
 |---|---|
-| Edge | WAF, rate limit, bot protection, quotas e proteção contra abuso |
-| Identidade | OIDC, MFA, workload identity, tokens curtos e menor privilégio |
-| Autorização | RBAC/ABAC, PDP/PEP, deny by default e policy versionada |
-| Entrada | validação, limites, detecção de prompt injection e classificação de dados |
-| RAG | fontes aprovadas, quarentena, proveniência, ACL por chunk e DLP |
-| Modelo | gateway central, allowlist de modelos, parâmetros limitados e guardrails |
-| Ferramentas | schemas, allowlist, idempotência, timeout e aprovação humana |
-| Memória | finalidade, consentimento, isolamento por sujeito, TTL e exclusão |
-| Saída | groundedness, redaction, content safety, schema validation e citações |
-| Auditoria | correlation ID, identidade, versão de política, modelo, prompt e decisão |
+| Edge | WAF, rate limit, bot protection, quotas and anti-abus protection |
+| Identidade | OIDC, MFA, workload identity, short and less preferred tokens |
+| Authorisation | RBAC/ABAC, PDP/PEP, deny by default e policy versionada |
+| Entrada | validation, limits, detection of prompt injection and data classification |
+| RAG | approuvé sources, quarentene, provenance, ACL by chunk and DLP |
+| Model | central gateway, model allowlist, limited parsel and guardrails |
+| Ferramentas | schemas, allowlist, idempotence, timeout and human adoption |
+| Memory | finality, consent, isolation by sujee, TTL and excluding |
+| Sahara | 'Causeness, redaction, content safety, schema validation and references' |
+| Auditoria | ID, identity, policy version, model, prompt and decision |
 
-## Zero trust para IA
+## Zero trust for IA
 
-Nenhum componente confia implicitamente em conteúdo gerado ou recuperado. Cada chamada deve autenticar a identidade, autorizar a ação, validar o payload e registrar a decisão.
+No component is implicitly based on the data collected or recovered. Each call must authenticate identity, authorise the action, validate the payload and register the decision.
 
-Princípios:
+Principles:
 
 - verificar explicitamente cada acesso;
-- assumir comprometimento de documentos, prompts e ferramentas;
-- limitar blast radius por tenant, agente, modelo e ferramenta;
-- usar credenciais temporárias;
-- manter dados sensíveis fora de logs e traces.
+- obtaining copyright of documents, prompts and tools;
+- limit blast radius by tenant, agent, model and tool;
+- use temporary credentials;
+- Keep sensitive data out of logs and trace.
 
-## Fronteiras críticas
+## Critical borders
 
 ### RAG
 
-Documentos passam por malware scan, classificação, DLP, validação de origem e quarentena antes da indexação. O filtro de autorização deve ocorrer na consulta e novamente antes da montagem do prompt.
+Documents pass by malware scan, classification, DLP, origin validation and quarantine before indexing. The authorisation filter must occur in the consultation and again before the prompt assembly.
 
 ### Tool use
 
-Toda ferramenta possui contrato, escopo, risco, owner e política. Operações com efeito colateral usam idempotency key, transaction boundary e confirmação explícita.
+All tools can be contractual, esthetic, risk, ownership and policy. Operation with the same effect colateral uses key idempotency, transaction boundary and explicit confirmation.
 
 ### Provider externo
 
-O Model Gateway impede acesso direto ao provedor, aplica política de residência e retenção, remove dados proibidos, controla modelos aprovados e registra metadados de consumo.
+Model Gateway prevents direct access to the driver, applies residability and retention policy, removes prohibited data, checks approved models and accounts for consumption.
 
 ## Segredos e chaves
 
-- armazenar em secret manager ou KMS;
-- nunca incluir em prompt, memória ou repositório;
+- storing in secret manager or KMS;
+- shall never include in prompt, memory or repository;
 - rotacionar automaticamente;
-- separar chaves por ambiente e finalidade;
-- bloquear saída de padrões de segredo por DLP.
+- separate keys by environment and finality;
+- block out of secret registers by DLP.
 
 ## Incident response
 
-Eventos mínimos:
+Minimum events:
 
-- tentativa de prompt injection;
-- exfiltração ou acesso cross-tenant;
-- tool call negada ou anômala;
-- aumento abrupto de custo ou tokens;
-- mudança de modelo ou política sem aprovação;
-- conteúdo sensível em saída;
-- poisoning detectado em conhecimento ou memória.
+- prompt injection tentative;
+- exfiltration or cross-tenant access;
+- tool call negated or anomal;
+- abrupt increase in cost or tokens;
+- change of model or policy without approval;
+- a sensitive content in the exit;
+- poisoning detected in knowledge or memory.
 
-A resposta deve permitir revogar credenciais, desabilitar agente, bloquear modelo ou ferramenta, retirar índice, preservar evidências e executar rollback.
+The answer must allow for credible review, deactivate agent, block model or tool, remove index, preserve evidence and execute rollback.

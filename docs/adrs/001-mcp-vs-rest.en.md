@@ -1,66 +1,66 @@
-# ADR-001 — MCP para tool calling governado
+# ADR-001 — MCP for tool calling
 
 **Status:** Aceito
 
 ## Contexto
 
-Agentes precisam descobrir e executar ferramentas corporativas com contratos, autorização, versionamento e auditoria consistentes. Integrações REST diretas continuam adequadas para APIs de domínio, mas não resolvem sozinhas descoberta de tools, schemas orientados a agentes e enforcement uniforme durante o tool calling.
+Agents need to find and execute corporative tools with contracts, authorisation, versioning and consistent audit. Direct REST integrations remain appropriate for APIs in the field, but do not resolve only through tools, schemas geared to agents and enforcement uniform during tool calling.
 
-Este ADR consolida a decisão original de usar MCP com a estratégia legada de catálogo e governança de MCP Servers.
+This ADR consolidates the original decision to use MCP with the logical strategy and governance of MCP Servers.
 
-## Decisão
+## Decision
 
-Usar **MCP** na fronteira entre Agent Runtime e ferramentas governadas. APIs REST continuam sendo usadas como interfaces de domínio internas e externas. O MCP não substitui REST; ele adiciona uma camada orientada ao consumo por agentes.
+Use **MCP** on the border between Agent Runtime and managed tools. APIs REST continues to be used as internal and external domain interfaces. MCP does not replace REST; it adds a trawl to the consumption by agents.
 
-A plataforma deve manter um **MCP Registry** para:
+The plate must hold a **MCP Registry** for:
 
-- catálogo e descoberta de servidores, tools e schemas;
-- ownership, classificação de risco e versão;
-- políticas de autorização e allowlist por agente;
-- compatibilidade entre versões de contrato;
-- estado operacional e critérios de retirada;
-- rastreabilidade entre tool call, identidade, política e sistema de registro.
+- catalogue and discovery of service providers, tools and schemas;
+- ownership, risk classification and version;
+- authorisation policies and authorisation policies by agent;
+- compatibility between contract versions;
+- operational state and withdrawal criteria;
+- rastreability between tool call, identity, policy and registration system.
 
-## Fronteiras obrigatórias
+## Obligatory borders
 
-- o Agent Runtime não acessa diretamente credenciais de sistemas de domínio;
-- o MCP Server valida identidade de workload, tenant, scopes e finalidade;
-- comandos com efeito colateral exigem idempotência e trilha de auditoria;
-- operações longas retornam `operationId` e continuam de forma assíncrona;
-- schemas e versões efetivas são registrados em traces e eventos;
-- falha de política resulta em deny by default;
-- MCP Servers não concentram regras de negócio que pertencem aos serviços de domínio.
+- Agent Runtime does not directly access the domain systems;
+- the MCP Server valids the identity of workload, tenant, scopes and finality;
+- comands with the same effect require idempotence and auditory trility;
+- long-running operations retracted `operationId` and remain assyncrone;
+- schemas and efetish versions are recorded in trace and event;
+- a lack of policy results in default;
+- MCP Servers do not concentrate business rules that belong to the domain services.
 
-## Por que
+## 'Cause it's because
 
-- descoberta padronizada de ferramentas e schemas;
-- separação entre raciocínio do agente e implementação do domínio;
-- enforcement central de identidade, escopo, estágio da jornada e auditoria;
-- menor acoplamento entre framework de agentes e serviços corporativos;
-- reutilização governada de tools entre agentes e domínios.
+- a detailed description of the methods and schemas;
+- separation between the agent's race and the implementation of the field;
+- central enforcement of identity, escopo, status of the newspaper and auditory;
+- less arrangement between the framework of agents and corporate services;
+- re-use of tools between agents and fields.
 
 ## Alternativas
 
-| Alternativa | Vantagem | Limitação |
+| Alternativa | Vantagem | Limitation |
 |---|---|---|
-| REST direto | simples e universal | exige adaptação específica em cada agente e dispersa governança |
-| Eventos | desacoplamento e escala | inadequado para toda interação request/response |
-| SDK proprietário | produtividade inicial | lock-in e governança fragmentada |
-| Plugin por agente | liberdade local | baixa reutilização e auditoria inconsistente |
+| REST direto | simples e universal | requiring specific adjustment in each agent and dispersing government |
+| Eventos | desacoplamento e escala | unadequate for all request/reponse interaction |
+| - a property SDK | produtividade inicial | lock-in and fragmented government |
+| Plugin by agent | liberdade local | low re-use and inconsistent auditory |
 
-## Consequências
+## Consequences
 
-O Tool Service/MCP Server torna-se uma fronteira de segurança e deve possuir SLO, observabilidade, política de versão, rollback e processo de onboarding. A adoção de MCP adiciona uma camada operacional, mas evita que autorização, auditoria e contratos sejam reimplementados por cada agente.
+The Tool Service/MCP Server becomes a security frontier and must have SLO, observation, version policy, rollback and onboarding. The adoption of MCP adds an operational box, but avoids that authorisation, audit and contracts are re-implemented by each agent.
 
-## Evidências mínimas
+## Minimum evidence
 
 - contrato MCP versionado;
-- owner e classificação de risco da tool;
-- matriz de autorização;
-- testes de argumentos inválidos, acesso negado e idempotência;
-- traces correlacionando agente, versão, tool, política e resultado;
-- runbook, SLO e estratégia de retirada.
+- owner and risk classification of the tool;
+- the authorisations mater;
+- tests of invariable arguments, negated access and idempotence;
+- tracing a tracing agent, version, tool, policy and result;
+- runbook, SLO and withdrawal strategy.
 
-## Critérios de revisão
+## Review criteria
 
-Revisar a decisão quando o protocolo deixar de atender requisitos de segurança, compatibilidade, latência ou interoperabilidade, ou quando outro padrão aberto oferecer governança equivalente com menor custo operacional.
+Review the decision when the protocol leaves out security, compatibility, latability or interoperability requirements, or when another open framework offers equivalent government with less operational costs.

@@ -1,16 +1,16 @@
-# Arquitetura de Referência - Agente de Análise Documental
+# Reference Access - Documentary Analysis Agent
 
-## Objetivo
+## Objet
 
-Automatizar a análise de documentos corporativos, extraindo informações, classificando conteúdo, validando regras e apoiando decisões operacionais.
+Automate the analysis of corporative documents, extracting information, clapping content, validing rules and supporting operational decisions.
 
-## Casos de Uso
+## Usage casings
 
-- Extração de dados de documentos
-- Classificação documental
-- Validação de campos obrigatórios
-- Comparação com políticas internas
-- Geração de parecer assistido
+- Extradition of documents
+- Documentary classification
+- Validation of compulsory fields
+- Comparation with internal policies
+- Message Gerading of a sworn assistant
 
 ## Componentes Envolvidos
 
@@ -23,7 +23,7 @@ Automatizar a análise de documentos corporativos, extraindo informações, clas
 - External OCR Service
 - Document Management System
 
-## Integrações
+## Integrations
 
 - OCR
 - GED / ECM
@@ -31,27 +31,27 @@ Automatizar a análise de documentos corporativos, extraindo informações, clas
 - Workflow / BPM
 - Sistemas transacionais
 
-## Fluxo de Alto Nível
+## High-level flux
 
-1. Documento é recebido por upload, fila ou sistema corporativo.
+1. Document is received by upload, fila or corporative system.
 2. Pipeline extrai texto e metadados.
-3. Knowledge Service indexa ou consulta referências aplicáveis.
-4. Agent Runtime analisa o documento com regras e contexto.
-5. Evaluation Service valida qualidade e consistência.
-6. Resultado é registrado e encaminhado para revisão ou workflow.
+3. Knowledge Service index or consultable reference.
+4. Agent Runtime analyses the document with rules and context.
+5. Evaluation Service valid quality and consistency.
+6. The result is registered and sent to review or workflow.
 
-## Controles
+## Controls
 
-- Classificação de dados
-- Mascaramento de informações sensíveis
-- Retenção conforme política corporativa
-- Evidências para auditoria
-- Revisão humana para decisões críticas
+- Data classification
+- Sensitive information masking
+- Retention conform to corporative policy
+- Audit evidence
+- Human review for critical decisions
 
-## Métricas
+## Mechanics
 
-- Taxa de extração correta
-- Tempo médio de análise
-- Taxa de revisão humana
-- Falhas por tipo documental
-- Custo por documento processado
+- - Extrasion rate
+- Average analysis time
+- Human review rate
+- - You speak for type of document
+- Care for processed document

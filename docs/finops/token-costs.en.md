@@ -1,10 +1,10 @@
 # Token Costs
 
-## Objetivo
+## Objet
 
-Controlar custos de IA por agente, área e modelo.
+Control IA costs by agent, area and model.
 
-## Métricas
+## Mechanics
 
 - Input Tokens
 - Output Tokens
@@ -13,7 +13,7 @@ Controlar custos de IA por agente, área e modelo.
 - Cost Per Agent
 - Cost Per Business Unit
 
-## Dimensões
+## Dimensive
 
 - Agent
 - Team
@@ -23,17 +23,17 @@ Controlar custos de IA por agente, área e modelo.
 
 ## Indicadores
 
-| Indicador | Descrição |
+| Indicador | Description |
 |---|---|
-| Cost per Agent | Custo agregado por agente |
-| Cost per User | Custo agregado por usuário |
-| Cost per Tool | Custo associado a ferramentas |
-| Cost per Model | Consumo por modelo |
+| Cost per Agent | - Cost agregated by agent |
+| Cost per User | - Agregated by user |
+| Cost per Tool | Cost associated with the tools |
+| Cost per Model | Consumption per model |
 
 ## Chargeback
 
-Custos podem ser atribuídos a áreas consumidoras.
+Costs may be allocated to consumers.
 
 ## Showback
 
-Custos podem ser exibidos sem cobrança financeira formal.
+Costs may be exempt without formal financial cover.

@@ -1,16 +1,16 @@
-# Arquitetura de Referência - Conversational Analytics
+# Reference - Conversational Analytics
 
-## Objetivo
+## Objet
 
-Analisar interações conversacionais em escala para identificar causas raiz, temas recorrentes, oportunidades de automação e melhoria de experiência.
+Identifying a number of conversations in the background to identify the causes of a rash, recurring themes, automapping opportunities and improved experience.
 
-## Casos de Uso
+## Usage casings
 
-- Classificação de motivos de contato
-- Identificação de causa raiz
-- Análise de sentimento
-- Agrupamento de temas recorrentes
-- Geração de insights executivos
+- Classification of accounts
+- Cause identification
+- Feeling analysis
+- Organizing of recurring themes
+- Executive insights generation
 
 ## Componentes Envolvidos
 
@@ -22,35 +22,35 @@ Analisar interações conversacionais em escala para identificar causas raiz, te
 - Data Platform
 - Observability Stack
 
-## Fontes de Dados
+## DATE Sources
 
 - Chat
 - WhatsApp
 - E-mail
-- Transcrições de voz
-- Reclamações externas
+- Voz-transcripts
+- External reclamations
 - Tickets e protocolos
 
-## Fluxo de Alto Nível
+## High-level flux
 
-1. Interações são ingeridas a partir de canais digitais e bases históricas.
-2. Pipeline normaliza, anonimiza e classifica os dados.
-3. Agentes analisam motivos, padrões e causas prováveis.
-4. Resultados são consolidados em dashboards e datasets.
-5. Insights são usados para melhoria de processos, produtos e atendimento.
+1. Interactions are inserted from digital channels and historical bases.
+2. Normal pipeline, anonimize and classify the data.
+3. Agents analysed grounds, patterns and probable causes.
+4. Results are consolidated in dashboards and datasets.
+5. Insights are used for better processes, products and testing.
 
-## Controles
+## Controls
 
-- Anonimização de dados pessoais
-- Retenção controlada
-- Controle de acesso por área
-- Rastreabilidade da origem dos dados
-- Avaliação de qualidade das classificações
+- Personal data analysis
+- Controlled retention
+- Access control by area
+- - Regression of the origin of data
+- Quality assessment of classifications
 
-## Métricas
+## Mechanics
 
-- Volume de interações processadas
-- Acurácia de classificação
-- Top motivos de contato
-- Tendência de temas críticos
-- Oportunidades de automação identificadas
+- Volume of processed interactions
+- Classification course
+- Top accounts
+- Tendance of critical topics
+- Autonomous features identified

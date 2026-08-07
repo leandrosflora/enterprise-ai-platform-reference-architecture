@@ -1,59 +1,59 @@
-# ADR-006 — OpenTelemetry como padrão de observabilidade
+# ADR-006 — OpenTelemetry as a warning pad
 
 **Status:** Aceito
 
 ## Contexto
 
-Soluções com agentes e modelos generativos exigem rastreabilidade além de logs tradicionais. Uma execução pode atravessar gateway, runtime, políticas, memória, retrieval, modelos, ferramentas, avaliação e eventos, com impacto simultâneo em qualidade, segurança, custo e latência.
+Solutions with generic agents and models require rastreability beyond traditional logs. An implementation can reach gateway, runtime, policies, memory, retrieval, models, tools, evaluation and events, with a simulating impact on quality, safety, cost and reliability.
 
-## Decisão
+## Decision
 
-Adotar **OpenTelemetry** como padrão de traces, métricas e logs correlacionados. Cada invocação deve possuir trace ponta a ponta e spans específicos para decisões de política, retrieval, memória, model calls, tool calls, avaliação e auditoria.
+Adopt **OpenTelemetry** as trace pattern, methods and correlated logs. Each invoke must have trace point and specific lengths for policy, retrieval, memory, model calls, tool calls, evaluation and audit.
 
-Eventos assíncronos devem propagar contexto W3C e manter `correlationId` e `causationId` quando aplicável.
+Assembly events shall propagate W3C context and maintain `correlationId` and `causationId` when applicable.
 
-## Requisitos obrigatórios
+## Obligatory requirements
 
-- `agent.id`, `agent.version`, `tenant.id` e classificação de risco na execução;
-- versão efetiva de modelo, prompt, policy, tool e knowledge snapshot;
-- tokens, custo, latência, retries e fallback;
-- decisão de autorização sem registrar secrets ou payload sensível bruto;
-- mascaramento antes da exportação;
-- controle de cardinalidade de métricas;
-- retenção e acesso proporcionais à classificação do dado;
-- correlação com eventos de auditoria e avaliação.
+- `agent.id`, `agent.version`, `tenant.id` and risk classification in execution;
+- model, prompt, policy, tool and knowledge snapshot;
+- tokens, cost, latence, retries and fallback;
+- decision to authorise without registering secrets or a brute-readable payload;
+- mowing before export;
+- a control of the cardinality of the methods;
+- retention and appropriate access to the classification of the child;
+- correction with auditory and evaluation events.
 
 ## Alternativas
 
-| Alternativa | Vantagem | Limitação |
+| Alternativa | Vantagem | Limitation |
 |---|---|---|
-| Logs customizados por serviço | implementação local simples | correlação e semântica inconsistentes |
-| Instrumentação proprietária única | integração rápida com um fornecedor | lock-in e portabilidade reduzida |
-| Apenas eventos de auditoria | boa trilha de negócio | diagnóstico técnico e performance insuficientes |
+| Service logs | simple local implementation | inconsistent correlation and symbiosis |
+| Single property instrument | rapid integration with a supplier | lock-in e portabilidade reduzida |
+| Only auditory events | Good business trip | technical diagnostic and inadequate performance |
 
-## Consequências positivas
+## Positive consequences
 
-- correlação ponta a ponta entre capacidades;
-- integração com stacks corporativas existentes;
-- base comum para SRE, segurança, avaliação e FinOps;
-- troca de backend sem alterar a instrumentação principal.
+- a cross-section of the cross between capacities;
+- integration with existing corporative stacks;
+- common basis for SRE, security, assessment and FinOps;
+- a backend without changing the main instrumentation.
 
-## Consequências negativas
+## Negative consequences
 
-- aumenta volume e custo de telemetria;
-- exige governança de atributos e cardinalidade;
-- instrumentação incorreta pode vazar dados ou gerar falsa confiança;
-- sampling precisa preservar eventos críticos.
+- increase volume and cost of telemetry;
+- requires a government of attributes and cardinality;
+- a faulty instrumentation may be able to collect data or generate false confidence;
+- sampling needs to preserve critical events.
 
-## Evidências mínimas
+## Minimum evidence
 
-- trace de referência cobrindo uma invocação completa;
-- catálogo de spans, atributos e métricas;
-- teste de propagação HTTP e assíncrona;
-- teste de redaction e ausência de secrets;
+- a trace of reference bringing a complete voice;
+- catalogue of spans, attributes and methods;
+- HTTP propagation test and a synchrome test;
+- test of redaction and absence of secrets;
 - dashboards, alertas e SLOs associados;
-- política de retenção, sampling e acesso.
+- retention, sampling and access policy.
 
-## Critérios de revisão
+## Review criteria
 
-Revisar quando o padrão deixar de atender interoperabilidade, volume ou requisitos de segurança, ou quando a instrumentação causar custo operacional desproporcional ao diagnóstico e à governança obtidos.
+Review when the framework does not allow interoperability, volume or security requirements, or when the instrument causes unfavourable operational costs to diagnostics and the government obtained.

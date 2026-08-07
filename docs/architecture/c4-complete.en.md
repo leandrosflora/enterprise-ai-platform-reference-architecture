@@ -1,48 +1,48 @@
 # Diagramas C4 e fluxos principais
 
-Os níveis 1, 2 e 3 seguem a notação **C4-PlantUML**. Os arquivos `.puml` são as fontes canônicas; o workflow de documentação gera automaticamente os artefatos **SVG** e **PNG** usados pelo MkDocs, apresentações e documentos externos.
+Numbers 1, 2 and 3 follow the note **C4-PlantUML**. `.puml` files are the canonical sources; the documenting workflow automatically generates the artefacts **SVG** and **PNG** used by MkDocs, presentations and external documents.
 
-## Nível 1 — C4 System Context
+## Level 1 — C4 System Context
 
-O diagrama de contexto trata a **Enterprise AI Platform** como um único sistema e mostra pessoas, canais, provedores e sistemas corporativos que interagem com ela. O layout prioriza leitura vertical, com a plataforma no centro e sistemas externos ao redor.
+The context diagram is a **Enterprise AI Platform** as a single system and shows people, canaries, speakers and corporative systems interageing with it. The layout prioritizes vertical reading, with the platform in the centre and external systems to the network.
 
 [![C4 System Context](diagrams/c4/c4-level-1-context.png)](diagrams/c4/c4-level-1-context.svg)
 
 [Visualizar SVG](diagrams/c4/c4-level-1-context.svg) · [Abrir PNG](diagrams/c4/c4-level-1-context.png) · [Fonte PlantUML](diagrams/c4/src/c4-level-1-context.puml)
 
-## Nível 2 — C4 Container
+## Level 2 — C4 Container
 
-O diagrama de containers abre a plataforma em **data plane**, **control plane** e fundação operacional. A boundary principal, as boundaries internas, os containers azuis e os sistemas externos cinza seguem o estilo visual padrão do C4-PlantUML.
+The container diagram covers the plate in **data plane**, **control plane** and operational foundation. The main boundary, internal boundaries, the azuis containers and the external systems five follow the visual style of C4-PlantUML.
 
 [![C4 Container Diagram](diagrams/c4/c4-level-2-container.png)](diagrams/c4/c4-level-2-container.svg)
 
 [Visualizar SVG](diagrams/c4/c4-level-2-container.svg) · [Abrir PNG](diagrams/c4/c4-level-2-container.png) · [Fonte PlantUML](diagrams/c4/src/c4-level-2-container.puml)
 
-## Nível 3 — Agent Runtime
+## Level 3 — Agent Runtime
 
-O Agent Runtime coordena a execução de versões imutáveis de agentes, aplicando políticas e integrando modelo, conhecimento, memória, ferramentas, estado e telemetria.
+Agent Runtime coordinates the implementation of mutable agents versions, applying policies and integrating model, knowledge, memory, tools, state and telemetry.
 
 [![C4 Agent Runtime](diagrams/c4/c4-level-3-agent-runtime.png)](diagrams/c4/c4-level-3-agent-runtime.svg)
 
 [Visualizar SVG](diagrams/c4/c4-level-3-agent-runtime.svg) · [Abrir PNG](diagrams/c4/c4-level-3-agent-runtime.png) · [Fonte PlantUML](diagrams/c4/src/c4-level-3-agent-runtime.puml)
 
-## Nível 3 — Knowledge Service
+## Level 3 — Knowledge Service
 
-O Knowledge Service separa os pipelines de **ingestão** e **retrieval**, mantendo classificação, autorização, linhagem e citações explícitas.
+Knowledge Service separates the **ingesto** and **retrieval** pipelines, maintaining classification, authorisation, line and explcitative quotations.
 
 [![C4 Knowledge Service](diagrams/c4/c4-level-3-knowledge-service.png)](diagrams/c4/c4-level-3-knowledge-service.svg)
 
 [Visualizar SVG](diagrams/c4/c4-level-3-knowledge-service.svg) · [Abrir PNG](diagrams/c4/c4-level-3-knowledge-service.png) · [Fonte PlantUML](diagrams/c4/src/c4-level-3-knowledge-service.puml)
 
-## Nível 3 — Evaluation Service
+## Level 3 — Evaluation Service
 
-O Evaluation Service executa avaliações offline e contínuas, combina judges determinísticos, baseados em modelo e humanos, e produz evidências para release gates e governança.
+Evaluation Service executes offline and continuous evaluations, combinates certain judges, based on model and human models, and produces evidence to release gates and government.
 
 [![C4 Evaluation Service](diagrams/c4/c4-level-3-evaluation-service.png)](diagrams/c4/c4-level-3-evaluation-service.svg)
 
 [Visualizar SVG](diagrams/c4/c4-level-3-evaluation-service.svg) · [Abrir PNG](diagrams/c4/c4-level-3-evaluation-service.png) · [Fonte PlantUML](diagrams/c4/src/c4-level-3-evaluation-service.puml)
 
-## Fluxo de publicação de agentes
+## - Publication of agents
 
 ```mermaid
 sequenceDiagram
@@ -63,20 +63,20 @@ sequenceDiagram
   Runtime->>Eval: envia telemetria para avaliação contínua
 ```
 
-## Regeneração dos diagramas
+## Restore of the diagrams
 
-O script baixa uma versão fixa do PlantUML, valida o checksum e gera os cinco pares SVG/PNG:
+The script has a fixed version of PlantUML, valids the checksum and generates the five SVG/PNG:
 
 ```bash
 sudo apt-get install graphviz default-jre curl
 bash scripts/render-c4-diagrams.sh
 ```
 
-O workflow `render-c4-diagrams.yml` executa o mesmo processo quando uma fonte `.puml`, o renderer ou o próprio workflow são alterados. Os artefatos gerados são versionados no mesmo branch.
+The `render-c4-diagrams.yml` workflow executes the same process when a source `.puml`, the renderer or the own workflow are altered. The generated artefacts are re-created in the same branch.
 
-## Princípios
+## Principles
 
-- definições de agentes são versionadas e imutáveis após publicação;
-- promoção entre ambientes depende de evidências, não apenas de aprovação manual;
-- rollback deve selecionar uma versão conhecida, sem editar produção;
-- tracing conecta canal, agente, modelo, retrieval e ferramentas.
+- definitions of agents are updated and imutable after publication;
+- promotion of the environment depends on evidence, not just on manual approval;
+- rollback should select a known version without editing production;
+- tracing connection canal, agent, model, retrieval and tools.

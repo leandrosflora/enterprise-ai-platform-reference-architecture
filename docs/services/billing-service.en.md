@@ -1,28 +1,28 @@
 # Billing Service
 
-## Visão Geral
+## General view
 
-O Billing Service é responsável pelo FinOps da plataforma: rastreamento de tokens, alocação de custo por agente/time/unidade de negócio e geração de chargeback/showback.
+Billing Service is responsible for the FinOps of the platform: tokens, cost allocation by agent/time/business unit and chargeback/showback generation.
 
 ## Responsabilidades
 
-- Consumir eventos de uso (invocação de agente, execução de ferramenta, geração de embedding)
-- Calcular custo por modelo, agente, time e unidade de negócio
-- Gerar relatórios de chargeback e showback
-- Alertar sobre consumo acima de limites definidos
+- Consume use events (invocation of agent, machining, insertion)
+- Calculate cost by model, agent, time and business unit
+- - Gerar chargeback and showback reports
+- Alert about consumption above defined limits
 
-## Fora de Escopo
+## Out of the scuff
 
-- Execução do agente ou da ferramenta
-- Auditoria de conformidade (papel da Audit Service)
-- Definição de limites de aprovação de risco (papel da Governance Service)
+- Execution of the agent or the tool
+- Compliance audit (Audit Service)
+- Definition of risk approval limits (Governance Service)
 
-## Dependências
+## Dependencies
 
-| Dependência | Uso |
+| Dependence | Uso |
 |---|---|
-| Kafka | Consome eventos de uso para cálculo de custo |
-| PostgreSQL | Persiste custos e dados de chargeback |
+| Kafka | Confirmed use events for calculation of cost |
+| PostgreSQL | Keep your charges and data |
 
 ## Eventos Consumidos
 
@@ -30,15 +30,15 @@ O Billing Service é responsável pelo FinOps da plataforma: rastreamento de tok
 - `tool.executed`
 - `embedding.generated`
 
-## Requisitos Não Funcionais
+## Non-functioning requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Retenção | 24 meses para dados de uso e cobrança, base para chargeback/showback |
-| Precisão | Custo calculado deve refletir consumo real de tokens e ferramentas por invocação |
-| Escalabilidade | Processa alto volume de eventos de uso sem atraso relevante no fechamento de período |
-| Auditoria | Cálculos de custo devem ser rastreáveis ao evento de origem |
+| Retention | 24 months for use data and work, base for chargeback/showback |
+| I need to get a job. | The calculated cost shall reflete real consumption of tokens and tools by invocation |
+| Escalabilidade | High volume of use events without relevant delay in the period closure |
+| Auditoria | Cost calculations must be rastered at the origin event |
 
-## Decisões Relacionadas
+## Related Decisions
 
 - [docs/finops/token-costs.md](../finops/token-costs.md)

@@ -1,66 +1,66 @@
-# ADR-004 — Agent Runtime com núcleo estável e adaptadores
+# ADR-004 — Agent Runtime with stable and adaptable content
 
 **Status:** Aceito
 
 ## Contexto
 
-A plataforma precisa executar agentes corporativos integrando modelos, memória, RAG, ferramentas, avaliação, políticas e observabilidade. O ecossistema de frameworks muda rapidamente; acoplar contratos corporativos a um framework específico aumenta lock-in e dificulta governança consistente.
+The platform needs to execute corporative agents integrating models, memory, RAG, tools, evaluation, policies and observability. The framework ecosystem changes rapidly; bringing corporative contracts to a specific framework increases lock-in and complicates consistent governance.
 
-## Decisão
+## Decision
 
-Adotar um **Agent Runtime corporativo com núcleo estável e adaptadores** para frameworks e provedores de orquestração.
+Adopt a **Agent Runtime corporative with stable and adaptable content** for frameworks and speakers of origin.
 
-O núcleo deve controlar:
+The code must control:
 
-- identidade do agente e versão publicada;
-- carregamento de configuração imutável;
-- aplicação de políticas e limites de autonomia;
-- execução de prompts, workflows e tools;
-- integração com Model Gateway, Knowledge Service e Memory Service;
+- the identity of the agent and published version;
+- a switchable configuration load;
+- application of policies and limits of autonomy;
+- implementation of prompts, workflows and tools;
+- integration with Model Gateway, Knowledge Service and Memory Service;
 - checkpoint, timeout, retry e cancelamento;
-- eventos, auditoria, avaliação e telemetria.
+- events, auditory, evaluation and telemetry.
 
-Adaptadores podem integrar LangGraph, Semantic Kernel, serviços gerenciados de agentes ou implementações customizadas, desde que preservem os contratos e controles do núcleo.
+Adapters may integrate LangGraph, Semantic Kernel, managed services of agents or custom-built implementations, provided they preserve the contracts and controls of the nitrate.
 
 ## Limites
 
-- regras de negócio permanecem nos serviços de domínio;
-- credenciais de provedores permanecem no Model Gateway;
-- aprovação e catálogo permanecem no Control Plane;
-- tools são acessadas por fronteiras governadas, preferencialmente MCP;
-- o framework não define o formato canônico de auditoria, eventos ou políticas.
+- business rules remain in the field services;
+- proving credentials remain in Model Gateway;
+- approval and catalog remain in Control Plane;
+- tools are available by government borders, preferably MCP;
+- the framework does not define the canometric format of auditory, events or policies.
 
 ## Alternativas
 
-| Alternativa | Vantagem | Limitação |
+| Alternativa | Vantagem | Limitation |
 |---|---|---|
-| Framework único | menor esforço inicial | lock-in e controles dependentes do framework |
-| Runtime por squad | autonomia local | fragmentação de segurança, telemetria e custos |
-| Serviço gerenciado único | operação simplificada | portabilidade e extensibilidade limitadas |
+| Single Framework |                                                                                                                                                                                                 | lock-in and control dependent on the framework |
+| Runtime by squad | autonomia local | security fragmentation, telemetry and costs |
+| Single-generation service | simplified operation | portabilidade e extensibilidade limitadas |
 
-## Consequências positivas
+## Positive consequences
 
-- contratos corporativos permanecem estáveis durante trocas de framework;
-- políticas, observabilidade e FinOps são uniformes;
-- evolução tecnológica ocorre por adaptadores;
-- agentes podem usar padrões distintos sem perder governança.
+- corporative contracts remain stable during framework exchanges;
+- policies, observability and FinOps are uniform;
+- technological developments occur by adapters;
+- Agents can use different rules without losing power.
 
-## Consequências negativas
+## Negative consequences
 
-- aumenta a complexidade inicial do runtime;
-- exige testes de conformidade para adaptadores;
-- recursos exclusivos de frameworks podem precisar de extensão controlada;
-- o núcleo pode se tornar gargalo se acumular responsabilidades de domínio.
+- increases the initial complexity of runtime;
+- requires compliance tests for adapters;
+- exclusive resources of frameworks may require control-controlled extension;
+- the crystal may become a slut if it has accumulated domain responsibility.
 
-## Evidências mínimas
+## Minimum evidence
 
-- contrato de invocação versionado;
-- testes de conformidade do adaptador;
-- traces de model call, retrieval, memória e tool call;
-- teste de timeout, cancelamento, retry e rollback;
-- policy decision registrada por execução;
-- compatibilidade documentada entre versão do runtime e adaptadores.
+- a version-based voice contract;
+- calibration tests of the adapter;
+- traces of model call, retrieval, memory and tool call;
+- timeout test, cancellation, retry and rollback;
+- policy decision registered for implementation;
+- compatibility documented between runtime and adapters.
 
-## Critérios de revisão
+## Review criteria
 
-Revisar quando um padrão aberto ou runtime gerenciado fornecer portabilidade, controles e observabilidade equivalentes, ou quando a camada de adaptação gerar mais custo e risco do que o lock-in que busca evitar.
+Reconsider when an open or runtime pattern provides portability, control and equivalent observability, or when the adapting chamber generates more cost and risk than the lock-in that attempts to avoid.

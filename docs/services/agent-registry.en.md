@@ -2,20 +2,20 @@
 
 ## Responsabilidades
 
-- Catálogo de agentes
+- Agent catalog
 - Versionamento
-- Publicação
+- Publication
 - Metadados
 - Ownership
 
-## Dados Armazenados
+## Armageddon data
 
 - Nome
-- Versão
+- Verse
 - Owner
 - Tags
 - Status
-- Dependências
+- Dependencies
 
 ## APIs
 

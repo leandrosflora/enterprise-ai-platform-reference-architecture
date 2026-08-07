@@ -1,10 +1,10 @@
 # Observability Stack Integration
 
-## Objetivo
+## Objet
 
-Integrar a plataforma com ferramentas corporativas de observabilidade para operação, auditoria e diagnóstico.
+Integrate the plate with a number of observatory tools for operation, audit and diagnostic.
 
-## Padrões
+## Daddy
 
 - OpenTelemetry
 - Structured Logs
@@ -13,7 +13,7 @@ Integrar a plataforma com ferramentas corporativas de observabilidade para opera
 - Dashboards
 - Alerts
 
-## Ferramentas Compatíveis
+## Compatibility
 
 - Grafana
 - Prometheus
@@ -23,20 +23,20 @@ Integrar a plataforma com ferramentas corporativas de observabilidade para opera
 - Datadog
 - OpenSearch Dashboards
 
-## Dados Coletados
+## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Counted data
 
-- Trace de invocação de agente
+- Agent's voice
 - Tool calls
 - Model calls
 - Retrieval calls
 - Tokens
-- Latência
+- Latence
 - Erros
-- Custos estimados
+- Estimated costs
 
-## Requisitos
+## Requirements
 
-- CorrelationId obrigatório
-- Mascaramento de dados sensíveis
-- Retenção por tipo de dado
-- Dashboards por plataforma, agente e unidade de negócio
+- - a compulsory correction
+- Sensitive data masking
+- Retention by type of dad
+- Dashboards by platform, agent and business unit

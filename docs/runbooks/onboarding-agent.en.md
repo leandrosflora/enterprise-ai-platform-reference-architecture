@@ -1,36 +1,36 @@
-# Runbook — Onboarding e Publicação de Agente
+# Runbook — Onboarding and Agent Publication
 
-## Objetivo
+## Objet
 
-Publicar uma versão de agente com contratos, risco, segurança, avaliação, observabilidade, budget e rollback validados.
+Publication of a contract-based agent version with risk, security, assessment, observation, budget and rollback valid.
 
-## Pré-requisitos
+## Pre-requisites
 
-- owner técnico e owner de negócio definidos;
+- technical owner and business owner defined;
 - Agent Card versionado;
-- dataset de avaliação aprovado;
-- knowledge bases e tools já registradas;
-- budget e centro de custo definidos;
-- acesso `agent.write`, `governance.submit` e permissões de teste.
+- sample of the approved assessment;
+- knowledge bases and tools already registered;
+- budget and cost centre defined;
+- access `agent.write`, `governance.submit` and test permits.
 
 ## Procedimento
 
-### 1. Validar o Agent Card
+### 1. Validate Agent Card
 
-Obrigatório:
+Thank you:
 
-- `agentId`, nome e versão SemVer;
-- owner e unidade de negócio;
-- objetivo, usuários e dados utilizados;
+- `agentId`, name and version SemVer;
+- owner and business unit;
+- purpose, users and data used;
 - risco inicial;
-- model policy por capacidade, sem credencial de provedor;
+- model policy by capacity, without proof of proof;
 - tools e knowledge bases permitidas;
-- classe de workload e SLO;
-- política de memória.
+- workload class and SLO;
+- Memory policy.
 
-**Critério de saída:** schema válido e nenhum campo bloqueante ausente.
+**Sea-down:** variable schema and no unlocked field.
 
-### 2. Registrar a versão em DRAFT
+### 2. Register the version in DRAFT
 
 ```bash
 curl -sS -X POST http://localhost:8080/v1/agents \
@@ -41,37 +41,37 @@ curl -sS -X POST http://localhost:8080/v1/agents \
 
 **Esperado:** HTTP `201`, status `DRAFT` e `ETag`.
 
-### 3. Validar dependências
+### 3. Validating dependencies
 
-- todos os MCP contracts estão aprovados;
-- KBs aplicam ACL por documento/chunk;
-- modelos solicitados estão no Model Catalog;
-- secrets e regiões estão aprovados;
-- política `deny by default` foi exercitada.
+- all MCP contracts are approved;
+- KBs apply ACL for document/chunk;
+- models requested are in the Model Catalog;
+- secrets and regions are approved;
+- - The `deny by default` policy was exercised.
 
-### 4. Executar avaliações
+### 4. Execute evaluations
 
 Executar ao menos:
 
 - regression;
-- groundedness/retrieval quando houver RAG;
+- groundedness/retrieval when there is RAG;
 - safety/adversarial;
-- latência da classe de workload;
-- custo por cenário.
+- the latability of the workload class;
+- Cost for a moment.
 
-**Critério de saída:** relatório reproduzível e thresholds atingidos.
+**Sea-down report:** reductive report and thresholds reached.
 
-### 5. Validar observabilidade
+### 5. Validation of observation
 
-Executar uma invocação em ambiente de teste e confirmar:
+Execute an invocation in the test environment and confirm:
 
 - trace completo;
-- decisão de política e versão;
+- policy decision and version;
 - tokens e custo;
-- eventos `agent.invoked` e dependências;
-- ausência de payload sensível em logs.
+- events `agent.invoked` and dependents;
+- - No sense of a sensible payload in logs.
 
-### 6. Submeter para governança
+### 6. Submit for government
 
 ```bash
 curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:submit \
@@ -84,13 +84,13 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:submit \
   }'
 ```
 
-**Esperado:** HTTP `202`, decisão `PENDING`.
+**Esperado:** HTTP `202`, decision `PENDING`.
 
-### 7. Aprovar com segregação de função
+### 7. Accept with a function separation
 
-A identidade que submeteu não pode aprovar. O aprovador valida os gates G1–G7.
+The identity that you submitted cannot be adopted.
 
-**Esperado:** decisão `APPROVED`, com `approvalId` e trilha de auditoria.
+**Early:** decision `APPROVED`, with `approvalId` and auditorium.
 
 ### 8. Publicar
 
@@ -105,26 +105,26 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:publish \
 
 ### 9. Smoke test
 
-- invocação autorizada retorna `SUCCESS` ou `PARTIAL` esperado;
-- invocação sem escopo retorna `403`;
-- tool não permitida retorna `BLOCKED`;
-- dashboard mostra latência, tokens e custo;
-- alertas de teste chegam ao canal correto.
+- authorized re-representation `SUCCESS` or `PARTIAL` inserted;
+- a voice without a re-torning esophagus `403`;
+- not allowed re-torning `BLOCKED`;
+- dashboard shows lativity, tokens and cost;
+- Test alerts come to the right channel.
 
 ## Rollback
 
-1. bloquear novas invocações da versão;
-2. restaurar a versão publicada anterior;
-3. invalidar cache de configuração e políticas;
+1. blocking new voices in the version;
+2. restoring the previously published version;
+3. invalidate the configuration cache and policies;
 4. desabilitar tools afetadas;
-5. preservar eventos, traces e evidências;
+5. to preserve events, trace and evidence;
 6. abrir incidente e registrar causa.
 
 ## Erros comuns
 
-| Sintoma | Causa provável | Ação |
+| Sintoma | Provisible cause | Action |
 |---|---|---|
-| `409 Conflict` | versão ou idempotency key já utilizada | consultar estado antes de repetir |
-| `422 Policy Violation` | evidência, budget ou dependência ausente | corrigir o gate indicado |
-| agente aprovado não publica | approval ID não corresponde à versão | refazer a publicação com a decisão correta |
-| `BLOCKED` na invocação | policy bundle ausente ou desatualizado | validar distribuição e versão da política |
+| `409 Conflict` | version or idempotency key already used | Consult state before repeat |
+| `422 Policy Violation` | evidence, budget or absence of dependence | - Correct the gate indicated |
+| approved agent not published | approval ID does not correspond to the version |  Refresh the publication with the correct decision |
+| `BLOCKED` in the voice | policy bundle ausente ou desatualizado | validating distribution and version of the policy |

@@ -1,8 +1,8 @@
 # Knowledge Platform
 
-## Objetivo
+## Objet
 
-Fornecer ingestão, indexação e recuperação de conhecimento corporativo para soluções RAG.
+Provide ingest, indexation and recovery of corporative knowledge for solutions RAG.
 
 ## Capacidades
 
@@ -14,7 +14,7 @@ Fornecer ingestão, indexação e recuperação de conhecimento corporativo para
 - Hybrid Search
 - Citation Management
 
-## Serviços Relacionados
+## Relacionated services
 
 - Knowledge Service
 - Evaluation Service
@@ -28,18 +28,18 @@ Fornecer ingestão, indexação e recuperação de conhecimento corporativo para
 
 ## KPIs
 
-| Indicador | Descrição |
+| Indicador | Description |
 |---|---|
-| Retrieval Accuracy | Qualidade dos trechos recuperados |
-| Groundedness | Aderência da resposta às fontes |
-| Indexing Latency | Tempo para indexar documentos |
-| Search Latency | Tempo de resposta das buscas |
-| Documents Indexed | Volume de documentos indexados |
+| Retrieval Accuracy | Quality of the recovered passes |
+| Groundedness | Adhosion of response to sources |
+| Indexing Latency | Time to index documents |
+| Search Latency | Time of response of the busses |
+| Documents Indexed | Volume of indexed documents |
 
-## Requisitos Não Funcionais
+## Non-functioning requirements
 
-- Filtros por domínio e classificação
-- Rastreabilidade de fonte
-- Reindexação controlada
-- Suporte a múltiplas knowledge bases
-- Controle de acesso por base de conhecimento
+- Filters for the field and classification
+- Source size
+- Controlled index
+- Support the knowledge bases
+- Access control on the basis of knowledge

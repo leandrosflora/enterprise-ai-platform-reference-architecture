@@ -1,8 +1,8 @@
-# Exemplo - Trace de Execução
+# - Exemple - Implementation Trace
 
-## Objetivo
+## Objet
 
-Exemplo de rastreabilidade ponta a ponta para uma invocação de agente.
+Type of rastreability point to point for an agent injection.
 
 ```text
 traceId: trace-001
@@ -42,12 +42,12 @@ spans:
       relevanceScore: 0.88
 ```
 
-## Aplicação
+## Application
 
-O trace permite diagnosticar:
+The trace allows diagnostic:
 
-- Latência por componente
-- Consumo de tokens
-- Qualidade da resposta
-- Falhas de integração
-- Gargalos de retrieval
+- - Latability by component
+- Consumption of tokens
+- Quality of response
+- Integration gaps
+- - Deleted shit

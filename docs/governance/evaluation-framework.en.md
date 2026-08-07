@@ -1,59 +1,59 @@
 # AI Evaluation Framework
 
-## Objetivo
+## Objet
 
-Estabelecer uma abordagem reproduzível para avaliar qualidade, segurança, custo e impacto de soluções de IA antes e depois da publicação.
+Establish a reprodutable approach to assess quality, safety, cost and impact of IA solutions before and after publication.
 
-## Camadas de avaliação
+## Assessment calls
 
-| Camada | Questão principal | Exemplos de métricas |
+| Camada | Main question | Methods |
 |---|---|---|
-| Componente | O retriever, prompt, modelo ou ferramenta funciona isoladamente? | recall@k, precision@k, schema validity, tool success |
-| Sistema | A aplicação entrega resposta correta e segura ponta a ponta? | groundedness, answer relevance, task success, toxicity |
-| Operação | O serviço atende SLO e orçamento? | latência, erro, tokens, custo, disponibilidade |
-| Negócio | O caso de uso gera o resultado esperado? | conversão, tempo economizado, resolução, satisfação |
+| Componente | The retriever, prompt, model or tool works alone? | recall@k, precision@k, schema validity, tool success |
+| Sistema | The application delivers a correct answer and secures the point? | groundedness, answer relevance, task success, toxicity |
+| Operation | The service at SLO and budget? | ltability, error, tokens, cost, availability |
+| Negocio | The use case generates the result sucked? | converse, economised time, resolution, satisfaction |
 
-## Tipos de avaliação
+## Assessment tips
 
 ### Offline
 
-Executada em dataset versionado antes do deploy. Deve comparar candidato, baseline e versão em produção.
+Executed on versioned dataset before deployment.
 
 ### Online
 
-Executada com tráfego controlado, shadow mode, canary ou A/B test. Métricas de negócio não substituem testes de segurança.
+- Executed with controlled traffic, shadow mode, canary or A/B test. Business methods do not replace security tests.
 
 ### Humana
 
-Usada quando critérios automáticos não capturam precisão contextual, utilidade, tom ou impacto. Avaliadores precisam de rubrica e exemplos calibrados.
+Used when automatician criteria do not require contextual, utilitarian, tom or impact. Assessments need rubrics and calibrated examples.
 
 ### LLM-as-judge
 
-Adequado para escala e comparação relativa, mas não deve ser a única evidência para riscos HIGH e CRITICAL. O judge deve ser versionado, calibrado contra humanos e protegido contra contaminação pelo conteúdo avaliado.
+Adequate for a relative scale and comparison, but it must not be the only evidence for high and criterion risks. The judge must be drafted, calibrated against humans and protected against contamination by the evidence evaluated.
 
 ## Golden dataset
 
-Cada caso de uso deve manter um conjunto versionado com:
+Each use case shall maintain a set version with:
 
 - happy paths;
-- casos limítrofes;
-- perguntas sem resposta;
-- conteúdo adversarial;
+- limothrofe cases;
+- questions without answers;
+- a conflicting content;
 - grupos e idiomas relevantes;
 - falhas conhecidas e incidentes anteriores;
 - tool calls permitidas e proibidas;
-- expectativa de citação e fonte.
+- a citation and source expectancy.
 
-## Métricas recomendadas
+## recommendated methods
 
-| Dimensão | Métricas |
+| Dimensive | Mechanics |
 |---|---|
 | RAG | context recall, context precision, groundedness, citation correctness |
 | Resposta | relevance, completeness, factuality, format compliance |
-| Segurança | attack success rate, leakage rate, toxicity, policy violation |
-| Agentes | task success, tool selection accuracy, loop rate, unauthorized action rate |
-| Operação | p50/p95/p99, error rate, tokens, cost per successful task |
-| Responsible AI | disparidade por segmento, contestação, override humano |
+| Security | attack success rate, leakage rate, toxicity, policy violation |
+| Agents | task success, tool selection accuracy, loop rate, unauthorized action rate |
+| Operation | p50/p95/p99, error rate, tokens, cost per successful task |
+| Responsible AI | disparity by segment, contest, human override |
 
 ## Pipeline
 
@@ -74,25 +74,25 @@ flowchart LR
 
 ## Release gates
 
-O deploy deve ser bloqueado quando:
+The deployment must be blocked when:
 
-- houver regressão acima da tolerância;
-- qualquer teste crítico de segurança falhar;
-- schema de saída ou tool contract estiver inválido;
+- there is a return to tolerance;
+- any critical security test fail;
+- the exit schema or tool contract is ineffective;
 - custo projetado exceder budget;
-- dataset, prompt, modelo ou política não estiver versionado;
-- evidências obrigatórias não forem reproduzíveis.
+- dataset, prompt, model or policy not compiled;
+- Obligatory evidence is not reproduced.
 
-## Monitoramento contínuo
+## Contingency monitoring
 
-Produção deve alimentar novos casos para regressão. Incidentes, avaliações negativas, respostas corrigidas e mudanças nas fontes devem gerar novos testes.
+Production must feed new cases for return. Inaccidents, negative assessments, corrected responses and changes in sources must generate new tests.
 
-## Relatório mínimo
+## Minimum report
 
-- versões de modelo, prompt, política e dataset;
-- ambiente e parâmetros;
-- métricas, thresholds e comparação com baseline;
+- models, prompt, policy and dataset;
+- environment and parasols;
+- methods, thresholds and comparison with baseline;
 - falhas conhecidas;
-- resultado dos testes adversariais;
-- decisão de aprovação;
-- riscos residuais e plano de monitoramento.
+- result of adversarial tests;
+- a decision of approval;
+- Waste risk and monitoring plan.

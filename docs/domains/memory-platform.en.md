@@ -1,8 +1,8 @@
 # Memory Platform
 
-## Objetivo
+## Objet
 
-Gerenciar contexto conversacional e memória de curto e longo prazo para agentes corporativos.
+Managing a conversational and short-term memory for corporate agents.
 
 ## Capacidades
 
@@ -13,7 +13,7 @@ Gerenciar contexto conversacional e memória de curto e longo prazo para agentes
 - Context Retrieval
 - Retention Policies
 
-## Serviços Relacionados
+## Relacionated services
 
 - Memory Service
 - Agent Runtime
@@ -25,17 +25,17 @@ Gerenciar contexto conversacional e memória de curto e longo prazo para agentes
 
 ## KPIs
 
-| Indicador | Descrição |
+| Indicador | Description |
 |---|---|
-| Memory Reads | Leituras de contexto |
-| Memory Writes | Escritas de memória |
-| Context Hit Rate | Percentual de contexto reutilizado |
-| Storage Growth | Crescimento do armazenamento |
+| Memory Reads | Context laws |
+| Memory Writes | Memory writings |
+| Context Hit Rate | Percentage of re-used context |
+| Storage Growth | - Storage crammed |
 
-## Requisitos Não Funcionais
+## Non-functioning requirements
 
-- Isolamento por tenant
-- Expiração configurável
-- Criptografia de dados
-- Controle de dados pessoais
-- Auditoria de alterações relevantes
+- Isolation by tenant
+- Configurable expiration
+- Data Criptography
+- Personal data control
+- Auditoria of relevant amendments

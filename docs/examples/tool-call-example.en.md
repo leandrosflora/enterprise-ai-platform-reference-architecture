@@ -1,8 +1,8 @@
 # Exemplo - Tool Call MCP
 
-## Objetivo
+## Objet
 
-Exemplo de chamada de ferramenta exposta via MCP Server.
+Type of a welded rail referred to via MCP Server.
 
 ```json
 {
@@ -35,9 +35,9 @@ Exemplo de chamada de ferramenta exposta via MCP Server.
 }
 ```
 
-## Controles
+## Controls
 
-- Validação por JSON Schema
-- Autorização por escopo
-- Auditoria do tool call
-- Mascaramento de dados sensíveis em logs
+- Validation by JSON Schema
+- Scope authorisation
+- Auditorium of tool call
+- Sensitive data masking in logs

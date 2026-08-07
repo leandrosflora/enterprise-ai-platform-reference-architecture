@@ -1,8 +1,8 @@
 # Foundation Models Integration
 
-## Objetivo
+## Objet
 
-Padronizar o consumo de modelos fundacionais por agentes e serviços da plataforma.
+Increasing the use of basic models by agents and services of the platform.
 
 ## Provedores Suportados
 
@@ -12,27 +12,27 @@ Padronizar o consumo de modelos fundacionais por agentes e serviços da platafor
 - Anthropic
 - Google Gemini
 
-## Padrões de Integração
+## Integrating Pads
 
-- Model Adapter no Agent Runtime
-- Abstração por provider e model id
-- Fallback entre modelos compatíveis
-- Controle de tokens
+- Model Adapter in Agent Runtime
+- Absorption by provider and model id
+- Fallback between compatible models
+- Control of tokens
 - Timeout e retry controlado
 
-## Critérios de Seleção
+## Selection criteria
 
-| Critério | Descrição |
+| Criteria | Description |
 |---|---|
-| Qualidade | Aderência ao caso de uso |
-| Latência | Tempo de resposta esperado |
-| Custo | Custo por input/output tokens |
-| Compliance | Requisitos regulatórios e de dados |
+| Qualidade | Adhosion to the case of use |
+| Latence | Time of response |
+| Custo | Cost per input/output token |
+| Compliance | Regulations and data requirements |
 | Capacidade | Context window, tool calling e multimodalidade |
 
-## Requisitos
+## Requirements
 
-- Registro de uso por agente
-- Observabilidade por chamada de modelo
-- Mascaramento de dados sensíveis quando aplicável
-- Política de retenção de prompts e respostas
+- Use register by agent
+- Observability by type
+- Sensible data masking when applicable
+- Retention policy of prompt responses

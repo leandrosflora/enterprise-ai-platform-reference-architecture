@@ -1,33 +1,33 @@
-# ADR-002 — Memória persistente sob critérios explícitos
+# ADR-002 — Permanent memory under explanatory criteria
 
 **Status:** Aceito
 
 ## Contexto
 
-Memória melhora continuidade e personalização, mas aumenta risco de privacidade, retenção indevida, contaminação entre tenants e uso de fatos desatualizados.
+Memory improves continuity and personalisation, but increases risk of privacy, unfounded retention, contamination between tenants and use of unattended fats.
 
-## Decisão
+## Decision
 
-Adotar três níveis:
+Adopt three levels:
 
-1. **memória de turno:** contexto da requisição;
-2. **memória de sessão:** TTL curto em Redis;
-3. **memória persistente:** armazenamento durável somente com propósito, consentimento ou base legal, classificação, TTL e mecanismos de exclusão.
+1. **change memory:** context of the requirement;
+2. **session memory:** TTL short in Redis;
+3. **Remaining memory:** Durable storage only with the following, consent or legal basis, classification, TTL and excluding mechanisms.
 
-Memória persistente não é padrão. O agente deve funcionar sem ela quando possível.
+The persistent memory is not a pattern, and the agent must work without her when possible.
 
-## Critérios para persistir
+## Criteria for a persistent
 
-- melhora mensurável da experiência ou eficiência;
-- dado permitido pela política e LGPD;
-- isolamento por tenant e identidade;
-- proveniência, data de atualização e confiança registradas;
-- expiração e direito de exclusão implementados.
+- better measurable experience or effectiveness;
+- given by the policy and LGPD;
+- isolation by tenant and identity;
+- provenance, date of update and registered trust;
+- expiration and right to exclude implemented.
 
-## Consequências
+## Consequences
 
-A recuperação deve filtrar escopo, recência e finalidade. Conteúdo recuperado é dado não confiável e não deve sobrescrever políticas ou instruções de sistema.
+The recovery must filter out the esthetic, recognisance and consistency. The recovered content is given as untrustworthy and must not be subject to policy or system instructions.
 
-## Evidência no case
+## Evidence in the case
 
-O case conversacional separa sessão ativa em Redis e histórico/memória de longo prazo em MongoDB, permitindo políticas distintas de TTL, acesso e retenção.
+The conversacional case is active in Redis and historical/long term in MongoDB, allowing distinct TTL policies, access and retention.

@@ -29,8 +29,8 @@
 
 Este evento alimenta:
 
-- Observabilidade
+- Observability
 - Auditoria
 - FinOps
-- Dashboards de adoção
-- Métricas por agente e área
+- Adoption Dashboards
+- Machines by agent and area

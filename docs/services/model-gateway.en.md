@@ -1,26 +1,26 @@
 # Model Gateway
 
-## Visão Geral
+## General view
 
-O Model Gateway centraliza o acesso a foundation models e impede que runtimes de agentes chamem provedores diretamente.
+Model Gateway centralizes access to foundation models and prevents agents running directly to call witnesses.
 
 ## Responsabilidades
 
-- aplicar allowlist de provedores, modelos e regiões;
-- rotear por capacidade, custo, latência, disponibilidade e classificação de dados;
-- validar budgets, quotas e limites de tokens;
-- executar redaction e guardrails de entrada e saída;
+- implementing the allowlist of producers, models and regions;
+- coding by capacity, cost, reliability, availability and data classification;
+- establishing budgets, quotas and token limits;
+- executing redaction and entry and exit guards;
 - padronizar timeout, retry, circuit breaker e fallback;
-- registrar versão efetiva do modelo, tokens, custo e latência;
-- bloquear modelos ou regiões não aprovados;
-- suportar respostas síncronas e streaming.
+- registrating a fetish version of the model, tokens, cost and consistency;
+- block models or regions not approved;
+- - Supporting single and streaming answers.
 
-## Fora de Escopo
+## Out of the scuff
 
-- orquestração do agente;
-- gestão do catálogo de agentes;
-- avaliação de negócio da resposta;
-- persistência de memória conversacional.
+- the order of the agent;
+- management of the agent catalog;
+- business valuation of the response;
+- Continuity of conversational memory.
 
 ## API interna
 
@@ -51,29 +51,29 @@ Content-Type: application/json
 }
 ```
 
-## Políticas de roteamento
+## roteaing policies
 
-Ordem padrão:
+Order of course:
 
-1. compatibilidade com classificação e residência de dados;
-2. modelo aprovado para o agente;
-3. disponibilidade do provedor;
-4. qualidade mínima registrada;
+1. compatibility with classification and data retention;
+2. model approved for the agent;
+3. the availability of the driver;
+4. minimum quality recorded;
 5. budget restante;
-6. menor custo dentro do SLO.
+6. - Lower cost in SLO.
 
-## Segurança
+## Security
 
-- autenticação por workload identity;
-- autorização por agente, modelo e tenant;
-- nenhum secret de provedor é exposto ao Runtime;
-- prompts sensíveis não são armazenados por padrão;
+- authentication by identity workload;
+- authorisation by agent, model and tenant;
+- no proofer secret is exposed to Runtime;
+- sensitive prompts are not stored by a pattern;
 - logs usam hashes e metadados, nunca secrets;
-- saída passa por guardrails antes de retornar ao Runtime.
+- 'Cause you're out of the way by guardrails before you return to Runtime.
 
-## Observabilidade
+## Observability
 
-Spans obrigatórios:
+- Please:
 
 - `model.gateway.authorize`
 - `model.gateway.route`
@@ -81,15 +81,15 @@ Spans obrigatórios:
 - `model.provider.invoke`
 - `model.gateway.guardrail`
 
-Métricas mínimas:
+Minimum methods:
 
-- invocações por modelo e status;
-- tokens de entrada e saída;
-- custo por agente e unidade;
-- latência por provedor;
-- taxa de fallback;
-- bloqueios de política;
-- violações de budget.
+- evocations by type and status;
+- entry and exit tokens;
+- care by agent and unit;
+- a tyre by the driver;
+- fallback rate;
+- political blockades;
+- budget violations.
 
 ## Eventos
 

@@ -1,32 +1,32 @@
 # Implementation Roadmap
 
-## Baseline entregue neste repositório
+## Baseline for this repository
 
-A referência já contém:
+The reference already contains:
 
-- Enterprise AI Platform Book com jornadas por perfil;
-- capability map e fronteiras de responsabilidade;
-- operating model, RACI, fóruns e golden path;
-- ciclo de vida de agentes baseado em risco e evidências;
-- estudo de caso ponta a ponta de agente documental com RAG;
-- decision guides e checklists de produção;
-- exportação automatizada do book para Markdown e PDF;
-- contratos OpenAPI e AsyncAPI canônicos;
-- policies e validações de contrato em CI;
-- C4 de container e deployment com control plane/data plane;
-- Model Gateway explícito;
-- segurança executável de RAG e memória;
+- Enterprise AI Platform Book with a profile;
+- capability map and responsibility borders;
+- operating model, RACI, frogs and golden path;
+- life cycle of agents based on risk and evidence;
+- the case-by-case study of the documentary agent-point with RAG;
+- decision guides and production checklists;
+- automatic export of book to Markdown and PDF;
+- contracts OpenAPI and AsyncAPI canonics;
+- policies and contracts validating in CI;
+- C4 container and deployment with control plane/data plane;
+- Model Gateway explcito;
+- executing security of RAG and memory;
 - runbooks operacionais;
-- vertical slice executável com Docker Compose;
-- documentação publicável via MkDocs e GitHub Pages.
+- vertical slice executable with Docker Compose;
+- GitHub Pages and MkDocs.
 
-A vertical slice é deliberadamente pequena. As fases abaixo descrevem a evolução de uma implementação real para produção.
+The vertical slice is deliberately small, and the steps below describe the evolution of a real implementation for production.
 
 ## Fase 1 — Foundation
 
-### Objetivo
+### Objet
 
-Criar o data plane mínimo para execução controlada de agentes.
+Creating the data plane minimum for control-controlled execution of agents.
 
 ### Entregas
 
@@ -38,36 +38,36 @@ Criar o data plane mínimo para execução controlada de agentes.
 - Model Gateway;
 - baseline OpenTelemetry;
 - backbone Kafka;
-- CI/CD com contract tests.
+- CI/CD with contract tests.
 
-### Critérios de sucesso
+### Success criteria
 
-- primeiro agente publicado por pipeline;
-- trace ponta a ponta;
-- eventos canônicos publicados;
-- autorização `deny by default` exercitada;
+- first agent published by pipeline;
+- trace the point;
+- canopic events published;
+- authorisation `deny by default` exercised;
 - rollback validado;
-- SLO de `INTERACTIVE_SIMPLE` medido.
+- SLO of `INTERACTIVE_SIMPLE` as measured.
 
 ## Fase 2 — Knowledge e Memory
 
 ### Entregas
 
 - Knowledge Service;
-- pipeline de ingestão com quarantine;
-- ACL por documento e chunk;
+- pipeline of ingesting with quarantine;
+- ACL for document and chunk;
 - embeddings versionados;
-- busca híbrida;
-- citações;
-- Memory Service com TTL, consentimento e exclusão;
-- avaliação separada de retrieval e geração.
+- a hybrid;
+- citations;
+- Memory Service with TTL, consent and exclusion;
+- separate evaluation of retrieval and generation.
 
-### Critérios de sucesso
+### Success criteria
 
-- acesso cross-tenant bloqueado em testes;
-- documentos eliminados deixam de aparecer no retrieval;
+- cross-tenant access blocked in tests;
+- documents deleted are not to appear in retrieval;
 - groundedness e retrieval metrics coletadas;
-- memory poisoning coberto por testes.
+- Memory poisoning covered by tests.
 
 ## Fase 3 — MCP e ferramentas corporativas
 
@@ -76,64 +76,64 @@ Criar o data plane mínimo para execução controlada de agentes.
 - MCP Registry;
 - onboarding automatizado;
 - tool contracts versionados;
-- idempotência e outbox para escrita;
-- human approval para ações críticas;
-- auditoria e métricas por tool.
+- idempotence and box for writing;
+- human approval for critical actions;
+- auditory and tools by tool.
 
-### Critérios de sucesso
+### Success criteria
 
-- descoberta limitada por agente e política;
-- repetição não duplica efeitos;
-- tools podem ser bloqueadas sem indisponibilizar o Runtime;
-- rollback ou compensação testados.
+- found only by agent and policy;
+- repeating not double effects;
+- tools can be blocked without indisposing Runtime;
+- rollback or test compensation.
 
 ## Fase 4 — Governance e Evaluation
 
 ### Entregas
 
 - AI Catalog;
-- workflow com segregação de funções;
+- workflow with separate functions;
 - risk assessment automatizado;
 - datasets e baselines;
 - quality gates;
-- evidências imutáveis;
+- imutable evidence;
 - model lifecycle.
 
-### Critérios de sucesso
+### Success criteria
 
-- nenhuma versão HIGH/CRITICAL publicada sem evidências;
-- mesma identidade não submete e aprova;
-- regressões bloqueiam deploy;
-- thresholds são rastreáveis ao dataset e versão.
+- no HIGH/CRITICAL version published without evidence;
+- Identity does not submit and approve;
+- regresses blocked deploy;
+- thresholds are rastreatable to the dataset and version.
 
 ## Fase 5 — Scale e FinOps
 
 ### Entregas
 
 - multi-tenant isolation endurecido;
-- autoscaling por concorrência e backlog;
+- autoscaling for competition and backlog;
 - budgets, quotas e chargeback;
 - marketplace interno;
 - disaster recovery;
 - dashboards executivos;
-- operação multi-região quando justificada.
+- Multi-region operation when justified.
 
-### Critérios de sucesso
+### Success criteria
 
-- custos atribuídos por área, agente e modelo;
+- cost allocated by area, agent and model;
 - noisy neighbor controlado;
-- testes de capacidade a 2x do pico;
+- capacity tests at 2x of the pico;
 - RTO/RPO exercitados;
-- error budgets usados nas decisões de release.
+- budget error used in release decisions.
 
-## Sequenciamento de referência
+## Reference sequence
 
 | Fase | Horizonte inicial | Resultado |
 |---|---|---|
-| 1 | 0–3 meses | agente interno controlado em produção |
-| 2 | 3–6 meses | RAG e memória com autorização e descarte |
+| 1 | 0–3 meses | Internal agent controlled in production |
+| 2 | 3–6 meses | RAG and memory with authorisation and discharge |
 | 3 | 6–9 meses | tools corporativas governadas |
-| 4 | 9–12 meses | publicação baseada em risco e evidências |
+| 4 | 9–12 meses | published on the basis of risk and evidence |
 | 5 | 12+ meses | escala, marketplace e controle financeiro |
 
-Para a perspectiva organizacional e de adoção, consulte [Modelo de maturidade e roadmap](../book/07-adoption-roadmap.md).
+For the organisational and adoption perspective, consult [Model of maturity and roadmap](../book/07-adoption-roadmap.md).

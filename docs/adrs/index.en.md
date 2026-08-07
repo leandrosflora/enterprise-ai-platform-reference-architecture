@@ -1,46 +1,46 @@
 # Architecture Decision Records
 
-Os ADRs registram decisões estruturais da plataforma, seu contexto, alternativas, consequências, evidências e critérios de revisão. A pasta `docs/adrs/` é a única fonte canônica para decisões arquiteturais.
+The ADRs shall record structural decisions of the platform, its context, alternatives, consequences, evidence and criteria. The `docs/adrs/` pasta is the only canoe source for architectural decisions.
 
-## Catálogo
+## Catalog
 
-| ADR | Decisão | Status |
+| ADR | Decision | Status |
 |---|---|---|
-| [ADR-001](001-mcp-vs-rest.md) | MCP para tool calling governado; REST para APIs de domínio | Aceito |
-| [ADR-002](002-persistent-memory.md) | Memória persistente somente sob critérios explícitos | Aceito |
-| [ADR-003](003-agent-gateway.md) | Agent Gateway como ponto de entrada e enforcement | Aceito |
-| [ADR-004](004-agent-runtime-strategy.md) | Agent Runtime com núcleo estável e adaptadores | Aceito |
-| [ADR-005](005-vector-search-strategy.md) | OpenSearch como referência inicial para busca vetorial e híbrida | Aceito |
-| [ADR-006](006-observability-strategy.md) | OpenTelemetry como padrão de observabilidade | Aceito |
-| [ADR-007](007-evaluation-strategy.md) | Avaliação híbrida, regressiva e contínua | Aceito |
+| [ADR-001](001-mcp-vs-rest.md) | MCP for tool calling governed; REST for APIs of field | Aceito |
+| [ADR-002](002-persistent-memory.md) | Permanent memory only under explicit criteria | Aceito |
+| [ADR-003](003-agent-gateway.md) | Agent Gateway as entry and enforcement point | Aceito |
+| [ADR-004](004-agent-runtime-strategy.md) | Agent Runtime with stable and adaptable content | Aceito |
+| [ADR-005](005-vector-search-strategy.md) | OpenSearch as initial reference for veterinary and hybrid search | Aceito |
+| [ADR-006](006-observability-strategy.md) | OpenTelemetry as a warning pad | Aceito |
+| [ADR-007](007-evaluation-strategy.md) | Hybrid, regressive and continuous evaluation | Aceito |
 
 ## Status permitidos
 
 | Status | Uso |
 |---|---|
-| Proposto | decisão em discussão, ainda não vinculante |
-| Aceito | decisão vigente |
-| Depreciado | ainda existente, mas não recomendada para novas implementações |
-| Substituído | decisão histórica substituída por outro ADR identificado |
-| Rejeitado | alternativa analisada e não adotada |
+| Proposto | Decision in discussion, not yet binding |
+| Aceito | vigourous decision |
+| Depreciado | still existing, but not recommended for new implementations |
+| Substitute | Historical decision replaced by another ID |
+| Rejeitado | alternative analysed and not adopted |
 
 ## Regras
 
-- um número identifica uma única decisão;
-- o número do arquivo deve coincidir com o título do ADR;
-- decisões aceitas não são reescritas para ocultar mudanças materiais;
-- mudanças de direção criam novo ADR e marcam o anterior como substituído;
-- cada ADR deve registrar consequências, evidências e critérios de revisão;
-- links internos devem apontar apenas para `docs/adrs/`.
+- a number identifies a single decision;
+- the number of the file must comply with the title of the ADR;
+- accepted decisions are not written to oculate material changes;
+- changes in direction create new ADR and mark the previous as replaced;
+- each ADR shall record consequences, evidence and review criteria;
+- Intern links must only be placed for `docs/adrs/`.
 
-## Migração do catálogo legado
+## Migration of the legal catalog
 
-| Decisão legada | Destino canônico |
+| - Legal decision | Canopic destination |
 |---|---|
-| Estratégia de Agent Runtime | ADR-004 |
-| Seleção de banco vetorial | ADR-005 |
-| Estratégia de integração via MCP | conteúdo consolidado no ADR-001 |
-| Estratégia de observabilidade | ADR-006 |
-| Estratégia de avaliação de IA | ADR-007 |
+| Agent Runtime Strategy | ADR-004 |
+| Veterinary bank selection | ADR-005 |
+| Integration strategy via MCP | consolidated content in ADR-001 |
+| Monitoring strategy | ADR-006 |
+| IA Assessment Strategy | ADR-007 |
 
-A validação documental bloqueia pastas concorrentes, IDs duplicados, divergência entre nome e título e ADRs ausentes deste índice.
+The documental validation of bloke pastas competing, double IDs, divergence between name and title and the unused ADRs of this Index.

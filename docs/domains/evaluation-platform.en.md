@@ -1,8 +1,8 @@
 # Evaluation Platform
 
-## Objetivo
+## Objet
 
-Avaliar qualidade, segurança, custo e comportamento de agentes e respostas geradas por IA.
+Assess quality, safety, cost and behaviour of agents and responses based on AI.
 
 ## Capacidades
 
@@ -13,7 +13,7 @@ Avaliar qualidade, segurança, custo e comportamento de agentes e respostas gera
 - Regression Testing
 - Benchmarking
 
-## Serviços Relacionados
+## Relacionated services
 
 - Evaluation Service
 - Governance Service
@@ -27,17 +27,17 @@ Avaliar qualidade, segurança, custo e comportamento de agentes e respostas gera
 
 ## KPIs
 
-| Indicador | Descrição |
+| Indicador | Description |
 |---|---|
-| Evaluation Score | Nota consolidada de avaliação |
-| Groundedness Score | Aderência às fontes |
-| Toxicity Rate | Ocorrência de respostas tóxicas |
-| Regression Failures | Falhas em testes regressivos |
+| Evaluation Score | consolidated assessment note |
+| Groundedness Score | Accession to sources |
+| Toxicity Rate | Toxic response |
+| Regression Failures | - You speak in regressive tests |
 
-## Requisitos Não Funcionais
+## Non-functioning requirements
 
-- Avaliação síncrona e assíncrona
+- Sncrone and assncrone evaluation
 - Datasets versionados
-- Evidências para governança
-- Comparação entre versões de agentes
-- Integração com aprovação de publicação
+- Evidence for government
+- Comparison of agent versions
+- Integration with publication approval

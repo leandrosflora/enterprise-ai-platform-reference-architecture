@@ -1,10 +1,10 @@
 # Enterprise AI Governance Framework
 
-## Objetivo
+## Objet
 
-Definir como a organização decide, aprova, publica, monitora e retira soluções de IA com responsabilidades claras e evidências auditáveis.
+Determine how the organisation decides, approves, publishes, monitors and withdraws the AI solutions with clear and audited responsibility.
 
-## Modelo operacional
+## Operative model
 
 ```mermaid
 flowchart LR
@@ -18,19 +18,19 @@ flowchart LR
     H --> I[Reassessment or Retirement]
 ```
 
-## Estrutura de decisão
+## Decision structure
 
 | Papel | Responsabilidade |
 |---|---|
-| Business Owner | finalidade, benefício, impacto e aceite do risco residual |
-| Product Owner | backlog, métricas e experiência do usuário |
-| AI Architect | padrões, arquitetura, autonomia e integração |
-| Data Owner | qualidade, acesso, finalidade e retenção dos dados |
-| Security | threat model, controles e resposta a incidentes |
-| Privacy / DPO | LGPD, base legal, minimização e direitos do titular |
-| Legal / Compliance | obrigações regulatórias, contratuais e propriedade intelectual |
-| Model Risk / Evaluation | metodologia, datasets, thresholds e independência da avaliação |
-| Platform Team | guardrails, gateways, observabilidade e policy as code |
+| Business Owner | finality, benefit, impact and acceptance of residual risk |
+| Product Owner | backlog, methods and experience of user |
+| AI Architect | patterns, architecture, autonomia and integration |
+| Data Owner | quality, access, finality and retention of data |
+| Security | threat model, controls and response to incidents |
+| Privacy / DPO | LGPD, legal basis, minimisation and rights of the owner |
+| Legal / Compliance | regulatory, contractual and intellectual property obligations |
+| Model Risk / Evaluation | methodology, datasets, thresholds and independence of evaluation |
+| Platform Team | Guardrails, gateways, observability and policy the code |
 | Operations | SLO, runbook, capacidade, continuidade e rollback |
 
 ## Artefatos governados
@@ -38,92 +38,92 @@ flowchart LR
 - AI use case, finalidade e Outcome Card;
 - Agent Card ou Model Card;
 - risk assessment;
-- ADRs de arquitetura e seleção de modelo;
-- fontes de dados, data contracts e lineage;
-- datasets, prompts, modelos, embeddings, ferramentas e políticas versionados;
+- ADRs for architecture and model selection;
+- data sources, data contracts and lineage;
+- datasets, prompts, models, embeddings, tools and modified policies;
 - knowledge snapshot e release manifest;
 - golden dataset e evaluation report;
 - threat model e privacy assessment;
-- aprovações, exceções e riscos residuais;
-- dashboards, incidentes e plano de retirada.
+- approvals, exemptions and residual risks;
+- dashboards, incidents and withdrawal plan.
 
-O lifecycle detalhado desses ativos está em [Data, Model, Prompt and Knowledge Lifecycle](model-lifecycle.md).
+The detailed lifecycle of these assets is in [Data, Model, Prompt and Knowledge Lifecycle](model-lifecycle.md).
 
 ## Gates
 
-| Gate | Entrada | Saída |
+| Gate | Entrada | Sahara |
 |---|---|---|
 | Intake | problema e sponsor | caso registrado e owner definido |
-| Risk | impacto, dados e autonomia | classificação LOW a CRITICAL |
-| Design | arquitetura e contratos | ADRs e controles definidos |
-| Assurance | security, privacy, legal e evaluation | evidências e pendências |
-| Release | readiness operacional | versão aprovada e imutável |
-| Operate | telemetria e feedback | monitoramento e ações corretivas |
-| Retire | decisão de encerramento | acesso revogado, dados tratados e evidência preservada |
+| Risk | impact, data and autonomy | LOW-CRITICAL classification |
+| Design | architecture and contracts | ADRs and controls defined |
+| Assurance | security, privacy, legal e evaluation | evidence and penalties |
+| Release | readiness operacional | approved and imutable version |
+| Operate | telemetria e feedback | monitoring and correctional actions |
+| Retire | Decision of enlargement | access to unused, processed data and evidence provided |
 
-## Alinhamento a frameworks
+## Adjustment of frameworks
 
-| Referência | Aplicação |
+| Reference | Application |
 |---|---|
-| NIST AI RMF | Govern, Map, Measure e Manage como ciclo de risco |
-| ISO/IEC 42001 | sistema de gestão de IA, papéis, controles e melhoria contínua |
-| ISO 27001 | controles de segurança da informação |
-| LGPD | finalidade, necessidade, transparência, segurança e direitos do titular |
-| EU AI Act | classificação por risco e obrigações proporcionais quando aplicável |
-| OWASP LLM | threat model e testes de segurança para aplicações com LLM |
+| NIST AI RMF | Go, Map, Measure and Manage as risk cycle |
+| ISO/IEC 42001 | system of management of AI, paediatrics, controls and improvement of the content |
+| ISO 27001 | Information security checks |
+| LGPD | finality, need, transparency, security and rights of the owner |
+| EU AI Act | risk classification and appropriate obligations when applicable |
+| OWASP LLM | threat model and security tests for applications with LLM |
 
-A relação acima é conceitual. A rastreabilidade operacional entre controle, função normativa, evidência, owner, gate e enforcement está no [Crosswalk de Governança, Risco e Compliance](compliance-crosswalk.md).
+The above is conceptual. The operational rastreability between control, normative function, evidence, owner, gate and enforcement is in the [Government Crosswalk, Risco and Compliance](compliance-crosswalk.md).
 
-## Rastreabilidade de controle
+## Control rassurability
 
-Cada controle aplicável deve possuir:
+Each applicable control shall be possible:
 
-- identificador estável;
-- referência ao risco tratado;
-- owner e aprovador quando aplicável;
-- evidência mínima;
-- gate em que é verificado;
-- enforcement automático, humano ou híbrido;
-- regra de exceção e expiração;
-- indicador de eficácia.
+- stable identification;
+- reference to the risk treated;
+- owner and approver when applicable;
+- minimum evidence;
+- gate where it is checked;
+- automatician, human or hybrid enforcement;
+- exemption and expiry rule;
+- indicator of effectiveness.
 
-Documentação sem evidência ou enforcement não é considerada controle implementado.
+Documentation without evidence or enforcement is not considered to be implemented.
 
-## Exceções
+## Excusements
 
-Exceções devem possuir:
+Excusements must be possible:
 
-- controle não atendido e justificativa;
+- unattended and justified control;
 - risco residual e impacto;
-- controle compensatório;
+- compensation control;
 - owner e aprovador independente;
-- prazo de validade;
-- condição de revogação;
-- evidência e ticket rastreável.
+- time of validity;
+- condition of revocation;
+- evidence and a rastreable ticket.
 
-Exceção sem data de expiração é inválida.
+Excusement without expiry date is invariable.
 
-## Policy as code
+## Policy the code
 
-Automatizar controles objetivos:
+Automated target controls:
 
-- bloquear artefato sem owner ou classificação;
-- impedir modelo, fonte ou ferramenta não aprovada;
-- exigir avaliação e thresholds por nível de risco;
-- validar segregação de função;
-- aplicar budgets, quotas e limites de autonomia;
-- manter versões publicadas imutáveis;
-- negar por padrão quando não houver política.
+- block artefacts without ownership or classification;
+- preventing unapproved model, source or tool;
+- require risk assessment and thresholds;
+- validating function separation;
+- to apply budgets, quotas and autonomous limits;
+- keep copies published in exchange for;
+- - I'll be able to negate by way of a time when there's no policy.
 
-## Indicadores de governança
+## Government indicators
 
-- tempo de aprovação por nível de risco;
-- percentual de soluções com evidências completas;
-- cobertura dos controles do crosswalk;
-- controles automatizados versus manuais;
-- exceções abertas e vencidas;
-- regressões e incidentes por versão;
-- cobertura de avaliação e red-team;
-- tempo para rollback ou desativação;
-- percentual de modelos, prompts e ferramentas fora do padrão;
-- custo por caso de uso e por tarefa concluída.
+- time of approval at risk level;
+- percentage of solutions with full evidence;
+- the coverage of crosswalk control;
+- automated controls and manuals;
+- open and vengeable exceptions;
+- relapses and incidents by version;
+- assessment coverage and network coverage;
+- time for rollback or deactivation;
+- percentage of models, prompts and tools out of the pattern;
+- cost for use and for final task.

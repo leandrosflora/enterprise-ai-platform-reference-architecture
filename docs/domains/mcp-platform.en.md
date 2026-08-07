@@ -1,8 +1,8 @@
 # MCP Platform
 
-## Objetivo
+## Objet
 
-Padronizar a exposição, descoberta, governança e execução de ferramentas corporativas por agentes.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Discreed the production, discovery, administration and implementation of corporative tools by agents.
 
 ## Capacidades
 
@@ -13,7 +13,7 @@ Padronizar a exposição, descoberta, governança e execução de ferramentas co
 - Tool Authorization
 - Tool Auditing
 
-## Serviços Relacionados
+## Relacionated services
 
 - MCP Registry
 - Agent Runtime
@@ -26,17 +26,17 @@ Padronizar a exposição, descoberta, governança e execução de ferramentas co
 
 ## KPIs
 
-| Indicador | Descrição |
+| Indicador | Description |
 |---|---|
-| Registered Tools | Ferramentas disponíveis no catálogo |
-| Tool Calls | Execuções de ferramentas |
-| Tool Error Rate | Taxa de erro por ferramenta |
-| Tool Latency P95 | Latência percentil 95 por ferramenta |
+| Registered Tools | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Dispatch available in the catalog |
+| Tool Calls | Iron machining |
+| Tool Error Rate | - A rate of error by means of a slut |
+| Tool Latency P95 | Per centile tensile 95 per meter |
 
-## Requisitos Não Funcionais
+## Non-functioning requirements
 
 - Contratos versionados
-- Autorização por ferramenta
-- Auditoria obrigatória
+- Authorisation by means of iron
+- Obligatory auditory
 - Timeout e circuit breaker
-- Controle de exposição de sistemas corporativos
+- Control of the installation of corporative systems

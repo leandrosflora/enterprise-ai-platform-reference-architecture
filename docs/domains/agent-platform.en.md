@@ -1,8 +1,8 @@
 # Agent Platform
 
-## Objetivo
+## Objet
 
-Fornecer as capacidades centrais para criação, execução, publicação e operação de agentes corporativos.
+Provide the central capacity for the creation, implementation, publication and operation of corporative agents.
 
 ## Capacidades
 
@@ -13,7 +13,7 @@ Fornecer as capacidades centrais para criação, execução, publicação e oper
 - Tool Calling
 - Agent Lifecycle Management
 
-## Serviços Relacionados
+## Relacionated services
 
 - Agent Gateway
 - Agent Runtime
@@ -32,18 +32,18 @@ Fornecer as capacidades centrais para criação, execução, publicação e oper
 
 ## KPIs
 
-| Indicador | Descrição |
+| Indicador | Description |
 |---|---|
-| Invocations | Volume de execuções de agentes |
-| Success Rate | Percentual de execuções concluídas com sucesso |
-| Latency P95 | Latência percentil 95 por agente |
-| Tool Call Rate | Uso de ferramentas por execução |
-| Cost per Agent | Custo operacional por agente |
+| Invocations | Volume of executions of agents |
+| Success Rate | Percentage of executed successfully |
+| Latency P95 | Per centile 95 per agent |
+| Tool Call Rate | Use of tools for implementation |
+| Cost per Agent | Operational maintenance by agent |
 
-## Requisitos Não Funcionais
+## Non-functioning requirements
 
-- Autorização por agente e escopo
-- Observabilidade ponta a ponta
-- Auditoria por execução
-- Controle de custo por agente
-- Resiliência contra falhas de modelo e ferramentas
+- Authorisation by agent and scop
+- Point of view
+- Auditoria for execution
+- Cost control by agent
+- Resistance against model failures and tools

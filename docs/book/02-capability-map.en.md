@@ -1,10 +1,10 @@
 # 3. Capability Map
 
-## Por que começar por capacidades
+## Why start by capacity
 
-Uma plataforma não deve ser definida inicialmente por produtos ou tecnologias. Capacidades descrevem **o que a organização precisa conseguir fazer** e permanecem úteis mesmo quando frameworks, provedores e serviços mudam.
+A plate must not be defined initially by products or technologies. Capacitys describe **what the organisation needs to do** and remain useful even when frameworks, testers and services change.
 
-O mapa abaixo organiza a plataforma em sete domínios complementares.
+The map below organizes the spreadsheet in seven complementary areas.
 
 ```mermaid
 flowchart TB
@@ -40,68 +40,68 @@ flowchart TB
 
 | Capacidade | Responsabilidade |
 |---|---|
-| AI Portal | catálogo, onboarding, evidências, status e documentação operacional |
-| SDKs e templates | golden paths para agentes, RAG, tools e telemetria |
-| Playground controlado | experimentação com identidade, quotas e logging adequado |
-| Channels | integração com web, mobile, contact center, APIs e mensageria |
-| Documentation | book, referências técnicas, exemplos e runbooks |
+| AI Portal | catalog, onboarding, evidence, status and operational documentation |
+| SDKs e templates | golden paths for agents, RAG, tools and telemetry |
+| Playground controlado | Identity, quotas and appropriate log |
+| Channels | integration with web, mobile, contact center, APIs and message |
+| Documentation | book, technical references, examples and runbooks |
 
 ### 2. Agent Platform
 
 | Capacidade | Responsabilidade |
 |---|---|
-| Agent Registry | identidade, owner, versão, risco, dependências e status |
-| Agent Runtime | execução, contexto, orchestration e aplicação de limites |
-| Agent Gateway | autenticação, rate limit, roteamento e contratos de entrada/saída |
-| Prompt and Configuration Management | versionamento, promoção e rollback de instruções e parâmetros |
-| Session Management | correlação, estado efêmero e continuidade de conversação |
-| Human Approval | pausas e decisões humanas em ações críticas |
+| Agent Registry | identity, owner, version, risk, dependencies and status |
+| Agent Runtime | implementation, context, orchestration and application of limits |
+| Agent Gateway | authentication, limit rate, roteament and entry/sale contracts |
+| Prompt and Configuration Management | version, promotion and rollback of instructions and parsemaries |
+| Session Management | correction, effect and continuity of communication |
+| Human Approval | human decisions and decisions in critical actions |
 
 ### 3. Knowledge and Memory
 
 | Capacidade | Responsabilidade |
 |---|---|
-| Knowledge Ingestion | extração, classificação, quarentena, chunking e indexação |
-| Retrieval | busca semântica, lexical, híbrida, reranking e citações |
-| Knowledge Authorization | enforcement por tenant, base, documento e chunk |
-| Knowledge Lifecycle | versionamento, expiração, reindexação e eliminação |
-| Session Memory | contexto efêmero necessário à interação atual |
-| Long-term Memory | fatos e preferências com finalidade, consentimento e TTL |
-| Data Provenance | origem, checksum, versão e transformações aplicadas |
+| Knowledge Ingestion | extraction, classification, quarentene, chunking and indexation |
+| Retrieval | syringe, lexical, hybrid, reranking and references |
+| Knowledge Authorization | enforcement by tenant, base, document and chunk |
+| Knowledge Lifecycle | version, expiry, reindexation and elimination |
+| Session Memory | efamine context necessary for the current interaction |
+| Long-term Memory | fats and preferentials with finality, consent and TTL |
+| Data Provenance | origin, checksum, version and transformations applied |
 
 ### 4. Models and Tools
 
 | Capacidade | Responsabilidade |
 |---|---|
-| Model Gateway | abstração de provedores, políticas e observabilidade |
-| Model Routing | seleção por capacidade, região, custo, qualidade e disponibilidade |
-| Model Safety | limites, filtros, redaction e validação de saída |
-| Embeddings | modelos e versões usados para indexação e busca |
-| MCP Registry | catálogo e autorização de ferramentas corporativas |
-| Tool Execution | validação de schema, timeout, idempotência e auditoria |
-| Compensation | rollback ou compensação de efeitos quando aplicável |
+| Model Gateway | absorption of witnesses, policies and observation |
+| Model Routing | selection by capacity, region, cost, quality and availability |
+| Model Safety | limit, filters, redaction and exit validation |
+| Embeddings | models and versions used for indexing and searching |
+| MCP Registry | Regulatory and authorisation of corporative machinery |
+| Tool Execution | validation of schema, timeout, idempotence and auditory |
+| Compensation | rollback or compensation of effects when applicable |
 
 ### 5. Trust and Governance
 
 | Capacidade | Responsabilidade |
 |---|---|
-| Identity | usuários, workloads e delegação |
+| Identity | users, workloads and delegation |
 | Authorization | RBAC, ABAC, scopes, purpose e deny by default |
-| Policy Management | autoria, distribuição, decisão e enforcement de políticas |
-| AI Risk Management | classificação, controles e gates proporcionais ao risco |
-| Evaluation | qualidade, groundedness, segurança, retrieval, custo e latência |
-| Audit | trilha imutável de decisões, execuções e alterações |
-| Model Lifecycle | aprovação, uso permitido, revisão e retirada de modelos |
+| Policy Management | authorisation, distribution, decision and enforcement of policies |
+| AI Risk Management | classification, controls and gates suitable for the risk |
+| Evaluation | quality, stability, safety, retrieval, cost and consistency |
+| Audit | mutable trilaxe of decisions, implementations and amendments |
+| Model Lifecycle | approval, permitted use, revision and withdrawal of models |
 
 ### 6. Operations and FinOps
 
 | Capacidade | Responsabilidade |
 |---|---|
-| Observability | logs, métricas, traces e eventos correlacionados |
-| SLO Management | objetivos por classe de workload e error budgets |
-| Incident Management | detecção, contenção, diagnóstico, comunicação e revisão |
-| Capacity Management | concorrência, backlog, limites e testes de carga |
-| Cost Management | custo por agente, modelo, tenant, área e ambiente |
+| Observability | logs, methods, trace and correlating events |
+| SLO Management | objectives for the workload class and budget errors |
+| Incident Management | detection, monitoring, diagnostic, communication and review |
+| Capacity Management | competition, backlog, limits and loading tests |
+| Cost Management | cost by agent, model, tenant, area and environment |
 | Budget and Quotas | limites preventivos, alertas, showback e chargeback |
 | Resilience | timeout, retry, circuit breaker, fallback, DR e rollback |
 
@@ -111,69 +111,69 @@ flowchart TB
 |---|---|
 | Cloud and Network | contas, VPCs, subnets, private endpoints e egress |
 | Runtime Platform | Kubernetes, serverless ou compute gerenciado |
-| Event Backbone | eventos canônicos e desacoplamento assíncrono |
+| Event Backbone | Canonic events and asymmetrical decomposition |
 | Data Stores | armazenamento operacional, vetorial, cache e object storage |
-| Secrets and Keys | KMS, secrets, rotação e workload identity |
-| CI/CD | testes, policy checks, promoção e evidências de release |
-| Software Supply Chain | dependências, imagens, SBOM, assinatura e provenance |
+| Secrets and Keys | KMS, secrets, rotation and identity workload |
+| CI/CD | tests, policy checks, promotion and evidence of release |
+| Software Supply Chain | - Dependencies, images, SMMO, signature and origin |
 
-## Relação com control plane e data plane
+## Relationship with control plane and data plane
 
-O capability map não substitui a separação arquitetural entre planos.
+The capability map does not replace the architectural separation between plans.
 
-- **Control plane:** cadastro, configuração, governança, políticas, avaliação, catálogo e promoção.
-- **Data plane:** invocação, retrieval, memória, modelos, tools e telemetria em tempo de execução.
+- **Control plane:** cadastro, configuration, governance, policies, evaluation, catalog and promotion.
+- **Data plane:** invoke, retrieval, memory, models, tools and telemetry in time of execution.
 
-Uma capacidade pode possuir componentes nos dois planos. Por exemplo, Model Management define políticas no control plane, enquanto Model Gateway aplica essas políticas no data plane.
+A capacity may be able to incorporate components into both plans. For example, Model Management defines policies in control plane while Model Gateway applies those policies in data plane.
 
-Consulte [Control plane e data plane](../architecture/control-plane-data-plane.md) para os detalhes de separação.
+Consult [Control plane and data plane](../architecture/control-plane-data-plane.md) for the details of separation.
 
-## MVP de plataforma
+## - ltd-stitch MVP
 
-Nem todas as capacidades precisam existir no primeiro release. Um MVP corporativo normalmente contém:
+Not all the capabilities need to exist at the first release. A corporate MVP usually contains:
 
 1. Agent Gateway e Agent Runtime;
 2. Agent Registry;
 3. Model Gateway;
-4. identidade e autorização;
+4. identity and authorisation;
 5. policy enforcement;
-6. observabilidade ponta a ponta;
-7. avaliação mínima;
-8. CI/CD com gates;
-9. uma integração de conhecimento ou uma tool real;
+6. observation point to point;
+7. minimum assessment;
+8. CI/CD with gates;
+9. a knowledge integration or a real tool;
 10. ownership e suporte definidos.
 
-## Capacidades que não devem ser centralizadas cedo demais
+## Capacitys that must not be centralised early enough
 
-Algumas responsabilidades devem permanecer no produto até que exista repetição comprovada:
+Some responsibility must remain in the product until the product is re-proved:
 
-- lógica de negócio específica;
+- specific business logic;
 - prompts altamente especializados;
-- UX e linguagem do canal;
-- datasets exclusivos de um produto;
-- workflows que não serão reutilizados;
-- regras transacionais pertencentes ao sistema de registro.
+- UX and channel language;
+- exclusive datasets of a product;
+- workflows that will not be reused;
+- transnational rules relating to the register system.
 
-## Critérios para promover uma capacidade à plataforma
+## Criteria for promoting a capacity at the plate
 
-Uma capacidade compartilhada deve atender à maioria dos critérios:
+A comparable capacity must be addressed to most criteria:
 
-- reutilizada por múltiplos produtos;
+- repurposed by a few products;
 - requer controle uniforme;
-- possui economia de escala operacional;
-- tem contrato estável ou versionável;
+- a operational scale economy;
+- has a stable or versional contract;
 - possui owner e SLO definidos;
-- reduz risco ou lead time de forma mensurável;
-- pode evoluir sem bloquear todos os consumidores.
+- reduces risk or lead time in a reasonable manner;
+- It can evolve without blocking all consumers.
 
-## Artefatos de referência
+## Reference articles
 
-- [Domínios](../domains/agent-platform.md)
-- [Serviços](../services/agent-gateway.md)
-- [Arquitetura C4](../architecture/c4-complete.md)
+- (Dominates)(../domains/agent-platform.md)
+- (Servers)(../services/agent-gateway.md)
+- [Arcadia C4](../architecture/c4-complete.md)
 - [Contratos](../contracts/apis.md)
-- [Requisitos não funcionais](../architecture/non-functional-requirements.md)
+- (Not working requirements)(../architecture/non-functional-requirements.md)
 
-## Próximo capítulo
+## Next chapter
 
-O [Operating Model](03-operating-model.md) define quem constrói, governa, opera e consome essas capacidades.
+The [Operating Model](03-operating-model.md) defines who can, govern, operate and consign those capacities.

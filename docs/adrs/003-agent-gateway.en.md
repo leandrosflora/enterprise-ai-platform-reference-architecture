@@ -1,36 +1,36 @@
-# ADR-003 — Agent Gateway como ponto de entrada
+# ADR-003 — Agent Gateway as entry point
 
 **Status:** Aceito
 
 ## Contexto
 
-Canais, agentes e provedores de modelos evoluem em ritmos diferentes. Sem uma fronteira comum, autenticação, quotas, roteamento, proteção de dados e telemetria são duplicados.
+Canais, agents and models models evolve in different ways, without a common border, authenticity, quotas, roteament, data protection and telemetry are duplicated.
 
-## Decisão
+## Decision
 
-Introduzir um **Agent Gateway** entre canais/BFFs e runtimes. Ele não contém lógica de negócio nem prompts específicos da jornada.
+Introduce **Agent Gateway** between channels and runs. It does not contain business logic or specific prompts of the newspaper.
 
 ## Responsabilidades
 
-- autenticação, autorização e resolução de tenant;
+- authenticity, authorisation and tenant resolution;
 - rate limit, quotas e budget enforcement;
-- roteamento por agente, versão e capacidade;
-- normalização de streaming e respostas assíncronas;
-- correlação, tracing, métricas e auditoria;
-- políticas de entrada, classificação e mascaramento de dados;
+- roteament by agent, version and capacity;
+- normalisation of streaming and asynchronous responses;
+- correction, trace, methods and auditory;
+- entry, classification and re-filling policies;
 - circuit breaker e fallback controlado.
 
-## Não responsabilidades
+## No responsibility
 
-- raciocínio do agente;
-- execução direta de ferramentas de domínio;
-- armazenamento de memória de longo prazo;
-- definição de regras de negócio.
+- the raciocinus of the agent;
+- direct implementation of field machinery;
+- long-term memory storage;
+- definition of business rules.
 
-## Consequências
+## Consequences
 
-O gateway torna-se componente crítico e deve ser stateless, horizontalmente escalável e degradar com segurança. Configurações de agente devem ser versionadas no Control Plane.
+The gateway becomes critical and must be stateless, horizontally stable and degrade with security. Agent configurations must be compiled in Control Plane.
 
-## Evidência no case
+## Evidence in the case
 
-No case conversacional, o Channel BFF e o Conversation Orchestrator materializam parte dessa fronteira. A evolução recomendada é consolidar políticas comuns sem concentrar a lógica da jornada.
+In the conversacional case, Channel BFF and the Conversation Orchestrator materialise part of that border. The recommended evolution is to consolidate common policies without focusing on the literature of the newspaper.

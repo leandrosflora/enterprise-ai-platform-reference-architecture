@@ -1,12 +1,12 @@
-# Tracing, Métricas e SLOs
+# Tracing, Machines and SLOs
 
-## Padrão
+## Father
 
-- OpenTelemetry para traces, métricas e logs correlacionados.
-- W3C `traceparent` propagado por HTTP e no envelope Kafka.
-- `traceId`, `spanId`, `correlationId`, `causationId` e `tenant.id` nas fronteiras aplicáveis.
-- Logs estruturados em JSON.
-- Dados sensíveis são mascarados antes da exportação.
+- OpenTelemetry for trace, tracing and corralled logs.
+- W3C `traceparent` propagated by HTTP and in the envelope Kafka.
+- `traceId`, `spanId`, `correlationId`, `causationId` and `tenant.id` on the applicable borders.
+- Logs stored in JSON.
+- Sensible data are wiped before export.
 
 ## Trace principal
 
@@ -35,9 +35,9 @@ agent.invocation
   └─ audit.record
 ```
 
-## Spans obrigatórios
+## - Please, please.
 
-| Span | Componente | Atributos obrigatórios |
+| Span | Componente | Obligatory attributes |
 |---|---|---|
 | `agent.invocation` | Gateway | `agent.id`, `agent.version`, `tenant.id`, `channel`, `workload.class`, `risk.classification` |
 | `agent.gateway.authenticate` | Gateway | `auth.provider`, `auth.result` |
@@ -65,67 +65,67 @@ agent.invocation
 
 | Atributo | Regra |
 |---|---|
-| `tenant.id` | Obrigatório, sem cardinalidade livre. |
-| `business_unit` | Quando aplicável. |
-| `agent.id` e `agent.version` | Obrigatórios em execução de agente. |
-| `session.id.hash` | Hash, nunca sessão sensível em claro. |
-| `user.id.hash` | Hash estável apenas quando necessário. |
+| `tenant.id` | Thank you, without free cardinality. |
+| `business_unit` | When applicable. |
+| `agent.id` e `agent.version` | Thank you for the execution of the agent. |
+| `session.id.hash` | Hash, it's never felt as if it was. |
+| `user.id.hash` | It's stable only when necessary. |
 | `data.classification` | `PUBLIC`, `INTERNAL`, `CONFIDENTIAL`, `RESTRICTED`. |
 | `risk.classification` | `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`. |
-| `workload.class` | Classe definida nos NFRs. |
+| `workload.class` | Class defined in the NFRs. |
 
-## Métricas
+## Mechanics
 
-| Métrica | Tipo | Dimensões permitidas |
+| Medicinal | Tipo | authorised dimensions |
 |---|---|---|
-| `agent_invocations_total` | Counter | agente, tenant, status |
-| `agent_invocation_duration_seconds` | Histogram | agente, workload, status |
-| `policy_decision_duration_seconds` | Histogram | policy, decisão |
+| `agent_invocations_total` | Counter | Agent, tenant, status |
+| `agent_invocation_duration_seconds` | Histogram | Agent, workload, status |
+| `policy_decision_duration_seconds` | Histogram | policy, decision |
 | `policy_denials_total` | Counter | policy, recurso, motivo controlado |
-| `model_invocations_total` | Counter | provedor, modelo, status |
-| `model_tokens_total` | Counter | provedor, modelo, tipo |
-| `model_cost_usd_total` | Counter | agente, unidade, provedor |
+| `model_invocations_total` | Counter | driver, model, status |
+| `model_tokens_total` | Counter | - a driver, model, type |
+| `model_cost_usd_total` | Counter | Agent, unit, driver |
 | `model_fallback_total` | Counter | provedor origem/destino |
 | `tool_executions_total` | Counter | ferramenta, status, risco |
-| `knowledge_retrieval_duration_seconds` | Histogram | base, estratégia |
-| `knowledge_authorization_filtered_total` | Counter | base, classificação |
-| `evaluation_score` | Gauge | agente, dataset, métrica |
+| `knowledge_retrieval_duration_seconds` | Histogram | base, strategy |
+| `knowledge_authorization_filtered_total` | Counter | base, classification |
+| `evaluation_score` | Gauge | agent, dataset, method |
 | `dlq_events_total` | Counter | evento, consumidor |
 
-Não usar IDs de usuário, sessão, documento ou correlation ID como labels de métricas.
+Don't use user IDs, session, document or ID correlation as metric labels.
 
-## SLOs de referência
+## SLOs reference
 
 | Capacidade | SLI | SLO | Janela |
 |---|---|---:|---|
 | `INTERACTIVE_SIMPLE` | P95 end-to-end | <= 5 s | 30 dias |
 | `INTERACTIVE_RAG` | P95 end-to-end | <= 8 s | 30 dias |
 | `INTERACTIVE_TOOL` | P95 end-to-end | <= 15 s | 30 dias |
-| Operação assíncrona | P95 de aceite | <= 2 s | 30 dias |
+| Sncron operation | P95 of ac | <= 2 s | 30 dias |
 | Knowledge retrieval | P95 | <= 2 s | 30 dias |
 | Policy decision | P95 | <= 100 ms | 30 dias |
 | Agent Gateway | Disponibilidade | >= 99,95% | 30 dias |
 | Agent Runtime | Disponibilidade | >= 99,9% | 30 dias |
 | Event publishing | Sucesso | >= 99,9% | 30 dias |
-| Audit recording crítico | Sucesso | >= 99,99% | 30 dias |
+| Critical audit | Sucesso | >= 99,99% | 30 dias |
 
 ## Alertas
 
-| Alerta | Condição | Severidade | Runbook |
+| Alerta | Condition | Severidade | Runbook |
 |---|---|---|---|
-| AgentErrorRateHigh | erro > 5% por 10 min | Alta | troubleshooting-agent-invocation |
-| SloBurnRateFast | burn rate > 14,4x por 5 min | Crítica | troubleshooting-agent-invocation |
-| ModelProviderLatencyHigh | P95 > limite por 15 min | Média | fallback de provedor |
-| ToolExecutionFailures | falha > 3% por 10 min | Alta | desabilitar tool crítica |
-| PolicyDenialsSpike | > 3x baseline | Média | revisar abuso/configuração |
-| CostBudgetExceeded | budget >= 100% | Alta | bloquear/degradar agente |
-| AuditRecordingFailure | qualquer falha por 5 min | Crítica | pausar ações críticas |
-| DLQBacklogGrowing | backlog crescente por 15 min | Alta | reprocessamento controlado |
+| AgentErrorRateHigh | error > 5% for 10 min | Alta | troubleshooting-agent-invocation |
+| SloBurnRateFast | burn rate > 14,4x for 5 min | Critics | troubleshooting-agent-invocation |
+| ModelProviderLatencyHigh | P95 > limit for 15 min | Medicine | a tampering |
+| ToolExecutionFailures | - 3% for 10 min | Alta | - Deabilitating critical tool |
+| PolicyDenialsSpike | > 3x baseline | Medicine | Re-examine abuse/configure |
+| CostBudgetExceeded | budget >= 100% | Alta | block/degrade agent |
+| AuditRecordingFailure | any failure for 5 min | Critics | reducing critical actions |
+| DLQBacklogGrowing | a growing backlog for 15 min | Alta | reprocessamento controlado |
 
-## Segurança de telemetria
+## Telemetry safety
 
-- não registrar prompt completo com dados pessoais ou classificação `CONFIDENTIAL`/`RESTRICTED`;
+- not to register complete prompt with personal data or classification `CONFIDENTIAL`/`RESTRICTED`;
 - mascarar CPF, e-mail, telefone, tokens, secrets e identificadores financeiros;
-- auditoria preserva evidência funcional, não payload sensível bruto;
-- traces usam IDs técnicos ou hashes;
-- acesso a traces sensíveis exige autorização e é auditado.
+- auditory preserves functional evidence, not a brute-sensible payload;
+- trace uses technical IDs or hashes;
+- access to sensitive trace requires authorization and is audited.

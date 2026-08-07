@@ -1,16 +1,16 @@
-# Arquitetura de Referência - Copilot Interno
+# Reference Access - Internal Copilot
 
-## Objetivo
+## Objet
 
-Disponibilizar um assistente corporativo interno para apoiar colaboradores em busca de conhecimento, orientação operacional e execução assistida de tarefas.
+Provide an internal supporter to support collaborators in the pursuit of knowledge, operational guidance and assisted execution of tasks.
 
-## Casos de Uso
+## Usage casings
 
-- Busca em políticas internas
-- Apoio a atendimento interno
-- Consulta a procedimentos
-- Geração de respostas com citação de fontes
-- Abertura assistida de chamados
+- Search for internal policies
+- I support the internal audit
+- Consult the procedures
+- - Redundant response with reference to sources
+- Assisted entry of calls
 
 ## Componentes Envolvidos
 
@@ -24,29 +24,29 @@ Disponibilizar um assistente corporativo interno para apoiar colaboradores em bu
 - Evaluation Service
 - Audit Service
 
-## Fluxo de Alto Nível
+## High-level flux
 
-1. Usuário acessa o AI Portal.
-2. Agent Gateway autentica e autoriza a solicitação.
-3. Agent Runtime executa o agente.
+1. User access to the AI Portal.
+2. Agent Gateway authentic and authorise the request.
+3. Agent Runtime executes the agent.
 4. Knowledge Service recupera documentos relevantes.
 5. Memory Service recupera contexto permitido.
-6. Agent Runtime chama o modelo fundacional.
-7. Evaluation Service avalia a resposta.
-8. Audit Service registra a execução.
+6. Agent Runtime is the basic model.
+7. Evaluation Service evaluates the answer.
+8. Audit Service records execution.
 
-## Requisitos de Governança
+## Government requirements
 
-- Aprovação do agente no AI Catalog
-- Classificação de risco
-- Base de conhecimento autorizada
-- Avaliação mínima de groundedness
-- Auditoria completa das interações
+- Agent amplification in the AI Catalog
+- Risk classification
+- Authorised knowledge base
+- Minimum groundedness assessment
+- Complete audit of the interactions
 
-## Métricas
+## Mechanics
 
-- Taxa de resolução sem escalonamento
+- Resolution rate without escalating
 - Groundedness score
-- Latência P95
-- Custo por interação
-- Satisfação do usuário
+- Latence P95
+- Care for interaction
+- Satisfaction of user

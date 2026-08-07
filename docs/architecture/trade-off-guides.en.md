@@ -1,53 +1,53 @@
 # Trade-off Guides
 
-Guias para apoiar decisões. Não são regras universais; a escolha deve considerar risco, volume, latência, custo, mutabilidade do conhecimento e capacidade operacional.
+Guidelines for supporting decisions. They are not universal rules; choice should consider risk, volume, latitude, cost, knowledge mutability and operational capacity.
 
 ## RAG × Fine-tuning × Long Context
 
-| Critério | RAG | Fine-tuning | Long Context |
+| Criteria | RAG | Fine-tuning | Long Context |
 |---|---|---|---|
-| Conhecimento muda com frequência | Melhor opção | Fraco | Adequado em baixo volume |
-| Citações e rastreabilidade | Forte | Fraco | Médio |
-| Personalizar estilo/comportamento | Médio | Forte | Médio |
-| Custo operacional | índice + retrieval | treino + hosting | tokens elevados |
-| Governança de fontes | Forte | difícil remover fatos | depende do contexto enviado |
+| Knowledge changes frequently | Better option | Fraco | Suitable at low volume |
+| Citations and rastreability | Forte | Fraco | Method |
+| Personalizar estilo/comportamento | Method | Forte | Method |
+| Custo operacional | Index + retrieval | treino + hosting | tokens elevados |
+| Source government | Forte | hard to remove fats | Depending on the context sent |
 
-**Padrão:** começar com prompt + RAG; usar fine-tuning para comportamento comprovadamente repetitivo; usar long context para conjuntos pequenos e controlados.
+**Pathoro:** start with prompt + RAG; use fine-tuning to behave completely repeatable; use long context for small and controlled groups.
 
 ## MCP × REST × Event-Driven
 
-| Critério | MCP | REST | Eventos |
+| Criteria | MCP | REST | Eventos |
 |---|---|---|---|
-| Tool calling por agentes | Forte | exige adapter | inadequado para resposta imediata |
-| APIs de domínio | Médio | Forte | Médio |
-| Processos longos | Médio | polling/callback | Forte |
-| Descoberta de contratos | nativa | OpenAPI | AsyncAPI/catalog |
+| Tool calling by agents | Forte | exige adapter | unadjusted for immediate response |
+| APIs of field | Method | Forte | Method |
+| Long-term processes | Method | polling/callback | Forte |
+| Contract discovery | nativa | OpenAPI | AsyncAPI/catalog |
 | Desacoplamento temporal | Fraco | Fraco | Forte |
 
-**Padrão:** MCP na interface do agente, REST no domínio e eventos para integração assíncrona e fatos de negócio.
+**Pathron:** MCP on the agent interface, REST in the field and events for assembly integration and business activities.
 
 ## Multi-Agent × Workflow × Single Agent
 
-| Opção | Use quando | Evite quando |
+| Opt | Use when | Hold on when |
 |---|---|---|
-| Single Agent | escopo limitado, poucas ferramentas | coordenação complexa e alto risco |
-| Workflow | sequência conhecida, gates e previsibilidade | problema realmente aberto |
-| Multi-Agent | especializações autônomas trazem ganho mensurável | apenas para simular organogramas |
+| Single Agent | escopo limitado, poucas ferramentas | complex coordination and high risk |
+| Workflow | knowledge, gates and forecast | problema realmente aberto |
+| Multi-Agent | Autônomal specialisations are gaining a little shit | only for organograms |
 
-**Padrão:** single agent primeiro; workflow quando há processo; multi-agent somente após evidência de ganho.
+**Pathoro:** single agent first; workflow when there is process; multi-agent only after evidence of gain.
 
-## Agentes síncronos × assíncronos
+## Syncroons  assyncroons
 
-- **Síncrono:** interações curtas, latência previsível, resposta necessária ao canal.
-- **Assíncrono:** tarefas longas, fan-out, retries, aprovação humana ou processamento em lote.
-- Para operações longas, retornar `202 Accepted`, `operationId` e endpoint/evento de status.
+- **Syncron:** short-term interactions, forecast readiness, response needed to the canal.
+- **Assembly:** long-term, fan-out, retries, human approval or lot processing.
+- For long-term operations, re-torn `202 Accepted`, `operationId` and endpoint/eventh of status.
 
 ## Graph DB × Vector DB × SQL
 
-| Banco | Melhor para | Não usar como padrão para |
+| Banco | Better for | Don't use as a padrister for a shit. |
 |---|---|---|
-| Vector DB | similaridade semântica e retrieval | transações e relacionamentos exatos |
-| Graph DB | relações profundas e travessias | simples lookup documental |
-| SQL | estado transacional, auditoria, metadados | busca semântica sem extensão vetorial |
+| Vector DB | symbiosis and retrieval similarity | Exact transactions and relations |
+| Graph DB | deep and thorny relationships | simples lookup documental |
+| SQL | estado transacional, auditoria, metadados | - a saline search without veterinary extension |
 
-**Padrão:** SQL como sistema de registro, vector index para retrieval e graph apenas quando travessias forem requisito central.
+**Pathron:** SQL as a register, vector index for retrieval and graph only when traces are central.

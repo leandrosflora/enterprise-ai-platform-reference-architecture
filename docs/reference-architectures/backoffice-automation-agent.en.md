@@ -1,16 +1,16 @@
-# Arquitetura de Referência - Agente de Automação Backoffice
+# Reference Approval - Backoffice Automapping Agent
 
-## Objetivo
+## Objet
 
-Automatizar tarefas operacionais repetitivas de backoffice usando agentes com integração a sistemas internos, workflow e governança de ações.
+Automate repeating operational tasks of backoffice using agents with integration of inter-systems, workflow and action governance.
 
-## Casos de Uso
+## Usage casings
 
-- Triagem de solicitações
-- Consulta e atualização de sistemas internos
-- Apoio a contestação
-- Preparação de documentos
-- Execução assistida de tarefas operacionais
+- Triage of requests
+- Consultation and updating of inter-systems
+- I support the contest
+- Preparation of documents
+- Operational operations assistance
 
 ## Componentes Envolvidos
 
@@ -24,27 +24,27 @@ Automatizar tarefas operacionais repetitivas de backoffice usando agentes com in
 - Governance Service
 - Billing Service
 
-## Fluxo de Alto Nível
+## High-level flux
 
-1. Evento ou solicitação inicia o processo.
-2. Agent Runtime interpreta o objetivo e consulta contexto.
-3. MCP Server executa ações em sistemas autorizados.
-4. Workflow recebe status e próximos passos.
-5. Casos críticos são enviados para revisão humana.
-6. Audit Service registra decisões, comandos e evidências.
+1. Event or request begins the process.
+2. Agent Runtime interprets the objective and consults context.
+3. MCP Server executes actions in auto-controlled systems.
+4. Workflow gets status and next steps.
+5. Critical cases are sent to human review.
+6. Audit Service records decisions, commands and evidence.
 
-## Controles
+## Controls
 
-- Idempotência para comandos
-- Aprovação humana para ações irreversíveis
-- Limite de autonomia por risco
-- Segregação de funções
-- Auditoria obrigatória de tool calls
+- Idempotence for commands
+- Human amplification for irreversible actions
+- Risk limit
+- Segregation of functions
+- Auditoria obligatory of tool calls
 
-## Métricas
+## Mechanics
 
-- Tempo economizado por processo
-- Volume de tarefas automatizadas
-- Taxa de erro operacional
-- Taxa de intervenção humana
-- Custo por processo
+- Economic time for process
+- Automated tasks volume
+- Operative error rate
+- Human intervention rate
+- Care for the procedure

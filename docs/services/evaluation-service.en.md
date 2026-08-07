@@ -1,22 +1,22 @@
 # Evaluation Service
 
-## Visão Geral
+## General view
 
-O Evaluation Service avalia a qualidade das respostas geradas por agentes: groundedness, relevância, alucinação, toxicidade e regressão de qualidade. É consultado pelo Agent Runtime a cada invocação e pela Governance Service durante a aprovação de agentes.
+The Evaluation Service evaluates the quality of responses given by agents: based, relevance, alucine, toxicity and quality return. It is recommended by Agent Runtime to each injection and by Governance Service during the approval of agents.
 
 ## Responsabilidades
 
-- Avaliar groundedness e relevância das respostas
-- Detectar alucinação e toxicidade
-- Executar avaliações de regressão para novas versões de agentes
-- Publicar resultado de avaliação para consumo por Governance e Audit
-- Suportar avaliação síncrona (bloqueante, para aprovação) e assíncrona (pós-execução, para monitoramento contínuo)
+- Assess the basis and relevance of responses
+- Detecting alucineation and toxicity
+- Execute return assessments for new agents versions
+- Publication of the results of evaluation for consumption by Governance and Audit
+- Suporting syncrone (bloquer, for approval) and assyncrone (post-exercise, for continuous monitoring)
 
-## Fora de Escopo
+## Out of the scuff
 
-- Execução do agente
-- Decisão final de aprovação (cabe à Governance Service, que consome o resultado da avaliação)
-- Cálculo de custo
+- Officer's supervision
+- End decision of approval (with Governance Service, which relates to the outcome of the evaluation)
+- Cost calculator
 
 ## API Principal
 
@@ -25,28 +25,28 @@ POST /evaluations
 GET /evaluations/{id}
 ```
 
-## Dependências
+## Dependencies
 
-| Dependência | Uso |
+| Dependence | Uso |
 |---|---|
-| Agent Runtime | Origem das respostas avaliadas |
-| Governance Service | Consome resultado para decisão de aprovação |
-| Kafka | Publica e consome eventos de avaliação |
+| Agent Runtime | Origin of the responses evaluated |
+| Governance Service | Contained results for approval decision |
+| Kafka | Publication and consorting evaluation events |
 
 ## Eventos Publicados
 
 - `evaluation.started`
 - `evaluation.completed`
 
-## Requisitos Não Funcionais
+## Non-functioning requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Latência | Avaliação assíncrona não deve bloquear a resposta ao usuário |
-| Consistência | Critérios de avaliação versionados e reprodutíveis |
-| Auditoria | Todo resultado de avaliação é rastreável a uma invocação ou versão de agente |
-| Escalabilidade | Suporta avaliação em lote para regressão |
+| Latence | Singular evaluation must not block the answer to the user |
+| Consistency | Detailed and reproducible evaluation criteria |
+| Auditoria | All evaluation results are based on an invitation or agent version |
+| Escalabilidade | Assessment in lot for return |
 
-## Decisões Relacionadas
+## Related Decisions
 
-- [ADR-007 — Avaliação híbrida e contínua de IA](../adrs/007-evaluation-strategy.md)
+- (ADR-007 — Hybrid and IA summary assessment)(../adrs/007-evaluation-strategy.md)

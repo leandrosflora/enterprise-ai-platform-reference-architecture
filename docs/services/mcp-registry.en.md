@@ -2,11 +2,11 @@
 
 ## Responsabilidades
 
-- Catálogo de MCP Servers
-- Descoberta de ferramentas
+- MCP Servers
+- Find out about the tools
 - Versionamento
-- Políticas de acesso
-- Governança de tools
+- Access policies
+- Tools administration
 
 ## Metadados
 
@@ -22,7 +22,7 @@ GET /tools
 GET /tools/{toolId}
 POST /tools
 
-## Integrações
+## Integrations
 
 - Agent Runtime
 - Governance Service

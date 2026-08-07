@@ -1,209 +1,209 @@
-# Glossário
+# Glossary
 
 ## ABAC
 
-Attribute-Based Access Control. Autorização baseada em atributos do usuário, workload, recurso, contexto, tenant, finalidade e classificação.
+Access Control based on user attributes, workload, resources, context, tenant, finality and classification.
 
 ## Agent Gateway
 
-Fronteira de entrada para invocações de agentes. Aplica autenticação, rate limit, roteamento, validação e propagação de contexto.
+Entry border for agents' voices.
 
 ## Agent Registry
 
-Catálogo técnico de agentes, versões, owners, status, risco, modelos, tools e bases de conhecimento permitidas.
+Technical agent catalog, versions, owners, status, risk, models, tools and knowledge bases allowed.
 
 ## Agent Runtime
 
-Ambiente responsável por executar o agente, montar contexto, aplicar políticas, chamar modelos, conhecimento, memória e ferramentas.
+Ambient responsible for executing the agent, putting context, applying policies, chasing models, knowledge, memory and tools.
 
 ## AI Catalog
 
-Inventário corporativo de casos de uso, agentes, modelos, riscos, owners, decisões e status de ciclo de vida.
+Corporate inventory of cases of use, agents, models, risks, owners, decisions and life cycle status.
 
 ## AI Platform
 
-Conjunto de capacidades, padrões, serviços e processos que permite criar e operar soluções de IA com autonomia controlada.
+Combined with capacities, procedures, services and processes that allow to create and operate IA solutions with controlled autonomy.
 
 ## Baseline
 
-Referência usada para comparar uma versão: versão anterior, processo humano, modelo mais simples ou threshold aprovado.
+Reference used to compare a version: previous version, human process, more simple model or threshold approved.
 
 ## Capability
 
-Habilidade organizacional ou técnica que descreve o que a plataforma precisa conseguir fazer, sem depender de uma tecnologia específica.
+Organisational or technical stability describing what the platform needs to do without depending on a specific technology.
 
 ## Chunk
 
-Trecho derivado de um documento para indexação e retrieval. Deve preservar provenance, classificação e autorização.
+- A document for indexing and retrieval should be preserved from origin, classification and authorisation.
 
 ## Control Plane
 
-Plano responsável por cadastro, configuração, governança, policies, avaliação, catálogos e promoção de versões.
+Responsible for each other, configuration, governance, policies, evaluation, catalogs and promotion of versions.
 
 ## Correlation ID
 
-Identificador propagado entre componentes para correlacionar uma execução ponta a ponta.
+Identifier distributed between components to rectify a point-to-point execution.
 
 ## Data Plane
 
-Plano que executa invocações, retrieval, memória, modelos, tools e telemetria em tempo de execução.
+Plan to execute invokes, retrieval, memory, models, tools and telemetry in time of execution.
 
-## Dataset de avaliação
+## Assessment date
 
-Conjunto versionado de entradas, contexto, respostas esperadas, rubricas e cenários negativos usado para medir comportamento.
+Combined version of entries, context, responses, rubrics and negative content used to measure behaviour.
 
 ## Deny by default
 
-Princípio em que o acesso é negado quando nenhuma regra explícita permite a operação.
+The principle that access is negated when no explicit rule allows operation.
 
 ## Embedding
 
-Representação vetorial de conteúdo usada em similaridade e retrieval. Modelo e versão precisam ser identificáveis.
+Veterinary representation of content used in similarity and retrieval. Model and version must be identified.
 
 ## Error budget
 
-Tolerância de falha derivada do SLO, usada para equilibrar confiabilidade e velocidade de mudança.
+Miss tolerance of the SLO, used to balance confidentiality and change speed.
 
 ## Evaluation
 
-Medição sistemática de qualidade, retrieval, groundedness, segurança, tools, desempenho, confiabilidade e custo.
+Quality, retrieval, stability, safety, tools, performance, reliability and cost.
 
 ## Evidence bundle
 
-Pacote reproduzível de artefatos que sustenta uma decisão de publicação.
+Reproduction sheet of paper which supports a publication decision.
 
 ## Fine-tuning
 
-Ajuste de parâmetros de um modelo usando um dataset para alterar comportamento, formato ou capacidade específica.
+Adjusting parameters of a model using a dataset to change behaviour, format or specific capacity.
 
 ## Foundation Model
 
-Modelo de propósito geral treinado em grande escala e usado como base para aplicações e agentes.
+Model of general prophecy trained in large scale and used as a basis for applications and agents.
 
 ## Golden path
 
-Caminho suportado e automatizado para construir, avaliar, aprovar, publicar e operar uma solução.
+Supported and automated way to build, evaluate, approve, publish and operate a solution.
 
 ## Groundedness
 
-Grau em que uma resposta é sustentada pelas evidências disponibilizadas ao modelo.
+It is clear that a response is backed by the evidence available to the model.
 
 ## Guardrail
 
-Controle que limita entrada, saída ou comportamento. Guardrails probabilísticos não substituem autorização determinística.
+Control which limits entry, exit or behaviour. Probabilistic rails do not replace deterministic authorisation.
 
 ## HITL
 
-Human in the loop. A execução pausa até uma decisão humana.
+Human in the loop. Implementation is a matter of human decision.
 
-## Idempotência
+## Idempotence
 
-Propriedade que permite repetir uma operação sem produzir efeitos adicionais indevidos.
+Propriety to allow repeating a operation without producing adverse effects.
 
 ## Indirect prompt injection
 
-Instrução maliciosa ou conflitante inserida em conteúdo recuperado, páginas, documentos ou resultados de ferramentas.
+- Instructing a slut or conflicting in the content recovered, pages, documents or results of machinery.
 
 ## Knowledge Base
 
-Coleção governada de documentos e chunks disponíveis para retrieval sob políticas específicas.
+Regulatory collection of documents and pieces available for retrieval under specific policies.
 
 ## Long-term Memory
 
-Memória persistida além da sessão atual. Exige finalidade, origem, confiança, TTL e consentimento quando aplicável.
+Memory persists beyond the present session, exige finality, origin, trust, TTL and consent when applicable.
 
 ## MCP
 
-Model Context Protocol. Protocolo para exposição e descoberta padronizada de ferramentas e recursos para modelos e agentes.
+Protocol for the installation and discovery of a padronized form of tools and resources for models and agents.
 
 ## Memory poisoning
 
-Inserção de conteúdo incorreto, malicioso ou não autorizado na memória para influenciar execuções futuras.
+Insertment of inappropriate, malicious or unauthorised content in memory to influence future executions.
 
 ## Model Gateway
 
-Camada que abstrai provedores e aplica roteamento, políticas, observabilidade, limites, fallback e controle de custo.
+Came that I sneezed testers and applied roteament, policies, observability, limits, fallback and cost control.
 
 ## Model routing
 
-Seleção de modelo com base em capacidade, qualidade, região, custo, latência e disponibilidade.
+Model selection based on capacity, quality, region, cost, latitude and availability.
 
 ## Multi-agent
 
-Arquitetura em que múltiplos agentes especializados colaboram ou delegam tarefas entre si.
+Arquivalence in which special agents collaborate or deceive ties between you.
 
 ## NFR
 
-Non-Functional Requirement. Requisito de segurança, confiabilidade, desempenho, privacidade, custo, suporte ou operação.
+Non-Functional requirement. Safety, confidentiality, performance, privacy, cost, support or operation.
 
 ## OIDC
 
-OpenID Connect. Protocolo de identidade construído sobre OAuth 2.0.
+OpenID Connect. Identity protocol built on OAuth 2.0.
 
 ## Policy Decision Point
 
-Componente que avalia políticas e produz uma decisão de autorização ou controle.
+Component that evaluates policies and makes a decision to authorise or control.
 
 ## Policy Enforcement Point
 
-Componente que intercepta uma operação e aplica a decisão de política.
+Component to intercept an operation and apply the policy decision.
 
 ## Prompt
 
-Conjunto de instruções, mensagens e contexto fornecido ao modelo. Deve ser versionado quando afeta o comportamento do produto.
+A set of instructions, messages and context provided to the model.
 
 ## Provenance
 
-Informações sobre origem, versão, transformações e cadeia de processamento de um dado ou artefato.
+Information on origin, version, transformations and processing of a given or a knife.
 
 ## RAG
 
-Retrieval-Augmented Generation. Padrão que recupera evidências externas e as fornece ao modelo durante a geração.
+Retrieval-Augmented Generation. It will restore external evidence and provide the model during generation.
 
 ## RBAC
 
-Role-Based Access Control. Autorização baseada em papéis.
+Role-Based Access Control. Authorisation based on paper.
 
 ## Reranking
 
-Reordenação dos resultados de retrieval usando um modelo ou algoritmo adicional.
+Re-ordinating the retrieval results using an additional model or algorithm.
 
 ## Retrieval
 
-Processo de localizar evidências relevantes e autorizadas para uma consulta.
+Procedure to locate relevant evidence and authorized for a consultation.
 
 ## Risk tier
 
-Classe de risco que determina controles, evidências, revisões e gates aplicáveis.
+Risk class determining controls, evidence, revisions and gates applicable.
 
 ## Session Memory
 
-Contexto efêmero limitado à sessão e ao sujeito autorizado.
+The effect limit to the sitting and the subject authorised.
 
 ## Shadow evaluation
 
-Execução de uma nova versão ou modelo em paralelo, sem usar sua resposta para afetar o usuário, para comparação segura.
+Implementation of a new version or model in parallel, without using your answer to affect the user, for safe comparison.
 
 ## SLO
 
-Service Level Objective. Objetivo mensurável de disponibilidade, latência, sucesso ou outra característica operacional.
+Service Level Objective. Minimum availability, consistency, success or other operational characteristics.
 
 ## System of record
 
-Sistema autoritativo para dados e estados transacionais. Memória de agente não deve assumir esse papel.
+A centralized database and transaccountable state system, the agent's memory must not cover that role.
 
 ## Tenant
 
-Unidade lógica de isolamento, como empresa, área, cliente ou ambiente.
+Liquid isolation unit, such as company, area, customer or environment.
 
 ## Tool
 
-Capacidade externa invocada pelo agente por contrato estruturado. Pode consultar dados ou produzir efeitos.
+External capacity invoked by the contracting agent.
 
 ## Vertical slice
 
-Implementação mínima ponta a ponta usada para demonstrar contratos, fluxos e controles da arquitetura.
+Minimum implementation of the maximum use point to demonstrate contracts, flows and controls of the architecture.
 
 ## Workload class
 
-Categoria operacional usada para definir SLOs e limites diferentes, como interação simples, RAG, tool call ou processamento assíncrono.
+Operational category used to define SLOs and different limits, such as simple interaction, RAG, tool call or assyncron processing.

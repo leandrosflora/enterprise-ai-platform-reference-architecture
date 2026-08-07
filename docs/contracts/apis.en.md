@@ -1,4 +1,4 @@
-# APIs da Plataforma
+# APIs of the Plataform
 
 ## Agent Gateway
 

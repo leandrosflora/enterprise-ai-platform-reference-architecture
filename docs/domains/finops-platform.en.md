@@ -1,8 +1,8 @@
 # FinOps Platform
 
-## Objetivo
+## Objet
 
-Controlar, atribuir e otimizar custos de IA por agente, modelo, área e caso de uso.
+Control, assign and otimidate the costs of A by agent, model, area and case of use.
 
 ## Capacidades
 
@@ -13,7 +13,7 @@ Controlar, atribuir e otimizar custos de IA por agente, modelo, área e caso de 
 - Budget Control
 - Model Cost Comparison
 
-## Serviços Relacionados
+## Relacionated services
 
 - Billing Service
 - Agent Runtime
@@ -28,17 +28,17 @@ Controlar, atribuir e otimizar custos de IA por agente, modelo, área e caso de 
 
 ## KPIs
 
-| Indicador | Descrição |
+| Indicador | Description |
 |---|---|
-| Cost per Agent | Custo por agente |
-| Cost per Model | Custo por modelo |
-| Cost per Business Unit | Custo por área |
-| Token Growth | Crescimento de consumo de tokens |
+| Cost per Agent | Care by agent |
+| Cost per Model | Care for model |
+| Cost per Business Unit | Care for area |
+| Token Growth | Consumption of tokens |
 
-## Requisitos Não Funcionais
+## Non-functioning requirements
 
-- Coleta de tokens por execução
-- Custo atribuído por tenant e área
+- Set of tokens for execution
+- Care allocated by tenant and area
 - Dashboards executivos
-- Alertas de orçamento
-- Comparação de modelos por custo e qualidade
+- Budget alerts
+- Comparison of models by cost and quality

@@ -1,25 +1,25 @@
 # Model Selection Framework
 
-## Objetivo
+## Objet
 
-Selecionar modelos com base em evidências do caso de uso, evitando decisões orientadas apenas por benchmark genérico, marca ou tamanho.
+Select models on the basis of evidence of the use case, avoiding decisions based only on genetic benchmark, mark or size.
 
-## Critérios
+## Criteria
 
-| Dimensão | Perguntas |
+| Dimensive | Perguntas |
 |---|---|
-| Qualidade | O modelo atinge os thresholds no golden dataset? |
-| Modalidade | Suporta texto, imagem, áudio ou documentos exigidos? |
-| Contexto | A janela efetiva atende o caso sem degradar qualidade? |
-| Tool use | Chama ferramentas com precisão e segue schema? |
-| Segurança | Resiste a ataques e atende políticas de conteúdo? |
-| Privacidade | Qual é a política de retenção, treinamento e residência? |
-| Latência | Atende p95 e throughput esperados? |
-| Custo | Qual é o custo por tarefa bem-sucedida, não apenas por token? |
-| Operação | Há SLA, observabilidade, quotas e fallback? |
-| Portabilidade | O contrato reduz lock-in e permite substituição? |
+| Qualidade | The model hits the thresholds in the golden dataset? |
+| Modalidade | Do you suggest text, image, audio or required documents? |
+| Contexto | The window screams at the case without degraded quality? |
+| Tool use | Do you call the tools with a need and a second schema? |
+| Security | Do you stand up to attacks and take account policies? |
+| Privacidade | What's the retention policy, training and residence? |
+| Latence | Atende p95 e throughput esperados? |
+| Custo | What's the cost for being well-suced, not just for token? |
+| Operation | SLA, observation, quotas and fallback? |
+| Portabilidade | Does the contract reduce lock-in and allow replacement? |
 
-## Processo
+## Procedure
 
 ```mermaid
 flowchart LR
@@ -34,71 +34,71 @@ flowchart LR
 
 ## Scorecard sugerido
 
-| Critério | Peso inicial |
+| Criteria | Peso inicial |
 |---|---:|
-| Qualidade no caso de uso | 30% |
-| Segurança e compliance | 20% |
-| Latência e disponibilidade | 15% |
-| Custo por tarefa | 15% |
+| Quality in the case of use | 30% |
+| Security and compliance | 20% |
+| Latitude and availability | 15% |
+| Care for task | 15% |
 | Tool use e structured output | 10% |
 | Operabilidade e portabilidade | 10% |
 
-Os pesos devem mudar conforme o risco. Para casos CRITICAL, segurança, explicabilidade e compliance prevalecem sobre custo.
+The weight must change according to the risk. In cases of CRITICAL, safety, explanation and compliance, costs should be assessed.
 
-## Classes de modelo
+## Model classes
 
-| Classe | Uso típico | Trade-off |
+| Classe | Typical use | Trade-off |
 |---|---|---|
-| Pequeno e rápido | classificação, roteamento, extração simples | menor capacidade de raciocínio |
-| Geral balanceado | chat, RAG e automação comum | custo e latência médios |
-| Reasoning | planejamento, análise complexa e código | maior custo e tempo |
-| Embedding | busca semântica e clustering | exige avaliação específica do corpus |
-| Multimodal | documentos, imagens e áudio | custo e riscos adicionais de privacidade |
-| Especializado/fine-tuned | domínio ou formato restrito | manutenção e lock-in maiores |
+| Small and quick | classification, coding, simple extraction |                                                                                                                                                                                                 |
+| Geral balanceado | chat, RAG and common automapping | - Care and medium-sized lattice |
+| Reasoning | Planning, complex analysis and code | maior custo e tempo |
+| Embedding | syringe and clustering | Specific assessment of the body |
+| Multimodal | documents, images and audio | costs and additional risk of privacy |
+| Especializado/fine-tuned | a field or restricted format | maintenance and lock-in larger |
 
-## Router de modelos
+## Model Router
 
-O Model Gateway pode rotear por:
+Model Gateway can be rote by:
 
-- risco e classificação dos dados;
-- complexidade da tarefa;
+- risk and classification of data;
+- complexity of the task;
 - modalidade e idioma;
-- latência disponível;
+- available latability;
 - budget;
-- disponibilidade do provedor;
-- requisitos de residência;
+- the availability of the driver;
+- residence requirements;
 - desempenho observado.
 
-Fallback não deve reduzir silenciosamente segurança ou qualidade. Mudanças de modelo precisam ser registradas no trace e avaliadas por regressão.
+Fallback should not be a relatively low risk or quality. Model changes need to be recorded in the trace and evaluated by return.
 
 ## Benchmark correto
 
-- usar dados reais anonimizados ou sintéticos representativos;
+- using real anonimidated or representative statistical data;
 - medir tarefa completa, incluindo retrieval e ferramentas;
-- repetir testes para variabilidade;
+- repeating tests for variability;
 - avaliar idiomas e segmentos relevantes;
-- separar qualidade média de falhas críticas;
-- medir custo por resposta aprovada ou tarefa concluída;
-- registrar versão exata do modelo e parâmetros.
+- separate the medium quality of critical statements;
+- reducing costs by a satisfactory response or final task;
+- registrating exat version of the model and slacks.
 
-## ADR mínimo
+## Minimum ADR
 
-A decisão deve documentar:
+The decision must document:
 
-- modelos avaliados e motivo da shortlist;
+- models assessed and the reason for the shortlist;
 - dataset, rubrica e thresholds;
-- resultados de qualidade, segurança, custo e latência;
-- restrições contratuais e de dados;
-- modelo primário e fallback;
-- riscos residuais;
-- gatilhos para reavaliação.
+- quality, safety, cost and consistency;
+- contractual restrictions and data;
+- first model and fallback;
+- residual risks;
+- - a re-evaluation pig.
 
-## Gatilhos de reavaliação
+## Revaluation tips
 
-- nova versão do modelo;
-- mudança de preço ou SLA;
-- regressão detectada;
-- incidente de segurança;
-- nova exigência regulatória;
-- aumento relevante de volume;
-- alteração de domínio, idioma ou fonte de dados.
+- new version of the model;
+- price change or SLA;
+- relapse detected;
+- security incident;
+- new regulatory requirement;
+- volume increase;
+- Change in the domain, language or source of data.
