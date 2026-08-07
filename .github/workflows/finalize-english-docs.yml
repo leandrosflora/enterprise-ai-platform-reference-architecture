@@ -7,6 +7,7 @@ on:
     paths:
       - scripts/finalize_english_prose.py
       - scripts/polish_english_terms.py
+      - scripts/polish_english_final.py
       - .github/workflows/finalize-english-docs.yml
   workflow_dispatch:
 
@@ -33,6 +34,9 @@ jobs:
       - name: Polish key English terminology
         run: python scripts/polish_english_terms.py
 
+      - name: Apply final editorial polish
+        run: python scripts/polish_english_final.py
+
       - name: Commit normalized English prose
         shell: bash
         run: |
@@ -41,7 +45,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -- "${changed_files[@]}"
-            git commit -m "fix: polish English documentation terminology"
+            git commit -m "fix: finalize English documentation terminology"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           else
             echo "No English prose normalization changes required"
