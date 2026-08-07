@@ -2,7 +2,7 @@
 
 ## Objective
 
-Control, assign and optimize AI costs per agent, model, area and case of use.
+Control, assign and optimize AI costs per agent, model, area and use case.
 
 ## Capacities
 

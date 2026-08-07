@@ -11,7 +11,7 @@ Establishing a reproducible approach to assess quality, safety, cost and impact 
 | component | Does retriever, prompt, model or tool work in isolation? | recall@k, precision@k, schema validity, tool success |
 | System | Does the application deliver a correct and safe response tip by tip? | groundedness, answer relevance, task success, toxicity |
 | Operation | Does the service meet SLO and budget? | latency, error, tokens, cost, availability |
-| Business | Does the case of use generate the expected result? | conversion, saved time, resolution, satisfaction |
+| Business | Does the use case generate the expected result? | conversion, saved time, resolution, satisfaction |
 
 ## Types of assessment
 
@@ -33,7 +33,7 @@ Suitable for scale and relative comparison, but it should not be the only eviden
 
 ## Golden dataset
 
-Each case of use must keep a set versioned with:
+Each use case must keep a set versioned with:
 
 - happy paths;
 - borderline cases;

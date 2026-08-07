@@ -10,10 +10,10 @@ To classify risks of AI, to define proportional controls and to establish verifi
 |---|---|
 | Security | Prompt injection, tool abuse, exfiltration, excessive agency. |
 | Privacy and compliance | LGPD, retention, consent, international transfer. |
-| operational | Unavailability, integration failures, model degradation. |
+| Operational | Unavailability, integration failures, model degradation. |
 | Model | Hallucination, bias, toxicity, regression and low explainability. |
-| Financial party | Unexpected consumption, lack of quotas and chargeback. |
-| Reputacional | Inadequate responses and opaque decisions. |
+| Financial | Unexpected consumption, lack of quotas and chargeback. |
+| Reputational | Inadequate responses and opaque decisions. |
 
 ## Classification
 
@@ -30,7 +30,7 @@ To classify risks of AI, to define proportional controls and to establish verifi
 |---|---:|---|---|
 | Direct/indirect prompt injection | HIGH | Instruction segmentation, content scanning, tool allowlist, adversarial evaluation | attack tests and blocking logs |
 | Data leakage | CRITICAL | classification, masking, tenant isolation, DLP, output filtering | isolation test and classification report |
-| Tool abuse | HIGH | minimum scopes, policy enforcement, inadequacy, human approval | approved contract, authorisation matrix, events |
+| Tool abuse | HIGH | minimum scopes, policy enforcement, idempotency, human approval | approved contract, authorisation matrix, events |
 | Excessive agency | HIGH | limits of autonomy, transaction boundary, human-in-the-loop | blockage and rollback scenarios |
 | Hallucination | MEDIUM | RAG, citations, groundedness, fallback | dataset and assessment report |
 | Poisoned knowledge | HIGH | provenance, quarantine, source approval, controlled re-indexation | checksum, lineage and malicious content test |
@@ -40,14 +40,14 @@ To classify risks of AI, to define proportional controls and to establish verifi
 | Provider outage | MEDIUM | timeout, circuit breaker, bulkhead, fallback | resilience test and runbook |
 | Unexpected cost | MEDIUM | quotas, budgets, rate limits, alerts and blocks | dashboard and limit test |
 | Lack of traceability | HIGH | trace context, audit trail, retention and policy version | trace and audit event |
-| Quality requirement | MEDIUM | baseline, regression dataset and gate de deploy | comparative report |
+| Quality regression | MEDIUM | baseline, regression dataset and deployment gate | comparative report |
 | Inappropriate access to KB | HIGH | ACL per document/chunk, ABAC and server-side filters | Access test denied |
 
 ## Level controls
 
 | control | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
-| Owner definido | Obligatory | Obligatory | Obligatory | Obligatory |
+| Owner defined | Obligatory | Obligatory | Obligatory | Obligatory |
 | Automatic assessment | Obligatory | Obligatory | Obligatory | Obligatory |
 | AI Architect Review | Option | Obligatory | Obligatory | Obligatory |
 | Security review | According to scope | According to scope | Obligatory | Obligatory |
@@ -63,21 +63,21 @@ To classify risks of AI, to define proportional controls and to establish verifi
 - Agent Card versioned;
 - risk assessment with justification;
 - reproducible evaluation report;
-- security review and threat model of the case of use;
+- security review and threat model of the use case;
 - LGPD review when there is personal data;
 - authorisation matrix;
 - traces, dashboards and alerts;
 - budget and quotas;
-- rollback plane;
-- runbook operational.
+- rollback plan;
+- operational runbook.
 
-## Publication banks
+## Publication gates
 
 | Gate | Condition |
 |---|---|
 | G1 — Design | domain, contracts, data, dependencies and owner defined |
 | G2 — Security/LGPD | approved classification, authorisation and threat model |
-| G3 — Evaluation | thresholds of the case of use achieved |
+| G3 — Evaluation | thresholds of the use case achieved |
 | G4 — Observability | telemetry and validated warnings |
 | G5 — FinOps | budget, quota and allocation |
 | G6 — Operational readiness | runbook, capacity, backup and rollback tested |
@@ -85,7 +85,7 @@ To classify risks of AI, to define proportional controls and to establish verifi
 
 ## Quality Thresholds
 
-Thresholds are defined by case of use and dataset.
+Thresholds are defined by use case and dataset.
 
 | Metrics | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|

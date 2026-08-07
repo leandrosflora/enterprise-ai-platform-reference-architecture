@@ -26,7 +26,7 @@ The components and services described represent a logical decomposition of capab
 | Arquiteto | Chapters 1 to 7 | mastering capacities, decisions, boundaries and trade-offs |
 | Platform engineering | Chapters 2, 4, 5, 6 and 8 | Transforming the reference into implementing and operable backlog |
 | Security, Legal and LGPD | Chapters 3, 4, 5 and 8 | identify gates, evidence, classification and responsibilities |
-| Product squad | Chapters 1, 4, 5 and 8 | structure a case of use and publish it by golden path. |
+| Product squad | Chapters 1, 4, 5 and 8 | structure a use case and publish it by golden path. |
 | SRE and FinOps | Chapters 2, 4, 7 and 8 | define SLOs, capacity, incidents, budgets and accountability |
 
 ## Parts of the book

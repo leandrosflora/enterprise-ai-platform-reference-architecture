@@ -65,5 +65,5 @@ The decision shall record:
 - expected cost;
 - data and classification;
 - need for explainability
-- assessment strategy;
+- evaluation strategy;
 - fallback and rollback.

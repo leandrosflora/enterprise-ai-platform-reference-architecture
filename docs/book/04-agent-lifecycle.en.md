@@ -2,7 +2,7 @@
 
 ## Objective
 
-The life cycle ensures that each version of the agent has identity, owner, evidence, controls and an operational strategy.The governed unit should be the **published version**, not only the name of the agent.
+The life cycle ensures that each version of the agent has identity, owner, evidence, controls and an operational strategy. The governed unit should be the **published version**, not only the name of the agent.
 
 ```mermaid
 flowchart LR
@@ -41,7 +41,7 @@ Current contracts use the technical states defined in [`openapi.yaml`](../contra
 - who is the user?
 - which decision or task will be improved?
 - which metric will demonstrate value?
-- Why AI is needed?
+- Why is AI needed?
 
 ### Minimum output
 
@@ -58,13 +58,13 @@ Do not advance when the problem is just “to use AI” or when there is no owne
 
 ### Activities
 
-- rating risk;
+- classifying risk;
 - classifying data;
 - identifying tools and side effects;
 - defining the need for RAG and memory;
-- estimate volume, latency and cost;
-- check for existing solutions;
-- define delivery route.
+- estimating volume, latency and cost;
+- checking for existing solutions;
+- defining the delivery route.
 
 ### Artifacts
 
@@ -76,7 +76,7 @@ Do not advance when the problem is just “to use AI” or when there is no owne
 
 ### Gate
 
-Non-purpose cases, applicable legal basis, data owner or strategy for critical actions do not follow for design.
+Cases without a defined purpose, applicable legal basis, data owner, or strategy for critical actions do not proceed to design.
 
 ## Stage 3 — Design
 
@@ -85,11 +85,11 @@ Non-purpose cases, applicable legal basis, data owner or strategy for critical a
 - deterministic agent or workflow;
 - synchronous or asynchronous;
 - model and routing policy;
-- borders between runtime, registration systems and tools;
+- boundaries between runtime, systems of record and tools;
 - authorisation of knowledge and memory;
 - SLO and fallback;
 - telemetry and events;
-- assessment strategy;
+- evaluation strategy;
 - rollback and deactivation.
 
 ### Artifacts
@@ -103,7 +103,7 @@ Non-purpose cases, applicable legal basis, data owner or strategy for critical a
 
 ### Gate
 
-The architecture must demonstrate how policies are applied during the execution.Document-only controls are not sufficient for material risks.
+The architecture must demonstrate how policies are applied during execution. Document-only controls are not sufficient for material risks.
 
 ## Stage 4 — Build
 
@@ -122,7 +122,7 @@ The architecture must demonstrate how policies are applied during the execution.
 
 ### Automatically generated evidence
 
-- commit and build immutable;
+- immutable commit and build;
 - SBOM or inventory of dependencies;
 - scanner results;
 - prompt version and configuration;
@@ -141,7 +141,7 @@ The assessment should separate different dimensions to avoid an aggregate note t
 | Safety | prompt injection resistance, leakage, harmful completion |
 | Tool use | selection accuracy, argument validity, side-effect safety |
 | Performance | p50, p95, timeout rate, queue time |
-| Cost | cost per invocation, task completed and user |
+| Cost | cost per invocation, completed task and user |
 | Reliability | success rate, fallback rate, dependency errors |
 
 ### Baseline
@@ -184,9 +184,9 @@ Examples of conditions:
 - initial user limit;
 - internal channel only;
 - HITL for a given action;
-- Daily budget;
+- daily budget;
 - model restricted to one region;
-- 30 days review;
+- review after 30 days;
 - feature flag.
 
 ## Stage 7 — Publish
@@ -223,9 +223,9 @@ Operations require simultaneous observation of:
 - policy violations;
 - cost;
 - behavior by model and version;
-- User feedback.
+- user feedback.
 
-The correlation between `agentId`, `agentVersion`, `modelId`, `sessionId`, `tenantId` and `correlationId` it is essential for diagnosis.
+The correlation between `agentId`, `agentVersion`, `modelId`, `sessionId`, `tenantId` and `correlationId` is essential for diagnosis.
 
 ## Stage 9 — Review
 
@@ -243,14 +243,14 @@ Review triggers:
 
 The review may result in a new version, restriction, suspension or withdrawal.
 
-## Stage 10 — Remove
+## Stage 10 — Retire
 
 Withdrawal must consider:
 
 - blocking of new invocations;
 - migration of consumers;
 - withdrawal of credentials and scopes;
-- elimination or anonymity of memory;
+- deletion or anonymization of memory;
 - retention of audit evidence;
 - removal of exclusive knowledge sources;
 - closure of budgets and alerts;
@@ -283,7 +283,7 @@ Not all files need to use these formats, but the information needs to exist and 
 |---|---:|---:|---:|---:|
 | owner and catalogue | Compulsory | Compulsory | Compulsory | Compulsory |
 | Contract tests | Compulsory | Compulsory | Compulsory | Compulsory |
-| quality assessment | sample | dates | dataset + baseline | dataset + independent review |
+| quality assessment | sample | dataset | dataset + baseline | dataset + independent review |
 | threat model | simplified | Compulsory | detailed | detailed + formal review |
 | HITL | optional | by action | Generally mandatory | obligatory for permitted actions |
 | Independent approval | optional | as policy | Compulsory | multiple functions |
@@ -292,4 +292,4 @@ Not all files need to use these formats, but the information needs to exist and 
 
 ## Next chapter
 
-O [case study of document agent](05-case-study-document-agent.md) it applies this problem cycle to the operation.
+The [document agent case study](05-case-study-document-agent.md) applies this lifecycle to an operational scenario.

@@ -47,7 +47,7 @@ flowchart LR
 - version prompts, models, policies and datasets;
 - separate reliable instructions from unreliable content;
 - applying minimisation, masking and access controls;
-- implement proportional explanations to the case of use.
+- implement proportional explanations to the use case.
 
 ### Evaluation
 

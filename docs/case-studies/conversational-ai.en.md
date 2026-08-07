@@ -250,7 +250,7 @@ The baseline does not replace corporate operation. Real receivers, ownership, sc
 2. to introduce Model Gateway with routing, fallback, quotas and cost measurement;
 3. centralizing IA Catalog, configuration and lifecycle of agents;
 4. integrate corporate identity of workload, KMS, rotation and mTLS;
-5. Connecting real banking PPAs with certification, reconciliation and persistent inequality;
+5. Connecting real banking APIs with certification, reconciliation and persistent inequality;
 6. expanding evals to real models and continuous production monitoring;
 7. activate receivers, ownership and corporate incident process;
 8. implement approved retention, anonymity, exclusion and regional recovery;

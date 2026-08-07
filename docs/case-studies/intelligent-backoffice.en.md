@@ -133,7 +133,7 @@ The solution already has contracts, extension points and controls for AI, but th
 | Recommendation |  `APPROVE` or `ABSTAIN` as a rule |  `RecommendationEngine` Deterministic | Decision Support Agent with grounding |
 | Model Gateway | defined in target architecture | not yet implemented | gateway provider-agnostic |
 | Knowledge Service | responsibility arquitetural | not yet integrated into the product | hybrid search and approved knowledge |
-| Evals | dataet and thresholds in baseline | not connected to the backend .NET | evals offline and online by model and prompt |
+| Evals | dataset and thresholds in baseline | not connected to the backend .NET | evals offline and online by model and prompt |
 
 !!! warning "real AI is still an evolution"
     The case should not be presented as a productive application of LLM. Today it demonstrates mainly the workflow, risk controls, the separation of responsibilities and contracts needed to incorporate real models with security.

@@ -115,7 +115,7 @@ No technology generates value alone, when capabilities are combined to solve a r
 
 ## Outcome Card
 
-Each case of use must record a measurable hypothesis before implementation.
+Each use case must record a measurable hypothesis before implementation.
 
 | Campo | Definition |
 |---|---|

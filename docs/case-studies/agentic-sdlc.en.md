@@ -145,7 +145,7 @@ The response of a model **has no direct authority**. All side effects go through
 | Evaluation Service | tests, scans, schemas, groundedness and quality gates | baseline implemented; continuous evaluation with real models still evolving |
 | Governance Service | durable workflow, segregation, approval by digest and policy-as-code | demonstrado localmente |
 | Evidence and Audit | evidence bundles write-once, SHA-256 and manifest with hash chain | implemented locally; outstanding corporate WORM |
-| Workload Identity | support a GitHub OIDC in the adapters P7 | implemented as adapter; trust policies actual pending |
+| Workload Identity | support for GitHub OIDC in the adapters P7 | implemented as adapter; trust policies actual pending |
 | Observability | Correlated events and exporter OTLP HTTP | implemented adapter; corporate backend and outstanding real SLOs |
 | FinOps | limits per agent and Budget Ledger | implemented as control; shared backend pending |
 | Supply Chain | Syft, Cosign, digest and manifest Kubernetes | implemented adapters; registry and admission verification pending |

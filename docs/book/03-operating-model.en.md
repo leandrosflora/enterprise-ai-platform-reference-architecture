@@ -103,7 +103,7 @@ Legenda: **R** responsible for carrying out, **A** accountable for the final dec
 |---|---|---|---|---|---|---|
 | define strategy and outcomes | A | C | R | C | C | C |
 | prioritizing platform roadmap | C | A/R | C | C | C | C |
-| select case of use | I | C | C | A/R | C | C |
+| select use case | I | C | C | A/R | C | C |
 | risk classification | I | C | R | R | A | C |
 | develop agent | I | C | C | A/R | C | C |
 | maintain SDKs and runtime | I | A/R | C | I | C | C |

@@ -74,7 +74,7 @@ Critérios de qualidade:
 |---|---|
 | Temperature | low for extraction, decision and factual response; higher only for controlled breeding |
 | Top-p / top-k | calibrate with temperature; avoid changes without regression |
-| Max tokens | limit by case of use and budget |
+| Max tokens | limit by use case and budget |
 | Stop sequences | use when there is predictable textual contract |
 | Seed | use when supported for reproducible tests |
 
@@ -83,13 +83,13 @@ Critérios de qualidade:
 Each published prompt shall have:
 
 - identifier and semantic version;
-- owner and case of use;
+- owner and use case;
 - model and compatible parameters;
 - entry and exit schemes;
 - context dependencies and tools;
 - regression dates;
 - metrics and thresholds
-- changelog and rollback plane.
+- changelog and rollback plan.
 
 ## Security
 

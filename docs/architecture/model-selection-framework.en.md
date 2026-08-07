@@ -2,7 +2,7 @@
 
 ## Objective
 
-Select models based on evidence of the case of use, avoiding decisions guided only by generic benchmark, brand or size.
+Select models based on evidence of the use case, avoiding decisions guided only by generic benchmark, brand or size.
 
 ## Criteria
 
@@ -36,7 +36,7 @@ flowchart LR
 
 | Criteria | Initial weight |
 |---|---:|
-| Quality in case of use | 30% |
+| Quality in use case | 30% |
 | Security and compliance | 20% |
 | Latency and availability | 15% |
 | Cost per task | 15% |

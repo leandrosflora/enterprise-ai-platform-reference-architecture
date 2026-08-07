@@ -120,10 +120,10 @@ The decomposition above is logical, it does not determine the amount of services
 
 ## Canon references
 
-| Subject matter | Source |
+| Subject | Source |
 |---|---|
 | Architectural decisions |  [ADR Catalogue](adrs/index.md)  |
-| APIs HTTP |  [OpenAPI](contracts/openapi.yaml)  |
+| HTTP APIs |  [OpenAPI](contracts/openapi.yaml)  |
 | Events |  [AsyncAPI](contracts/async-api.yaml)  |
 | Governance and compliance |  [Crosswalk](governance/compliance-crosswalk.md)  |
 | Lifecycle of AI assets |  [Date, Model, Prompt and Knowledge Lifecycle](governance/model-lifecycle.md)  |

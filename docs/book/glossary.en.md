@@ -74,7 +74,7 @@ Reproducible package of artifacts that sustains a decision to publish.
 
 ## Fine-tuning
 
-Parameter adjustment of a model using a dataet to change behavior, format or specific capacity.
+Parameter adjustment of a model using a dataset to change behavior, format or specific capacity.
 
 ## Foundation Model
 

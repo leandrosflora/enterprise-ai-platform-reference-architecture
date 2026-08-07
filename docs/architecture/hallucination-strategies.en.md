@@ -59,7 +59,7 @@ Fontes consultadas: {fontes}.
 Próxima ação segura: {consulta adicional ou escalonamento}.
 ```
 
-## Strategies per case of use
+## Strategies per use case
 
 | Case | Priority controls |
 |---|---|

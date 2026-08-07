@@ -39,7 +39,7 @@ flowchart LR
 - Agent Card ou Model Card;
 - risk assessment;
 - Architectural ADRs and model selection;
-- data sources, date contracts and lineage;
+- data sources, data contracts and lineage;
 - datasets, prompts, models, embeddings, tools and versioned policies;
 - knowledge snapshot and release manifest;
 - golden dataset and evaluation report;
@@ -126,4 +126,4 @@ Automate objective controls:
 - assessment coverage and red-team;
 - time for rollback or deactivation;
 - percentage of models, prompts and tools out of the standard;
-- cost per case of use and per task completed.
+- cost per use case and per task completed.

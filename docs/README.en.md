@@ -2,7 +2,7 @@
 
 This folder contains the **Enterprise AI Platform Reference Book** and the artifacts that support organizations in the design and implementation of their own corporate AI platforms.
 
-The content is a documental and architectural reference, it does not deliver a ready platform, does not define a mandatory implementation and does not replace specific decisions on infrastructure, security, sizing or compliance.
+The content is a documentation and architecture reference. It does not deliver a ready platform, does not define a mandatory implementation and does not replace specific decisions on infrastructure, security, sizing or compliance.
 
 ## Start with the book
 
@@ -11,7 +11,7 @@ The content is a documental and architectural reference, it does not deliver a r
 3. [Capability Map](book/02-capability-map.md)
 4. [Operating Model](book/03-operating-model.md)
 5. [Life cycle of agents](book/04-agent-lifecycle.md)
-6. [Case study of a documentary agent](book/05-case-study-document-agent.md)
+6. [Document agent case study](book/05-case-study-document-agent.md)
 7. [Decision Guides](book/06-decision-guides.md)
 8. [Roadmap for adoption](book/07-adoption-roadmap.md)
 9. [Production Checklists](book/08-production-checklists.md)
@@ -20,20 +20,20 @@ The content is a documental and architectural reference, it does not deliver a r
 ## Structure
 
 ```text
-book/                     Narrativa, operating model, casos, decisões e checklists
-architecture/             Princípios, NFRs, C4 e separação de planos
+book/                     Narrative, operating model, cases, decisions and checklists
+architecture/             Principles, NFRs, C4 and plane separation
 adr/                      Architecture Decision Records
-contracts/                OpenAPI, AsyncAPI, MCP, eventos e data stores
-domains/                  Domínios funcionais da plataforma
-services/                 Capacidades e responsabilidades lógicas por serviço
-governance/               Workflow, risco, catálogo e ciclo de modelos
-security/                 Autenticação, autorização, LGPD, RAG/memória e threat model
-observability/            Tracing, métricas, dashboards, alertas e SLOs
-finops/                   Custos, budgets, chargeback e showback
-runbooks/                 Procedimentos operacionais de referência
-examples/                 Exemplos ponta a ponta
-reference-architectures/  Blueprints por caso de uso
-roadmap/                  Sequenciamento recomendado para implementação
+contracts/                OpenAPI, AsyncAPI, MCP, events and data stores
+domains/                  Platform functional domains
+services/                 Logical capabilities and responsibilities by service
+governance/               Workflow, risk, catalog and model lifecycle
+security/                 Authentication, authorization, LGPD, RAG/memory and threat model
+observability/            Tracing, metrics, dashboards, alerts and SLOs
+finops/                   Costs, budgets, chargeback and showback
+runbooks/                 Reference operational procedures
+examples/                 End-to-end examples
+reference-architectures/  Blueprints by use case
+roadmap/                  Recommended implementation sequence
 ```
 
 ## Relationship between book and artifacts
@@ -48,9 +48,9 @@ The editorial content cannot redefine enums, envelopes, policies or goals differ
 
 ## Canonical sources
 
-| Subject matter | Source |
+| Subject | Source |
 |---|---|
-| APIs HTTP |  [`contracts/openapi.yaml`](contracts/openapi.yaml)  |
+| HTTP APIs |  [`contracts/openapi.yaml`](contracts/openapi.yaml)  |
 | Events |  [`contracts/async-api.yaml`](contracts/async-api.yaml)  |
 | Event conventions |  [`contracts/events.md`](contracts/events.md)  |
 | SLOs |  [`architecture/non-functional-requirements.md`](architecture/non-functional-requirements.md)  |
@@ -80,12 +80,12 @@ The editorial content cannot redefine enums, envelopes, policies or goals differ
 - [Audit Service](services/audit-service.md)
 - [Billing Service](services/billing-service.md)
 
-These names represent architectural responsibilities, and they do not require each capacity to be implemented as an independent micro-service.
+These names represent architectural responsibilities, and they do not require each capability to be implemented as an independent micro-service.
 
 ## Reference operations
 
 - [Agent onboarding](runbooks/onboarding-agent.md)
-- [Onboarding MCP](runbooks/onboarding-mcp.md)
+- [MCP onboarding](runbooks/onboarding-mcp.md)
 - [Invocation troubleshooting](runbooks/troubleshooting-agent-invocation.md)
 
 ## Generate the book

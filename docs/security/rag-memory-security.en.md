@@ -152,7 +152,7 @@ Do not register:
 - dado pessoal em claro;
 - tokens ou segredos.
 
-## Publication banks
+## Publication gates
 
 | Gate | Evidence |
 |---|---|

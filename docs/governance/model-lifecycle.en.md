@@ -357,7 +357,7 @@ When performed:
 - generate new model artifact and model card;
 - repeat applicable complete assessment;
 - compare with the baseline and previous version;
-- usar rollout controlado;
+- usar controlled rollout;
 - keep rollback independent of the training pipeline.
 
 Re-embedding follows the equivalent process for knowledge snapshots, with validation of retrieval and authorization before promotion.

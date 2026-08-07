@@ -65,7 +65,7 @@ Balance is achieved by:
 - risk proportional gates;
 - appropriate contracts;
 - observability and audit by standard;
-- ownership of the case of use maintained in the squad responsible for the result.
+- ownership of the use case maintained in the squad responsible for the result.
 
 ## When to build a platform
 
