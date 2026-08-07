@@ -62,7 +62,7 @@ Compulsory fields:
 
 `PUBLIC`, `INTERNAL`, `CONFIDENTIAL`, `RESTRICTED`.
 
-## Topic catalogue
+## Topic catalog
 
 | event | Topic | Produtor principal | Typical consumers |
 |---|---|---|---|
@@ -100,7 +100,7 @@ Compulsory fields:
 - Retry with backoff only for transient failures.
 - Disabled events are not repeated indefinitely.
 - DLQ per domain with original payload, sanitized error and metadata of attempt.
-- Reprocessing requires authorisation, audit and preservation of the `eventId` original.
+- Reprocessing requires authorization, audit and preservation of the `eventId` original.
 
 ## Security
 

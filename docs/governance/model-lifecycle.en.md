@@ -15,7 +15,7 @@ The lifecycle exists to prevent a version of the agent from being published with
 | Model | foundation model, fine-tune, embedding, reranker |  `modelId`, provider, effective version, region, status |
 | Prompt | system prompt, template, few-shot examples |  `promptId`Version, hash, owner, compatibility |
 | Knowledge snapshot | Documents, chunks, index and ACLs |  `knowledgeBaseId`, snapshot, embedding version, checksum |
-| Policy | authorisation, guardrail, routing, budget |  `policyId`, version, decision and environment |
+| Policy | authorization, guardrail, routing, budget |  `policyId`, version, decision and environment |
 | Tool contract | MCP tool, OpenAPI or asynchronous command | name, version, risk, scopes and scheme |
 
 ## Central principle

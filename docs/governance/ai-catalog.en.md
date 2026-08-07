@@ -1,6 +1,6 @@
 # AI Catalog
 
-## Corporate Catalogue
+## Corporate Catalog
 
 All officials shall be registered.
 

@@ -28,7 +28,7 @@ Standardizing the exposure, discovery, governance and execution of corporate too
 
 | indicator | Description |
 |---|---|
-| Registered Tools | Tools available in the catalogue |
+| Registered Tools | Tools available in the catalog |
 | Tool Calls | Implementation of tools |
 | Tool Error Rate | Tool error rate |
 | Tool Latency P95 | 95th per tool latency |
@@ -36,7 +36,7 @@ Standardizing the exposure, discovery, governance and execution of corporate too
 ## Non-functional requirements
 
 - Versioned contracts
-- Tool authorisation
+- Tool authorization
 - Compulsory audit
 - Timeout and circuit breaker
 - Exposure control of corporate systems

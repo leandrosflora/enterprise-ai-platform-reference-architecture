@@ -101,7 +101,7 @@ All experience shall inform:
 - Agent Card ou Model Card;
 - risk assessment;
 - dataset and assessment report;
-- authorisation matrix;
+- authorization matrix;
 - justification for the level of autonomy;
 - recording of residual limitations and risks;
 - monitoring plan, rollback and withdrawal.

@@ -45,7 +45,7 @@ Create the minimum planned date for the controlled execution of agents.
 - first agent published by pipeline;
 - trace end a end;
 - published canonical events;
-- authorisation `deny by default` exercitada;
+- authorization `deny by default` exercitada;
 - rollback validado;
 - SLO `INTERACTIVE_SIMPLE` measured.
 
@@ -131,7 +131,7 @@ Create the minimum planned date for the controlled execution of agents.
 | Phase | Initial Horizonte | Results |
 |---|---|---|
 | 1 | 0–3 meses | controlled internal agent in production |
-| 2 | 3–6 months | RAG and memory with authorisation and discard |
+| 2 | 3–6 months | RAG and memory with authorization and discard |
 | 3 | 6–9 meses | tools corporativas governadas |
 | 4 | 9–12 months | evidence-based publication |
 | 5 | 12+ months | scale, marketplace and financial control |

@@ -57,7 +57,7 @@ POST /governance/agents/{agentId}/versions/{version}/reject
 
 | Criteria | Description |
 |---|---|
-| Security | Authentication, authorisation, secrecy and data exposure |
+| Security | Authentication, authorization, secrecy and data exposure |
 | LGPD | Processing of personal and sensitive data |
 | Risk of AI | Hallucination, bias, explainability and operational impact |
 | Observability | Logs, metrics, traces and audit |

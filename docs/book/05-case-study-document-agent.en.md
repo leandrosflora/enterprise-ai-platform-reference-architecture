@@ -286,7 +286,7 @@ Minimum metrics:
 - [ ] ACL per document and validated chunk;
 - [ ] quarantine and active intake checks;
 - [ ] versioned evaluation dates;
-- [ ] negative authorisation tests and approved injection tests;
+- [ ] negative authorization tests and approved injection tests;
 - [ ] SLO, dashboards and configured alerts;
 - [ ] budget and defined quotas;
 - [ ] runbook of incident and published rollback;
@@ -296,7 +296,7 @@ Minimum metrics:
 
 ## Trade-offs assumidos
 
-- the MVP prioritizes accuracy and authorisation on maximum coverage;
+- the MVP prioritizes accuracy and authorization on maximum coverage;
 - there is no long-term memory;
 - answers without evidence are refused;
 - documents need passar by pipeline controlado;

@@ -23,11 +23,11 @@ A plataforma usa RBAC + Policy Based Access Control.
 
 | scope | Uso |
 |---|---|
-|  `agent.read`  | Refer to catalogue and metadata of agents. |
+|  `agent.read`  | Refer to catalog and metadata of agents. |
 |  `agent.write`  | Create or change agent in state draft. |
 |  `agent.invoke`  | Invite a published agent. |
 |  `agent.publish`  | Publication of approved agent. |
-|  `tool.read`  | Read the MCP catalogue. |
+|  `tool.read`  | Read the MCP catalog. |
 |  `tool.register`  | record tool contract MCP. |
 |  `tool.execute`  | Perform approved tool. |
 |  `knowledge.read`  | Consultar knowledge bases autorizadas. |
@@ -112,7 +112,7 @@ A plataforma usa RBAC + Policy Based Access Control.
 | MCP Registry | To allow the discovery of only approved and authorised tools. |
 | Knowledge Service | Apply filters by tenant, unit, classification and document. |
 | Governance Service | Checking separation of functions and approval status. |
-| Audit Service | Register decisions on authorisation, denials and critical executions. |
+| Audit Service | Register decisions on authorization, denials and critical executions. |
 
 ## Standard Decision
 

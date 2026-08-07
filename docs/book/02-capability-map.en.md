@@ -77,7 +77,7 @@ flowchart TB
 | Model Routing | selection by capacity, region, cost, quality and availability |
 | Model Safety | limits, filters, redaction and output validation |
 | Embeddings | models and versions used for indexing and searching are: |
-| MCP Registry | catalogue and authorisation of corporate tools |
+| MCP Registry | catalog and authorization of corporate tools |
 | Tool Execution | validation of schema, timeout, inadequacy and audit |
 | Compensation | rollback or effect compensation where applicable |
 
@@ -121,7 +121,7 @@ flowchart TB
 
 The capability map does not replace the architectural separation between planes.
 
-- **Control plane:** registration, configuration, governance, policies, evaluation, catalogue and promotion.
+- **Control plane:** registration, configuration, governance, policies, evaluation, catalog and promotion.
 - **Date planned:** invocation, retrieval, memory, models, tools and telemetry in execution time.
 
 A capacity may have components in both planes, for example, Model Management defines policies in the control plane, while Model Gateway applies these policies in the data plane.
@@ -135,7 +135,7 @@ Not all capacities need to exist in the first release. A corporate MVP normally 
 1. Agent Gateway and Agent Runtime;
 2. Agent Registry;
 3. Model Gateway;
-4. identity and authorisation;
+4. identity and authorization;
 5. policy enforcement;
 6. end-to-end observability;
 7. minimum assessment;

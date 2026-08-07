@@ -2,7 +2,7 @@
 
 ## Objective
 
-Register and release a MCP tool with defined contract, authentication, authorisation, impartiality, audit and rollback.
+Register and release a MCP tool with defined contract, authentication, authorization, impartiality, audit and rollback.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Obligatory:
 
 - server-side validation of all arguments;
 - allowance for operations;
-- authorisation in the destination system, not only in Runtime;
+- authorization in the destination system, not only in Runtime;
 - secret manager;
 - timeout, circuit breaker and bulkhead;
 - idempotency key for writing;
@@ -102,7 +102,7 @@ The publication makes the version uncoverable only for explicitly authorised age
 ## Immediate rejection criteria
 
 - secret the contract or code;
-- authorisation only in the prompt;
+- authorization only in the prompt;
 - writing without inequality;
 - no timeout;
 - scheme open without justification;

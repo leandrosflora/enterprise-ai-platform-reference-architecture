@@ -220,7 +220,7 @@ Results may depend on changes in process, training, communication or policies be
 | Strategic aim | reduce operational effort in backoff processes |
 | Outcome | reduce cycle time and backlog |
 | Capacities | document intelligence, agent platform, workflow orchestration, knowledge retrieval |
-| Possible solutions | legal authorisation, HR assistant, operational agents |
+| Possible solutions | legal authorization, HR assistant, operational agents |
 | KPIs | processing time, automation rate, saved hours, backlog |
 | Guardrails | errors, rework, inappropriate access and cost per process |
 

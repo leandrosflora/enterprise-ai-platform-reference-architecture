@@ -17,7 +17,7 @@ Defining criteria for using external tools by platform agents and services.
 
 | Criteria | Description |
 |---|---|
-| Security | Authentication, authorisation and secrecy management |
+| Security | Authentication, authorization and secrecy management |
 | Data | Classification and location of data |
 | LGPD | Legal basis, retention and sharing |
 | Cost | Charging model and predictability |

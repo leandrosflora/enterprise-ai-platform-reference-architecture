@@ -36,7 +36,7 @@ Checklists are verification instruments, not substitutes for analysis.Non-applic
 - [ ] workloads use their own identity;
 - [ ] tokens are validated by issuer, audience, validity and signature;
 - [ ] minimum scopes are defined;
-- [ ] authorisation is `deny by default`;
+- [ ] authorization is `deny by default`;
 - [ ] tenant and subject are not freely chosen by the client;
 - [ ] access to agents, knowledge bases, memory and tools is independent;
 - [ ] service-to-service uses mecanismo approved;
@@ -66,7 +66,7 @@ Consultation [RAG security and memory](../security/rag-memory-security.md).
 
 ## 5. Model and prompt readiness
 
-- [ ] model is in the approved catalogue;
+- [ ] model is in the approved catalog;
 - [ ] region and processing meet the policies;
 - [ ] main prompt is versioned;
 - [ ] parameters have limits;
@@ -175,7 +175,7 @@ Consultation [RAG security and memory](../security/rag-memory-security.md).
 - [ ] knowledge and memory will have adequate destination;
 - [ ] audit evidence will be retained according to policy;
 - [ ] budgets, dashboards and alerts will be closed;
-- [ ] documentation and catalogue will be updated;
+- [ ] documentation and catalog will be updated;
 - [ ] owner approved the withdrawal.
 
 ## Release decision record

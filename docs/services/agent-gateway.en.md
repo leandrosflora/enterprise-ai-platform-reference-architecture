@@ -30,7 +30,7 @@ Authorization: Bearer <token>
 
 | Dependence | Use |
 |---|---|
-| Identity Provider | Authentication and authorisation (ICO) |
+| Identity Provider | Authentication and authorization (ICO) |
 | Agent Runtime | Rotating of the invocation |
 | Redis | Cache and rate limiting |
 
@@ -39,7 +39,7 @@ Authorization: Bearer <token>
 | Requirements | Guideline |
 |---|---|
 | Latency | Minimum overhead before routing to Agent Runtime |
-| Security | Authentication and authorisation in all requests |
+| Security | Authentication and authorization in all requests |
 | scalability | Horizontal scale per volume of invocations |
 | Resilience | Rate limiting to protect Agent Runtime from peaks |
 

@@ -16,7 +16,7 @@ Compulsory standard: [RAG Security and Memory](../security/rag-memory-security.m
 - spreading tenant, classification, ACL, purpose and retention for chunks;
 - generate embeddings and verify the model used;
 - index content in aliases/indexes isolated by tenant;
-- apply authorisation before and after the search;
+- apply authorization before and after the search;
 - return citations from and policy decision;
 - exclude, reindex and invalidate old embeddings.
 

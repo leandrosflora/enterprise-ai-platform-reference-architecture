@@ -26,7 +26,7 @@ Adapters may integrate LangGraph, Semantic Kernel, managed services of agents or
 
 - business rules remain in domain services;
 - provider credentials remain in Model Gateway;
-- approval and catalogue remain in Control Plane;
+- approval and catalog remain in Control Plane;
 - tools are accessed by governed boundaries, preferably MCP;
 - the framework does not define the canonical format of audit, events or policies.
 

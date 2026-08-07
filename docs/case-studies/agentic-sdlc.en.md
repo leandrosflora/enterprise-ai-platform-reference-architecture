@@ -70,7 +70,7 @@ Each step produces structured results, events, checkpoints and one **evidence bu
 | Security | perform scans and threat analysis | Findings and Evidence | does not silently alter the implementation |
 | Reviewer | review quality, scope and evidence | opinion | does not implement or publish |
 | Release | Promote authorised digest and operate rollback | controlled setting | does not ignore approval or policy |
-| Incident | correlating change and telemetry | timeline and remediation proposal | does not perform destructive action without authorisation |
+| Incident | correlating change and telemetry | timeline and remediation proposal | does not perform destructive action without authorization |
 
 The agents represent logical roles executed by a shared runtime, and they do not need to be eight persistent services.
 
@@ -120,7 +120,7 @@ The response of a model **has no direct authority**. All side effects go through
 | responsibility | Why should not depend on probabilistic decision |
 |---|---|
 | state machine | progression, timeout, retry and compensation need to be reproducible |
-| policy enforcement | authorisation must be explicit and fail-closed |
+| policy enforcement | authorization must be explicit and fail-closed |
 | Segregation of functions | author, approver and executor need to be verifiable |
 | Human approval | it must refer to identity, decision and exact digest |
 | execution of tools | schemas, grants, paths and environments should be controlled. |
@@ -221,7 +221,7 @@ flowchart TB
 The architecture separates five planes:
 
 1. **Experience and Integration:** entry points and registration systems;
-2. **Agent Control Plane:** workflow, catalogue, policies, evaluations and budgets;
+2. **Agent Control Plane:** workflow, catalog, policies, evaluations and budgets;
 3. **Agent Plane:** specialized roles with own identities and permissions;
 4. **Knowledge and Evidence:** context, memory, checkpoints and traceability;
 5. **Execution Plane:** models, MCP, sandboxes and tools with real effect.
@@ -287,7 +287,7 @@ The [agentic-sdlc-runtime](https://github.com/leandrosflora/agentic-sdlc-runtime
 - Model Gateway fake and OpenAI-compatible;
 - MCP fake and real MCP via stdio;
 - tool loop limitado;
-- PAO authorisation;
+- PAO authorization;
 - evidence bundles;
 - checkpoints and resumption;
 - IAC, demos and tests;

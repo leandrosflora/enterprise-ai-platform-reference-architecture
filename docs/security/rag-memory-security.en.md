@@ -8,7 +8,7 @@ Standard decision is **deny by default**. Retrieved content is always treated as
 
 ## Principles
 
-1. **Authorisation accompanies the data.** ACL, tenant, classification and purpose are disseminated from the document to each chunk.
+1. **Authorization accompanies the data.** ACL, tenant, classification and purpose are disseminated from the document to each chunk.
 2. **Administration does not imply publication.** Each document enters quarantine and can only be indexed after validation.
 3. **Retrieval does not leak out.** Unauthorised results are filtered without informing the call for the document.
 4. **Memory is not log.** Only necessary facts, purpose, origin, trust, TTL and consent when applicable.
@@ -137,7 +137,7 @@ Reading and exclusion use the subject derived from identity. One user does not f
 
 record:
 
-- authorisation decision and reason for blocking;
+- authorization decision and reason for blocking;
 - Quarantine status;
 - Document/chunk IDs;
 - checksum and version of the scanner;

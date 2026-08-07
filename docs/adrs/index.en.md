@@ -2,7 +2,7 @@
 
 The ADRs record structural decisions of the platform, its context, alternatives, consequences, evidence and review criteria. `docs/adrs/` it is the only canonical source for architectural decisions.
 
-## Catalogue
+## Catalog
 
 | ADR | Decision | Status |
 |---|---|---|
@@ -33,7 +33,7 @@ The ADRs record structural decisions of the platform, its context, alternatives,
 - Each ADR should record consequences, evidence and review criteria;
 - internal links should point only to `docs/adrs/`.
 
-## Migration of the legacy catalogue
+## Migration of the legacy catalog
 
 | Legitimate decision | Canonical destination |
 |---|---|

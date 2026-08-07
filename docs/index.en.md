@@ -50,7 +50,7 @@ It combines editorial narrative, architectural models, contracts, policies, chec
 
     ---
 
-    Apply traceable controls, authorisation, threat modeling, RAG security, memory, LGPD and AI Risk Framework.
+    Apply traceable controls, authorization, threat modeling, RAG security, memory, LGPD and AI Risk Framework.
 
         [Opening the crosswalk de compliance](governance/compliance-crosswalk.md)
 
@@ -122,7 +122,7 @@ The decomposition above is logical, it does not determine the amount of services
 
 | Subject | Source |
 |---|---|
-| Architectural decisions |  [ADR Catalogue](adrs/index.md)  |
+| Architectural decisions |  [ADR Catalog](adrs/index.md)  |
 | HTTP APIs |  [OpenAPI](contracts/openapi.yaml)  |
 | Events |  [AsyncAPI](contracts/async-api.yaml)  |
 | Governance and compliance |  [Crosswalk](governance/compliance-crosswalk.md)  |

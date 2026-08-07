@@ -17,7 +17,7 @@ Asynchronous events should spread W3C context and maintain `correlationId` and `
 - `agent.id`, `agent.version`, `tenant.id` and risk classification in the execution;
 - effective version of model, prompt, policy, tool and knowledge snapshot;
 - tokens, cost, latency, retries and fallback;
-- authorisation decision without registering secrets or gross payload;
+- authorization decision without registering secrets or gross payload;
 - masking before export;
 - metric cardinality control;
 - retention and proportional access to the classification of the data;

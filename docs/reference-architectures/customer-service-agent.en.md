@@ -43,7 +43,7 @@ Automate and support client care journeys using RAG agents, integration to corpo
 
 ## Controls
 
-- Authorisation by scope and channel
+- Authorization by scope and channel
 - Sensitive data masking
 - Human-in-the-loop for critical actions
 - Limits of autonomy for risk

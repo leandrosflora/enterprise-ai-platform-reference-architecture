@@ -15,7 +15,7 @@ To allow a user to seek approved corporate policies with cited and traceable res
 | component | role |
 |---|---|
 | AI Portal | Interface of use and self-service. |
-| Agent Gateway | Single entry, authentication, authorisation and rate limit. |
+| Agent Gateway | Single entry, authentication, authorization and rate limit. |
 | Agent Runtime | The orchestra prompt, memory, RAG, model and evaluation. |
 | Knowledge Service | It recovers relevant documents and chunks. |
 | Foundation Model | It generates response based on the context recovered. |

@@ -12,7 +12,7 @@ Introduzir um **Agent Gateway** between channels/BFFs and runtimes, it does not 
 
 ## responsibilities
 
-- authentication, authorisation and resolution of tenant;
+- authentication, authorization and resolution of tenant;
 - rate limit, quotas and budget enforcement;
 - Routing by agent, version and capacity;
 - streaming normalization and asynchronous responses;

@@ -15,7 +15,7 @@ Collection without exposing sensitive data:
 ## Diagnostic sequence
 
 1. locating the trace by `correlationId`;
-2. verifying authentication and authorisation in Gateway;
+2. verifying authentication and authorization in Gateway;
 3. confirmed version `PUBLISHED` in the Runtime cache;
 4. review the Policy Decision Point decision;
 5. identify first span with error or abnormal latency;
@@ -29,7 +29,7 @@ Collection without exposing sensitive data:
 |---|---|---|
 |  `401`  | token, issuer, audience and clock skew | Correcting identity |
 |  `403`  | scope, tenant and policy decision | do not release bypass |
-|  `404`  | Resource visibility and published version | validate catalogue and tenant |
+|  `404`  | Resource visibility and published version | validate catalog and tenant |
 |  `409`  | uncontrolled or state | See original operation |
 |  `422`  | policy violation and missing evidence | correct configuration |
 |  `429`  | quota, rate limit or budget | reduce consumption or approve novo limit |

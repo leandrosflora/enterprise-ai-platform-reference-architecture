@@ -55,7 +55,7 @@ The editorial content cannot redefine enums, envelopes, policies or goals differ
 | Event conventions |  [`contracts/events.md`](contracts/events.md)  |
 | SLOs |  [`architecture/non-functional-requirements.md`](architecture/non-functional-requirements.md)  |
 | Risk controls |  [`governance/ai-risk-framework.md`](governance/ai-risk-framework.md)  |
-| Authorisation |  [`security/authorization.md`](security/authorization.md)  |
+| Authorization |  [`security/authorization.md`](security/authorization.md)  |
 | RAG security and memory |  [`security/rag-memory-security.md`](security/rag-memory-security.md) + [`../policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml)  |
 
 ## Architecture

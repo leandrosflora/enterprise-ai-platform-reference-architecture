@@ -2,7 +2,7 @@
 
 ## responsibilities
 
-- Catalogue of officials
+- Catalog of officials
 - versioning
 - Publication
 - metadata

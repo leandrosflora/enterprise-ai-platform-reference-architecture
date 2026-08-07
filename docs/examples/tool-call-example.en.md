@@ -38,6 +38,6 @@ Example of exposed tool call via MCP Server.
 ## Controls
 
 - Validation by JSON Schema
-- Scope authorisation
+- Scope authorization
 - Tool call audit
 - Sensitive data masking in logs

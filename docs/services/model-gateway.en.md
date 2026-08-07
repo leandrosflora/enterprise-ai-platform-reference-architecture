@@ -18,7 +18,7 @@ Model Gateway centralizes access to foundation models and prevents agents from c
 ## Out of Scope
 
 - orchestration of the agent;
-- management of the catalogue of agents;
+- management of the catalog of agents;
 - response business assessment;
 - persistence of conversational memory.
 
@@ -65,7 +65,7 @@ Standard order
 ## Security
 
 - authentication by workload identity;
-- authorisation by agent, model and tenant;
+- authorization by agent, model and tenant;
 - no provider secret is exposed to Runtime;
 - sensitive prompts are not stored by pattern;
 - logs use hashes and metadata, never secrets;

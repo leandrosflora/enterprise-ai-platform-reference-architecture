@@ -6,7 +6,7 @@
 
 Agents need to discover and implement corporate tools with consistent contracts, authorization, versioning and audit. Direct REST integrations remain adequate for domain IPAs, but do not solve themselves discovery of tools, agent-oriented schemes and uniform enforcement during tool calling.
 
-This ADR consolidates the original decision to use MCP with the legislated catalogue and governance strategy of MCP Servers.
+This ADR consolidates the original decision to use MCP with the legislated catalog and governance strategy of MCP Servers.
 
 ## Decision
 
@@ -16,7 +16,7 @@ The platform must keep a **MCP Registry** for:
 
 - catalog and discovery of servers, tools and schemas;
 - ownership, risk classification and version;
-- authorisation policies and allowance allowance per agent;
+- authorization policies and allowance allowance per agent;
 - compatibility between versions of the contract;
 - operational status and withdrawal criteria;
 - traceability between tool call, identity, politics and registration system.
@@ -56,7 +56,7 @@ The Tool Service/MCP Server becomes a security frontier and must have SLO, obser
 
 - the MCP contract, which has been executed;
 - owner and tool risk classification;
-- authorisation matrix;
+- authorization matrix;
 - tests of disabled arguments, denied access and inequality;
 - traces correlating agent, version, tool, policy and result;
 - runbook, SLO and withdrawal strategy.

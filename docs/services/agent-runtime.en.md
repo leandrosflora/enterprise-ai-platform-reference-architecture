@@ -16,7 +16,7 @@ The Agent Runtime is the heart of the Enterprise AI Platform, it executes agents
 ## Out of Scope
 
 - Approval of agents
-- Catalogue management
+- Catalog management
 - Document management
 - User management
 - Consolidated financial calculation
@@ -95,7 +95,7 @@ Authorization: Bearer <token>
 |---|---|
 | Latency | P95 less than 5s for simple agents |
 | Resilience | Controlled retry for transient calls |
-| Security | Authorisation by agent, tool and scope |
+| Security | Authorization by agent, tool and scope |
 | Observability | Trace por invocation, model call and tool call |
 | scalability | Horizontal scale per volume of invocations |
 | Audit | Complete entry, exit and relevant decision record |

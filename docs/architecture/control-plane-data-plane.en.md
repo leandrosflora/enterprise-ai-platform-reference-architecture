@@ -16,7 +16,7 @@ This separation reduces the blast radius, allows scaling each plan independently
 | Agent Registry | Half-data, immutable versions and life cycle status. |
 | Governance Service | Workflow, segregation of functions and evidence. |
 | Evaluation Service | Datasets, baselines, thresholds and reports. |
-| MCP Registry | Catalogue and approved versions of tools. |
+| MCP Registry | Catalog and approved versions of tools. |
 | Policy Administration Point | Authorship, review and publication of policies. |
 | Model Catalog | Allowlist of models, regions, capacities and constraints. |
 | FinOps Administration | Budgets, quotas and cost allocation rules. |
@@ -25,7 +25,7 @@ This separation reduces the blast radius, allows scaling each plan independently
 
 | Capacity | responsibility |
 |---|---|
-| Agent Gateway | Authentication, initial authorisation, rate limit and routing. |
+| Agent Gateway | Authentication, initial authorization, rate limit and routing. |
 | Agent Runtime | Orchestration of the execution of the agent. |
 | Policy Enforcement Points | Local implementation of decisions in Gateway, Runtime, Knowledge and MCP. |
 | Policy Decision Point | Policy decision with low latency and controlled cache. |

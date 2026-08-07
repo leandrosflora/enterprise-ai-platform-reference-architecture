@@ -42,7 +42,7 @@ Providing central capacities for the creation, execution, publication and operat
 
 ## Non-functional requirements
 
-- Authorisation by agent and scope
+- Authorization by agent and scope
 - Overall observability
 - Audit for implementation
 - Cost control per agent

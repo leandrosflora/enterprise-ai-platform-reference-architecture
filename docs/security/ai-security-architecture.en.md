@@ -34,7 +34,7 @@ flowchart LR
 |---|---|
 | Edge | WAF, rate limit, bot protection, quotas and abuse protection |
 | Identity | ICDC, MFA, workload identity, short tokens and less privilege |
-| Authorisation | RBAC/ABAC, PDP/PEP, deny by default and policy versionada |
+| Authorization | RBAC/ABAC, PDP/PEP, deny by default and policy versionada |
 | Entry | validation, limits, prompt injection detection and data classification |
 | RAG | approved sources, quarantine, provena, ACL by chunk and DLP |
 | Model | central gateway, model allowlist, limited parameters and guardrails |

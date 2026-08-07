@@ -64,7 +64,7 @@ Never use the agent's memory as a registry system. The agent must consult the au
 |---|---|
 | multiple agents discover standardized tools | there is a single stable consumer, which has the right to use the technology of science. |
 | description and schema need to be exposed to runtime. | integration has consolidated contract |
-| the platform controls catalogue and authorisation | low latency and minimum path are priorities |
+| the platform controls catalog and authorization | low latency and minimum path are priorities |
 | tools need to be authorized by policy | dynamic discovery does not bring value |
 
 ### Recommendation
@@ -147,7 +147,7 @@ Cache can reduce cost and latency, but it must incorporate:
 - model and configuration;
 - expiry date.
 
-Do not reuse a response between users when the authorisation or context can alter the result.
+Do not reuse a response between users when the authorization or context can alter the result.
 
 ## 10. Build ou buy?
 
@@ -167,7 +167,7 @@ Do not reuse a response between users when the authorisation or context can alte
 - model APIs;
 - scanners and DLP;
 - vector search managed;
-- gateways or catalogues, when they meet the policies.
+- gateways or catalogs, when they meet the policies.
 
 ### Frequently strategic components
 
@@ -196,7 +196,7 @@ Do not implement complete abstract portability without consumers, standardize co
 
 Prompts are useful to guide behavior, but they should not be the only barrier to:
 
-- authorisation;
+- authorization;
 - access to data;
 - tool selection;
 - financial limits;

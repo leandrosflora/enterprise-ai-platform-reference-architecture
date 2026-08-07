@@ -2,7 +2,7 @@
 
 ## responsibilities
 
-- MCP Servers catalogue
+- MCP Servers catalog
 - Discovery of tools
 - versioning
 - Access policies

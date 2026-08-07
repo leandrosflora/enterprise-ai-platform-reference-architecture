@@ -31,7 +31,7 @@ flowchart LR
 | SUSPENDED | temporarily blocked invocation |
 | RETIRED | Version closed and out of use |
 
-Current contracts use the technical states defined in [`openapi.yaml`](../contracts/openapi.yaml). Editorial states prior to `DRAFT` may remain in the catalogue or portfolio process.
+Current contracts use the technical states defined in [`openapi.yaml`](../contracts/openapi.yaml). Editorial states prior to `DRAFT` may remain in the catalog or portfolio process.
 
 ## Stage 1 — Idea
 
@@ -86,7 +86,7 @@ Cases without a defined purpose, applicable legal basis, data owner, or strategy
 - synchronous or asynchronous;
 - model and routing policy;
 - boundaries between runtime, systems of record and tools;
-- authorisation of knowledge and memory;
+- authorization of knowledge and memory;
 - SLO and fallback;
 - telemetry and events;
 - evaluation strategy;
@@ -281,7 +281,7 @@ Not all files need to use these formats, but the information needs to exist and 
 
 | Gate | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
-| owner and catalogue | Compulsory | Compulsory | Compulsory | Compulsory |
+| owner and catalog | Compulsory | Compulsory | Compulsory | Compulsory |
 | Contract tests | Compulsory | Compulsory | Compulsory | Compulsory |
 | quality assessment | sample | dataset | dataset + baseline | dataset + independent review |
 | threat model | simplified | Compulsory | detailed | detailed + formal review |

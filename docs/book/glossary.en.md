@@ -10,7 +10,7 @@ Entry boundary for agent invocations. It applies authentication, rate limit, rou
 
 ## Agent Registry
 
-Technical catalogue of agents, versions, owners, status, risk, models, tools and allowed knowledge bases.
+Technical catalog of agents, versions, owners, status, risk, models, tools and allowed knowledge bases.
 
 ## Agent Runtime
 
@@ -34,11 +34,11 @@ Organizational or technical ability that describes what the platform needs to do
 
 ## Chunk
 
-A document for indexing and retrieval should be used to preserve provenance, classification and authorisation.
+A document for indexing and retrieval should be used to preserve provenance, classification and authorization.
 
 ## Control Plane
 
-Plan responsible for registration, configuration, governance, policies, evaluation, catalogues and promotion of versions.
+Plan responsible for registration, configuration, governance, policies, evaluation, catalogs and promotion of versions.
 
 ## Correlation ID
 
@@ -90,7 +90,7 @@ The degree to which a response is supported by the evidence provided to the mode
 
 ## Guardrail
 
-Probabilistic guardrails do not replace deterministic authorisation.
+Probabilistic guardrails do not replace deterministic authorization.
 
 ## HITL
 

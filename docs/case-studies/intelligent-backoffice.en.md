@@ -115,7 +115,7 @@ The recommendation follows for policy enforcement and human approval; it does no
 | Lifecycle case | transitions and states need to be predictable and auditable. |
 | Competition and splitting | conflicts should be detected objectively in order to avoid these conflicts. |
 | idempotency | repetition of the same request cannot generate new effect |
-| Skill and segregation | authorisation is a formal rule |
+| Skill and segregation | authorization is a formal rule |
 | Policy enforcement | access decisions must be explicit and fail-closed. |
 | Final approval | Human responsibility for sensitive action |
 | Financial implementation | changeable effect should use governed domain service |
@@ -308,7 +308,7 @@ The architectural repository shall publish evidence for:
 ## Architectural lessons
 
 1. **AI does not replace workflow.** Long processes, retries, timers and transitions require deterministic authority.
-2. **Recommendation is not authorisation.** An output from the model does not grant raising or permission.
+2. **Recommendation is not authorization.** An output from the model does not grant raising or permission.
 3. **Implementation needs to be isolated from AI.** Changable effects undergo domain, policy and inadequacy services.
 4. **Operational uncertainty needs self-state.** Timeout after possible effect is neither success nor safe failure.
 5. **Evidence should be born along with the decision.** Reconstructing justifications afterwards is insufficient for auditing.
