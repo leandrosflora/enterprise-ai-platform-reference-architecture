@@ -401,5 +401,5 @@ Productivity doesn't just come from generating faster code, it comes from reduci
 - [Architecture repository](https://github.com/leandrosflora/agentic-sdlc-reference-architecture)
 - [Runtime funcional](https://github.com/leandrosflora/agentic-sdlc-runtime)
 - [Demo app](https://github.com/leandrosflora/agentic-sdlc-demo-app)
-- [End to end integration]https://leandrosflora.github.io/agentic-sdlc-reference-architecture/end-to-end-workflow/]
-- (P7  Production and governance) (https://leandrosflora.github.io/agentic-sdlc-reference-architecture/p7-production-governance/)
+- [End to end integration](https://leandrosflora.github.io/agentic-sdlc-reference-architecture/end-to-end-workflow/)
+- [P7  Production and governance](https://leandrosflora.github.io/agentic-sdlc-reference-architecture/p7-production-governance/)

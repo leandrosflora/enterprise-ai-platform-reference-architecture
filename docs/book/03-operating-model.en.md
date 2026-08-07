@@ -142,7 +142,7 @@ The intake output is not a final approval, it's an initial classification and a 
 | HIGH | Recommendation affecting client or relevant decision | The Commission shall adopt delegated acts in accordance with the opinion of the Standing Committee on Planning and Zoning in the European Union. |
 | CRITICAL | financial action, regulated decision or physical risk | reinforced controls, formal approval and limited scope |
 
-For the classification, please refer to the [AI Risk Framework] ((../governance/ai-risk-framework.md).
+For the classification, please refer to the [AI Risk Framework](../governance/ai-risk-framework.md).
 
 ## Golden path
 
@@ -196,4 +196,4 @@ The squad can get off the golden path, but the exception must be explicit, posse
 
 ## Next chapter
 
-The [Agent Life Cycle]04-agent-lifecycle.md transforms this operating model into gates, artifacts and concrete evidence.
+The [Agent Life Cycle](04-agent-lifecycle.md) transforms this operating model into gates, artifacts and concrete evidence.

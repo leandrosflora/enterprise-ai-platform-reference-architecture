@@ -176,4 +176,4 @@ A shared capacity shall meet most of the criteria:
 
 ## Next chapter
 
-The [Operating Model]03-operating-model.md defines who builds, governs, operates and consumes these capabilities.
+The [Operating Model](03-operating-model.md) defines who builds, governs, operates and consumes these capabilities.

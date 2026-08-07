@@ -47,7 +47,7 @@ flowchart LR
 - approvals, exceptions and residual risks;
 - dashboards, incidents and withdrawal plan.
 
-The detailed lifecycle of these assets is in [Data, Model, Prompt and Knowledge Lifecycle] ((model-lifecycle.md).
+The detailed lifecycle of these assets is in [Data, Model, Prompt and Knowledge Lifecycle](model-lifecycle.md).
 
 ## Gates
 

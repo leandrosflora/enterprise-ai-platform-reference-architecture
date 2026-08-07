@@ -6,11 +6,11 @@ Content is a documentary and architectural reference. It does not deliver a read
 
 ## Start with the book.
 
-1. [Book entry] ((book/index.md)
+1. [Book entry](book/index.md)
 2. [Why one ?AI Platform?](book/01-why-ai-platform.md)
 3. [Capability Map](book/02-capability-map.md)
 4. [Operating Model](book/03-operating-model.md)
-5. [Life cycle of agents]book/04-agent-lifecycle.md)
+5. [Life cycle of agents](book/04-agent-lifecycle.md)
 6. [Case study of a documentary agent](book/05-case-study-document-agent.md)
 7. [Decision Guides](book/06-decision-guides.md)
 8. [Roadmap for adoption](book/07-adoption-roadmap.md)
@@ -84,9 +84,9 @@ These names represent architectural responsibilities, and they don't require eac
 
 ## Reference operation
 
-- [Onboarding agent]runbooks/onboarding-agent.md)
+- [Onboarding agent](runbooks/onboarding-agent.md)
 - [Onboarding MCP](runbooks/onboarding-mcp.md)
-- [Invocation troubleshooting]runbooks/troubleshooting-agent-invocation.md)
+- [Invocation troubleshooting](runbooks/troubleshooting-agent-invocation.md)
 
 ## Generating the book
 

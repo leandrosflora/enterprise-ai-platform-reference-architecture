@@ -31,7 +31,7 @@ flowchart LR
 | SUSPENDED | temporarily blocked invocation |
 | RETIRED | Closed and unused version |
 
-Current contracts use the technical statements as defined in [`openapi.yaml`](../contracts/openapi.yaml. Editorial statements prior to `DRAFT` may remain in the catalogue or portfolio process.
+Current contracts use the technical statements as defined in [`openapi.yaml`](../contracts/openapi.yaml). Editorial statements prior to `DRAFT` may remain in the catalogue or portfolio process.
 
 ## Etapa 1 — Idea
 
@@ -292,4 +292,4 @@ Not all files need to use these formats, but the information needs to exist and 
 
 ## Next chapter
 
-The [documentary agent case study]05-case-study-document-agent.md) applies this problem cycle to the operation.
+The [documentary agent case study](05-case-study-document-agent.md) applies this problem cycle to the operation.

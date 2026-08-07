@@ -2,9 +2,9 @@
 
 [ Open published documentation from the Intelligent Backoffice](https://leandrosflora.github.io/intelligent-backoffice-platform-architecture/){ .md-button .md-button--primary target="_blank" }
 
-[Architecture on GitHub] https://github.com/leandrosflora/intelligent-backoffice-platform-architecture
-[Backend .NET] https://github.com/leandrosflora/backoffice-platform-api
-[Frontend React] https://github.com/leandrosflora/intelligent-backoffice-frontend
+[Architecture on GitHub](https://github.com/leandrosflora/intelligent-backoffice-platform-architecture)
+[Backend .NET](https://github.com/leandrosflora/backoffice-platform-api)
+[Frontend React](https://github.com/leandrosflora/intelligent-backoffice-frontend)
 
 This case demonstrates how the capabilities of Enterprise AI Platform Reference Architecture can be applied to a regulated, documentary and long-term back office process.
 

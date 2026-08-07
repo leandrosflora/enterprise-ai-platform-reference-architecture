@@ -36,7 +36,7 @@ It combines editorial narrative, architectural models, contracts, policies, chec
 
     It defines roles, RACI, forums, golden paths and risk-proportionate routes.
 
-    [Read the operating model]book/03-operating-model.md)
+    [Read the operating model](book/03-operating-model.md)
 
 -   :material-source-branch: **Delivery and lifecycle**
 
@@ -68,7 +68,7 @@ It combines editorial narrative, architectural models, contracts, policies, chec
 
 | Case in point | Demonstrated capabilities | State of origin |
 |---|---|---|
-| [Multi-skill banking conversation platform]case-studies/conversational-ai.md) | Agent Runtimes, MCP, RAG, memory, journeys, eventing, audit and evals | executable reference and hardened POC |
+| [Multi-skill banking conversation platform](case-studies/conversational-ai.md) | Agent Runtimes, MCP, RAG, memory, journeys, eventing, audit and evals | executable reference and hardened POC |
 | [Intelligent Backoffice  Banking challenge](case-studies/intelligent-backoffice.md) | This is the main reason why the Commission has decided to take the necessary measures to ensure that the Commission is able to take appropriate action.OPA, Impotent implementation and reconciliation | Baseline demonstrated; backend and frontend in implementation |
 | [Agentic SDLC governado](case-studies/agentic-sdlc.md) | eight agent roles, durable workflow, Model Gateway, MCP, OPA, checkpoints, evidence bundles, approval by digest, observed release and rollback | Functional runtime and controlled integration; outstanding production |
 
@@ -78,7 +78,7 @@ It combines editorial narrative, architectural models, contracts, policies, chec
 2. [Business Outcomes](book/02-business-outcomes.md)
 3. [Capability Map](book/02-capability-map.md)
 4. [Operating Model](book/03-operating-model.md)
-5. [Life cycle of agents]book/04-agent-lifecycle.md)
+5. [Life cycle of agents](book/04-agent-lifecycle.md)
 6. [Case study: documentary agent with RAG](book/05-case-study-document-agent.md)
 7. [Decision Guides](book/06-decision-guides.md)
 8. [Maturity model and roadmap](book/07-adoption-roadmap.md)
@@ -131,7 +131,7 @@ The decomposition above is logical. It does not determine the amount of services
 | Risco | [AI Risk Framework](governance/ai-risk-framework.md) |
 | SLOs | [Non-functional requirements](architecture/non-functional-requirements.md) |
 | Reference deployment | [C4 Deployment](architecture/diagrams/c4-deployment.puml) |
-| Validation sample | [Vertical slice] ((https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/tree/main/samples/vertical-slice) |
+| Validation sample | [Vertical slice](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/tree/main/samples/vertical-slice) |
 
 ## PDF
 

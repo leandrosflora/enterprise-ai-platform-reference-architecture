@@ -34,7 +34,7 @@ The components and services described represent a logical decomposition of capab
 1. [Why one ?AI Platform?](01-why-ai-platform.md)
 2. [Capability Map](02-capability-map.md)
 3. [Operating Model](03-operating-model.md)
-4. [Life cycle of agents]04-agent-lifecycle.md)
+4. [Life cycle of agents](04-agent-lifecycle.md)
 5. [Case study: documentary agent with RAG](05-case-study-document-agent.md)
 6. [Decision Guides](06-decision-guides.md)
 7. [Maturity model and adoption roadmap](07-adoption-roadmap.md)

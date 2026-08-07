@@ -181,7 +181,7 @@ POST /v1/knowledge-bases/{knowledgeBaseId}:search
 POST /v1/agents/{agentId}:invoke
 ```
 
-The full schemes are at [`openapi.yaml`](../contracts/openapi.yaml. Event intake, invocation, model and evaluation are at [`async-api.yaml`](../contracts/async-api.yaml).
+The full schemes are at [`openapi.yaml`](../contracts/openapi.yaml). Event intake, invocation, model and evaluation are at [`async-api.yaml`](../contracts/async-api.yaml).
 
 ## Assessment
 
