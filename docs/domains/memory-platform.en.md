@@ -30,7 +30,7 @@ Management of conversational context and short- and long-term memory for corpora
 | Memory Reads | Contextual readings |
 | Memory Writes | Memory writings |
 | Context Hit Rate | Percentage of reused context |
-| Storage Growth | Crescimento do armazenamento |
+| Storage Growth | Storage growth |
 
 ## Non-functional requirements
 

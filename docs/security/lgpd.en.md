@@ -8,14 +8,14 @@
 - Data Masking
 - Audit Trail
 
-## Direitos do Titular
+## Holder's rights
 
 - Acesso
 - Correction
 - Exclusion
 - Portabilidade
 
-## IA
+## AI
 
 - Risk assessment
 - Explanability where applicable

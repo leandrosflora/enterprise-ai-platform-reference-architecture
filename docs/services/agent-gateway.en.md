@@ -12,7 +12,7 @@ The Agent Gateway is the only entry point for agent invocations. It authorizes a
 - Applying short-term rate limiting and cache
 - Turning the invocation to the Agent Runtime
 
-## Fora de Escopo
+## Out of Scope
 
 - Implementation of the agent and orchestration of prompts, tools and memory
 - Evaluation of response quality
@@ -28,20 +28,20 @@ Authorization: Bearer <token>
 
 ## Dependencies
 
-| Dependence | Uso |
+| Dependence | Use |
 |---|---|
 | Identity Provider | Authentication and authorisation (ICO) |
 | Agent Runtime | Rotating of the invocation |
-| Redis | Cache e rate limiting |
+| Redis | Cache and rate limiting |
 
 ## Non-functional requirements
 
-| Requisito | Diretriz |
+| Requirements | Guideline |
 |---|---|
 | Latency | Minimum overhead before routing to Agent Runtime |
 | Security | Authentication and authorisation in all requests |
 | Escalabilidade | Horizontal scale per volume of invocations |
-| Resilience | Rate limiting para proteger o Agent Runtime contra picos |
+| Resilience | Rate limiting to protect Agent Runtime from peaks |
 
 ## Related Decisions
 

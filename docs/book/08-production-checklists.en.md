@@ -10,8 +10,8 @@ Checklists are verification instruments, not substitutes for analysis.Non-applic
 - [ ] outcome and success metrics were agreed;
 - [ ] there is business owner;
 - [ ] there is a technical owner;
-- [ ] a alternativa sem IA foi considerada;
-- [ ] impacto de respostas incorretas foi analisado;
+- [ ] the alternative without AI was considered;
+- [ ] impact of incorrect responses was analyzed;
 - [ ] feedback process was defined;
 - [ ] Communication strategy and adoption exists;
 - [ ] closure or deactivation criteria are defined.
@@ -60,9 +60,9 @@ Checklists are verification instruments, not substitutes for analysis.Non-applic
 - [ ] Maximum TTL is applied;
 - [ ] consent exists when required;
 - [ ] memory does not replace the recording system;
-- [ ] memory poisoning e acesso cross-subject foram testados.
+- [ ] memory poisoning and cross-subject access were tested.
 
-Consulte [AGR security and memory](../security/rag-memory-security.md).
+Consultation [RAG security and memory](../security/rag-memory-security.md).
 
 ## 5. Model and prompt readiness
 
@@ -83,7 +83,7 @@ Consulte [AGR security and memory](../security/rag-memory-security.md).
 - [ ] entry and exit scheme is restrictive;
 - [ ] scopes are minimum;
 - [ ] reading and writing operations are distinguishable;
-- [ ] timeout e limites existem;
+- [ ] timeout and exist limits;
 - [ ] inequality was validated;
 - [ ] retries do not double effects;
 - [ ] compensation or rollback has been defined;
@@ -98,10 +98,10 @@ Consulte [AGR security and memory](../security/rag-memory-security.md).
 - [ ] risk classification was confirmed;
 - [ ] secrets are not in the code or prompt;
 - [ ] sensitive data are minimized;
-- [ ] logs e traces possuem redaction;
+- [ ] logs and traces have redaction;
 - [ ] retention and disposal were defined;
 - [ ] legal basis or justification for purpose was analysed;
-- [ ] incidentes de vazamento possuem runbook;
+- [ ] leakage incidents have runbook;
 - [ ] facilities and images were checked;
 - [ ] egress is controlled;
 - [ ] transit and rest cryptography is applied;
@@ -114,7 +114,7 @@ Consulte [AGR security and memory](../security/rag-memory-security.md).
 - [ ] baseline is defined;
 - [ ] quality of the task is measured separately;
 - [ ] retrieval and groundedness are evaluated separately;
-- [ ] prompt injection e leakage fazem parte dos testes;
+- [ ] prompt injection and leakage are part of the tests;
 - [ ] tool selection and arguments are evaluated;
 - [ ] performance and cost have thresholds;
 - [ ] regressions block release according to risk;
@@ -128,11 +128,11 @@ Consulte [AGR security and memory](../security/rag-memory-security.md).
 - [ ] agent, version, model, tenant and session are correlated;
 - [ ] success, latency, tokens and cost metrics exist;
 - [ ] policy denials are observable;
-- [ ] retrieval, memory e tools possuem spans;
+- [ ] retrieval, memory and tools have spans;
 - [ ] logs do not store complete prompts per pattern;
 - [ ] SLO is defined by workload;
 - [ ] alerts have owner and expected action;
-- [ ] dashboards foram revisados com a equipe de suporte;
+- [ ] dashboards were reviewed with the support team;
 - [ ] capacity has been tested;
 - [ ] critical dependencies have circuit breaker or fallback;
 - [ ] runbooks are accessible;
@@ -144,7 +144,7 @@ Consulte [AGR security and memory](../security/rag-memory-security.md).
 - [ ] costs have tags or dimensions per agent and tenant;
 - [ ] tokens and costs are measured by model;
 - [ ] monthly and daily budget are defined;
-- [ ] quotas preventivas existem;
+- [ ] preventive quotas exist;
 - [ ] anomaly warnings are set;
 - [ ] cost per successful task is followed;
 - [ ] re-indexation and embeddings enter the cost model;
@@ -211,7 +211,7 @@ One version is ready when:
 
 - delivery measurable value;
 - has known risk and applied controls;
-- pode ser observada e suportada;
+- can be observed and supported;
 - has a controlled cost;
 - may be reversed, suspended and withdrawn;
 - it has evidence that allows to explain why it has been published.

@@ -41,7 +41,7 @@ flowchart TB
 | Capacity | Responsabilidade |
 |---|---|
 | AI Portal | catalog, onboarding, evidence, status and operational documentation |
-| SDKs e templates | golden paths for agents, RAG, tools and telemetry |
+| SDKs and templates | golden paths for agents, RAG, tools and telemetry |
 | Playground controlado | experimentation with identity, quotas and appropriate logging |
 | Channels | integration with web, mobile, contact center, APIs and measurement |
 | Documentation | book, technical references, examples and runbooks |
@@ -63,7 +63,7 @@ flowchart TB
 |---|---|
 | Knowledge Ingestion | extraction, classification, quarantine, chunking and indexing |
 | Retrieval | semantic search, lexical, hybrid, reranking and citations |
-| Knowledge Authorization | enforcement por tenant, base, documento e chunk |
+| Knowledge Authorization | enforcement by tenant, base, document and chunk |
 | Knowledge Lifecycle | versioning, expiration, re-indexing and elimination |
 | Session Memory | ephemeral context necessary to the current interaction of the study. |
 | Long-term Memory | facts and preferences for purpose, consent and TTL |
@@ -86,7 +86,7 @@ flowchart TB
 | Capacity | Responsabilidade |
 |---|---|
 | Identity | users, workloads and delegation |
-| Authorization | RBAC, ABAC, scopes, purpose e deny by default |
+| Authorization | RBAC, ABAC, scopes, purpose and deny by default |
 | Policy Management | authorship, distribution, decision and enforcement of policies |
 | AI Risk Management | classification, controls and risk-proportional gates |
 | Evaluation | quality, groundedness, safety, retrieval, cost and latency |
@@ -98,59 +98,59 @@ flowchart TB
 | Capacity | Responsabilidade |
 |---|---|
 | Observability | logs, metrics, traces and correlated events |
-| SLO Management | objetivos por classe de workload e error budgets |
+| SLO Management | objectives by class of workload and error budgets |
 | Incident Management | detection, containment, diagnosis, communication and review |
 | Capacity Management | competition, backlog, limits and load tests |
 | Cost Management | cost per agent, model, tenant, area and environment |
-| Budget and Quotas | limites preventivos, alertas, showback e chargeback |
-| Resilience | timeout, retry, circuit breaker, fallback, DR e rollback |
+| Budget and Quotas | preventive limits, alerts, showback and chargeback |
+| Resilience | timeout, retry, circuit breaker, fallback, DR and rollback |
 
 ### 7. Foundation
 
 | Capacity | Responsabilidade |
 |---|---|
-| Cloud and Network | contas, VPCs, subnets, private endpoints e egress |
-| Runtime Platform | Kubernetes, serverless ou compute gerenciado |
+| Cloud and Network | accounts, VPCs, subnets, private endpoints and egress |
+| Runtime Platform | Kubernetes, serverless or compute managed |
 | Event Backbone | canonical events and asynchronous uncoupling |
-| Data Stores | armazenamento operacional, vetorial, cache e object storage |
+| Date Stores | operational storage, vector, cache and object storage |
 | Secrets and Keys | KMS, secrets, rotation and workload identity |
-| CI/CD | tests, policy checks, promotion and evidence of release |
-| Software Supply Chain | Premises, images, SBOM, signature and provenance |
+| IC/CD | tests, policy checks, promotion and evidence of release |
+| Software Supply Chain | dependencies, images, SBOM, signature and provenance |
 
 ## Relationship with control plane and date plane
 
 The capability map does not replace the architectural separation between planes.
 
 - **Control plane:** registration, configuration, governance, policies, evaluation, catalogue and promotion.
-- **Data plane:** invocation, retrieval, memory, models, tools and telemetry in execution time.
+- **Date planned:** invocation, retrieval, memory, models, tools and telemetry in execution time.
 
 A capacity may have components in both planes, for example, Model Management defines policies in the control plane, while Model Gateway applies these policies in the data plane.
 
-Consulte [Control plane e data plane](../architecture/control-plane-data-plane.md) for separation details.
+Consultation [Control plan and date plan](../architecture/control-plane-data-plane.md) for separation details.
 
-## MVP de plataforma
+## Platform MVP
 
 Not all capacities need to exist in the first release. A corporate MVP normally contains:
 
-1. Agent Gateway e Agent Runtime;
+1. Agent Gateway and Agent Runtime;
 2. Agent Registry;
 3. Model Gateway;
 4. identity and authorisation;
 5. policy enforcement;
 6. tip-to-end observability;
 7. minimum assessment;
-8. CI/CD com gates;
+8. IC/CD with gates;
 9. an integration of knowledge or a real tool;
-10. ownership e suporte definidos.
+10. ownership and defined support.
 
 ## Capabilities that should not be centralized early
 
 Some responsibilities shall remain in the product until there is proven repetition:
 
 - specific business logic;
-- prompts altamente especializados;
-- UX e linguagem do canal;
-- datasets exclusivos de um produto;
+- highly expert prompts;
+- UX and channel language;
+- exclusive dates for a product;
 - workflows that will not be reused;
 - transactional rules belonging to the registration system.
 
@@ -160,18 +160,18 @@ Shared capacity shall meet most of the following criteria:
 
 - re-used for multiple products;
 - requer controle uniforme;
-- possui economia de escala operacional;
+- has an economy of operational scale;
 - has a stable or verifiable contract;
-- possui owner e SLO definidos;
+- has owner and SLO defined;
 - reduces risk or lead time in a measurable way;
 - it can evolve without blocking all consumers.
 
-## Reference articles
+## Reference artifacts
 
 - [Domains](../domains/agent-platform.md)
 - [Services](../services/agent-gateway.md)
 - [Architecture C4](../architecture/c4-complete.md)
-- [Contratos](../contracts/apis.md)
+- [Contracts](../contracts/apis.md)
 - [Non-functional requirements](../architecture/non-functional-requirements.md)
 
 ## Next chapter

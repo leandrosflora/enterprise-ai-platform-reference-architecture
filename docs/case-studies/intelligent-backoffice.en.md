@@ -11,7 +11,7 @@ This case demonstrates how the capabilities of the Enterprise AI Platform Refere
 The chosen journey is a **bank contest**, involving documents, investigation, recommendation, approval by heading, governed execution, ambiguous outcome treatment and audit.
 
 !!! info "State current"
-    The architecture, contracts and controls have an execuble baseline with synthetic data. The backend .NET and the frontend React have begun to materialize the product in separate repositories. The joint integration is not yet classified as validated and the solution remains `NOT_PRODUCTION_READY`.
+    The architecture, contracts and controls have an executable baseline with synthetic data. The backend .NET and the frontend React have begun to materialize the product in separate repositories. The joint integration is not yet classified as validated and the solution remains `NOT_PRODUCTION_READY`.
 
 ## Business problem
 
@@ -34,13 +34,13 @@ The platform organises dispute as a governed and measurable journey:
 
 | Outcome | Indicador sugerido |
 |---|---|
-| Reduzir tempo de ciclo | time between case creation and closure |
+| Reduce cycle time | time between case creation and closure |
 | Reduzir retrabalho documental | percentage of cases with complement request |
 | Improve consistency | Disagreement between recommendation, approval and applicable rule |
-| Aumentar rastreabilidade | percentage of decisions with evidence, versions and actors registered |
-| Evitar efeito duplicado | conflicts and replays blocked by idempotence |
-| Tratar incerteza operacional | time to reconcile ambiguous executions |
-| Controlar autonomia da IA | abstention percentage, human review and policy denials |
+| Increasing traceability | percentage of decisions with evidence, versions and actors registered |
+| Avoid duplicate effect | conflicts and replays blocked by idempotence |
+| Treating operational uncertainty | time to reconcile ambiguous executions |
+| Controlling the autonomy of the AI | abstention percentage, human review and policy denials |
 
 ## Jornada aplicada
 
@@ -63,7 +63,7 @@ flowchart TD
 
 The authority over the process remains in the workflow, and AI acts in analysis and recommendation, but does not control the lifecycle, does not approve and does not execute financial effects.
 
-## Onde a IA entra
+## Where AI enters
 
 AI is positioned in three main capacities.
 
@@ -104,7 +104,7 @@ Produces a structured recommendation containing:
 - evidence used;
 - regras consideradas;
 - model version and prompt;
-- `ABSTAIN` quando o grounding for insuficiente.
+- `ABSTAIN` grounding is insufficient.
 
 The recommendation follows for policy enforcement and human approval; it does not directly alter the state of the case.
 
@@ -112,51 +112,51 @@ The recommendation follows for policy enforcement and human approval; it does no
 
 | Responsabilidade | Why should not depend on generative AI |
 |---|---|
-| Lifecycle do caso | transitions and states need to be predictable and auditable. |
-| Competition and splitting | conflitos devem ser detectados de forma objetiva |
-| Impotence | repetition of the same request cannot generate new effect |
+| Lifecycle case | transitions and states need to be predictable and auditable. |
+| Competition and splitting | conflicts should be detected objectively in order to avoid these conflicts. |
+| idempotency | repetition of the same request cannot generate new effect |
 | Skill and segregation | authorisation is a formal rule |
 | Policy enforcement | access decisions must be explicit and fail-closed. |
 | Final approval | Human responsibility for sensitive action |
 | Financial implementation | changeable effect should use governed domain service |
 | Reconciliation | confirmation must come from objective evidence of the registration system |
-| Outbox e Inbox | delivery and deduplication are mechanisms of infrastructure and technology. |
+| Outbox and Inbox | delivery and deduplication are mechanisms of infrastructure and technology. |
 
 ## Real situation of intelligence
 
 The solution already has contracts, extension points and controls for AI, but the current implementation still uses deterministic mechanisms in parts of the journey.
 
-| Capacity | Implementable basis | Backend de produto | Evolution of AI |
+| Capacity | Implementable basis | Product backend | Evolution of AI |
 |---|---|---|---|
-| Documentary classification | regras por metadados e nome do arquivo | Document record and evidence | RCO and actual document model |
+| Documentary classification | Metadata rules and file name | Document record and evidence | RCO and actual document model |
 | Research | evidence-based deterministic engine |  `InvestigationEngine` Deterministic | agent with governed tools |
-| Recommendation |  `APPROVE` ou `ABSTAIN` por regra |  `RecommendationEngine` Deterministic | Decision Support Agent com grounding |
+| Recommendation |  `APPROVE` or `ABSTAIN` as a rule |  `RecommendationEngine` Deterministic | Decision Support Agent com grounding |
 | Model Gateway | defined in target architecture | not yet implemented | gateway provider-agnostic |
 | Knowledge Service | responsabilidade arquitetural | not yet integrated into the product | hybrid search and approved knowledge |
-| Evals | dataset e thresholds na baseline | not connected to the backend .NET | evals offline and online by model and prompt |
+| Evals | dataet and thresholds in baseline | not connected to the backend .NET | evals offline and online by model and prompt |
 
-!!! warning "real IA is still an evolution"
+!!! warning "real AI is still an evolution"
     The case should not be presented as a productive application of LLM. Today it demonstrates mainly the workflow, risk controls, the separation of responsibilities and contracts needed to incorporate real models with security.
 
-## Mapeamento para a Enterprise AI Platform
+## Mapping for Enterprise AI Platform
 
 | Reference capacity | Materialisation in the case | Current status |
 |---|---|---|
-| Channel / Experience | React console to create and operate cases |  `IMPLEMENTATION_STARTED`  |
+| Channel/ Experience | React console to create and operate cases |  `IMPLEMENTATION_STARTED`  |
 | Agent Gateway | still concentrated entry into the IPA; dedicated gateway is evolution |  `TARGET_DEFINED`  |
 | Agent Runtime | research and recommendation as deterministic modules | baseline `DEMONSTRATED_LOCAL`; produto `IMPLEMENTATION_STARTED`  |
 | Model Gateway | recommended interface for access provider-agnostic |  `TARGET_DEFINED`  |
 | Knowledge Service | knowledge and rules as approved sources of research |  `TARGET_DEFINED`  |
 | MCP / Tool Execution | governed tools for research consultations |  `CONTRACT_DEFINED`  |
-| Workflow Orchestration | lifecycle persistent, version, timers and transitions |  `DEMONSTRATED_LOCAL` na baseline |
-| Policy Enforcement | External PAO, default deny, alçada, purpose and segregation |  `DEMONSTRATED_LOCAL` na baseline; iniciado no backend |
+| Workflow Orchestration | lifecycle persistent, version, timers and transitions |  `DEMONSTRATED_LOCAL` On the basis |
+| Policy Enforcement | External PAO, default deny, alçada, purpose and segregation |  `DEMONSTRATED_LOCAL` in the baseline; started in the backend |
 | Human Approval | approval, rejection and request for evidence |  `DEMONSTRATED_LOCAL`  |
 | Governed Execution | implementing mock idempotent and reconciliation |  `DEMONSTRATED_LOCAL`  |
-| Event Backbone | Outbox, Inbox, workers, retry, DLQ e replay |  `DEMONSTRATED_LOCAL` na baseline |
+| Event Backbone | Outbox, Inbox, workers, retry, DLQ and replay |  `DEMONSTRATED_LOCAL` On the basis |
 | Evidence and Audit | timeline, versions, events and evidence references |  `DEMONSTRATED_LOCAL`  |
-| Evaluation Service | classification evals, grounding and abstention |  `DEMONSTRATED_LOCAL` na baseline |
-| Observability | metrics, traces, dashboards, SLOs and alerts |  `DEMONSTRATED_LOCAL` na baseline |
-| Workload Identity | JWT EdDSA local e target de IAM ou SPIFFE | baseline demonstrada; produto ainda usa headers de desenvolvimento |
+| Evaluation Service | classification evals, grounding and abstention |  `DEMONSTRATED_LOCAL` On the basis |
+| Observability | metrics, traces, dashboards, SLOs and alerts |  `DEMONSTRATED_LOCAL` On the basis |
+| Workload Identity | JWT local EdDSA and AMI or SPIFFE target | product still uses development headers |
 | Supply Chain | SBOM and provenance on the basis |  `DEMONSTRATED_LOCAL`  |
 | FinOps | cost, tokens and budgets foreseen for Intelligence Runtime |  `TARGET_DEFINED`  |
 | AI Catalog / Control Plane | Contracts, ADRs, policies and versioned states |  `CONTRACT_DEFINED`  |
@@ -186,29 +186,29 @@ flowchart LR
     ARCH -. valida padrões .-> REF
 ```
 
-FastAPI is not a product backend, it works as an execuble specification to validate standards, contracts and controls while frontend and backend evolve into own repositories.
+FastAPI is not a product backend, it works as an executable specification to validate standards, contracts and controls while frontend and backend evolve into own repositories.
 
 ## Implementation repositories
 
 | Repository | Responsabilidade | Classification |
 |---|---|---|
-|  [intelligent-backoffice-platform-architecture](https://github.com/leandrosflora/intelligent-backoffice-platform-architecture)  | architecture, C4, ADRs, contracts, policies, baseline feasible, evals and readiness |  `CONTRACT_DEFINED` e `DEMONSTRATED_LOCAL`  |
+|  [intelligent-backoffice-platform-architecture](https://github.com/leandrosflora/intelligent-backoffice-platform-architecture)  | architecture, C4, ADRs, contracts, policies, baseline feasible, evals and readiness |  `CONTRACT_DEFINED` and `DEMONSTRATED_LOCAL`  |
 |  [backoffice-platform-api](https://github.com/leandrosflora/backoffice-platform-api)  | backend .NET 9, domain, PostgreSQL, OPA and APIs of the journey |  `IMPLEMENTATION_STARTED`  |
-|  [intelligent-backoffice-frontend](https://github.com/leandrosflora/intelligent-backoffice-frontend)  | console React, jornada guiada e consumo das APIs |  `IMPLEMENTATION_STARTED`  |
+|  [intelligent-backoffice-frontend](https://github.com/leandrosflora/intelligent-backoffice-frontend)  | React console, guided journey and API consumption |  `IMPLEMENTATION_STARTED`  |
 
 ## Controls demonstrated
 
 | Risk | Controle aplicado |
 |---|---|
-| improper autonomous decision | IA apenas investiga e recomenda |
-| self-approval | recomendador e aprovador devem ser distintos |
-| approval outside the scope | OPA verifica autoridade do aprovador |
+| improper autonomous decision | AI only investigates and recommends |
+| self-approval | recommender and approver must be distinct from each other |
+| approval outside the scope | PAO verifies the authority of the approver |
 | grounding recommendation | Compulsory evidence and option of `ABSTAIN`  |
-| Doubled implementation |  `Idempotency-Key` e hash do comando |
+| Doubled implementation |  `Idempotency-Key` e hash of the command |
 | retry blind after timeout | ambiguous results require reconciliation of the students and their students. |
-| acesso cross-tenant | tenant in identity, resource and persistence |
+| cross-tenant access | tenant in identity, resource and persistence |
 | PDP unavailable | policy enforcement fail-closed |
-| replay de evento | Inbox idempotente e replay autorizado |
+| Event replay | Inbox idempotent and authorised replay |
 | loss of evidence | timeline and persisted references |
 | prompt injection documental | content treated as unreliable and separated from instructions |
 | Model supplier coupling | Model Gateway provider-agnostic as evolution |
@@ -252,17 +252,17 @@ sequenceDiagram
 The architectural repository shall publish evidence for:
 
 - walkthrough ponta a ponta;
-- lifecycle e versionamento;
-- policies positivas e negativas;
+- lifecycle and versioning;
+- positive and negative policies;
 - segregation of functions;
 - improper execution;
 - ambiguous result and reconciliation;
-- outbox, inbox, retry, DLQ e replay;
+- outbox, inbox, retry, DLQ and replay;
 - deterministic evalues;
 - metrics, traces, dashboards and SLOs;
 - local signed identity;
 - synthetic capacity
-- backup e restore;
+- backup and leave;
 - SBOM and provenance.
 
 [Perform the walkthrough of the dispute](https://leandrosflora.github.io/intelligent-backoffice-platform-architecture/tutorials/dispute-walkthrough/){ target="_blank" }
@@ -286,8 +286,8 @@ The architectural repository shall publish evidence for:
 
 ### P8 — Product integration
 
-1. Compose integrado para frontend, API, PostgreSQL e OPA;
-2. E2E cross-repo da jornada principal;
+1. Integrated compose for frontend, API, PostgreSQL and PAO;
+2. E2E cross-rest of the main journey;
 3. Automated compatibility of OpenAPI and implementation;
 4. Recovery of recommendations and approvals for PIA;
 5. identity signed on backend and login on frontend;
@@ -295,11 +295,11 @@ The architectural repository shall publish evidence for:
 
 ### P9 — Intelligence Runtime
 
-1. interfaces provider-agnostic para IA;
+1. provider-agnostic interfaces for AI;
 2. Model Gateway;
 3. Document Intelligence with OCR and real extraction;
-4. Investigation Agent com tools governadas;
-5. Decision Support Agent com grounding e `ABSTAIN`;
+4. Investigation Agent with governed tools;
+5. Decision Support Agent with grounding and `ABSTAIN`;
 6. Knowledge Service and hybrid search;
 7. persistence of prompt, model, sources and tool calls;
 8. groundedness, hallucination, tool selection, safety, cost and latency;
@@ -307,13 +307,13 @@ The architectural repository shall publish evidence for:
 
 ## Architectural lessons
 
-1. **IA does not replace workflow.** Long processes, retries, timers and transitions require deterministic authority.
+1. **AI does not replace workflow.** Long processes, retries, timers and transitions require deterministic authority.
 2. **Recommendation is not authorisation.** An output from the model does not grant raising or permission.
 3. **Implementation needs to be isolated from AI.** Changable effects undergo domain, policy and inadequacy services.
 4. **Operational uncertainty needs self-state.** Timeout after possible effect is neither success nor safe failure.
 5. **Evidence should be born along with the decision.** Reconstructing justifications afterwards is insufficient for auditing.
 6. **The architecture needs to declare what is still mock.** The deterministic code should not be confused with actual AI.
-7. **Baseline e produto podem evoluir em trilhas separadas.** The baseline validates standards while the product repositories incorporate the controls progressively.
+7. **Baseline and product can evolve in separate trails.** The baseline validates standards while the product repositories incorporate the controls progressively.
 
 ## References
 
@@ -321,5 +321,5 @@ The architectural repository shall publish evidence for:
 - [Applicable contest case](https://leandrosflora.github.io/intelligent-backoffice-platform-architecture/case-study/)
 - [Current status × target](https://leandrosflora.github.io/intelligent-backoffice-platform-architecture/architecture/implementation-status/)
 - [Implementing repositories](https://leandrosflora.github.io/intelligent-backoffice-platform-architecture/implementation/product-repositories/)
-- [ADRs do caso](https://leandrosflora.github.io/intelligent-backoffice-platform-architecture/decisions/)
+- [Case ADRs](https://leandrosflora.github.io/intelligent-backoffice-platform-architecture/decisions/)
 - [Production readiness](https://leandrosflora.github.io/intelligent-backoffice-platform-architecture/governance/production-readiness/)

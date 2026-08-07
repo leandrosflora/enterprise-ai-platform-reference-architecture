@@ -1,4 +1,4 @@
-# FinOps para IA
+# FinOps for AI
 
 FinOps must connect technical consumption, business unit, agent, session and result; measuring only the provider's invoice does not allow for accountability or optimization.
 
@@ -22,7 +22,7 @@ Relating cost with successful workload, containment, conversion, saved time or s
 
 ## Budget enforcement
 
-Aplicar limites em camadas:
+Application of layered boundaries:
 
 - organization and cost center;
 - product or domain;
@@ -41,7 +41,7 @@ Use when semantically equivalent questions generate stable responses. The key sh
 The Model Gateway must select model by task classification, risk, minimum quality, latency, availability and budget. A common policy:
 
 1. economic model for classification and simple extraction;
-2. intermediate model for AGR and common tool calling;
+2. intermediate model for RAG and common tool calling;
 3. advanced model for complex or scaled cases.
 
 ## Fallback between models
@@ -55,7 +55,7 @@ Fallback should preserve tool calling compatibility, context size, data policy a
 | cost per session completed | workload efficiency |
 | cost per accepted response | economic quality |
 | tokens per step | detection of swollen prompts |
-| taxa de cache | economia potencial |
+| cache rate | potential economy |
 | Retries/fallback cost | Unstableness and waste |
 | cost per tool | Integration optimization |
 | budget consumed/projected | controle preventivo |

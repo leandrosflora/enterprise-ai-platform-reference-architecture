@@ -11,7 +11,7 @@ Memory improves continuity and personalization, but increases the risk of privac
 Adopt three levels:
 
 1. **shift memory:** context of the requisition;
-2. **Session memory:** TTL curto em Redis;
+2. **Session memory:** Short TTL in Redis;
 3. **Persistent memory:** durable storage only for purpose, consent or legal basis, classification, TTL and exclusion mechanisms.
 
 Persistent memory is not standard, and the agent should work without it when possible.

@@ -30,7 +30,7 @@ Example of results produced by Evaluation Service after an invocation of agent.
 
 The result is used for:
 
-- Approval of staff
+- Approval of agents
 - Regression between versions
 - Quality monitoring
 - Governance evidence

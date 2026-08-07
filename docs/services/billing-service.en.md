@@ -9,17 +9,17 @@ The Billing Service is responsible for FinOps of the platform: token tracking, c
 - Consume events of use (agent invoking, tool execution, embedding generation)
 - Calculating cost per model, agent, team and business unit
 - Generate chargeback and showback reports
-- Alertar sobre consumo acima de limites definidos
+- Alert on consumption above defined limits
 
-## Fora de Escopo
+## Out of Scope
 
 - Implementation of the agent or tool
-- Auditoria de conformidade (papel da Audit Service)
+- Conformity audit ( Audit Service role)
 - Definition of risk approval limits (Role of the Governance Service)
 
 ## Dependencies
 
-| Dependence | Uso |
+| Dependence | Use |
 |---|---|
 | Kafka | Consumes use events for cost calculation |
 | PostgreSQL | Costs and chargeback data persist |
@@ -32,12 +32,12 @@ The Billing Service is responsible for FinOps of the platform: token tracking, c
 
 ## Non-functional requirements
 
-| Requisito | Diretriz |
+| Requirements | Guideline |
 |---|---|
 | Retention | 24 months for data on use and charge, base for chargeback/showback |
 | Precision | Calculated cost should reflect actual consumption of tokens and invocation tools |
 | Escalabilidade | It processes a high volume of use events without relevant delay in closing periods |
-| Auditoria | Cost calculations should be traceable to the event of origin |
+| Audit | Cost calculations should be traceable to the event of origin |
 
 ## Related Decisions
 

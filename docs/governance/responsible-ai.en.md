@@ -12,12 +12,12 @@ Defining principles, decisions, controls and evidence so that AI solutions are f
 | Transparency | Do the user knows that he/she interacts with AI and what are his/her limits? | Notification of use, Agent Card and published limitations |
 | Explicabilidade | Is it possible to justify answers or decisions? | citations, relevant factors, rationale allowed and decision trail |
 | Accountability | Is there a person responsible for risk, operation and outcome? | owner, approvers, ICA and decision record |
-| Privacidade | Does data use respect purpose, minimization and retention? | classification, legal basis, IAD/ALI when applicable and TTL |
+| Privacy | Does data use respect purpose, minimization and retention? | classification, legal basis, IAD/ALI when applicable and TTL |
 | Security | Are inputs, context, memory, tools and outputs treated as unreliable? | threat model, adverse tests and technical controls |
 | Robustez | Does the system degrade safely in the face of failures or changes? | fallback, circuit breaker, resilience tests and rollback |
 | Human supervision | Is autonomy proportional to the impact? | human-in-the-loop, transactional limits and segregation of function |
 
-## Ciclo de vida
+## Life cycle
 
 ```mermaid
 flowchart LR
@@ -33,11 +33,11 @@ flowchart LR
 
 ## Requirements per stage
 
-### Descoberta e design
+### Discovery and design
 
 - define purpose, users, impact and use limits;
 - rating risk and data;
-- identificar grupos potencialmente afetados;
+- identify potentially affected groups;
 - determine the maximum degree of autonomy;
 - register alternatives not based on AI.
 
@@ -52,7 +52,7 @@ flowchart LR
 ### Evaluation
 
 - measure quality, groundedness, safety, bias and robustness;
-- executar testes adversariais e por segmentos relevantes;
+- perform adverse tests and relevant segments;
 - compare against baseline and previous version;
 - require human review for HIGH and CRITICAL risks.
 
@@ -72,7 +72,7 @@ Minimum controls:
 1. define groups and metrics before the test;
 2. analyze disparity of precision, false positives and false negatives;
 3. to review the representativeness and quality of data;
-4. documentar trade-offs entre performance e equidade;
+4. document trade-offs between performance and equity;
 5. blocking publication when the residual impact is not accepted.
 
 ## Transparency for the user
@@ -90,7 +90,7 @@ All experience shall inform:
 
 | Impacto | Supervision pattern |
 |---|---|
-| Informativo | sampling review |
+| Package leaflet | sampling review |
 | Recommendation | humano decide |
 | Reversible writing | Explicit confirmation |
 | Critical writing | Double approval or segregation of function |

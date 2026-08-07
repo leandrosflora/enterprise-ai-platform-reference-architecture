@@ -6,7 +6,7 @@ The guides below do not replace ADRs, and they help to identify the most appropr
 
 ## 1. Agent or deterministic workflow?
 
-| Use the agent when | Use workflow quando |
+| Use the agent when | Use workflow when |
 |---|---|
 | entry and language are variables | sequence and rules are known |
 | selection of tools depends on context | steps need to be reproducible |
@@ -18,7 +18,7 @@ The guides below do not replace ADRs, and they help to identify the most appropr
 
 Use the lowest level of autonomy that solves the problem. An agent can interpret the intention and delegate the execution to a deterministic workflow.
 
-### Sinais de alerta
+### Warning signs
 
 - agent used only to connect known PIAs;
 - absence of a clear limit of autonomy;
@@ -29,13 +29,13 @@ Use the lowest level of autonomy that solves the problem. An agent can interpret
 
 | Criteria | RAG | Fine-tuning |
 |---|---|---|
-| knowledge often changes | forte | fraco |
+| knowledge often changes | strong | weak |
 | need for citations | forte | fraco |
 | controle por documento | forte | difficult |
 | style or format adaptation | moderado | forte |
-| very specialized and stable knowledge | Possible | forte em alguns casos |
-| Immediate removal of information | forte | difficult |
-| preparation cost | Ingestion and retrieval | dataset e treinamento |
+| very specialized and stable knowledge | Possible | in some cases |
+| Immediate removal of information | strong | difficult |
+| preparation cost | Ingestion and retrieval | dateset and training |
 
 ### Recommendation
 
@@ -50,7 +50,7 @@ An adjusted model may continue to use RAG. Fine-tuning does not eliminate the ne
 | Memory of AI | Transaction status |
 |---|---|
 | preference, context or abstract | balance, status, contract, application or official decision |
-| pode expirar ou ser recalculada | requires consistency and registration system |
+| may expire or be recalculated | requires consistency and registration system |
 | trust and origin need to be registered | integrity rules are mandatory |
 | may be probabilistic | it must be deterministic |
 
@@ -75,7 +75,7 @@ Use MCP as a layer of exposure governed for agents, without transforming the MCP
 
 | Single-agent | Multi-agent |
 |---|---|
-| menor complexidade | explicit specialization |
+| less complexity | explicit specialization |
 | simpler assessment | very distinct domains and tools |
 | less hops and cost | Context separation required |
 | tracing direto | collaboration brings proven gain |
@@ -87,8 +87,8 @@ Start with a well-defined agent and tools. Insert multiple agents only when the 
 ### Occult multi-agent costs
 
 - more tokens and latency;
-- falhas de handoff;
-- dificuldade de atribuir responsabilidade;
+- handoff failures;
+- difficulty assigning responsibility;
 - combinatorial assessment;
 - excessive context propagation;
 - more complex observability.
@@ -97,9 +97,9 @@ Start with a well-defined agent and tools. Insert multiple agents only when the 
 
 | Synchronous | Asynchronous |
 |---|---|
-| immediate human interaction | tarefas longas ou em lote |
-| resposta dentro do SLO do canal | dependencies with variable latency |
-| efeito simples e controlado | multiple steps and retries |
+| immediate human interaction | long or batch tasks |
+| Response within the SLO of the channel | dependencies with variable latency |
+| simple and controlled effect | multiple steps and retries |
 | Cancellation of session | connection independent processing |
 
 ### Recommendation
@@ -112,7 +112,7 @@ Use asynchronous for ingestion, extensive evaluations, batch generation and long
 |---|---|
 | experimento isolado | multi-products or providers |
 | low risk and short duration | region policies, cost and approved models |
-| nenhuma necessidade de fallback | Common routing and observability |
+| no need for fallback | Common routing and observability |
 | local simplicity is the most important | portability and governance are needed |
 
 ### Recommendation
@@ -121,9 +121,9 @@ A corporate platform should converge to Model Gateway, but it does not need to b
 
 ## 8. Vector database dedicada ou banco existente?
 
-| Banco existente com busca vetorial | Vector database dedicada |
+| Existing bank with vector search | Content database vector |
 |---|---|
-| volume e throughput moderados | scale or search standards |
+| volume and throughput moderate | scale or search standards |
 | consistency with metadata is important to achieve the accuracy of the study. | distributed indexation and large-scale low latency |
 | team already operates the technology | advanced resources justify new platform |
 | menor complexidade operacional | independent isolation and tuning are required |
@@ -132,7 +132,7 @@ A corporate platform should converge to Model Gateway, but it does not need to b
 
 Avoid adding a technology only because it is popular.Do benchmark with corpus, filters, update, availability and actual cost.
 
-Consulte [ADR-005 — Vector and hybrid search strategy](../adrs/005-vector-search-strategy.md).
+Consultation [ADR-005 — Vector and hybrid search strategy](../adrs/005-vector-search-strategy.md).
 
 ## 9. Cachear or not?
 
@@ -145,7 +145,7 @@ Cache can reduce cost and latency, but it must incorporate:
 - classification;
 - purpose;
 - model and configuration;
-- prazo de validade.
+- expiry date.
 
 Do not reuse a response between users when the authorisation or context can alter the result.
 
@@ -153,26 +153,26 @@ Do not reuse a response between users when the authorisation or context can alte
 
 | Pergunta | Favorece build | Favorece buy |
 |---|---|---|
-| capacity differentiates the business? | sim | no |
+| capacity differentiates the business? | Yes | no |
 | are integration requirements specific? | sim | no |
-| is data control critical? | sim | depende do fornecedor |
+| is data control critical? | Yes | depends on the supplier |
 | has the ability to operate? | sim | no |
 | is time-to-market an absolute priority? | no | sim |
-| commodity madura existe no mercado? | no | sim |
+| does mature commodity exist in the market? | no | Yes |
 | lock-in is acceptable? | no | sim |
 
 ### Components commonly purchased
 
 - managed observability;
 - model APIs;
-- scanners e DLP;
-- vector search gerenciada;
+- scanners and DLP;
+- vector search managed;
 - gateways or catalogues, when they meet the policies.
 
 ### Frequently strategic components
 
 - operating model;
-- contratos corporativos;
+- corporate contracts;
 - policies and risk gates;
 - integration with identity and internal systems;
 - datesets and domain evaluations;
@@ -199,7 +199,7 @@ Prompts are useful to guide behavior, but they should not be the only barrier to
 - authorisation;
 - access to data;
 - tool selection;
-- limites financeiros;
+- financial limits;
 - Critical actions;
 - retention and disposal;
 - regions and models allowed.
@@ -213,7 +213,7 @@ These controls should be applied by deterministic components before or after gen
 
 Use HITL when the effect is irreversible, regulated, financial or high-impact; use supervision when the volume prevents individual approval and there are adequate limits, detection and rollback.
 
-## Template de ADR
+## ADR Template
 
 For each relevant decision, register:
 

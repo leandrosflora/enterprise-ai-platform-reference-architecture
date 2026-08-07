@@ -4,11 +4,11 @@ This document defines the minimum contract for corporate MCP tools exposed to En
 
 ## Principles
 
-- Todo tool contract deve ter `toolName`, `version`, `description`, `inputSchema`, `outputSchema`, `security`, `audit` e `runtimePolicy`.
+- All tool contract should have `toolName`, `version`, `description`, `inputSchema`, `outputSchema`, `security`, `audit` and `runtimePolicy`.
 - Schemas should use JSON Schema Draft 2020-12.
 - Tools are semantically versioned.
 - RBAC and scopes are mandatory per tool.
-- Each execution must carry `correlationId`, `causationId`, `agentId`, `sessionId` e `tenantId`.
+- Each execution must carry `correlationId`, `causationId`, `agentId`, `sessionId` and `tenantId`.
 - Sensitive data should be classified and masked in logs.
 - No critical tool can be executed without explicit policy of timeout, retry, and inadequacy.
 
@@ -304,7 +304,7 @@ Every implementation shall publish `tool.executed` with minimum fields:
 |  `eventId`  | Sim | UUID |
 |  `eventType`  | Sim |  `tool.executed`  |
 |  `schemaVersion`  | Sim | SemVer |
-|  `correlationId`  | Sim | Protected from the invocation of the staff member |
+|  `correlationId`  | Yes | Protected from the invocation of the agent |
 |  `causationId`  | Sim | Command or message causing the execution |
 |  `agentId`  | Sim | Applicant agent |
 |  `toolName`  | Sim | Name of tool |

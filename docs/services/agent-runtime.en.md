@@ -6,16 +6,16 @@ The Agent Runtime is the heart of the Enterprise AI Platform, it executes agents
 
 ## Responsabilidades
 
-- Implementing published staff
+- Implementing published agents
 - To orchestrate prompts, tools, memory and RAG
 - Invocar foundation models
 - Implementing timeout, retry and circuit breaker policies
 - Publishing use, audit and charging events
 - To activate assessment of response quality
 
-## Fora de Escopo
+## Out of Scope
 
-- Approval of staff
+- Approval of agents
 - Catalogue management
 - Document management
 - User management
@@ -28,10 +28,10 @@ The Agent Runtime is the heart of the Enterprise AI Platform, it executes agents
 | Agent Executor | Checks the worker's execution cycle |
 | Prompt Engine | Monta prompts, system instructions and context |
 | Tool Executor | Performs allowed tools |
-| MCP Client | Integra com MCP Registry e MCP Servers |
+| MCP Client | Integrates with MCP Registry and MCP Servers |
 | Memory Adapter | Reads and updates memory |
 | Knowledge Adapter | Consulta Knowledge Service |
-| Model Adapter | Abstrai provedores de LLM |
+| Model Adapter | Abstracts MLL providers |
 | Evaluation Adapter | Referrals for evaluation |
 | Event Publisher | Publish Kafka events |
 
@@ -72,16 +72,16 @@ Authorization: Bearer <token>
 
 ## Dependencies
 
-| Dependence | Uso |
+| Dependence | Use |
 |---|---|
 | Agent Registry | Load the agent configuration |
 | MCP Registry | Discovering available tools |
-| Knowledge Service | Recovering knowledge for AGR |
+| Knowledge Service | Recovering knowledge for RAG |
 | Memory Service | Persist conversational context |
-| Evaluation Service | Avaliar resposta |
+| Evaluation Service | Evaluating response |
 | Foundation Models | Perform inference |
 | Kafka | Publicate events |
-| Redis | Cache e rate limit |
+| Redis | Cache and rate limit |
 
 ## Publicated events
 
@@ -91,17 +91,17 @@ Authorization: Bearer <token>
 
 ## Non-functional requirements
 
-| Requisito | Diretriz |
+| Requirements | Guideline |
 |---|---|
 | Latency | P95 less than 5s for simple agents |
 | Resilience | Controlled retry for transient calls |
 | Security | Authorisation by agent, tool and scope |
-| Observability | Trace por invocation, model call e tool call |
+| Observability | Trace por invocation, model call and tool call |
 | Escalabilidade | Horizontal scale per volume of invocations |
-| Auditoria | Complete entry, exit and relevant decision record |
+| Audit | Complete entry, exit and relevant decision record |
 
 ## Related Decisions
 
 - [ADR-004 — Agent Runtime with stable core and adapters](../adrs/004-agent-runtime-strategy.md)
-- [ADR-001 — MCP para tool calling governado](../adrs/001-mcp-vs-rest.md)
+- [ADR-001 — MCP for governed tool calling](../adrs/001-mcp-vs-rest.md)
 - [ADR-006 — OpenTelemetry as observability standard](../adrs/006-observability-strategy.md)

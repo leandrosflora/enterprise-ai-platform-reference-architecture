@@ -1,4 +1,4 @@
-# Runbook — Onboarding de MCP Server e Tool
+# Runbook — Onboarding MCP Server and Tool
 
 ## Objective
 
@@ -21,13 +21,13 @@ Register and release a MCP tool with defined contract, authentication, authorisa
 Documentar:
 
 - purpose;
-- efeitos colaterais;
+- side effects;
 - systems and data accessed;
 - risk `LOW`, `MEDIUM`, `HIGH` ou `CRITICAL`;
-- necessidade de human approval;
+- need for human approval;
 - timeout and competition limit.
 
-### 2. Definir o contrato
+### 2. Defining the contract
 
 Obligatory:
 
@@ -45,9 +45,9 @@ Obligatory:
 - allowance for operations;
 - authorisation in the destination system, not only in Runtime;
 - secret manager;
-- timeout, circuit breaker e bulkhead;
-- idempotency key para escrita;
-- redaction de logs;
+- timeout, circuit breaker and bulkhead;
+- idempotency key for writing;
+- redaction of logs;
 - reversible operation or compensation when possible.
 
 ### 4. Testar
@@ -58,13 +58,13 @@ Minimum cases:
 - absent field and invalid shape;
 - identity without scope;
 - acesso cross-tenant;
-- timeout do destino;
+- timeout of destination;
 - repetition with the same idempotency key;
-- tentativa de prompt/tool injection;
-- falha parcial;
+- prompt/tool injection attempt;
+- partial failure;
 - rollback or compensation
 
-### 5. Registrar no MCP Registry
+### 5. Register in the MCP Registry
 
 Register contract, owner, risk, endpoint, workload identity, SLO and evidence.
 
@@ -77,7 +77,7 @@ Register contract, owner, risk, endpoint, workload identity, SLO and evidence.
 - AI Architect validates scope and use by agents;
 - owner of the destination system validates capacity and rollback.
 
-### 7. Publicar e vincular
+### 7. Publicate and bind
 
 The publication makes the version uncoverable only for explicitly authorised agents. Do not use wildcard of tool in production.
 
@@ -96,7 +96,7 @@ The publication makes the version uncoverable only for explicitly authorised age
 2. blocking execution in the policy enforcement;
 3. keep the previous version when secure;
 4. to compensate for outstanding transactions where applicable;
-5. preservar auditoria;
+5. preserve audit;
 6. notify owners of consumer agents.
 
 ## Immediate rejection criteria
@@ -105,6 +105,6 @@ The publication makes the version uncoverable only for explicitly authorised age
 - authorisation only in the prompt;
 - writing without inequality;
 - no timeout;
-- schema aberto sem justificativa;
+- scheme open without justification;
 - generic tool that allows the execution of arbitrary commands;
 - no owner or rollback.

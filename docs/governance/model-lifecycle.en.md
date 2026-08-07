@@ -8,7 +8,7 @@ The lifecycle exists to prevent a version of the agent from being published with
 
 ## Escopo governado
 
-| Tipo de ativo | Examples | Minimum identity |
+| Type of asset | Examples | Minimum identity |
 |---|---|---|
 | Data source | bucket, bank, API, document repository |  `sourceId`, owner, purpose, classification, region |
 | Dataset | training, evaluation, red-team, golden dataset |  `datasetId`, version, hash, period, lineage |
@@ -20,7 +20,7 @@ The lifecycle exists to prevent a version of the agent from being published with
 
 ## Central principle
 
-A published version of the staff member shall point to a set of **immutable and reproducible** de ativos:
+A published version of the agent shall point to a set of **immutable and reproducible** Assets:
 
 ```text
 agentVersion
@@ -102,12 +102,12 @@ changeTicket: AI-1842
 
 ## Lineage ponta a ponta
 
-O lineage deve responder:
+The lineage must respond to:
 
 - where were the data from?
 - what transformations have been executed?
 - which version of the model or embedding was used?
-- quais prompts e policies participaram?
+- which prompts and policies participated?
 - which dates evaluated the version?
 - qual release consumiu o ativo?
 - which users, processes or decisions have been impacted?
@@ -164,12 +164,12 @@ Synthetic data do not eliminate the need to assess privacy, representativeness a
 | Dimension | Examples of control |
 |---|---|
 | Completude | mandatory fields and scenario coverage |
-| Validade | schemas, formatos e ranges |
-| Representatividade | segmentos, idiomas, canais e edge cases |
-| Atualidade | period, frequency and cutoff date |
-| Consistency | duplicidades, conflitos e labels divergentes |
+| Validity | schemes, formats and ranges |
+| Representativeness | segments, languages, channels and edge cases |
+| Update | period, frequency and cutoff date |
+| Consistency | Duplicity, conflict and divergent labels |
 | Privacidade | minimizing, masking and segregation |
-| Security | origem aprovada, malware e poisoning |
+| Security | approved origin, malware and poisoning |
 | Leakage | separation between training, evaluation and production |
 
 ### Change and exclusion
@@ -178,29 +178,29 @@ A change in source, purpose, scheme, period or policy may invalidate dates and d
 
 ## Lifecycle of models
 
-### Descoberta e cadastro
+### Discovery and registration
 
 A candidate model shall record:
 
 - provider, family, version and region;
 - capabilities and limitations;
 - data policy and supplier retention;
-- context window e formatos suportados;
-- compatibilidade de tool calling;
+- context window and supported formats;
+- compatibility of tool calling;
 - cost and limits;
 - support status and depreciation plan;
 - independent and internal assessments are available.
 
 ### Evaluation
 
-Avaliar separadamente:
+Assess separately:
 
 - quality per task;
 - security and resistance to attacks;
-- privacidade e data handling;
+- privacy and date handling;
 - latency and availability;
 - cost per completed task;
-- compatibilidade com prompts, tools e formatos;
+- compatibility with prompts, tools and formats;
 - behavior by language, segment and critical scenario.
 
 ### Approval and publication
@@ -232,7 +232,7 @@ Prompts are software and policy artifacts, not informal text.
 - few-shot examples;
 - non-reliable content delimiters;
 - instructions for use;
-- mensagens de fallback e recusa;
+- fallback and refusal messages;
 - Reference rules and transparency.
 
 ### Material changes
@@ -251,20 +251,20 @@ Require new version and evaluation:
 
 - golden cases;
 - conflicting instructions;
-- prompt injection direta e indireta;
+- direct and indirect prompt injection;
 - missing or ambiguous data;
 - invalid arguments of tool;
 - output schema;
 - cost regression and tokens;
 - comparison with the previous version.
 
-## Lifecycle de embeddings e knowledge snapshots
+## Lifecycle de embeddings and knowledge snapshots
 
 Embeddings should register model, version, dimension, normalization, chunking and generation date.Exchange of embedding model usually requires new snapshot and re-indexation.
 
 A knowledge snapshot must be unchangeable and contain:
 
-- documentos e checksums;
+- documents and checksums;
 - versions of chunks;
 - ACL, classification, purpose and retention;
 - embedding version;
@@ -274,7 +274,7 @@ A knowledge snapshot must be unchangeable and contain:
 
 Promotion of snapshot uses alias or equivalent mechanism, Rollback returns to known snapshot without emergency reconstruction.
 
-## Evaluation datasets e baselines
+## Evaluation datasets and baselines
 
 Assessment dates are separated from training data and from examples used in the prompt.
 
@@ -284,7 +284,7 @@ Each date shall bear:
 - version and hash;
 - origin and period;
 - inclusion criteria;
-- labels, rubricas e reviewers;
+- labels, items and reviewers;
 - risk coverage and edge cases;
 - validity and date of review;
 - access restrictions and retention.
@@ -299,14 +299,14 @@ Possible basis:
 
 ## Promotion networks
 
-| Gate | Pergunta | Evidence |
+| Gate | Question | Evidence |
 |---|---|---|
 | G0 — Register | the asset has identity and owner? | registration, purpose and classification |
 | G1 — Prepare | lineage and transformations are reproducible? | manifests, code and hashes |
-| G2 — Evaluate | quality, safety, cost and performance were measured? | evaluation report e testes negativos |
+| G2 — Evaluate | quality, safety, cost and performance were measured? | evaluation report and negative tests |
 | G3 — Approve | were residual risk and scope accepted? | Decision, conditions and validity |
-| G4 — Publish | are version and dependencies immutable and reversible? | release manifest, assinatura e rollback |
-| G5 — Operate | are metrics, alerts and budgets active? | dashboards, SLOs e quotas |
+| G4 — Publish | are version and dependencies immutable and reversible? | release manifest, signature and rollback |
+| G5 — Operate | are metrics, alerts and budgets active? | dashboards, SLOs and quotas |
 | G6 — Reassess / Retire | were treated? | novo bundle ou retirement record |
 
 ## Drift and re-evaluation triggers
@@ -317,7 +317,7 @@ Possible basis:
 | Concept drift | relationship between entry and result has changed | review rule, prompt or model |
 | Model drift | quality or safety decreased | exchange version, fallback or suspend |
 | Prompt drift | accumulated changes altered the behavior of the patients. | consolidate version and implement regression |
-| Retrieval drift | recall, relevance or citations worsened | reindexar, ajustar chunking ou reranker |
+| Retrieval drift | recall, relevance or citations worsened | re-indexing, adjusting chunking or reranker |
 | Cost drift | cost per task exceeded baseline | reduce context, routing model or block |
 | Outcome drift | technical metric is good, but value has fallen | review product, process or discontinue |
 | Regulatory drift | obligation or purpose has changed | reclassify risk and repeat assurance |
@@ -336,7 +336,7 @@ Possible basis:
 
 ## Regression responses
 
-A resposta deve ser proporcional ao impacto:
+The response should be proportional to the impact:
 
 1. alert and open investigation;
 2. reducing traffic or population;
@@ -344,21 +344,21 @@ A resposta deve ser proporcional ao impacto:
 4. routing to model or anterior snapshot;
 5. exigir human-in-the-loop;
 6. discontinue the version;
-7. retirar e revogar acessos.
+7. withdraw and withdraw access.
 
-## Retraining, fine-tuning e re-embedding
+## Retraining, fine-tuning and re-embedding
 
 Retraining or fine-tuning should not be automatic only because drift has been detected. First identify cause, risk, necessary data and simpler alternative.
 
-Quando realizado:
+When performed:
 
 - freeze dateset and training code;
 - register parameters, seed and environment;
-- gerar novo model artifact e model card;
+- generate new model artifact and model card;
 - repeat applicable complete assessment;
 - compare with the baseline and previous version;
 - usar rollout controlado;
-- manter rollback independente do pipeline de treino.
+- keep rollback independent of the training pipeline.
 
 Re-embedding follows the equivalent process for knowledge snapshots, with validation of retrieval and authorization before promotion.
 
@@ -391,7 +391,7 @@ retirement-record.json
 | Business Owner | residual risk outcome and acceptance |
 | Data Owner | sources, quality, access, retention and exclusion |
 | AI Architect | borders, compatibility and architectural decisions |
-| Model Risk / Evaluation | methodology, datesets, thresholds and independence |
+| Model Risk/ Evaluation | methodology, datesets, thresholds and independence |
 | Security / Privacy | threats, data, suppliers and controls |
 | Platform Team | registry, manifests, policies and technical promotion |
 | Product Team | prompts, experience, feedback and result metrics |

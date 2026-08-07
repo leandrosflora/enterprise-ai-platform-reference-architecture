@@ -4,7 +4,7 @@
 
 > Architecture, tracing, logs, metrics and reference book in a quick view.
 
-Este site apresenta um **reference book to guide the design, governance, implementation and operation of corporate AI platforms**.
+This site provides a **reference book to guide the design, governance, implementation and operation of corporate AI platforms**.
 
 It combines editorial narrative, architectural models, contracts, policies, checklists and a small technical sample used only to validate part of the documented artifacts.
 
@@ -14,7 +14,7 @@ It combines editorial narrative, architectural models, contracts, policies, chec
 
 <div class="grid cards" markdown>
 
--   :material-briefcase-outline: **Executive vision**
+-   : Outer-briefcase material: **Executive vision**
 
     ---
 
@@ -22,7 +22,7 @@ It combines editorial narrative, architectural models, contracts, policies, chec
 
         [Start with outcomes](book/02-business-outcomes.md)
 
--   :material-sitemap-outline: **Architecture**
+-   :sitemap-outline material: **Architecture**
 
     ---
 
@@ -38,48 +38,48 @@ It combines editorial narrative, architectural models, contracts, policies, chec
 
         [Ler o operating model](book/03-operating-model.md)
 
--   :material-source-branch: **Delivery e lifecycle**
+-   : source-branch: **Delivery and lifecycle**
 
     ---
 
     Estruture gates, evidence, evaluation, publication, operation and removal of AI agents and assets.
 
-        [Abrir o lifecycle de ativos](governance/model-lifecycle.md)
+        [Opening the lifecycle of assets](governance/model-lifecycle.md)
 
--   :material-shield-check-outline: **Security and governance**
+-   : material-shield-check-outline: **Security and governance**
 
     ---
 
     Apply traceable controls, authorisation, threat modeling, RAG security, memory, LGPD and AI Risk Framework.
 
-        [Abrir o crosswalk de compliance](governance/compliance-crosswalk.md)
+        [Opening the crosswalk de compliance](governance/compliance-crosswalk.md)
 
--   :material-flask-outline: **Casos aplicados**
+-   :flask-outline material: **Cases applied**
 
     ---
 
     Comparison of concrete materializations for AI bank conversational, regulated backoffice automation and agent-oriented software engineering.
 
-        [Abrir os casos aplicados](case-studies/index.md)
+        [Opening applicable cases](case-studies/index.md)
 
 </div>
 
-## Casos aplicados em destaque
+## Highlighted cases
 
-| Caso | Capacities demonstrated | State |
+| Case | Capacities demonstrated | State |
 |---|---|---|
 |  [Multi-skill banking conversational platform](case-studies/conversational-ai.md)  | Agent Runtimes, MCP, RAG, memory, journeys, eventing, audit and evaluation | Implementable reference and hardened COP |
 |  [Intelligent Backoffice — bank contest](case-studies/intelligent-backoffice.md)  | Persistent workflow, Document Intelligence, research, recommendation, human approval, PAO, inadequate execution and reconciliation | demonstrated baseline; backend and frontend in implementation |
 |  [Agentic SDLC governado](case-studies/agentic-sdlc.md)  | 8 roles of agent, durable workflow, Model Gateway, MCP, OPA, checkpoints, evidence bundles, digest approval, observed release and rollback | Functional runtime and controlled integration; outstanding production |
 
-## Livro
+## Book
 
-1. [Por que uma AI Platform?](book/01-why-ai-platform.md)
+1. [Why an AI Platform?](book/01-why-ai-platform.md)
 2. [Business Outcomes](book/02-business-outcomes.md)
 3. [Capability Map](book/02-capability-map.md)
 4. [Operating Model](book/03-operating-model.md)
 5. [Life cycle of agents](book/04-agent-lifecycle.md)
-6. [Case study: documentary agent with AGR](book/05-case-study-document-agent.md)
+6. [Case study: documentary agent with RAG](book/05-case-study-document-agent.md)
 7. [Decision Guides](book/06-decision-guides.md)
 8. [Maturity model and roadmap](book/07-adoption-roadmap.md)
 9. [Production Checklists](book/08-production-checklists.md)
@@ -126,11 +126,11 @@ The decomposition above is logical, it does not determine the amount of services
 | APIs HTTP |  [OpenAPI](contracts/openapi.yaml)  |
 | Events |  [AsyncAPI](contracts/async-api.yaml)  |
 | Governance and compliance |  [Crosswalk](governance/compliance-crosswalk.md)  |
-| Lifecycle de ativos de IA |  [Data, Model, Prompt and Knowledge Lifecycle](governance/model-lifecycle.md)  |
-| AGR security and memory |  [Pattern](security/rag-memory-security.md)  |
+| Lifecycle of AI assets |  [Date, Model, Prompt and Knowledge Lifecycle](governance/model-lifecycle.md)  |
+| RAG security and memory |  [Pattern](security/rag-memory-security.md)  |
 | Risk |  [AI Risk Framework](governance/ai-risk-framework.md)  |
 | SLOs |  [Non-functional requirements](architecture/non-functional-requirements.md)  |
-| Reference deployment |  [C4 Deployment](architecture/diagrams/c4-deployment.puml)  |
+| Reference deployment |  [Deployment](architecture/diagrams/c4-deployment.puml)  |
 | Validation sample |  [Vertical slice](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/tree/main/samples/vertical-slice)  |
 
 ## PDF

@@ -29,10 +29,10 @@ Retrieved content, user messages and tool responses should be delimited and trea
 
 | Pattern | Recommended use | Main risk |
 |---|---|---|
-| Zero-shot | tarefas simples e bem definidas | Ambiguous interpretation |
+| Zero-shot | simple and well defined tasks | Ambiguous interpretation |
 | Few-shot | classification, extraction and consistent format | biased or extensive examples |
 | Structured output | machine to machine integration | incompatible schema or invalid response |
-| ReAct | reasoning interspersed with tools | loops e tool abuse |
+| ReAct | reasoning interspersed with tools | loops and tool abuse |
 | Planner-executor | long and decompatible tasks | excessive planning or out-of-scope execution |
 | Retrieval-grounded | corporate knowledge-based responses | prompt injection indireta |
 | Critic/reviewer | Quality review before exit | cost and false confidence |
@@ -83,13 +83,13 @@ Critérios de qualidade:
 Each published prompt shall have:
 
 - identifier and semantic version;
-- owner e caso de uso;
+- owner and case of use;
 - model and compatible parameters;
 - entry and exit schemes;
 - context dependencies and tools;
 - regression dates;
 - metrics and thresholds
-- changelog e plano de rollback.
+- changelog and rollback plane.
 
 ## Security
 
@@ -101,7 +101,7 @@ Minimum controls:
 - iteration limits and time;
 - sensitive data redaction;
 - output filtering;
-- testes de direct e indirect prompt injection;
+- direct and indirect prompt injection tests;
 - prohibition of secrets, tokens and credentials in prompts.
 
 ## Review checklist

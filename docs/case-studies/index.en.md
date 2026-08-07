@@ -1,11 +1,11 @@
-# Casos aplicados
+# Cases applied
 
 The cases applied demonstrate how the logical capacities of Enterprise AI Platform can be materialized in domains, journeys and concrete topology.
 
 They do not define a single implementation. Each case explains:
 
 - the business problem;
-- onde a IA participa da jornada;
+- where the AI participates in the journey;
 - which capacities of the platform are used;
 - which controls remain deterministic;
 - what is implemented, demonstrated or only planned;
@@ -21,33 +21,33 @@ They do not define a single implementation. Each case explains:
 
     Bank journals via WhatsApp, multiple skills, Agent Runtimes, MCP tools, RAG, memory, eventing, audit and evaluation.
 
-        [Abrir o caso conversacional](conversational-ai.md)
+        [Opening the conversational case](conversational-ai.md)
 
--   :material-clipboard-flow-outline: **Intelligent Backoffice — bank contest**
+-   : clipboard-flow-outline material: **Intelligent Backoffice — bank contest**
 
     ---
 
     Persistent workflow, document processing, assisted investigation, recommendation, human approval, policy enforcement, inadequate execution and reconciliation.
 
-        [Abrir o caso de backoffice](intelligent-backoffice.md)
+        [Opening the case of backoffice](intelligent-backoffice.md)
 
--   :material-source-branch: **Agentic SDLC governado**
+-   : source-branch: **Agentic SDLC governed**
 
     ---
 
     Specialized agents of the requirement for production feedback, durable workflow, Model Gateway, MCP, OPA, evidence, digest approval, observed release and rollback.
 
-        [Abrir o caso de Agentic SDLC](agentic-sdlc.md)
+        [Opening the case of Agentic SDLC](agentic-sdlc.md)
 
 </div>
 
 ## Fast comparison
 
-| Caso | Main interaction unit | Autonomia inteligente | Efeito real governado |
+| Case | Main interaction unit | Intelligent autonomy | Real governed effect |
 |---|---|---|---|
-| Plataforma conversacional | conversa e jornada do cliente | selecionar skill, responder e usar tools | banking operations mediated by domain services |
-| Intelligent Backoffice | case, document and evidence | classificar, investigar e recomendar | Human approval and execution service |
-| Agentic SDLC | software change and evidence bundle | refinar, desenhar, implementar e revisar | MCP tools, digest approval, release and rollback |
+| Conversational platform | Conversation and client's journey | select skill, answer and use tools | banking operations mediated by domain services |
+| Intelligent Backoffice | case, document and evidence | studies | Human approval and execution service |
+| Agentic SDLC | software change and evidence bundle | refine, design, implement and review | MCP tools, digest approval, release and rollback |
 
 ## How to interpret states
 

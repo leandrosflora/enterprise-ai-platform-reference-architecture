@@ -14,7 +14,7 @@ Select models based on evidence of the case of use, avoiding decisions guided on
 | Tool use | Calls tools with precision and follows schema? |
 | Security | Resist attacks and meet content policies? |
 | Privacidade | What is the retention, training and residency policy? |
-| Latency | Atende p95 e throughput esperados? |
+| Latency | Does it meet p95 and expected throughput? |
 | Cost | What is the cost per successful task, not only for token? |
 | Operation | Is there SLA, observability, quotas and fallback? |
 | Portabilidade | Does the contract reduce lock-in and allow replacement? |
@@ -34,14 +34,14 @@ flowchart LR
 
 ## Scorecard sugerido
 
-| Criteria | Peso inicial |
+| Criteria | Initial weight |
 |---|---:|
 | Quality in case of use | 30% |
 | Security and compliance | 20% |
 | Latency and availability | 15% |
 | Cost per task | 15% |
-| Tool use e structured output | 10% |
-| Operabilidade e portabilidade | 10% |
+| Tool use and structured output | 10% |
+| Operability and portability | 10% |
 
 Weights must change according to risk. For CRITICAL cases, safety, explanability and compliance prevail over cost.
 
@@ -50,7 +50,7 @@ Weights must change according to risk. For CRITICAL cases, safety, explanability
 | Classe | Typical use | Trade-off |
 |---|---|---|
 | Small and fast | classification, routing, simple extraction | less reasoning ability |
-| Balanced general | chat, AGR and common automation | average cost and latency |
+| Balanced general | chat, RAG and common automation | average cost and latency |
 | Reasoning | planning, complex analysis and code | higher cost and time |
 | Embedding | semantic search and clustering | it requires specific evaluation of the corpus of the study. |
 | Multimodal | Documents, images and audio | cost and additional privacy risks |
@@ -61,11 +61,11 @@ Weights must change according to risk. For CRITICAL cases, safety, explanability
 O Model Gateway pode rotear por:
 
 - risk and classification of data;
-- complexidade da tarefa;
-- modalidade e idioma;
+- task complexity;
+- modality and language;
 - latency available;
 - budget;
-- disponibilidade do provedor;
+- availability of the provider;
 - residence requirements;
 - desempenho observado.
 
@@ -75,8 +75,8 @@ Fallback should not silently reduce safety or quality.Model changes need to be r
 
 - use real anonymized or synthetic representative data;
 - measuring complete task, including retrieval and tools;
-- repetir testes para variabilidade;
-- avaliar idiomas e segmentos relevantes;
+- repeat tests for variability;
+- evaluate languages and relevant segments;
 - separate average quality from critical failures;
 - measure cost per approved response or completed task;
 - register the exact version of the model and parameters.
@@ -86,7 +86,7 @@ Fallback should not silently reduce safety or quality.Model changes need to be r
 The decision shall document:
 
 - evaluated models and reason for the shortlist;
-- dataset, rubrica e thresholds;
+- dateset, heading and thresholds;
 - quality, safety, cost and latency results;
 - contractual and data restrictions;
 - primary model and fallback;
@@ -100,5 +100,5 @@ The decision shall document:
 - regression detected;
 - safety incident;
 - new regulatory requirement;
-- aumento relevante de volume;
+- significant increase in volume;
 - domain, language or data source changes.

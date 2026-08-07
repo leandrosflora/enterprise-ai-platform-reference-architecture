@@ -35,8 +35,8 @@ Standardizing the exposure, discovery, governance and execution of corporate too
 
 ## Non-functional requirements
 
-- Contratos versionados
+- Versioned contracts
 - Tool authorisation
 - Compulsory audit
-- Timeout e circuit breaker
+- Timeout and circuit breaker
 - Exposure control of corporate systems

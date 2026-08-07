@@ -10,20 +10,20 @@ The Audit Service maintains the immutable audit trail of the platform: use of ag
 - Persist audit trail immutable and research
 - Publication of audit confirmation event
 - Available track for consultation by conformity and safety teams
-- Encaminhar registros de auditoria para o Observability Stack
+- Sending audit records to the Observability Stack
 
-## Fora de Escopo
+## Out of Scope
 
 - Approval or rejection decision
 - Calculation of cost (Role of Billing Service)
-- Implementation or evaluation of staff
+- Implementation or evaluation of agents
 
 ## Dependencies
 
-| Dependence | Uso |
+| Dependence | Use |
 |---|---|
 | Kafka | Consumes events of all domains of the platform |
-| Observability Stack | Publica logs e trilhas de auditoria |
+| Observability Stack | Publica logs and audit trails |
 
 ## Consumption Events
 
@@ -40,9 +40,9 @@ The Audit Service maintains the immutable audit trail of the platform: use of ag
 
 ## Non-functional requirements
 
-| Requisito | Diretriz |
+| Requirements | Guideline |
 |---|---|
-| Imutabilidade | Audit records cannot be altered or erased |
-| Retention | 5 years, according to regulatory policy (see [docs/contracts/events.md](../contracts/events.md)) |
+| Importability | Audit records cannot be altered or erased |
+| Retention | 5 years, according to regulatory policy (see [docs/contracts/events.md](../contracts/events.md)() |
 | Disponibilidade | Event consumption cannot lose messages (DLQ per domain) |
-| Conformidade | Supports investigation and reports for LGPD and regulatory audits |
+| Conformity | Supports investigation and reports for LGPD and regulatory audits |

@@ -2,9 +2,9 @@
 
 ## Canon source
 
-O arquivo [`async-api.yaml`](async-api.yaml) is the feasible source of events. This document defines the normative conventions. Examples and implementations cannot create alternative envelopes or enums.
+The archive [`async-api.yaml`](async-api.yaml) is the feasible source of events. This document defines the normative conventions. Examples and implementations cannot create alternative envelopes or enums.
 
-## Transporte e versionamento
+## Transport and versioning
 
 - Reference transport: Kafka.
 - Reference serialization: JSON UTF-8.
@@ -43,10 +43,10 @@ Compulsory fields:
 |  `correlationId`  | Functional correlation of the entire implementation. |
 |  `tenantId`  | Tenant is derived from identity or reliable context. |
 |  `source`  | Producer service. |
-|  `dataClassification`  |  `PUBLIC`, `INTERNAL`, `CONFIDENTIAL` ou `RESTRICTED`. |
-|  `payload`  | Payload tipado pelo AsyncAPI. |
+|  `dataClassification`  |  `PUBLIC`, `INTERNAL`, `CONFIDENTIAL` or `RESTRICTED`. |
+|  `payload`  | Payload typed by AsyncAPI. |
 
-`causationId` e `traceparent` they are mandatory when there is a previously distributed cause or context.
+`causationId` and `traceparent` they are mandatory when there is a previously distributed cause or context.
 
 ## Enums compartilhados
 
@@ -95,7 +95,7 @@ Compulsory fields:
 - Critical commands use transactional outbox in the producer.
 - Consumers persist offset only after completing the inadequate processing.
 
-## Erros e DLQ
+## Mistakes and DLQ
 
 - Retry with backoff only for transient failures.
 - Disabled events are not repeated indefinitely.
@@ -107,15 +107,15 @@ Compulsory fields:
 - Payloads must not carry complete prompts or personal data when metadata is sufficient.
 - Sensitive fields are masked before publication.
 - Topic ACLs follow least privilege.
-- Events `CONFIDENTIAL` e `RESTRICTED` they use cryptography and retention compatible with the classification.
+- Events `CONFIDENTIAL` and `RESTRICTED` they use cryptography and retention compatible with the classification.
 
 ## Reference retention
 
-| Classe | Initial retention | Remark |
+| Class | Initial retention | Remark |
 |---|---:|---|
-| Operacional | 90 dias | Diagnosis and limited replay. |
-| Billing | 24 meses | Showback e chargeback. |
-| Auditoria | 5 anos | Adjust to the applicable regulatory obligation. |
-| DLQ | 30 dias | Reprocessamento controlado. |
+| Operational | 90 days | Diagnosis and limited replay. |
+| Billing | 24 months | Showback and chargeback. |
+| Audit | 5 years | Adjust to the applicable regulatory obligation. |
+| DLQ | 30 days | Controlled reprocessing. |
 
 Time limits are references and should be approved by Legal, Security and LGPD for each organization.

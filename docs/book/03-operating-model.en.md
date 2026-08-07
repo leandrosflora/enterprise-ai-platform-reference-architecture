@@ -4,7 +4,7 @@
 
 A Platform IA fails when the architecture is clear, but the ownership is not.The operating model defines who decides, who executes, who approves, who operates and who accounts for the business result.
 
-The recommendation is to adopt a model **federado com plataforma central**:
+The recommendation is to adopt a model **federate with central platform**:
 
 - a platform team maintains shared capacities and golden paths;
 - product squads maintain ownership of use cases;
@@ -41,7 +41,7 @@ Responsible for mandate, funding, objectives and removal of organizational imped
 
 Responsible for platform product:
 
-- runtime, gateways, registries, SDKs e templates;
+- runtime, gateways, registries, SDKs and templates;
 - reliability, platform security and developer experience;
 - contracts and shared policies;
 - capacity roadmap;
@@ -55,7 +55,7 @@ Responsible for:
 
 - standards and references
 - training and community practice;
-- assessment inicial de casos;
+- initial assessment of cases;
 - supporting evaluations and threat modeling;
 - curation of examples and learnings;
 - facilitation of governance forums.
@@ -88,10 +88,10 @@ They define policies and participate proportionally to risk:
 
 Responsible for making operation and cost explicit:
 
-- SLOs e error budgets;
+- SLOs and error budgets;
 - capacity, resilience and incidents;
-- dashboards e alertas;
-- budgets, quotas, showback e chargeback;
+- dashboards and alerts;
+- budgets, quotas, showback and chargeback;
 - cost versus value analysis;
 - readiness operacional.
 
@@ -102,11 +102,11 @@ Legenda: **R** responsible for carrying out, **A** accountable for the final dec
 | Atividade | Sponsor | Platform | CoE | Product Squad | Trust Functions | SRE/FinOps |
 |---|---|---|---|---|---|---|
 | define strategy and outcomes | A | C | R | C | C | C |
-| priorizar roadmap da plataforma | C | A/R | C | C | C | C |
-| selecionar caso de uso | I | C | C | A/R | C | C |
+| prioritizing platform roadmap | C | A/R | C | C | C | C |
+| select case of use | I | C | C | A/R | C | C |
 | risk classification | I | C | R | R | A | C |
 | develop agent | I | C | C | A/R | C | C |
-| manter SDKs e runtime | I | A/R | C | I | C | C |
+| maintain SDKs and runtime | I | A/R | C | I | C | C |
 | produce assessment dates | I | C | C | A/R | C | C |
 | defining security policies | I | R | C | C | A | C |
 | approve critical exception | I | C | C | C | A/R | I |
@@ -116,16 +116,16 @@ Legenda: **R** responsible for carrying out, **A** accountable for the final dec
 | review cost and value | C | R | I | A/R | I | R |
 | deactivate agent | I | C | I | A/R | C | C |
 
-## Intake de casos de uso
+## Intake of cases of use
 
 The intake must be short and decision-oriented. A minimum form contains:
 
 - problem and affected user;
 - expected result and metric;
 - necessary data and classification;
-- actions that the staff member may carry out;
-- impacto de uma resposta incorreta;
-- criticidade e volume estimado;
+- actions that the agent may carry out;
+- impact of an incorrect response;
+- criticism and estimated volume;
 - need for memory;
 - models or providers intended;
 - product and technical owner;
@@ -165,12 +165,12 @@ The squad can leave the golden path, but the exception must be explicit, have ow
 
 | Forum | Cadence | Objective |
 |---|---|---|
-| Platform Product Review | quinzenal | roadmap, adoption, ability and experience |
+| Platform Product Review | once every two weeks | roadmap, adoption, ability and experience |
 | AI Risk Review | semanal ou sob demanda | HIGH/CRITICAL cases and exceptions |
 | Architecture Clinic | semanal | decisions and support for squads without formal gate |
 | Model and Vendor Review | mensal | approved models, changes and supplier risks |
 | SRE and FinOps Review | mensal | SLOs, incidents, capacity, cost and quotas |
-| Executive Outcome Review | trimestral | value, aggregate risk and investment |
+| Executive Outcome Review | quarterly | value, aggregate risk and investment |
 
 ## Operating model metrics
 
@@ -179,7 +179,7 @@ The squad can leave the golden path, but the exception must be explicit, have ow
 - decision time by risk class;
 - number of exceptions opened and expired;
 - adoption of SDKs and shared services;
-- incidentes por categoria e produto;
+- incidents by category and product;
 - cost per outcome or business unit;
 - blocked regression rate prior to production;
 - satisfaction of consumer squads.
@@ -187,7 +187,7 @@ The squad can leave the golden path, but the exception must be explicit, have ow
 ## Anti-standards
 
 - EC manually approving all changes;
-- plataforma sem product manager ou backlog orientado a consumidores;
+- platform without product manager or consumer-oriented backlog;
 - squad delivering the agent and transferring the entire operation to the central team;
 - security consulted only at the end;
 - absence of owner for data and knowledge;
@@ -196,4 +196,4 @@ The squad can leave the golden path, but the exception must be explicit, have ow
 
 ## Next chapter
 
-O [Life cycle of agents](04-agent-lifecycle.md) it transforms this operating model into gates, artifacts and concrete evidence.
+The [Life cycle of agents](04-agent-lifecycle.md) it transforms this operating model into gates, artifacts and concrete evidence.

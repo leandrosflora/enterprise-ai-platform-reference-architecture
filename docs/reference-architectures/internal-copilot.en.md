@@ -4,13 +4,13 @@
 
 To provide an internal corporate assistant to support collaborators in search of knowledge, operational guidance and assisted task execution.
 
-## Casos de Uso
+## Cases of Use
 
 - Searching for internal policies
 - Apoio a atendimento interno
 - Consulta a procedimentos
 - Response generation with citation of sources
-- Abertura assistida de chamados
+- Assisted call opening
 
 ## Componentes Envolvidos
 
@@ -32,7 +32,7 @@ To provide an internal corporate assistant to support collaborators in search of
 4. Knowledge Service recupera documentos relevantes.
 5. Memory Service recovers allowed context.
 6. Agent Runtime calls the foundational model.
-7. Evaluation Service avalia a resposta.
+7. Evaluation Service assesses the response.
 8. Audit Service records the execution.
 
 ## Governance Requirements

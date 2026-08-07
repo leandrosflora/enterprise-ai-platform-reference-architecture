@@ -1,10 +1,10 @@
-# 6. Case study: documentary agent with AGR
+# 6. Case study: documentary agent with RAG
 
 ## Context
 
 An organization has policies, standards and procedures distributed in corporate repositories. Users spend time seeking documents, interpreting versions and confirming whether a rule is still valid.
 
-The objective is to offer an internal staff member capable of:
+The objective is to offer an internal agent capable of:
 
 - answering questions about approved policies;
 - present verifiable citations;
@@ -23,7 +23,7 @@ The objective is to offer an internal staff member capable of:
 |---|---|
 | Efficiency | reduction of median search time and interpretation |
 | Adoption | active users and return rate |
-| Quality | percentual de respostas aceitas sem nova busca manual |
+| Quality | percentage of accepted answers without new manual search |
 | Groundedness | responses supported by authorised citations |
 | Retrieval | recall@k and precision@k on dateset of questions |
 | Security | zero cross-tenant or above clearance |
@@ -36,9 +36,9 @@ The objective is to offer an internal staff member capable of:
 |---|---|
 | Risk | MEDIUM |
 | Users | colaboradores autenticados |
-| Data | PUBLIC, INTERNAL e CONFIDENTIAL conforme clearance |
+| Data | PUBLIC, INTERNAL and CONFIDENTIAL as clearance |
 | Actions | reading; no writing in the registration system |
-| Memory | SESSION; LONG_TERM desabilitada no MVP |
+| Memory | SESSION; LONG_TERM disabled in MVP |
 | Canal | portal interno |
 | Human in the loop | not mandatory for response; user accesses the cited source |
 | Approval | architecture, security, privacy and owner of the base |
@@ -83,11 +83,11 @@ flowchart LR
 
 ## Borders of trust
 
-1. **Canal para Gateway:** identity and session are validated.
-2. **Runtime para Knowledge Service:** Tenant, subject, purpose and clearance are spread.
+1. **Gateway channel:** identity and session are validated.
+2. **Runtime to Knowledge Service:** Tenant, subject, purpose and clearance are spread.
 3. **Knowledge Service for indexes:** only approved and unexpired documents are eligible.
 4. **Knowledge for model:** excerpts are marked as unreliable content.
-5. **Model Gateway para provedor:** region, model, tokens and redaction policies are applied.
+5. **Model Gateway for provider:** region, model, tokens and redaction policies are applied.
 6. **Observability events:** integral content is not registered by standard.
 
 ## Pipeline for ingestion
@@ -108,14 +108,14 @@ flowchart LR
 
 - `tenantId`;
 - `knowledgeBaseId`;
-- `documentId` e `documentVersion`;
-- source URI e source system;
+- `documentId` and `documentVersion`;
+- source URI and source system;
 - checksum;
 - classification;
 - owner;
 - allowed roles ou subjects;
 - purpose;
-- valid from e expires at;
+- valid from and expires at;
 - ingestion status;
 - embedding model and version;
 - chunk strategy version.
@@ -130,7 +130,7 @@ flowchart LR
 - exclusion or expiration removes the item from the retrieval;
 - logs do not store the full text.
 
-Consulte [AGR security and memory](../security/rag-memory-security.md) and the feasible policy [`policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml).
+Consultation [RAG security and memory](../security/rag-memory-security.md) and the feasible policy [`policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml).
 
 ## Invoking flow
 
@@ -161,7 +161,7 @@ SYSTEM POLICY
 </untrusted_document>
 ```
 
-## Contratos principais
+## Main contracts
 
 ### Ingestion
 
@@ -187,7 +187,7 @@ The complete schemes are in [`openapi.yaml`](../contracts/openapi.yaml). Events 
 
 ### Dataset
 
-O dataset deve incluir:
+The dates should include:
 
 - questions with explicit answers;
 - questions that require multiple passages;
@@ -195,30 +195,30 @@ O dataset deve incluir:
 - documentos expirados;
 - unauthorised documents;
 - ambiguous terms;
-- tentativas de prompt injection;
+- prompt injection attempts
 - contradictory content between versions;
 - questions out of purpose.
 
 ### Gates sugeridos
 
-| Dimension | Gate inicial |
+| Dimension | Initial gate |
 |---|---|
-| unauthorized retrieval | 0 casos permitidos |
+| unauthorized retrieval | 0 cases permitted |
 | citation correctness | >= 95% |
 | grounded answer rate | >= 90% on eligible dateset |
 | abstention | if there is insufficient evidence |
 | prompt injection | critical scenarios blocked |
-| retrieval recall@5 | threshold definido com o owner da base |
+| retrieval recall@5 | threshold defined with the base owner |
 | p95 latency | conforme classe `INTERACTIVE_RAG`  |
-| cost per successful answer | dentro do budget aprovado |
+| cost per successful answer | within the approved budget |
 
 The exact Thresholds should be calibrated with the domain and baseline, not copyed without validation.
 
 ## Reference SLO
 
-| Indicador | Initial objective |
+| Indicator | Initial objective |
 |---|---|
-| disponibilidade | 99,5% mensal para o canal interno |
+| availability | 99.5% monthly for the internal channel |
 | p95 end-to-end | <= 8 segundos |
 | retrieval p95 | <= 1,5 segundo |
 | policy decision p95 | <= 100 ms |
@@ -229,7 +229,7 @@ The canonical objectives of workload are: [Non-functional requirements](../archi
 
 ## Cost model
 
-A estimativa deve separar:
+The estimate shall separate:
 
 ```text
 Custo total = ingestão + embeddings + storage + retrieval + geração + observabilidade + plataforma
@@ -248,7 +248,7 @@ Minimum metrics:
 
 ## Cost reduction strategies
 
-- limitar `topK` e tamanho de chunks;
+- limiting `topK` e size of chunks;
 - use reranking only when necessary;
 - apply cache only for responses compatible with identity and version;
 - Routing simple queries for smaller models;
@@ -257,39 +257,39 @@ Minimum metrics:
 - control re-indexing;
 - use budgets and quotas per agent.
 
-## Plano de release
+## Release plan
 
-1. dark launch com dataset replay;
+1. dark launch with dataset replay;
 2. allowlist for policy team;
-3. canary para grupo interno pequeno;
+3. canary for small internal group;
 4. feedback collection and analysis of unresponsive queries;
 5. expansion per business unit;
 6. 30 days review;
 7. if gates remain met.
 
-## Failure modes e resposta
+## Failure modes and response
 
 | Falha | Container |
 |---|---|
-| unavailable model | fallback permitido ou resposta de indisponibilidade |
+| unavailable model | Permitted fallback or unavailable response |
 | retrieval unavailable | not answering with general knowledge as if it were political |
 | policy engine unavailable | fail closed for non-public content |
-| Expired source | remover do retrieval e disparar alerta ao owner |
+| Expired source | remove from the retrieval and warning the owner |
 | invalid quote | bloquear resposta factual ou retornar warning controlado |
 | cost above budget | reduce quota, routing model or suspending expansion |
-| incidente de acesso | to stop agent, preserve evidence and execute runbook |
+| Access incident | to stop agent, preserve evidence and execute runbook |
 
 ## Production checklist
 
 - [ ] definite business, technical and basic owner;
 - [ ] approved and classified sources;
-- [ ] ACL por documento e chunk validada;
+- [ ] ACL per document and validated chunk;
 - [ ] quarantine and active intake checks;
 - [ ] versioned evaluation dates;
 - [ ] negative authorisation tests and approved injection tests;
-- [ ] SLO, dashboards e alertas configurados;
-- [ ] budget e quotas definidos;
-- [ ] runbook de incidente e rollback publicado;
+- [ ] SLO, dashboards and configured alerts;
+- [ ] budget and defined quotas;
+- [ ] runbook of incident and published rollback;
 - [ ] expiration strategy and tested exclusion;
 - [ ] approval corresponds exactly to the published version;
 - [ ] scheduled periodic review.
@@ -307,7 +307,7 @@ Minimum metrics:
 
 - feedback supervisionado;
 - query rewriting controlado;
-- reranking especializado;
+- specialist reranking;
 - suporte multimodal;
 - analytics on knowledge gaps;
 - integration with a policy update workflow;

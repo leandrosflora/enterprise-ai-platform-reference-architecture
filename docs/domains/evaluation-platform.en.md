@@ -32,12 +32,12 @@ To evaluate the quality, safety, cost and behavior of agents and responses gener
 | Evaluation Score | Consolidated assessment note |
 | Groundedness Score | Adherence to sources |
 | Toxicity Rate | Occurrence of toxic responses |
-| Regression Failures | Falhas em testes regressivos |
+| Regression Failures | Failures in regressive tests |
 
 ## Non-functional requirements
 
 - Synchronous and asynchronous evaluation
-- Datasets versionados
+- Versioned dates
 - Evidence for governance
 - Comparison between agent versions
 - Integration with approval of publication

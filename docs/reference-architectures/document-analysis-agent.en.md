@@ -4,7 +4,7 @@
 
 Automate the analysis of corporate documents, extracting information, classifying content, validating rules and supporting operational decisions.
 
-## Casos de Uso
+## Cases of Use
 
 - Extraction of data from documents
 - Documentary classification
@@ -34,7 +34,7 @@ Automate the analysis of corporate documents, extracting information, classifyin
 ## High Level Flow
 
 1. The document is received by upload, queue or corporate system.
-2. Pipeline extrai texto e metadados.
+2. Pipeline extracts text and metadata.
 3. Knowledge Service indexes or consults applicable references.
 4. Agent Runtime analyzes the document with rules and context.
 5. Evaluation Service validates quality and consistency.

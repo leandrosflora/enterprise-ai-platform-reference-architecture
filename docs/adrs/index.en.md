@@ -7,12 +7,12 @@ The ADRs record structural decisions of the platform, its context, alternatives,
 | ADR | Decision | Status |
 |---|---|---|
 |  [ADR-001](001-mcp-vs-rest.md)  | MCP for governed tool calling; REST for domain APIs | Aceito |
-|  [ADR-002](002-persistent-memory.md)  | Persistent memory only under explicit criteria | Aceito |
-|  [ADR-003](003-agent-gateway.md)  | Agent Gateway como ponto de entrada e enforcement | Aceito |
+|  [ADR-002](002-persistent-memory.md)  | Persistent memory only under explicit criteria | Acceptance |
+|  [ADR-003](003-agent-gateway.md)  | Agent Gateway as entry point and enforcement | Acceptance |
 |  [ADR-004](004-agent-runtime-strategy.md)  | Agent Runtime with stable core and adapters | Aceito |
-|  [ADR-005](005-vector-search-strategy.md)  | OpenSearch as initial reference for vector and hybrid search | Aceito |
+|  [ADR-005](005-vector-search-strategy.md)  | OpenSearch as initial reference for vector and hybrid search | Acceptance |
 |  [ADR-006](006-observability-strategy.md)  | OpenTelemetry as observability pattern | Aceito |
-|  [ADR-007](007-evaluation-strategy.md)  | Hybrid, regressive and continuous evaluation | Aceito |
+|  [ADR-007](007-evaluation-strategy.md)  | Hybrid, regressive and continuous evaluation | Acceptance |
 
 ## Status permitidos
 
@@ -20,7 +20,7 @@ The ADRs record structural decisions of the platform, its context, alternatives,
 |---|---|
 | Proposto | decision under discussion, not yet binding |
 | Aceito | Existing decision |
-| Depreciado | still existing, but not recommended for further implementations |
+| Depreciated | still existing, but not recommended for further implementations |
 | Replaced | historical decision replaced by another ADR identified |
 | Rejeitado | alternative analyzed and not adopted |
 

@@ -38,7 +38,7 @@ Providing central capacities for the creation, execution, publication and operat
 | Success Rate | Percentage of successful executions |
 | Latency P95 | 95th percentile latency per agent |
 | Tool Call Rate | Use of tools for implementation |
-| Cost per Agent | Operating cost per staff member |
+| Cost per Agent | Operating cost per agent |
 
 ## Non-functional requirements
 

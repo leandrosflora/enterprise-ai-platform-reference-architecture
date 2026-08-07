@@ -12,20 +12,20 @@ Adotar um **Stable-core corporate agent Runtime and adapters** for frameworks an
 
 The core shall control:
 
-- identity of the staff member and published version;
+- identity of the agent and published version;
 - loading of immutable configuration;
 - application of policies and limits of autonomy;
 - implementation of prompts, workflows and tools;
 - Integration with Model Gateway, Knowledge Service and Memory Service;
-- checkpoint, timeout, retry e cancelamento;
+- checkpoint, timeout, retry and cancellation;
 - events, audit, evaluation and telemetry.
 
 Adapters may integrate LangGraph, Semantic Kernel, managed services of agents or customized implementations, provided that they preserve the core contracts and controls.
 
-## Limites
+## Limits
 
 - business rules remain in domain services;
-- credenciais de provedores permanecem no Model Gateway;
+- provider credentials remain in Model Gateway;
 - approval and catalogue remain in Control Plane;
 - tools are accessed by governed boundaries, preferably MCP;
 - the framework does not define the canonical format of audit, events or policies.
@@ -35,8 +35,8 @@ Adapters may integrate LangGraph, Semantic Kernel, managed services of agents or
 | Alternativa | Vantagem | Limitation |
 |---|---|---|
 | Single Framework | lower initial effort | lock-in and framework dependent controls |
-| Runtime por squad | autonomia local | Security fragmentation, telemetry and costs |
-| Single managed service | simplified operation | portabilidade e extensibilidade limitadas |
+| Runtime per squad | Local autonomy | Security fragmentation, telemetry and costs |
+| Single managed service | simplified operation | portability and extensibility limited |
 
 ## Positive consequences
 
@@ -47,17 +47,17 @@ Adapters may integrate LangGraph, Semantic Kernel, managed services of agents or
 
 ## Negative consequences
 
-- aumenta a complexidade inicial do runtime;
-- exige testes de conformidade para adaptadores;
+- increases the initial complexity of runtime;
+- requires conformity testing for adapters;
 - exclusive framework resources may need controlled extension;
 - the core can become a bottleneck if it accumulates domain responsibilities.
 
 ## Minimum evidence
 
 - the contract of invoicing;
-- testes de conformidade do adaptador;
+- adapter conformity tests;
 - traces de model call, retrieval, memory and tool call;
-- teste de timeout, cancelamento, retry e rollback;
+- timeout, cancellation, retry and rollback tests;
 - policy decision recorded by execution;
 - Documented compatibility between runtime version and adapters.
 

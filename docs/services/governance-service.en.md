@@ -66,12 +66,12 @@ POST /governance/agents/{agentId}/versions/{version}/reject
 
 ## Dependencies
 
-| Dependence | Uso |
+| Dependence | Use |
 |---|---|
 | Agent Registry | Refer to metadata and versions |
 | Evaluation Service | Refer to assessment results |
 | Audit Service | Register decisions |
-| PostgreSQL | Persistir workflows e pareceres |
+| PostgreSQL | Persist workflows and opinions |
 | Kafka | Publicating governance events |
 
 ## Publicated events
@@ -83,11 +83,11 @@ POST /governance/agents/{agentId}/versions/{version}/reject
 
 ## Non-functional requirements
 
-| Requisito | Diretriz |
+| Requirements | Guideline |
 |---|---|
-| Auditoria | All decisions must be traceable |
+| Audit | All decisions must be traceable |
 | Segregation | Different papers for creator, approver and operator |
-| Conformidade | Store evidence of approval |
+| Conformity | Store evidence of approval |
 | Security | Applying RBAC by domain, area and criticality |
 | Escalabilidade | Support multiple areas and approval treadmills |
 

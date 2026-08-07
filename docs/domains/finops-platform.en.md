@@ -33,7 +33,7 @@ Control, assign and optimize AI costs per agent, model, area and case of use.
 | Cost per Agent | Cost per agent |
 | Cost per Model | Cost per model |
 | Cost per Business Unit | Cost per area |
-| Token Growth | Crescimento de consumo de tokens |
+| Token Growth | Consumption growth of tokens |
 
 ## Non-functional requirements
 

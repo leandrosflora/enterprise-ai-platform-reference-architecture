@@ -1,4 +1,4 @@
-# ADR-001 — MCP para tool calling governado
+# ADR-001 — MCP for governed tool calling
 
 **Status:** Aceito
 
@@ -12,7 +12,7 @@ This ADR consolidates the original decision to use MCP with the legislated catal
 
 Usar **MCP** at the boundary between Agent Runtime and governed tools, REST APIs continue to be used as internal and external domain interfaces. MCP does not replace REST; it adds a layer oriented to agent consumption.
 
-The platform must keep a **MCP Registry** para:
+The platform must keep a **MCP Registry** for:
 
 - catalog and discovery of servers, tools and schemas;
 - ownership, risk classification and version;
@@ -21,7 +21,7 @@ The platform must keep a **MCP Registry** para:
 - operational status and withdrawal criteria;
 - traceability between tool call, identity, politics and registration system.
 
-## Compulsory borders
+## Mandatory boundaries
 
 - Agent Runtime does not directly access domain system credentials;
 - the MCP Server validates identity of workload, tenant, scopes and purpose;
@@ -43,10 +43,10 @@ The platform must keep a **MCP Registry** para:
 
 | Alternativa | Vantagem | Limitation |
 |---|---|---|
-| REST direto | simples e universal | requires specific adaptation in each agent and dispersed governance |
-| Events | desacoplamento e escala | inadequate for all interaction request/response |
-| SDK owner | produtividade inicial | lock-in and fragmented governance |
-| Plugin per agent | liberdade local | low re-use and inconsistent audit |
+| Direct REST | simple and universal | requires specific adaptation in each agent and dispersed governance |
+| Events | Uncoupling and scale | inadequate for all interaction request/response |
+| SDK owner | initial productivity | lock-in and fragmented governance |
+| Plugin per agent | Local freedom | low re-use and inconsistent audit |
 
 ## Consequences
 
@@ -54,7 +54,7 @@ The Tool Service/MCP Server becomes a security frontier and must have SLO, obser
 
 ## Minimum evidence
 
-- contrato MCP versionado;
+- the MCP contract, which has been executed;
 - owner and tool risk classification;
 - authorisation matrix;
 - tests of disabled arguments, denied access and inequality;

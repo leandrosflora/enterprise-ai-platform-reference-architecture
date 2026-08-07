@@ -28,12 +28,12 @@ Defining standards for integrating agents with internal corporate systems.
 
 - Agents do not access corporate banks directly
 - Integrations should undergo PIA, events or PCM
-- Tool calls devem ser autorizados e auditados
+- Tool calls should be authorised and audited
 - Critical systems require approval of governance
 
 ## Requirements
 
 - CorrelationId fim a fim
-- Timeout e retry controlado
+- Timeout and controlled retry
 - Independence for critical commands
 - Observability by integration

@@ -39,5 +39,5 @@ Example of exposed tool call via MCP Server.
 
 - Validation by JSON Schema
 - Scope authorisation
-- Auditoria do tool call
+- Tool call audit
 - Sensitive data masking in logs

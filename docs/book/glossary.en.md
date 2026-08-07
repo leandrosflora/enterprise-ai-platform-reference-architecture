@@ -96,7 +96,7 @@ Probabilistic guardrails do not replace deterministic authorisation.
 
 Human in the loop. The break to a human decision.
 
-## Impotence
+## idempotency
 
 Property that allows the repetition of an operation without producing additional improper effects.
 
@@ -198,7 +198,7 @@ Logical unit of isolation, such as company, area, client or environment.
 
 ## Tool
 
-External capacity invoked by the staff member by structured contract. The staff member may consult data or take effect.
+External capacity invoked by the agent by structured contract. The agent may consult data or take effect.
 
 ## Vertical slice
 

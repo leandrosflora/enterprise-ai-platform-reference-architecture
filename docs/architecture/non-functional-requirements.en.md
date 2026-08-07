@@ -2,11 +2,11 @@
 
 ## Objective
 
-Defining measurable goals for design, testing, operation and governance of Enterprise AI Platform. The SLOs are classified by **tipo de workload**, not by risk level.
+Defining measurable goals for design, testing, operation and governance of Enterprise AI Platform. The SLOs are classified by **workload type**, not by risk level.
 
-## Classes de workload
+## Workload classes
 
-| Classe | Exemplo | Recommended way | P95 latency SLO |
+| Class | Example | Recommended way | P95 latency SLO |
 |---|---|---|---:|
 |  `INTERACTIVE_SIMPLE`  | Chat without RAG or tool | Synchronous | <= 5 s |
 |  `INTERACTIVE_RAG`  | Retrieval + generation | Synchronous or streaming | <= 8 s |
@@ -17,7 +17,7 @@ Defining measurable goals for design, testing, operation and governance of Enter
 
 Risk defines controls, approvals and evidence, and does not artificially alter the latency class.
 
-## Disponibilidade e continuidade
+## Availability and continuity
 
 | Capacity | Reference target |
 |---|---:|
@@ -25,8 +25,8 @@ Risk defines controls, approvals and evidence, and does not artificially alter t
 | Agent Runtime | 99,9% mensal |
 | Policy Decision Point | 99,99% mensal |
 | Control plane | 99,5% mensal |
-| Publication of events | 99,9% de sucesso |
-| Critical audit record | 99,99% de sucesso |
+| Publication of events | 99.9% success |
+| Critical audit record | 99.89% success |
 | RTO data plane | <= 2 h |
 | RPO metadados transacionais | <= 15 min |
 
@@ -37,13 +37,13 @@ Risk defines controls, approvals and evidence, and does not artificially alter t
 
 ## Performance
 
-| Requisito | Meta |
+| Requirements | Target |
 |---|---:|
-| Agent Gateway sem chamada externa | P95 <= 300 ms |
+| Agent Gateway without external call | P95 <= 300 ms |
 | Policy decision | P95 <= 100 ms |
 | Knowledge retrieval | P95 <= 2 s |
 | Model Gateway overhead | P95 <= 250 ms, excluindo o provedor |
-| Tool execution de leitura | P95 < = 4 s, except for specific contract |
+| Read tool execution | P95 < = 4 s, except for specific contract |
 | Acceptance of asynchronous surgery | P95 <= 2 s |
 
 Each tool contract defines its own timeout, the standard is 30 s and can only be extended with justification.
@@ -54,7 +54,7 @@ Each tool contract defines its own timeout, the standard is 30 s and can only be
 - queues disattach intake, evaluation, audit and billing;
 - partition keys preserve aggregate ordering;
 - autoscaling considers competition, latency, backlog and token consumption;
-- limites por tenant impedem noisy neighbor;
+- limits by tenant prevent noisy neighbor;
 - capacity tests validate twice the predicted peak.
 
 ## Security
@@ -64,31 +64,31 @@ Each tool contract defines its own timeout, the standard is 30 s and can only be
 - mTLS or equivalent mechanism between critical services;
 - secrets in secret manager, never in repository or pipeline variables in clear;
 - cryptography in transit and at rest;
-- egress allowlist para provedores externos;
+- egress allowlist for external providers;
 - segregation between control plane and date plane;
-- SAST, dependency scanning, secret scanning e image scanning na pipeline.
+- SAST, dependency scanning, secret scanning and pipeline image scanning.
 
 ## Data and LGPD
 
 - mandatory classification into documents, memory, events and traces;
 - Minimizing data by standard;
-- ACL por documento e chunk em retrieval;
+- ACL per document and chunk in retrieval;
 - Explicit TTL for memory;
 - consultation, exclusion and anonymization supported;
 - prompts and sensitive responses are not fully stored by pattern;
-- linhagem e checksum para documentos ingeridos;
+- lineage and checksum for ingested documents;
 - quarantine and validation before indexing.
 
 ## Resilience
 
 | Mecanismo | Diretriz |
 |---|---|
-| Timeout | Menor que o deadline da chamada superior. |
+| Timeout | Less than the deadline of the higher call. |
 | Retry | Only for transient errors and inadequate operations. |
 | Circuit breaker | Obligatory for providers and external tools. |
 | Bulkhead | Isolation by provider, tenant and critical tool. |
 | Fallback | Model, provider or alternative flow approved. |
-| Impotence | Obligatory for commands and tool calls with side effect. |
+| idempotency | Obligatory for commands and tool calls with side effect. |
 | Outbox | Obligatory for critical transactions. |
 | Graceful degradation | Partial or asynchronous response when safe. |
 
@@ -104,8 +104,8 @@ Each tool contract defines its own timeout, the standard is 30 s and can only be
 ## FinOps
 
 - cost attributed by tenant, unit, agent, version, model and environment;
-- budget and quota per staff member;
-- alertas em 70%, 90% e 100%;
+- budget and quota per agent;
+- alerts in 70%, 90% and 100%;
 - blocking or controlled degradation where the limit is exceeded;
 - comparison of cost and quality before changing the standard model;
 - embedding costs, storage and tools are included in the total cost.

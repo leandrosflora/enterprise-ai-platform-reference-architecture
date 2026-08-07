@@ -16,7 +16,7 @@ This crosswalk is a traceability tool. **it does not replace legal interpretatio
 
 ## References covered
 
-| Reference | Papel no crosswalk |
+| Reference | Role in crosswalk |
 |---|---|
 | NIST AI RMF | Govern, Map, Measure and Manage functions to structure the risk cycle |
 | ISO/IEC 42001 | management system, responsibilities, goals, controls and continuous improvement |
@@ -25,28 +25,28 @@ This crosswalk is a traceability tool. **it does not replace legal interpretatio
 | LGPD | purpose, need, transparency, security, accountability and rights of the holder |
 | OWASP for LLM applications | threats and technical tests of applications with generative models |
 
-## Matriz de rastreabilidade
+## Traceability matrix
 
-| ID | Controle da plataforma | NIST AI RMF | ISO/IEC 42001 | EU AI Act | LGPD | Minimum evidence | Primary owner | Gate | Enforcement |
+| ID | Platform control | NIST AI RMF | ISO/IEC 42001 | AI Act | LGPD | Minimum evidence | Primary owner | Gate | Enforcement |
 |---|---|---|---|---|---|---|---|---|---|
 | CTRL-001 | purpose, sponsor and owner defined | Govern / Map | context, leadership and accountability | purpose and role of actors | purpose and accountability | Outcome Card, Agent Card, owner registrado | Business Owner | Intake | automatic |
-| CTRL-002 | Risk classification and impact | Map / Govern | Risk assessment of AI | Classification and proportional obligations | Impact report where applicable | risk assessment versionado | AI Architect / Risk | Risk | hybrid |
+| CTRL-002 | Risk classification and impact | Map/ Govern | Risk assessment of AI | Classification and proportional obligations | Impact report where applicable | risk assessment versionado | AI Architect / Risk | Risk | hybrid |
 | CTRL-003 | inventory and catalogue of AI assets | Govern | inventory, documentation and operational control | Registry and documentation applicable | Registry of operations and accountability | AI Catalog with versions and owners | Platform Team | Intake / Release | automatic |
 | CTRL-004 | classification, purpose and lineage of data | Map / Manage | Data governance for AI | date governance and quality | purpose, need and quality | date contract, lineage, classification and retention | Data Owner | Design | hybrid |
-| CTRL-005 | Model, prompt, dataset, policy and tool unchangeable versioning | Govern / Measure | Change control and documented information | Technical documentation and traceability | Responsibility and security | hashes, manifests e release bundle | Platform Team | Build / Release | automatic |
-| CTRL-006 | allowlist of models, sources, regions and tools | Govern / Manage | Operational controls and suppliers | Risk proportional requirements | Security and international transfer | policy and authorisation decision | Security / Platform | Design / Runtime | automatic |
-| CTRL-007 | threat model e testes negativos | Map / Measure | risk management and control | robustness, security and cyber security | safety and prevention | threat model, red-team and attack results | Security | Assurance | hybrid |
-| CTRL-008 | quality assessment, safety and regression | Measure | Monitoring, measurement and evaluation | accuracy, robustness and quality as application | quality and non-discrimination when applicable | dataset, baseline, thresholds e evaluation report | Model Risk / Evaluation | Evaluation | automatic + human |
-| CTRL-009 | human-in-the-loop e limites de autonomia | Govern / Manage | roles, competence and operational control | if applicable | review of automated decisions | matriz de autonomia, aprovadores e logs | Business Owner / Risk | Design / Runtime | hybrid |
-| CTRL-010 | authorisation by identity, tenant, resource and purpose | Govern / Manage | Access and operation controls | controle e rastreabilidade | Security, need and access | authorisation matrix and access tests denied | Security | Assurance / Runtime | automatic |
-| CTRL-011 | provenance, citations and transparency of response | Map / Measure | Communication and documented information | transparency and information to the user when applicable | transparency and quality | citations, checksum, source version and policy decision | Product / Data Owner | Evaluation / Runtime | automatic |
-| CTRL-012 | logging, tracing e audit trail correlacionado | Measure / Manage | monitoramento, auditoria interna e registros | logging and risk documentation | Responsibility and security | traces, events, retention and audited access | SRE / Security | Observability | automatic |
-| CTRL-013 | continuous monitoring and detection of drift | Measure / Manage | monitoring, analysis and improvement | post-market when applicable | quality, safety and updating | dashboards, drift report and review triggers | Model Risk / Operations | Operate | automatic + human |
+| CTRL-005 | Model, prompt, dataset, policy and tool unchangeable versioning | Govern/ Measure | Change control and documented information | Technical documentation and traceability | Responsibility and security | hashes, manifests and release bundle | Platform Team | Build/ Release | automatic |
+| CTRL-006 | allowlist of models, sources, regions and tools | Govern / Manage | Operational controls and suppliers | Risk proportional requirements | Security and international transfer | policy and authorisation decision | Security/ Platform | Design / Runtime | automatic |
+| CTRL-007 | threat model and negative tests | Map/ Measure | risk management and control | robustness, security and cyber security | safety and prevention | threat model, red-team and attack results | Security | Assurance | hybrid |
+| CTRL-008 | quality assessment, safety and regression | Measure | Monitoring, measurement and evaluation | accuracy, robustness and quality as application | quality and non-discrimination when applicable | dataet, baseline, thresholds and evaluation report | Model Risk/ Evaluation | Evaluation | automatic + human |
+| CTRL-009 | human-in-the-loop and autonomy limits | Govern / Manage | roles, competence and operational control | if applicable | review of automated decisions | autonomy matrix, approvers and logs | Business Owner / Risk | Design / Runtime | hybrid |
+| CTRL-010 | authorisation by identity, tenant, resource and purpose | Govern / Manage | Access and operation controls | control and traceability | Security, need and access | authorisation matrix and access tests denied | Security | Assurance / Runtime | automatic |
+| CTRL-011 | provenance, citations and transparency of response | Map/ Measure | Communication and documented information | transparency and information to the user when applicable | transparency and quality | citations, checksum, source version and policy decision | Product / Date Owner | Evaluation/ Runtime | automatic |
+| CTRL-012 | logging, tracing and correlated audit trail | Measure/ Manage | monitoring, internal audit and records | logging and risk documentation | Responsibility and security | traces, events, retention and audited access | SRE / Security | Observability | automatic |
+| CTRL-013 | continuous monitoring and detection of drift | Measure/ Manage | monitoring, analysis and improvement | post-market when applicable | quality, safety and updating | dashboards, drift report and review triggers | Model Risk / Operations | Operate | automatic + human |
 | CTRL-014 | incident management, suspension and rollback | Manage | non-conformity, corrective action and continuity | incidents and corrective actions where applicable | safety incident and mitigation | incident, decision, rollback and postmortem | Operations / Security | Operate | hybrid |
-| CTRL-015 | budgets, quotas e unit economics | Govern / Manage | objetivos, recursos e controle operacional | proporcionalidade e sustentabilidade operacional | need and indirect minimization of processing | budget, quota, task cost and blockades | FinOps / Product | FinOps | automatic |
-| CTRL-016 | Supplier management and external models | Govern / Map / Manage | control of external suppliers and services | obligations between provider and deployer | Operators, transfer and security | due diligence, contract, region and exit plan | Procurement / Legal / Security | Design | humano + policy |
-| CTRL-017 | Re-evaluation after material change | Manage | change management and continuous improvement | re-assessment when there is relevant change | new purpose or relevant change | change record e novo evidence bundle | AI Architect / Risk | Change | automatic + human |
-| CTRL-018 | retention, exclusion and verifiable withdrawal | Manage | lifecycle, information control and improvement | withdrawal and documentation where applicable | retention, elimination and rights of the holder | retirement record, withdrawal and proof of exclusion | Data Owner / Operations | Retire | hybrid |
+| CTRL-015 | budgets, quotas and unit economics | Govern / Manage | objectives, resources and operational control | proportionality and operational sustainability | need and indirect minimization of processing | budget, quota, task cost and blockades | FinOps / Product | FinOps | automatic |
+| CTRL-016 | Supplier management and external models | Govern / Map / Manage | control of external suppliers and services | obligations between provider and deployer | Operators, transfer and security | due diligence, contract, region and exit plan | Procurement / Legal / Security | Design | human + policy |
+| CTRL-017 | Re-evaluation after material change | Manage | change management and continuous improvement | re-assessment when there is relevant change | new purpose or relevant change | change record and new evidence bundle | AI Architect / Risk | Change | automatic + human |
+| CTRL-018 | retention, exclusion and verifiable withdrawal | Manage | lifecycle, information control and improvement | withdrawal and documentation where applicable | retention, elimination and rights of the holder | retirement record, withdrawal and proof of exclusion | Date Owner / Operations | Withdraw | hybrid |
 
 ## Mapping by function of NIST AI RMF
 
@@ -56,7 +56,7 @@ Main controls: CTRL-001, CTRL-002, CTRL-003, CTRL-005, CTRL-006, CTRL-009, CTRL-
 
 Expected evidence:
 
-- operating model e RACI;
+- operating model and ICAR;
 - approved policies;
 - catalogue of cases, agents, models and tools;
 - risk classification;
@@ -81,7 +81,7 @@ Main controls: CTRL-007, CTRL-008, CTRL-011, CTRL-012, CTRL-013.
 
 Expected evidence:
 
-- datasets e baselines;
+- datesets and databases;
 - functional, adverse and safety tests;
 - metrics per dimension;
 - observability and sampling;
@@ -94,9 +94,9 @@ Main controls: CTRL-006, CTRL-009, CTRL-010, CTRL-013, CTRL-014, CTRL-015, CTRL-
 Expected evidence:
 
 - decisions to accept, mitigate or block;
-- limites de autonomia;
+- limits of autonomy;
 - rollout controlado;
-- incident response e rollback;
+- incident response and rollback;
 - re-evaluation and withdrawal.
 
 ## Applicability by risk level
@@ -105,13 +105,13 @@ Expected evidence:
 |---|---:|---:|---:|---:|
 | Owner, purpose and catalogue | Compulsory | Compulsory | Compulsory | Compulsory |
 | Date of lineage and classification | as data | Compulsory | Compulsory | Compulsory + independent review |
-| Threat model | simplificado | Compulsory | detalhado | detailed + formal review |
-| Evaluation | amostra | dataset | dataset + baseline | Baseline + independent review |
+| Threat model | simplified | Compulsory | detailed | detailed + formal review |
+| Evaluation | sample | dates | dateset + baseline | Baseline + independent review |
 | Human oversight | optional | by action | mandatory for critical actions | obligatory for permitted actions |
-| Logging e auditoria | basic | completo | completo | complete + extended retention |
-| Monitoramento de drift | periodical | periodical | continuous by metrics | continuous + blocking triggers |
+| Logging and audit | basic | complete | complete | complete + extended retention |
+| Monitoring of drift | periodical | periodical | continuous by metrics | continuous + blocking triggers |
 | Rollback and suspension | recommended | Compulsory | Compulsory and tested | obligatory, tested and independent |
-| Re-evaluation | anual | semestral | trimestral ou por evento | continuous or by material event |
+| Re-evaluation | annual | half-year | quarterly or per event | continuous or by material event |
 
 ## Evidence bundle de compliance
 
@@ -146,10 +146,10 @@ Not all artifacts need to use these formats, but the information should be ident
 An exception shall register:
 
 - control not met;
-- justificativa e impacto;
+- justification and impact;
 - residual risk;
 - compensatory control;
-- owner e aprovador independente;
+- owner and independent approver;
 - expiry date;
 - condition of withdrawal;
 - evidence and traceable ticket.

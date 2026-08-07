@@ -39,9 +39,9 @@ Each case of use must keep a set versioned with:
 - borderline cases;
 - questions without answers;
 - adverse content;
-- grupos e idiomas relevantes;
-- falhas conhecidas e incidentes anteriores;
-- tool calls permitidas e proibidas;
+- groups and relevant languages;
+- known failures and previous incidents;
+- tool calls allowed and prohibited;
 - citation expectancy and source.
 
 ## Recommended metrics
@@ -49,7 +49,7 @@ Each case of use must keep a set versioned with:
 | Dimension | Metrics |
 |---|---|
 | RAG | context recall, context precision, groundedness, citation correctness |
-| Resposta | relevance, completeness, factuality, format compliance |
+| Response | relevance, completeness, factuality, format compliance |
 | Security | attack success rate, leakage rate, toxicity, policy violation |
 | Agents | task success, tool selection accuracy, loop rate, unauthorized action rate |
 | Operation | p50/p95/p99, error rate, tokens, cost per successful task |

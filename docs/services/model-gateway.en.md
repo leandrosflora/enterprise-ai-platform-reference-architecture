@@ -8,14 +8,14 @@ Model Gateway centralizes access to foundation models and prevents agents from c
 
 - apply allowlist of providers, models and regions;
 - routing by capacity, cost, latency, availability and data classification;
-- validar budgets, quotas e limites de tokens;
+- validate budgets, quotas and token limits;
 - perform redaction and entry and exit guardrails;
-- padronizar timeout, retry, circuit breaker e fallback;
+- standardize timeout, retry, circuit breaker and fallback;
 - register the effective version of the model, tokens, cost and latency;
 - blocking unapproved models or regions;
 - support synchronous responses and streaming.
 
-## Fora de Escopo
+## Out of Scope
 
 - orchestration of the agent;
 - management of the catalogue of agents;
@@ -56,8 +56,8 @@ Content-Type: application/json
 Standard order
 
 1. compatibility with classification and residence of data;
-2. approved model for the staff member;
-3. disponibilidade do provedor;
+2. approved model for the agent;
+3. availability of the provider;
 4. minimum quality registered;
 5. budget restante;
 6. lower cost within the SLO.
@@ -68,7 +68,7 @@ Standard order
 - authorisation by agent, model and tenant;
 - no provider secret is exposed to Runtime;
 - sensitive prompts are not stored by pattern;
-- logs usam hashes e metadados, nunca secrets;
+- logs use hashes and metadata, never secrets;
 - outflow through guardrails before returning to Runtime.
 
 ## Observability
@@ -87,7 +87,7 @@ Minimum metrics:
 - input and output tokens;
 - cost per agent and unit;
 - Provider latency;
-- taxa de fallback;
+- fall rate;
 - policy blocks;
 - budget violations.
 

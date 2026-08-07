@@ -1,4 +1,4 @@
-# 1. Por que uma AI Platform?
+# 1. Why a Platform AI?
 
 ## The problem is not only to access a model
 
@@ -20,11 +20,11 @@ This scenario is not solved only by choosing a framework of agents, the organiza
 
 ## Definition
 
-Uma **AI Platform corporativa** it is a set of capabilities, standards, services and processes that allows to create and operate AI solutions with controlled autonomy.
+One **Corporate AI Platform** it is a set of capabilities, standards, services and processes that allows to create and operate AI solutions with controlled autonomy.
 
-Ela deve fornecer:
+She must provide:
 
-- caminhos padronizados para construir e publicar;
+- standardized ways to build and publish;
 - Clear borders between product, platform and governance;
 - policies applied during implementation, not only in documents;
 - portability between models and providers;
@@ -44,7 +44,7 @@ A platform may contain internal products, shared services, contracts and procedu
 | a single provider of foundation models | the platform should reduce coupling and apply routing policies for the study of the study. |
 | a central team that develops all the agents involved in this process is the study. | this creates queue, low organizational scale and little business ownership |
 | approval committee | governance is part of the life cycle and needs to produce verifiable decisions. |
-| uma infraestrutura Kubernetes | infrastructure is necessary, but does not define product capabilities and trust. |
+| a Kubernetes infrastructure | infrastructure is necessary, but does not define product capabilities and trust. |
 
 ## Central tension: autonomy and control
 
@@ -63,7 +63,7 @@ Balance is achieved by:
 - templates and SDKs instead of obligatoryly centralized implementations;
 - declarative policies instead of repetitive manual validations;
 - risk proportional gates;
-- contratos versionados;
+- appropriate contracts;
 - observability and audit by standard;
 - ownership of the case of use maintained in the squad responsible for the result.
 
@@ -129,4 +129,4 @@ When the response is no, the capacity should probably remain in the application 
 
 ## Next chapter
 
-O [Business Outcomes Framework](02-business-outcomes.md) connects the platform strategy to measurable results that justify capabilities and investment.
+The [Business Outcomes Framework](02-business-outcomes.md) connects the platform strategy to measurable results that justify capabilities and investment.

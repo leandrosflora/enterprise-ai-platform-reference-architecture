@@ -31,7 +31,7 @@ Controlling the life cycle, approval, risk and compliance of AI solutions.
 
 | Indicador | Description |
 |---|---|
-| Approved Agents | Approved staff |
+| Approved Agents | Approved agents |
 | Rejected Agents | Agents rejected |
 | Review Lead Time | Mean time of approval |
 | High Risk Agents | Agents classified as high-risk |

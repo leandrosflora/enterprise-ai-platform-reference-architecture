@@ -34,22 +34,22 @@ flowchart LR
 |---|---|
 | Edge | WAF, rate limit, bot protection, quotas and abuse protection |
 | Identity | ICDC, MFA, workload identity, short tokens and less privilege |
-| Authorisation | RBAC/ABAC, PDP/PEP, deny by default e policy versionada |
-| Entrada | validation, limits, prompt injection detection and data classification |
+| Authorisation | RBAC/ABAC, PDP/PEP, deny by default and policy versionada |
+| Entry | validation, limits, prompt injection detection and data classification |
 | RAG | approved sources, quarantine, provena, ACL by chunk and DLP |
 | Model | central gateway, model allowlist, limited parameters and guardrails |
 | Tools | schemas, allowlist, inadequacy, timeout and human approval |
 | Memory | purpose, consent, subject isolation, TTL and exclusion |
 | Departure | groundedness, redaction, content safety, schema validation and citations |
-| Auditoria | correlation ID, identity, policy version, model, prompt and decision |
+| Audit | correlation ID, identity, policy version, model, prompt and decision |
 
-## Zero trust para IA
+## Zero trust for AI
 
 No component trusts implicitly on the content generated or retrieved. Each call must authenticate the identity, authorise the action, validate payload and register the decision.
 
 Principles:
 
-- verificar explicitamente cada acesso;
+- explicitly verify each access;
 - to take on the commitment of documents, prompts and tools;
 - limiting blast radius by tenant, agent, model and tool;
 - use temporary credentials;
@@ -69,7 +69,7 @@ Each tool has a contract, scope, risk, owner and policy.Side effect operations u
 
 Model Gateway prevents direct access to the provider, applies residence and retention policies, removes prohibited data, controls approved models and registers metadata of consumption.
 
-## Segredos e chaves
+## Secrets and keys
 
 - armazenar em secret manager ou KMS;
 - never include in prompt, memory or repository;
@@ -81,7 +81,7 @@ Model Gateway prevents direct access to the provider, applies residence and rete
 
 Minimum events:
 
-- tentativa de prompt injection;
+- attempt to inject;
 - exfiltration or cross-tenant access;
 - tool call denied or anomalous;
 - abrupt increase in cost or tokens;

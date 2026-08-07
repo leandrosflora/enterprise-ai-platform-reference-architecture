@@ -4,7 +4,7 @@ This document shows full flows of Enterprise AI Platform use combining agents, R
 
 ---
 
-## Example 1: AGR Internal Policy Agent
+## Example 1: RAG Internal Policy Agent
 
 ### Objective
 
@@ -14,10 +14,10 @@ To allow a user to seek approved corporate policies with cited and traceable res
 
 | Componente | Papel |
 |---|---|
-| AI Portal | Interface de uso e autoatendimento. |
+| AI Portal | Interface of use and self-service. |
 | Agent Gateway | Single entry, authentication, authorisation and rate limit. |
 | Agent Runtime | The orchestra prompt, memory, RAG, model and evaluation. |
-| Knowledge Service | Recupera documentos e chunks relevantes. |
+| Knowledge Service | It recovers relevant documents and chunks. |
 | Foundation Model | It generates response based on the context recovered. |
 | Evaluation Service | Evaluates groundedness, relevance and risk of hallucination. |
 | Audit Service | Register the execution trail. |
@@ -346,12 +346,12 @@ Publicate an agent only after validation of contracts, risk, security, assessmen
 | Item | Acceptance criteria |
 |---|---|
 | Agent Card | It defines owner, version, risk, model, tools and KBs. |
-| OpenAPI | Endpoint documentado com request, response, erro e escopo. |
-| MCP Contract | Tool com input/output schema, security, audit e runtime policy. |
+| OpenAPI | Documented endpoint with request, response, error and scope. |
+| MCP Contract | Tool with input/output schema, security, audit and runtime policy. |
 | Authorization | Role, scope, resource and condition defined. |
 | Risk Controls | Risks mapped with control, evidence and owner. |
 | Observability | Complete trace with spans and mandatory attributes. |
 | Evaluation | Thresholds defined and approved report. |
-| FinOps | Budget e cost attribution configurados. |
-| Audit | Events `agent.invoked`, `tool.executed` e `audit.created` registrados. |
+| FinOps | Budget and cost attribution set. |
+| Hearing | Events `agent.invoked`, `tool.executed` and `audit.created` registered. |
 | Rollback | Procedure defined to withdraw agent or tool. |

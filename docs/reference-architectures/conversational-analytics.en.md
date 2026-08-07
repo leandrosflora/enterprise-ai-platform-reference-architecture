@@ -4,12 +4,12 @@
 
 To analyze conversational interactions on a scale to identify root causes, recurrent themes, automation opportunities and improvement of experience.
 
-## Casos de Uso
+## Cases of Use
 
 - Classification of contact reasons
 - Root cause identification
 - Sentiment analysis
-- Agrupamento de temas recorrentes
+- Grouping of recurrent themes
 - Management of executive insights
 
 ## Componentes Envolvidos
@@ -29,7 +29,7 @@ To analyze conversational interactions on a scale to identify root causes, recur
 - E-mail
 - Voice transcriptions
 - External complaints
-- Tickets e protocolos
+- Tickets and protocols
 
 ## High Level Flow
 
@@ -51,6 +51,6 @@ To analyze conversational interactions on a scale to identify root causes, recur
 
 - Volume of processed interactions
 - Classification accuracy
-- Top motivos de contato
+- Top contact reasons
 - Trends in critical themes
 - Automation opportunities identified

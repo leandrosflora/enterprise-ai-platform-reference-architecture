@@ -29,7 +29,7 @@ flowchart LR
 | Security | threat model, controls and incident response |
 | Privacy / DPO | LGPD, legal basis, minimization and rights of the holder |
 | Legal / Compliance | regulatory, contractual obligations and intellectual property |
-| Model Risk / Evaluation | methodology, datesets, thresholds and independence of assessment |
+| Model Risk/ Evaluation | methodology, datesets, thresholds and independence of assessment |
 | Platform Team | guardrails, gateways, observability and policy as code |
 | Operations | SLO, runbook, capacity, continuity and rollback |
 
@@ -41,9 +41,9 @@ flowchart LR
 - Architectural ADRs and model selection;
 - data sources, date contracts and lineage;
 - datesets, prompts, models, embeddings, tools and versioned policies;
-- knowledge snapshot e release manifest;
-- golden dataset e evaluation report;
-- threat model e privacy assessment;
+- knowledge snapshot and release manifest;
+- golden dataset and evaluation report;
+- threat model and privacy assessment;
 - approvals, exceptions and residual risks;
 - dashboards, incidents and removal plane.
 
@@ -51,15 +51,15 @@ The detailed lifecycle of these assets is in [Data, Model, Prompt and Knowledge 
 
 ## Gates
 
-| Gate | Entrada | Departure |
+| Gate | Entry | Departure |
 |---|---|---|
-| Intake | problema e sponsor | caso registrado e owner definido |
+| Intake | problem and sponsor | case registered and owner defined |
 | Risk | impact, data and autonomy | LOW to CRITICAL classification |
 | Design | architecture and contracts | ADRs and defined controls |
-| Assurance | security, privacy, legal e evaluation | Evidence and pending |
+| Assurance | security, privacy, legal and evaluation | Evidence and pending |
 | Release | readiness operacional | approved and unchanged version |
-| Operate | telemetria e feedback | monitoring and corrective actions |
-| Retire | closure decision | revoked access, data processed and preserved evidence |
+| Operate | telemetry and feedback | monitoring and corrective actions |
+| Withdraw | closure decision | revoked access, data processed and preserved evidence |
 
 ## Alinhamento a frameworks
 
@@ -74,7 +74,7 @@ The detailed lifecycle of these assets is in [Data, Model, Prompt and Knowledge 
 
 The relationship above is conceptual, and the operational traceability between control, normative function, evidence, owner, gate and enforcement is in the [Crosswalk of Governance, Risk and Compliance](compliance-crosswalk.md).
 
-## Rastreabilidade de controle
+## Control traceability
 
 Each applicable control shall have:
 
@@ -96,8 +96,8 @@ Exceptions must include:
 - control not met and justification;
 - residual risk and impact;
 - compensatory control;
-- owner e aprovador independente;
-- prazo de validade;
+- owner and independent approver;
+- expiry date;
 - condition of withdrawal;
 - evidence and traceable ticket.
 
@@ -111,7 +111,7 @@ Automate objective controls:
 - prevent a model, source or tool from being approved;
 - require assessment and thresholds by risk level;
 - validate function segregation;
-- aplicar budgets, quotas e limites de autonomia;
+- implement budgets, quotas and autonomy limits;
 - maintain unchanged published versions;
 - denying by pattern when there is no policy.
 

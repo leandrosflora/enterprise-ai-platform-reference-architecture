@@ -6,8 +6,8 @@
 | Governance Service | PostgreSQL | Approvals and risks |
 | Billing Service | PostgreSQL | Costs and chargeback |
 | Memory Service | MongoDB | Conversational memory |
-| Knowledge Service | OpenSearch | Busca vetorial |
-| Agent Gateway | Redis | Cache e rate limiting |
+| Knowledge Service | OpenSearch | Vector search |
+| Agent Gateway | Redis | Cache and rate limiting |
 | Platform Events | Kafka | Asynchronous integration |
 
 ## Principles
@@ -16,4 +16,4 @@
 - No direct access between banks
 - Integration through PIAs and events
 - Auditable data
-- Criptografia em repouso
+- Rest chronography

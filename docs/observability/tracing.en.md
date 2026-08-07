@@ -3,8 +3,8 @@
 ## Pattern
 
 - OpenTelemetry for traces, metrics and correlated logs.
-- W3C `traceparent` propagado por HTTP e no envelope Kafka.
-- `traceId`, `spanId`, `correlationId`, `causationId` e `tenant.id` at the applicable borders.
+- W3C `traceparent` HTTP propagated and in the Kafka envelope.
+- `traceId`, `spanId`, `correlationId`, `causationId` and `tenant.id` at the applicable borders.
 - Logs estruturados em JSON.
 - Sensitive data are masked before export.
 
@@ -67,7 +67,7 @@ agent.invocation
 |---|---|
 |  `tenant.id`  | Obligatory, without free cardinality. |
 |  `business_unit`  | When applicable. |
-|  `agent.id` e `agent.version`  | Obligations in the execution of a staff member. |
+|  `agent.id` and `agent.version`  | Obligations in the execution of a agent. |
 |  `session.id.hash`  | Hash, never sensitive session clearly. |
 |  `user.id.hash`  | Stable Hash only when necessary. |
 |  `data.classification`  |  `PUBLIC`, `INTERNAL`, `CONFIDENTIAL`, `RESTRICTED`. |
@@ -81,7 +81,7 @@ agent.invocation
 |  `agent_invocations_total`  | Counter | agent, tenant, status |
 |  `agent_invocation_duration_seconds`  | Histogram | agent, workload, status |
 |  `policy_decision_duration_seconds`  | Histogram | policy, decision |
-|  `policy_denials_total`  | Counter | policy, recurso, motivo controlado |
+|  `policy_denials_total`  | Counter | policy, resource, controlled reason |
 |  `model_invocations_total`  | Counter | provider, model, status |
 |  `model_tokens_total`  | Counter | provider, model, type |
 |  `model_cost_usd_total`  | Counter | agent, unit, provider |
@@ -98,16 +98,16 @@ Do not use user, session, document or correlation IDs as metric labels.
 
 | Capacity | SLI | SLO | Janela |
 |---|---|---:|---|
-|  `INTERACTIVE_SIMPLE`  | P95 end-to-end | <= 5 s | 30 dias |
-|  `INTERACTIVE_RAG`  | P95 end-to-end | <= 8 s | 30 dias |
-|  `INTERACTIVE_TOOL`  | P95 end-to-end | <= 15 s | 30 dias |
-| Asynchronous operation | P95 de aceite | <= 2 s | 30 dias |
-| Knowledge retrieval | P95 | <= 2 s | 30 dias |
-| Policy decision | P95 | <= 100 ms | 30 dias |
-| Agent Gateway | Disponibilidade | >= 99,95% | 30 dias |
-| Agent Runtime | Disponibilidade | >= 99,9% | 30 dias |
-| Event publishing | Sucesso | >= 99,9% | 30 dias |
-| Audit recording crítico | Sucesso | >= 99,99% | 30 dias |
+|  `INTERACTIVE_SIMPLE`  | P95 end-to-end | <= 5 s | 30 days |
+|  `INTERACTIVE_RAG`  | P95 end-to-end | <= 8 s | 30 days |
+|  `INTERACTIVE_TOOL`  | P95 end-to-end | <= 15 s | 30 days |
+| Asynchronous operation | P95 accepted | <= 2 s | 30 days |
+| Knowledge retrieval | P95 | <= 2 s | 30 days |
+| Policy decision | P95 | <= 100 ms | 30 days |
+| Agent Gateway | Availability | >= 99.95% | 30 days |
+| Agent Runtime | Availability | >= 99.9% | 30 days |
+| Event publishing | Success | >= 99.9% | 30 days |
+| Audit recording crítico | Success | >= 99.89% | 30 days |
 
 ## Alertas
 
@@ -115,7 +115,7 @@ Do not use user, session, document or correlation IDs as metric labels.
 |---|---|---|---|
 | AgentErrorRateHigh | erro > 5% por 10 min | Alta | troubleshooting-agent-invocation |
 | SloBurnRateFast | burn rate > 14,4x por 5 min | Criticism | troubleshooting-agent-invocation |
-| ModelProviderLatencyHigh | P95 > limite por 15 min | Mean | fallback de provedor |
+| ModelProviderLatencyHigh | P95 > limit for 15 minutes | Mean | Provider fallback |
 | ToolExecutionFailures | falha > 3% por 10 min | Alta | disabling critical tool |
 | PolicyDenialsSpike | > 3x baseline | Mean | Review abuse/configuration |
 | CostBudgetExceeded | budget >= 100% | Alta | blocking/degrading agent |
@@ -125,7 +125,7 @@ Do not use user, session, document or correlation IDs as metric labels.
 ## Safety of telemetry
 
 - not register the full prompt with personal data or classification `CONFIDENTIAL`/`RESTRICTED`;
-- mascarar CPF, e-mail, telefone, tokens, secrets e identificadores financeiros;
+- masking CPF, e-mail, telephone, tokens, secrets and financial identifiers;
 - audit preserves functional evidence, not payload gross sensitive;
 - traces use technical IDs or hashes;
 - access to sensitive traces requires authorization and is audited.

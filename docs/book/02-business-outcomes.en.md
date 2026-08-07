@@ -8,7 +8,7 @@ It exists to accelerate the generation of value for the business in a governed, 
 
 The success of the platform should be measured by the results produced for customers, collaborators, business areas, operations and regulatory ecosystem — not by the quantity of models, components or agents in production.
 
-## Da tecnologia para o valor
+## From technology to value
 
 A frequent error in AI initiatives is to start discussions about technologies:
 
@@ -39,7 +39,7 @@ flowchart TB
 
 ## Strategic outcome domains
 
-### 1. Crescimento de receita
+### 1. Revenue growth
 
 **Objective:** increase acquisition, conversion, retention and customer relationship.
 
@@ -47,7 +47,7 @@ flowchart TB
 |---|---|
 | Personalized recommendations | Conversion |
 | next best action | receita incremental |
-| ofertas inteligentes | cross-sell e upsell |
+| intelligent offerings | cross-sell and upsell |
 | assistentes comerciais | produtividade comercial |
 | hyperpersonalization | retention and churn |
 
@@ -60,8 +60,8 @@ flowchart TB
 | Document automation | average processing time |
 | Operating agents | automation rate |
 | automatic call resolution | backlog reduction |
-| processamento de contratos | Cost per transaction |
-| Classification of documents | horas economizadas e retrabalho |
+| processing of contracts | Cost per transaction |
+| Classification of documents | hours saved and rework |
 
 ### 3. Patient experience
 
@@ -81,7 +81,7 @@ flowchart TB
 
 | Examples of application | Result indicators |
 |---|---|
-| continuous monitoring | incidentes e perdas evitadas |
+| continuous monitoring | incidents and avoided losses |
 | automated document review | non-conformities detected |
 | due diligence assistida | Time of analysis |
 | AI governance | coverage and effectiveness of controls |
@@ -95,9 +95,9 @@ flowchart TB
 |---|---|
 | RAG corporativo | time to find information |
 | knowledge graphs | coverage and connection of knowledge |
-| busca unificada | taxa de sucesso da busca |
+| unified search | search success rate |
 | copilots internos | tempo economizado por tarefa |
-| assistentes especializados | satisfaction and re-use of knowledge |
+| Specialized assistants | satisfaction and re-use of knowledge |
 
 ## Mapeamento Outcome → Capability
 
@@ -105,7 +105,7 @@ Each outcome depends on a set of capacities. There is no exclusive correspondenc
 
 | Outcome | Required capacities |
 |---|---|
-| Crescimento de receita | personalization, analytics, agent platform, experimentation |
+| Revenue growth | personalization, analytics, agent platform, experimentation |
 | Operational efficiency | workflow automation, document intelligence, agent runtime, tool execution |
 | Patient experience | conversational AI, search, omnichannel, personalization |
 | Risk Management and Compliance | AI governance, risk management, policy enforcement, observability, audit |
@@ -126,7 +126,7 @@ Each case of use must record a measurable hypothesis before implementation.
 | Target | meta quantitativa ou qualitativa |
 | Horizonte | deadline to assess the result |
 | Indicadores principais | final business metrics |
-| Leading indicators | sinais antecipados de progresso |
+| Leading indicators | early signs of progress |
 | Guardrails | quality limits, risk, cost and compliance |
 | Capacities | capacities needed to produce the result |
 | Products and agents | solutions that materialize the capabilities |
@@ -173,10 +173,10 @@ Technical metrics are necessary, but they do not prove value alone.
 
 | Level | Pergunta | Examples |
 |---|---|---|
-| Business KPI | Did the entrepreneurial outcome change? | receita, FCR, tempo de ciclo, perdas evitadas |
+| Business KPI | Did the entrepreneurial outcome change? | Revenue, HRR, cycle time, avoided losses |
 | Product outcome | Did the user's behavior or process change? | adoption, conclusion, resolution, satisfaction |
 | Leading indicator | Are we advancing in the expected direction? | task success, recurrent use, automation rate |
-| Platform KPI | A plataforma acelera e sustenta a entrega? | lead time, reuse, golden path, cost per solution |
+| Platform KPI | Does the platform accelerate and sustain delivery? | lead time, reuse, golden path, cost per solution |
 | Technical metric | Does the solution work properly? | latency, groundedness, errors, availability |
 | Guardrail | Does the gain remain acceptable? | incidents, biases, complaints, costs and violations |
 
@@ -200,25 +200,25 @@ Results may depend on changes in process, training, communication or policies be
 
 | Momento | Question for a decision |
 |---|---|
-| Intake | existe problema, baseline, outcome e owner? |
+| Intake | is there problem, baseline, outcome and owner? |
 | Piloto | os leading indicators justificam continuar? |
 | 30 dias | quality, adoption and guardrails are within the expected? |
-| 60–90 dias | is there evidence of operational or business impact? |
-| Trimestral | o investimento deve escalar, ajustar ou parar? |
+| 60–90 days | is there evidence of operational or business impact? |
+| Every three months | should the investment scale, adjust or stop? |
 
 ### Decision-making criteria
 
 - **Escalar:** target or trajectory achieved, guardrails served and sustainable cost.
 - **Ajustar:** value signals exist, but product, process or ability limits the result.
-- **Pausar:** Insufficient evidence, critical dependence or temporarily untreated risk.
-- **Descontinuar:** persistent lack of value, disproportional cost or unacceptable risk.
+- **Date of delay:** Insufficient evidence, critical dependence or temporarily untreated risk.
+- **Discontinue:** persistent lack of value, disproportional cost or unacceptable risk.
 
 ## Example — Operational efficiency
 
 | Elemento | Definition |
 |---|---|
 | Strategic aim | reduce operational effort in backoff processes |
-| Outcome | reduzir tempo de ciclo e backlog |
+| Outcome | reduce cycle time and backlog |
 | Capacities | document intelligence, agent platform, workflow orchestration, knowledge retrieval |
 | Possible solutions | legal authorisation, HR assistant, operational agents |
 | KPIs | processing time, automation rate, saved hours, backlog |
@@ -232,7 +232,7 @@ Results may depend on changes in process, training, communication or policies be
 | Outcome | increase first contact resolution |
 | Capacities | conversational AI, voice analytics, search, personalization |
 | Possible solutions | client voice, virtual agent, assistance |
-| KPIs | FCR, NPS, CSAT e tempo de atendimento |
+| KPIs | HRR, NPS, CSAT and length of stay |
 | Guardrails | complaints, incorrect responses, inadequate handoffs and cost per workload |
 
 ## Ownership
@@ -243,4 +243,4 @@ The platform should not assume credit for any business result or allow a solutio
 
 ## Next chapter
 
-O [Capability Map](02-capability-map.md) it transforms outcomes into organizational capacities and techniques needed to produce them.
+The [Capability Map](02-capability-map.md) it transforms outcomes into organizational capacities and techniques needed to produce them.

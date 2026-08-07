@@ -8,7 +8,7 @@ The platform needs to support semantic and hybrid search for corporate RAG scena
 
 ## Decision
 
-Adotar **OpenSearch as initial reference implementation** for vector and hybrid search, accessed exclusively through the Knowledge Service.
+Adopt **OpenSearch as initial reference implementation** for vector and hybrid search, accessed exclusively through the Knowledge Service.
 
 The architecture must maintain an abstraction of index and retrieval to allow other mechanisms when domain, cost, scale or residence requirements of data justify the exchange.
 
@@ -18,7 +18,7 @@ The architecture must maintain an abstraction of index and retrieval to allow ot
 - server-side filters by tenant, classification, ACL, purpose and retention;
 - versioning of the embedding model and the index;
 - aliases or equivalent mechanism for promotion and rollback;
-- exclusion verifiable by `documentId` e `tenantId`;
+- exclusion verifiable by `documentId` and `tenantId`;
 - latency telemetry, recall, cost and filtered results;
 - indexation is inappropriate and unavailable.
 
@@ -29,12 +29,12 @@ The architecture must maintain an abstraction of index and retrieval to allow ot
 | OpenSearch | hybrid search, filters and operational maturity | it requires tuning and may have relevant cost |
 | pgvector | simplicity and proximity to relational data | less specialization for large-scale hybrid search |
 | MongoDB Vector Search | integration with documents and memory | acopla retrieval ao datastore operacional |
-| Vector database especializado | Advanced vector resources | Additional dependence, cost and own governance |
+| Specialised database vector | Advanced vector resources | Additional dependence, cost and own governance |
 
 ## Positive consequences
 
-- reduz a quantidade inicial de componentes especializados;
-- permite busca textual e vetorial no mesmo mecanismo;
+- reduces the initial amount of specialised components;
+- it allows textual and vector search in the same mechanism;
 - takes advantage of filters, aliases and mature operational practices;
 - maintains the decision reversible through the Knowledge Service.
 
@@ -47,9 +47,9 @@ The architecture must maintain an abstraction of index and retrieval to allow ot
 
 ## Minimum evidence
 
-- benchmark com dataset representativo;
+- benchmark with representative dates;
 - recall, precision, MRR or nDCG metrics as appropriate;
-- teste de isolamento e acesso negado;
+- isolation test and access denied;
 - index versioning plan and rollback;
 - estimated cost and observed by volume;
 - exclusion and re-indexing procedure.

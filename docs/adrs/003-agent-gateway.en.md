@@ -1,4 +1,4 @@
-# ADR-003 — Agent Gateway como ponto de entrada
+# ADR-003 — Agent Gateway as entry point
 
 **Status:** Aceito
 
@@ -13,12 +13,12 @@ Introduzir um **Agent Gateway** between channels/BFFs and runtimes, it does not 
 ## Responsabilidades
 
 - authentication, authorisation and resolution of tenant;
-- rate limit, quotas e budget enforcement;
+- rate limit, quotas and budget enforcement;
 - Routing by agent, version and capacity;
 - streaming normalization and asynchronous responses;
 - correlation, tracing, metrics and audit;
 - entry policies, classification and data masking;
-- circuit breaker e fallback controlado.
+- circuit breaker and controlled fallback.
 
 ## Non-responsibilities
 

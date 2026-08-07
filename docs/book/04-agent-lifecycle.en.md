@@ -1,8 +1,8 @@
-# 5. Life cycle of staff
+# 5. Life cycle of agents
 
 ## Objective
 
-The life cycle ensures that each version of the agent has identity, owner, evidence, controls and an operational strategy.The governed unit should be the **published version**, not only the name of the staff member.
+The life cycle ensures that each version of the agent has identity, owner, evidence, controls and an operational strategy.The governed unit should be the **published version**, not only the name of the agent.
 
 ```mermaid
 flowchart LR
@@ -41,7 +41,7 @@ Current contracts use the technical states defined in [`openapi.yaml`](../contra
 - who is the user?
 - which decision or task will be improved?
 - which metric will demonstrate value?
-- Why IA is needed?
+- Why AI is needed?
 
 ### Minimum output
 
@@ -52,7 +52,7 @@ Current contracts use the technical states defined in [`openapi.yaml`](../contra
 
 ### Gate
 
-Do not advance when the problem is just “to use IA” or when there is no owner for the result.
+Do not advance when the problem is just “to use AI” or when there is no owner for the result.
 
 ## Stage 2 — Assessment
 
@@ -60,15 +60,15 @@ Do not advance when the problem is just “to use IA” or when there is no owne
 
 - rating risk;
 - classifying data;
-- identificar tools e efeitos colaterais;
-- defining the need for AGR and memory;
+- identifying tools and side effects;
+- defining the need for RAG and memory;
 - estimate volume, latency and cost;
 - check for existing solutions;
-- definir rota de delivery.
+- define delivery route.
 
-### Articles
+### Artifacts
 
-- registro no AI Catalog;
+- registration in AI Catalog;
 - risk assessment inicial;
 - data classification;
 - technical and business owner;
@@ -80,23 +80,23 @@ Non-purpose cases, applicable legal basis, data owner or strategy for critical a
 
 ## Stage 3 — Design
 
-### Compulsory decisions
+### Mandatory decisions
 
 - deterministic agent or workflow;
 - synchronous or asynchronous;
 - model and routing policy;
 - borders between runtime, registration systems and tools;
 - authorisation of knowledge and memory;
-- SLO e fallback;
+- SLO and fallback;
 - telemetry and events;
 - assessment strategy;
 - rollback and deactivation.
 
-### Articles
+### Artifacts
 
 - context diagram and containers;
 - threat model;
-- PPA contracts, events and tools;
+- API contracts, events and tools;
 - NFRs;
 - ADRs for relevant decisions;
 - evaluation plan.
@@ -114,20 +114,20 @@ The architecture must demonstrate how policies are applied during the execution.
 - secrets outside the code;
 - correlation ID;
 - logs without unnecessary sensitive content;
-- timeouts e limites;
-- Impotence for commands;
-- contratos versionados;
-- dependency e image scanning;
+- timeouts and limits;
+- idempotency for commands;
+- appropriate contracts;
+- dependency and image scanning;
 - unit tests, contract tests and policies.
 
 ### Automatically generated evidence
 
 - commit and build immutable;
-- SBOM or inventory of premises;
+- SBOM or inventory of dependencies;
 - scanner results;
 - prompt version and configuration;
 - version of models and embeddings;
-- datasets usados nos testes.
+- dates used in the tests.
 
 ## Stage 5 — Evaluation
 
@@ -158,7 +158,7 @@ Each version must be compared to an appropriate baseline:
 
 Publication is blocked when mandatory thresholds are not reached or when the regression has no formal exception.
 
-Consulte o [Evaluation Service](../services/evaluation-service.md) e o [AI Risk Framework](../governance/ai-risk-framework.md).
+Refer to [Evaluation Service](../services/evaluation-service.md) and [AI Risk Framework](../governance/ai-risk-framework.md).
 
 ## Stage 6 — Government
 
@@ -170,7 +170,7 @@ Submission must freeze a version and its evidence. The decision must record:
 - evidence considered;
 - decision;
 - conditions;
-- prazo de validade;
+- expiry date;
 - triggers of reassessment.
 
 ### Segregation of functions
@@ -197,8 +197,8 @@ Publication shall take place by pipeline and shall check:
 - signed or identifiable artifacts;
 - available policies;
 - migration and ready-to-use dependencies;
-- dashboards e alertas;
-- runbook e contatos de suporte;
+- dashboards and alerts;
+- runbook and supporting contacts;
 - rollback testado;
 - quota and budget configuration.
 
@@ -218,14 +218,14 @@ Operar significa observar simultaneamente:
 
 - technical health;
 - quality of responses;
-- retrieval e groundedness;
-- uso de tools;
+- retrieval and groundedness
+- tools;
 - policy violations;
 - cost;
 - behavior by model and version;
 - User feedback.
 
-The correlation between `agentId`, `agentVersion`, `modelId`, `sessionId`, `tenantId` e `correlationId` it is essential for diagnosis.
+The correlation between `agentId`, `agentVersion`, `modelId`, `sessionId`, `tenantId` and `correlationId` it is essential for diagnosis.
 
 ## Stage 9 — Review
 
@@ -253,7 +253,7 @@ Withdrawal must consider:
 - elimination or anonymity of memory;
 - retention of audit evidence;
 - removal of exclusive knowledge sources;
-- encerramento de budgets e alertas;
+- closure of budgets and alerts;
 - communication to users and owners.
 
 ## Evidence bundle
@@ -282,13 +282,13 @@ Not all files need to use these formats, but the information needs to exist and 
 | Gate | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
 | owner and catalogue | Compulsory | Compulsory | Compulsory | Compulsory |
-| testes de contrato | Compulsory | Compulsory | Compulsory | Compulsory |
-| quality assessment | amostra | dataset | dataset + baseline | dateset + independent review |
-| threat model | simplificado | Compulsory | detalhado | detailed + formal review |
+| Contract tests | Compulsory | Compulsory | Compulsory | Compulsory |
+| quality assessment | sample | dates | dateset + baseline | dateset + independent review |
+| threat model | simplified | Compulsory | detailed | detailed + formal review |
 | HITL | optional | by action | Generally mandatory | obligatory for permitted actions |
 | Independent approval | optional | as policy | Compulsory | multiple functions |
 | canary | recommended | Compulsory | Compulsory | environment and population restricted |
-| periodic review | anual | semestral | trimestral | events |
+| periodic review | annual | half-year | quarterly | events |
 
 ## Next chapter
 

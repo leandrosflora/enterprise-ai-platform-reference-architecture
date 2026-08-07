@@ -29,5 +29,5 @@ All officials shall be registered.
 
 - Governance
 - Descoberta
-- Auditoria
+- Audit
 - Reuso

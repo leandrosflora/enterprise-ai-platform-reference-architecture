@@ -31,9 +31,9 @@ Provide traceability, metrics, logs and dashboards for the operation of Enterpri
 
 | Indicador | Description |
 |---|---|
-| Latency P95 | Latency by staff member and service |
-| Error Rate | Taxa de erro por componente |
-| Token Usage | Consumo de tokens |
+| Latency P95 | Latency by agent and service |
+| Error Rate | Component error rate |
+| Token Usage | Token consumption |
 | Trace Coverage | Coverage of traces for execution |
 
 ## Non-functional requirements

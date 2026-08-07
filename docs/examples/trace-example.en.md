@@ -44,10 +44,10 @@ spans:
 
 ## Implementation
 
-O trace permite diagnosticar:
+Trace allows for the diagnosis of:
 
 - Latency per component
-- Consumo de tokens
+- Token consumption
 - Quality of response
 - Integration failures
-- Gargalos de retrieval
+- Retrieval bottleneck

@@ -8,17 +8,17 @@ Compulsory standard: [RAG Security and Memory](../security/rag-memory-security.m
 
 ## Responsabilidades
 
-- validar tipo, tamanho, checksum e origem;
+- validate type, size, checksum and origin;
 - execute antivirus and detection of active payload;
 - detectar indirect prompt injection;
 - keep documents in quarantine until approval;
-- extrair texto e metadados;
+- extract text and metadata;
 - spreading tenant, classification, ACL, purpose and retention for chunks;
 - generate embeddings and verify the model used;
 - index content in aliases/indexes isolated by tenant;
 - apply authorisation before and after the search;
 - return citations from and policy decision;
-- excluir, reindexar e invalidar embeddings antigos.
+- exclude, reindex and invalidate old embeddings.
 
 ## Ingestion Pipeline
 
@@ -56,7 +56,7 @@ Indexing
 |  `INDEXED`  | Available for authorised retrieval. |
 |  `FAILED`  | Technical or political failure cannot be recovered. |
 
-Um documento `QUARANTINED` ou expirado nunca participa da busca.
+A document `QUARANTINED` never participate in the search.
 
 ## Security contract of the document
 
@@ -103,7 +103,7 @@ Prompt-injection sanitization
 - clearance must be equal to or higher than the classification;
 - the purpose of the consultation must be authorised;
 - denied results are removed without revealing their existence;
-- the quotation returns to the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the `policyDecisionId`, checksum e origem;
+- the quotation returns to the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the `policyDecisionId`, checksum and origin;
 - only authorised chunks may be sent to the model;
 - content retrieved is delimited and does not alter system/developer instructions.
 
@@ -134,13 +134,13 @@ Exclusion removes:
 4. caches;
 5. references in derived datesets when applicable.
 
-Re-indexation creates a new immutable version and invalidates the previous one. `documentId` e `tenantId`.
+Re-indexation creates a new immutable version and invalidates the previous one. `documentId` and `tenantId`.
 
 ## Dependencies
 
-| Dependence | Uso |
+| Dependence | Use |
 |---|---|
-| Object Storage | Originais em quarentena e aprovados |
+| Object Storage | Origin in quarantine and approved |
 | Malware/DLP Scanner | Content analysis |
 | Policy Decision Point | ACL, purpose and classification |
 | OpenSearch | Vector and hybrid search |
@@ -150,13 +150,13 @@ Re-indexation creates a new immutable version and invalidates the previous one. 
 
 ## Non-functional requirements
 
-| Requisito | Diretriz |
+| Requirements | Guideline |
 |---|---|
-| Security | Deny by default, ACL por chunk e quarantine-first |
+| Security | Deny by default, ACL by chunk and quarantine-first |
 | Privacidade | Minimization, retention and verifiable exclusion |
 | Rastreabilidade | Origin, checksum, version and policy decision |
 | Quality | Evaluating retrieval separately from generation |
-| Resilience | Reprocessamento idempotente e DLQ |
+| Resilience | Idequate reprocessing and DLQ |
 | Escalabilidade | Asynchronous separate consultation intake |
 
 ## Related Decisions

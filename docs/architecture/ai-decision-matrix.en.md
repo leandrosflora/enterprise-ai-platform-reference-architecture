@@ -6,12 +6,12 @@ Avoid the indiscriminate use of agents and select the simplest pattern that sati
 
 ## Matriz principal
 
-| Necessidade | Preferential pattern | Quando evitar |
+| Need | Preferential pattern | When to avoid |
 |---|---|---|
 | Corporate content response | RAG | when deterministic rules solve |
 | Updated and cytable content | Search + RAG | when the source has no governance or ACL |
 | Specific behavior and style | Prompt + few-shot | when the problem is lack of knowledge |
-| Stable expertise | Fine-tuning | when the data change frequently |
+| Stable expertise | Fine tuning | when the data change frequently |
 | Foreseeable and auditable process | Deterministic workflow | when steps need to be dynamically discovered, the study aims to analyze the dynamics of these steps. |
 | Dynamic choice of steps | Agent | when there is no real need for autonomy, there is a need for the study of the students. |
 | Standard access to tools | MCP | when a simple and exclusive PIA is sufficient |
@@ -45,9 +45,9 @@ flowchart TD
 | Updating of knowledge | rapid | exige novo treino |
 | Citations and traceability | forte | limitada |
 | Change in behaviour | limitada | forte |
-| Private data | ficam fora dos pesos | podem ser incorporados aos pesos |
+| Private data | are out of weight | may be incorporated to the weights |
 | Initial cost | menor | maior |
-| Operation | index and intake | pipeline de treino e registry |
+| Operation | index and intake | training and registry pipeline |
 
 Use RAG for knowledge; use fine-tuning for behavior, format or specialization that is not achieved by prompt and examples.
 
@@ -59,11 +59,11 @@ Choose agent only when there is real value in deciding dynamically which steps o
 
 The decision shall record:
 
-- requisito funcional e alternativa mais simples;
+- functional requirement and simpler alternative;
 - level of risk and autonomy;
 - latency and volume;
 - expected cost;
 - data and classification;
-- necessidade de explicabilidade;
+- need for explanability
 - assessment strategy;
-- fallback e rollback.
+- fallback and rollback.

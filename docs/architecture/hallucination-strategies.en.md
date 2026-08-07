@@ -16,7 +16,7 @@ flowchart LR
 
 ## Prevent
 
-- restringir o escopo do caso de uso;
+- restrict the case scope of use;
 - use RAG with approved, current and traceable sources;
 - require citations and evidence;
 - to instruct the model to declare contextual insufficiency;
@@ -61,7 +61,7 @@ Próxima ação segura: {consulta adicional ou escalonamento}.
 
 ## Strategies per case of use
 
-| Caso | Priority controls |
+| Case | Priority controls |
 |---|---|
 | Q&A documental | RAG, citation, groundedness and abstention |
 | Resumo | coverage, fidelity and comparison with stretches |
@@ -75,7 +75,7 @@ Próxima ação segura: {consulta adicional ou escalonamento}.
 - hallucination rate;
 - unsupported claim rate;
 - citation precision;
-- abstention precision e recall;
+- abstention precision and recall;
 - correction rate;
 - human override rate;
 - impacto por severidade.
@@ -83,7 +83,7 @@ Próxima ação segura: {consulta adicional ou escalonamento}.
 ## Anti-standards
 
 - only trust the trust declared by the model;
-- adicionar RAG sem medir retrieval;
+- Adding RAG without measuring retrieval;
 - enabling responses without a source in a regulated context;
 - to use chain of thought as evidence;
 - to implement irreversible action based on generated text;

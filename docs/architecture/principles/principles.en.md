@@ -34,6 +34,6 @@ Ver: [docs/finops/token-costs.md](../../finops/token-costs.md).
 
 ## 6. Resilience against external dependency failures
 
-Called to models, MCP tools and corporate services apply timeout, retry controlled and circuit breaker. No service assumes total availability of its external premises.
+Called to models, MCP tools and corporate services apply timeout, retry controlled and circuit breaker. No service assumes total availability of its external dependencies.
 
 Ver: [docs/services/agent-runtime.md](../../services/agent-runtime.md).

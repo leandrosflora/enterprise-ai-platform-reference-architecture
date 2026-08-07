@@ -27,10 +27,10 @@
 
 ## Uso
 
-Este evento alimenta:
+This event feeds:
 
 - Observability
-- Auditoria
+- Audit
 - FinOps
 - Adoption dashboards
 - Metrics by agent and area

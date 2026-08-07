@@ -6,7 +6,7 @@ A plataforma usa RBAC + Policy Based Access Control.
 
 - **RBAC** defines human and technical roles.
 - **Policy Based Access Control** it applies rules by resource, scope, tenant, data classification, agent risk and tool criticality.
-- O enforcement ocorre no **Agent Gateway**, **Agent Runtime**, **Governance Service**, **Knowledge Service** e **MCP Registry**.
+- The enforcement occurs at the **Agent Gateway**, **Agent Runtime**, **Governance Service**, **Knowledge Service** and **MCP Registry**.
 
 ## Papers
 
@@ -39,7 +39,7 @@ A plataforma usa RBAC + Policy Based Access Control.
 |  `governance.approve`  | Approve or refuse publication. |
 |  `evaluation.read`  | Refer to assessment results. |
 |  `evaluation.write`  | Create execution of evaluation. |
-|  `audit.read`  | Consultar trilhas de auditoria. |
+|  `audit.read`  | Consulting audit trails. |
 |  `billing.read`  | Consulting costs and showback/chargeback. |
 |  `platform.admin`  | Administering global policies. |
 
@@ -60,21 +60,21 @@ A plataforma usa RBAC + Policy Based Access Control.
 
 ## Resource x Action matrix
 
-| Recurso | Action | Escopo requerido | Typical papers | Compulsory conditions |
+| Action | Action | Required score | Typical papers | Compulsory conditions |
 |---|---|---|---|---|
 | Agent | Listar |  `agent.read`  | Todos | Respect tenant and business unit. |
-| Agent | Criar/editar draft |  `agent.write`  | Developer | Obligatory owner. |
+| Agent | Create/release draft |  `agent.write`  | Developer | Obligatory owner. |
 | Agent | Submit approval |  `governance.submit`  | Developer | Test evidence and mandatory risk. |
 | Agent | Aprovar/rejeitar |  `governance.approve`  | AI Architect | It cannot be the same user that submitted. |
 | Agent | Publicar |  `agent.publish`  | AI Architect, Service Account | Application for a decision `APPROVED`. |
 | Agent | Invocar |  `agent.invoke`  | Business User | Agents should be able to work in any of these areas. `PUBLISHED`. |
 | Tool MCP | Registrar |  `tool.register`  | Developer | Contract with valid schemas. |
-| Tool MCP | Executar |  `tool.execute`  | Service Account via Agent Runtime | Tool approved and linked to the agent. |
-| Knowledge Base | Ingerir documento |  `knowledge.write`  | Developer | Compulsory classification of data. |
+| Tool MCP | Perform |  `tool.execute`  | Service Account via Agent Runtime | Tool approved and linked to the agent. |
+| Knowledge Base | Taking a document |  `knowledge.write`  | Developer | Compulsory classification of data. |
 | Knowledge Base | Consultar |  `knowledge.read`  | Business User, Developer | Policy by classification and tenant. |
 | Memory | Ler |  `memory.read`  | Service Account | Only session/authorised user. |
 | Memory | Escrever |  `memory.write`  | Service Account | Sensitive data masked when required. |
-| Evaluation | Criar |  `evaluation.write`  | Developer, Service Account | Dataset aprovado. |
+| Evaluation | Create |  `evaluation.write`  | Developer, Service Account | Date of approval. |
 | Evaluation | Consultar |  `evaluation.read`  | Developer, AI Architect, Auditor | Respeitar tenant. |
 | Audit | Consultar |  `audit.read`  | Auditor, AI Architect | Consulta registrada em auditoria. |
 | Billing | Consulting costs |  `billing.read`  | AI Architect, Auditor, Platform Admin | Limitated view per unit or tenant. |
@@ -97,7 +97,7 @@ A plataforma usa RBAC + Policy Based Access Control.
 | Risk | Minimum requirement |
 |---|---|
 | LOW | Automatic evaluation, defined owner and basic logs. |
-| MEDIUM | IA Architect review, safety assessment and active observability. |
+| MEDIUM | AI Architect review, safety assessment and active observability. |
 | HIGH | Human approval, matrix of allowed tools, regression tests and complete audit. |
 | CRITICAL | Governance Committee, LGPD/Juridical/Security review and rollback plan. |
 
@@ -107,7 +107,7 @@ A plataforma usa RBAC + Policy Based Access Control.
 
 | Componente | Responsabilidade |
 |---|---|
-| Agent Gateway | Validar JWT, tenant, escopos e rate limit. |
+| Agent Gateway | Validate JWT, tenant, scopes and rate limit. |
 | Agent Runtime | Apply policy by agent, tool, risk, cost and context. |
 | MCP Registry | To allow the discovery of only approved and authorised tools. |
 | Knowledge Service | Apply filters by tenant, unit, classification and document. |

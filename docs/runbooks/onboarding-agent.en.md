@@ -7,7 +7,7 @@ Publish a version of an agent with validated contracts, risk, safety, assessment
 ## Prerequisites
 
 - technical and business owner defined;
-- Agent Card versionado;
+- Agent Card versioned;
 - dates of approved evaluation;
 - knowledge bases and tools already registered;
 - budget and cost center defined;
@@ -24,8 +24,8 @@ Obligatory:
 - objective, users and data used;
 - risk;
 - model policy for capacity, without credential provider;
-- tools e knowledge bases permitidas;
-- classe de workload e SLO;
+- tools and knowledge allowed bases;
+- workload class and SLO;
 - memory policy.
 
 **Exit criteria:** schema valid and no blocking field absent.
@@ -39,7 +39,7 @@ curl -sS -X POST http://localhost:8080/v1/agents \
   -d @agent-card.json
 ```
 
-**Esperado:** HTTP `201`, status `DRAFT` e `ETag`.
+**Expected:** HTTP `201`, status `DRAFT` and `ETag`.
 
 ### 3. Validating dependencies
 
@@ -54,7 +54,7 @@ curl -sS -X POST http://localhost:8080/v1/agents \
 Executar ao menos:
 
 - regression;
-- groundedness/retrieval quando houver RAG;
+- groundedness/retrieval when there is RAG;
 - safety/adversarial;
 - latency of the workload class;
 - cost per scenario.
@@ -90,7 +90,7 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:submit \
 
 The approver cannot approve the identity that he/she submitted. The approver validates the gates G1–G7.
 
-**Esperado:** Decision `APPROVED`, com `approvalId` e trilha de auditoria.
+**Expected:** Decision `APPROVED`, `approvalId` and audit trail.
 
 ### 8. Publicar
 
@@ -101,15 +101,15 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:publish \
   -d '{"approvalId":"apv-001","releaseNotes":"Primeira versão"}'
 ```
 
-**Esperado:** HTTP `202`, status `PUBLISHED` e evento `agent.published`.
+**Expected:** HTTP `202`, status `PUBLISHED` and event `agent.published`.
 
 ### 9. Smoke test
 
-- authorised invocation returns `SUCCESS` ou `PARTIAL` esperado;
+- authorised invocation returns `SUCCESS` or `PARTIAL` expected;
 - scopeless invocation returns `403`;
 - return `BLOCKED`;
 - dashboard shows latency, tokens and cost;
-- alertas de teste chegam ao canal correto.
+- test alerts arrive at the correct channel.
 
 ## Rollback
 
@@ -118,13 +118,13 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:publish \
 3. invalidate cache configuration and policies;
 4. desabilitar tools afetadas;
 5. preserve events, traces and evidence;
-6. abrir incidente e registrar causa.
+6. open incident and register cause.
 
 ## Erros comuns
 
 | Sintoma | Probable cause | Action |
 |---|---|---|
 |  `409 Conflict`  | version or idempotency key already used | check before repeating |
-|  `422 Policy Violation`  | evidence, budget or absent dependence | corrigir o gate indicado |
+|  `422 Policy Violation`  | evidence, budget or absent dependence | correct the indicated gate |
 | approved agent does not publish | approval ID does not match the version | re-make the publication with the correct decision |
 |  `BLOCKED` in the invocation | policy bundle ausente ou desatualizado | validate distribution and version of the policy |

@@ -14,15 +14,15 @@ The objective is not to build only one agent who writes a code, but the proposal
 Code generation tools accelerate only part of the software Development Lifecycle. The main delays and risks remain distributed by:
 
 - incomplete requirements;
-- refinamentos e handoffs;
+- refinements and handoffs;
 - architectural decisions without traceability;
 - implementation outside the approved scope;
-- cobertura e testes insuficientes;
+- insufficient coverage and testing;
 - vulnerabilities and unsafe dependencies;
 - review without consolidated context;
 - uncoupled approvals of the final artifact;
 - releases without evidence of observation;
-- rollback manual e tardio;
+- manual and late rollback;
 - difficulty to relate requirement, code, test, approval and deploy.
 
 Architecture transforms this flow into a durable, governed and audible journey.
@@ -59,22 +59,22 @@ Incident Agent e feedback governado
 
 Each step produces structured results, events, checkpoints and one **evidence bundle**. The orchestrator only advances when contracts, policies and gates of the stage are met.
 
-## Specialised staff
+## Specialised agents
 
-| Agent | Responsabilidade principal | Efeito permitido | Limite de autoridade |
+| Agent | Main liability | Effect permitted | Limit of authority |
 |---|---|---|---|
 | Product | structuring objective, scope and acceptance criteria | Backlog and requirements | does not alter the code or approve release |
-| Architecture | produzir abordagem, C4, ADRs, contratos e impacto | architectural artifacts | does not implement or publish |
-| Developer | propose and implement delimited change | branch e draft PR | does not make merge or access production |
+| Architecture | produce approach, C4, ADRs, contracts and impact | architectural artifacts | does not implement or publish |
+| Developer | propose and implement delimited change | branch and draft PR | does not make merge or access production |
 | Test | create and carry out verifications | tests and evidence | does not reduce stuttering |
-| Security | executar scans e threat analysis | Findings and Evidence | does not silently alter the implementation |
-| Reviewer | review quality, scope and evidence | parecer independente | does not implement or publish |
-| Release | promover digest autorizado e operar rollback | controlled setting | does not ignore approval or policy |
+| Security | perform scans and threat analysis | Findings and Evidence | does not silently alter the implementation |
+| Reviewer | review quality, scope and evidence | opinion | does not implement or publish |
+| Release | Promote authorised digest and operate rollback | controlled setting | does not ignore approval or policy |
 | Incident | correlating change and telemetry | timeline and remediation proposal | does not perform destructive action without authorisation |
 
 The agents represent logical roles executed by a shared runtime, and they do not need to be eight persistent services.
 
-## Onde a IA participa
+## Where AI participates
 
 AI enters the activities that require interpretation, synthesis, generation and contextual assessment:
 
@@ -99,18 +99,18 @@ AI enters the activities that require interpretation, synthesis, generation and 
 - produces code and tests within the scope;
 - abre somente draft PR.
 
-### Test e Security Agents
+### Test and Security Agents
 
 - proposing scenarios and verifications;
 - analyze failures, coverage and regressions;
 - synthesize security findings;
 - they cannot reduce thresholds or remove controls.
 
-### Reviewer e Incident Agents
+### Reviewer and Incident Agents
 
 - consolidate evidence of multiple steps;
 - verify adherence to the requirement and architecture;
-- correlacionam deploys, logs, traces e incidentes;
+- correlate deploys, logs, traces and incidents;
 - recommend rework, recovery or further investigation.
 
 The response of a model **has no direct authority**. All side effects go through the MCP Gateway, policy enforcement and workflow contracts.
@@ -123,34 +123,34 @@ The response of a model **has no direct authority**. All side effects go through
 | policy enforcement | authorisation must be explicit and fail-closed |
 | Segregation of functions | author, approver and executor need to be verifiable |
 | Human approval | it must refer to identity, decision and exact digest |
-| execution of tools | schemas, grants, paths e ambientes devem ser controlados |
+| execution of tools | schemas, grants, paths and environments should be controlled. |
 | CI quality gates | tests, scans and thresholds need to produce objective results for the study of the study. |
 | release | somente o digest aprovado pode ser promovido |
-| Impotence | retries cannot double effects |
+| idempotency | retries cannot double effects |
 | observation and rollback | decisions should use health checks and versioned SLOs |
 | evidence store | hashes, integrity chain and retention do not depend on the model. |
 
-## Mapeamento para a Enterprise AI Platform
+## Mapping for Enterprise AI Platform
 
 | Platform capacity | Materialisation in Agentic SDLC | Current status |
 |---|---|---|
-| Agent Gateway | GitHub Issues, PRs, Developer Portal, CI/CD e ChatOps como canais | defined architecture; demonstrated GitHub integrations |
-| Agent Runtime | shared runtime with eight declarative definitions | implementado e testado |
-| Agent Registry | definitions versioned with prompt, tools, limits and schemes | implementado no runtime e contratos |
+| Agent Gateway | GitHub Issues, PRs, Developer Portal, IC/CD and ChatOps as channels | defined architecture; demonstrated GitHub integrations |
+| Agent Runtime | shared runtime with eight declarative definitions | implemented and tested |
+| Agent Registry | definitions versioned with prompt, tools, limits and schemes | implemented in runtime and contracts |
 | Model Gateway | provider fake deterministic and gateway HTTP OpenAI-compatible | implemented; corporate selection and central governance still evolving |
 | MCP Gateway | MCP fake for tests and stdio transport JSON-RPC for real servers | implemented; HTTP/SSE remains evolving |
-| Policy Enforcement | grants por papel e OPA no tool loop, remoto ou CLI | implemented; production requires OPA HA and signed bundles |
-| Knowledge Service | Context Builder, documents, ADRs, contracts and project memory | baseline implementada; knowledge lifecycle corporativo pendente |
+| Policy Enforcement | grants per paper and OPA in tool loop, remote or CLI | implemented; production requires OPA HA and signed bundles |
+| Knowledge Service | Context Builder, documents, ADRs, contracts and project memory | baseline implemented; knowledge lifecycle corporate pending |
 | Memory Service | checkpoints, approved context and historical change | baseline implementada |
-| Evaluation Service | testes, scans, schemas, groundedness e quality gates | baseline implemented; continuous evaluation with real models still evolving |
+| Evaluation Service | tests, scans, schemas, groundedness and quality gates | baseline implemented; continuous evaluation with real models still evolving |
 | Governance Service | durable workflow, segregation, approval by digest and policy-as-code | demonstrado localmente |
-| Evidence and Audit | evidence bundles write-once, SHA-256 e manifest com hash chain | implementado localmente; storage WORM corporativo pendente |
+| Evidence and Audit | evidence bundles write-once, SHA-256 and manifest with hash chain | implemented locally; outstanding corporate WORM |
 | Workload Identity | suporte a GitHub OIDC nos adapters P7 | implementado como adapter; trust policies reais pendentes |
-| Observability | Correlated events and exporter OTLP HTTP | adapter implementado; backend corporativo e SLOs reais pendentes |
+| Observability | Correlated events and exporter OTLP HTTP | implemented adapter; corporate backend and outstanding real SLOs |
 | FinOps | limits per agent and Budget Ledger | implementado como controle; backend compartilhado pendente |
-| Supply Chain | Syft, Cosign, digest e manifesto Kubernetes | adapters implementados; registry e admission verification pendentes |
-| Sandbox | Docker restrito, sem rede, read-only e limites | demonstrated; outstanding production isolation |
-| Event Backbone | events du `change_id`, `project_id` e `agent_run_id`  | database based on archives; managed measurement is evolution |
+| Supply Chain | Syft, Cosign, digest and manifesto Kubernetes | implemented adapters; registry and admission verification pending |
+| Sandbox | Restricted Docker, without network, read-only and limits | demonstrated; outstanding production isolation |
+| Event Backbone | events du `change_id`, `project_id` and `agent_run_id`  | database based on archives; managed measurement is evolution |
 
 ## Implemented architecture
 
@@ -261,38 +261,38 @@ sequenceDiagram
     end
 ```
 
-## Garantias demonstradas
+## Declared guarantees
 
-| Aspecto | Garantia atual |
+| Aspect | Current guarantee |
 |---|---|
 | Workflow | explicit order, persisted states and checkpoints per stage |
 | Retomada | completed model response can be reused without further charge or effect |
 | Tool use | grants per agent, schemas and policy before execution |
 | Context | classification, provenance, redaction, limits and hashes |
-| Evidence | arquivos write-once, SHA-256 e manifest append-only com hash chain |
-| Approval | independente do autor e vinculada ao digest exato |
+| Evidence | write-once, SHA-256 and manifest append-only files with hash chain |
+| Approval | independent of the author and linked to the exact digest |
 | Developer Agent | allowed paths, blocked sensitive files and only draft PR |
 | Release | promotion only after human gate and with the approved digest |
 | Remark | health check and explicit decision after deployment |
 | Recovery | rollback restores the previous stable digest and maintains history of the digest. |
-| Budgets | reserva e bloqueio antes de ultrapassar limite configurado |
-| Security | OPA fail-closed, sandbox restrito e supply-chain adapters |
+| Budgets | reserve and block before exceeding the set limit |
+| Security | OPA fail-closed, sandbox restricted and supply-chain adapters |
 
 ## Runtime compartilhado
 
-O [agentic-sdlc-runtime](https://github.com/leandrosflora/agentic-sdlc-runtime) concentrates the execution of staff and provides:
+The [agentic-sdlc-runtime](https://github.com/leandrosflora/agentic-sdlc-runtime) concentrates the execution of agents and provides:
 
 - agent registry JSON;
 - Context Builder with provenance and minimization;
-- Model Gateway fake e OpenAI-compatible;
-- MCP fake e MCP real via stdio;
+- Model Gateway fake and OpenAI-compatible;
+- MCP fake and real MCP via stdio;
 - tool loop limitado;
 - PAO authorisation;
 - evidence bundles;
-- checkpoints e retomada;
-- CLI, demos e testes;
+- checkpoints and resumption;
+- IAC, demos and tests;
 - Integration with Issues, comments, Checks and draft PRs;
-- adapters P7 para OIDC, S3, OTLP, budgets, filas, sandbox e supply chain.
+- adapters P7 for OIDC, S3, OTLP, budgets, queues, sandbox and supply chain.
 
 ## Case repositories
 
@@ -340,23 +340,23 @@ The main confidence limits are:
 
 ## Current status
 
-| Camada | Classification | Evidence |
+| Layer | Classification | Evidence |
 |---|---|---|
 | Architecture, contracts and policies |  `CONTRACT_DEFINED`  | Documentation, schemes, ADRs and Rego versioned |
 | Golden path |  `DEMONSTRATED_LOCAL`  | deterministic flow and evidence bundle |
-| Runtime compartilhado |  `DEMONSTRATED_LOCAL`  | testes, CLI, gateways, checkpoints e workflow E2E |
+| Shared Runtime |  `DEMONSTRATED_LOCAL`  | Tests, IAC, gateways, checkpoints and workflow E2E |
 | Model Gateway real |  `IMPLEMENTATION_STARTED`  | OpenAI-compatible integration available and optional |
 | MCP real |  `IMPLEMENTATION_STARTED`  | transport stdio available |
 | GitHub integration |  `DEMONSTRATED_LOCAL`  | Issue, comment, Checks, branch and draft PR |
-| Release e rollback demo |  `DEMONSTRATED_LOCAL`  | healthy path and rollback path |
-| Adapters P7 |  `IMPLEMENTATION_STARTED`  | OIDC, S3, OTLP, SQS, Syft, Cosign e Kubernetes |
+| Release and rollback demo |  `DEMONSTRATED_LOCAL`  | healthy path and rollback path |
+| Adapters P7 |  `IMPLEMENTATION_STARTED`  | OIDC, S3, OTLP, SQS, Syft, Cosign and Kubernetes |
 | Corporate operation | Pendente | providers, environments and real controls not yet approved |
 | Production readiness |  `NOT_PRODUCTION_READY`  | lack of operational evidence and formal approval |
 
-## Limites declarados
+## Limits declared
 
 - Model Gateway fake is the standard of deterministic demos;
-- provider real depende de endpoint e credenciais configurados externamente;
+- real provider depends on endpoint and externally configured credentials;
 - Real MCP supports stdio; other transports are still evolving;
 - evidence store local is tamper-evident, no storage corporate WORM;
 - demo environment persists locally;
@@ -369,16 +369,16 @@ The main confidence limits are:
 
 1. executar o workflow completo contra um Model Gateway corporativo;
 2. connecting real MCP servers by tool and trust zone;
-3. implantar OPA HA com bundles assinados;
-4. usar workload identity e credenciais just-in-time;
+3. Implement OPA HA with signed bundles;
+4. using workload identity and just-in-time credentials;
 5. Moving evidence to storage WORM with KMS and retention;
 6. publish digest artifacts with SBOM and verified signature;
-7. executar workers em filas gerenciadas com DLQ e autoscaling;
-8. validar sandbox isolado, egress allowlist e limites de recursos;
+7. perform workers in queues managed with DLQ and autoscaling;
+8. validate sandbox alone, egress allowlist and resource limits;
 9. to integrate metrics, traces, cost and SLOs to corporate operation;
 10. perform game days rollback, unavailability of PDP and checkpoint recovery.
 
-## Valor demonstrado para a Enterprise AI Platform
+## Value demonstrated for Enterprise AI Platform
 
 The Agentic SDLC shows that the Enterprise AI Platform can govern not only service agents or backoffice, but also agents that participate in the very software production.
 

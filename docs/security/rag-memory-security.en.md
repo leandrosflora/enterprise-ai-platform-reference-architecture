@@ -15,7 +15,7 @@ Standard decision is **deny by default**. Retrieved content is always treated as
 5. **A model does not create persistent truth.** Content inferred by the model cannot become long-term memory or profile.
 6. **Sensitive data do not persist by pattern.** Classification `RESTRICTED` it is blocked; exceptions require specific policy outside the baseline.
 
-## Pipeline seguro de RAG
+## Safe Pipeline for RAG
 
 ```text
 Fonte
@@ -48,14 +48,14 @@ Contexto delimitado como <untrusted_document>
 | Campo | Purpose |
 |---|---|
 |  `tenantId`  | To prevent mixing between organizations. |
-|  `documentId` e `chunkId`  | Traceability and selective exclusion. |
+|  `documentId` and `chunkId`  | Traceability and selective exclusion. |
 |  `classification`  | Applying clearance and observability controls. |
-|  `allowedRoles` / `allowedSubjects`  | Enforcement de ACL. |
+|  `allowedRoles` / `allowedSubjects`  | ACL effort. |
 |  `allowedPurposes`  | Avoid re-use for incompatible use. |
-|  `sourceSystem` e `sourceUri`  | Origin. |
+|  `sourceSystem` and `sourceUri`  | Origin. |
 |  `checksum`  | Detect alteration after approval. |
 |  `approvedSource`  | Allow only registered sources. |
-|  `retentionPolicy` e `expiresAt`  | Expiration, exclusion and re-indexation. |
+|  `retentionPolicy` and `expiresAt`  | Expiration, exclusion and re-indexation. |
 |  `securityScanVersion`  | Reproduce the quarantine decision. |
 
 ### Compulsory quarantine
@@ -65,8 +65,8 @@ O documento permanece `QUARANTINED` Where any of these conditions occur:
 - source not approved;
 - checksum divergente;
 - type or size not allowed;
-- assinatura de malware ou payload ativo;
-- indicador de indirect prompt injection;
+- signature of malware or active payload;
+- indirect prompt injection indicator;
 - No classification, ACL, purpose or retention policy.
 
 Release requires evidence from all controls and generates auditable events.Re-indexation should invalidate previous chunks and embeddings.
@@ -78,9 +78,9 @@ The query applies the filters before and after the vector search:
 1. derive tenant, user, roles and clearance of authenticated identity;
 2. restrict tenant indexes/aliasis;
 3. apply ACL and classification in the search mechanism;
-4. executar post-filter no Knowledge Service;
+4. perform post-filter in the Knowledge Service;
 5. removing unauthorised results without revealing counting or title to the external call forward;
-6. retornar `policyDecisionId`, checksum and audit provenance;
+6. return `policyDecisionId`, checksum and audit provenance;
 7. delimiting the content recovered as non-reliable;
 8. blocking instructions found in documents before assembling the prompt.
 
@@ -92,14 +92,14 @@ The model's response can only mention chunks that have undergone the same author
 
 | Tipo | Uso | Maximum TTL | Consentimento | Permitted source |
 |---|---|---:|---|---|
-|  `SESSION`  | Context of the current conversation | 24 horas | No, except for specific personal data | User, system, tool and model inference |
-|  `SHORT_TERM`  | Continuidade operacional curta | 7 dias | For purpose | User, system or tool checked |
-|  `LONG_TERM`  | Reused work between sessions | 365 dias | Obligatory | Confirmed user or verified system |
-|  `PROFILE`  | Explicit preferences | 365 dias | Obligatory | Confirmed user or verified system |
+|  `SESSION`  | Context of the current conversation | 24 hour | No, except for specific personal data | User, system, tool and model inference |
+|  `SHORT_TERM`  | Short operational continuity | 7 days | For purpose | User, system or tool checked |
+|  `LONG_TERM`  | Reused work between sessions | 365 days | Obligatory | Confirmed user or verified system |
+|  `PROFILE`  | Explicit preferences | 365 days | Obligatory | Confirmed user or verified system |
 
 ### Compulsory fields per item
 
-- chave e valor minimizados;
+- key and minimized value;
 - classification;
 - purpose;
 - origem;
@@ -112,18 +112,18 @@ The model's response can only mention chunks that have undergone the same author
 
 ### Memory poisoning protection
 
-Antes da escrita, o Memory Service:
+Before writing, the Memory Service:
 
 - rejects commands and instructions disguised of facts;
 - blocks indicators such as “ignore previous instructions”, an attempt to reveal system prompt or deactivate policy;
-- prevents content persistence `MODEL_INFERRED` fora de `SESSION`;
-- exige origem `USER_CONFIRMED` ou `SYSTEM_VERIFIED` para `LONG_TERM` e `PROFILE`;
+- prevents content persistence `MODEL_INFERRED` or `SESSION`;
+- requires origin `USER_CONFIRMED` or `SYSTEM_VERIFIED` for `LONG_TERM` and `PROFILE`;
 - rejeita `RESTRICTED`;
 - registers only safe metadata in events, never the full value.
 
 Conflicting updates should preserve the version history and require reconciliation when reliable sources disagree.
 
-### Isolamento e descarte
+### Isolation and disposal
 
 The minimum logical key is:
 
@@ -138,8 +138,8 @@ Reading and exclusion use the subject derived from identity. One user does not f
 Registrar:
 
 - authorisation decision and reason for blocking;
-- status de quarentena;
-- IDs de documento/chunk;
+- Quarantine status;
+- Document/chunk IDs;
 - checksum and version of the scanner;
 - type of memory, number of items, TTL and presence of consent;
 - exclusion and re-indexation.
@@ -147,7 +147,7 @@ Registrar:
 Do not register:
 
 - prompt completo;
-- texto integral do documento;
+- full text of the document;
 - integral value of memory;
 - dado pessoal em claro;
 - tokens ou segredos.
@@ -156,12 +156,12 @@ Do not register:
 
 | Gate | Evidence |
 |---|---|
-| Ingestion | Teste de quarentena para malware, checksum e prompt injection. |
-| Retrieval | Teste de ACL por documento/chunk, tenant e clearance. |
+| Ingestion | Quarantine test for malware, checksum and prompt injection. |
+| Retrieval | ACL test by document/chunk, tenant and clearance. |
 | Prompt | Evidence of delimiting and treating the context as non-reliable. |
-| Memory | Testes de consentimento, TTL, origem e poisoning. |
+| Memory | Consent tests, TTL, origin and poisoning. |
 | Privacidade | Subject exclusion and retention policy. |
-| Auditoria | Events without sensitive payload and without `policyDecisionId`. |
+| Audit | Events without sensitive payload and without `policyDecisionId`. |
 
 ## Demonstrative implementation
 
@@ -171,7 +171,7 @@ A vertical slice implementa:
 - search with tenant, roles, clearance, purpose and post-filter;
 - content defined as `<untrusted_document>`;
 - consent memory, TTL, origin, trust and isolation by subject;
-- bloqueio de `RESTRICTED`, `MODEL_INFERRED` persistente e indicadores de poisoning;
+- blockade of `RESTRICTED`, `MODEL_INFERRED` persistent and poisoning indicators;
 - automated tests that exercise these controls.
 
 The demo uses memory storage and simulated headers.In production, identity, DLP, antivirus, policy engine and persistence, they should be real services.

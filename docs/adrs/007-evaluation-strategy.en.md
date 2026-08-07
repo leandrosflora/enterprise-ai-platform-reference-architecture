@@ -8,7 +8,7 @@ Corporate agents need to be evaluated before and after publication to reduce hal
 
 ## Decision
 
-Adotar um **Evaluation Service** with hybrid assessment:
+Adopt a **Evaluation Service** with hybrid assessment:
 
 - automatic for scale and regression;
 - based on rules for deterministic requirements;
@@ -21,7 +21,7 @@ Results should be versioned, reproducible and traceable to the agent, prompt, mo
 ## Minimum dimensions
 
 - quality of the task;
-- retrieval e groundedness;
+- retrieval and groundedness
 - citation correctness;
 - safety, toxicity and leakage;
 - selection and arguments of tools;
@@ -33,9 +33,9 @@ Results should be versioned, reproducible and traceable to the agent, prompt, mo
 
 | Alternativa | Vantagem | Limitation |
 |---|---|---|
-| Manual assessment only | julgamento contextual | low scale, cost and variability |
+| Manual assessment only | Contextual judgment | low scale, cost and variability |
 | Production assessment only | real use data | Risk of publication of undetected regressions |
-| Apenas LLM-as-judge | fast coverage | bias, instability and judge dependence |
+| Only LLM-as-judge | fast coverage | bias, instability and judge dependence |
 | Single aggregate note | simple communication | it hides critical flaws in specific dimensions of the study. |
 
 ## Positive consequences
@@ -54,7 +54,7 @@ Results should be versioned, reproducible and traceable to the agent, prompt, mo
 
 ## Minimum evidence
 
-- dataset versionado e aprovado;
+- Dateset verified and approved;
 - baseline and thresholds per dimension;
 - evaluator and judge version;
 - regression report;

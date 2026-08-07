@@ -13,29 +13,29 @@ The components and services described represent a logical decomposition of capab
 - an operating model with responsibilities and decision forums;
 - a risk-based life cycle of agents;
 - a complete case study of a documentary agent with RAG;
-- decision guides para escolhas arquiteturais recorrentes;
+- decision guides for recurrent architectural choices;
 - a maturity model and adoption roadmap;
 - checklists of readiness for production;
 - contracts, diagrams, polycies and technical samples as reference material.
 
-## Caminhos de leitura
+## Reading paths
 
 | Perfil | Recommended path | Expected result |
 |---|---|---|
-| Executivo ou sponsor | Chapters 1, 2, 3 and 7 | understand value, scope, investment, risks and adoption sequence |
+| Executive or Sponsor | Chapters 1, 2, 3 and 7 | understand value, scope, investment, risks and adoption sequence |
 | Arquiteto | Chapters 1 to 7 | mastering capacities, decisions, boundaries and trade-offs |
-| Engenharia de plataforma | Chapters 2, 4, 5, 6 and 8 | Transforming the reference into implementing and operable backlog |
+| Platform engineering | Chapters 2, 4, 5, 6 and 8 | Transforming the reference into implementing and operable backlog |
 | Security, Legal and LGPD | Chapters 3, 4, 5 and 8 | identify gates, evidence, classification and responsibilities |
 | Product squad | Chapters 1, 4, 5 and 8 | structure a case of use and publish it by golden path. |
-| SRE e FinOps | Chapters 2, 4, 7 and 8 | define SLOs, capacity, incidents, budgets and accountability |
+| SRE and FinOps | Chapters 2, 4, 7 and 8 | define SLOs, capacity, incidents, budgets and accountability |
 
-## Partes do livro
+## Parts of the book
 
-1. [Por que uma AI Platform?](01-why-ai-platform.md)
+1. [Why an AI Platform?](01-why-ai-platform.md)
 2. [Capability Map](02-capability-map.md)
 3. [Operating Model](03-operating-model.md)
 4. [Life cycle of agents](04-agent-lifecycle.md)
-5. [Case study: documentary agent with AGR](05-case-study-document-agent.md)
+5. [Case study: documentary agent with RAG](05-case-study-document-agent.md)
 6. [Decision Guides](06-decision-guides.md)
 7. [Maturity model and adoption roadmap](07-adoption-roadmap.md)
 8. [Production Checklists](08-production-checklists.md)
@@ -45,7 +45,7 @@ The components and services described represent a logical decomposition of capab
 
 The chapters explain the context, decisions and consequences, and the technical directories remain as canonical reference sources:
 
-| Subject matter | Technical reference |
+| Subject | Technical reference |
 |---|---|
 | Principles, C4 and NFRs |  [`../architecture/`](../architecture/principles/principles.md)  |
 | PIA, events and PCM |  [`../contracts/`](../contracts/apis.md)  |
@@ -69,6 +69,6 @@ Each chapter seeks to answer five questions:
 4. How to check that the decision works?
 5. What is the next technical artifact to consult?
 
-## Escopo e limites
+## Score and limits
 
 This material is a reference architecture for implementation. It does not replace specific threat modeling, legal analysis, sizing, supplier approval, load tests or detailed infrastructure design. Decisions should be reassessed when the risk, volume, criticism or regulation change.

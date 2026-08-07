@@ -31,19 +31,19 @@ The Conversation Orchestrator maintains the state of the journey and routes the 
 
 | Reference capacity | Implementation in case | Current status |
 |---|---|---|
-| Channel / Agent Gateway | WhatsApp BFF, Kafka de entrada e Conversation Orchestrator | Implemented baseline; gateway responsibilities remain distributed |
-| Agent Runtime | specialized runtimes for renegotiation and card | Implementado |
-| MCP Tool Service | Tool Services for renegotiation and card | Implementado |
+| Channel / Agent Gateway | WhatsApp BFF, Input Kafka and Conversation Orchestrator | Implemented baseline; gateway responsibilities remain distributed |
+| Agent Runtime | specialized runtimes for renegotiation and card | Implemented |
+| MCP Tool Service | Tool Services for renegotiation and card | Implemented |
 | Workflow / Journey State | state machine, lease, versioning, Inbox and Outbox in the Orchestrator | Implementado |
-| Knowledge Service | OpenSearch com busca vetorial e PDFs por tenant | Implementado; conector corporativo e ACL por documento ainda pendentes |
+| Knowledge Service | OpenSearch with vector search and PDFs by tenant | Implemented; corporate connector and ACL by pending document |
 | Memory Service | Redis for session and MongoDB for history | Implementado |
 | Policy Enforcement | Deterministic rules in Tool Services and domain service; feasible profile with PAO | Implemented basis; corporate integration still pending |
 | Workload Identity | JWT HS256 per pair in the standard profile; migration profile RS256, ICDC and JWKS | Part; native identity, mTLS and KMS remain pending |
-| Audit | PostgreSQL with tenant deduplication and idempotence key | Implementado |
+| Hearing | PostgreSQL with tenant deduplication and idempotence key | Implemented |
 | Event Backbone | Kafka for durable entry, retry, DLQ and platform events | Implemented partially; not all integration is event-oriented |
 | Human Handoff | Conversation Handoff Service | Implemented as persistent request; bidirectional transfer to human platform still pending |
-| Observability | Jaeger, Loki, Grafana Alloy, Prometheus, Grafana e Alertmanager | Implemented implementable basis; coverage of real metrics and receivers still evolving |
-| Evaluation Service | evals offline e online versionados para as duas skills | Implementable basis; continuous evaluation in production still pending |
+| Observability | Jaeger, Loki, Grafana Alloy, Prometheus, Grafana and Alertmanager | Implemented implementable basis; coverage of real metrics and receivers still evolving |
+| Evaluation Service | evals offline and online versioned for the two skills | Implementable basis; continuous evaluation in production still pending |
 | Release Governance | manifest, lock with exact SHAs, executable contracts and multi-repository E2E | Implemented basis; mandatory gate and promotion of certified images still pending |
 | Banking Core Integration | functional doors, canonical models, adapters and environmental profiles | Readiness implemented with mock; production contract, certification and reconciliation pending |
 | Model Gateway | directly configured model in each runtime | Recommended evolution |
@@ -88,7 +88,7 @@ flowchart LR
     OBS -.-> CORE
 ```
 
-The diagram represents the implemented state and the executable profiles.The target architecture may introduce additional central components, such as Agent Gateway, Model Gateway, IA catalog and FinOps.
+The diagram represents the implemented state and the executable profiles.The target architecture may introduce additional central components, such as Agent Gateway, Model Gateway, AI catalog and FinOps.
 
 ## Simplified flow
 
@@ -136,22 +136,22 @@ sequenceDiagram
   BFF-->>WA: mensagem ao cliente
 ```
 
-## Garantias demonstradas
+## Declared guarantees
 
-| Aspecto | Garantia implementada |
+| Aspect | Implemented guarantee |
 |---|---|
-| Entrada WhatsApp | ACK only after persistence in Kafka |
-| Autenticidade do canal | HMAC webhook validation |
+| Entry WhatsApp | ACK only after persistence in Kafka |
+| Augmentative canal | HMAC webhook validation |
 | Inbox | processamento idempotente por mensagem |
 | Status of journey | lease, optimistic version and delayed message treatment |
 | Side effects | Outbox at-least-once with deduplication |
 | Order | effects of a previous version block the release of the next |
-| Tenant | tenant no header e em claim assinada |
+| Tenant | tenant no header and em claim assinada |
 | Tools | allowlist, stage, version and policy validated before implementation |
-| Movable transactions |  `Idempotency-Key`, replay e conflito por payload divergente |
+| Movable transactions |  `Idempotency-Key`, replay and divergent payload conflict |
 | Financial confirmation | it requires internship and evidence linked to the current message. |
-| Memory | chaves segregadas por tenant e conversa |
-| Audit e Handoff | tenant deduplication and idempotence key |
+| Memory | keys segregated by tenant and conversation |
+| Audit and Handoff | tenant deduplication and idempotence key |
 | Sensitive data | tools and CPF arguments are not published in platform events. |
 | RAG | index and consultation segregated by tenant |
 
@@ -163,15 +163,15 @@ An feasible migration profile demonstrates evolution to:
 
 - RS256 issue;
 - Discovery of ICD and JWKS publication;
-- tokens curtos por workload e audience;
-- allowlist entre emissor e destino;
+- short tokens by workload and audience;
+- allowlist between issuer and destination;
 - OPA como PDP centralizado;
 - fail-closed decision;
 - obligatory evidence for financial actions.
 
 This profile validates contracts and migration strategy. Production still requires native identity of workload, KMS or HSM, rotation, revocation, mTLS and integration with corporate AMI.
 
-[Detalhes de Workload Identity e PDP](https://leandrosflora.github.io/conversational-ai-platform-architecture/security/workload-identity-pdp.html){ target="_blank" }
+[Workload Identity and PDP details](https://leandrosflora.github.io/conversational-ai-platform-architecture/security/workload-identity-pdp.html){ target="_blank" }
 
 ## Evals and evidence
 
@@ -182,8 +182,8 @@ The platform has a versioned suite of renegotiation scenarios and a card coverin
 - simulation and renegotiation journey;
 - ceiling and invoice of card;
 - handoff humano;
-- mensagens fora de escopo;
-- tentativa de ignorar regras.
+- messages outside the scope;
+- attempt to ignore rules.
 
 The evals can be executed offline, without infrastructure, or online against the two Agent Runtimes. The reports record approval, latency, handoff, threshold violations and expectation errors.
 
@@ -198,12 +198,12 @@ The solution is composed of the architectural repository and 12 service reposito
 Multi-repository pipeline E2E may:
 
 1. solve all repositories for exact commits;
-2. executar builds e testes;
-3. validar OpenAPI, AsyncAPI e policies;
+2. perform builds and tests;
+3. validate OpenAPI, AsyncAPI and policies;
 4. subir o stack;
 5. injetar um webhook assinado;
 6. validar o Core autenticado;
-7. executar evals online e carga;
+7. performing evals online and loading;
 8. publish evidence linked to the release lock.
 
 Productive promotion should also reuse images per digest, signed and certified, without reconstructing the environment.
@@ -232,7 +232,7 @@ The solution proves technical integration E2E with mock, workload control and se
 
 A productive release should be blocked when using provider mock, synthetic data, changeable operation without persistent idempotence or formalization without reconciliation.
 
-[Detalhes de Banking Core Integration Readiness](https://leandrosflora.github.io/conversational-ai-platform-architecture/integration/banking-core-readiness.html){ target="_blank" }
+[Details of Banking Core Integration Readiness](https://leandrosflora.github.io/conversational-ai-platform-architecture/integration/banking-core-readiness.html){ target="_blank" }
 
 ## Observability and operation
 
@@ -242,7 +242,7 @@ Initial SLOs were defined for webhook reception, Choreotor processing, Outbox pu
 
 The baseline does not replace corporate operation. Real receivers, ownership, scheduling, shift, full coverage of application metrics and error budgets approved remain necessary.
 
-[Detalhes de SLOs e alertas](https://leandrosflora.github.io/conversational-ai-platform-architecture/operations/slo-alerting.html){ target="_blank" }
+[SLOs and alerts details](https://leandrosflora.github.io/conversational-ai-platform-architecture/operations/slo-alerting.html){ target="_blank" }
 
 ## Priority lacunes
 
@@ -261,11 +261,11 @@ The baseline does not replace corporate operation. Real receivers, ownership, sc
 
 The case demonstrates that the reference architecture supports a multi-skill conversational platform, with shared components and specialized agents per domain.
 
-Implementation proves durable entry patterns, transactional status, governed tool calling, AGR, memory, audit, handoff, evals, observability, evolutionary security and release governance.
+Implementation proves durable entry patterns, transactional status, governed tool calling, RAG, memory, audit, handoff, evals, observability, evolutionary security and release governance.
 
 It also makes the border between three states explicit:
 
-- **implementado:** validated in code, contract, compost or evidence E2E;
+- **implemented:** validated in code, contract, compost or evidence E2E;
 - **Implementable basis:** locally demonstrated control, still dependent on corporate integration;
 - **production:** it requires real IPAs, strong identity, operation, compliance, resilience and promotion of approved artifacts.
 

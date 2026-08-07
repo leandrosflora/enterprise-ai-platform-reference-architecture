@@ -4,7 +4,7 @@
 
 The reference already contains:
 
-- Enterprise AI Platform Book com jornadas por perfil;
+- Enterprise AI Platform Book with journeys per profile;
 - capability map and liability boundaries;
 - operating model, RACI, forums and golden path;
 - risk and evidence-based life cycle of agents;
@@ -13,7 +13,7 @@ The reference already contains:
 - automated export of the book to Markdown and PDF;
 - OpenAPI and canonical AsyncAPI contracts;
 - policies and contract validation in IC;
-- C4 de container e deployment com control plane/data plane;
+- Container C4 and deployment with control plane/data plane;
 - Explicit model Gateway;
 - feasible RAG security and memory;
 - runbooks operacionais;
@@ -26,19 +26,19 @@ The vertical slice is deliberately small. The phases below describe the evolutio
 
 ### Objective
 
-Create the minimum planned date for the controlled execution of staff.
+Create the minimum planned date for the controlled execution of agents.
 
 ### Entregas
 
 - Agent Gateway;
 - Agent Runtime;
 - Agent Registry;
-- OIDC e workload identity;
-- Policy Decision Point e Policy Enforcement Points;
+- ICDC and workload identity;
+- Policy Decision Point and Policy Enforcement Points;
 - Model Gateway;
 - baseline OpenTelemetry;
 - backbone Kafka;
-- CI/CD com contract tests.
+- IC/CD with contract tests.
 
 ### Success criteria
 
@@ -47,16 +47,16 @@ Create the minimum planned date for the controlled execution of staff.
 - published canonical events;
 - authorisation `deny by default` exercitada;
 - rollback validado;
-- SLO de `INTERACTIVE_SIMPLE` medido.
+- SLO `INTERACTIVE_SIMPLE` measured.
 
-## Fase 2 — Knowledge e Memory
+## Phase 2 — Knowledge and Memory
 
 ### Entregas
 
 - Knowledge Service;
 - quarantine pipeline;
-- ACL por documento e chunk;
-- embeddings versionados;
+- ACL by document and chunk;
+- versioned embeddings;
 - hybrid search;
 - citations;
 - Memory Service with TTL, consent and exclusion;
@@ -64,10 +64,10 @@ Create the minimum planned date for the controlled execution of staff.
 
 ### Success criteria
 
-- acesso cross-tenant bloqueado em testes;
-- documentos eliminados deixam de aparecer no retrieval;
-- groundedness e retrieval metrics coletadas;
-- memory poisoning coberto por testes.
+- cross-tenant access blocked in tests;
+- documents no longer appear in the retrieval;
+- groundedness and retrieval metrics collected;
+- memory poisoning covered by tests.
 
 ## Phase 3 — PCM and corporate tools
 
@@ -75,7 +75,7 @@ Create the minimum planned date for the controlled execution of staff.
 
 - MCP Registry;
 - onboarding automatizado;
-- tool contracts versionados;
+- tool contracts versioned;
 - idempotence and outbox for writing;
 - human approval for critical actions;
 - audit and metrics per tool.
@@ -87,14 +87,14 @@ Create the minimum planned date for the controlled execution of staff.
 - tools can be blocked without dismissing Runtime;
 - rollback or compensation tested.
 
-## Fase 4 — Governance e Evaluation
+## Phase 4 — Governance and Evaluation
 
 ### Entregas
 
 - AI Catalog;
 - workflow with function segregation;
 - risk assessment automatizado;
-- datasets e baselines;
+- datesets and databases;
 - quality gates;
 - immutable evidence;
 - model lifecycle.
@@ -106,13 +106,13 @@ Create the minimum planned date for the controlled execution of staff.
 - regressions block deploy;
 - thresholds are traceable to dataset and version.
 
-## Fase 5 — Scale e FinOps
+## Phase 5 — Scale and FinOps
 
 ### Entregas
 
 - multi-tenant isolation endurecido;
 - competition autoscaling and backlog;
-- budgets, quotas e chargeback;
+- budgets, quotas and chargeback;
 - marketplace interno;
 - disaster recovery;
 - dashboards executivos;
@@ -128,12 +128,12 @@ Create the minimum planned date for the controlled execution of staff.
 
 ## Reference sequencing
 
-| Fase | Horizonte inicial | Results |
+| Phase | Initial Horizonte | Results |
 |---|---|---|
 | 1 | 0–3 meses | controlled internal agent in production |
-| 2 | 3–6 meses | AGR and memory with authorisation and discard |
+| 2 | 3–6 months | RAG and memory with authorisation and discard |
 | 3 | 6–9 meses | tools corporativas governadas |
-| 4 | 9–12 meses | evidence-based publication |
-| 5 | 12+ meses | escala, marketplace e controle financeiro |
+| 4 | 9–12 months | evidence-based publication |
+| 5 | 12+ months | scale, marketplace and financial control |
 
 For the organizational and adoption perspective, see [Maturity model and roadmap](../book/07-adoption-roadmap.md).

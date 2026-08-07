@@ -1,11 +1,11 @@
-# Control Plane e Data Plane
+# Control Plan and Date Plan
 
 ## Decision
 
-A plataforma separa **Management and governance** de **online execution**.
+The platform separates **Management and governance** of **online execution**.
 
-- O **control plane** it administers metadata, policies, versions, approvals and evidence.
-- O **data plane** it performs invocations, recovery, memory, models and tools under published policies.
+- The **control plane** it administers metadata, policies, versions, approvals and evidence.
+- The **Date planned** it performs invocations, recovery, memory, models and tools under published policies.
 
 This separation reduces the blast radius, allows scaling each plan independently and prevents administrative unavailability from interrupting published workloads.
 
@@ -26,7 +26,7 @@ This separation reduces the blast radius, allows scaling each plan independently
 | Capacity | Responsabilidade |
 |---|---|
 | Agent Gateway | Authentication, initial authorisation, rate limit and routing. |
-| Agent Runtime | Orchestration of the execution of the staff member. |
+| Agent Runtime | Orchestration of the execution of the agent. |
 | Policy Enforcement Points | Local implementation of decisions in Gateway, Runtime, Knowledge and MCP. |
 | Policy Decision Point | Policy decision with low latency and controlled cache. |
 | Knowledge Service | Retrieval with authorization filters per document and chunk. |
@@ -48,7 +48,7 @@ This separation reduces the blast radius, allows scaling each plan independently
 1. Agent Gateway validates identity, tenant, scope and consumption limit.
 2. Runtime carries only one version `PUBLISHED`.
 3. Policy Decision Point assesses agent, user, tool, data and risk.
-4. Knowledge, Memory, Model Gateway e MCP aplicam enforcement local.
+4. Knowledge, Memory, Model Gateway and MCP apply local enforcement.
 5. Events and traces record decisions, costs and results.
 
 ## Disponibilidade
@@ -63,7 +63,7 @@ The date plane does not depend on synchronous calls to the control plane during 
 
 ## Isolamento
 
-- namespaces e service accounts separados por plano;
+- namespaces and service accounts separated by plane;
 - metadata banks are not accessed directly by the data plane;
 - network policies restrict lateral communication;
 - workload identities use minimum privilege;

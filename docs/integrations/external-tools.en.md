@@ -21,7 +21,7 @@ Defining criteria for using external tools by platform agents and services.
 | Data | Classification and location of data |
 | LGPD | Legal basis, retention and sharing |
 | Cost | Charging model and predictability |
-| SLA | Disponibilidade e suporte |
+| SLA | Availability and support |
 
 ## Standards
 
@@ -34,6 +34,6 @@ Defining criteria for using external tools by platform agents and services.
 ## Requirements
 
 - Approval of governance for critical tools
-- Contrato versionado
+- Versioned contract
 - Observability by external call
 - Discontinuation plan

@@ -9,7 +9,7 @@ Compulsory standard: [RAG Security and Memory](../security/rag-memory-security.m
 ## Responsabilidades
 
 - maintain session memory, short-term, long-term and profile;
-- aplicar tenant e isolamento por sujeito;
+- applying tenant and isolation by subject;
 - validate purpose, consent, origin, trust and classification;
 - impor TTL por tipo;
 - detectar memory poisoning;
@@ -22,9 +22,9 @@ Compulsory standard: [RAG Security and Memory](../security/rag-memory-security.m
 | Tipo | Purpose | Maximum TTL | Consentimento |
 |---|---|---:|---|
 |  `SESSION`  | Context of the current conversation | 24 horas | Conforme dado |
-|  `SHORT_TERM`  | Continuidade operacional | 7 dias | For purpose |
-|  `LONG_TERM`  | Fatos reutilizados | 365 dias | Obligatory |
-|  `PROFILE`  | Explicit preferences | 365 dias | Obligatory |
+|  `SHORT_TERM`  | Operational continuity | 7 days | For purpose |
+|  `LONG_TERM`  | Reused facts | 365 days | Obligatory |
+|  `PROFILE`  | Explicit preferences | 365 days | Obligatory |
 
 ## Item Model
 
@@ -53,7 +53,7 @@ The standard decision is to deny. Writing only occurs when:
 - the classification may be persisted;
 - the origin is compatible with the type;
 - there is no poisoning indicator;
-- There is consent for `LONG_TERM` e `PROFILE`.
+- There is consent for `LONG_TERM` and `PROFILE`.
 
 ### Origin and trust
 
@@ -71,13 +71,13 @@ The standard decision is to deny. Writing only occurs when:
 The Office shall reject:
 
 - instructions presented as facts;
-- tentativas de sobrescrever system/developer instructions;
+- attempts to overwrite system/developer instructions;
 - content asking for tool execution;
 - data derived exclusively from the model for persistent memory;
 - change of preference without confirmation;
 - conflict with fact observed without reconciliation.
 
-Indicadores geram `policy_denials_total{resource_type="memory"}` e evento de auditoria sem o valor rejeitado.
+Indicators generate `policy_denials_total{resource_type="memory"}` and audit event without the rejected value.
 
 ## Isolamento
 
@@ -91,7 +91,7 @@ tenantId + subjectHash + sessionId + memoryType
 - calls do not accept an arbitrary subject in payload;
 - Technical workloads use workload identity with minimum scope;
 - administrative consultations are separated and audited;
-- caches preservam a mesma chave de isolamento.
+- caches preserve the same isolation key.
 
 ## APIs
 
@@ -121,7 +121,7 @@ DELETE /v1/sessions/{sessionId}/memory
 }
 ```
 
-## Ciclo de Vida
+## Life Cycle
 
 1. validate policy;
 2. record the unchanged version;
@@ -145,22 +145,22 @@ Allowed fields: session, subject in hash, type, quantity, version, expiration an
 
 ## Armazenamento
 
-MongoDB ou banco equivalente com:
+MongoDB or equivalent bank with:
 
-- criptografia em repouso;
+- resting cryptography;
 - TTL index;
-- chave composta de tenant e sujeito;
+- composed of tenant and subject;
 - versionamento otimista;
 - backup compatible with exclusion
-- trilha de descarte.
+- disposal trail.
 
 ## Non-functional requirements
 
-| Requisito | Diretriz |
+| Requirements | Guideline |
 |---|---|
-| Security | Deny by default e anti-poisoning |
+| Security | Deny by default and anti-poisoning |
 | Privacidade | Consent, minimisation and disposal |
 | Isolamento | Tenant + subject hash |
-| Rastreabilidade | Origin, trust, version and purpose |
+| Traceability | Origin, trust, version and purpose |
 | Disponibilidade | Memory degradation when unavailable |
 | Consistency | Competition control and reconciliation |

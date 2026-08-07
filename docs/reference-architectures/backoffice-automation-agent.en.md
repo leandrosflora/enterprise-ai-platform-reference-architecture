@@ -4,7 +4,7 @@
 
 Automate repetitive operational backoffice tasks using agents integrated to internal systems, workflow and action governance.
 
-## Casos de Uso
+## Cases of Use
 
 - Screening of requests
 - Consultation and updating of internal systems
@@ -35,7 +35,7 @@ Automate repetitive operational backoffice tasks using agents integrated to inte
 
 ## Controls
 
-- Impotence for commands
+- idempotency for commands
 - Human approval for irreversible actions
 - Limit of autonomy for risk
 - Segregation of functions
@@ -44,7 +44,7 @@ Automate repetitive operational backoffice tasks using agents integrated to inte
 ## Metrics
 
 - Time saved by procedure
-- Volume de tarefas automatizadas
-- Taxa de erro operacional
+- Volume of automated tasks
+- Operational error rate
 - Human intervention rate
 - Cost per procedure

@@ -25,7 +25,7 @@ To identify repeated patterns, owners and material risks.
 
 **Characteristics**
 
-- templates de projeto;
+- design templates;
 - appropriate identity and secrets;
 - basic logging;
 - initial case inventory;
@@ -40,12 +40,12 @@ First low-risk cases reach production without ad hoc controls.
 
 **Characteristics**
 
-- Agent Registry e ciclo de vida;
+- Agent Registry and life cycle;
 - Model Gateway;
 - contracts and events funded;
 - IC/CD with evaluations and policies;
 - tip-to-end observability;
-- runbooks e rollback;
+- runbooks and rollbacks;
 - first service of knowledge or tools.
 
 **Maturity evidence**
@@ -57,12 +57,12 @@ Squads can publish controlled versions without depending on manual implementatio
 **Characteristics**
 
 - AI Catalog completo;
-- risk tiers e gates proporcionais;
-- AGR and lifecycle memory;
-- datasets e baselines versionados;
+- risk tiers and proportional gates;
+- RAG and lifecycle memory;
+- datesets and versioned baselines;
 - approval evidence;
 - periodic review;
-- incident management especializado.
+- specialized incident management.
 
 **Maturity evidence**
 
@@ -74,7 +74,7 @@ The organization demonstrates why a version has been published and can quickly s
 
 - multiple units and tenants;
 - marketplace of capacities;
-- MCP e tools governadas;
+- MCP and governed tools;
 - chargeback ou showback;
 - capacity management;
 - community of practice;
@@ -90,7 +90,7 @@ Adoption grows without proportional growth of exceptions, incidents or central e
 
 - quality, cost and availability-oriented routing;
 - online assessments and shadow traffic;
-- error budgets influenciam releases;
+- error budgets influence releases;
 - optimization by outcome;
 - review automation and evidence;
 - multi-region resilience when justified.
@@ -99,33 +99,33 @@ Adoption grows without proportional growth of exceptions, incidents or central e
 
 Quality, risk, cost and speed are managed as dimensions of the same product platform.
 
-## Matriz de maturidade
+## Matrix of maturity
 
 | Dimension | N0 | N1 | N2 | N3 | N4 | N5 |
 |---|---|---|---|---|---|---|
 | Delivery | artesanal | templates | golden path | risk stutters | self-service federado | continuous optimization |
-| Governance | inexistente | checklist | workflow | evidence and review | policies em escala | Adaptive automation |
-| Security | projeto a projeto | baseline | enforcement comum | threat model e testes | isolamento endurecido | continuous assurance |
+| Governance | none | Checklist | workflow | evidence and review | Policies on scale | Adaptive automation |
+| Security | Project by Project | Baseline | Common enforcement | threat model and tests | hardened insulation | continuous assurance |
 | Evaluation | manual | amostras | datasets | Baselines and regression | online + offline | outcome optimization |
-| Operation | best effort | logs | SLOs e runbooks | incidentes e reviews | capacity e DR | error-budget driven |
-| FinOps | fatura agregada | tags | cost per agent | budgets e quotas | showback/chargeback | economic routing |
-| Organisation | iniciativas | champions | platform team | federal model | CoE e comunidade | product portfolio otimizado |
+| Operation | best effort | logs | SLOs and runbooks | Incidents and reviews | Capacity and DR | error-budget driven |
+| FinOps | aggregate invoice | tags | cost per agent | budgets and quotas | showback/chargeback | economic routing |
+| Organisation | Initiatives | champions | platform team | federal model | EC and community | product portfolio optimized |
 
 ## 12-month reference roadmap
 
 The calendar should be adapted to the context. The following sequence prioritizes operational learning before expansion.
 
-### Trimestre 1 — Foundation e primeiro golden path
+### Trimester 1 — Foundation and First golden path
 
 **Entregas**
 
-- platform charter e owners;
-- capability map e backlog;
+- platform charter and owners;
+- capability map and backlog;
 - Minimum Agent Registry;
-- Agent Gateway e Runtime;
+- Agent Gateway and Runtime;
 - Model Gateway;
 - identity, policies and telemetry;
-- CI/CD com contratos;
+- IC/CD with contracts;
 - first internal case of low or medium risk.
 
 **Results**
@@ -134,17 +134,17 @@ The calendar should be adapted to the context. The following sequence prioritize
 - trace ponta a ponta;
 - cost per known invocation;
 - rollback exercitado;
-- feedback da primeira squad.
+- feedback of the first squad.
 
 ### Trimester 2 — Knowledge, memory and evaluation
 
 **Entregas**
 
 - ingestion with quarantine;
-- ACL por documento e chunk;
-- citations e groundedness;
+- ACL by document and chunk;
+- quotions and groundedness;
 - memory with TTL and consent;
-- datasets e baseline;
+- datesets and baseline;
 - risk workflow proporcional;
 - quality and cost dashboards.
 
@@ -160,20 +160,20 @@ The calendar should be adapted to the context. The following sequence prioritize
 **Entregas**
 
 - MCP Registry;
-- onboarding de tools;
+- onboarding of tools;
 - idempotence, outbox and compensation;
 - HITL for critical actions;
-- tool metrics e audit;
-- segundo e terceiro casos de uso.
+- tool metrics and audit;
+- 2 and 3 cases of use.
 
 **Results**
 
 - governed corporate action;
 - policy-locking tools;
-- falhas e retries sem duplicar efeitos;
+- failures and retries without doubling effects;
 - proven reuse between squads.
 
-### Trimestre 4 — Escala, FinOps e operating model
+### Trimester 4 — Scale, FinOps and operating model
 
 **Entregas**
 
@@ -183,7 +183,7 @@ The calendar should be adapted to the context. The following sequence prioritize
 - maturity assessment;
 - community of practice;
 - capacity tests;
-- DR e incident simulation;
+- DR and incident simulation;
 - roadmap next year based on adoption.
 
 **Results**
@@ -191,7 +191,7 @@ The calendar should be adapted to the context. The following sequence prioritize
 - costs allocated;
 - lead time reduzido;
 - operation with SLOs;
-- crescimento sem aumento proporcional do time central.
+- growth without proportional increase of the central team.
 
 ## Backlog orientado a outcomes
 
@@ -206,36 +206,36 @@ Avoid a backlog composed of only components. Estruture epics such as:
 
 The technical components are the deliveries needed to achieve these outcomes.
 
-## KPIs da plataforma
+## Platform KPIs
 
 ### Adoption and experience
 
 - squads onboarded;
 - published and active agents;
-- tempo para primeiro deploy;
-- percentual no golden path;
+- time to first deploy;
+- percentage in the golden path;
 - developer satisfaction;
-- taxa de reuso de capabilities.
+- capability reuse rate.
 
 ### Quality and risk
 
 - blocked regressions;
-- policy denials por categoria;
+- policy denials per category;
 - security or privacy incidents;
 - respostas grounded;
-- taxa de fallback e abstention;
+- fallback and abstention rate;
 - exceptions opened and expired.
 
 ### Operation
 
-- disponibilidade e p95 por workload;
+- availability and p95 per workload;
 - MTTR;
 - saturation and backlog;
 - rate of successful invocation;
-- incidents by staff members and dependency;
+- incidents by agent members and dependency;
 - periodic reviews.
 
-### FinOps e valor
+### FinOps and value
 
 - cost per agent, area and model;
 - cost per completed task;
@@ -244,7 +244,7 @@ The technical components are the deliveries needed to achieve these outcomes.
 - revenue, conversion or avoided risk where applicable;
 - platform cost per active consumer.
 
-## Guardrails de investimento
+## Investment reservoirs
 
 Before expanding a capability, valid:
 
@@ -261,7 +261,7 @@ Before expanding a capability, valid:
 - implement all components before the first real case;
 - measure progress by quantity of tools;
 - adopt multi-agent, long memory and fine-tuning simultaneously;
-- construir marketplace sem consumidores;
+- building marketplace without consumers;
 - expanding to HIGH cases before operating a simple case;
 - ignore support, incidents and costs during OCP;
 - treat governance as a later phase.

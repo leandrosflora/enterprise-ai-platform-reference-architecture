@@ -17,18 +17,18 @@ Standardizing the consumption of foundational models by platform agents and serv
 - Model Adapter no Agent Runtime
 - Abstraction by provider and model id
 - Fallback between compatible models
-- Controle de tokens
-- Timeout e retry controlado
+- Token control
+- Timeout and controlled retry
 
 ## Selection Criteria
 
 | Criteria | Description |
 |---|---|
 | Quality | Adherence to use case |
-| Latency | Tempo de resposta esperado |
+| Latency | Expected response time |
 | Cost | Cost per input/output tokens |
 | Compliance | Regulatory and data requirements |
-| Capacity | Context window, tool calling e multimodalidade |
+| Capacity | Context window, tool calling and multimodality |
 
 ## Requirements
 

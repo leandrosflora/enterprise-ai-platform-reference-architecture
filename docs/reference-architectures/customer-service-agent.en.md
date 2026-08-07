@@ -2,9 +2,9 @@
 
 ## Objective
 
-Automate and support client care journeys using AGR agents, integration to corporate systems and action governance.
+Automate and support client care journeys using RAG agents, integration to corporate systems and action governance.
 
-## Casos de Uso
+## Cases of Use
 
 - Consultation of customer information
 - Explanation of products and contracts
@@ -28,13 +28,13 @@ Automate and support client care journeys using AGR agents, integration to corpo
 
 - CRM
 - Core Banking
-- Plataforma de atendimento
+- Care platform
 - Protocol system
 - Knowledge base
 
 ## High Level Flow
 
-1. Cliente inicia atendimento em canal digital.
+1. The patient starts receiving care in a digital channel.
 2. Channel Adapter encaminha a mensagem ao Agent Gateway.
 3. Agent Runtime recovers context, knowledge and policies.
 4. MCP Server consultates authorised corporate systems.
@@ -54,5 +54,5 @@ Automate and support client care journeys using AGR agents, integration to corpo
 - Containment rate
 - Mean time of care
 - Transfer to human
-- Taxa de erro em tool calls
+- Tool call error rate
 - Cost of care
