@@ -11,6 +11,7 @@ LINK_PATTERN = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 CODE_FENCE_PATTERN = re.compile(r"```.*?```", re.DOTALL)
 ADR_FILENAME_PATTERN = re.compile(r"^(?P<id>\d{3})-[a-z0-9-]+\.md$")
 ADR_HEADING_PATTERN = re.compile(r"^# ADR-(?P<id>\d{3})\b", re.MULTILINE)
+LOCALIZED_MARKDOWN_PATTERN = re.compile(r"\.[a-z]{2}(?:-[A-Za-z]{2})?\.md$")
 
 
 def local_target(source: Path, raw_target: str) -> Path | None:
@@ -26,6 +27,10 @@ def local_target(source: Path, raw_target: str) -> Path | None:
 def is_legacy_adr_target(target: Path) -> bool:
     legacy_dir = (ROOT / "docs/adr").resolve()
     return target == legacy_dir or legacy_dir in target.parents
+
+
+def is_localized_markdown(path: Path) -> bool:
+    return LOCALIZED_MARKDOWN_PATTERN.search(path.name) is not None
 
 
 def validate_adrs(errors: list[str]) -> None:
@@ -46,7 +51,11 @@ def validate_adrs(errors: list[str]) -> None:
 
     index_text = index_path.read_text(encoding="utf-8")
     seen_ids: dict[str, Path] = {}
-    adr_files = sorted(path for path in canonical_dir.glob("*.md") if path.name != "index.md")
+    adr_files = sorted(
+        path
+        for path in canonical_dir.glob("*.md")
+        if path.name != "index.md" and not is_localized_markdown(path)
+    )
 
     if not adr_files:
         errors.append("No canonical ADR files found in docs/adrs")
