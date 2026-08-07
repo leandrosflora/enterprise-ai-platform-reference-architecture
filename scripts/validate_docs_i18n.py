@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate one-to-one documentation coverage and reject untranslated EN pages."""
+"""Validate one-to-one documentation coverage and reject untranslated EN prose."""
 
 from __future__ import annotations
 
@@ -9,18 +9,45 @@ from pathlib import Path
 
 
 DOCS_DIR = Path("docs")
-PORTUGUESE_MARKERS = re.compile(
+
+# Strong markers are domain/editorial words that should not remain in published
+# English prose. One occurrence is enough to require review.
+STRONG_PORTUGUESE_MARKERS = re.compile(
     r"\b(?:"
     r"arquitetura|governan[çc]a|seguran[çc]a|servi[çc]os?|agentes?|modelos?|"
     r"dados|integra[çc][ãa]o|integra[çc][õo]es|fluxos?|processos?|objetivo|"
     r"respons[áa]vel|decis[ãa]o|decis[õo]es|produ[çc][ãa]o|evid[êe]ncias?|"
-    r"este|esta|para|uma|com|n[ãa]o|deve|podem|quando|entre"
+    r"etapa|perguntas|atividades|artefatos?|identificar|efeitos?|colaterais|"
+    r"definir|rota|registro|inicial|limites|contratos?|versionados?|usados?|testes?|"
+    r"comece|entrada|livro|fontes?|can[oô]nicas?|gerar|assunto|padr[aã]o|"
+    r"obrigat[oó]ri[oa]s?|opcionais?|opcional|anual|semestral|trimestral|"
+    r"simplificado|detalhado|riscos?|custos?|mem[oó]ria|conhecimento|"
+    r"autoriza[çc][ãa]o|autentica[çc][ãa]o|avalia[çc][ãa]o|aprova[çc][ãa]o|"
+    r"publica[çc][ãa]o|retirada|revis[aã]o|mudan[çc]a|usu[aá]rios?|neg[oó]cio|"
+    r"qualidade|ambiente|finalidade|documenta[çc][ãa]o|reposit[oó]rio|estrutura|"
+    r"rela[çc][ãa]o|opera[çc][ãa]o|opera[çc][õo]es|implementa[çc][ãa]o|"
+    r"estados?|significado|capacidades?|requisitos?|amea[çc]as?|identidade|"
+    r"pol[ií]ticas?|resultados?|ferramentas?|sistemas?|depend[eê]ncias?|"
+    r"idempot[eê]ncia"
     r")\b",
     re.IGNORECASE,
 )
+
+# Common words can occasionally occur in names or mixed technical expressions,
+# so require several of them on the same page before rejecting the translation.
+COMMON_PORTUGUESE_MARKERS = re.compile(
+    r"\b(?:"
+    r"este|esta|estes|estas|para|uma|umas|com|sem|n[ãa]o|deve|devem|podem|"
+    r"quando|entre|sobre|pela|pelo|pelos|pelas|ser[aá]|ser[aã]o|cada|tamb[eé]m|"
+    r"ainda|onde|antes|depois|durante|casos?|mesm[oa]s?|existem|existe"
+    r")\b",
+    re.IGNORECASE,
+)
+
 FENCED_BLOCK = re.compile(r"```.*?```|~~~.*?~~~", re.DOTALL)
 INLINE_CODE = re.compile(r"`[^`]*`")
 LINK_TARGET = re.compile(r"\]\([^)]*\)")
+ACCENTED_PT = re.compile(r"[áàâãéêíóôõúçÁÀÂÃÉÊÍÓÔÕÚÇ]")
 
 
 def prose(markdown: str) -> str:
@@ -31,8 +58,18 @@ def prose(markdown: str) -> str:
     return LINK_TARGET.sub("]", markdown)
 
 
-def portuguese_marker_count(markdown: str) -> int:
-    return len(PORTUGUESE_MARKERS.findall(prose(markdown)))
+def marker_counts(markdown: str) -> tuple[int, int, int]:
+    value = prose(markdown)
+    return (
+        len(STRONG_PORTUGUESE_MARKERS.findall(value)),
+        len(COMMON_PORTUGUESE_MARKERS.findall(value)),
+        len(ACCENTED_PT.findall(value)),
+    )
+
+
+def source_has_portuguese(markdown: str) -> bool:
+    strong, common, accented = marker_counts(markdown)
+    return strong > 0 or common >= 3 or accented > 0
 
 
 def main() -> int:
@@ -42,7 +79,7 @@ def main() -> int:
     english_pages = sorted(DOCS_DIR.rglob("*.en.md"))
     missing: list[Path] = []
     identical_untranslated: list[Path] = []
-    portuguese_heavy: list[tuple[Path, int]] = []
+    editorial_review: list[tuple[Path, int, int, int]] = []
 
     for source in portuguese_pages:
         translation = source.with_name(f"{source.stem}.en.md")
@@ -52,26 +89,21 @@ def main() -> int:
 
         source_text = source.read_text(encoding="utf-8")
         translation_text = translation.read_text(encoding="utf-8")
-        source_markers = portuguese_marker_count(source_text)
 
-        # Some canonical pages are already written entirely in English. Their
-        # localized variant may legitimately be byte-identical. Only reject an
-        # identical pair when the canonical source actually contains Portuguese.
-        if source_text == translation_text and source_markers > 0:
+        # Canonical pages already authored in English may legitimately have an
+        # identical localized variant. Reject identity only for Portuguese source.
+        if source_text == translation_text and source_has_portuguese(source_text):
             identical_untranslated.append(translation)
 
-        marker_count = portuguese_marker_count(translation_text)
-        # A few Portuguese proper names may be referenced intentionally. A page
-        # with ten or more prose markers is almost certainly untranslated or only
-        # partially translated and must receive editorial review.
-        if marker_count >= 10:
-            portuguese_heavy.append((translation, marker_count))
+        strong, common, accented = marker_counts(translation_text)
+        if strong > 0 or common >= 5 or accented >= 2:
+            editorial_review.append((translation, strong, common, accented))
 
     print(f"Canonical pages: {len(portuguese_pages)}")
     print(f"English pages: {len(english_pages)}")
     print(f"Missing English pages: {len(missing)}")
     print(f"Identical untranslated PT/EN pages: {len(identical_untranslated)}")
-    print(f"English pages with substantial Portuguese prose: {len(portuguese_heavy)}")
+    print(f"English pages requiring editorial review: {len(editorial_review)}")
 
     for heading, entries in (
         ("Missing English variants", missing),
@@ -82,12 +114,14 @@ def main() -> int:
             for path in entries:
                 print(f"- {path}")
 
-    if portuguese_heavy:
+    if editorial_review:
         print("\nEnglish files requiring editorial review:")
-        for path, count in portuguese_heavy:
-            print(f"- {path} ({count} Portuguese markers)")
+        for path, strong, common, accented in editorial_review:
+            print(
+                f"- {path} (strong={strong}, common={common}, accented={accented})"
+            )
 
-    return 1 if missing or identical_untranslated or portuguese_heavy else 0
+    return 1 if missing or identical_untranslated or editorial_review else 0
 
 
 if __name__ == "__main__":
