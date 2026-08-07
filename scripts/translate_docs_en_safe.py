@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import re
 
-from scripts import translate_docs_en as translator
+import translate_docs_en as translator
 
 
 MARKDOWN_LINK_RE = re.compile(
