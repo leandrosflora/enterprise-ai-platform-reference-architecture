@@ -22,6 +22,12 @@ not_in_nav: |
   /services/billing-service.md
   /services/mcp-registry.md
 
+# README files duplicate the documentation landing page and should not be emitted
+# as MkDocs pages. Excluding both localized variants prevents strict-build warnings.
+exclude_docs: |
+  README.md
+  README.en.md
+
 theme:
   name: material
   language: pt

@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Definir os controles obrigatórios para ingestão, recuperação e uso de conhecimento, além da persistência de memória conversacional e de perfil. A fonte executável das regras é [`../../policies/rag-memory-security.yaml`](../../policies/rag-memory-security.yaml).
+Definir os controles obrigatórios para ingestão, recuperação e uso de conhecimento, além da persistência de memória conversacional e de perfil. A fonte executável das regras é [`policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml).
 
 A decisão padrão é **deny by default**. Conteúdo recuperado é sempre tratado como dado não confiável, nunca como instrução.
 
