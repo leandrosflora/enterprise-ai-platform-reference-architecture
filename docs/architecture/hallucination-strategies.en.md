@@ -2,9 +2,9 @@
 
 ## Objective
 
-Reducing the likelihood, detecting occurrences and limiting the impact of factually incorrect or unproven responses.
+Reduce the probability, detect occurrences and limit the impact of factually incorrect or no evidence responses.
 
-## Model prevent, detect, recover
+## Prevent, detect, recover model
 
 ```mermaid
 flowchart LR
@@ -16,40 +16,40 @@ flowchart LR
 
 ## Prevent
 
-- restrict the scope of the use case;
+- restrict the case scope of use;
 - use RAG with approved, current and traceable sources;
-- require submissions and evidence;
-- instruct the model to declare a lack of context;
-- reducing temperature in factual tasks;
-- use structured output and schema validation;
-- choose a model appropriate to the domain and language;
+- require citations and evidence;
+- to instruct the model to declare contextual insufficiency;
+- reduce temperature in tarefas factuais;
+- use structured output and validation of schema;
+- choose a model suitable for the domain and language;
 - separate creative generation from factual response;
 - use deterministic tools for calculation, consultation and rules.
 
 ## Detect
 
-| Technical | Application of this Regulation |
+| Technique | Implementation |
 |---|---|
-| Groundedness | verify that statements are supported by context |
-| Citation correctness | confirms whether the cited source supports the answer |
-| Entailment | Comparison of claim and evidence |
-| Self-check | The second paragraph identifies inconsistencies |
-| Cross-model review | A different model reviews the answer |
+| Groundedness | checks whether statements are supported by the context |
+| Citation correctness | confirms whether the cited source supports the response |
+| Entailment | compares statement and evidence |
+| Self-check | second passage identifies inconsistencies |
+| Cross-model review | different model reviews the response of the study. |
 | Rule validation | validates dates, IDs, calculations and formats |
-| Human review | Mandatory for high impact decisions |
+| Human review | mandatory for high-impact decisions |
 
-Self-check and LLM-as-judge are signals, not evidence.
+Self-check and LLM-as-judge are signals, not proofs, and they may repeat the same error as the generator.
 
 ## Recover
 
 Where confidence or evidence is insufficient, the system shall:
 
-1. not to invent an answer;
+1. not invent a response;
 2. request additional context where necessary;
-3. return found sources and explain the limitation;
-4. refer to a human or an official system;
+3. return to the found sources and explain the limitation;
+4. forwarding to human or official system;
 5. prevent tool call based on unconfirmed information;
-6. record the case for assessment and correction.
+6. register the case for evaluation and correction.
 
 ## Safe response pattern
 
@@ -59,18 +59,18 @@ Fontes consultadas: {fontes}.
 Próxima ação segura: {consulta adicional ou escalonamento}.
 ```
 
-## Strategy by use case
+## Strategies per use case
 
-| Case in point | Priority controls |
+| Case | Priority controls |
 |---|---|
-| Documentary Q&A | RAG, submission, groundedness and abstention |
-| Summary | coverage, fidelity and comparison with excerpts |
-| Mining | Schema, validation and confidence by field |
-| Code | Tests, lint, sandbox and review |
-| Transactional agent | Confirmation, official source and human approval |
-| Regulated decision | Explanation, deterministic rule and final human decision |
+| Q&A documental | RAG, citation, groundedness and abstention |
+| Resumo | coverage, fidelity and comparison with stretches |
+| Extraction | scheme, validation and field confidence |
+| Code | tests, lint, sandbox and review |
+| Transactional agent | confirmation, official source and human approval |
+| Adjusted decision | explanation, deterministic rule and final human decision |
 
-## The following information shall be provided:
+## Metrics
 
 - hallucination rate;
 - unsupported claim rate;
@@ -78,13 +78,13 @@ Próxima ação segura: {consulta adicional ou escalonamento}.
 - abstention precision and recall;
 - correction rate;
 - human override rate;
-- impact by severity.
+- impacto por severidade.
 
-## The following information shall be provided:
+## Anti-standards
 
-- rely solely on the confidence declared by the model;
-- add RAG without measuring retrieval;
-- allowing sourceless responses in a regulated context;
-- use chain of thought as evidence;
-- execute an irreversible action based on generated text;
-- conceal the user's uncertainty.
+- only trust the trust declared by the model;
+- Adding RAG without measuring retrieval;
+- enabling responses without a source in a regulated context;
+- to use chain of thought as evidence;
+- to implement irreversible action based on generated text;
+- hide user uncertainty.

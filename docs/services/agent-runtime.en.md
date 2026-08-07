@@ -1,39 +1,39 @@
 # Agent Runtime
 
-## General view
+## Overview
 
-Agent Runtime is the heart of Enterprise AI Platform. It runs agents, orchestrates model calls, query memory, retrieves knowledge, runs tools via MCP, and publishes operational events.
+The Agent Runtime is the heart of the Enterprise AI Platform, it executes agents, orchestrates calls for models, consults memory, retrieves knowledge, executes tools via MCP and publishes operational events.
 
-## Responsabilidades
+## responsibilities
 
-- Execute published agents
-- Orchestrating prompts, tools, memory and RAG
+- Implementing published agents
+- To orchestrate prompts, tools, memory and RAG
 - Invocar foundation models
-- Apply timeout, retry and circuit breaker policies
-- Publishing use, audit and collection events
-- Activate the quality assessment of the response
+- Implementing timeout, retry and circuit breaker policies
+- Publishing use, audit and charging events
+- To activate assessment of response quality
 
-## Out of scope
+## Out of Scope
 
 - Approval of agents
-- Catalogue management
-- Documentary intake
-- Management of users
+- Catalog management
+- Document management
+- User management
 - Consolidated financial calculation
 
-## Main internal components
+## Principais components internal
 
-| Component | Responsabilidade |
+| component | responsibility |
 |---|---|
-| Agent Executor | Controls the execution cycle of the agent |
-| Prompt Engine | Install prompts, system instructions and context |
-| Tool Executor | Executa ferramentas permitidas |
-| MCP Client | It is integrated with MCP Registry and MCP Servers |
-| Memory Adapter | Check and update memory |
+| Agent Executor | Checks the worker's execution cycle |
+| Prompt Engine | Monta prompts, system instructions and context |
+| Tool Executor | Performs allowed tools |
+| MCP Client | Integrates with MCP Registry and MCP Servers |
+| Memory Adapter | Reads and updates memory |
 | Knowledge Adapter | Consulta Knowledge Service |
-| Model Adapter | Abstracts from LLM suppliers |
-| Evaluation Adapter | Send responses for evaluation |
-| Event Publisher | Publishing events Kafka |
+| Model Adapter | Abstracts MLL providers |
+| Evaluation Adapter | Referrals for evaluation |
+| Event Publisher | Publish Kafka events |
 
 ## API Principal
 
@@ -72,18 +72,18 @@ Authorization: Bearer <token>
 
 ## Dependencies
 
-| Dependence | Uso |
+| Dependence | Use |
 |---|---|
-| Agent Registry | Loading the agent configuration |
-| MCP Registry | Discover the tools available |
-| Knowledge Service | Recover knowledge for RAG |
-| Memory Service | Persistir contexto conversacional |
-| Evaluation Service | Avaliar resposta |
-| Foundation Models | Running inference |
-| Kafka | Publishing events |
+| Agent Registry | Load the agent configuration |
+| MCP Registry | Discovering available tools |
+| Knowledge Service | Recovering knowledge for RAG |
+| Memory Service | Persist conversational context |
+| Evaluation Service | Evaluating response |
+| Foundation Models | Perform inference |
+| Kafka | publish events |
 | Redis | Cache and rate limit |
 
-## Events Published
+## published events
 
 - `agent.invoked`
 - `tool.executed`
@@ -91,17 +91,17 @@ Authorization: Bearer <token>
 
 ## Non-functional requirements
 
-| Requisito | Diretriz |
+| Requirements | Guideline |
 |---|---|
 | Latency | P95 less than 5s for simple agents |
-| Resilience | Retry controlled for transient calls |
+| Resilience | Controlled retry for transient calls |
 | Security | Authorization by agent, tool and scope |
-| Observability | Invocation, model call and tool call trace |
-| Escalabilidade | Horizontal scale by volume of invoices |
-| Auditoria | Complete entry, exit and relevant decisions record |
+| Observability | Trace por invocation, model call and tool call |
+| scalability | Horizontal scale per volume of invocations |
+| Audit | Complete entry, exit and relevant decision record |
 
 ## Related Decisions
 
-- [ADR-004 — Agent Runtimewith a stable core and adapters](../adrs/004-agent-runtime-strategy.md)
-- [ADR-001 — MCPto tool calling governado](../adrs/001-mcp-vs-rest.md)
-- [ADR-006 — OpenTelemetryas a standard of observability](../adrs/006-observability-strategy.md)
+- [ADR-004 — Agent Runtime with stable core and adapters](../adrs/004-agent-runtime-strategy.md)
+- [ADR-001 — MCP for governed tool calling](../adrs/001-mcp-vs-rest.md)
+- [ADR-006 — OpenTelemetry as observability standard](../adrs/006-observability-strategy.md)

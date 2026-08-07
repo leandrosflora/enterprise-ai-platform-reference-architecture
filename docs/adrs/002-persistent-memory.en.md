@@ -1,33 +1,33 @@
-# ADR-002  Persistent memory under explicit criteria
+# ADR-002 — Persistent memory under explicit criteria
 
-**Status:** Aceito
+**Status:** accepted
 
-## Contexto
+## Context
 
-Memory improves continuity and customization, but increases the risk of privacy, improper retention, contamination among tenants, and use of outdated facts.
+Memory improves continuity and personalization, but increases the risk of privacy, improper retention, contamination between tenants and use of outdated facts.
 
 ## Decision
 
 Adopt three levels:
 
-1. ** shift memory:** context of the request;
-2. **session memory:** short TTL in Redis;
-3. **permanent memory:** durable storage only for purpose, consent or legal basis, classification, TTL and deletion mechanisms.
+1. **shift memory:** context of the requisition;
+2. **Session memory:** Short TTL in Redis;
+3. **Persistent memory:** durable storage only for purpose, consent or legal basis, classification, TTL and exclusion mechanisms.
 
-Persistent memory is not standard, so the agent should function without it whenever possible.
+Persistent memory is not standard, and the agent should work without it when possible.
 
-## Criteria for persistence
+## Criteria to persist
 
-- measurable improvement in experience or efficiency;
-- data permitted by the policy and LGPD;
+- measurable improvement of experience or efficiency;
+- data allowed by the policy and LGPD;
 - isolation by tenant and identity;
-- the provenance, date of update and registered confidence;
-- expiry and right of exclusion implemented.
+- provenance, update date and confidence recorded;
+- expiry and exclusion rights implemented.
 
 ## Consequences
 
-Recovery must filter scope, recentity and purpose; recovered content is unreliable and must not overwrite system policies or instructions.
+Retrieval should filter scope, requirement and purpose. Retrieved content is not reliable and should not overwrite system policies or instructions.
 
-## Evidence in the case
+## Case evidence
 
-The conversational case separates active session in Redis and long-term history/memory in MongoDB, allowing different policies of TTL, access and retention.
+The conversational case separates active session in Redis and long-term history/memory in MongoDB, allowing different TTL, access and retention policies.

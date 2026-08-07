@@ -1,66 +1,66 @@
-# ADR-001 — MCPto tool calling governado
+# ADR-001 — MCP for governed tool calling
 
-**Status:** Aceito
+**Status:** accepted
 
-## Contexto
+## Context
 
-REST direct integrations remain suitable for APIs domain, but do not alone solve tool discovery, agent-oriented schemes and uniform enforcement during tool calling.
+Agents need to discover and implement corporate tools with consistent contracts, authorization, versioning and audit. Direct REST integrations remain adequate for domain IPAs, but do not solve themselves discovery of tools, agent-oriented schemes and uniform enforcement during tool calling.
 
-This ADR consolidates the original decision to use MCP with the legacy catalogue and governance strategy of MCP Servers.
+This ADR consolidates the original decision to use MCP with the legislated catalog and governance strategy of MCP Servers.
 
 ## Decision
 
-Use **MCP** at the border between Agent Runtime and controlled tools. APIs REST continue to be used as internal and external domain interfaces. MCP does not replace REST; it adds an agent-oriented layer.
+Usar **MCP** at the boundary between Agent Runtime and governed tools, REST APIs continue to be used as internal and external domain interfaces. MCP does not replace REST; it adds a layer oriented to agent consumption.
 
-The platform shall maintain a **MCP Registry** for:
+The platform must keep a **MCP Registry** for:
 
-- Catalogue and discovery of servers, tools and schemes;
+- catalog and discovery of servers, tools and schemas;
 - ownership, risk classification and version;
-- authorisation and allowlist policies per agent;
-- compatibility between contract versions;
-- the operational status and withdrawal criteria;
-- traceability between tool call, identity, policy and registration system.
+- authorization policies and allowance allowance per agent;
+- compatibility between versions of the contract;
+- operational status and withdrawal criteria;
+- traceability between tool call, identity, politics and registration system.
 
 ## Mandatory boundaries
 
-- the Agent Runtime does not directly access domain system credentials;
-- the MCP Server validates the identity of the workload, tenant, scopes and purpose;
-- side-effect commands require idempotence and audit trail;
-- long operations return to `operationId` and continue asynchronously;
-- actual schemes and versions are recorded in traces and events;
+- Agent Runtime does not directly access domain system credentials;
+- the MCP Server validates identity of workload, tenant, scopes and purpose;
+- commands with side effect require immunopower and audit trail;
+- long operations return `operationId` and continue asynchronously;
+- schemes and effective versions are recorded in traces and events;
 - policy failure results in deny by default;
 - MCP Servers do not concentrate business rules that belong to domain services.
 
-## Why ?
+## Rationale
 
-- standardised discovery of tools and schemes;
-- separation between agent reasoning and domain implementation;
-- central enforcement of identity, scope, duration of the journey and audit;
-- less coupling between the agent framework and corporate services;
-- the regulated reuse of tools between agents and domains.
+- standardized discovery of tools and schemes;
+- separation between reasoning of the agent and implementation of the domain;
+- central enforcement of identity, scope, journey stage and audit;
+- less coupling between agents and corporate services framework;
+- governed reuse of tools between agents and domains.
 
-## Alternativas
+## Alternatives
 
-| Alternativa | Vantagem | Limitation |
+| alternative | advantage | Limitation |
 |---|---|---|
-| REST direto | Simple and universal | It requires specific adaptation in each agent and scatters governance |
-| Events | decoupling and scale | not suitable for all request/response interactions |
-| Owner of SDK | produtividade inicial | Lock-in and fragmented governance |
-| Plugin by agent | liberdade local | Low reuse and inconsistent audit |
+| Direct REST | simple and universal | requires specific adaptation in each agent and dispersed governance |
+| Events | Uncoupling and scale | inadequate for all interaction request/response |
+| SDK owner | initial productivity | lock-in and fragmented governance |
+| Plugin per agent | Local freedom | low re-use and inconsistent audit |
 
 ## Consequences
 
-The Tool ServiceMCPServer becomes a security frontier and must possessSLOThe Commission's proposal for a regulation on the implementation of the Community's common agricultural policy (CFSP) and the common agricultural policy (CFSP).MCPadds an operational layer but prevents authorisation, audit and contracts from being reimplemented by each agent.
+The Tool Service/MCP Server becomes a security frontier and must have SLO, observability, version policy, rollback and onboarding process. The adoption of MCP adds an operational layer, but prevents authorization, audit and contracts from being reimplemented by each agent.
 
 ## Minimum evidence
 
-- the MCP version of the contract;
-- owner and risk classification of the tool;
-- the authorisation matrix;
-- In the case of a Member State, the competent authority shall inform the competent authority of the Member State concerned of the reasons for the failure to comply with this Regulation.
-- traces correlating agent, version, tool, policy and outcome;
-- the runbook, SLO and withdrawal strategy.
+- the MCP contract, which has been executed;
+- owner and tool risk classification;
+- authorization matrix;
+- tests of disabled arguments, denied access and inequality;
+- traces correlating agent, version, tool, policy and result;
+- runbook, SLO and withdrawal strategy.
 
-## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
+## Review criteria
 
-Revising the decision when the protocol no longer meets security, compatibility, latency or interoperability requirements, or when another open standard offers equivalent governance at lower operational cost.
+Review the decision when the protocol no longer meets safety, compatibility, latency or interoperability requirements, or when another open standard offers equivalent governance with lower operational cost.

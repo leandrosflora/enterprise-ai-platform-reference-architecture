@@ -2,7 +2,7 @@
 
 ## Objective
 
-Manage conversational context and short- and long-term memory for corporate agents.
+Management of conversational context and short- and long-term memory for corporate agents.
 
 ## Capacities
 
@@ -13,7 +13,7 @@ Manage conversational context and short- and long-term memory for corporate agen
 - Context Retrieval
 - Retention Policies
 
-## Other services
+## Related Services
 
 - Memory Service
 - Agent Runtime
@@ -25,17 +25,17 @@ Manage conversational context and short- and long-term memory for corporate agen
 
 ## KPIs
 
-| Indicador | Other information |
+| indicator | Description |
 |---|---|
-| Memory Reads | Context readings |
+| Memory Reads | Contextual readings |
 | Memory Writes | Memory writings |
-| Context Hit Rate | Percentage of context reused |
-| Storage Growth | Growth in storage |
+| Context Hit Rate | Percentage of reused context |
+| Storage Growth | Storage growth |
 
 ## Non-functional requirements
 
-- Insulation by tenant
+- isolation by tenant
 - Configurable expiration
-- Data encryption
+- Data cryptography
 - Control of personal data
-- Audit of relevant changes
+- Audit for relevant amendments

@@ -2,26 +2,26 @@
 
 ## Objective
 
-A Enterprise AI Platform does not exist to make models, agents or infrastructure available.
+A Enterprise AI Platform does not exist to provide models, agents or infrastructure.
 
-It exists to accelerate the generation of business value in a governed, repeatable and scalable way.
+It exists to accelerate the generation of value for the business in a governed, repeatable and scalable manner.
 
-The success of the platform should be measured by the results produced for customers, employees, business areas, operations and regulatory ecosystems  not by the number of models, components or agents in production.
+The success of the platform should be measured by the results produced for customers, collaborators, business areas, operations and regulatory ecosystem — not by the quantity of models, components or agents in production.
 
 ## From technology to value
 
-A common mistake in AI initiatives is to start the discussion about technologies:
+A frequent error in AI initiatives is to start discussions about technologies:
 
-- qual LLM utilizar;
-- qual vector database adotar;
-- which agent framework to employ;
-- qual cloud provider escolher.
+- which LLM utilizar;
+- which vector database adotar;
+- which framework of agents to use;
+- which cloud provider escolher.
 
-These decisions are important, but secondary.
+These decisions are important, but secondary. The main question is:
 
-> What business outcomes do we want to achieve and what capabilities do we need to develop to achieve them?
+> What business results do we want to achieve and what abilities do we need to develop to achieve them?
 
-The platform enables capabilities, and when combined in products and journeys, they produce measurable results.
+The platform enables capabilities. Capabilities, when combined in products and journeys, produce measurable results.
 
 ```mermaid
 flowchart TB
@@ -37,101 +37,101 @@ flowchart TB
     V -->|sem valor ou risco excessivo| X[Stop]
 ```
 
-## Strategic outcome areas
+## Strategic outcome domains
 
-### 1. Increase in revenue
+### 1. Revenue growth
 
-**Objective:** increase acquisition, conversion, retention and relationship with customers.
+**Objective:** increase acquisition, conversion, retention and customer relationship.
 
-| Examples of application | Indicators of outcome |
+| Examples of application | Result indicators |
 |---|---|
-| Personalised recommendations | conversion |
+| Personalized recommendations | Conversion |
 | next best action | receita incremental |
-| ofertas inteligentes | cross-sell and upsell |
+| intelligent offerings | cross-sell and upsell |
 | assistentes comerciais | produtividade comercial |
-| the use of the information referred to in paragraph 1 | retention and churn |
+| hyperpersonalization | retention and churn |
 
-### 2. operational efficiency
+### 2. Operational efficiency
 
-**Objective:** reduce human effort, cycle time and waste by increasing operational capacity.
+**Objective:** reduce human effort, cycle time and waste, increasing operational capacity.
 
-| Examples of application | Indicators of outcome |
+| Examples of application | Result indicators |
 |---|---|
-| documentary automation | Average processing time |
-| Operating agents | Automation rate |
-| Automatic call resolution | Reduction of backlog |
+| Document automation | average processing time |
+| Operating agents | automation rate |
+| automatic call resolution | backlog reduction |
 | processing of contracts | Cost per transaction |
-| classification of documents | Saved hours and rework |
+| Classification of documents | hours saved and rework |
 
-### 3. Customer experience
+### 3. Patient experience
 
-**Objective:** to provide faster, more contextual, more accessible and consistent interactions.
+**Objective:** offer faster, contextual, accessible and consistent interactions.
 
-| Examples of application | Indicators of outcome |
+| Examples of application | Result indicators |
 |---|---|
-| assistentes conversacionais | FCR and containment |
-| atendimento omnichannel | average attendance time |
-| Smart search | time until resolution |
-| autoatendimento | CSAT and completion rate |
-| atendimento assistido | NPS and perceived quality |
+| assistentes conversacionais | RHR and containment |
+| support omnichannel | Mean duration of care |
+| busca inteligente | Time to resolution |
+| autoatendimento | CSAT and conclusion rate |
+| support assistido | SPL and perceived quality |
 
-### 4. Risk management and compliance
+### 4. Risk Management and Compliance
 
-**Objective:** to reduce operational, regulatory, privacy and reputational risks.
+**Objective:** reduce operational, regulatory, privacy and reputational risks.
 
-| Examples of application | Indicators of outcome |
+| Examples of application | Result indicators |
 |---|---|
-| continuous monitoring | Incidents and losses avoided |
-| Automated document review | Non-conformity detected |
-| due diligence assistida | time of analysis |
+| continuous monitoring | incidents and avoided losses |
+| automated document review | non-conformities detected |
+| due diligence assistida | Time of analysis |
 | AI governance | coverage and effectiveness of controls |
-| Controls LGPD | breaches and response time |
+| LGPD control | Violations and response time |
 
-### 5. organizational intelligence
+### 5. Organisational intelligence
 
-**Objective:** transform institutional knowledge into an accessible, reusable and reliable asset.
+**Objective:** transform institutional knowledge into accessible, reusable and reliable active.
 
-| Examples of application | Indicators of outcome |
+| Examples of application | Result indicators |
 |---|---|
 | RAG corporativo | time to find information |
-| knowledge graphs | knowledge coverage and connection |
-| Unified search | Search success rate |
-| copilots internos | time saved per task |
-| assistentes especializados | knowledge satisfaction and reuse |
+| knowledge graphs | coverage and connection of knowledge |
+| unified search | search success rate |
+| copilots internal | tempo economizado by tarefa |
+| Specialized assistants | satisfaction and re-use of knowledge |
 
 ## Mapeamento Outcome → Capability
 
-Each outcome depends on a set of capabilities. There is no exclusive correspondence: the same capability can support different outcomes, and an outcome typically requires the combination of several capabilities.
+Each outcome depends on a set of capacities. There is no exclusive correspondence: the same capacity can support different results, and a outcome usually requires the combination of several capacities.
 
-| Outcome | Capacities required |
+| Outcome | Required capacities |
 |---|---|
-| Increase in revenue | This is the main reason why the Commission is not prepared to take any further action. |
+| Revenue growth | personalization, analytics, agent platform, experimentation |
 | Operational efficiency | workflow automation, document intelligence, agent runtime, tool execution |
-| Customer experience | conversational AI, search, omnichannel, personalization |
-| Risk management and compliance | AI governance, risk management, policy enforcement, observability, audit |
-| This is the case in the European Union. | knowledge platform, RAG, retrieval, knowledge graph, authorization |
+| Patient experience | conversational AI, search, omnichannel, personalization |
+| Risk Management and Compliance | AI governance, risk management, policy enforcement, observability, audit |
+| Organizational intelligence | knowledge platform, RAG, retrieval, knowledge graph, authorization |
 
-No technology generates value alone. Value arises when capabilities are combined to solve a real problem and its contribution can be demonstrated with evidence.
+No technology generates value alone, when capabilities are combined to solve a real problem and their contribution can be demonstrated with evidence.
 
 ## Outcome Card
 
-Each use case shall record a measurable chance before implementation.
+Each use case must record a measurable hypothesis before implementation.
 
-| Campo | Definition of the term |
+| Campo | Definition |
 |---|---|
-| Strategic objective | business management to which the case contributes |
+| Strategic aim | the business direction to which the case contributes |
 | Problema | current condition that needs to change |
 | Outcome | expected measurable change |
-| Baseline | current situation with source and period |
+| Baseline | current situation, source and period |
 | Target | meta quantitativa ou qualitativa |
-| Horizonte | time limit for evaluating the result |
-| Indicadores principais | final business metrics |
-| Leading indicators | Early signs of progress |
-| Guardrails | limits on quality, risk, cost and compliance |
-| Capacities | the capacity required to produce the result |
+| Horizonte | deadline to assess the result |
+| indicators principais | final business metrics |
+| Leading indicators | early signs of progress |
+| Guardrails | quality limits, risk, cost and compliance |
+| Capacities | capacities needed to produce the result |
 | Products and agents | solutions that materialize the capabilities |
-| Owner | accountable for the outcome |
-| Evidence | Measurement systems and method |
+| Owner | accountable for the result |
+| Evidence | systems and method of measurement |
 | Decision | escalar, ajustar, pausar ou descontinuar |
 
 ### Template
@@ -167,80 +167,80 @@ owner: backoffice-product-owner
 reviewCadence: mensal
 ```
 
-## Hierarchy of metrics
+## Hyerarquia of metrics
 
-Technical metrics are necessary, but they do not prove value on their own.
+Technical metrics are necessary, but they do not prove value alone.
 
 | Level | Pergunta | Examples |
 |---|---|---|
-| Business KPI | Has the business outcome changed? | The Commission shall take into account the following information: |
-| Product outcome | Has the user's behavior or process changed? | The Commission shall adopt implementing acts in accordance with the procedure referred to in paragraph 1 of this Article. |
-| Leading indicator | Are we moving in the desired direction? | The following information shall be provided: |
-| Platform KPI | The platform speeds up and supports delivery? | Lead time, reuse, golden path, cost per solution |
-| Technical metric | Does the solution work properly? | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
-| Guardrail | Does the gain remain acceptable? | Incidents, biases, complaints, costs and infringements |
+| Business KPI | Did the entrepreneurial outcome change? | Revenue, HRR, cycle time, avoided losses |
+| Product outcome | Did the user's behavior or process change? | adoption, conclusion, resolution, satisfaction |
+| Leading indicator | Are we advancing in the expected direction? | task success, recurrent use, automation rate |
+| Platform KPI | Does the platform accelerate and sustain delivery? | lead time, reuse, golden path, cost per solution |
+| Technical metric | Does the solution work properly? | latency, groundedness, errors, availability |
+| Guardrail | Does the gain remain acceptable? | incidents, biases, complaints, costs and violations |
 
-The availability of an agent, for example, is an operational condition. It does not demonstrate that the process became more efficient or that the client had his problem solved.
+The availability of an agent, for example, is an operational condition, it does not demonstrate that the process has become more efficient or that the client has had the problem solved.
 
 ## Value Realization
 
 ### Baseline
 
-The baseline must be recorded before the pilot. Without it, improvement and assignment become opinions. When there is no reliable history, run a limited initial measurement and register uncertainty.
+The baseline should be registered before the pilot.Without it, improvement and attribution become opinions. When there is no reliable history, perform a limited initial measurement and register uncertainty.
 
 ### Target
 
-Improving productivity is not a target; Reducing median time from 18 to 6 hours in six months is.
+The goal must have value, time and population. “Improving productivity” is not a target; “reducing the median time from 18 to 6 hours in six months” is.
 
-### Allocation
+### Assignment
 
-Results may depend on process changes, training, communication or policies beyond AI. Wherever possible, use comparison with baseline, progressive rollout, control cohort, or A/B testing. Do not automatically attribute all gains to the model.
+Results may depend on changes in process, training, communication or policies beyond AI. Whenever possible, use comparison with baseline, progressive rollout, control cohort or A/B test. Do not automatically attribute all gains to the model.
 
-### Date of revision
+### Review cadence
 
 | Momento | Question for a decision |
 |---|---|
-| Intake | Is there a problem, baseline, outcome and owner? |
-| Piloto | Do the leading indicators justify continuing? |
-| 30 dias | Are the quality, adoption and guardrails within expectations? |
-| 60–90 dias | is there evidence of operational or business impact? |
-| Trimestral | Should the investment scale, adjust or stop? |
+| Intake | is there problem, baseline, outcome and owner? |
+| Piloto | os leading indicators justificam continuar? |
+| 30 dias | quality, adoption and guardrails are within the expected? |
+| 60–90 days | is there evidence of operational or business impact? |
+| Every three months | should the investment scale, adjust or stop? |
 
-### Decision criteria
+### Decision-making criteria
 
-- **Scaling:** target or trajectory reached, guardrails served and sustainable cost.
-- ** Adjust:** value signals exist, but the product, process or capacity limits the result.
-- **Pause:** insufficient evidence, critical dependence or temporarily untreated risk.
-- **Descontinued:** persistent lack of value, disproportionate cost or unacceptable risk.
+- **Escalar:** target or trajectory achieved, guardrails served and sustainable cost.
+- **Ajustar:** value signals exist, but product, process or ability limits the result.
+- **Date of delay:** Insufficient evidence, critical dependence or temporarily untreated risk.
+- **Discontinue:** persistent lack of value, disproportional cost or unacceptable risk.
 
-## Example  operational efficiency
+## Example — Operational efficiency
 
-| Elemento | Definition of the term |
+| Elemento | Definition |
 |---|---|
-| Strategic objective | reduce operational stress in back office processes |
-| Outcome | reducing cycle time and backlog |
+| Strategic aim | reduce operational effort in backoff processes |
+| Outcome | reduce cycle time and backlog |
 | Capacities | document intelligence, agent platform, workflow orchestration, knowledge retrieval |
-| Possible solutions | Legal automation, HR assistant, operational staff |
-| KPIs | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. |
-| Guardrails | errors, retrofitting, misuse and cost per process |
+| Possible solutions | legal authorization, HR assistant, operational agents |
+| KPIs | processing time, automation rate, saved hours, backlog |
+| Guardrails | errors, rework, inappropriate access and cost per process |
 
-## Example  customer experience
+## Example — customer experience
 
-| Elemento | Definition of the term |
+| Elemento | Definition |
 |---|---|
-| Strategic objective | Improve customer experience and resolve |
-| Outcome | increase resolution at first contact |
+| Strategic aim | improve customer experience and resolution |
+| Outcome | increase first contact resolution |
 | Capacities | conversational AI, voice analytics, search, personalization |
-| Possible solutions | the customer's voice, virtual agent, assisted service |
-| KPIs | FCR, NPS, CSAT and time of service |
-| Guardrails | complaints, incorrect replies, inadequate handoffs and cost per trip |
+| Possible solutions | client voice, virtual agent, assistance |
+| KPIs | HRR, NPS, CSAT and length of stay |
+| Guardrails | complaints, incorrect responses, inadequate handoffs and cost per workload |
 
 ## Ownership
 
-The use case owner is responsible for the outcome. The platform team is responsible for the shared capacity and metrics such as adoption, lead time, reliability, cost and reuse. Governance, Security, Privacy, Legal, Date, SRE, and FinOps define or monitor guardrails as risk.
+The owner of the use case is the outcome, and the platform team is the shared capacity and metrics such as adoption, lead time, reliability, cost and reuse. Governance, Security, Privacy, Legal, Date, SRE and FinOps define or monitor guardrails according to risk.
 
-The platform should not take credit for any business outcome or allow a solution to remain in production indefinitely simply because its technical metrics are sound.
+The platform should not assume credit for any business result or allow a solution to remain indefinitely in production only because its technical metrics are healthy.
 
 ## Next chapter
 
-The [Capability Map](02-capability-map.md) transforms outcomes into the organizational and technical capabilities needed to produce them.
+The [Capability Map](02-capability-map.md) it transforms outcomes into organizational capacities and techniques needed to produce them.

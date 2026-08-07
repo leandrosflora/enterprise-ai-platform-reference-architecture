@@ -1,18 +1,18 @@
-# This is a summary of the results of the analysis.
+# Reference architecture - Conversational Analytics
 
 ## Objective
 
-Analyze conversational interactions at scale to identify root causes, recurring themes, opportunities for automation and experience improvement.
+To analyze conversational interactions on a scale to identify root causes, recurrent themes, automation opportunities and improvement of experience.
 
-## Cases of use
+## Cases of Use
 
-- Classification of reasons for contact
-- Identification of the root cause
-- Analysis of feelings
-- Grouping of recurring themes
-- Generating executive insights
+- Classification of contact reasons
+- Root cause identification
+- Sentiment analysis
+- Grouping of recurrent themes
+- Management of executive insights
 
-## Components involved
+## components involved
 
 - Ingestion Pipeline
 - Knowledge Service
@@ -22,35 +22,35 @@ Analyze conversational interactions at scale to identify root causes, recurring 
 - Data Platform
 - Observability Stack
 
-## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
+## Data Sources
 
 - Chat
 - WhatsApp
 - E-mail
-- Transcripts of voice
-- External claims
+- Voice transcriptions
+- External complaints
 - Tickets and protocols
 
-## High-level flow
+## High Level Flow
 
 1. Interactions are ingested from digital channels and historical bases.
-2. Pipeline standardizes, anonymises and classifies the data.
-3. Agents analyze motives, patterns, and probable causes.
-4. Results are consolidated into dashboards and datasets.
-5. Insights are used to improve processes, products and service.
+2. Pipeline normalizes, anonymises and classifies the data.
+3. Agents analyze reasons, patterns and probable causes.
+4. Results are consolidated in dashboards and datasets.
+5. Insights are used to improve processes, products and care.
 
 ## Controls
 
-- Anonymisation of personal data
+- Anonymity of personal data
 - Controlled retention
 - Access control by area
-- Traceability of the data source
-- Assessment of the quality of classifications
+- Traceability of data origin
+- Quality assessment of classifications
 
-## The following information shall be provided:
+## Metrics
 
 - Volume of processed interactions
-- Accuracy of classification
-- Top reasons for contact
-- Trend of critical topics
+- Classification accuracy
+- Top contact reasons
+- Trends in critical themes
 - Automation opportunities identified

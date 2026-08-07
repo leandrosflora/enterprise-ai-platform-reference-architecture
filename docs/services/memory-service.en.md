@@ -1,32 +1,32 @@
 # Memory Service
 
-## General view
+## Overview
 
-The Memory Service persists only in necessary and authorized context. It is not a conversation log and does not accept the model to turn inferences into permanent facts.
+The Memory Service persists only in a necessary and authorized context; it is not a log of conversation and does not accept that the model transforms inferences into permanent facts.
 
-Mandatory standard: [Security of RAGand Memory](../security/rag-memory-security.md).
+Compulsory standard: [RAG Security and Memory](../security/rag-memory-security.md).
 
-## Responsabilidades
+## responsibilities
 
 - maintain session memory, short-term, long-term and profile;
-- apply tenant and insulation per subject;
+- applying tenant and isolation by subject;
 - validate purpose, consent, origin, trust and classification;
-- imposing TTL by type;
+- impor TTL by type;
 - detectar memory poisoning;
-- to make changes;
-- delete or anonymise after expiry or revocation;
-- broadcast events without sensitive values.
+- changes;
+- expiry or withdraw;
+- events without sensitive values.
 
-## Types of memory
+## Types of Memory
 
-| Tipo | Finalidade | Maximum TTL | Consentimento |
+| type | Purpose | Maximum TTL | Consentimento |
 |---|---|---:|---|
-| `SESSION` | Context of the current conversation | 24 horas | Conforme dado |
-| `SHORT_TERM` | Continuidade operacional | 7 dias | Conforme finalidade |
-| `LONG_TERM` | Fatos reutilizados | 365 dias | Compulsory |
-| `PROFILE` | Explained preferences | 365 dias | Compulsory |
+|  `SESSION`  | Context of the current conversation | 24 horas | according to dado |
+|  `SHORT_TERM`  | Operational continuity | 7 days | For purpose |
+|  `LONG_TERM`  | Reused facts | 365 days | Obligatory |
+|  `PROFILE`  | Explicit preferences | 365 days | Obligatory |
 
-## Model of Item
+## Item Model
 
 ```json
 {
@@ -43,43 +43,43 @@ Mandatory standard: [Security of RAGand Memory](../security/rag-memory-security.
 
 The value is encrypted at rest and does not appear in logs or events.
 
-## Writing policy
+## Writing Policy
 
-The default decision is to deny.
+The standard decision is to deny. Writing only occurs when:
 
-- the tenant and subject come from the authenticated identity;
+- the tenant and the subject come from the authenticated identity;
 - the purpose is permitted;
 - the TTL respects the type;
-- the classification may be continued;
+- the classification may be persisted;
 - the origin is compatible with the type;
-- there is no indicator of poisoning;
-- there is consent for `LONG_TERM` and `PROFILE`.
+- there is no poisoning indicator;
+- There is consent for `LONG_TERM` and `PROFILE`.
 
-### Origin and Confidence
+### Origin and trust
 
-| Origem | Meeting | Curto prazo | Longo prazo / Perfil |
+| Origem | Section | Curto prazo | Longo prazo / Perfil |
 |---|---:|---:|---:|
-| `USER_CONFIRMED` | Sim | Sim | Sim |
-| `SYSTEM_VERIFIED` | Sim | Sim | Sim |
-| `TOOL_OUTPUT` | Sim | Political | Not without verification |
-| `MODEL_INFERRED` | Sim | No , it 's not . | No , it 's not . |
+|  `USER_CONFIRMED`  | Sim | Sim | Sim |
+|  `SYSTEM_VERIFIED`  | Sim | Sim | Sim |
+|  `TOOL_OUTPUT`  | Sim | According to policy | Not without verification |
+|  `MODEL_INFERRED`  | Sim | No | No |
 
-`RESTRICTED` is not persistent by default.
+`RESTRICTED` is not persistent by pattern.
 
-## Protection against memory poisoning
+## Memory Poisoning Protection
 
-The service rejects:
+The Office shall reject:
 
 - instructions presented as facts;
 - attempts to overwrite system/developer instructions;
-- Content requesting the execution of the tool;
+- content asking for tool execution;
 - data derived exclusively from the model for persistent memory;
 - change of preference without confirmation;
-- conflict with verified fact without reconciliation.
+- conflict with fact observed without reconciliation.
 
-Indicators generate `policy_denials_total{resource_type="memory"}` and an audit event without the rejected value.
+Indicators generate `policy_denials_total{resource_type="memory"}` and audit event without the rejected value.
 
-## Isolamento
+## isolation
 
 The logical key is:
 
@@ -87,11 +87,11 @@ The logical key is:
 tenantId + subjectHash + sessionId + memoryType
 ```
 
-- `subjectHash` is derived from the identity;
-- calls do not accept an arbitrary subject on the payload;
-- technical workloads use workload identity with minimal scope;
-- administrative consultations are separate and audited;
-- caches retain the same lock.
+- `subjectHash` is derived from identity;
+- calls do not accept an arbitrary subject in payload;
+- Technical workloads use workload identity with minimum scope;
+- administrative consultations are separated and audited;
+- caches preserve the same isolation key.
 
 ## APIs
 
@@ -121,18 +121,18 @@ DELETE /v1/sessions/{sessionId}/memory
 }
 ```
 
-## Life cycle
+## Life Cycle
 
 1. validate policy;
-2. recording an unchanged version;
-3. update the active version pointer;
-4. registrar TTL;
-5. to issue `memory.updated` without content;
+2. record the unchanged version;
+3. update the active version button;
+4. record TTL;
+5. emitir `memory.updated` No content;
 6. expirar automaticamente;
 7. excluir ou anonimizar;
 8. emitir `memory.deleted`.
 
-Withdrawal of consent blocks reading and writing before the asynchronous processing of exclusion.
+Consent repeal blocks reading and writing before asynchronous exclusion processing.
 
 ## Events
 
@@ -141,26 +141,26 @@ Withdrawal of consent blocks reading and writing before the asynchronous process
 - `memory.deleted`
 - `memory.consent_revoked`
 
-Allowed fields: session, hash subject, type, quantity, version, expiration and presence of consent.
+Allowed fields: session, subject in hash, type, quantity, version, expiration and presence of consent.
 
 ## Armazenamento
 
 MongoDB or equivalent bank with:
 
-- encryption at rest;
+- resting cryptography;
 - TTL index;
-- a key composed of tenant and subject;
-- versionamento otimista;
-- a back-up compatible with exclusion;
-- the landfill track.
+- composed of tenant and subject;
+- versioning otimista;
+- backup compatible with exclusion
+- disposal trail.
 
 ## Non-functional requirements
 
-| Requisito | Diretriz |
+| Requirements | Guideline |
 |---|---|
 | Security | Deny by default and anti-poisoning |
-| Privacidade | Consent, minimization and discard |
-| Isolamento | Tenant + subject hash |
-| Rastreabilidade | Origin, confidence, version and purpose |
-| Disponibilidade | Degradation without memory when unavailable |
+| privacy | Consent, minimisation and disposal |
+| isolation | Tenant + subject hash |
+| Traceability | Origin, trust, version and purpose |
+| availability | Memory degradation when unavailable |
 | Consistency | Competition control and reconciliation |

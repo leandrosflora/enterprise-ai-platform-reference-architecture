@@ -1,18 +1,18 @@
-# This is the total amount of assigned revenue in accordance with Article 21 (3) of the Financial Regulation.
+# Reference architecture - Client Care Agent
 
 ## Objective
 
-Automate and support customer service journeys using agents with RAG, integration into corporate systems and equity governance.
+Automate and support client care journeys using RAG agents, integration to corporate systems and action governance.
 
-## Cases of use
+## Cases of Use
 
 - Consultation of customer information
 - Explanation of products and contracts
 - Support for renegotiation
-- Selection of requests
+- Screening of requests
 - Creation of protocols or calls
 
-## Components involved
+## components involved
 
 - Channel Adapter
 - Agent Gateway
@@ -28,31 +28,31 @@ Automate and support customer service journeys using agents with RAG, integratio
 
 - CRM
 - Core Banking
-- Service platform
+- Care platform
 - Protocol system
 - Knowledge base
 
-## High-level flow
+## High Level Flow
 
-1. Customer starts service on the digital channel.
-2. Channel Adapter is forwarding the message to Agent Gateway.
+1. The patient starts receiving care in a digital channel.
+2. Channel Adapter encaminha a mensagem ao Agent Gateway.
 3. Agent Runtime recovers context, knowledge and policies.
-4. MCP Server consulta sistemas corporativos autorizados.
-5. Agent responds or performs a permitted action.
+4. MCP Server consultates authorised corporate systems.
+5. The agent responds or performs a permitted action.
 6. Audit Service records conversation, tool calls and decisions.
 
 ## Controls
 
-- Scope and channel authorisation
-- Masking of sensitive data
-- Human-in-the-loopfor critical actions
-- Risk autonomy limits
-- Registration of consent where applicable
+- Authorization by scope and channel
+- Sensitive data masking
+- Human-in-the-loop for critical actions
+- Limits of autonomy for risk
+- Registry of consent where applicable
 
-## The following information shall be provided:
+## Metrics
 
 - Containment rate
-- Average attendance time
-- Transfer rate to human
-- Rate of error in tool calls
+- Mean time of care
+- Transfer to human
+- Tool call error rate
 - Cost of care

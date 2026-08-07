@@ -1,17 +1,17 @@
 # Agent Registry
 
-## Responsabilidades
+## responsibilities
 
-- Catalogue of agents
-- Versionamento
+- Catalog of officials
+- versioning
 - Publication
-- Metadados
+- metadata
 - Ownership
 
-## Stored data
+## Storage Data
 
 - Nome
-- This is the version.
+- Version
 - Owner
 - Tags
 - Status

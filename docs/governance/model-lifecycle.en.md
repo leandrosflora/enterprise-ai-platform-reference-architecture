@@ -2,25 +2,25 @@
 
 ## Objective
 
-Defining how data, datasets, models, prompts, embeddings and knowledge snapshots are recorded, evaluated, promoted, monitored, changed and retrieved with end-to-end traceability.
+Defining how data, datasets, models, prompts, embeddings and snapshots of knowledge are registered, evaluated, promoted, monitored, altered and removed with traceability point by point.
 
-The lifecycle exists to prevent an agent version from being published without knowing **what assets were used, who approved them, how they were evaluated, and how they can be reversed or removed**.
+The lifecycle exists to prevent a version of the agent from being published without knowing how to do so. **which assets were used, who approved them, how they were evaluated and how they can be reversed or eliminated.**.
 
-## Escopo governado
+## scope governado
 
 | Type of asset | Examples | Minimum identity |
 |---|---|---|
-| The data source | bucket, banco, API, documentary repository | `sourceId`, owner, purpose, classification, region |
-| Dataset | training, evaluation, red-team, golden dataset | `datasetId`, version, hash, period, lineage |
-| Model | foundation model, fine-tune, embedding, reranker | `modelId`, provider, current version, region, status |
-| Prompt | system prompt, template, few-shot examples | `promptId`, version, hash, owner, compatibility |
-| Knowledge snapshot | The following information shall be provided for the purposes of this Regulation: | `knowledgeBaseId`, snapshot, embedding version, checksum |
-| Policy | The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation. | `policyId`, version, decision and environment |
-| Tool contract | MCP tool, OpenAPI or asynchronous control | name, version, risk, scopes and scheme |
+| Data source | bucket, bank, API, document repository |  `sourceId`, owner, purpose, classification, region |
+| Dataset | training, evaluation, red-team, golden dataset |  `datasetId`, version, hash, period, lineage |
+| Model | foundation model, fine-tune, embedding, reranker |  `modelId`, provider, effective version, region, status |
+| Prompt | system prompt, template, few-shot examples |  `promptId`Version, hash, owner, compatibility |
+| Knowledge snapshot | Documents, chunks, index and ACLs |  `knowledgeBaseId`, snapshot, embedding version, checksum |
+| Policy | authorization, guardrail, routing, budget |  `policyId`, version, decision and environment |
+| Tool contract | MCP tool, OpenAPI or asynchronous command | name, version, risk, scopes and scheme |
 
-## The main principle
+## Central principle
 
-A published version of an agent shall point to a set of immutable and reproducible assets:
+A published version of the agent shall point to a set of **immutable and reproducible** Assets:
 
 ```text
 agentVersion
@@ -36,7 +36,7 @@ agentVersion
   └─ approvalDecision
 ```
 
-Operational aliases may be used for routing, but the version effectively executed must be recorded in traces, events and reports.
+Operational aliases can be used for routing, but the effective version should be registered in traces, events and reports.
 
 ## Canonical States
 
@@ -54,22 +54,22 @@ flowchart LR
     S --> R
 ```
 
-| State of origin | Significado |
+| State | Meaning |
 |---|---|
-| `DRAFT` | assets under construction, not yet eligible for formal evaluation |
-| `CANDIDATE` | frozen version for evaluation |
-| `EVALUATED` | known outcomes and limitations |
-| `APPROVED` | authorised for defined scope, environment and time |
-| `PUBLISHED` | Available for controlled consumption |
-| `MONITORING` | Operating version with active metrics and triggers |
-| `SUSPENDED` | temporarily blocked use due to risk, incident or regression |
-| `RETIRED` | Out-of-use version with revoked access and treated retention |
+|  `DRAFT`  | assets under construction, not yet eligible for formal assessment |
+|  `CANDIDATE`  | frozen version for evaluation |
+|  `EVALUATED`  | results and limitations known |
+|  `APPROVED`  | authorised for scope, environment and deadline |
+|  `PUBLISHED`  | available for controlled consumption |
+|  `MONITORING`  | version in operation with metrics and active triggers |
+|  `SUSPENDED`  | temporarily blocked by risk, incident or regression |
+|  `RETIRED`  | version out of use, with revoked access and treated retention |
 
-Approval belongs to the version. Material change generates a new version and new impact-proportionate assessment.
+Approval belongs to the version. Material modification generates a new version and a new impact proportional assessment.
 
 ## Identity and versioning
 
-All governed assets shall record:
+Every governed asset shall register:
 
 ```yaml
 assetType: PROMPT
@@ -91,25 +91,25 @@ lineage:
 changeTicket: AI-1842
 ```
 
-### Rules
+### rules
 
-- published versions are immutable;
-- hashes identify the actual content, not just the logical name;
-- semantic changes use a new version;
-- rollback selects known version without editing production;
-- aliases must resolve to a version and record the resolution;
-- Unapproved assets cannot be referenced by published versions.
+- published versions are unchangeable;
+- hashes identify the effective content, not only the logical name;
+- semantic changes use new version;
+- rollback selects a known version without editing production;
+- aliases must resolve for a version and record the resolution;
+- unapproved assets cannot be referred to by published versions.
 
-## Lineage end to end
+## Lineage end a end
 
-The lineage must answer:
+The lineage must respond to:
 
-- Where did the data come from?
-- What changes have been made?
+- where were the data from?
+- what transformations have been executed?
 - which version of the model or embedding was used?
-- What prompts and policies were involved?
-- What dataset evaluated the version?
-- What release consumed the asset?
+- which prompts and policies participated?
+- which dates evaluated the version?
+- which release consumiu the ativo?
 - which users, processes or decisions have been impacted?
 
 ```mermaid
@@ -128,239 +128,239 @@ flowchart LR
     R --> O[Operational Telemetry]
 ```
 
-## Lifecycle of data and datasets
+## Lifecycle of data and dates
 
-### Source onboarding
+### Source Onboarding
 
 Before ingestion, record:
 
-- owner and system of origin;
-- finalidade permitida;
+- owner and source system;
+- permitted purpose;
 - classification and data categories;
 - legal basis and contractual restrictions where applicable;
-- international residence and transfer;
-- the expected quality and SLA of the source;
-- the retention, exclusion and rights of the holder;
-- the withdrawal mechanism.
+- residence and international transfer;
+- expected quality and SLA of source;
+- retention, exclusion and rights of the holder;
+- revocation mechanism.
 
 ### Preparation and processing
 
 Transformations need to be reproducible and versioned:
 
-- the extraction, parsing and OCR;
+- extraction, parsing and OCR;
 - cleaning and standardisation;
-- the deduplication;
+- deduplication;
 - masking or anonymization;
-- classification and spread of ACL;
+- ACL classification and propagation;
 - chunking;
 - rotulagem;
-- the generation of synthetic examples;
-- training split, validation and testing.
+- generating synthetic examples;
+- training, validation and test split.
 
 Synthetic data do not eliminate the need to assess privacy, representativeness and provenance.
 
-### Quality of the dataset
+### Quality of dates
 
-| Size | Examples of controls |
+| Dimension | Examples of control |
 |---|---|
-| Completude | Mandatory fields and coverage of scenarios |
-| Validade | Schemes, formats and ranges |
-| Representatividade | segments, languages, channels and edge cases |
-| Atualidade | period, frequency and date of cutting |
-| Consistency | duplicities, conflicts and divergent labels |
-| Privacidade | Minimization, masking and segregation |
-| Security | approved source, malware and poisoning |
+| Completude | mandatory fields and scenario coverage |
+| Validity | schemes, formats and ranges |
+| Representativeness | segments, languages, channels and edge cases |
+| Update | period, frequency and cutoff date |
+| Consistency | Duplicity, conflict and divergent labels |
+| privacy | minimizing, masking and segregation |
+| Security | approved origin, malware and poisoning |
 | Leakage | separation between training, evaluation and production |
 
-### Changes and exclusions
+### Change and exclusion
 
-A change in source, purpose, scheme, period or policy may invalidate derivative datasets. The deletion must reach copies, chunks, embeddings, caches and derivatives when required by the policy.
+A change in source, purpose, scheme, period or policy may invalidate dates and derivatives. Exclusion should reach copies, chunks, embeddings, caches and derivatives when required by policy.
 
 ## Lifecycle of models
 
-### Discovered and registered
+### Discovery and registration
 
-An applicant model shall record:
+A candidate model shall record:
 
 - provider, family, version and region;
 - capabilities and limitations;
-- the provider's data policy and retention;
+- data policy and supplier retention;
 - context window and supported formats;
-- the compatibility of tool calling;
+- compatibility of tool calling;
 - cost and limits;
 - support status and depreciation plan;
 - independent and internal assessments are available.
 
-### Assessment
+### Evaluation
 
-Avaliar separadamente:
+Assess separately:
 
 - quality per task;
-- security and attack resistance;
-- privacy and data handling;
+- security and resistance to attacks;
+- privacy and date handling;
 - latency and availability;
 - cost per completed task;
 - compatibility with prompts, tools and formats;
-- the behaviour by language, segment and critical scenario.
+- behavior by language, segment and critical scenario.
 
 ### Approval and publication
 
-The approval shall be limited to:
+Approval shall limit:
 
-- use cases and risk classification;
+- cases of use and risk classification;
 - environments and regions;
-- permitted data types;
-- authorised capacities;
-- Token limits, cost and competition;
+- types of data allowed;
+- authorised capacity;
+- token limits, cost and competition;
 - fallback permitido;
-- the deadline and triggers for reassessment.
+- deadline and re-evaluation triggers.
 
-Model Gateway applies the policy. Runtimes do not freely choose models outside the approved set.
+The Model Gateway applies the policy. Runtimes do not freely choose models outside the approved set.
 
 ### Monitoring and depreciation
 
-Monitor quality, security, latency, cost, fallback, provider changes and discontinuation. Silent change of supplier aliases shall be detected by the actual recorded version.
+Monitoring quality, safety, latency, cost, fallback, changes in provider and discontinuation. A silent change in supplier alias should be detected by the effective version registered.
 
-## Lifecycle of prompts
+## Lifecycle de prompts
 
 Prompts are software and policy artifacts, not informal text.
 
-### Content governed
+### Governed content
 
 - system instructions;
-- Templates and variables;
+- templates and variables;
 - few-shot examples;
-- unreliable content delimiters;
-- tool use instructions;
+- non-reliable content delimiters;
+- instructions for use;
 - fallback and refusal messages;
-- rules on citation and transparency.
+- Reference rules and transparency.
 
-### Changes in the material
+### Material changes
 
-They require a new version and evaluation:
+Require new version and evaluation:
 
-- change in objective or behaviour;
-- change in limits of autonomy;
-- the inclusion of a new tool or source;
-- removal of safety instruction;
-- change of output format;
+- change of objective or behavior;
+- change in autonomy limits;
+- inclusion of new tool or source;
+- removal of safety instructions;
+- change in output format;
 - relevant change of examples;
-- adaptation to a new model or language.
+- adaptation to new model or language.
 
 ### Minimum tests
 
 - golden cases;
 - conflicting instructions;
-- prompt injection directly and indirectly;
+- direct and indirect prompt injection;
 - missing or ambiguous data;
-- Invalid tool arguments;
+- invalid arguments of tool;
 - output schema;
-- cost and tokens regression;
+- cost regression and tokens;
 - comparison with the previous version.
 
-## Lifecycle of embeddings and knowledge snapshots
+## Lifecycle de embeddings and knowledge snapshots
 
-Embeddings must record model, version, size, normalization, chunking, and generation date.
+Embeddings should register model, version, dimension, normalization, chunking and generation date.Exchange of embedding model usually requires new snapshot and re-indexation.
 
-A knowledge snapshot shall be immutable and shall contain:
+A knowledge snapshot must be unchangeable and contain:
 
 - documents and checksums;
-- chunks versions;
+- versions of chunks;
 - ACL, classification, purpose and retention;
 - embedding version;
-- publication index or aliases;
-- the retrieval metrics;
-- excluded documents or quarantined.
+- index or publishing alias;
+- retrieval metrics;
+- documents excluded or quarantine.
 
-Snapshot promotion uses aliases or equivalent mechanism. Rollback returns to known snapshot without emergency reconstruction.
+Promotion of snapshot uses alias or equivalent mechanism, Rollback returns to known snapshot without emergency reconstruction.
 
 ## Evaluation datasets and baselines
 
-Assessment datasets are separate from training data and examples used in the prompt.
+Assessment dates are separated from training data and from examples used in the prompt.
 
-Each dataset shall contain:
+Each date shall bear:
 
 - owner and domain;
 - version and hash;
 - origin and period;
-- criteria for inclusion;
-- labels, headings and reviewers;
+- inclusion criteria;
+- labels, items and reviewers;
 - risk coverage and edge cases;
 - validity and date of review;
-- restrictions on access and retention.
+- access restrictions and retention.
 
-Baselines that are possible:
+Possible basis:
 
-- the previous version;
-- the current human process;
+- previous version
+- current human process;
 - deterministic workflow;
 - simpler or cheaper model;
-- the minimum threshold approved.
+- minimum approved threshold.
 
-## Promotion gates
+## Promotion networks
 
-| Gate | Pergunta | Evidence |
+| Gate | Question | Evidence |
 |---|---|---|
-| G0 — Register | Does the asset have identity and owner? | Registration, purpose and classification |
-| G1 — Prepare | Are lineage and transformations reproducible? | Manifests, code and hashes |
-| G2 — Evaluate | Have quality, safety, cost and performance been measured? | evaluation report and negative tests |
-| G3 — Approve | Was the residual risk and scope accepted? | Decision, conditions and validity |
+| G0 — Register | the asset has identity and owner? | registration, purpose and classification |
+| G1 — Prepare | lineage and transformations are reproducible? | manifests, code and hashes |
+| G2 — Evaluate | quality, safety, cost and performance were measured? | evaluation report and negative tests |
+| G3 — Approve | were residual risk and scope accepted? | Decision, conditions and validity |
 | G4 — Publish | are version and dependencies immutable and reversible? | release manifest, signature and rollback |
-| G5 — Operate | Metrics, alerts and budgets are active? | dashboards, SLOsand quotas |
-| G6 — Reassess / Retire | change, drift or expiration have been treated? | novo bundle ou retirement record |
+| G5 — Operate | are metrics, alerts and budgets active? | dashboards, SLOs and quotas |
+| G6 — Reassess / Retire | were treated? | novo bundle ou retirement record |
 
-## Drift and revaluation triggers
+## Drift and re-evaluation triggers
 
-| Tipo | Sinal | Example of action |
+| type | Sinal | Example of action |
 |---|---|---|
-| Data drift | distribution or schema changed | blocking intake, recalibrating the dataset |
-| Concept drift | the input-outcome ratio has changed | review rule, prompt or model |
-| Model drift | degraded quality or safety | change version, fallback or suspension |
-| Prompt drift | cumulative changes have altered behavior | consolidate version and execute regression |
-| Retrieval drift | recall, relevance or citations have deteriorated | reindexar, ajustar chunking ou reranker |
-| Cost drift | Cost per task exceeded baseline | Reducing context, routing model or blocking |
-| Outcome drift | Technical metrics are good, but value has dropped. | review product, process or discontinue |
-| Regulatory drift | change of obligation or purpose | Reclassify risk and repeat assurance |
+| Data drift | distribution or schema changed | blocking intake, recalibrating dates |
+| Concept drift | relationship between entry and result has changed | review rule, prompt or model |
+| Model drift | quality or safety decreased | exchange version, fallback or suspend |
+| Prompt drift | accumulated changes altered the behavior of the patients. | consolidate version and implement regression |
+| Retrieval drift | recall, relevance or citations worsened | re-indexing, adjusting chunking or reranker |
+| Cost drift | cost per task exceeded baseline | reduce context, routing model or block |
+| Outcome drift | technical metric is good, but value has fallen | review product, process or discontinue |
+| Regulatory drift | obligation or purpose has changed | reclassify risk and repeat assurance |
 
 ### Gatilhos materiais
 
-- change of model or provider;
-- change in the main prompt;
-- new data source, tool or purpose;
+- change of model or provide;
+- abnormal main prompt;
+- new source of data, tool or purpose;
 - change of embedding, chunking or reranker;
-- security or privacy incident;
-- a regression above the threshold;
-- the expiry of the approval;
+- incident of security or privacy;
+- regression above threshold;
+- expiry of approval;
 - regulatory or contractual change;
 - relevant growth in volume, users or autonomy.
 
-## Reversal responses
+## Regression responses
 
-The response shall be proportional to the impact:
+The response should be proportional to the impact:
 
-1. alerting and opening an investigation;
-2. reduce traffic or population;
-3. disable a specific tool or capability;
-4. rotate to a previous model or snapshot;
+1. alert and open investigation;
+2. reducing traffic or population;
+3. disabling toool or specific capacity;
+4. routing to model or anterior snapshot;
 5. exigir human-in-the-loop;
-6. suspend the version;
-7. withdraw and revoke access.
+6. discontinue the version;
+7. withdraw and withdraw access.
 
-## Re-training, fine-tuning and re-embedding
+## Retraining, fine-tuning and re-embedding
 
-Retraining or fine-tuning should not be automatic just because drift has been detected. First identify cause, risk, necessary data and simpler alternative.
+Retraining or fine-tuning should not be automatic only because drift has been detected. First identify cause, risk, necessary data and simpler alternative.
 
-When carried out:
+When performed:
 
-- freeze the dataset and training code;
-- recording parameters, seed and environment;
+- freeze dataset and training code;
+- register parameters, seed and environment;
 - generate new model artifact and model card;
-- repeat the applicable full assessment;
-- comparing with baseline and previous version;
-- usar rollout controlado;
+- repeat applicable complete assessment;
+- compare with the baseline and previous version;
+- usar controlled rollout;
 - keep rollback independent of the training pipeline.
 
-Re-embedding follows an equivalent process for knowledge snapshots, with retrieval validation and authorization prior to promotion.
+Re-embedding follows the equivalent process for knowledge snapshots, with validation of retrieval and authorization before promotion.
 
 ## Evidence bundle
 
@@ -384,34 +384,34 @@ change-record.json
 retirement-record.json
 ```
 
-## Responsabilidades
+## responsibilities
 
-| Papel | Responsabilidade |
+| role | responsibility |
 |---|---|
-| Business Owner | the purpose, outcome and acceptance of residual risk; |
-| Data Owner | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
-| AI Architect | The Commission shall adopt delegated acts in accordance with the opinion of the Standing Committee on Planning and Development. |
-| Model Risk / Evaluation | the methodology, datasets, thresholds and independence; |
-| Security / Privacy | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. |
-| Platform Team | Registration, manifests, policies and technical promotion |
-| Product Team | The Commission shall adopt delegated acts in accordance with the opinion of the Standing Committee on Planning, Planning and Markets. |
+| Business Owner | residual risk outcome and acceptance |
+| Data Owner | sources, quality, access, retention and exclusion |
+| AI Architect | borders, compatibility and architectural decisions |
+| Model Risk/ Evaluation | methodology, datasets, thresholds and independence |
+| Security / Privacy | threats, data, suppliers and controls |
+| Platform Team | registry, manifests, policies and technical promotion |
+| Product Team | prompts, experience, feedback and result metrics |
 | Operations / SRE | SLOs, monitoring, incidents, rollback and withdrawal |
 
 ## Integration with governance
 
 - [Enterprise AI Governance Framework](ai-governance-framework.md)
-- [Crosswalk of governance, risk and compliance](compliance-crosswalk.md)
+- [Crosswalk of Governance, Risk and Compliance](compliance-crosswalk.md)
 - [AI Risk Framework](ai-risk-framework.md)
 - [Evaluation Framework](evaluation-framework.md)
-- [ADR-007  Hybrid and continuous evaluation](../adrs/007-evaluation-strategy.md)
+- [ADR-007 — Hybrid and continuous evaluation](../adrs/007-evaluation-strategy.md)
 
 ## Anti-patterns
 
-- use `latest` without recording an actual version;
-- edit prompt directly in production;
-- mix training and evaluation data;
-- change the embedding without changing the index;
-- adopt a model without limiting purpose, region or data;
-- monitor only availability and latency;
-- maintaining retired assets accessible through old credentials;
-- attribute drift to the model without investigating data, prompt, retrieval and process.
+- usar `latest` without registering effective version;
+- edit prompt directly into production;
+- mixing training and evaluation data;
+- exchange embedding without verifying the index;
+- approve the model without limiting purpose, region or data;
+- monitoring only availability and latency;
+- keep retired assets accessible by old credentials;
+- assign drift to the model without investigating data, prompt, retrieval and process.

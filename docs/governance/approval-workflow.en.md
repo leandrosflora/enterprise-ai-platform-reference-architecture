@@ -2,7 +2,7 @@
 
 ## Objective
 
-Ensure that corporate agents are evaluated prior to publication.
+Ensure that corporate agents are evaluated before publication.
 
 ## Workflow
 
@@ -33,6 +33,6 @@ Published
 
 ## Evidence
 
-- Assessments
+- Evaluations
 - Logs
 - Formal approval

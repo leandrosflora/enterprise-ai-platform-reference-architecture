@@ -1,59 +1,59 @@
-# ADR-005  Vector and hybrid search strategy
+# ADR-005 — Vector and hybrid search strategy
 
-**Status:** Aceito
+**Status:** accepted
 
-## Contexto
+## Context
 
-The platform needs to support semantic and hybrid search for corporate RAG scenarios, preserving metadata filters, tenant isolation, document authorisation and scale operation.
+The platform needs to support semantic and hybrid search for corporate RAG scenarios, preserving metadata filters, tenant isolation, document authorization and scale operation.
 
 ## Decision
 
-Adopt **OpenSearch as the initial reference implementation** for vector and hybrid search, accessed exclusively through Knowledge Service.
+Adopt **OpenSearch as initial reference implementation** for vector and hybrid search, accessed exclusively through the Knowledge Service.
 
-The architecture shall maintain index abstraction and retrieval to allow for other mechanisms where domain, cost, scale or data residency requirements justify the exchange.
+The architecture must maintain an abstraction of index and retrieval to allow other mechanisms when domain, cost, scale or residence requirements of data justify the exchange.
 
-## Mandatory requirements
+## Compulsory requirements
 
 - vector, textual and hybrid search;
-- server-side filters by tenant, rating, ACL, purpose and retention;
-- versioning of the embedding model and index;
+- server-side filters by tenant, classification, ACL, purpose and retention;
+- versioning of the embedding model and the index;
 - aliases or equivalent mechanism for promotion and rollback;
-- the verifiable exclusion by `documentId` and `tenantId`;
-- the latency, recall, cost and filtered results telemetry;
-- The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof.
+- exclusion verifiable by `documentId` and `tenantId`;
+- latency telemetry, recall, cost and filtered results;
+- indexation is inappropriate and unavailable.
 
-## Alternativas
+## Alternatives
 
-| Alternativa | Vantagem | Limitation |
+| alternative | advantage | Limitation |
 |---|---|---|
-| OpenSearch | Hybrid search, filters and operational maturity | requires tuning and may have a relevant cost |
+| OpenSearch | hybrid search, filters and operational maturity | it requires tuning and may have relevant cost |
 | pgvector | simplicity and proximity to relational data | less specialization for large-scale hybrid search |
-| MongoDB Vector Search | integration with documents and memory | acopla retrieval ao datastore operacional |
-| Vector database especializado | Advanced vector resources | Additional dependency, cost and own governance |
+| MongoDB Vector Search | integration with documents and memory | acopla retrieval to the datastore operational |
+| Specialised database vector | Advanced vector resources | Additional dependence, cost and own governance |
 
 ## Positive consequences
 
-- reduce the initial quantity of specialised components;
-- enables text and vector search on the same mechanism;
-- use mature filters, aliases and operational practices;
-- maintain the decision reversible through Knowledge Service.
+- reduces the initial amount of specialised components;
+- it allows textual and vector search in the same mechanism;
+- takes advantage of filters, aliases and mature operational practices;
+- maintains the decision reversible through the Knowledge Service.
 
 ## Negative consequences
 
 - OpenSearch may not be the best option for all workloads;
-- tuning of indexes, shards, refresh and embeddings requires specialized capability;
-- excessive abstraction may hide useful resources from the mechanism;
-- Migration requires re-indexation and quality validation.
+- tuning indexes, shards, refresh and embeddings requires specialized capacity;
+- excessive abstraction may hide useful resources of the mechanism;
+- migration requires reindexing and quality validation.
 
 ## Minimum evidence
 
-- a benchmark with a representative dataset;
-- Recall, accuracy, MRR or nDCG metrics as appropriate;
-- isolation test and denied access;
-- the index versioning and rollback plan;
-- estimated and observed cost per volume;
-- the exclusion and re-indexation procedure.
+- benchmark with representative dates;
+- recall, precision, MRR or nDCG metrics as appropriate;
+- isolation test and access denied;
+- index versioning plan and rollback;
+- estimated cost and observed by volume;
+- exclusion and re-indexing procedure.
 
-## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
+## Review criteria
 
-Review when quality, scale, cost, filtering requirements or data residency are no longer met, or when another mechanism demonstrates measurable gain without reducing governance and portability.
+To review when quality, scale, cost, filter requirements or data residence are no longer met, or when another mechanism demonstrates measurable gain without reducing governance and portability.

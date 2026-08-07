@@ -2,7 +2,7 @@
 
 ## Objective
 
-Control, allocate and optimize AI costs per agent, model, area and use case.
+Control, assign and optimize AI costs per agent, model, area and use case.
 
 ## Capacities
 
@@ -13,7 +13,7 @@ Control, allocate and optimize AI costs per agent, model, area and use case.
 - Budget Control
 - Model Cost Comparison
 
-## Other services
+## Related Services
 
 - Billing Service
 - Agent Runtime
@@ -28,17 +28,17 @@ Control, allocate and optimize AI costs per agent, model, area and use case.
 
 ## KPIs
 
-| Indicador | Other information |
+| indicator | Description |
 |---|---|
 | Cost per Agent | Cost per agent |
 | Cost per Model | Cost per model |
 | Cost per Business Unit | Cost per area |
-| Token Growth | Growth in token consumption |
+| Token Growth | Consumption growth of tokens |
 
 ## Non-functional requirements
 
-- Collecting tokens by execution
-- Cost assigned per tenant and area
+- Collection of tokens for implementation
+- Cost allocated by tenant and area
 - Dashboards executivos
 - Budgetary alerts
-- Comparison of models by cost and quality
+- Comparison of cost and quality models

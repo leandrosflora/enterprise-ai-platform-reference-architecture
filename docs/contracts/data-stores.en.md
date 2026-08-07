@@ -1,8 +1,8 @@
 # Data Stores
 
-| Service | Banco | Finalidade |
+| Office | Banco | Purpose |
 |---|---|---|
-| Agent Registry | PostgreSQL | Metadata and versions |
+| Agent Registry | PostgreSQL | Half-data and versions |
 | Governance Service | PostgreSQL | Approvals and risks |
 | Billing Service | PostgreSQL | Costs and chargeback |
 | Memory Service | MongoDB | Conversational memory |
@@ -12,8 +12,8 @@
 
 ## Principles
 
-- Ownership by service
+- Service ownership
 - No direct access between banks
-- Integration by APIs and events
+- Integration through PIAs and events
 - Auditable data
-- Encryption at rest
+- Rest chronography

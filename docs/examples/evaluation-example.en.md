@@ -1,8 +1,8 @@
-# Example - Result of the evaluation
+# Example - Evaluation Result
 
 ## Objective
 
-Example of result produced by Evaluation Service after an agent invocation.
+Example of results produced by Evaluation Service after an invocation of agent.
 
 ```json
 {
@@ -33,5 +33,5 @@ The result is used for:
 - Approval of agents
 - Regression between versions
 - Quality monitoring
-- Evidence of governance
-- Alerts for degradation
+- Governance evidence
+- Degradation alerts

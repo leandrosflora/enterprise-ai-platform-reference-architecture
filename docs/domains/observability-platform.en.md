@@ -14,7 +14,7 @@ Provide traceability, metrics, logs and dashboards for the operation of Enterpri
 - Cost Observability
 - Alerting
 
-## Other services
+## Related Services
 
 - Agent Runtime
 - Audit Service
@@ -29,17 +29,17 @@ Provide traceability, metrics, logs and dashboards for the operation of Enterpri
 
 ## KPIs
 
-| Indicador | Other information |
+| indicator | Description |
 |---|---|
 | Latency P95 | Latency by agent and service |
-| Error Rate | Error rate per component |
-| Token Usage | Use of tokens |
-| Trace Coverage | Trace coverage by execution |
+| Error Rate | Component error rate |
+| Token Usage | Token consumption |
+| Trace Coverage | Coverage of traces for execution |
 
 ## Non-functional requirements
 
 - OpenTelemetry as standard
-- Compulsory correlation
-- Masking of sensitive data
+- Compulsory CorrelationId
+- Sensitive data masking
 - Retention defined by type of telemetry
-- Dashboards by platform, agent and area
+- Dashboards per platform, agent and area

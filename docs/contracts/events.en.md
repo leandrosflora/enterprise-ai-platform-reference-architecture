@@ -1,20 +1,20 @@
-# Contracts for Events
+# Event contracts
 
-## Canonical source
+## Canon source
 
-The file [`async-api.yaml`](async-api.yaml) is the executable source of events. This document defines normative conventions. Examples and implementations cannot create alternative envelopes or enums.
+The archive [`async-api.yaml`](async-api.yaml) is the feasible source of events. This document defines the normative conventions. Examples and implementations cannot create alternative envelopes or enums.
 
 ## Transport and versioning
 
 - Reference transport: Kafka.
 - Reference serialization: JSON UTF-8.
-- Topics use the format `<evento>.v<major>`, for example `agent.invoked.v1`.
+- Topics use the format `<evento>.v<major>`, by example `agent.invoked.v1`.
 - `schemaVersion` usa SemVer.
-- Uncompatible changes require a new major and a new topic.
-- Producers don't remove fields during a major's lifetime.
+- Incompatible changes require new major and new topic.
+- Producers do not remove fields during the lifetime of a major.
 - Consumidores ignoram campos desconhecidos.
 
-## Compulsory envelope
+## Compulsory avelope
 
 ```json
 {
@@ -34,88 +34,88 @@ The file [`async-api.yaml`](async-api.yaml) is the executable source of events. 
 
 Compulsory fields:
 
-| Campo | Rule |
+| Campo | rule |
 |---|---|
-| `eventId` | Unique UUID used for deduplication. |
-| `eventType` | Name without version, equal to domain without subject suffix. |
-| `schemaVersion` | Do not use `eventVersion`. |
-| `occurredAt` | ISO 8601 UTC. |
-| `correlationId` | Functional correlation of the entire execution. |
-| `tenantId` | Tenant derived from a trusted identity or context. |
-| `source` | Producer service. |
-| `dataClassification` | `PUBLIC`, `INTERNAL`, `CONFIDENTIAL` ou `RESTRICTED`. |
-| `payload` | Payload tipado pelo AsyncAPI. |
+|  `eventId`  | Single UID used for deduplication. |
+|  `eventType`  | Name without version, equal to domain without suffix of topic. |
+|  `schemaVersion`  | Do not use `eventVersion`. |
+|  `occurredAt`  | ISO 8601 UTC. |
+|  `correlationId`  | Functional correlation of the entire implementation. |
+|  `tenantId`  | Tenant is derived from identity or reliable context. |
+|  `source`  | Producer service. |
+|  `dataClassification`  |  `PUBLIC`, `INTERNAL`, `CONFIDENTIAL` or `RESTRICTED`. |
+|  `payload`  | Payload typed by AsyncAPI. |
 
-`causationId` and `traceparent` are mandatory where there is a previous cause or distributed context.
+`causationId` and `traceparent` they are mandatory when there is a previously distributed cause or context.
 
 ## Enums compartilhados
 
-### Risco
+### Risk
 
 `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
 
-### State of enforcement
+### State of execution
 
 `SUCCESS`, `FAILED`, `BLOCKED`, `PARTIAL`.
 
-### Classification of data
+### Data classification
 
 `PUBLIC`, `INTERNAL`, `CONFIDENTIAL`, `RESTRICTED`.
 
-## Catalogue of topics
+## Topic catalog
 
-| Event | Subjects | Produtor principal | Typical consumers |
+| event | Topic | Produtor principal | Typical consumers |
 |---|---|---|---|
-| `agent.created` | `agent.created.v1` | Agent Registry | Governance, Audit |
-| `agent.updated` | `agent.updated.v1` | Agent Registry | Governance, Audit |
-| `agent.published` | `agent.published.v1` | Governance | Registry, Runtime, Audit |
-| `agent.retired` | `agent.retired.v1` | Governance | Registry, Runtime, Audit |
-| `agent.invoked` | `agent.invoked.v1` | Agent Runtime | Audit, Billing, Evaluation |
-| `tool.executed` | `tool.executed.v1` | Agent Runtime | Audit, Billing |
-| `model.invoked` | `model.invoked.v1` | Model Gateway | Billing, Observability |
-| `knowledge.ingested` | `knowledge.ingested.v1` | Knowledge Service | Audit |
-| `embedding.generated` | `embedding.generated.v1` | Knowledge Service | Billing, Audit |
-| `document.indexed` | `document.indexed.v1` | Knowledge Service | Audit |
-| `memory.updated` | `memory.updated.v1` | Memory Service | Audit |
-| `evaluation.started` | `evaluation.started.v1` | Evaluation Service | Audit |
-| `evaluation.completed` | `evaluation.completed.v1` | Evaluation Service | Governance, Audit |
-| `governance.approved` | `governance.approved.v1` | Governance | Registry, Audit |
-| `governance.rejected` | `governance.rejected.v1` | Governance | Registry, Audit |
-| `audit.created` | `audit.created.v1` | Audit Service | Observability / Archive |
+|  `agent.created`  |  `agent.created.v1`  | Agent Registry | Governance, Audit |
+|  `agent.updated`  |  `agent.updated.v1`  | Agent Registry | Governance, Audit |
+|  `agent.published`  |  `agent.published.v1`  | Governance | Registry, Runtime, Audit |
+|  `agent.retired`  |  `agent.retired.v1`  | Governance | Registry, Runtime, Audit |
+|  `agent.invoked`  |  `agent.invoked.v1`  | Agent Runtime | Audit, Billing, Evaluation |
+|  `tool.executed`  |  `tool.executed.v1`  | Agent Runtime | Audit, Billing |
+|  `model.invoked`  |  `model.invoked.v1`  | Model Gateway | Billing, Observability |
+|  `knowledge.ingested`  |  `knowledge.ingested.v1`  | Knowledge Service | Audit |
+|  `embedding.generated`  |  `embedding.generated.v1`  | Knowledge Service | Billing, Audit |
+|  `document.indexed`  |  `document.indexed.v1`  | Knowledge Service | Audit |
+|  `memory.updated`  |  `memory.updated.v1`  | Memory Service | Audit |
+|  `evaluation.started`  |  `evaluation.started.v1`  | Evaluation Service | Audit |
+|  `evaluation.completed`  |  `evaluation.completed.v1`  | Evaluation Service | Governance, Audit |
+|  `governance.approved`  |  `governance.approved.v1`  | Governance | Registry, Audit |
+|  `governance.rejected`  |  `governance.rejected.v1`  | Governance | Registry, Audit |
+|  `audit.created`  |  `audit.created.v1`  | Audit Service | Observability / Archive |
 
-## Delivery, idempotence and ordering
+## Delivery, immobility and ordering
 
-- Standard semantics is at-least-once.
-- Consumers deduct by `eventId`.
+- Standard semantic: **at-least-once**.
+- Consumidores deduplicam por `eventId`.
 - Partition keys:
   - Agent: `tenantId + agentId`;
   - session: `tenantId + sessionId`;
-  - documento: `tenantId + knowledgeBaseId + documentId`.
-- There is no overall guarantee of topical ordering.
-- Critical commands use transactional outbox on the manufacturer.
-- Consumers shall continue to offset only after completion of idempotent processing.
+  - document: `tenantId + knowledgeBaseId + documentId`.
+- There is no overall assurance of ordering between topics.
+- Critical commands use transactional outbox in the producer.
+- Consumers persist offset only after completing the inadequate processing.
 
-## Error and DLQ
+## Mistakes and DLQ
 
 - Retry with backoff only for transient failures.
-- Invalid events are not repeated indefinitely.
-- DLQ by domain with original payload, sanitized error and attempted metadata.
-- Reprocessing requires authorisation, audit and preservation of the original `eventId`.
+- Disabled events are not repeated indefinitely.
+- DLQ per domain with original payload, sanitized error and metadata of attempt.
+- Reprocessing requires authorization, audit and preservation of the `eventId` original.
 
 ## Security
 
-- Payloads shall not carry complete prompts or personal data when metadata is sufficient.
+- Payloads must not carry complete prompts or personal data when metadata is sufficient.
 - Sensitive fields are masked before publication.
-- Topical ACLs follow least privilege.
-- `CONFIDENTIAL` and `RESTRICTED` events use encryption and retention compatible with the classification.
+- Topic ACLs follow least privilege.
+- Events `CONFIDENTIAL` and `RESTRICTED` they use cryptography and retention compatible with the classification.
 
 ## Reference retention
 
-| Classe | Initial withholding | The Commission shall adopt implementing acts. |
+| Class | Initial retention | Remark |
 |---|---:|---|
-| Operacional | 90 dias | Diagnosis and limited replay. |
-| Billing | 24 meses | Showback and chargeback. |
-| Auditoria | 5 anos | Adjust to the applicable regulatory obligation. |
-| DLQ | 30 dias | Reprocessamento controlado. |
+| Operational | 90 days | Diagnosis and limited replay. |
+| Billing | 24 months | Showback and chargeback. |
+| Audit | 5 years | Adjust to the applicable regulatory obligation. |
+| DLQ | 30 days | Controlled reprocessing. |
 
-Timelines are reference and must be approved by Law, Security and LGPD for each organisation.
+Time limits are references and should be approved by Legal, Security and LGPD for each organization.

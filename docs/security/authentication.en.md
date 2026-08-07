@@ -1,6 +1,6 @@
 # Authentication
 
-## Standard
+## Pattern
 
 OIDC + OAuth2
 
@@ -16,6 +16,6 @@ OIDC + OAuth2
 - Refresh Token
 - Service Token
 
-## Provider
+## Provedor
 
 Enterprise Identity Provider

@@ -2,9 +2,9 @@
 
 ## Objective
 
-Controlling AI costs per agent, area and model.
+Controlling AI costs by agent, area and model.
 
-## The following information shall be provided:
+## Metrics
 
 - Input Tokens
 - Output Tokens
@@ -13,7 +13,7 @@ Controlling AI costs per agent, area and model.
 - Cost Per Agent
 - Cost Per Business Unit
 
-## The dimensions of the vehicle
+## Dimension
 
 - Agent
 - Team
@@ -21,14 +21,14 @@ Controlling AI costs per agent, area and model.
 - Model Provider
 - Model Version
 
-## Indicadores
+## indicators
 
-| Indicador | Other information |
+| indicator | Description |
 |---|---|
-| Cost per Agent | Aggregate cost per agent |
-| Cost per User | Aggregate cost per user |
+| Cost per Agent | Cost added per agent |
+| Cost per User | Cost added per user |
 | Cost per Tool | Cost associated with tools |
-| Cost per Model | Consumption by model |
+| Cost per Model | Consumption per model |
 
 ## Chargeback
 
@@ -36,4 +36,4 @@ Costs can be attributed to consumer areas.
 
 ## Showback
 
-Costs may be displayed without a formal financial charge.
+Costs may be exhibited without formal financial charge.

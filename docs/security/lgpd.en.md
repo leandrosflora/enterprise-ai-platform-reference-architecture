@@ -8,15 +8,15 @@
 - Data Masking
 - Audit Trail
 
-## Rights of the holder
+## Holder's rights
 
 - Acesso
 - Correction
 - Exclusion
 - Portabilidade
 
-## IA
+## AI
 
-- The risk assessment
-- Explanation where applicable
-- Control of exposure to personal data
+- Risk assessment
+- explainability where applicable
+- Control of exposure of personal data

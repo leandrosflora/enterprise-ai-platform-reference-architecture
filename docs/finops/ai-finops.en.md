@@ -1,6 +1,6 @@
-# FinOpsfor AI
+# FinOps for AI
 
-FinOps must connect technical consumption, business unit, agent, session and result.
+FinOps must connect technical consumption, business unit, agent, session and result; measuring only the provider's invoice does not allow for accountability or optimization.
 
 ## Cost model
 
@@ -10,7 +10,7 @@ FinOps must connect technical consumption, business unit, agent, session and res
 custo_agente = modelos + embeddings + retrieval + ferramentas + infraestrutura + observabilidade
 ```
 
-The minimum dimensions are `tenant_id`, `agent_id`, `agent_version`, `environment`, `model`, `provider`, `cost_center` and the period.
+Minimum dimensions: `tenant_id`, `agent_id`, `agent_version`, `environment`, `model`, `provider`, `cost_center` and period.
 
 ### Cost per session
 
@@ -18,48 +18,48 @@ The minimum dimensions are `tenant_id`, `agent_id`, `agent_version`, `environmen
 custo_sessao = soma(tokens_entrada, tokens_saida, chamadas_modelo, retrievals, tools, retries e infraestrutura_alocada)
 ```
 
-Relate cost to journey success, containment, conversion, time saved or satisfaction.
+Relating cost with successful workload, containment, conversion, saved time or satisfaction.
 
 ## Budget enforcement
 
-Apply layered limits:
+Application of layered boundaries:
 
-- organisation and cost centre;
+- organization and cost center;
 - product or domain;
 - agent and version;
 - tenant, user and session;
-- individual request.
+- individual requisition.
 
-Progressive actions: alert, reduce token limit, change model, disable expensive tools, migrate to asynchronous and block with controlled response.
+Progressive actions: alert, reduce token limit, change model, disabling expensive tools, migrating to asynchronous and blocking with controlled response.
 
-## Caching semantics
+## Semantic cache
 
-Use when semantically equivalent questions generate stable answers. The key should consider tenant, agent, prompt version, model, policies and knowledge version. Do not hide personalized, sensitive or state-dependent answers without adequate scope.
+Use when semantically equivalent questions generate stable responses. The key should consider tenant, agent, version of the prompt, model, policies and version of knowledge. Do not cache customized, sensitive, or state-dependent responses without adequate scope.
 
-## Routing by model
+## Routing per model
 
-The Model Gateway shall select the model by task classification, risk, minimum quality, latency, availability and budget.
+The Model Gateway must select model by task classification, risk, minimum quality, latency, availability and budget. A common policy:
 
-1. the economic model for simple classification and extraction;
-2. the intermediate model for the common RAG and tool calling;
-3. advanced model for complex or staggered cases.
+1. economic model for classification and simple extraction;
+2. intermediate model for RAG and common tool calling;
+3. advanced model for complex or scaled cases.
 
 ## Fallback between models
 
-Fallback must preserve tool calling compatibility, context size, data policy and minimum quality. Record reason, additional cost and result difference. Do not use fallback to circumvent security restrictions.
+Fallback should preserve tool calling compatibility, context size, data policy and minimum quality. Register reason, additional cost and outcome difference. Do not use fallback to circumvent security restrictions.
 
 ## Recommended metrics
 
-| Other information | Uso |
+| Metrics | Uso |
 |---|---|
-| Cost per session completed | Travel efficiency |
-| Cost per accepted response | economic quality |
-| tokens by stage | detection of swollen prompts |
-| Cache rate | economia potencial |
-| the cost of retries/fallback | instability and waste |
-| Cost per tool | Optimization of integrations |
-| Budget used/designed | controle preventivo |
+| cost per session completed | workload efficiency |
+| cost per accepted response | economic quality |
+| tokens per step | detection of swollen prompts |
+| cache rate | potential economy |
+| Retries/fallback cost | Unstableness and waste |
+| cost per tool | Integration optimization |
+| budget consumed/projected | control preventivo |
 
-## Implementation controls
+## Implementing controls
 
-Broadcast standardized usage events, calculate price per versioned table, and reconcile estimates with the actual invoice of the provider. Costs should appear in product dashboards, not just in the cloud panel.
+Issue standardized use events, calculate price per scale and reconcile estimates with the actual invoice of the provider.Costs should appear in the product dashboards, not only in the cloud panel.

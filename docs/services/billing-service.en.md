@@ -1,30 +1,30 @@
 # Billing Service
 
-## General view
+## Overview
 
-Billing Service is responsible for the platform FinOps: token tracking, cost allocation per agent/time/business unit and chargeback/showback generation.
+The Billing Service is responsible for FinOps of the platform: token tracking, cost allocation by agent/time/trade unit and generation of chargeback/showback.
 
-## Responsabilidades
+## responsibilities
 
-- Consume use events (agent invoking, tool execution, embedding generation)
-- Calculate cost per model, agent, team and business unit
+- Consume events of use (agent invoking, tool execution, embedding generation)
+- Calculating cost per model, agent, team and business unit
 - Generate chargeback and showback reports
-- Warning of consumption above defined limits
+- Alert on consumption above defined limits
 
-## Out of scope
+## Out of Scope
 
-- Execution of the agent or tool
-- Conformity audit (paper from theAudit Service)
-- Definition of risk approval limits (Governance Service paper)
+- Implementation of the agent or tool
+- Conformity audit ( Audit Service role)
+- Definition of risk approval limits (Role of the Governance Service)
 
 ## Dependencies
 
-| Dependence | Uso |
+| Dependence | Use |
 |---|---|
-| Kafka | Consume use events for cost calculation |
-| PostgreSQL | Persistent costs and chargeback data |
+| Kafka | Consumes use events for cost calculation |
+| PostgreSQL | Costs and chargeback data persist |
 
-## Events consumed
+## Consumption Events
 
 - `agent.invoked`
 - `tool.executed`
@@ -32,12 +32,12 @@ Billing Service is responsible for the platform FinOps: token tracking, cost all
 
 ## Non-functional requirements
 
-| Requisito | Diretriz |
+| Requirements | Guideline |
 |---|---|
-| Retention | 24 months for usage and billing data, basis for chargeback/showback |
-| Accuracy | Calculated cost shall reflect actual consumption of tokens and tools per invocation |
-| Escalabilidade | Processed high volume of use events without significant delay in the closing period |
-| Auditoria | Cost calculations shall be traceable to the event of origin |
+| Retention | 24 months for data on use and charge, base for chargeback/showback |
+| Precision | Calculated cost should reflect actual consumption of tokens and invocation tools |
+| scalability | It processes a high volume of use events without relevant delay in closing periods |
+| Audit | Cost calculations should be traceable to the event of origin |
 
 ## Related Decisions
 

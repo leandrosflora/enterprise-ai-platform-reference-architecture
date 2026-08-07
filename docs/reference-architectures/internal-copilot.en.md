@@ -1,18 +1,18 @@
-# This is the total amount of the project.
+# Reference architecture - Internal Copilot
 
 ## Objective
 
-Provide an internal corporate assistant to support employees in the pursuit of knowledge, operational guidance and assisted execution of tasks.
+To provide an internal corporate assistant to support collaborators in search of knowledge, operational guidance and assisted task execution.
 
-## Cases of use
+## Cases of Use
 
-- Search for internal policies
-- Support for in-house care
-- Consultation of the procedures
-- Generating responses with citation of sources
-- Assisted opening of calls
+- Searching for internal policies
+- Apoio a internal support
+- Consulta a procedimentos
+- Response generation with citation of sources
+- Assisted call opening
 
-## Components involved
+## components involved
 
 - AI Portal
 - Agent Gateway
@@ -24,29 +24,29 @@ Provide an internal corporate assistant to support employees in the pursuit of k
 - Evaluation Service
 - Audit Service
 
-## High-level flow
+## High Level Flow
 
-1. The user accesses the AI Portal.
-2. Agent Gateway authenticates and authorises the request.
-3. Agent Runtime executes the agent.
-4. Knowledge Service recupera documentos relevantes.
-5. Memory Service recupera contexto permitido.
-6. Agent Runtime calls it the foundation model.
-7. Evaluation Service shall assess the response.
-8. Audit Service shall record the execution.
+1. The user accesses the UA Portal.
+2. Agent Gateway authenticates and authorizes the request.
+3. Agent Runtime performs the agent.
+4. Knowledge Service recupera documents relevantes.
+5. Memory Service recovers allowed context.
+6. Agent Runtime calls the foundational model.
+7. Evaluation Service assesses the response.
+8. Audit Service records the execution.
 
-## Governance requirements
+## Governance Requirements
 
-- Approval of the agent in the AI Catalog
-- Classification of risk
+- Approval of the Agent in the Catalog
+- Risk classification
 - Authorised knowledge base
 - Minimum groundedness assessment
-- Full audit of interactions
+- Complete audit of interactions
 
-## The following information shall be provided:
+## Metrics
 
-- Resolution rate without staggering
+- Resolution rate without scheduling
 - Groundedness score
-- P95 latency
+- Latency P95
 - Cost per interaction
 - User satisfaction

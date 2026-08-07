@@ -1,110 +1,110 @@
-# Runbook  Onboarding of MCP Server and Tool
+# Runbook — Onboarding MCP Server and Tool
 
 ## Objective
 
-Register and release a MCP tool with defined contract, authentication, authorisation, idempotence, audit and rollback.
+Register and release a MCP tool with defined contract, authentication, authorization, impartiality, audit and rollback.
 
-## Pre-requisites
+## Prerequisites
 
 - technical and business owner;
-- the test environment;
-- the workload identity authentication;
-- OpenAPI or the destination system contract;
-- the classification of data;
-- the definition of reading or writing;
-- runbook of the corporate system.
+- test environment;
+- authentication by workload identity;
+- OpenAPI or contract for the destination system;
+- Data classification;
+- definition of reading or writing;
+- runbook corporate system.
 
 ## Procedimento
 
-### 1. Classification of the tool
+### 1. Classificar a tool
 
 Documentar:
 
-- finalidade;
-- efeitos colaterais;
+- purpose;
+- side effects;
 - systems and data accessed;
-- risco `LOW`, `MEDIUM`, `HIGH` ou `CRITICAL`;
-- the need for human approval;
-- timeout and limit of competition.
+- risk `LOW`, `MEDIUM`, `HIGH` ou `CRITICAL`;
+- need for human approval;
+- timeout and competition limit.
 
 ### 2. Defining the contract
 
-This is mandatory:
+Obligatory:
 
-- name and version of SemView;
-- JSON Entry and exit scheme;
-- compulsory fields and limits;
+- Name and version Without View;
+- JSON Entry and Exit Schema;
+- mandatory fields and limits;
 - stable error codes;
-- the policy of impotence;
+- policy of inequality;
 - escopos;
-- valid and invalid examples.
+- valid and disabled examples.
 
-### Implementing controls
+### 3. Implementing controls
 
-- the server-side validation of all arguments;
-- allowlist of operations;
-- authorisation in the destination system, not only in Runtime;
+- server-side validation of all arguments;
+- allowance for operations;
+- authorization in the destination system, not only in Runtime;
 - secret manager;
 - timeout, circuit breaker and bulkhead;
 - idempotency key for writing;
-- the redaction of logs;
-- reverse operation or compensation where possible.
+- redaction of logs;
+- reversible operation or compensation when possible.
 
 ### 4. Testar
 
 Minimum cases:
 
 - valid entry;
-- missing field and invalid format;
+- absent field and invalid shape;
 - identity without scope;
 - acesso cross-tenant;
-- timeout from destination;
-- repeat with the same idempotency key;
-- the prompt/tool injection attempt;
-- falha parcial;
-- rollback or compensation.
+- timeout of destination;
+- repetition with the same idempotency key;
+- prompt/tool injection attempt;
+- partial failure;
+- rollback or compensation
 
-### Registration at the MCP Registry
+### 5. Register in the MCP Registry
 
 Register contract, owner, risk, endpoint, workload identity, SLO and evidence.
 
-**Exit criterion:** status `SUBMITTED`, never available for productive discovery.
+**Exit criteria:** status `SUBMITTED`, never available for productive discovery.
 
-### 6. Aprovar
+### 6. approve
 
-- Security validates authentication, exit and secrecy;
-- LGPD validates purpose and minimization where applicable;
+- Security validates authentication, egress and secrets;
+- LGPD validates purpose and minimization when applicable;
 - AI Architect validates scope and use by agents;
 - owner of the destination system validates capacity and rollback.
 
-### 7. Publish and link
+### 7. publish and bind
 
-The publication makes the version uncoverable only to explicitly authorized agents.
+The publication makes the version uncoverable only for explicitly authorised agents. Do not use wildcard of tool in production.
 
 ### 8. Smoke test
 
 - descoberta autorizada funciona;
 - unauthorised discovery returns empty or denied;
-- the execution generates `tool.executed`;
+- implementation generates `tool.executed`;
 - trace contains tool, version, status and operation ID;
-- idempotent repetition does not duplicate effect;
-- Metrics and alerts are active.
+- unavoidable repetition does not double effect;
+- metrics and alerts are active.
 
 ## Rollback
 
-1. remove the version of the discovery;
-2. block execution in policy enforcement;
-3. maintain the previous version when closed;
-4. to offset outstanding transactions where applicable;
-5. preservar auditoria;
-6. notify the owners of the consumer agents.
+1. withdraw the version from the discovery;
+2. blocking execution in the policy enforcement;
+3. keep the previous version when secure;
+4. to compensate for outstanding transactions where applicable;
+5. preserve audit;
+6. notify owners of consumer agents.
 
-## Criteria for immediate rejection
+## Immediate rejection criteria
 
-- secret in the contract or code;
-- authorisation only on the prompt;
-- written without idempotence;
-- absence of timeout;
-- Open scheme without justification;
-- a generic tool that enables the execution of arbitrary commands;
-- No owner or rollback.
+- secret the contract or code;
+- authorization only in the prompt;
+- writing without inequality;
+- no timeout;
+- scheme open without justification;
+- generic tool that allows the execution of arbitrary commands;
+- no owner or rollback.

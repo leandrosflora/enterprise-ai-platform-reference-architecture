@@ -4,17 +4,17 @@ This document defines the minimum contract for corporate MCP tools exposed to En
 
 ## Principles
 
-- Each tool contract shall have `toolName`, `version`, `description`, `inputSchema`, `outputSchema`, `security`, `audit` and `runtimePolicy`.
-- Schemes shall use JSON Schema Draft 2020-12.
-- Tools are versioned semantically.
-- RBAC and brushes are required per tool.
-- Each execution shall include `correlationId`, `causationId`, `agentId`, `sessionId` and `tenantId`.
-- Sensitive data shall be classified and disguised in logs.
-- No critical tool can be run without an explicit policy of timeout, retry and idempotence.
+- All tool contract should have `toolName`, `version`, `description`, `inputSchema`, `outputSchema`, `security`, `audit` and `runtimePolicy`.
+- Schemas should use JSON Schema Draft 2020-12.
+- Tools are semantically versioned.
+- RBAC and scopes are mandatory per tool.
+- Each execution must carry `correlationId`, `causationId`, `agentId`, `sessionId` and `tenantId`.
+- Sensitive data should be classified and masked in logs.
+- No critical tool can be executed without explicit policy of timeout, retry, and inadequacy.
 
 ---
 
-## Standard tool contract envelope
+## Tool Pattern Envelope Contract
 
 ```json
 {
@@ -50,9 +50,9 @@ This document defines the minimum contract for corporate MCP tools exposed to En
 
 ## Tool: customer-search
 
-### Finalidade
+### Purpose
 
-Locate customers in corporate systems to support service, credit or back office agents.
+Locating customers in corporate systems to support agents of service, credit or back-office.
 
 ### Contract
 
@@ -129,9 +129,9 @@ Locate customers in corporate systems to support service, credit or back office 
 
 ## Tool: policy-document-search
 
-### Finalidade
+### Purpose
 
-Run a controlled search on corporate document bases via Knowledge Service.
+execute busca controlada in bases documentais corporativas via Knowledge Service.
 
 ### Contract
 
@@ -207,9 +207,9 @@ Run a controlled search on corporate document bases via Knowledge Service.
 
 ## Tool: case-update
 
-### Finalidade
+### Purpose
 
-Updating an operational case in a corporate system.
+Update an operational case in a corporate system, this tool executes writing and requires immunopower.
 
 ### Contract
 
@@ -295,20 +295,20 @@ Updating an operational case in a corporate system.
 }
 ```
 
-## Compulsory events
+## Obligatory events
 
-Each execution shall publish `tool.executed` with the following minimum fields:
+Every implementation shall publish `tool.executed` with minimum fields:
 
-| Campo | Compulsory | The Commission shall adopt implementing acts. |
+| Campo | Obligatory | Remark |
 |---|---:|---|
-| `eventId` | Sim | UUID |
-| `eventType` | Sim | `tool.executed` |
-| `schemaVersion` | Sim | SemVer |
-| `correlationId` | Sim | Propagation of the agent's summons |
-| `causationId` | Sim | Command or message that caused execution |
-| `agentId` | Sim | Applicant agent |
-| `toolName` | Sim | Name of the tool |
-| `toolVersion` | Sim | Running version |
-| `status` | Sim | `SUCCESS`, `FAILED` ou `BLOCKED` |
-| `latencyMs` | Sim | Total duration |
-| `errorCode` | No , it 's not . | Mandatory when `status != SUCCESS` |
+|  `eventId`  | Sim | UUID |
+|  `eventType`  | Sim |  `tool.executed`  |
+|  `schemaVersion`  | Sim | SemVer |
+|  `correlationId`  | Yes | Protected from the invocation of the agent |
+|  `causationId`  | Sim | Command or message causing the execution |
+|  `agentId`  | Sim | Applicant agent |
+|  `toolName`  | Sim | Name of tool |
+|  `toolVersion`  | Sim | Implemented version |
+|  `status`  | Sim |  `SUCCESS`, `FAILED` ou `BLOCKED`  |
+|  `latencyMs`  | Sim | Total duration |
+|  `errorCode`  | No | Obligatory when `status != SUCCESS`  |

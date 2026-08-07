@@ -2,7 +2,7 @@
 
 ## Objective
 
-Establish criteria for the use of external tools by platform agents and services.
+Defining criteria for using external tools by platform agents and services.
 
 ## Types of tools
 
@@ -13,23 +13,23 @@ Establish criteria for the use of external tools by platform agents and services
 - Communication Channels
 - Ticketing Tools
 
-## Criteria for approval
+## Approval Criteria
 
-| Criterion of use | Other information |
+| Criteria | Description |
 |---|---|
-| Security | Authentication, authorisation and management of secrets |
-| The data | Classification and location of data |
+| Security | Authentication, authorization and secrecy management |
+| Data | Classification and location of data |
 | LGPD | Legal basis, retention and sharing |
-| Custo | Charging model and predictability |
+| Cost | Charging model and predictability |
 | SLA | Availability and support |
 
 ## Standards
 
-- Prefer integration via MCP Server controlled
+- Prefer integration via controlled MCP Server
 - Do not expose secrets to agents
-- Record all tool calls
-- Aplicar rate limiting
-- Define fallback to unavailability
+- record todos the tool calls
+- apply rate limiting
+- Defining fallback for unavailability
 
 ## Requirements
 

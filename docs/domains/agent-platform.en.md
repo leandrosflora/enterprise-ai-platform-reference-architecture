@@ -2,7 +2,7 @@
 
 ## Objective
 
-Provide the core capabilities for the creation, execution, publication and operation of corporate agents.
+Providing central capacities for the creation, execution, publication and operation of corporate agents.
 
 ## Capacities
 
@@ -13,7 +13,7 @@ Provide the core capabilities for the creation, execution, publication and opera
 - Tool Calling
 - Agent Lifecycle Management
 
-## Other services
+## Related Services
 
 - Agent Gateway
 - Agent Runtime
@@ -32,18 +32,18 @@ Provide the core capabilities for the creation, execution, publication and opera
 
 ## KPIs
 
-| Indicador | Other information |
+| indicator | Description |
 |---|---|
-| Invocations | Volume of executions of agents |
-| Success Rate | Percentage of executions successfully completed |
-| Latency P95 | 95 percent latency per agent |
-| Tool Call Rate | Use of tools by execution |
+| Invocations | Volume of executions of officials |
+| Success Rate | Percentage of successful executions |
+| Latency P95 | 95th percentile latency per agent |
+| Tool Call Rate | Use of tools for implementation |
 | Cost per Agent | Operating cost per agent |
 
 ## Non-functional requirements
 
-- Authorisation by agent and scope
-- End-to-end visibility
-- Implementing audit
-- Cost control by agent
-- Resilience to model and tool failures
+- Authorization by agent and scope
+- Overall observability
+- Audit for implementation
+- Cost control per agent
+- Resilience against model and tool failure

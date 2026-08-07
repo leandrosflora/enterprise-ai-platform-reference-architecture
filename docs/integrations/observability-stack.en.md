@@ -2,7 +2,7 @@
 
 ## Objective
 
-Integrate the platform with corporate observability tools for operation, audit and diagnosis.
+Integrating the platform with corporate observability tools for operation, audit and diagnosis.
 
 ## Standards
 
@@ -23,9 +23,9 @@ Integrate the platform with corporate observability tools for operation, audit a
 - Datadog
 - OpenSearch Dashboards
 
-## Data collected
+## Collection Data
 
-- Trace of invocation of agent
+- Trace of official invocation
 - Tool calls
 - Model calls
 - Retrieval calls
@@ -36,7 +36,7 @@ Integrate the platform with corporate observability tools for operation, audit a
 
 ## Requirements
 
-- Compulsory correlation
-- Masking of sensitive data
+- Compulsory CorrelationId
+- Sensitive data masking
 - Retention by type of data
-- Dashboards by platform, agent and business unit
+- Dashboards per platform, agent and business unit

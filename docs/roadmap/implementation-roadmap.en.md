@@ -4,136 +4,136 @@
 
 The reference already contains:
 
-- Enterprise AI Platform Book with journeys by profile;
-- capability map and boundaries of responsibility;
-- the operating model, RACI, forums and golden path;
-- the life cycle of risk-based and evidence-based agents;
-- the end-to-end case study of a documentary agent with RAG;
+- Enterprise AI Platform Book with journeys per profile;
+- capability map and liability boundaries;
+- operating model, RACI, forums and golden path;
+- risk and evidence-based life cycle of agents;
+- case-to-case study of a documentary agent with RAG;
 - decision guides and production checklists;
-- Automated export of the book to Markdown and PDF;
-- contracts OpenAPIand AsyncAPIcanonical;
-- policies and contract validations in CI;
-- the container C4 and deployment with control plane/data plane;
-- Model Gatewayexplicitly;
-- the executable security of RAG and memory;
-- runbooks operacionais;
-- a vertical slice executable with Docker Composite;
-- documentation that can be published via MkDocs and GitHub Pages.
+- automated export of the book to Markdown and PDF;
+- OpenAPI and canonical AsyncAPI contracts;
+- policies and contract validation in IC;
+- Container C4 and deployment with control plane/data plane;
+- Explicit model Gateway;
+- feasible RAG security and memory;
+- runbooks operational;
+- vertical slice feasible with Docker Compose;
+- publicizable documentation via MkDocs and GitHub Pages.
 
-The vertical slice is deliberately small. The phases below describe the evolution of an actual implementation to production.
+The vertical slice is deliberately small. The phases below describe the evolution of a real implementation for production.
 
 ## Fase 1 — Foundation
 
 ### Objective
 
-Create the minimum data plane for the controlled execution of agents.
+Create the minimum planned date for the controlled execution of agents.
 
-### Entregas
+### deliverables
 
 - Agent Gateway;
 - Agent Runtime;
 - Agent Registry;
-- OIDCand workload identity;
-- Policy Decision Points and Policy Enforcement Points
+- ICDC and workload identity;
+- Policy Decision Point and Policy Enforcement Points;
 - Model Gateway;
 - baseline OpenTelemetry;
 - backbone Kafka;
-- CI/CD with contract tests.
+- IC/CD with contract tests.
 
-### Criteria for success
+### Success criteria
 
-- first agent issued by pipeline;
-- draw a line from end to end;
+- first agent published by pipeline;
+- trace end a end;
 - published canonical events;
-- the `deny by default` authorisation has been exercised;
+- authorization `deny by default` exercitada;
 - rollback validado;
-- The value of the measured SLO of `INTERACTIVE_SIMPLE`.
+- SLO `INTERACTIVE_SIMPLE` measured.
 
-## Stage 2  Knowledge and Memory
+## Phase 2 — Knowledge and Memory
 
-### Entregas
+### deliverables
 
 - Knowledge Service;
-- the intake pipeline with quarantine;
-- ACL per document and chunk;
-- embeddings versionados;
+- quarantine pipeline;
+- ACL by document and chunk;
+- versioned embeddings;
 - hybrid search;
-- quotes;
+- citations;
 - Memory Service with TTL, consent and exclusion;
-- separate retrieval and generation assessment.
+- separate evaluation of retrieval and generation.
 
-### Criteria for success
+### Success criteria
 
 - cross-tenant access blocked in tests;
-- deleted documents no longer appear in retrieval;
+- documents no longer appear in the retrieval;
 - groundedness and retrieval metrics collected;
 - memory poisoning covered by tests.
 
-## Phase 3  MCP and corporate tools
+## Phase 3 — PCM and corporate tools
 
-### Entregas
+### deliverables
 
 - MCP Registry;
 - onboarding automatizado;
-- tool contracts versionados;
+- tool contracts versioned;
 - idempotence and outbox for writing;
 - human approval for critical actions;
-- auditing and metrics per tool.
+- audit and metrics per tool.
 
-### Criteria for success
+### Success criteria
 
-- limited agent and policy discovery;
-- repetition does not duplicate effects;
-- tools can be blocked without making Runtime unavailable;
+- discovery limited by agent and policy;
+- repetition does not double effects;
+- tools can be blocked without dismissing Runtime;
 - rollback or compensation tested.
 
-## Stage 4  Governance and Evaluation
+## Phase 4 — Governance and Evaluation
 
-### Entregas
+### deliverables
 
 - AI Catalog;
-- a workflow with function segregation;
+- workflow with function segregation;
 - risk assessment automatizado;
-- data sets and baselines;
+- datasets and databases;
 - quality gates;
-- the evidence is unchanging;
+- immutable evidence;
 - model lifecycle.
 
-### Criteria for success
+### Success criteria
 
 - no HIGH/CRITICAL version published without evidence;
 - the same identity does not submit and approve;
-- the regression blocks deployment;
-- thresholds are traceable to the dataset and version.
+- regressions block deploy;
+- thresholds are traceable to dataset and version.
 
-## Phase 5 Scale and FinOps
+## Phase 5 — Scale and FinOps
 
-### Entregas
+### deliverables
 
 - multi-tenant isolation endurecido;
-- competition and backlog autoscaling;
+- competition autoscaling and backlog;
 - budgets, quotas and chargeback;
-- marketplace interno;
+- internal marketplace;
 - disaster recovery;
 - dashboards executivos;
-- multi-regional operation where justified.
+- multi-region operation when justified.
 
-### Criteria for success
+### Success criteria
 
-- costs assigned by area, agent and model;
+- costs attributed by area, agent and model;
 - noisy neighbor controlado;
-- capacity tests at 2x peak;
+- 2x peak capacity tests;
 - RTO/RPO exercitados;
 - error budgets used in release decisions.
 
-## Sequencing of reference
+## Reference sequencing
 
-| Fase | Horizonte inicial | Results |
+| Phase | Initial Horizonte | Results |
 |---|---|---|
-| 1 | 0–3 meses | Internal controlled agent in production |
-| 2 | 3–6 meses | RAG and memory with authorisation and discard |
+| 1 | 0–3 meses | controlled internal agent in production |
+| 2 | 3–6 months | RAG and memory with authorization and discard |
 | 3 | 6–9 meses | tools corporativas governadas |
-| 4 | 9–12 meses | Risk-based and evidence-based publication |
-| 5 | 12+ meses | Scale, marketplace and financial control |
+| 4 | 9–12 months | evidence-based publication |
+| 5 | 12+ months | scale, marketplace and financial control |
 
-For the organisational and adoption perspective, see [Maturity model and roadmap](../book/07-adoption-roadmap.md).
+For the organizational and adoption perspective, see [Maturity model and roadmap](../book/07-adoption-roadmap.md).

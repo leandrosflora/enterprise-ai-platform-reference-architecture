@@ -2,7 +2,7 @@
 
 ## Objective
 
-Standardize the creation, versioning, testing and publication of prompts used by AI agents, workflows and applications.
+Standardize the creation, versioning, testing and publication of prompts used by agents, workflows and AI applications.
 
 ## Recommended structure
 
@@ -23,19 +23,19 @@ OUTPUT CONTRACT
   schema, idioma, tamanho, citações e critérios de qualidade
 ```
 
-Recovered content, user messages and tool responses should be delimited and treated as unreliable data, never as top-priority instructions.
+Retrieved content, user messages and tool responses should be delimited and treated as unreliable data, never as higher priority instructions.
 
 ## Standards
 
-| Standard | Recommended use | Risco principal |
+| Pattern | Recommended use | Main risk |
 |---|---|---|
-| Zero-shot | Simple and well defined tasks | Amplified interpretation |
-| Few-shot | consistently classified, extracted and formatted | worn or extended examples |
-| Structured output | machine to machine integration | Incompatible scheme or invalid response |
-| ReAct | Interspersed reasoning with tools | Loops and tool abuse |
-| Planner-executor | Long and decomposable tasks | Excessive planning or out-of-scope execution |
-| Retrieval-grounded | Corporate knowledge-based responses | prompt injection indireta |
-| Critic/reviewer | Quality review before departure | Cost and false confidence |
+| Zero-shot | simple and well defined tasks | Ambiguous interpretation |
+| Few-shot | classification, extraction and consistent format | biased or extensive examples |
+| Structured output | machine to machine integration | incompatible schema or invalid response |
+| ReAct | reasoning interspersed with tools | loops and tool abuse |
+| Planner-executor | long and decompatible tasks | excessive planning or out-of-scope execution |
+| Retrieval-grounded | corporate knowledge-based responses | prompt injection indireta |
+| Critic/reviewer | Quality review before exit | cost and false confidence |
 
 ## Template base
 
@@ -68,50 +68,50 @@ Critérios de qualidade:
 {groundedness, completude, idioma, citações e limites}
 ```
 
-## Parameters of inference
+## Inference parameters
 
-| Parameters | Diretriz enterprise |
+| Parameter | Diretriz enterprise |
 |---|---|
-| Temperature | Low for extraction, decision and factual response; higher only for controlled breeding |
-| Top-p / top-k | calibrate together with temperature; avoid changes without regression |
-| Max tokens | limiting by use case and budget |
-| Stop sequences | use when there is a foreseeable written contract |
-| Seed | use when supported for reproducible testing |
+| Temperature | low for extraction, decision and factual response; higher only for controlled breeding |
+| Top-p / top-k | calibrate with temperature; avoid changes without regression |
+| Max tokens | limit by use case and budget |
+| Stop sequences | use when there is predictable textual contract |
+| Seed | use when supported for reproducible tests |
 
-## Versionamento
+## versioning
 
-Each prompt published shall contain:
+Each published prompt shall have:
 
 - identifier and semantic version;
 - owner and use case;
-- compatible model and parameters;
+- model and compatible parameters;
 - entry and exit schemes;
 - context dependencies and tools;
-- the regression data set;
-- metrics and thresholds;
-- Changelog and rollback plan.
+- regression dates;
+- metrics and thresholds
+- changelog and rollback plan.
 
 ## Security
 
 Minimum controls:
 
 - explicit separation between instruction and data;
-- allowlist of tools;
-- the validation of arguments with the JSON Scheme;
-- iteration and time limits;
-- the drafting of sensitive data;
+- tool allowlist;
+- Validation of arguments with JSON Schema;
+- iteration limits and time;
+- sensitive data redaction;
 - output filtering;
-- direct and indirect testing of prompt injection;
-- Prohibition of secrets, tokens and credentials on prompts.
+- direct and indirect prompt injection tests;
+- prohibition of secrets, tokens and credentials in prompts.
 
-## Checklist for revision
+## Review checklist
 
-- [ ] objective and audience are clear;
-- [ ] conflicting instructions have been deleted;
-- [ ] the exit has a verifiable contract;
-- [ ] unreliable context is limited;
-- [ ] failure and lack of evidence have defined behaviour;
+- [ ] objective and public are clear;
+- [ ] conflicting instructions were eliminated;
+- [ ] exit has verifiable contract;
+- [ ] non-reliable context is delimited;
+- [ ] failure and lack of evidence have defined behavior;
 - [ ] tools have a minimum scope;
-- [ ] prompt has undergone regression and adverse testing;
-- [ ] cost and latency are within SLO;
-- [ ] previous version may be restored.
+- [ ] prompt underwent regression and adverse tests;
+- [ ] cost and latency are within the SLO;
+- [ ] previous version can be restored.

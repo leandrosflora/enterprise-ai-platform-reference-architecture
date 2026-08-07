@@ -1,28 +1,28 @@
 # Model Gateway
 
-## General view
+## Overview
 
-Model Gateway centralizes access to foundation models and prevents agent runtimes from calling providers directly.
+Model Gateway centralizes access to foundation models and prevents agents from calling providers directly.
 
-## Responsabilidades
+## responsibilities
 
 - apply allowlist of providers, models and regions;
 - routing by capacity, cost, latency, availability and data classification;
-- validate budgets, allowances and limits for tokens;
-- carry out redaction and entry and exit guardrails;
-- standardise timeout, retry, circuit breaker and fallback;
-- record the actual model version, tokens, cost and latency;
-- block unapproved models or regions;
+- validate budgets, quotas and token limits;
+- perform redaction and entry and exit guardrails;
+- standardize timeout, retry, circuit breaker and fallback;
+- register the effective version of the model, tokens, cost and latency;
+- blocking unapproved models or regions;
 - support synchronous responses and streaming.
 
-## Out of scope
+## Out of Scope
 
-- the orchestration of the agent;
-- the management of the agent catalogue;
-- the response's business assessment;
-- persistent conversational memory.
+- orchestration of the agent;
+- management of the catalog of agents;
+- response business assessment;
+- persistence of conversational memory.
 
-## API interna
+## API internal
 
 ```http
 POST /internal/v1/model-invocations
@@ -53,27 +53,27 @@ Content-Type: application/json
 
 ## Routing policies
 
-Standard order:
+Standard order
 
-1. compatibility with data classification and residence;
-2. the model approved for the agent;
+1. compatibility with classification and residence of data;
+2. approved model for the agent;
 3. availability of the provider;
-4. the minimum recorded quality;
+4. minimum quality registered;
 5. budget restante;
-6. the lower cost within the SLO.
+6. lower cost within the SLO.
 
 ## Security
 
-- the workload identity authentication;
-- authorisation by agent, model and tenant;
-- No provider secrets are exposed to Runtime;
-- sensitive prompts are not stored by default;
-- logs use hashes and metadata, never secret;
-- exit passes through guardrails before returning to Runtime.
+- authentication by workload identity;
+- authorization by agent, model and tenant;
+- no provider secret is exposed to Runtime;
+- sensitive prompts are not stored by pattern;
+- logs use hashes and metadata, never secrets;
+- outflow through guardrails before returning to Runtime.
 
 ## Observability
 
-Compulsory spans:
+Compulsory Spans:
 
 - `model.gateway.authorize`
 - `model.gateway.route`
@@ -83,13 +83,13 @@ Compulsory spans:
 
 Minimum metrics:
 
-- invocations by model and status;
-- entry and exit tokens;
+- claims by model and status;
+- input and output tokens;
 - cost per agent and unit;
-- the latency per provider;
-- the fallback rate;
-- political blockades;
-- Budget violations.
+- Provider latency;
+- fall rate;
+- policy blocks;
+- budget violations.
 
 ## Events
 

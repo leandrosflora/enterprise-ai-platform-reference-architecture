@@ -2,7 +2,7 @@
 
 ## Objective
 
-Integrate the platform with the corporate identity provider for authentication, authorisation and audit.
+To integrate the platform to the corporate identity provider for authentication, authorization and audit.
 
 ## Standards
 
@@ -11,7 +11,7 @@ Integrate the platform with the corporate identity provider for authentication, 
 - JWT
 - Service-to-service authentication
 
-## Compatible providers
+## Compatible Ombudsmen
 
 - Microsoft Entra ID
 - Okta
@@ -22,9 +22,9 @@ Integrate the platform with the corporate identity provider for authentication, 
 
 | Flow | Uso |
 |---|---|
-| Authorization Code | Users on the AI Portal |
+| Authorization Code | Users of the UA Portal |
 | Client Credentials | Communication between services |
-| Token Exchange | Controlled delegation to tools |
+| Token Exchange | Controlled delegation for tools |
 
 ## Claims Relevantes
 
@@ -37,6 +37,6 @@ Integrate the platform with the corporate identity provider for authentication, 
 
 ## Requirements
 
-- Validation of the token in Agent Gateway
-- Propagation of identity for audit
-- Scope control by agent, tool and knowledge base
+- Validation of token in the Agent Gateway
+- Identity propagation for audit
+- Scope control by agent, tool and base knowledge

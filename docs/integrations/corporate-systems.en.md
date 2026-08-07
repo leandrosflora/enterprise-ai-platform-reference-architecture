@@ -2,9 +2,9 @@
 
 ## Objective
 
-Set standards for the integration of agents with internal corporate systems.
+Defining standards for integrating agents with internal corporate systems.
 
-## Typical systems
+## Typical Systems
 
 - CRM
 - ERP
@@ -14,26 +14,26 @@ Set standards for the integration of agents with internal corporate systems.
 - Data Platform
 - Workflow/BPM
 
-## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
+## Integration Patterns
 
-| Standard | Uso |
+| Pattern | Uso |
 |---|---|
-| REST | Synchronous queries and commands |
+| REST | Synchronous consultations and commands |
 | gRPC | Low latency internal integrations |
 | Kafka | Domain events and asynchronous integration |
-| MCP | Tools exposed to agents |
+| MCP | Exposed tools for agents |
 | Batch | Processamentos programados |
 
 ## Principles
 
 - Agents do not access corporate banks directly
-- Integrations shall be through APIs, events or MCP
-- Tool calls must be authorised and audited
-- Critical systems require governance approval
+- Integrations should undergo PIA, events or PCM
+- Tool calls should be authorised and audited
+- Critical systems require approval of governance
 
 ## Requirements
 
-- End to end correlation
-- Timeout and retry controlled
-- Idempotence for critical commands
+- CorrelationId fim a fim
+- Timeout and controlled retry
+- Independence for critical commands
 - Observability by integration
