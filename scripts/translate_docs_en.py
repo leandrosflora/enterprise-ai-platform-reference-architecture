@@ -59,19 +59,23 @@ PORTUGUESE_HINT_RE = re.compile(
     r")\b",
     re.IGNORECASE,
 )
+PLACEHOLDER_RE = re.compile(
+    r"Z\s*X\s*Q\s*K\s*E\s*E\s*P\s*0*(\d+)\s*Q\s*X\s*Z",
+    re.IGNORECASE,
+)
 
 
 def needs_translation(text: str) -> bool:
     return bool(text.strip()) and bool(PORTUGUESE_HINT_RE.search(text))
 
 
-def protect(text: str) -> tuple[str, dict[str, str]]:
-    kept: dict[str, str] = {}
+def protect(text: str) -> tuple[str, dict[int, str]]:
+    kept: dict[int, str] = {}
 
     def store(value: str) -> str:
-        token = f"ZXQKEEP{len(kept):04d}QXZ"
-        kept[token] = value
-        return token
+        index = len(kept)
+        kept[index] = value
+        return f"ZXQKEEP{index:04d}QXZ"
 
     for pattern in (INLINE_CODE_RE, LINK_TARGET_RE, RAW_URL_RE, HTML_TAG_RE):
         text = pattern.sub(lambda match: store(match.group(0)), text)
@@ -87,23 +91,26 @@ def protect(text: str) -> tuple[str, dict[str, str]]:
     return text, kept
 
 
-def restore(text: str, kept: dict[str, str]) -> str:
-    for token, value in kept.items():
-        if token in text:
-            text = text.replace(token, value)
-            continue
+def restore(text: str, kept: dict[int, str]) -> str:
+    restored: set[int] = set()
 
-        digits = token[7:11]
-        fuzzy = re.compile(rf"Z\s*X\s*Q\s*K\s*E\s*E\s*P\s*{digits}\s*Q\s*X\s*Z", re.I)
-        text, count = fuzzy.subn(lambda _: value, text, count=1)
-        if count == 0:
-            raise RuntimeError(f"Translation lost protected token {token}: {text!r}")
+    def replace(match: re.Match[str]) -> str:
+        index = int(match.group(1))
+        if index not in kept:
+            return match.group(0)
+        restored.add(index)
+        return kept[index]
+
+    text = PLACEHOLDER_RE.sub(replace, text)
+    missing = sorted(set(kept) - restored)
+    if missing:
+        raise RuntimeError(f"Translation lost protected tokens {missing}: {text!r}")
     return text
 
 
 def translate_texts(texts: list[str], tokenizer, model) -> list[str]:
     protected: list[str] = []
-    maps: list[dict[str, str]] = []
+    maps: list[dict[int, str]] = []
     for text in texts:
         value, kept = protect(text)
         protected.append(TASK_PREFIX + value)
