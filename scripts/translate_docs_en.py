@@ -15,8 +15,10 @@ import torch
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 DOCS_DIR = Path("docs")
-MODEL_NAME = "manueldeprada/t5-small-pt-en"
-BATCH_SIZE = 48
+MODEL_NAME = "facebook/nllb-200-distilled-600M"
+SOURCE_LANG = "por_Latn"
+TARGET_LANG = "eng_Latn"
+BATCH_SIZE = 12
 MAX_INPUT_LENGTH = 512
 MAX_NEW_TOKENS = 384
 
@@ -31,7 +33,8 @@ TECH_TERMS = sorted(
         "SLO", "SLOs", "SLI", "SLIs", "CI/CD", "GitOps", "Kubernetes", "Kafka",
         "OpenTelemetry", "Prometheus", "Grafana", "Vector DB", "Vector Database",
         "Human in the Loop", "Human-in-the-Loop", "Prompt Injection", "Tool Calling",
-        "Tool Call", "Foundation Model", "Foundation Models",
+        "Tool Call", "Foundation Model", "Foundation Models", "JSON", "YAML", "HTTP",
+        "REST", "gRPC", "JWT", "RBAC", "ABAC", "OPA", "Rego", "SDK", "CLI",
     },
     key=len,
     reverse=True,
@@ -48,13 +51,20 @@ MARKDOWN_PREFIX_RE = re.compile(
 )
 PORTUGUESE_HINT_RE = re.compile(
     r"[áàâãéêíóôõúçÁÀÂÃÉÊÍÓÔÕÚÇ]|\b(?:"
-    r"o|a|os|as|um|uma|uns|umas|de|do|da|dos|das|em|no|na|nos|nas|"
+    r"o|a|os|as|um|uma|uns|umas|de|do|da|dos|das|em|no|na|nos|nas|e|"
     r"para|por|com|sem|que|como|quando|onde|não|deve|devem|pode|podem|"
-    r"objetivo|arquitetura|governança|segurança|serviço|serviços|agente|agentes|"
-    r"dados|modelo|modelos|integração|integrações|avaliação|aprovação|"
-    r"responsável|produção|evidência|evidências|fluxo|processo|processos|"
-    r"princípios|requisitos|decisão|decisões|riscos|controles|catálogo|"
-    r"observabilidade|custos|memória|busca|autorização|autenticação"
+    r"objetivo|objetivos|arquitetura|arquiteturas|governança|segurança|"
+    r"serviço|serviços|agente|agentes|dados|modelo|modelos|integração|integrações|"
+    r"avaliação|avaliações|aprovação|responsável|responsáveis|produção|evidência|"
+    r"evidências|fluxo|fluxos|processo|processos|princípios|requisitos|decisão|"
+    r"decisões|riscos|controles|catálogo|observabilidade|custos|memória|busca|"
+    r"autorização|autenticação|caso|casos|capacidade|capacidades|demonstrada|"
+    r"demonstradas|estado|livro|resumo|aplicado|aplicados|abrir|documentação|"
+    r"publicada|publicado|plataforma|resultado|resultados|padrão|padrões|fluxos|"
+    r"provedor|provedores|visão|início|comece|referência|referências|ameaça|ameaças|"
+    r"implantação|implementação|operação|operações|ciclo|vida|checklist|checklists|"
+    r"recomendado|recomendada|exemplo|exemplos|fonte|fontes|regra|regras|"
+    r"camada|camadas|componente|componentes|contrato|contratos|evento|eventos"
     r")\b",
     re.IGNORECASE,
 )
@@ -76,9 +86,9 @@ def technical_term_pattern(term: str) -> re.Pattern[str]:
 def protected_ranges(text: str) -> list[tuple[int, int]]:
     ranges: list[tuple[int, int]] = []
     for pattern in PROTECTED_PATTERNS:
-        ranges.extend((m.start(), m.end()) for m in pattern.finditer(text))
+        ranges.extend((match.start(), match.end()) for match in pattern.finditer(text))
     for term in TECH_TERMS:
-        ranges.extend((m.start(), m.end()) for m in technical_term_pattern(term).finditer(text))
+        ranges.extend((match.start(), match.end()) for match in technical_term_pattern(term).finditer(text))
 
     if not ranges:
         return []
@@ -129,7 +139,7 @@ def restore(text: str, kept: dict[int, str]) -> str:
     return text
 
 
-def generate(batch: list[str], tokenizer, model) -> list[str]:
+def generate(batch: list[str], tokenizer, model, target_lang_id: int) -> list[str]:
     encoded = tokenizer(
         batch,
         return_tensors="pt",
@@ -140,38 +150,39 @@ def generate(batch: list[str], tokenizer, model) -> list[str]:
     with torch.inference_mode():
         output_ids = model.generate(
             **encoded,
+            forced_bos_token_id=target_lang_id,
             max_new_tokens=MAX_NEW_TOKENS,
-            num_beams=1,
-            do_sample=False,
+            num_beams=2,
+            early_stopping=True,
         )
     return tokenizer.batch_decode(output_ids, skip_special_tokens=True)
 
 
-def translate_segmented(text: str, tokenizer, model) -> str:
+def translate_segmented(text: str, tokenizer, model, target_lang_id: int) -> str:
     """Fallback that never exposes protected spans to the translation model."""
 
     ranges = protected_ranges(text)
     if not ranges:
-        return generate([text], tokenizer, model)[0] if needs_translation(text) else text
+        return generate([text], tokenizer, model, target_lang_id)[0] if needs_translation(text) else text
 
     pieces: list[str] = []
     cursor = 0
     for start, end in ranges:
         plain = text[cursor:start]
         if needs_translation(plain):
-            plain = generate([plain], tokenizer, model)[0]
+            plain = generate([plain], tokenizer, model, target_lang_id)[0]
         pieces.append(plain)
         pieces.append(text[start:end])
         cursor = end
 
     tail = text[cursor:]
     if needs_translation(tail):
-        tail = generate([tail], tokenizer, model)[0]
+        tail = generate([tail], tokenizer, model, target_lang_id)[0]
     pieces.append(tail)
     return "".join(pieces)
 
 
-def translate_texts(texts: list[str], tokenizer, model) -> list[str]:
+def translate_texts(texts: list[str], tokenizer, model, target_lang_id: int) -> list[str]:
     protected: list[str] = []
     maps: list[dict[int, str]] = []
     for text in texts:
@@ -181,7 +192,7 @@ def translate_texts(texts: list[str], tokenizer, model) -> list[str]:
 
     outputs: list[str] = []
     for start in range(0, len(protected), BATCH_SIZE):
-        outputs.extend(generate(protected[start : start + BATCH_SIZE], tokenizer, model))
+        outputs.extend(generate(protected[start : start + BATCH_SIZE], tokenizer, model, target_lang_id))
 
     results: list[str] = []
     for original, output, kept in zip(texts, outputs, maps, strict=True):
@@ -189,7 +200,7 @@ def translate_texts(texts: list[str], tokenizer, model) -> list[str]:
             results.append(restore(output, kept))
         except RuntimeError:
             print(f"Falling back to segmented translation: {original[:120]!r}", flush=True)
-            results.append(translate_segmented(original, tokenizer, model))
+            results.append(translate_segmented(original, tokenizer, model, target_lang_id))
     return results
 
 
@@ -256,10 +267,11 @@ def render(plan: list[tuple[str, object]], translated: list[str]) -> list[str]:
 
 
 def main() -> None:
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, src_lang=SOURCE_LANG)
     model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
     model.eval()
     torch.set_num_threads(max(1, min(4, torch.get_num_threads())))
+    target_lang_id = tokenizer.convert_tokens_to_ids(TARGET_LANG)
 
     sources = sorted(path for path in DOCS_DIR.rglob("*.md") if not path.name.endswith(".en.md"))
     print(f"Translating {len(sources)} Markdown pages with {MODEL_NAME}", flush=True)
@@ -269,7 +281,7 @@ def main() -> None:
         original = source.read_text(encoding="utf-8")
         trailing_newline = original.endswith("\n")
         units, plan = collect_units(original.splitlines())
-        translations = translate_texts(units, tokenizer, model) if units else []
+        translations = translate_texts(units, tokenizer, model, target_lang_id) if units else []
         output = "\n".join(render(plan, translations))
         if trailing_newline:
             output += "\n"
