@@ -15,9 +15,9 @@ import torch
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 DOCS_DIR = Path("docs")
-MODEL_NAME = "unicamp-dl/translation-pt-en-t5"
-TASK_PREFIX = "translate Portuguese to English: "
-BATCH_SIZE = 12
+MODEL_NAME = "manueldeprada/t5-small-pt-en"
+TASK_PREFIX = ""
+BATCH_SIZE = 24
 MAX_INPUT_LENGTH = 512
 MAX_NEW_TOKENS = 384
 
@@ -93,7 +93,6 @@ def restore(text: str, kept: dict[str, str]) -> str:
             text = text.replace(token, value)
             continue
 
-        # Translation models occasionally inject spaces into unknown placeholders.
         digits = token[7:11]
         fuzzy = re.compile(rf"Z\s*X\s*Q\s*K\s*E\s*E\s*P\s*{digits}\s*Q\s*X\s*Z", re.I)
         text, count = fuzzy.subn(lambda _: value, text, count=1)
@@ -124,7 +123,7 @@ def translate_texts(texts: list[str], tokenizer, model) -> list[str]:
             generated = model.generate(
                 **encoded,
                 max_new_tokens=MAX_NEW_TOKENS,
-                num_beams=4,
+                num_beams=3,
                 early_stopping=True,
             )
         outputs.extend(tokenizer.batch_decode(generated, skip_special_tokens=True))
