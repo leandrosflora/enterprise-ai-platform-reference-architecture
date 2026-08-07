@@ -1,16 +1,16 @@
 # 4. Operating Model
 
-## The organizational challenge
+## O desafio organizacional
 
-A AI Platform fails when the architecture is clear, but the ownership is not.
+A Platform IA fails when the architecture is clear, but the ownership is not.The operating model defines who decides, who executes, who approves, who operates and who accounts for the business result.
 
-The recommendation is to adopt a federated model with a central platform:
+The recommendation is to adopt a model **federado com plataforma central**:
 
-- a platform team maintains shared capabilities and golden paths;
+- a platform team maintains shared capacities and golden paths;
 - product squads maintain ownership of use cases;
-- trust functions define policies and participate as a risk;
+- trust functions define policies and participate according to risk;
 - SRE and FinOps make operation and cost part of the product;
-- An AI Enablement or CoE speeds up adoption without focusing all delivery.
+- An IA Enablement or CoE accelerates adoption without concentrating every delivery.
 
 ```mermaid
 flowchart TB
@@ -31,169 +31,169 @@ flowchart TB
     SRE --> PS
 ```
 
-## Key roles
+## Main papers
 
 ### Executive Sponsor
 
-Responsible for mandate, funding, objectives and removal of organizational impediments.
+Responsible for mandate, funding, objectives and removal of organizational impediments. It must not operate as the technical approval of each agent.
 
 ### AI Platform Team
 
-Responsible for the platform product:
+Responsible for platform product:
 
-- The following information shall be provided in accordance with the provisions of this Regulation:
+- runtime, gateways, registries, SDKs e templates;
 - reliability, platform security and developer experience;
-- Shared contracts and policies;
-- the capacity roadmap;
-- secondary support and dependence management.
+- contracts and shared policies;
+- capacity roadmap;
+- second level support and dependency management.
 
-The platform team should be measured by adoption, lead time, reliability and duplication reduction, not just by delivered components.
+The platform team should be measured by adoption, lead time, reliability and reduction of duplication, not only by components delivered.
 
 ### AI Enablement / CoE
 
 Responsible for:
 
-- standards and references;
-- training and community of practice;
-- initial case assessment;
-- support for evaluations and threat modelling;
-- curating examples and learning;
-- facilitating governance forums.
+- standards and references
+- training and community practice;
+- assessment inicial de casos;
+- supporting evaluations and threat modeling;
+- curation of examples and learnings;
+- facilitation of governance forums.
 
-The CoE must not become a central agent factory or a manual gateway for any change.
+The EC should not become a central factory of agents or a manual gate for every change.
 
 ### Product Squad
 
-Maintains ownership of the agent or solution:
+Maintains the agent or solution's ownership:
 
-- business outcome and metrics;
-- UX, domain and integration with registry systems;
-- The following information shall be provided in accordance with the procedure referred to in paragraph 1 of this Article:
-- the first-level operation;
+- business results and metrics;
+- UX, domain and integration with registration systems;
+- prompts, datesets and acceptance criteria;
+- first-level operation;
 - corrections, evolution and deactivation;
-- the evidence necessary for publication.
+- evidence needed for publication.
 
 ### Security, Legal, Privacy and Data
 
-They set policies and participate proportionately to the risk:
+They define policies and participate proportionally to risk:
 
-- data classification and purpose;
+- Data classification and purpose;
 - threat model and controls;
 - regulatory and contractual requirements;
-- withholding, consent and discarding;
-- the approval of exceptions;
-- the criteria for periodic review.
+- retention, consent and discard;
+- approval of exceptions;
+- periodic review criteria.
 
 ### SRE and FinOps
 
 Responsible for making operation and cost explicit:
 
-- SLOsand error budgets;
+- SLOs e error budgets;
 - capacity, resilience and incidents;
-- dashboards and alerts;
-- the budget, quotas, showback and chargeback;
-- the cost-to-value analysis;
+- dashboards e alertas;
+- budgets, quotas, showback e chargeback;
+- cost versus value analysis;
 - readiness operacional.
 
-## RACI of reference
+## Reference IACR
 
-Title: **R** responsible for execution, **A** accountable for final decision, **C** consulted, **I** informed.
+Legenda: **R** responsible for carrying out, **A** accountable for the final decision, **C** consultado, **I** informado.
 
 | Atividade | Sponsor | Platform | CoE | Product Squad | Trust Functions | SRE/FinOps |
 |---|---|---|---|---|---|---|
-| Defining strategy and outcomes | The | C | R | C | C | C |
-| Prioritizing the platform roadmap | C | A/R | C | C | C | C |
-| Select the use case | I | C | C | A/R | C | C |
-| classificar risco | I | C | R | R | The | C |
-| developing agent | I | C | C | A/R | C | C |
-| maintaining SDKs and runtime | I | A/R | C | I | C | C |
-| produce an evaluation dataset | I | C | C | A/R | C | C |
-| define security policies | I | R | C | C | The | C |
-| approve a critical exception | I | C | C | C | A/R | I |
-| publish version | I | R | I | A/R | C conforme risco | C |
-| operating in production | I | R platform | I | A/R product | I | R suporte |
-| responder incidente | I | R platform | I | R produto | C | A/R coordination |
-| Review cost and value | C | R | I | A/R | I | R |
+| define strategy and outcomes | A | C | R | C | C | C |
+| priorizar roadmap da plataforma | C | A/R | C | C | C | C |
+| selecionar caso de uso | I | C | C | A/R | C | C |
+| risk classification | I | C | R | R | A | C |
+| develop agent | I | C | C | A/R | C | C |
+| manter SDKs e runtime | I | A/R | C | I | C | C |
+| produce assessment dates | I | C | C | A/R | C | C |
+| defining security policies | I | R | C | C | A | C |
+| approve critical exception | I | C | C | C | A/R | I |
+| publish version | I | R | I | A/R | C as risk | C |
+| operating in production | I | R plataforma | I | A/R produto | I | R suporte |
+| responder incidente | I | R plataforma | I | R produto | C | A/R coordination |
+| review cost and value | C | R | I | A/R | I | R |
 | deactivate agent | I | C | I | A/R | C | C |
 
-## Intake of use cases
+## Intake de casos de uso
 
-The intake shall be short and decision-oriented.
+The intake must be short and decision-oriented. A minimum form contains:
 
-- the problem and the affected user;
-- expected outcome and metric;
+- problem and affected user;
+- expected result and metric;
 - necessary data and classification;
-- actions that the agent may take;
-- the impact of an incorrect response;
-- critical and estimated volume;
-- the need for memory;
-- intended models or suppliers;
-- product owner and technical owner;
-- I'm going to use a fallback strategy.
+- actions that the staff member may carry out;
+- impacto de uma resposta incorreta;
+- criticidade e volume estimado;
+- need for memory;
+- models or providers intended;
+- product and technical owner;
+- fallback strategy.
 
-The intake output is not a final approval, it's an initial classification and a delivery route.
+The output of the intake is not a final approval, it is an initial classification and a delivery route.
 
-## Rotas proporcionais ao risco
+## Risk proportional routes
 
-| Risco | Example | Recommended route |
+| Risk | Exemplo | Recommended route |
 |---|---|---|
-| LOW | Internal summary without sensitive data | Self-service with automatic controls |
-| MEDIUM | RAG corporate with internal information | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. |
-| HIGH | Recommendation affecting client or relevant decision | The Commission shall adopt delegated acts in accordance with the opinion of the Standing Committee on Planning and Zoning in the European Union. |
-| CRITICAL | financial action, regulated decision or physical risk | reinforced controls, formal approval and limited scope |
+| LOW | Internal summarization without sensitive data | self-service with automatic controls |
+| MEDIUM | Corporate RAG with internal information | evaluation, safety and simplified approval |
+| HIGH | recommendation affecting customer or relevant decision | multidisciplinary review, HITL and additional evidence |
+| CRITICAL | financial action, regulated decision or physical risk | reinforced controls, formal approval and restricted scope |
 
-For the classification, please refer to the [AI Risk Framework](../governance/ai-risk-framework.md).
+Consulte o [AI Risk Framework](../governance/ai-risk-framework.md) for canonical classification.
 
 ## Golden path
 
-The golden path is the supported path to production:
+The golden path is the way to reach production:
 
-1. record the case and the owner;
-2. classify risk and data;
-3. create the solution from an approved template;
-4. integrate identity, policies and telemetry;
-5. carry out mandatory assessments;
+1. register the case and the owner;
+2. rating risk and data;
+3. create the solution from approved template;
+4. to integrate identity, policies and telemetry;
+5. to carry out mandatory assessments;
 6. attach evidence to the version;
-7. obtain the necessary decisions;
-8. publish by pipeline;
-9. monitor SLOs, quality and cost;
-10. revise or withdraw the version.
+7. obtaining necessary decisions;
+8. publicar por pipeline;
+9. Monitoring SLOs, quality and cost;
+10. review or withdraw the version.
 
-The squad can get off the golden path, but the exception must be explicit, possess owner, deadline and compensating controls.
+The squad can leave the golden path, but the exception must be explicit, have owner, deadline and compensating controls.
 
-## Forums and meetings
+## Forums and cadence
 
-| The European Parliament | Capacity | Objective |
+| Forum | Cadence | Objective |
 |---|---|---|
-| Platform Product Review | quinzenal | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. |
-| AI Risk Review | semanal ou sob demanda | HIGH/Critical cases and exceptions |
-| Architecture Clinic | semanal | decisions and support for squads without a formal gate |
+| Platform Product Review | quinzenal | roadmap, adoption, ability and experience |
+| AI Risk Review | semanal ou sob demanda | HIGH/CRITICAL cases and exceptions |
+| Architecture Clinic | semanal | decisions and support for squads without formal gate |
 | Model and Vendor Review | mensal | approved models, changes and supplier risks |
 | SRE and FinOps Review | mensal | SLOs, incidents, capacity, cost and quotas |
-| Executive Outcome Review | trimestral | Value, aggregate risk and investment |
+| Executive Outcome Review | trimestral | value, aggregate risk and investment |
 
 ## Operating model metrics
 
-- lead time between intake and first controlled release;
-- percentage of solutions on the golden path;
+- lead time between intake and first controlled version;
+- percentage of solutions in the golden path;
 - decision time by risk class;
-- the number of exceptions opened and expired;
-- the adoption of SDKs and shared services;
-- incidents by category and product;
+- number of exceptions opened and expired;
+- adoption of SDKs and shared services;
+- incidentes por categoria e produto;
 - cost per outcome or business unit;
-- the pre-production blocked regression rate;
-- the satisfaction of the consumer squads.
+- blocked regression rate prior to production;
+- satisfaction of consumer squads.
 
-## Other, not further worked than hot-rolled
+## Anti-standards
 
-- CoE manually approving all changes;
-- a platform without a product manager or a consumer-oriented backlog;
-- squad handing over the agent and transferring all operations to the central team;
+- EC manually approving all changes;
+- plataforma sem product manager ou backlog orientado a consumidores;
+- squad delivering the agent and transferring the entire operation to the central team;
 - security consulted only at the end;
 - absence of owner for data and knowledge;
 - approval without validity or periodic review;
-- platform metrics based solely on technical availability.
+- platform metrics based only on technical availability.
 
 ## Next chapter
 
-The [Agent Life Cycle](04-agent-lifecycle.md) transforms this operating model into gates, artifacts and concrete evidence.
+O [Life cycle of agents](04-agent-lifecycle.md) it transforms this operating model into gates, artifacts and concrete evidence.

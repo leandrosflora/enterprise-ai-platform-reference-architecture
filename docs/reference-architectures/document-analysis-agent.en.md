@@ -1,18 +1,18 @@
-# This appropriation is intended to cover expenditure on technical assistance for the implementation of the programme.
+# Reference architecture - Documentary Analysis Agent
 
 ## Objective
 
 Automate the analysis of corporate documents, extracting information, classifying content, validating rules and supporting operational decisions.
 
-## Cases of use
+## Casos de Uso
 
 - Extraction of data from documents
-- Classification of documents
-- Validation of compulsory fields
+- Documentary classification
+- Validation of mandatory fields
 - Comparison with internal policies
-- Supported opinion generation
+- Management of assisted opinions
 
-## Components involved
+## Componentes Envolvidos
 
 - Agent Gateway
 - Agent Runtime
@@ -29,29 +29,29 @@ Automate the analysis of corporate documents, extracting information, classifyin
 - GED / ECM
 - Data Lake
 - Workflow / BPM
-- Sistemas transacionais
+- Transaction systems
 
-## High-level flow
+## High Level Flow
 
-1. Document is received by upload, queue or corporate system.
-2. Pipeline extracts text and metadata.
-3. Knowledge Service index or refer to relevant references.
-4. Agent Runtime analyses the document with rules and context.
+1. The document is received by upload, queue or corporate system.
+2. Pipeline extrai texto e metadados.
+3. Knowledge Service indexes or consults applicable references.
+4. Agent Runtime analyzes the document with rules and context.
 5. Evaluation Service validates quality and consistency.
-6. Results are recorded and forwarded for review or workflow.
+6. Results are registered and sent for review or workflow.
 
 ## Controls
 
-- Classification of data
+- Data classification
 - Masking of sensitive information
-- Withholding according to corporate policy
+- Retention according to corporate policy
 - Evidence for audit
 - Human review for critical decisions
 
-## The following information shall be provided:
+## Metrics
 
-- Rate of correct extraction
-- Average time of analysis
+- Correct extraction rate
+- Mean time of analysis
 - Human review rate
-- Failure by type of document
+- Falhas por tipo documental
 - Cost per document processed

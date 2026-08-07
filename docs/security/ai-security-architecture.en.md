@@ -2,7 +2,7 @@
 
 ## Objective
 
-Apply in-depth defense across all platform boundaries: identity, input, context, model, tools, memory, output and audit.
+Apply defense in depth at all platform boundaries: identity, entry, context, model, tools, memory, output and audit.
 
 ## Reference architecture
 
@@ -28,65 +28,65 @@ flowchart LR
     MCP --> AUD
 ```
 
-## Layered controls
+## Layer controls
 
-| Layer | Minimum controls |
+| Camada | Minimum controls |
 |---|---|
-| Edge | WAF, rate limit, bot protection, quotas and protection against abuse |
-| Identidade | OIDC, MFA, workload identity, short tokens and minor privilege |
-| Authorization | RBAC/ABAC, PDP/PEP, deny by default and policy versioned |
-| Entrada | the validation, limits, detection of prompt injection and data classification; |
-| RAG | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1308/2013. |
-| Model | Central gateway, model allowlist, restricted parameters and guardrails |
-| Ferramentas | Schemes, allowlist, idempotence, timeout and human approval |
-| The memory | purpose, consent, isolation by subject, TTL and exclusion |
-| Exit | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
+| Edge | WAF, rate limit, bot protection, quotas and abuse protection |
+| Identity | ICDC, MFA, workload identity, short tokens and less privilege |
+| Authorisation | RBAC/ABAC, PDP/PEP, deny by default e policy versionada |
+| Entrada | validation, limits, prompt injection detection and data classification |
+| RAG | approved sources, quarantine, provena, ACL by chunk and DLP |
+| Model | central gateway, model allowlist, limited parameters and guardrails |
+| Tools | schemas, allowlist, inadequacy, timeout and human approval |
+| Memory | purpose, consent, subject isolation, TTL and exclusion |
+| Departure | groundedness, redaction, content safety, schema validation and citations |
 | Auditoria | correlation ID, identity, policy version, model, prompt and decision |
 
-## Zero trust for AI
+## Zero trust para IA
 
-Each call must authenticate the identity, authorize the action, validate the payload, and record the decision.
+No component trusts implicitly on the content generated or retrieved. Each call must authenticate the identity, authorise the action, validate payload and register the decision.
 
-The following principles:
+Principles:
 
 - verificar explicitamente cada acesso;
-- to commit to documents, prompts and tools;
-- limiting the blast radii per tenant, agent, model and tool;
+- to take on the commitment of documents, prompts and tools;
+- limiting blast radius by tenant, agent, model and tool;
 - use temporary credentials;
-- Keep sensitive data out of logs and traces.
+- keep sensitive data out of logs and traces.
 
-## Critical boundaries
+## Critical borders
 
 ### RAG
 
-Documents undergo malware scan, classification, DLP, origin validation and quarantine before indexing.
+Documents undergo malware scan, classification, DLP, origin validation and quarantine before indexing. The authorization filter should occur at consultation and again before assembling the prompt.
 
 ### Tool use
 
-Each tool has a contract, scope, risk, owner and policy, and collateral transactions use idempotency key, transaction boundary, and explicit confirmation.
+Each tool has a contract, scope, risk, owner and policy.Side effect operations use idempotency key, transaction boundary and explicit confirmation.
 
 ### Provider externo
 
-The Model Gateway prevents direct access to the provider, implements a residence and retention policy, removes prohibited data, controls approved models and records consumption metadata.
+Model Gateway prevents direct access to the provider, applies residence and retention policies, removes prohibited data, controls approved models and registers metadata of consumption.
 
-## Secrets and keys
+## Segredos e chaves
 
-- store in secret manager or KMS;
-- Never include in prompt, memory or repository;
+- armazenar em secret manager ou KMS;
+- never include in prompt, memory or repository;
 - rotacionar automaticamente;
-- separating keys by environment and purpose;
-- block the output of secret patterns by DLP.
+- separate keys by environment and purpose;
+- block output of secrecy patterns by DLP.
 
 ## Incident response
 
 Minimum events:
 
-- the attempt of prompt injection;
-- Exfiltration or cross-tenant access;
-- tool call denied or abnormal;
-- a sharp increase in cost or tokens;
+- tentativa de prompt injection;
+- exfiltration or cross-tenant access;
+- tool call denied or anomalous;
+- abrupt increase in cost or tokens;
 - change of model or policy without approval;
-- sensitive output content;
-- Poisoning detected in knowledge or memory.
+- sensitive content in output;
+- poisoning detected in knowledge or memory.
 
-The response shall allow credentials to be revoked, agent disabled, model or tool blocked, index removed, evidence preserved and rollback performed.
+The response should allow for the revocation of credentials, disabling agents, blocking model or tools, removing index, preserving evidence and performing rollback.

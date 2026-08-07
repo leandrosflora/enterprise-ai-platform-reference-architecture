@@ -1,36 +1,36 @@
-# ADR-003  Agent Gateway as an entry point
+# ADR-003 — Agent Gateway como ponto de entrada
 
 **Status:** Aceito
 
-## Contexto
+## Context
 
-Channels, agents and model providers are evolving at different speeds. Without a common border, authentication, quotas, routing, data protection and telemetry are duplicated.
+Channels, agents and model providers evolve at different pace rhythms.Without a common frontier, authentication, quotas, routing, data protection and telemetry are doubled.
 
 ## Decision
 
-Introduce a **Agent Gateway** between channels/BFFs and runtimes. It does not contain business logic or specific journey prompts.
+Introduzir um **Agent Gateway** between channels/BFFs and runtimes, it does not contain business logic or specific prompts of the journey.
 
 ## Responsabilidades
 
-- authentication, authorisation and tenant resolution;
-- rate limit, quotas and budget enforcement;
-- routing by agent, version and capacity;
-- standardisation of streaming and asynchronous responses;
+- authentication, authorisation and resolution of tenant;
+- rate limit, quotas e budget enforcement;
+- Routing by agent, version and capacity;
+- streaming normalization and asynchronous responses;
 - correlation, tracing, metrics and audit;
-- policies for data entry, classification and masking;
-- Circuit breaker and controlled fallback.
+- entry policies, classification and data masking;
+- circuit breaker e fallback controlado.
 
-## No responsibilities
+## Non-responsibilities
 
-- the reasoning of the agent;
+- reasoning of the agent;
 - direct implementation of domain tools;
 - long-term memory storage;
-- the definition of business rules.
+- definition of business rules.
 
 ## Consequences
 
-The gateway becomes a critical component and must be stateless, horizontally scalable, and degrade safely.Control Plane.
+The gateway becomes a critical component and should be stateless, horizontally scalable and safely degraded.Agent configurations should be versed in Control Plane.
 
-## Evidence in the case
+## Case evidence
 
-In the conversational case, Channel BFF and Conversation Orchestrator materialize part of this boundary.
+In the conversational case, Channel BFF and Conversation Orchestrator materialize part of this frontier, and the recommended evolution is to consolidate common policies without focusing on the logic of the journey.

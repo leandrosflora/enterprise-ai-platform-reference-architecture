@@ -2,24 +2,24 @@
 
 ## Objective
 
-Avoid the indiscriminate use of agents and select the simplest pattern that meets the business requirement.
+Avoid the indiscriminate use of agents and select the simplest pattern that satisfies the business requirement.
 
 ## Matriz principal
 
-| Necessidade | Preferential standard | When to Avoid |
+| Necessidade | Preferential pattern | Quando evitar |
 |---|---|---|
-| Corporate content response | RAG | when deterministic rules resolve |
-| Updated and cited content | Search + RAG | where the source has no governance or ACL |
-| Specific behaviour and style | Prompt + few-shot | When the problem is lack of knowledge |
-| Stable specialised knowledge | Fine-tuning | When data changes frequently |
-| Foreseeable and auditable process | Deterministic workflow | When stages need to be dynamically discovered |
-| Dynamic selection of steps | Agent | When there is no real need for autonomy |
-| Standardised access to tools | MCP | when a single API is sufficient |
-| Reduction of latency and cost | Cache | where data is sensitive, volatile or personalized |
-| Temporary context of the conversation | Short-term memory | where there is no consent or purpose |
-| Persistent preferences | Long-term memory | when the data can be retrieved from the official source |
-| Multiple providers/models | Model Gateway + Router | where there is only one approved and stable model |
-| Complex task with separate domains | Multi-agent | When a single agent with tools solves |
+| Corporate content response | RAG | when deterministic rules solve |
+| Updated and cytable content | Search + RAG | when the source has no governance or ACL |
+| Specific behavior and style | Prompt + few-shot | when the problem is lack of knowledge |
+| Stable expertise | Fine-tuning | when the data change frequently |
+| Foreseeable and auditable process | Deterministic workflow | when steps need to be dynamically discovered, the study aims to analyze the dynamics of these steps. |
+| Dynamic choice of steps | Agent | when there is no real need for autonomy, there is a need for the study of the students. |
+| Standard access to tools | MCP | when a simple and exclusive PIA is sufficient |
+| Latency reduction and cost reduction | Cache | when data are sensitive, volatile or customized |
+| Temporary conversation context | Short-term memory | Where there is no consent or purpose |
+| Persistent preferences | Long-term memory | when the data can be recovered from the official source |
+| Multiple providers/models | Model Gateway + Router | when there is only one approved and stable model, it is necessary to analyze the application of these models. |
+| Complex task with separate domains | Multi-agent | when a single agent with tools solves the problem, it is necessary to apply these tools. |
 
 ## Decision tree
 
@@ -40,30 +40,30 @@ flowchart TD
 
 ## RAG versus fine-tuning
 
-| Criterion of use | RAG | Fine-tuning |
+| Criteria | RAG | Fine-tuning |
 |---|---|---|
-| Updating of knowledge | rapidly | exige novo treino |
+| Updating of knowledge | rapid | exige novo treino |
 | Citations and traceability | forte | limitada |
-| Changes in behaviour | limitada | forte |
-| Private data | They're out of bounds. | may be incorporated into weights |
-| Custo inicial | menor | maior |
-| Operations | Index and intake | Training and registration pipeline |
+| Change in behaviour | limitada | forte |
+| Private data | ficam fora dos pesos | podem ser incorporados aos pesos |
+| Initial cost | menor | maior |
+| Operation | index and intake | pipeline de treino e registry |
 
-Use RAG for knowledge. Use fine-tuning for behavior, format or specialization that is not achieved by prompt and examples.
+Use RAG for knowledge; use fine-tuning for behavior, format or specialization that is not achieved by prompt and examples.
 
 ## Agent versus workflow
 
-Choose an agent only when there is real value in dynamically deciding which steps or tools to use. For regulated, financial or relevant side-effects processes, prefer explicit workflow, delimited transactions and human approval.
+Choose agent only when there is real value in deciding dynamically which steps or tools to use. For regulated, financial or relevant side effects processes, prefer explicit workflow, delimited transactions and human approval.
 
 ## Selection criteria
 
 The decision shall record:
 
-- a simpler functional and alternative requirement;
-- the level of risk and autonomy;
+- requisito funcional e alternativa mais simples;
+- level of risk and autonomy;
 - latency and volume;
-- custo esperado;
+- expected cost;
 - data and classification;
-- the need for explainability;
-- the evaluation strategy;
-- Fallback and rollback.
+- necessidade de explicabilidade;
+- assessment strategy;
+- fallback e rollback.

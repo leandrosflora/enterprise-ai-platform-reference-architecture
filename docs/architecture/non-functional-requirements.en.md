@@ -2,22 +2,22 @@
 
 ## Objective
 
-Set measurable goals for the design, testing, operation and governance of Enterprise AI Platform. SLOss are classified by **workload type**, not risk level.
+Defining measurable goals for design, testing, operation and governance of Enterprise AI Platform. The SLOs are classified by **tipo de workload**, not by risk level.
 
-## Workload classes
+## Classes de workload
 
-| Classe | Example | Recommended mode | SLOOther, of a width of not more than 600 mm |
+| Classe | Exemplo | Recommended way | P95 latency SLO |
 |---|---|---|---:|
-| `INTERACTIVE_SIMPLE` | Chat without RAG or tool | Synchronous | <= 5 s |
-| `INTERACTIVE_RAG` | Retrieval + generation | Synchronous or streaming | <= 8 s |
-| `INTERACTIVE_TOOL` | Consult the tool with no side effects | Synchronous | <= 15 s |
-| `TRANSACTIONAL_AGENT` | Human writing or approval tool | Asynchronous | Accept <= 2 s; conclusion by process |
-| `BATCH_INGESTION` | Intake and document indexation | Asynchronous | Defined by volume |
-| `BATCH_EVALUATION` | Assessment of datasets | Asynchronous | P95 <= 15 min for standard dataset |
+|  `INTERACTIVE_SIMPLE`  | Chat without RAG or tool | Synchronous | <= 5 s |
+|  `INTERACTIVE_RAG`  | Retrieval + generation | Synchronous or streaming | <= 8 s |
+|  `INTERACTIVE_TOOL`  | Refer to the tool without side effect | Synchronous | <= 15 s |
+|  `TRANSACTIONAL_AGENT`  | Writing tool or human approval | Asynchronous | Accept <= 2 s; conclusion according to process |
+|  `BATCH_INGESTION`  | Document management and indexing | Asynchronous | Definido por volume |
+|  `BATCH_EVALUATION`  | Evaluation of dates | Asynchronous | P95 <= 15 min for standard dates |
 
-Risk defines controls, approvals, and evidence. It doesn't artificially alter the latency class.
+Risk defines controls, approvals and evidence, and does not artificially alter the latency class.
 
-## Availability and continuity
+## Disponibilidade e continuidade
 
 | Capacity | Reference target |
 |---|---:|
@@ -25,95 +25,95 @@ Risk defines controls, approvals, and evidence. It doesn't artificially alter th
 | Agent Runtime | 99,9% mensal |
 | Policy Decision Point | 99,99% mensal |
 | Control plane | 99,5% mensal |
-| Publishing of events | 99.9% success rate |
-| Critical audit record | 99.99% success rate |
+| Publication of events | 99,9% de sucesso |
+| Critical audit record | 99,99% de sucesso |
 | RTO data plane | <= 2 h |
 | RPO metadados transacionais | <= 15 min |
 
 - critical services are multi-AZ;
-- the data plane uses the last valid policy when control plane is unavailable;
-- the absence of applicable policy results in `deny by default`;
+- the data plane uses the latest valid policy when the control plane is unavailable;
+- absence of applicable policy results in `deny by default`;
 - backups and restoration are tested at least every six months.
 
 ## Performance
 
 | Requisito | Meta |
 |---|---:|
-| Agent Gateway without external call | P95 <= 300 ms |
+| Agent Gateway sem chamada externa | P95 <= 300 ms |
 | Policy decision | P95 <= 100 ms |
 | Knowledge retrieval | P95 <= 2 s |
-| Model Gateway overhead | P95 <= 250 ms excluding the provider |
-| Reading tool execution | P95 <= 4 s, except for specific contract |
-| Acceptance of asynchronous operation | P95 <= 2 s |
+| Model Gateway overhead | P95 <= 250 ms, excluindo o provedor |
+| Tool execution de leitura | P95 < = 4 s, except for specific contract |
+| Acceptance of asynchronous surgery | P95 <= 2 s |
 
-Each tool contract sets its own timeout. The standard is 30s and can only be extended with justification.
+Each tool contract defines its own timeout, the standard is 30 s and can only be extended with justification.
 
 ## Escalabilidade
 
-- stateless components scale horizontally;
-- rows decouple input, evaluation, audit and billing;
-- Partition keys preserve assembly order;
-- autoscaling considers competition, latency, backlog and consumption of tokens;
-- limits per tenant prevent noisy neighbor;
-- capacity tests validate twice the expected peak.
+- componentes stateless escalam horizontalmente;
+- queues disattach intake, evaluation, audit and billing;
+- partition keys preserve aggregate ordering;
+- autoscaling considers competition, latency, backlog and token consumption;
+- limites por tenant impedem noisy neighbor;
+- capacity tests validate twice the predicted peak.
 
 ## Security
 
-- OIDC/OAuth2for human identities and workload identity for services;
-- RBAC combined with contextual policies by tenant, resource, data and risk;
-- mTLS or an equivalent mechanism between critical services;
-- Secrets in secret manager, never in repository or pipeline variables in clear;
-- encryption in transit and at rest;
-- egress allowlist for external providers;
-- the separation between control plane and data plane;
-- SAST, dependency scanning, secret scanning and image scanning in the pipeline.
+- ICDC/OAuth2 for human identities and workload identity for services;
+- RBAC combined with contextual policies by tenant, resource, given and risk;
+- mTLS or equivalent mechanism between critical services;
+- secrets in secret manager, never in repository or pipeline variables in clear;
+- cryptography in transit and at rest;
+- egress allowlist para provedores externos;
+- segregation between control plane and date plane;
+- SAST, dependency scanning, secret scanning e image scanning na pipeline.
 
 ## Data and LGPD
 
-- compulsory classification in documents, memory, events and traces;
-- data minimisation by default;
-- ACL per document and chunk in retrieval;
-- explicit TTL for memory;
-- Supported consultation, exclusion and anonymisation;
-- The data shall be stored in a format that is consistent with the requirements of this Regulation.
-- lineage and checksum for documents received;
-- quarantine and validation prior to indexation.
+- mandatory classification into documents, memory, events and traces;
+- Minimizing data by standard;
+- ACL por documento e chunk em retrieval;
+- Explicit TTL for memory;
+- consultation, exclusion and anonymization supported;
+- prompts and sensitive responses are not fully stored by pattern;
+- linhagem e checksum para documentos ingeridos;
+- quarantine and validation before indexing.
 
 ## Resilience
 
 | Mecanismo | Diretriz |
 |---|---|
-| Timeout | Shorter than the deadline for the top call. |
-| Retry | Only for transient errors and idle operations. |
-| Circuit breaker | Mandatory for external suppliers and tools. |
+| Timeout | Menor que o deadline da chamada superior. |
+| Retry | Only for transient errors and inadequate operations. |
+| Circuit breaker | Obligatory for providers and external tools. |
 | Bulkhead | Isolation by provider, tenant and critical tool. |
-| Fallback | Model, supplier or alternative flow approved. |
-| Impotence | Mandatory for side-effective commands and tool calls. |
-| Outbox | Mandatory for events arising from critical transactions. |
-| Graceful degradation | Partial response or asynchronous when safe. |
+| Fallback | Model, provider or alternative flow approved. |
+| Impotence | Obligatory for commands and tool calls with side effect. |
+| Outbox | Obligatory for critical transactions. |
+| Graceful degradation | Partial or asynchronous response when safe. |
 
 ## Observability
 
 - OpenTelemetry for traces, metrics and logs;
-- W3C Traces Context in HTTP and events;
-- `correlationId`for functional correlation;
-- The following information shall be provided in accordance with the provisions of this Regulation:
-- alerts linked to runbooks;
-- controlled cardinality; user IDs do not appear as metric labels.
+- W3C Trace Context in HTTP and events;
+- `correlationId` for functional correlation;
+- latency metrics, error, tokens, cost, retrieval, quality and policy denials;
+- alertas vinculados a runbooks;
+- controlled cardinality; User DIs do not appear as metric labels.
 
 ## FinOps
 
-- the cost assigned per tenant, unit, agent, version, model and environment;
-- the budget and quota per agent;
-- Alerts at 70%, 90% and 100%;
-- controlled locking or degradation when the limit is exceeded;
+- cost attributed by tenant, unit, agent, version, model and environment;
+- budget and quota per staff member;
+- alertas em 70%, 90% e 100%;
+- blocking or controlled degradation where the limit is exceeded;
 - comparison of cost and quality before changing the standard model;
-- Embedding, storage and tooling costs are included in the total cost.
+- embedding costs, storage and tools are included in the total cost.
 
 ## Auditabilidade
 
-- policy decisions record policy ID and version;
-- administrative changes are recorded before/after and justification;
+- policy decisions register policy ID and version;
+- administrative changes register actor, before/after and justification;
 - critical events use approved retention;
-- access to the audit logs themselves is also audited;
-- governance evidence is unchanged after publication.
+- Access to the audit logs is also audited;
+- evidences of governance are immutable after publication.

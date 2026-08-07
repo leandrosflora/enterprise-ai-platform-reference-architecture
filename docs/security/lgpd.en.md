@@ -8,7 +8,7 @@
 - Data Masking
 - Audit Trail
 
-## Rights of the holder
+## Direitos do Titular
 
 - Acesso
 - Correction
@@ -17,6 +17,6 @@
 
 ## IA
 
-- The risk assessment
-- Explanation where applicable
-- Control of exposure to personal data
+- Risk assessment
+- Explanability where applicable
+- Control of exposure of personal data

@@ -1,38 +1,38 @@
-# 9. Checklists of production
+# 9. Production checklists
 
 ## How to use
 
-Checklists are verification tools, not substitutes for analysis.Non-applicable items must be marked with a justification.Compulsory items that are not met require a formal blocking or exception with owner and validity.
+Checklists are verification instruments, not substitutes for analysis.Non-applicable items should be marked with justification.Compulsory items not met need formal block or exception with owner and validity.
 
 ## 1. Business readiness
 
 - [ ] problem and user are defined;
-- [ ] outcome and success metrics have been agreed;
-- [ ] there is a business owner;
+- [ ] outcome and success metrics were agreed;
+- [ ] there is business owner;
 - [ ] there is a technical owner;
-- [ ] the AI-free alternative has been considered;
-- [ ] the impact of incorrect responses has been analysed;
-- [ ] feedback process has been defined;
-- [ ] communication and adoption strategy exists;
+- [ ] a alternativa sem IA foi considerada;
+- [ ] impacto de respostas incorretas foi analisado;
+- [ ] feedback process was defined;
+- [ ] Communication strategy and adoption exists;
 - [ ] closure or deactivation criteria are defined.
 
 ## 2. Architecture readiness
 
 - [ ] context and containers are documented;
-- [ ] boundaries between control plane and data plane are explicit;
+- [ ] limits between control plane and date plane are explicit;
 - [ ] registration systems remain authoritative;
-- [ ] API contracts, events and tools are versioned;
-- [ ] agent versus workflow decision is recorded;
-- [ ] synchronicity and asynchronous processing are warranted;
+- [ ] API contracts, events and tools are borrowed;
+- [ ] agent versus workflow decision is registered;
+- [ ] synchrony and asynchronous processing are justified;
 - [ ] timeouts, retries and circuit breakers are defined;
-- [ ] impotence exists for side effects;
+- [ ] non-demographic effects exist for side effects;
 - [ ] fallback and controlled degradation have been designed;
 - [ ] ADRs cover relevant decisions;
-- [ ] dependencies and failure modes have been identified.
+- [ ] dependencies and failure modes were identified.
 
 ## 3. Identity and authorization
 
-- [ ] users are authenticated by an approved IDP;
+- [ ] users are authenticated by approved PPI;
 - [ ] workloads use their own identity;
 - [ ] tokens are validated by issuer, audience, validity and signature;
 - [ ] minimum scopes are defined;
@@ -40,87 +40,87 @@ Checklists are verification tools, not substitutes for analysis.Non-applicable i
 - [ ] tenant and subject are not freely chosen by the client;
 - [ ] access to agents, knowledge bases, memory and tools is independent;
 - [ ] service-to-service utiliza mecanismo aprovado;
-- [ ] privilege elevation has been tested;
-- [ ] revocation of access has been exercised.
+- [ ] elevation of privilege was tested;
+- [ ] withdrawal of access was exercised.
 
 ## 4. Data, RAG and memory
 
 - [ ] sources have owner and classification;
-- [ ] purpose of use is recorded;
-- [ ] intake pipeline uses quarantine;
+- [ ] purpose of use is registered;
+- [ ] pipeline for ingestion uses quarantine;
 - [ ] checksum and provenance are preserved;
 - [ ] malware, active content and indirect prompt injection are treated;
 - [ ] ACL is applied by document and chunk;
-- [ ] mandatory filters are not dependent on query text;
-- [ ] recovered content is treated as unreliable;
-- [ ] citations point to sources accessible to the user;
-- [ ] expiration and deletion remove content from retrieval;
+- [ ] mandatory filters do not depend on the text of the query;
+- [ ] content recovered is treated as unreliable;
+- [ ] citations point to accessible sources to the user;
+- [ ] expiration and exclusion remove retrieval content;
 - [ ] embeddings and chunking are versioned;
-- [ ] memory types are explicit;
-- [ ] maximum TTL is applied;
+- [ ] types of memory are explicit;
+- [ ] Maximum TTL is applied;
 - [ ] consent exists when required;
-- [ ] memory does not replace a recording system;
-- [ ] memory poisoning and cross-subject access were tested.
+- [ ] memory does not replace the recording system;
+- [ ] memory poisoning e acesso cross-subject foram testados.
 
-Consulte [Security of RAGand memory](../security/rag-memory-security.md).
+Consulte [AGR security and memory](../security/rag-memory-security.md).
 
 ## 5. Model and prompt readiness
 
-- [ ] the model is in the approved catalogue;
-- [ ] region and processing are policy-friendly;
-- [ ] the main prompt is versioned;
+- [ ] model is in the approved catalogue;
+- [ ] region and processing meet the policies;
+- [ ] main prompt is versioned;
 - [ ] parameters have limits;
 - [ ] input and output token limits are defined;
-- [ ] maximum cost per execution is controlled;
-- [ ] model fallback has been tested where applicable;
+- [ ] maximum cost per implementation is controlled;
+- [ ] model fallback was tested when applicable;
 - [ ] redaction and filters are configured;
-- [ ] change of model triggers reassessment;
-- [ ] dependency on ownership capacity was recorded.
+- [ ] model change triggers reassessment;
+- [ ] ownership capacity dependence was registered.
 
 ## 6. Tool and MCP readiness
 
 - [ ] tool has owner and version;
-- [ ] Entry and exit scheme is restrictive;
-- [ ] scopes are minimal;
-- [ ] read and write operations are distinguishable;
-- [ ] timeout and limits exist;
-- [ ] idempotence has been validated;
-- [ ] retries do not duplicate effects;
-- [ ] clearing or rollback has been defined;
+- [ ] entry and exit scheme is restrictive;
+- [ ] scopes are minimum;
+- [ ] reading and writing operations are distinguishable;
+- [ ] timeout e limites existem;
+- [ ] inequality was validated;
+- [ ] retries do not double effects;
+- [ ] compensation or rollback has been defined;
 - [ ] HITL exists for critical actions;
-- [ ] arguments are validated outside the template;
-- [ ] tool can be locked without knocking down the runtime;
-- [ ] audit records operation without exposing secrets.
+- [ ] arguments are validated outside the model;
+- [ ] tool can be blocked without breaking the runtime;
+- [ ] audit registers operation without exposing secrets.
 
 ## 7. Security and privacy
 
 - [ ] threat model is updated;
-- [ ] risk classification has been confirmed;
+- [ ] risk classification was confirmed;
 - [ ] secrets are not in the code or prompt;
-- [ ] sensitive data shall be minimised;
-- [ ] logs and traces have redaction;
-- [ ] retention and discard have been defined;
-- [ ] legal basis or justification for purpose has been examined;
-- [ ] leakage incidents have runbook;
-- [ ] dependencies and images have been verified;
+- [ ] sensitive data are minimized;
+- [ ] logs e traces possuem redaction;
+- [ ] retention and disposal were defined;
+- [ ] legal basis or justification for purpose was analysed;
+- [ ] incidentes de vazamento possuem runbook;
+- [ ] facilities and images were checked;
 - [ ] egress is controlled;
-- [ ] transit and rest encryption is applied;
-- [ ] Exceptions have compensating controls and expiration.
+- [ ] transit and rest cryptography is applied;
+- [ ] exceptions have compensating controls and expiration.
 
 ## 8. Evaluation readiness
 
-- [ ] dataset represents real cases and edge cases;
-- [ ] dataset and version are identified;
+- [ ] dataset represent real cases and edge cases;
+- [ ] dateset and version are identified;
 - [ ] baseline is defined;
-- [ ] the quality of the task is measured separately;
-- [ ] retrieval and groundedness are assessed separately;
-- [ ] prompt injection and leakage are part of the tests;
+- [ ] quality of the task is measured separately;
+- [ ] retrieval and groundedness are evaluated separately;
+- [ ] prompt injection e leakage fazem parte dos testes;
 - [ ] tool selection and arguments are evaluated;
 - [ ] performance and cost have thresholds;
-- [ ] regressions block risk-based release;
+- [ ] regressions block release according to risk;
 - [ ] results are reproducible;
 - [ ] production samples feed controlled review;
-- [ ] Human evaluation has consistent scope and criteria.
+- [ ] human assessment has consistent heading and criteria.
 
 ## 9. Observability and SRE
 
@@ -128,54 +128,54 @@ Consulte [Security of RAGand memory](../security/rag-memory-security.md).
 - [ ] agent, version, model, tenant and session are correlated;
 - [ ] success, latency, tokens and cost metrics exist;
 - [ ] policy denials are observable;
-- [ ] retrieval, memory and tools have spans;
-- [ ] logs do not store full prompts by default;
+- [ ] retrieval, memory e tools possuem spans;
+- [ ] logs do not store complete prompts per pattern;
 - [ ] SLO is defined by workload;
 - [ ] alerts have owner and expected action;
-- [ ] dashboards have been reviewed with the support team;
+- [ ] dashboards foram revisados com a equipe de suporte;
 - [ ] capacity has been tested;
-- [ ] critical dependencies have a circuit breaker or fallback;
+- [ ] critical dependencies have circuit breaker or fallback;
 - [ ] runbooks are accessible;
-- [ ] on-call and staging are defined;
+- [ ] on-call and scheduling are defined;
 - [ ] rollback foi exercitado.
 
 ## 10. FinOps readiness
 
 - [ ] costs have tags or dimensions per agent and tenant;
-- [ ] tokens and cost are measured by model;
-- [ ] monthly and daily budgets are defined;
+- [ ] tokens and costs are measured by model;
+- [ ] monthly and daily budget are defined;
 - [ ] quotas preventivas existem;
-- [ ] anomaly alerts are set;
-- [ ] cost per successful task is accompanied;
+- [ ] anomaly warnings are set;
+- [ ] cost per successful task is followed;
 - [ ] re-indexation and embeddings enter the cost model;
 - [ ] observability and shared infrastructure are considered;
-- [ ] showback or chargeback has been defined where necessary;
-- [ ] strategy to reduce cost without degrading quality was analysed.
+- [ ] showback or chargeback was defined when necessary;
+- [ ] strategy to reduce cost without degrading quality was analyzed.
 
 ## 11. Governance and release
 
-- [ ] the submitted version is frozen;
+- [ ] submitted version is frozen;
 - [ ] evidence corresponds to the published artifact;
-- [ ] decision-makers shall have the necessary authority and independence;
+- [ ] decision-makers have the necessary authority and independence;
 - [ ] approval conditions are verifiable;
 - [ ] approval is valid;
-- [ ] pipeline verifies decision before publication;
+- [ ] pipeline checks the decision before publication;
 - [ ] canary or progressive rollout is defined;
-- [ ] feature flags and kill switch exist where applicable;
-- [ ] release notice has been prepared;
+- [ ] feature flags and kill switch exist when applicable;
+- [ ] release communication has been prepared;
 - [ ] post-release review is scheduled;
-- [ ] reassessment triggers are set.
+- [ ] Re-evaluation triggers are defined.
 
 ## 12. Retirement readiness
 
-- [ ] consumers and users have been identified;
-- [ ] a migration or replacement plan exists;
+- [ ] consumers and users were identified;
+- [ ] the migration or replacement plan exists;
 - [ ] new invocations may be blocked;
-- [ ] credentials and scopes shall be revoked;
-- [ ] knowledge and memory shall have an appropriate purpose;
-- [ ] audit evidence shall be retained in accordance with policy;
+- [ ] credentials and scopes will be withdrawn;
+- [ ] knowledge and memory will have adequate destination;
+- [ ] audit evidence will be retained according to policy;
 - [ ] budgets, dashboards and alerts will be closed;
-- [ ] documentation and catalogue shall be updated;
+- [ ] documentation and catalogue will be updated;
 - [ ] owner approved the withdrawal.
 
 ## Release decision record
@@ -207,18 +207,18 @@ owners:
 
 ## Definition of done for a published version
 
-A version is ready when:
+One version is ready when:
 
-- deliver measurable value;
-- has a known risk and controls applied;
-- can be observed and sustained;
-- tem custo controlado;
+- delivery measurable value;
+- has known risk and applied controls;
+- pode ser observada e suportada;
+- has a controlled cost;
 - may be reversed, suspended and withdrawn;
-- has evidence to explain why it was published.
+- it has evidence that allows to explain why it has been published.
 
-## Next to materials
+## Further materials
 
-- [Glossary of terms](glossary.md)
+- [Glossary](glossary.md)
 - [Runbooks](../runbooks/onboarding-agent.md)
 - [AI Risk Framework](../governance/ai-risk-framework.md)
 - [Non-functional requirements](../architecture/non-functional-requirements.md)

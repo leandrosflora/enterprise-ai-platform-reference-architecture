@@ -1,23 +1,23 @@
 # Documentation
 
-This folder contains the **Enterprise AI Platform Reference Book** and the artifacts that support organizations in designing and implementing their own corporate AI platforms.
+This paste contains the **Enterprise AI Platform Reference Book** and the artifacts that support organizations in the design and implementation of their own corporate AI platforms.
 
-Content is a documentary and architectural reference. It does not deliver a ready platform, does not define a mandatory implementation, and does not replace specific infrastructure, security, sizing or compliance decisions.
+The content is a documental and architectural reference, it does not deliver a ready platform, does not define a mandatory implementation and does not replace specific decisions on infrastructure, security, sizing or compliance.
 
-## Start with the book.
+## Comece pelo book
 
-1. [Book entry](book/index.md)
-2. [Why one ?AI Platform?](book/01-why-ai-platform.md)
+1. [Entrada do livro](book/index.md)
+2. [Por que uma AI Platform?](book/01-why-ai-platform.md)
 3. [Capability Map](book/02-capability-map.md)
 4. [Operating Model](book/03-operating-model.md)
 5. [Life cycle of agents](book/04-agent-lifecycle.md)
 6. [Case study of a documentary agent](book/05-case-study-document-agent.md)
 7. [Decision Guides](book/06-decision-guides.md)
 8. [Roadmap for adoption](book/07-adoption-roadmap.md)
-9. [Checklists of production](book/08-production-checklists.md)
-10. [Glossary of terms](book/glossary.md)
+9. [Production Checklists](book/08-production-checklists.md)
+10. [Glossary](book/glossary.md)
 
-## Estrutura
+## Structure
 
 ```text
 book/                     Narrativa, operating model, casos, decisões e checklists
@@ -38,35 +38,35 @@ roadmap/                  Sequenciamento recomendado para implementação
 
 ## Relationship between book and artifacts
 
-- The book explains problem, decision, trade-offs, operating model and success criteria.
-- The reference architecture defines contracts, policies, capabilities, events and procedures that can guide different implementations.
-- The technical sample shall demonstrate parts of the controls in an executable manner to validate the documentation.
+- O **book** explains problem, decision, trade-offs, operating model and success criteria.
+- A **reference architecture** defines contracts, policies, capabilities, events and procedures that can guide different implementations.
+- A **technical sample** demonstrates parts of the controls in an execuble way to validate the documentation.
 
-The technical sample does not represent a recommended physical architecture or a ready-to-produce platform.
+The technical sample does not represent a recommended physical architecture or a platform ready for production.
 
-Editorial content may not redefine enums, envelopes, policies or goals other than canonical sources.
+The editorial content cannot redefine enums, envelopes, policies or goals different from canonical sources.
 
-## Canonical sources
+## Canon sources
 
-| Assunto | The Commission shall adopt implementing acts in accordance with Article 2 of this Regulation. |
+| Subject matter | Source |
 |---|---|
-| APIs HTTP | [`contracts/openapi.yaml`](contracts/openapi.yaml) |
-| Events | [`contracts/async-api.yaml`](contracts/async-api.yaml) |
-| Events conventions | [`contracts/events.md`](contracts/events.md) |
-| SLOs | [`architecture/non-functional-requirements.md`](architecture/non-functional-requirements.md) |
-| Risk controls | [`governance/ai-risk-framework.md`](governance/ai-risk-framework.md) |
-| Authorization | [`security/authorization.md`](security/authorization.md) |
-| RAG security and memory | [`security/rag-memory-security.md`](security/rag-memory-security.md) + [`../policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml) |
+| APIs HTTP |  [`contracts/openapi.yaml`](contracts/openapi.yaml)  |
+| Events |  [`contracts/async-api.yaml`](contracts/async-api.yaml)  |
+| Event conventions |  [`contracts/events.md`](contracts/events.md)  |
+| SLOs |  [`architecture/non-functional-requirements.md`](architecture/non-functional-requirements.md)  |
+| Risk controls |  [`governance/ai-risk-framework.md`](governance/ai-risk-framework.md)  |
+| Authorisation |  [`security/authorization.md`](security/authorization.md)  |
+| AGR security and memory |  [`security/rag-memory-security.md`](security/rag-memory-security.md) + [`../policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml)  |
 
 ## Architecture
 
 - [C4 Context](architecture/diagrams/c4-context.puml)
 - [C4 Container](architecture/diagrams/c4-container.puml)
 - [C4 Deployment](architecture/diagrams/c4-deployment.puml)
-- [Control planeand data plane](architecture/control-plane-data-plane.md)
+- [Control plane e data plane](architecture/control-plane-data-plane.md)
 - [Event Storming](architecture/diagrams/event-storming.md)
 
-## Reference capacities and services
+## Capacities and reference services
 
 - [Agent Gateway](services/agent-gateway.md)
 - [Agent Runtime](services/agent-runtime.md)
@@ -80,15 +80,15 @@ Editorial content may not redefine enums, envelopes, policies or goals other tha
 - [Audit Service](services/audit-service.md)
 - [Billing Service](services/billing-service.md)
 
-These names represent architectural responsibilities, and they don't require each capability to be deployed as an independent microservices.
+These names represent architectural responsibilities, and they do not require each capacity to be implemented as an independent micro-service.
 
 ## Reference operation
 
-- [Onboarding agent](runbooks/onboarding-agent.md)
+- [Onboarding of agent](runbooks/onboarding-agent.md)
 - [Onboarding MCP](runbooks/onboarding-mcp.md)
-- [Invocation troubleshooting](runbooks/troubleshooting-agent-invocation.md)
+- [Troubleshooting of invocation](runbooks/troubleshooting-agent-invocation.md)
 
-## Generating the book
+## Gerar o book
 
 At the root of the repository:
 
@@ -97,7 +97,7 @@ python scripts/build_book.py --check
 python scripts/build_book.py
 ```
 
-PDF is automatically generated by the `.github/workflows/book.yml` workflow using Pandoc and WeasyPrint.
+The PDF is automatically generated by the workflow `.github/workflows/book.yml` usando Pandoc e WeasyPrint.
 
 ## Validation
 

@@ -1,19 +1,19 @@
 # Governance Service
 
-## General view
+## Overview
 
-Governance Service centralizes the approval, publication, risk control and compliance cycle of AI agents and solutions on the platform.
+The Governance Service centralizes the cycle of approval, publication, risk control and compliance of the platform's AI agents and solutions.
 
 ## Responsabilidades
 
-- Manage the approval flow of agents
+- Management of approval flows for agents
 - Implementing corporate AI policies
 - Registering risk assessments
-- Monitoring the publication, suspension and retirement of agents
-- Integrating AI Evaluation results into the decision-making process
-- Maintaining an auditable decision track
+- Controlling publication, suspension and retirement of officials
+- Integrating IA Evaluation results to the decision-making process
+- Keep audible decision track
 
-## Life cycle of the agent
+## Lifecycle of the Agent
 
 ```text
 Draft
@@ -35,46 +35,46 @@ Retired
 
 ## APIs
 
-### Submitting Agent for Approval
+### Submeter Agent for Approval
 
 ```http
 POST /governance/agents/{agentId}/submit
 ```
 
-### Approve version
+### Approval Version
 
 ```http
 POST /governance/agents/{agentId}/versions/{version}/approve
 ```
 
-### Rejected Version
+### Reject Version
 
 ```http
 POST /governance/agents/{agentId}/versions/{version}/reject
 ```
 
-## Criteria for approval
+## Approval Criteria
 
-| Criterion of use | Other information |
+| Criteria | Description |
 |---|---|
 | Security | Authentication, authorisation, secrecy and data exposure |
-| LGPD | Processing of personal data and sensitive data |
-| Risk of AI | Allucination, bias, explainability and operational impact |
+| LGPD | Processing of personal and sensitive data |
+| Risk of AI | Hallucination, bias, explanability and operational impact |
 | Observability | Logs, metrics, traces and audit |
 | Costs | Model, expected volume and consumption limit |
-| Qualidade | Minimum result in defined assessments |
+| Quality | Minimum result in the defined assessments |
 
 ## Dependencies
 
 | Dependence | Uso |
 |---|---|
-| Agent Registry | Reviewing metadata and versions |
-| Evaluation Service | See the results of the evaluation |
-| Audit Service | Registering decisions |
-| PostgreSQL | Persistent workflows and opinions |
-| Kafka | Publishing governance events |
+| Agent Registry | Refer to metadata and versions |
+| Evaluation Service | Refer to assessment results |
+| Audit Service | Register decisions |
+| PostgreSQL | Persistir workflows e pareceres |
+| Kafka | Publicating governance events |
 
-## Events Published
+## Publicated events
 
 - `governance.approved`
 - `governance.rejected`
@@ -86,11 +86,11 @@ POST /governance/agents/{agentId}/versions/{version}/reject
 | Requisito | Diretriz |
 |---|---|
 | Auditoria | All decisions must be traceable |
-| Separation | Roles distinct for creator, authorising officer and operator |
-| Conformidade | Keeping evidence of approval |
-| Security | Apply RBAC by domain, area and critical |
+| Segregation | Different papers for creator, approver and operator |
+| Conformidade | Store evidence of approval |
+| Security | Applying RBAC by domain, area and criticality |
 | Escalabilidade | Support multiple areas and approval treadmills |
 
 ## Related Decisions
 
-- [ADR-007  Hybrid and continuous assessment of AI](../adrs/007-evaluation-strategy.md)
+- [ADR-007 — Hybrid and continuous AI assessment](../adrs/007-evaluation-strategy.md)

@@ -1,8 +1,8 @@
-# Example - Trace of execution
+# Example - Implementation Trace
 
 ## Objective
 
-Example of end-to-end traceability for an agent invoking.
+Example of tip-to-end traceability for agent invocation.
 
 ```text
 traceId: trace-001
@@ -42,12 +42,12 @@ spans:
       relevanceScore: 0.88
 ```
 
-## Application of this Regulation
+## Implementation
 
-The trace makes it possible to diagnose:
+O trace permite diagnosticar:
 
-- Latent by component
-- Use of tokens
+- Latency per component
+- Consumo de tokens
 - Quality of response
-- Failure to integrate
-- Other, not further worked than hot-rolled
+- Integration failures
+- Gargalos de retrieval

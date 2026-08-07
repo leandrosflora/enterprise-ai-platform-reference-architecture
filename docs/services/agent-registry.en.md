@@ -2,16 +2,16 @@
 
 ## Responsabilidades
 
-- Catalogue of agents
+- Catalogue of officials
 - Versionamento
 - Publication
 - Metadados
 - Ownership
 
-## Stored data
+## Storage Data
 
 - Nome
-- This is the version.
+- Version
 - Owner
 - Tags
 - Status

@@ -2,7 +2,7 @@
 
 ## Objective
 
-Control the life cycle, approval, risk and compliance of AI solutions.
+Controlling the life cycle, approval, risk and compliance of AI solutions.
 
 ## Capacities
 
@@ -13,7 +13,7 @@ Control the life cycle, approval, risk and compliance of AI solutions.
 - Policy Enforcement
 - Evidence Management
 
-## Other services
+## Related Services
 
 - Governance Service
 - Evaluation Service
@@ -29,17 +29,17 @@ Control the life cycle, approval, risk and compliance of AI solutions.
 
 ## KPIs
 
-| Indicador | Other information |
+| Indicador | Description |
 |---|---|
-| Approved Agents | Approved agents |
-| Rejected Agents | Rejected agents |
-| Review Lead Time | Average time of approval |
-| High Risk Agents | Agents classified as high risk |
+| Approved Agents | Approved staff |
+| Rejected Agents | Agents rejected |
+| Review Lead Time | Mean time of approval |
+| High Risk Agents | Agents classified as high-risk |
 
 ## Non-functional requirements
 
-- Separation of functions
+- Segregation of functions
 - Traceable approval
-- Persistent evidence
+- Persisted evidence
 - Integration with automatic evaluation
 - Complete history of decisions

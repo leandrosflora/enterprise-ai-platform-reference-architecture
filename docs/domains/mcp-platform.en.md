@@ -2,7 +2,7 @@
 
 ## Objective
 
-Standardize the exposure, discovery, governance and execution of corporate tools by agents.
+Standardizing the exposure, discovery, governance and execution of corporate tools by agents.
 
 ## Capacities
 
@@ -13,7 +13,7 @@ Standardize the exposure, discovery, governance and execution of corporate tools
 - Tool Authorization
 - Tool Auditing
 
-## Other services
+## Related Services
 
 - MCP Registry
 - Agent Runtime
@@ -26,17 +26,17 @@ Standardize the exposure, discovery, governance and execution of corporate tools
 
 ## KPIs
 
-| Indicador | Other information |
+| Indicador | Description |
 |---|---|
 | Registered Tools | Tools available in the catalogue |
-| Tool Calls | Execution of tools |
-| Tool Error Rate | Error rate per tool |
-| Tool Latency P95 | 95 per cent latency per tool |
+| Tool Calls | Implementation of tools |
+| Tool Error Rate | Tool error rate |
+| Tool Latency P95 | 95th per tool latency |
 
 ## Non-functional requirements
 
-- Versions of contracts
-- Authorisation by tool
+- Contratos versionados
+- Tool authorisation
 - Compulsory audit
-- Timeout and circuit breaker
+- Timeout e circuit breaker
 - Exposure control of corporate systems

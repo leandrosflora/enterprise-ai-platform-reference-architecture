@@ -2,7 +2,7 @@
 
 ## Objective
 
-Provide enterprise knowledge input, indexing and retrieval for RAG solutions.
+Providing corporate intake, indexing and recovery of knowledge for RAG solutions.
 
 ## Capacities
 
@@ -14,7 +14,7 @@ Provide enterprise knowledge input, indexing and retrieval for RAG solutions.
 - Hybrid Search
 - Citation Management
 
-## Other services
+## Related Services
 
 - Knowledge Service
 - Evaluation Service
@@ -28,18 +28,18 @@ Provide enterprise knowledge input, indexing and retrieval for RAG solutions.
 
 ## KPIs
 
-| Indicador | Other information |
+| Indicador | Description |
 |---|---|
-| Retrieval Accuracy | Quality of recovered excerpts |
-| Groundedness | Adherence of the response to sources |
-| Indexing Latency | Time to index documents |
-| Search Latency | Time of response of searches |
-| Documents Indexed | Volume of indexed documents |
+| Retrieval Accuracy | Quality of the retrieved fragments |
+| Groundedness | Adherence of response to sources |
+| Indexing Latency | Tempo para indexar documentos |
+| Search Latency | Tempo de resposta das buscas |
+| Documents Indexed | Volume de documentos indexados |
 
 ## Non-functional requirements
 
 - Filters by domain and classification
-- Traceability of source
+- Source traceability
 - Controlled re-indexation
 - Support for multiple knowledge bases
-- Knowledge-based access control
+- Access control by knowledge base

@@ -1,26 +1,26 @@
 # Knowledge Service
 
-## General view
+## Overview
 
-Knowledge Service ingests, classifies, quarantines, indexes and retrieves corporate knowledge for RAG flows. Security is applied by document and by chunk; the service never relies on retrieved content as instruction.
+The Knowledge Service ingests, classifies, put in quarantine, indexes and retrieves corporate knowledge for RAG flows.Security is applied by document and by chunk; the service never trusts the content retrieved as instruction.
 
-Mandatory standard: [Security of RAGand Memory](../security/rag-memory-security.md).
+Compulsory standard: [RAG Security and Memory](../security/rag-memory-security.md).
 
 ## Responsabilidades
 
-- validate type, size, checksum and origin;
-- run antivirus and active payload detection;
+- validar tipo, tamanho, checksum e origem;
+- execute antivirus and detection of active payload;
 - detectar indirect prompt injection;
-- keep documents in quarantine until approved;
-- extract text and metadata;
-- the spread of tenant, classification, ACL, purpose and retention to chunks;
-- generate embeddings and version the model used;
-- index content in aliases/indices isolated by tenant;
-- applying authorisation before and after the search;
-- return quotations with provenance and policy decision;
-- delete, re-index and invalidate old embeddings.
+- keep documents in quarantine until approval;
+- extrair texto e metadados;
+- spreading tenant, classification, ACL, purpose and retention for chunks;
+- generate embeddings and verify the model used;
+- index content in aliases/indexes isolated by tenant;
+- apply authorisation before and after the search;
+- return citations from and policy decision;
+- excluir, reindexar e invalidar embeddings antigos.
 
-## Injection pipeline
+## Ingestion Pipeline
 
 ```text
 Source
@@ -46,19 +46,19 @@ Embedding
 Indexing
 ```
 
-### Estados
+### States
 
-| State of origin | Significado |
+| State | Meaning |
 |---|---|
-| `QUEUED` | Request is accepted. |
-| `QUARANTINED` | Waiting for approval or blocked by control. |
-| `INGESTING` | Extraction and chunking in progress. |
-| `INDEXED` | Available for authorised retrieval. |
-| `FAILED` | Technical or policy failure not recoverable. |
+|  `QUEUED`  | Request accepted. |
+|  `QUARANTINED`  | Pending approval or blocked by control. |
+|  `INGESTING`  | Extraction and ongoing chunking. |
+|  `INDEXED`  | Available for authorised retrieval. |
+|  `FAILED`  | Technical or political failure cannot be recovered. |
 
-A `QUARANTINED` or expired document never participates in the search.
+Um documento `QUARANTINED` ou expirado nunca participa da busca.
 
-## Security of the document
+## Security contract of the document
 
 ```yaml
 documentId: policy-001
@@ -78,7 +78,7 @@ retentionPolicy:
   deletionMode: DELETE
 ```
 
-All chunks inherit the policy. Reducing the classification or expanding the ACL requires new approval and re-indexation.
+All the chunks inherit the policy. Reducing the classification or expanding ACL requires further approval and re-indexation.
 
 ## Retrieval seguro
 
@@ -96,16 +96,16 @@ Prompt-injection sanitization
 <untrusted_document> context
 ```
 
-### Rules
+### Regras
 
-- tenant and subject are derived from identity, not payload;
-- ACL is applied to the document and to the chunk;
-- the clearance shall be equal to or greater than the classification;
+- tenant and subject are derived from identity, not from payload;
+- ACL shall be applied to the document and the chunk;
+- clearance must be equal to or higher than the classification;
 - the purpose of the consultation must be authorised;
-- negative results are removed without revealing their existence;
-- the quote returns `policyDecisionId`, checksum and origin;
+- denied results are removed without revealing their existence;
+- the quotation returns to the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the study of the `policyDecisionId`, checksum e origem;
 - only authorised chunks may be sent to the model;
-- the recovered content is limited and does not change the system/developer instructions.
+- content retrieved is delimited and does not alter system/developer instructions.
 
 ## APIs
 
@@ -114,7 +114,7 @@ POST /v1/knowledge-bases/{knowledgeBaseId}/documents
 POST /v1/knowledge-bases/{knowledgeBaseId}:search
 ```
 
-## Events Published
+## Publicated events
 
 - `knowledge.ingested`
 - `knowledge.quarantined`
@@ -122,29 +122,29 @@ POST /v1/knowledge-bases/{knowledgeBaseId}:search
 - `document.deleted`
 - `embedding.generated`
 
-Events do not contain full text, they must contain IDs, classification, checksum, status and quarantine grounds.
+Events do not carry full text, and should contain DIs, classification, checksum, status and quarantine motives.
 
-## Exclusion and re-indexation
+## Exclusion and Re-indexation
 
-The deletion removes:
+Exclusion removes:
 
 1. documento original;
 2. chunks;
 3. embeddings;
 4. caches;
-5. references in derived datasets where applicable.
+5. references in derived datesets when applicable.
 
-The index must support removal by `documentId` and `tenantId`
+Re-indexation creates a new immutable version and invalidates the previous one. `documentId` e `tenantId`.
 
 ## Dependencies
 
 | Dependence | Uso |
 |---|---|
-| Object Storage | Originals quarantined and approved |
+| Object Storage | Originais em quarentena e aprovados |
 | Malware/DLP Scanner | Content analysis |
 | Policy Decision Point | ACL, purpose and classification |
-| OpenSearch | Vector search and hybrid search |
-| PostgreSQL | Metadata, origin and retention |
+| OpenSearch | Vector and hybrid search |
+| PostgreSQL | Half-data, provenance and retention |
 | Foundation Models | Embeddings aprovados |
 | Kafka | Auditable events |
 
@@ -152,14 +152,14 @@ The index must support removal by `documentId` and `tenantId`
 
 | Requisito | Diretriz |
 |---|---|
-| Security | Deny by default, ACL by chunk and quarantine-first |
+| Security | Deny by default, ACL por chunk e quarantine-first |
 | Privacidade | Minimization, retention and verifiable exclusion |
 | Rastreabilidade | Origin, checksum, version and policy decision |
-| Qualidade | Assess retrieval separately from generation |
-| Resilience | Impotent reprocessing and DLQ |
-| Escalabilidade | Asynchronous intake separate from consultation |
+| Quality | Evaluating retrieval separately from generation |
+| Resilience | Reprocessamento idempotente e DLQ |
+| Escalabilidade | Asynchronous separate consultation intake |
 
 ## Related Decisions
 
-- [ADR-005  Vector and hybrid search strategy](../adrs/005-vector-search-strategy.md)
-- [ADR-007  Hybrid and continuous assessment of AI](../adrs/007-evaluation-strategy.md)
+- [ADR-005 — Vector and hybrid search strategy](../adrs/005-vector-search-strategy.md)
+- [ADR-007 — Hybrid and continuous AI assessment](../adrs/007-evaluation-strategy.md)

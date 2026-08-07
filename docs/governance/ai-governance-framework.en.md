@@ -2,7 +2,7 @@
 
 ## Objective
 
-Defining how the organization decides, approves, publishes, monitors and withdraws AI solutions with clear responsibilities and auditable evidence.
+Defining how the organization decides, approves, publishes, monitors and removes AI solutions with clear responsibilities and auditory evidence.
 
 ## Operational model
 
@@ -18,112 +18,112 @@ flowchart LR
     H --> I[Reassessment or Retirement]
 ```
 
-## Decision structure
+## Decision-making structure
 
 | Papel | Responsabilidade |
 |---|---|
-| Business Owner | the purpose, benefit, impact and acceptance of residual risk; |
-| Product Owner | Backlog, metrics and user experience |
-| AI Architect | The Commission shall adopt delegated acts in accordance with the opinion of the Standing Committee on Planning and Development. |
-| Data Owner | quality, access, purpose and retention of data |
+| Business Owner | purpose, benefit, impact and acceptance of residual risk |
+| Product Owner | backlog, metrics and user experience |
+| AI Architect | standards, architecture, autonomy and integration |
+| Data Owner | quality, access, purpose and data retention |
 | Security | threat model, controls and incident response |
-| Privacy / DPO | LGPD, legal basis, minimisation and rights of the holder |
-| Legal / Compliance | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
-| Model Risk / Evaluation | the methodology, datasets, thresholds and independence of the assessment; |
-| Platform Team | guardrails, gateways, observability and policy code |
+| Privacy / DPO | LGPD, legal basis, minimization and rights of the holder |
+| Legal / Compliance | regulatory, contractual obligations and intellectual property |
+| Model Risk / Evaluation | methodology, datesets, thresholds and independence of assessment |
+| Platform Team | guardrails, gateways, observability and policy as code |
 | Operations | SLO, runbook, capacity, continuity and rollback |
 
-## Artefatos governados
+## Governed artifacts
 
-- AI use case, purpose and outcome card;
+- IA use case, purpose and Outcome Card;
 - Agent Card ou Model Card;
 - risk assessment;
-- architecture ADRs and model selection;
-- data sources, data contracts and lineage;
-- data sets, prompts, templates, embeddings, tools and versioned policies;
-- knowledge snapshot and release manifest;
-- the golden dataset and evaluation report;
-- threat model and privacy assessment;
+- Architectural ADRs and model selection;
+- data sources, date contracts and lineage;
+- datesets, prompts, models, embeddings, tools and versioned policies;
+- knowledge snapshot e release manifest;
+- golden dataset e evaluation report;
+- threat model e privacy assessment;
 - approvals, exceptions and residual risks;
-- dashboards, incidents and withdrawal plan.
+- dashboards, incidents and removal plane.
 
 The detailed lifecycle of these assets is in [Data, Model, Prompt and Knowledge Lifecycle](model-lifecycle.md).
 
 ## Gates
 
-| Gate | Entrada | Exit |
+| Gate | Entrada | Departure |
 |---|---|---|
-| Intake | Problem and sponsor | Registered case and defined owner |
-| Risk | Impact, data and autonomy | low to critical ratings |
-| Design | architecture and contracts | Defined ADRs and controls |
-| Assurance | Security, privacy, legal and evaluation | Evidence and pending |
-| Release | readiness operacional | approved and unchanging version |
-| Operate | telemetry and feedback | monitoring and corrective actions |
-| Retire | closing decision | Withdrawn access, processed data and preserved evidence |
+| Intake | problema e sponsor | caso registrado e owner definido |
+| Risk | impact, data and autonomy | LOW to CRITICAL classification |
+| Design | architecture and contracts | ADRs and defined controls |
+| Assurance | security, privacy, legal e evaluation | Evidence and pending |
+| Release | readiness operacional | approved and unchanged version |
+| Operate | telemetria e feedback | monitoring and corrective actions |
+| Retire | closure decision | revoked access, data processed and preserved evidence |
 
-## Alignment to frameworks
+## Alinhamento a frameworks
 
-| Reference | Application of this Regulation |
+| Reference | Implementation |
 |---|---|
-| NIST AI RMF | Governance, Map, Measure and Manage as a Risk Cycle |
+| NIST AI RMF | Govern, Map, Measure and Manage as a risk cycle |
 | ISO/IEC 42001 | AI management system, roles, controls and continuous improvement |
-| ISO 27001 | information security controls |
-| LGPD | purpose, necessity, transparency, security and rights of the holder |
-| EU AI Act | risk classification and proportional liabilities where applicable |
-| OWASP LLM | threat model and security tests for applications with LLM |
+| ISO 27001 | Information security controls |
+| LGPD | purpose, need, transparency, security and rights of the holder |
+| EU AI Act | risk classification and proportional obligations where applicable |
+| OWASP LLM | threat model and safety tests for LLM applications |
 
-The operational traceability between control, regulatory function, evidence, owner, gate and enforcement is in the[Crosswalk of governance, risk and compliance](compliance-crosswalk.md).
+The relationship above is conceptual, and the operational traceability between control, normative function, evidence, owner, gate and enforcement is in the [Crosswalk of Governance, Risk and Compliance](compliance-crosswalk.md).
 
-## Traceability of control
+## Rastreabilidade de controle
 
 Each applicable control shall have:
 
-- a stable identifier;
-- reference to the risk treated;
-- owner and approval authority where applicable;
-- the minimum evidence;
-- the gate at which it is checked;
-- automatic enforcement, human or hybrid;
-- the exception and expiry rule;
-- the effectiveness indicator.
+- stable identifier;
+- reference to the treated risk;
+- owner and approver where applicable;
+- minimum evidence;
+- gate where it is verified;
+- automatic, human or hybrid enforcement;
+- exception rule and expiration;
+- efficacy indicator.
 
-Documentation without evidence or enforcement is not considered enforced control.
+Documentation without evidence or enforcement is not considered implemented control.
 
 ## Exceptions
 
-Exceptions shall include:
+Exceptions must include:
 
-- unattended and justified checks;
+- control not met and justification;
 - residual risk and impact;
 - compensatory control;
-- the owner and independent authorising officer;
-- the period of validity;
-- the condition of revocation;
+- owner e aprovador independente;
+- prazo de validade;
+- condition of withdrawal;
 - evidence and traceable ticket.
 
 Exception without expiry date is invalid.
 
-## Policy codes
+## Policy as code
 
-Automate targeted controls:
+Automate objective controls:
 
-- blocking an artifact without owner or classification;
-- prevent an unapproved model, source or tool;
+- blocking artifact without owner or classification;
+- prevent a model, source or tool from being approved;
 - require assessment and thresholds by risk level;
 - validate function segregation;
-- apply budgets, quotas and autonomy limits;
-- keep published versions unchanged;
-- Denying by default when there's no politics.
+- aplicar budgets, quotas e limites de autonomia;
+- maintain unchanged published versions;
+- denying by pattern when there is no policy.
 
 ## Governance indicators
 
-- time of approval by risk level;
-- percentage of solutions with full evidence;
-- coverage of crosswalk controls;
-- automated or manual controls;
-- open and expired exceptions;
-- Regressions and incidents per version;
-- evaluation coverage and networking;
-- rollback or deactivation time;
-- percentage of models, prompts and off-the-shelf tools;
-- cost per use case and per completed task.
+- approval time by risk level;
+- percentage of solutions with complete evidence;
+- crosswalk control coverage;
+- automated versus manual controls;
+- exceptions opened and expired;
+- regressions and incidents per version;
+- assessment coverage and red-team;
+- time for rollback or deactivation;
+- percentage of models, prompts and tools out of the standard;
+- cost per case of use and per task completed.

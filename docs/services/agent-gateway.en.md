@@ -1,21 +1,21 @@
 # Agent Gateway
 
-## General view
+## Overview
 
-The Agent Gateway is the single point of entry for agent invocations, authenticates and authorises the call, applies rate limiting and routes the invocation to the Agent Runtime.
+The Agent Gateway is the only entry point for agent invocations. It authorizes and authorizes the call, applies rate limiting and routs the invocation to the Agent Runtime.
 
 ## Responsabilidades
 
-- Exposure of the API public call for agents
-- Authenticate requests via Identity Provider (OIDC)
-- Authorise access by agent and scope
-- Apply rate limiting and short-term cache
-- Routing the invocation to Agent Runtime
+- Exposing the public IPA for the invoking of officials
+- Authenticate requisitions via Identity Provider (OIDC)
+- Authorizing access by agent and scope
+- Applying short-term rate limiting and cache
+- Turning the invocation to the Agent Runtime
 
-## Out of scope
+## Fora de Escopo
 
-- Execution of the agent and orchestration of prompts, tools and memory
-- Assessment of the quality of response
+- Implementation of the agent and orchestration of prompts, tools and memory
+- Evaluation of response quality
 - Approval and life cycle of the agent
 
 ## API Principal
@@ -30,19 +30,19 @@ Authorization: Bearer <token>
 
 | Dependence | Uso |
 |---|---|
-| Identity Provider | Authentication and authorisation (OIDC) |
-| Agent Runtime | Routing the call |
-| Redis | Cache and rate limiting |
+| Identity Provider | Authentication and authorisation (ICO) |
+| Agent Runtime | Rotating of the invocation |
+| Redis | Cache e rate limiting |
 
 ## Non-functional requirements
 
 | Requisito | Diretriz |
 |---|---|
 | Latency | Minimum overhead before routing to Agent Runtime |
-| Security | Authentication and authorisation in all applications |
-| Escalabilidade | Horizontal scale by volume of invoices |
-| Resilience | Rate limiting to protect Agent Runtime against peaks |
+| Security | Authentication and authorisation in all requests |
+| Escalabilidade | Horizontal scale per volume of invocations |
+| Resilience | Rate limiting para proteger o Agent Runtime contra picos |
 
 ## Related Decisions
 
-- [ADR-004 — Agent Runtimewith a stable core and adapters](../adrs/004-agent-runtime-strategy.md)
+- [ADR-004 — Agent Runtime with stable core and adapters](../adrs/004-agent-runtime-strategy.md)

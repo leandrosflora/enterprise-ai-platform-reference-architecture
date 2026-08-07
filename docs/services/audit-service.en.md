@@ -1,31 +1,31 @@
 # Audit Service
 
-## General view
+## Overview
 
-Audit Service maintains the unchanging audit trail of the platform: use of agents, implementation of tools and governance decisions. It consumes events from virtually all other services and makes them available for compliance and research.
+The Audit Service maintains the immutable audit trail of the platform: use of agents, execution of tools and governance decisions. It consumes events of practically all other services and makes them available for conformity and research.
 
 ## Responsabilidades
 
-- Consuming events in all areas (agents, knowledge, memory, governance, evaluation)
-- Continuing the audit trail that is unchanging and researchable
-- Publish an audit confirmation event
-- Provide a consultation track for compliance and safety teams
-- To forward audit records to the Observability Stack
+- Consume events from all domains (agents, knowledge, memory, governance, evaluation)
+- Persist audit trail immutable and research
+- Publication of audit confirmation event
+- Available track for consultation by conformity and safety teams
+- Encaminhar registros de auditoria para o Observability Stack
 
-## Out of scope
+## Fora de Escopo
 
-- Decision approving or rejecting agents
-- Cost calculation (paper from theBilling Service)
-- Execution or evaluation of agents
+- Approval or rejection decision
+- Calculation of cost (Role of Billing Service)
+- Implementation or evaluation of staff
 
 ## Dependencies
 
 | Dependence | Uso |
 |---|---|
-| Kafka | Consume events from all platform domains |
-| Observability Stack | Publish logs and audit trails |
+| Kafka | Consumes events of all domains of the platform |
+| Observability Stack | Publica logs e trilhas de auditoria |
 
-## Events consumed
+## Consumption Events
 
 - `agent.created`, `agent.updated`, `agent.published`, `agent.retired`
 - `agent.invoked`, `tool.executed`
@@ -34,7 +34,7 @@ Audit Service maintains the unchanging audit trail of the platform: use of agent
 - `evaluation.started`, `evaluation.completed`
 - `governance.approved`, `governance.rejected`
 
-## Events Published
+## Publicated events
 
 - `audit.created`
 
@@ -42,7 +42,7 @@ Audit Service maintains the unchanging audit trail of the platform: use of agent
 
 | Requisito | Diretriz |
 |---|---|
-| Imutabilidade | Audit records may not be altered or deleted |
-| Retention | 5 years, according to the regulatory policy (see [docs/contracts/events.md](../contracts/events.md)) |
+| Imutabilidade | Audit records cannot be altered or erased |
+| Retention | 5 years, according to regulatory policy (see [docs/contracts/events.md](../contracts/events.md)) |
 | Disponibilidade | Event consumption cannot lose messages (DLQ per domain) |
-| Conformidade | Support research and reporting for LGPD and regulatory audits |
+| Conformidade | Supports investigation and reports for LGPD and regulatory audits |

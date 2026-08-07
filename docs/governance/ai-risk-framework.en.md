@@ -2,108 +2,108 @@
 
 ## Objective
 
-Classify AI risks, define proportional controls and establish verifiable evidence for publication and operation.
+To classify risks of AI, to define proportional controls and to establish verifiable evidence for publication and operation.
 
 ## Categorias
 
 | Categoria | Examples |
 |---|---|
-| Security | Prompt injection, tool abuse, exfiltration, excessive agency |
-| Privacy and compliance | LGPD, withholding, consent, international transfer. |
-| Operacional | Unavailability, failure of integration, degradation of the model. |
-| Model | Hallucination, bias, toxicity, regression and low explainability. |
-| Financeiro | Unexpected consumption, no quotas and chargeback. |
-| Reputacional | Inadequate answers and opaque decisions. |
+| Security | Prompt injection, tool abuse, exfiltration, excessive agency. |
+| Privacidade e compliance | LGPD, retention, consent, international transfer. |
+| Operacional | Unavailability, integration failures, model degradation. |
+| Model | Hallucination, bias, toxicity, regression and low explanability. |
+| Financeiro | Unexpected consumption, lack of quotas and chargeback. |
+| Reputacional | Inadequate responses and opaque decisions. |
 
 ## Classification
 
-| Level | Criterion of use |
+| Level | Criteria |
 |---|---|
 | LOW | Internal use, no sensitive data, no transactional action. |
-| MEDIUM | Internal/confidential data, RAG or human decision support. |
+| MEDIUM | Internal/confidential data, AGR or support for human decision. |
 | HIGH | Personal/sensitive data, writing tool or relevant operational impact. |
-| CRITICAL | Automated regulated decision, material impact on client, financial or legal. |
+| CRITICAL | Automated regulated decision, material impact on customer, financial or legal. |
 
 ## Risk matrix and controls
 
-| Risco | Standard severity | Compulsory checks | Evidence |
+| Risk | Standard severity | Compulsory controls | Evidence |
 |---|---:|---|---|
-| Direct/indirect prompt injection | HIGH | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. | Attack tests and lock logs |
-| Data leakage | CRITICAL | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EC) No 1069/2009. | isolation test and classification report |
-| Tool abuse | HIGH | The Commission will examine whether the measures are compatible with the internal market and whether they are compatible with the internal market. | The Commission shall adopt delegated acts in accordance with the opinion of the Standing Committee. |
-| Excessive agency | HIGH | The following information is provided for in the Annex to Implementing Regulation (EU) No 1303/2013.human-in-the-loop | Locking and rollback scenarios |
-| Hallucination | MEDIUM | RAG, quotes, groundedness, fallback | Data set and evaluation report |
-| Poisoned knowledge | HIGH | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1308/2013. | checksum, lineage and testing of malicious content |
-| Memory poisoning | HIGH | the origin of the facts, TTL, confirmation, isolation per user | Cross-contamination tests |
-| Bias | HIGH | the data set review, fairness where applicable, human review | Criteria and report |
-| Use of data without legal basis | CRITICAL | the purpose, minimisation, retention and approval of LGPD | DPIA/LIA where applicable |
-| Provider outage | MEDIUM | timeout, circuit breaker, bulkhead, fallback | Resilience test and runbook |
-| Custo inesperado | MEDIUM | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. | dashboard and limit test |
-| Lack of traceability | HIGH | traces context, audit trail, retention and policy version | audit trail and event |
-| The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation. | MEDIUM | Baseline, regression dataset and deployment gate | Comparative report |
-| Misappropriated access to KB | HIGH | ACL by document/chunk, ABAC and server-side filters | denied access test |
+| Direct/indirect prompt injection | HIGH | Instruction segmentation, content scanning, tool allowlist, adversarial evaluation | testes de ataque e logs de bloqueio |
+| Data leakage | CRITICAL | classification, masking, tenant isolation, DLP, output filtering | isolation test and classification report |
+| Tool abuse | HIGH | minimum scopes, policy enforcement, inadequacy, human approval | approved contract, authorisation matrix, events |
+| Excessive agency | HIGH | limites de autonomia, transaction boundary, human-in-the-loop | blockage and rollback scenarios |
+| Hallucination | MEDIUM | RAG, citations, groundedness, fallback | dateset and assessment report |
+| Poisoned knowledge | HIGH | provenance, quarantine, source approval, controlled re-indexation | checksum, lineage and malicious content test |
+| Memory poisoning | HIGH | origin of facts, TTL, confirmation, user isolation | cross-contamination tests |
+| Bias | HIGH | review of dateset, fairness where applicable, human review | Criteria and report |
+| Uso de dado sem base legal | CRITICAL | purpose, minimisation, retention and approval LGPD | IAD/ALI when applicable |
+| Provider outage | MEDIUM | timeout, circuit breaker, bulkhead, fallback | resilience test and runbook |
+| Unexpected cost | MEDIUM | quotas, budgets, rate limits, alertas e bloqueio | dashboard e teste de limite |
+| Falta de rastreabilidade | HIGH | trace context, audit trail, retention and policy version | trace e evento de auditoria |
+| Quality requirement | MEDIUM | baseline, regression dataset e gate de deploy | comparative report |
+| Acesso indevido a KB | HIGH | ACL por documento/chunk, ABAC e filtros server-side | teste de acesso negado |
 
-## Controls by level
+## Level controls
 
 | Controle | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
-| Owner definido | Compulsory | Compulsory | Compulsory | Compulsory |
-| Automated assessment | Compulsory | Compulsory | Compulsory | Compulsory |
-| I'm not going to lie. | Opcional | Compulsory | Compulsory | Compulsory |
-| Security Review | Conforme escopo | Conforme escopo | Compulsory | Compulsory |
-| Revised .LGPD | According to data | According to data | Compulsory | Compulsory |
-| Legal and regulatory matters | No , it 's not . | Conforme escopo | Conforme escopo | Compulsory |
-| Auditoria | Basics | Completa | Completa | Complete + extended retention |
-| Human-in-the-loop | No , it 's not . | As an action | Mandatory for critical writing | Compulsory |
-| Rollback | Recommended | Recommended | Compulsory | Compulsory |
-| FinOps budget | Recommended | Compulsory | Compulsory | Compulsory + blocked |
+| Owner definido | Obligatory | Obligatory | Obligatory | Obligatory |
+| Automatic assessment | Obligatory | Obligatory | Obligatory | Obligatory |
+| AI Architect Review | Option | Obligatory | Obligatory | Obligatory |
+| Revisão Security | Conforme escopo | Conforme escopo | Obligatory | Obligatory |
+| LGPD Review | According to data | According to data | Obligatory | Obligatory |
+| Legal/Regulatory | No | Conforme escopo | Conforme escopo | Obligatory |
+| Auditoria | Basic | Completa | Completa | Complete + extended retention |
+| Human-in-the-loop | No | According to action | Obligation for critical writing | Obligatory |
+| Rollback | Recommended | Recommended | Obligatory | Obligatory |
+| FinOps budget | Recommended | Obligatory | Obligatory | Obligatory + blockade |
 
 ## Minimum evidence
 
 - Agent Card versionado;
-- risk assessment with justification;
-- the evaluation report is reproduced;
-- the security review and threat model of the use case;
-- LGPD review where there has been personal data;
-- the authorisation matrix;
-- Traces, dashboards and alerts;
-- budget and quotas;
-- rollback plan;
+- risk assessment com justificativa;
+- reproducible evaluation report;
+- security review e threat model do caso de uso;
+- LGPD review quando houver dado pessoal;
+- authorisation matrix;
+- traces, dashboards e alertas;
+- budget e quotas;
+- plano de rollback;
 - runbook operacional.
 
-## Publication gates
+## Publication banks
 
 | Gate | Condition |
 |---|---|
-| G1 — Design | Defined domain, contracts, data, dependencies and owner |
+| G1 — Design | domain, contracts, data, dependencies and owner defined |
 | G2 — Security/LGPD | approved classification, authorisation and threat model |
-| G3 — Evaluation | the thresholds of the use case reached |
-| G4 — Observability | validated telemetry and alerts |
-| G5 — FinOps | Budget, quota and allocation configured |
+| G3 — Evaluation | thresholds do caso de uso atingidos |
+| G4 — Observability | telemetria e alertas validados |
+| G5 — FinOps | budget, quota and allocation |
 | G6 — Operational readiness | runbook, capacity, backup and rollback tested |
-| G7 — Go-live | the function segregation and final approval recorded |
+| G7 — Go-live | Segregation of function and final approval recorded |
 
-## Quality thresholds
+## Quality Thresholds
 
-Thresholds are defined by use case and dataset.
+Thresholds are defined by case of use and dateset.
 
-| Other information | LOW | MEDIUM | HIGH | CRITICAL |
+| Metrics | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
-| Minimum groundedness for RAG | 0,80 | 0,85 | 0,90 | 0,95 |
+| Minimum Groundedness for AGR | 0,80 | 0,85 | 0,90 | 0,95 |
 | Minimum relevance | 0,75 | 0,80 | 0,85 | 0,90 |
-| Maximum hallucination risk | 0,15 | 0,10 | 0,05 | 0,03 |
-| Maximum toxicity | 0,05 | 0,03 | 0,02 | 0,01 |
+| Hallucination risk máximo | 0,15 | 0,10 | 0,05 | 0,03 |
+| Toxicity maximum | 0,05 | 0,03 | 0,02 | 0,01 |
 
-Latency is not a risk threshold. It follows the workload class defined in nonfunctional requirements.
+Latency is not a risk threshold, it follows the class of workload defined in non-functional requirements.
 
-## Policy codes
+## Policy as code
 
-Blocking controls shall be automated whenever possible:
+Blocking controls should be automated whenever possible:
 
-- agent without owner or risk cannot be submitted;
-- an unapproved tool cannot be linked;
-- a HIGH/CRITICAL agent without an approved dataset may not be published;
+- agent without owner or risk cannot be subjected to;
+- non-approved tool cannot be linked;
+- HIGH/CRITICAL agent without approved dates cannot be published;
 - budget ausente bloqueia MEDIUM ou superior;
-- the same identity cannot be submitted and approved;
-- the published version is unchanged;
-- The lack of policy results in `deny by default`.
+- the same identity may not submit and approve;
+- published version is unchangeable;
+- non-existent policy results in `deny by default`.

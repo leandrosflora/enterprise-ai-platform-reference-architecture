@@ -1,27 +1,27 @@
-# End-to-end examples: Agent + RAG + MCP
+# Examples End-to-End: Agent + RAG + MCP
 
-This document shows complete use flows of Enterprise AI Platform by combining agents, RAG, memory, tools MCP, evaluation, audit and FinOps.
+This document shows full flows of Enterprise AI Platform use combining agents, RAG, memory, MCP tools, assessment, audit and FinOps.
 
 ---
 
-## Example 1: Internal policy agent with RAG
+## Example 1: AGR Internal Policy Agent
 
 ### Objective
 
-Allow a user to consult approved corporate policies with cited, traceable responses.
+To allow a user to seek approved corporate policies with cited and traceable responses.
 
-### Components involved
+### Componentes envolvidos
 
-| Component | Papel |
+| Componente | Papel |
 |---|---|
-| AI Portal | Use interface and self-service. |
-| Agent Gateway | Single entry, authentication, authorization and rate limit. |
-| Agent Runtime | Orchestra prompt, memory,RAG, model and evaluation. |
-| Knowledge Service | Recover relevant documents and chunks. |
-| Foundation Model | It generates a response based on the context recovered. |
-| Evaluation Service | Assess groundedness, relevance and risk of hallucination. |
-| Audit Service | It records execution tracks. |
-| Billing Service | Allocate cost per agent/time. |
+| AI Portal | Interface de uso e autoatendimento. |
+| Agent Gateway | Single entry, authentication, authorisation and rate limit. |
+| Agent Runtime | The orchestra prompt, memory, RAG, model and evaluation. |
+| Knowledge Service | Recupera documentos e chunks relevantes. |
+| Foundation Model | It generates response based on the context recovered. |
+| Evaluation Service | Evaluates groundedness, relevance and risk of hallucination. |
+| Audit Service | Register the execution trail. |
+| Billing Service | It attributes cost per agent/time. |
 
 ### Agent Card
 
@@ -137,31 +137,31 @@ Content-Type: application/json
 
 ### Expected events
 
-| Event | Produtor | Consumidores |
+| Evento | Produtor | Consumidores |
 |---|---|---|
-| `agent.invoked` | Agent Runtime | Audit Service, Billing Service, Evaluation Service |
-| `tool.executed` | Agent Runtime | Audit Service, Billing Service |
-| `evaluation.completed` | Evaluation Service | Governance Service, Audit Service |
-| `audit.created` | Audit Service | Observability Stack |
+|  `agent.invoked`  | Agent Runtime | Audit Service, Billing Service, Evaluation Service |
+|  `tool.executed`  | Agent Runtime | Audit Service, Billing Service |
+|  `evaluation.completed`  | Evaluation Service | Governance Service, Audit Service |
+|  `audit.created`  | Audit Service | Observability Stack |
 
 ---
 
-## Example 2: Operating agent with MCP of Controlled Writing
+## Example 2: Operational Agent with Controlled Writing MCP
 
 ### Objective
 
-Allow an agent to assist a service operation by updating cases, but only with human permission and approval when necessary.
+To allow an agent to assist in a care operation updating cases, but only with authorization and human approval when necessary.
 
-### Components involved
+### Componentes envolvidos
 
-| Component | Papel |
+| Componente | Papel |
 |---|---|
-| Agent Runtime | It orchestrates the flow and implements policies. |
-| MCP Registry | Descobre ferramentas aprovadas. |
-| MCP Server | It exposes `case-update`. |
-| Corporate System | Operating system that stores cases. |
+| Agent Runtime | The orchestra flows and applies policies. |
+| MCP Registry | Discover approved tools. |
+| MCP Server | Exposes `case-update`. |
+| Corporate System | Operational system that stores cases. |
 | Governance Service | It defines policy as a high-risk tool. |
-| Audit Service | It records execution and decision. |
+| Audit Service | Register execution and decision. |
 
 ### Agent Card
 
@@ -245,7 +245,7 @@ humanApproval:
 }
 ```
 
-### Event .`tool.executed`
+### Evento `tool.executed`
 
 ```json
 {
@@ -275,11 +275,11 @@ humanApproval:
 
 ---
 
-## Example 3: Agent publishing pipeline
+## Example 3: Agent Publication Pipeline
 
 ### Objective
 
-To publish an agent only after validation of contracts, risk, security, evaluation, traceability and FinOps.
+Publicate an agent only after validation of contracts, risk, security, assessment, observability and FinOps.
 
 ### Flow
 
@@ -295,9 +295,9 @@ To publish an agent only after validation of contracts, risk, security, evaluati
 9. Agent Runtime passa a aceitar invocações da versão publicada.
 ```
 
-### Evidence of publication
+### Publication evidence
 
-| Evidence | Compulsory |
+| Evidence | Obligatory |
 |---|---:|
 | Agent Card | Sim |
 | OpenAPI/Tool contracts | Sim |
@@ -341,17 +341,17 @@ To publish an agent only after validation of contracts, risk, security, evaluati
 
 ---
 
-## End-to-end checklist
+## Checklist End-to-End
 
-| Item | Criterion of acceptance |
+| Item | Acceptance criteria |
 |---|---|
-| Agent Card | Define owner, version, risk, model, tools and KBs. |
-| OpenAPI | Documented endpoint with request, response, error and scope. |
-| MCP Contract | Tool with input/output schema, security, audit and runtime policy. |
-| Authorization | Defined role, scope, recourse and condition. |
-| Risk Controls | Risk mapped with control, evidence and owner. |
-| Observability | Complete strip with spans and mandatory attributes. |
-| Evaluation | Thresholds set and report approved. |
-| FinOps | Budget and cost attribution configured. |
-| Audit | This is the total number of registered events of `agent.invoked`, `tool.executed` and `audit.created`. |
-| Rollback | Defined process for removing agent or tool. |
+| Agent Card | It defines owner, version, risk, model, tools and KBs. |
+| OpenAPI | Endpoint documentado com request, response, erro e escopo. |
+| MCP Contract | Tool com input/output schema, security, audit e runtime policy. |
+| Authorization | Role, scope, resource and condition defined. |
+| Risk Controls | Risks mapped with control, evidence and owner. |
+| Observability | Complete trace with spans and mandatory attributes. |
+| Evaluation | Thresholds defined and approved report. |
+| FinOps | Budget e cost attribution configurados. |
+| Audit | Events `agent.invoked`, `tool.executed` e `audit.created` registrados. |
+| Rollback | Procedure defined to withdraw agent or tool. |

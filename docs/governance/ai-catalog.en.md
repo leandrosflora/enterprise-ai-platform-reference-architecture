@@ -1,8 +1,8 @@
 # AI Catalog
 
-## This is the list of companies.
+## Corporate Catalogue
 
-All agents must be registered.
+All officials shall be registered.
 
 ## Metadados
 
@@ -25,7 +25,7 @@ All agents must be registered.
 - Published
 - Retired
 
-## Objectives
+## Objetivos
 
 - Governance
 - Descoberta

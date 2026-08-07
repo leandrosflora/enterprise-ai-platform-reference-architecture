@@ -1,36 +1,36 @@
-# Runbook  Onboarding and Agent Publishing
+# Runbook — Onboarding and Agent Publication
 
 ## Objective
 
-Publish an agent version with validated contracts, risk, security, valuation, observability, budget and rollback.
+Publish a version of an agent with validated contracts, risk, safety, assessment, observability, budget and rollback.
 
-## Pre-requisites
+## Prerequisites
 
-- defined technical owner and business owner;
+- technical and business owner defined;
 - Agent Card versionado;
-- an approved evaluation dataset;
+- dates of approved evaluation;
 - knowledge bases and tools already registered;
-- defined budget and cost centre;
-- acesso `agent.write`, `governance.submit`and test permits.
+- budget and cost center defined;
+- acesso `agent.write`, `governance.submit` and test permits.
 
 ## Procedimento
 
-### Validate the Agent Card
+### 1. Validar o Agent Card
 
-This is mandatory:
+Obligatory:
 
-- `agentId`, name and version of SemVer;
+- `agentId`, name and version Without View;
 - owner and business unit;
-- the target, users and data used;
-- risco inicial;
-- capacity model policy, without provider credential;
-- tools and knowledge bases permitted;
-- the workload class and SLO;
-- the memory policy.
+- objective, users and data used;
+- risk;
+- model policy for capacity, without credential provider;
+- tools e knowledge bases permitidas;
+- classe de workload e SLO;
+- memory policy.
 
-**Exit criterion:** Valid scheme and no blocking field missing.
+**Exit criteria:** schema valid and no blocking field absent.
 
-### 2. Record the version in DRAFT
+### 2. Register the DRAFT version
 
 ```bash
 curl -sS -X POST http://localhost:8080/v1/agents \
@@ -39,39 +39,39 @@ curl -sS -X POST http://localhost:8080/v1/agents \
   -d @agent-card.json
 ```
 
-**Expected:** HTTP `201`, status `DRAFT` and `ETag`.
+**Esperado:** HTTP `201`, status `DRAFT` e `ETag`.
 
-### 3. Validation of dependencies
+### 3. Validating dependencies
 
-- all MCP contracts are approved;
-- KBs apply ACL per document/chunk;
-- the models requested are in the Model Catalogue;
-- Secrets and regions are approved;
-- The policy of `deny by default` has been implemented.
+- All MCP contracts are approved;
+- KBs aplicam ACL por documento/chunk;
+- models requested are in Model Catalog;
+- secrets and regions are approved;
+- Policy `deny by default` foi exercitada.
 
-### 4. carry out assessments
+### 4. Performing evaluations
 
 Executar ao menos:
 
 - regression;
-- groundedness/retrieval where there is RAG;
+- groundedness/retrieval quando houver RAG;
 - safety/adversarial;
-- the latency of the workload class;
+- latency of the workload class;
 - cost per scenario.
 
-**Exit criterion:** Reproducible report and thresholds reached.
+**Exit criteria:** reproducible report and thresholds achieved.
 
-### 5. Validate the observability
+### 5. Validating observability
 
-Run an invocation in a test environment and confirm:
+Perform an invocation in the test environment and confirm:
 
 - trace completo;
 - policy decision and version;
-- tokens and cost;
-- Events`agent.invoked`and dependencies;
-- No sensitive payload in logs.
+- tokens and costs;
+- events `agent.invoked` and requirements;
+- no payload sensitive in logs.
 
-### 6. Submitting to governance
+### 6. Submitting for governance
 
 ```bash
 curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:submit \
@@ -84,13 +84,13 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:submit \
   }'
 ```
 
-**Esperado:** HTTP `202`, decision `PENDING`.
+**Esperado:** HTTP `202`, Decision `PENDING`.
 
-### 7. Approval by functional segregation
+### 7. Approval with segregation of function
 
-The identity you submitted cannot be approved.
+The approver cannot approve the identity that he/she submitted. The approver validates the gates G1–G7.
 
-**Expected:** decision `APPROVED`, with `approvalId` and audit trail.
+**Esperado:** Decision `APPROVED`, com `approvalId` e trilha de auditoria.
 
 ### 8. Publicar
 
@@ -101,30 +101,30 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:publish \
   -d '{"approvalId":"apv-001","releaseNotes":"Primeira versão"}'
 ```
 
-**Expected:** HTTP `202`, status `PUBLISHED` and event `agent.published`.
+**Esperado:** HTTP `202`, status `PUBLISHED` e evento `agent.published`.
 
 ### 9. Smoke test
 
-- the authorised invocation returns the expected `SUCCESS` or `PARTIAL`;
-- the purposeless invocation returns `403`;
-- the tool not allowed returns `BLOCKED`;
+- authorised invocation returns `SUCCESS` ou `PARTIAL` esperado;
+- scopeless invocation returns `403`;
+- return `BLOCKED`;
 - dashboard shows latency, tokens and cost;
-- Test alerts are coming to the correct channel.
+- alertas de teste chegam ao canal correto.
 
 ## Rollback
 
-1. block new invocations of the version;
-2. restore the previously published version;
-3. invalidate the configuration cache and policies;
+1. blocking new invocations of the version;
+2. restore the previous published version;
+3. invalidate cache configuration and policies;
 4. desabilitar tools afetadas;
 5. preserve events, traces and evidence;
-6. Open an incident and file a lawsuit.
+6. abrir incidente e registrar causa.
 
 ## Erros comuns
 
 | Sintoma | Probable cause | Action |
 |---|---|---|
-| `409 Conflict` | version or idempotency key already used | Check the status before repeating |
-| `422 Policy Violation` | Evidence, budget or dependency absent | correct the indicated gate |
-| approved agent not publishing | approval ID does not match the version | Re-publishing with the correct decision |
-| `BLOCKED` in the appeal | policy bundle ausente ou desatualizado | validate distribution and policy version |
+|  `409 Conflict`  | version or idempotency key already used | check before repeating |
+|  `422 Policy Violation`  | evidence, budget or absent dependence | corrigir o gate indicado |
+| approved agent does not publish | approval ID does not match the version | re-make the publication with the correct decision |
+|  `BLOCKED` in the invocation | policy bundle ausente ou desatualizado | validate distribution and version of the policy |

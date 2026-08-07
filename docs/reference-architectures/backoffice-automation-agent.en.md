@@ -1,18 +1,18 @@
-# This is the total amount of assigned revenue in accordance with Article 21 (3) of the Financial Regulation.
+# Reference architecture - Backoffice Automation Agent
 
 ## Objective
 
-Automate repetitive backoffice operational tasks using agents with integration into internal systems, workflow and action governance.
+Automate repetitive operational backoffice tasks using agents integrated to internal systems, workflow and action governance.
 
-## Cases of use
+## Casos de Uso
 
-- Selection of requests
+- Screening of requests
 - Consultation and updating of internal systems
-- I support the challenge
+- Supporting contest
 - Preparation of documents
-- Assisted execution of operational tasks
+- Assisted implementation of operational tasks
 
-## Components involved
+## Componentes Envolvidos
 
 - Agent Gateway
 - Agent Runtime
@@ -24,27 +24,27 @@ Automate repetitive backoffice operational tasks using agents with integration i
 - Governance Service
 - Billing Service
 
-## High-level flow
+## High Level Flow
 
 1. Event or request starts the process.
 2. Agent Runtime interprets the objective and consults the context.
-3. MCP Server performs actions on authorised systems.
+3. MCP Server performs actions in authorised systems.
 4. Workflow receives status and next steps.
 5. Critical cases are sent for human review.
 6. Audit Service records decisions, commands and evidence.
 
 ## Controls
 
-- Idempotence for commands
+- Impotence for commands
 - Human approval for irreversible actions
-- Limit of autonomy by risk
-- Separation of functions
-- Compulsory auditing of tool calls
+- Limit of autonomy for risk
+- Segregation of functions
+- Mandatory audit of tool calls
 
-## The following information shall be provided:
+## Metrics
 
-- Time saved by process
-- Automated tasks volume
-- Operational error rate
+- Time saved by procedure
+- Volume de tarefas automatizadas
+- Taxa de erro operacional
 - Human intervention rate
-- Cost per process
+- Cost per procedure

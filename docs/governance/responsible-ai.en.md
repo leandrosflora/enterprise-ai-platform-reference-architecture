@@ -2,22 +2,22 @@
 
 ## Objective
 
-Defining principles, decisions, controls and evidence to ensure that AI solutions are fair, transparent, secure, reliable and supervised throughout the lifecycle.
+Defining principles, decisions, controls and evidence so that AI solutions are fair, transparent, safe, reliable and supervised throughout the life cycle.
 
 ## Principles
 
-| This is a principle. | Question on architecture | Expected evidence |
+| Principle | Architectural question | Expected evidence |
 |---|---|---|
-| Fairness | Does the system produce disproportionate impact between groups? | Metrics by segment, test dataset and mitigation plan |
-| Transparency | Does the user know that they're interacting with AI, and what are their limits? | Notice of use, Agent Card and published limitations |
-| Explicabilidade | Is it possible to justify answers or decisions? | The Commission considers that the Commission should take into account the fact that, in the light of the above, it is not possible to determine whether the aid is compatible with the internal market. |
-| Accountability | Is there someone responsible for risk, operation and outcome? | owner, approvers, RACI and decision record |
-| Privacidade | Does the use of data respect purpose, minimisation and retention? | Classification, legal basis, DPIA/LIA where applicable and TTL |
-| Security | Are inputs, context, memory, tools and exits treated as unreliable? | threat model, adverse testing and technical controls |
-| Robustez | Does the system degrade safely in the face of failures or changes? | The manufacturer shall ensure that the following conditions are met: |
-| Human supervision | Is the autonomy proportional to the impact? | human-in-the-loop, transaction limits and function segregation |
+| Fairness | Does the system produce disproportional impact between groups? | metrics per segment, test dates and mitigation plan |
+| Transparency | Do the user knows that he/she interacts with AI and what are his/her limits? | Notification of use, Agent Card and published limitations |
+| Explicabilidade | Is it possible to justify answers or decisions? | citations, relevant factors, rationale allowed and decision trail |
+| Accountability | Is there a person responsible for risk, operation and outcome? | owner, approvers, ICA and decision record |
+| Privacidade | Does data use respect purpose, minimization and retention? | classification, legal basis, IAD/ALI when applicable and TTL |
+| Security | Are inputs, context, memory, tools and outputs treated as unreliable? | threat model, adverse tests and technical controls |
+| Robustez | Does the system degrade safely in the face of failures or changes? | fallback, circuit breaker, resilience tests and rollback |
+| Human supervision | Is autonomy proportional to the impact? | human-in-the-loop, transactional limits and segregation of function |
 
-## Life cycle
+## Ciclo de vida
 
 ```mermaid
 flowchart LR
@@ -31,77 +31,77 @@ flowchart LR
     H --> I[Reavaliação ou retirada]
 ```
 
-## Requirements by stage
+## Requirements per stage
 
-### Discovery and design
+### Descoberta e design
 
-- define purpose, users, impact and limits of use;
-- classify risk and data;
+- define purpose, users, impact and use limits;
+- rating risk and data;
 - identificar grupos potencialmente afetados;
 - determine the maximum degree of autonomy;
-- registering alternatives that are not based on AI.
+- register alternatives not based on AI.
 
 ### Construction
 
 - use approved and traceable sources;
-- to publish prompts, templates, policies and datasets;
+- version prompts, models, policies and datesets;
 - separate reliable instructions from unreliable content;
-- apply minimisation, masking and access controls;
-- implement explanations proportionate to the use case.
+- applying minimisation, masking and access controls;
+- implement proportional explanations to the case of use.
 
-### Assessment
+### Evaluation
 
-- measuring quality, groundedness, safety, bias and robustness;
-- perform adverse and relevant segmental testing;
+- measure quality, groundedness, safety, bias and robustness;
+- executar testes adversariais e por segmentos relevantes;
 - compare against baseline and previous version;
 - require human review for HIGH and CRITICAL risks.
 
-### Operations
+### Operation
 
 - monitoring drift, regression, toxicity, incidents and cost;
-- record decisions and tool calls without exposing sensitive content;
-- maintain a challenge channel and human scale;
-- re-evaluate after a change in model, prompt, source or purpose.
+- register decisions and tool calls without exposing sensitive content;
+- maintaining a channel of contestation and human scheduling;
+- re-evaluate after model change, prompt, source or purpose.
 
-## Fairness and prejudice
+## Fairness and bias
 
-Fairness should only be assessed with attributes and segments that are legitimate for the context.
+Fairness should be assessed only with legitimate attributes and segments for the context.The removal of a sensitive attribute does not necessarily eliminate the bias, as proxies may remain.
 
 Minimum controls:
 
 1. define groups and metrics before the test;
-2. analyze disparities in accuracy, false positives and false negatives;
-3. review the representativeness and quality of data;
-4. document trade-offs between performance and equity;
-5. block publication when the residual impact is not accepted.
+2. analyze disparity of precision, false positives and false negatives;
+3. to review the representativeness and quality of data;
+4. documentar trade-offs entre performance e equidade;
+5. blocking publication when the residual impact is not accepted.
 
 ## Transparency for the user
 
-Each experience shall inform:
+All experience shall inform:
 
 - that there is AI involved;
 - which data are used;
 - which actions the system can perform;
 - known limitations;
 - how to request human review;
-- How to challenge or correct a decision.
+- how to contest or correct a decision.
 
 ## Human-in-the-loop
 
-| Impacto | Standard of supervision |
+| Impacto | Supervision pattern |
 |---|---|
 | Informativo | sampling review |
 | Recommendation | humano decide |
-| Reversible writing | explicit confirmation |
-| Critical writing | dual approval or function segregation |
-| Regulated decision | final human decision or specific legal control |
+| Reversible writing | Explicit confirmation |
+| Critical writing | Double approval or segregation of function |
+| Adjusted decision | final human decision or specific legal control |
 
 ## Compulsory evidence
 
 - Agent Card ou Model Card;
 - risk assessment;
-- data set and assessment report;
-- the authorisation matrix;
-- justification of the level of autonomy;
-- the recording of limitations and residual risks;
+- dateset and assessment report;
+- authorisation matrix;
+- justification for the level of autonomy;
+- recording of residual limitations and risks;
 - monitoring plan, rollback and withdrawal.

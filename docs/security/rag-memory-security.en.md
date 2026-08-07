@@ -1,21 +1,21 @@
-# RAG security and memory
+# RAG Security and Memory
 
 ## Objective
 
-Define the mandatory controls for ingestion, retrieval and use of knowledge, as well as the persistence of conversational and profile memory.[`../../policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml).
+Defining mandatory controls for intake, recovery and use of knowledge, in addition to persistence of conversational memory and profile is the main source of rules. [`../../policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml).
 
-The default decision is **deny by default**. Recovered content is always treated as unreliable data, never as instruction.
+Standard decision is **deny by default**. Retrieved content is always treated as unreliable data, never as instruction.
 
 ## Principles
 
-1. **Authorisation accompanies the data.** ACL, tenant, classification and purpose are propagated from the document for each chunk.
-2. **Ingestion does not imply publication.** All documents are quarantined and can only be indexed after validation.
-3. **Retrieval does not exist.** Unauthorized results are filtered without informing the caller that the document exists.
-4. **Memory is not log.** Only necessary facts, with purpose, origin, trust, TTL and consent where applicable.
-5. **Model does not create persistent truth.** Content inferred by the model cannot turn into long-term memory or profile.
-6. **Sensitive data do not persist by default.** `RESTRICTED` classification is blocked; exceptions require specific policy outside the baseline.
+1. **Authorisation accompanies the data.** ACL, tenant, classification and purpose are disseminated from the document to each chunk.
+2. **Administration does not imply publication.** Each document enters quarantine and can only be indexed after validation.
+3. **Retrieval does not leak out.** Unauthorised results are filtered without informing the call for the document.
+4. **Memory is not log.** Only necessary facts, purpose, origin, trust, TTL and consent when applicable.
+5. **A model does not create persistent truth.** Content inferred by the model cannot become long-term memory or profile.
+6. **Sensitive data do not persist by pattern.** Classification `RESTRICTED` it is blocked; exceptions require specific policy outside the baseline.
 
-## Safe pipeline of RAG
+## Pipeline seguro de RAG
 
 ```text
 Fonte
@@ -43,48 +43,48 @@ Post-filter e sanitização
 Contexto delimitado como <untrusted_document>
 ```
 
-### Mandatory metadata per document and chunk
+### Compulsory half-data per document and chunk
 
-| Campo | Finalidade |
+| Campo | Purpose |
 |---|---|
-| `tenantId` | Preventing mixing between organisations. |
-| `documentId`and `chunkId` | Traceability and selective exclusion. |
-| `classification` | Apply clearance and observability controls. |
-| `allowedRoles` / `allowedSubjects` | ACL enforcement. |
-| `allowedPurposes` | Avoid re-use for incompatible purposes. |
-| `sourceSystem`and `sourceUri` | It's the origin. |
-| `checksum` | Detect change after approval. |
-| `approvedSource` | Allow only registered sources. |
-| `retentionPolicy`and `expiresAt` | Expiration, deletion and re-indexation. |
-| `securityScanVersion` | Repeat the quarantine decision. |
+|  `tenantId`  | To prevent mixing between organizations. |
+|  `documentId` e `chunkId`  | Traceability and selective exclusion. |
+|  `classification`  | Applying clearance and observability controls. |
+|  `allowedRoles` / `allowedSubjects`  | Enforcement de ACL. |
+|  `allowedPurposes`  | Avoid re-use for incompatible use. |
+|  `sourceSystem` e `sourceUri`  | Origin. |
+|  `checksum`  | Detect alteration after approval. |
+|  `approvedSource`  | Allow only registered sources. |
+|  `retentionPolicy` e `expiresAt`  | Expiration, exclusion and re-indexation. |
+|  `securityScanVersion`  | Reproduce the quarantine decision. |
 
 ### Compulsory quarantine
 
-The document shall remain `QUARANTINED` when any of the following conditions occur:
+O documento permanece `QUARANTINED` Where any of these conditions occur:
 
-- unapproved source;
+- source not approved;
 - checksum divergente;
-- type or size not permitted;
-- malware subscription or active payload;
-- the indirect indicator prompt injection;
-- absence of classification, ACL, purpose or retention policy.
+- type or size not allowed;
+- assinatura de malware ou payload ativo;
+- indicador de indirect prompt injection;
+- No classification, ACL, purpose or retention policy.
 
-Release requires proof of all controls and generates an auditable event.
+Release requires evidence from all controls and generates auditable events.Re-indexation should invalidate previous chunks and embeddings.
 
 ### Retrieval
 
 The query applies the filters before and after the vector search:
 
-1. derive the tenant, user, documents and clearance of the authenticated identity;
-2. restrict indices/aliases per tenant;
-3. apply ACL and search engine ranking;
-4. perform post-filtering on the Knowledge Service;
-5. removing unauthorised results without revealing a count or title to the external caller;
-6. return `policyDecisionId`, checksum and provenance to the audit;
-7. identify recovered content as unreliable;
-8. block instructions found in documents before installing the prompt.
+1. derive tenant, user, roles and clearance of authenticated identity;
+2. restrict tenant indexes/aliasis;
+3. apply ACL and classification in the search mechanism;
+4. executar post-filter no Knowledge Service;
+5. removing unauthorised results without revealing counting or title to the external call forward;
+6. retornar `policyDecisionId`, checksum and audit provenance;
+7. delimiting the content recovered as non-reliable;
+8. blocking instructions found in documents before assembling the prompt.
 
-The model response can only cite chunks that have passed the same authorisation decision used in retrieval.
+The model's response can only mention chunks that have undergone the same authorization decision used in the retrieval.
 
 ## Secure memory
 
@@ -92,38 +92,38 @@ The model response can only cite chunks that have passed the same authorisation 
 
 | Tipo | Uso | Maximum TTL | Consentimento | Permitted source |
 |---|---|---:|---|---|
-| `SESSION` | Context of the current conversation | 24 horas | No, except for specific personal data | User, system, tool and model inference |
-| `SHORT_TERM` | Continuidade operacional curta | 7 dias | Conforme finalidade | Verified user, system or tool |
-| `LONG_TERM` | Fact reused between sessions | 365 dias | Compulsory | Confirmed user or verified system |
-| `PROFILE` | Explained preferences | 365 dias | Compulsory | Confirmed user or verified system |
+|  `SESSION`  | Context of the current conversation | 24 horas | No, except for specific personal data | User, system, tool and model inference |
+|  `SHORT_TERM`  | Continuidade operacional curta | 7 dias | For purpose | User, system or tool checked |
+|  `LONG_TERM`  | Reused work between sessions | 365 dias | Obligatory | Confirmed user or verified system |
+|  `PROFILE`  | Explicit preferences | 365 dias | Obligatory | Confirmed user or verified system |
 
-### Mandatory fields by item
+### Compulsory fields per item
 
-- key and value minimized;
-- the classification;
-- finalidade;
+- chave e valor minimizados;
+- classification;
+- purpose;
 - origem;
-- confidence;
-- the hash owner;
+- trust;
+- subject owner in hash;
 - tenant;
-- date of creation and expiry;
-- the version;
-- reference to consent where required.
+- date of breeding and expiry;
+- version;
+- if required.
 
-### Protection against memory poisoning
+### Memory poisoning protection
 
-Before writing, the Memory Service:
+Antes da escrita, o Memory Service:
 
-- Reject commands and instructions disguised as facts;
-- blocks indicators such as ignore previous instructions, attempt to reveal system prompt or disable policy;
-- prevent the persistence of content `MODEL_INFERRED` outside `SESSION`;
-- requires the origin of `USER_CONFIRMED` or `SYSTEM_VERIFIED` for `LONG_TERM` and `PROFILE`;
+- rejects commands and instructions disguised of facts;
+- blocks indicators such as “ignore previous instructions”, an attempt to reveal system prompt or deactivate policy;
+- prevents content persistence `MODEL_INFERRED` fora de `SESSION`;
+- exige origem `USER_CONFIRMED` ou `SYSTEM_VERIFIED` para `LONG_TERM` e `PROFILE`;
 - rejeita `RESTRICTED`;
-- It only records secure metadata on events, never the full value.
+- registers only safe metadata in events, never the full value.
 
-Conflicting updates should preserve version history and require reconciliation when reliable sources disagree.
+Conflicting updates should preserve the version history and require reconciliation when reliable sources disagree.
 
-### Insulation and disposal
+### Isolamento e descarte
 
 The minimum logical key is:
 
@@ -131,47 +131,47 @@ The minimum logical key is:
 tenantId + subjectHash + sessionId + memoryType
 ```
 
-Read and delete use the identity-derived subject. One user does not freely choose another `subjectId`. Revocated consent blocks new readings and triggers exclusion or anonymisation according to the policy.
+Reading and exclusion use the subject derived from identity. One user does not freely choose another `subjectId`. Repealed consent blocks new readings and triggers exclusion or anonymisation according to policy.
 
-## Safe and reliable observation
+## Secure observability
 
 Registrar:
 
-- the authorisation decision and the reason for the block;
-- the quarantine status;
-- the document/chunk IDs;
-- the checksum and version of the scanner;
-- the type of memory, number of items, TTL and presence of consent;
+- authorisation decision and reason for blocking;
+- status de quarentena;
+- IDs de documento/chunk;
+- checksum and version of the scanner;
+- type of memory, number of items, TTL and presence of consent;
 - exclusion and re-indexation.
 
-Not to be recorded:
+Do not register:
 
 - prompt completo;
-- the full text of the document;
-- the total value of the memory;
-- personal data in clear;
+- texto integral do documento;
+- integral value of memory;
+- dado pessoal em claro;
 - tokens ou segredos.
 
-## Publication gates
+## Publication banks
 
 | Gate | Evidence |
 |---|---|
-| Injection | Quarantine test for malware, checksum and prompt injection. |
-| Retrieval | ACL test by document/chunk, tenant and clearance. |
-| Prompt | Evidence of delimitation and treatment of context as unreliable. |
-| The memory | Consent tests, TTL, origin and poisoning. |
-| Privacidade | Exclusion by subject and retention policy. |
-| Auditoria | Events without sensitive payload and with `policyDecisionId`. |
+| Ingestion | Teste de quarentena para malware, checksum e prompt injection. |
+| Retrieval | Teste de ACL por documento/chunk, tenant e clearance. |
+| Prompt | Evidence of delimiting and treating the context as non-reliable. |
+| Memory | Testes de consentimento, TTL, origem e poisoning. |
+| Privacidade | Subject exclusion and retention policy. |
+| Auditoria | Events without sensitive payload and without `policyDecisionId`. |
 
-## Demonstrated implementation
+## Demonstrative implementation
 
-The vertical slice implements:
+A vertical slice implementa:
 
-- an intake endpoint with checksum, approved source and quarantine;
-- search with tenant, papers, clearance, purpose and post-filter;
-- Content marked as `<untrusted_document>`;
-- the consent memory, TTL, origin, trust and isolation per subject;
-- the presence of `RESTRICTED`, persistent `MODEL_INFERRED` blocking and poisoning indicators;
-- automated tests that carry out these controls.
+- endpoint of ingestion with checksum, approved source and quarantine;
+- search with tenant, roles, clearance, purpose and post-filter;
+- content defined as `<untrusted_document>`;
+- consent memory, TTL, origin, trust and isolation by subject;
+- bloqueio de `RESTRICTED`, `MODEL_INFERRED` persistente e indicadores de poisoning;
+- automated tests that exercise these controls.
 
-The demo uses memory storage and simulated headers. In production, identity, DLP, antivirus, policy engine and persistence must be real services.
+The demo uses memory storage and simulated headers.In production, identity, DLP, antivirus, policy engine and persistence, they should be real services.

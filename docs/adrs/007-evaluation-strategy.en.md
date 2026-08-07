@@ -1,67 +1,67 @@
-# ADR-007  Hybrid and continuous assessment of AI
+# ADR-007 — Hybrid and continuous AI assessment
 
 **Status:** Aceito
 
-## Contexto
+## Context
 
-Corporate agents need to be evaluated before and after publication to reduce hallucinations, low relevance, retrieval failures, misuse of tools, uncertain responses, and quality regressions.
+Corporate agents need to be evaluated before and after publication to reduce hallucination, low relevance, retrieval failures, incorrect use of tools, unsafe responses and quality regressions.Manual evaluation only does not scale; evaluation only in production exposes users and processes to avoidable risk.
 
 ## Decision
 
-Adopt a **Evaluation Service** with a hybrid rating:
+Adotar um **Evaluation Service** with hybrid assessment:
 
-- automatically for scale and regression;
+- automatic for scale and regression;
 - based on rules for deterministic requirements;
-- model-based where subjective controlled criteria exist;
+- model-based when there are controlled subjective criteria;
 - human for critical cases, samples and calibration;
-- offline before the promotion and online during the operation.
+- offline before promotion and online during operation.
 
-Results shall be versioned, reproducible and traceable to the agent, prompt, model, dataset, policy, knowledge snapshot and code evaluated.
+Results should be versioned, reproducible and traceable to the agent, prompt, model, dataset, policy, knowledge snapshot and code evaluated.
 
 ## Minimum dimensions
 
-- the quality of the task;
-- retrieval and groundedness;
+- quality of the task;
+- retrieval e groundedness;
 - citation correctness;
 - safety, toxicity and leakage;
-- selection and argumentation of tools;
+- selection and arguments of tools;
 - latency and reliability;
-- cost per invocation and completed task;
+- cost per invocation and task completed;
 - regression against baseline and previous version.
 
-## Alternativas
+## Alternatives
 
 | Alternativa | Vantagem | Limitation |
 |---|---|---|
-| Manual only assessment | julgamento contextual | Low scale, cost and variability |
-| Assessment only in production | actual use data | risk of publishing undetected regressions |
-| Only LLM-as-judge | Rapid coverage | prejudice, instability and dependence on the judge |
-| Single aggregate note | simple communication | hides critical defects in specific dimensions |
+| Manual assessment only | julgamento contextual | low scale, cost and variability |
+| Production assessment only | real use data | Risk of publication of undetected regressions |
+| Apenas LLM-as-judge | fast coverage | bias, instability and judge dependence |
+| Single aggregate note | simple communication | it hides critical flaws in specific dimensions of the study. |
 
 ## Positive consequences
 
-- evidence-based publishing gates;
-- reproducible comparison between versions;
-- the detection of degradation during the operation;
-- combination of automatic scale with risk-proportionate human judgment.
+- evidence-based publication gates;
+- reproducible comparison between versions
+- detection of degradation during operation;
+- combined automatic scale with human judgment proportional to risk.
 
 ## Negative consequences
 
-- increase the cost of running and maintaining datasets;
-- metrics and judges may differ from business perceptions;
-- outdated datasets generate false confidence;
-- Critical scenarios continue to require independent review.
+- increases the cost of implementing and maintaining dateset;
+- metrics and judges may differ from business perception;
+- outdated dates generate false confidence;
+- critical scenarios remain requiring independent review.
 
 ## Minimum evidence
 
-- versioned and approved dataset;
-- Baseline and thresholds by dimension;
-- the version of the evaluator and the judge;
-- the return report;
-- Network team results and negative tests;
-- human review and conformity sample, where applicable;
-- the decision on promotion, exception or blocking.
+- dataset versionado e aprovado;
+- baseline and thresholds per dimension;
+- evaluator and judge version;
+- regression report;
+- red-team results and negative tests;
+- human review sample and agreement where applicable;
+- decision to promote, except or block.
 
-## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
+## Review criteria
 
-Review when metrics no longer correlate with actual results, when there is drift from the dataset or domain, when evaluation costs become disproportionate, or when new methods offer greater validity and reproducibility.
+To review when metrics no longer correlate with real results, when there is drift of the dateset or domain, when evaluation costs become disproportional, or when new methods offer greater validity and reproducibility.
