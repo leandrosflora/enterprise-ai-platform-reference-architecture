@@ -130,7 +130,7 @@ flowchart LR
 - exclusão ou expiração remove o item do retrieval;
 - logs não armazenam o texto integral.
 
-Consulte [Segurança de RAG e memória](../security/rag-memory-security.md) e a policy executável [`policies/rag-memory-security.yaml`](../../policies/rag-memory-security.yaml).
+Consulte [Segurança de RAG e memória](../security/rag-memory-security.md) e a policy executável [`policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml).
 
 ## Fluxo de invocação
 
