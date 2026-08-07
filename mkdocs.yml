@@ -1,5 +1,5 @@
 site_name: Enterprise AI Platform Reference Architecture
-site_description: Referência para desenho, governança, implementação e operação de plataformas corporativas de IA
+site_description: Enterprise reference architecture for designing, governing, securing, implementing, and operating AI platforms at scale.
 site_url: https://leandrosflora.github.io/enterprise-ai-platform-reference-architecture/
 repo_url: https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture
 repo_name: leandrosflora/enterprise-ai-platform-reference-architecture
@@ -7,34 +7,43 @@ edit_uri: edit/main/docs/
 
 copyright: Enterprise AI Platform Reference Architecture - Leandro Silva Flora
 
+# Keep the repository source layout intact while the MkDocs hook stages Portuguese
+# pages as *.pt.md so English can be the default language at the site root.
+hooks:
+  - scripts/mkdocs_english_default.py
+
+# Keep the original docs directory under live-reload observation because MkDocs
+# builds from the temporary i18n staging directory created by the hook above.
+watch:
+  - docs
+
 # README files are repository landing pages. The documentation site uses index.md
-# for the same URLs, so exclude the README variants explicitly to avoid collisions.
+# for the same URLs, so exclude both staged language variants explicitly.
 exclude_docs: |
-  /README.md
   /README.en.md
+  /README.pt.md
 
 # These pages are intentionally reachable through contextual links rather than the
-# primary navigation. Declaring them here keeps strict builds useful without
-# changing the existing Portuguese navigation hierarchy.
+# primary navigation. Declaring them here keeps strict builds useful.
 not_in_nav: |
   /domains/*
   /examples/*
-  /finops/token-costs.md
   /finops/token-costs.en.md
+  /finops/token-costs.pt.md
   /integrations/*
   /reference-architectures/*
-  /services/agent-registry.md
   /services/agent-registry.en.md
-  /services/audit-service.md
+  /services/agent-registry.pt.md
   /services/audit-service.en.md
-  /services/billing-service.md
+  /services/audit-service.pt.md
   /services/billing-service.en.md
-  /services/mcp-registry.md
+  /services/billing-service.pt.md
   /services/mcp-registry.en.md
+  /services/mcp-registry.pt.md
 
 theme:
   name: material
-  language: pt
+  language: en
   features:
     - navigation.tabs
     - navigation.sections
@@ -49,68 +58,61 @@ theme:
 plugins:
   - search:
       lang:
-        - pt
         - en
+        - pt
   - i18n:
       docs_structure: suffix
       fallback_to_default: true
       reconfigure_material: true
       reconfigure_search: true
       languages:
-        - locale: pt
-          name: Português (Brasil)
-          default: true
-          build: true
         - locale: en
           name: English
+          default: true
           build: true
-          site_description: Enterprise reference architecture for designing, governing, securing, implementing, and operating AI platforms at scale.
+        - locale: pt
+          name: Português (Brasil)
+          build: true
+          site_description: Referência para desenho, governança, implementação e operação de plataformas corporativas de IA
           nav_translations:
-            Início: Home
-            Visão geral: Overview
-            Arquitetura: Architecture
-            Princípios: Principles
-            Requisitos não funcionais: Non-functional requirements
-            Control plane e data plane: Control plane and data plane
-            C4 completo e publicação: Complete C4 model and publishing
-            Memória persistente: Persistent memory
-            Busca vetorial e híbrida: Vector and hybrid search
-            Observabilidade: Observability
-            Avaliação: Evaluation
-            Casos aplicados: Case studies
-            FinOps para IA: AI FinOps
-            Contratos: Contracts
-            Convenções de eventos: Event conventions
-            Governança: Governance
-            Fluxo de aprovação: Approval workflow
-            Catálogo de IA: AI catalog
-            Segurança: Security
-            Autenticação: Authentication
-            Autorização: Authorization
-            Segurança de RAG e memória: RAG and memory security
-            Serviços: Services
-            Runbooks: Runbooks
-            Onboarding de agente: Agent onboarding
-            Roadmap técnico: Technical roadmap
-            Glossário: Glossary
-            1. Por que uma AI Platform?: 1. Why an AI Platform?
-            2. Business Outcomes: 2. Business Outcomes
-            3. Capability Map: 3. Capability Map
-            4. Operating Model: 4. Operating Model
-            5. Ciclo de vida de agentes: 5. AI Agent lifecycle
-            6. Caso de agente documental: 6. Document agent case study
-            7. Decision Guides: 7. Decision Guides
-            8. Maturidade e roadmap: 8. Maturity and roadmap
-            9. Checklists de produção: 9. Production checklists
-            MCP e REST: MCP and REST
-            Agentic SDLC governado: Governed agentic SDLC
-            Intelligent Backoffice — contestação bancária: Intelligent Backoffice — banking dispute
-            Ciclo de vida de agentes: Agent lifecycle
-            Caso de agente documental: Document agent case study
-            Maturidade e roadmap: Maturity and roadmap
-            Checklists de produção: Production checklists
-            Plataforma conversacional bancária multi-skill: Multi-skill conversational banking platform
-            Tracing e SLOs: Tracing and SLOs
+            Home: Início
+            Overview: Visão geral
+            Architecture: Arquitetura
+            Principles: Princípios
+            Non-functional requirements: Requisitos não funcionais
+            Control plane and data plane: Control plane e data plane
+            Complete C4 model and publishing: C4 completo e publicação
+            Persistent memory: Memória persistente
+            Vector and hybrid search: Busca vetorial e híbrida
+            Observability: Observabilidade
+            Evaluation: Avaliação
+            Case studies: Casos aplicados
+            AI FinOps: FinOps para IA
+            Contracts: Contratos
+            Event conventions: Convenções de eventos
+            Governance: Governança
+            Compliance crosswalk: Crosswalk de compliance
+            Approval workflow: Fluxo de aprovação
+            AI catalog: Catálogo de IA
+            Security: Segurança
+            Authentication: Autenticação
+            Authorization: Autorização
+            RAG and memory security: Segurança de RAG e memória
+            Services: Serviços
+            Agent onboarding: Onboarding de agente
+            MCP onboarding: Onboarding MCP
+            Technical roadmap: Roadmap técnico
+            Glossary: Glossário
+            1. Why an AI Platform?: 1. Por que uma AI Platform?
+            5. AI Agent lifecycle: 5. Ciclo de vida de agentes
+            6. Document agent case study: 6. Caso de agente documental
+            8. Maturity and roadmap: 8. Maturidade e roadmap
+            9. Production checklists: 9. Checklists de produção
+            MCP and REST: MCP e REST
+            Governed agentic SDLC: Agentic SDLC governado
+            Intelligent Backoffice — banking dispute: Intelligent Backoffice — contestação bancária
+            Multi-skill conversational banking platform: Plataforma conversacional bancária multi-skill
+            Tracing and SLOs: Tracing e SLOs
 
 markdown_extensions:
   - admonition
@@ -131,24 +133,24 @@ markdown_extensions:
       custom_checkbox: true
 
 nav:
-  - Início: index.md
+  - Home: index.md
   - Book:
-      - Visão geral: book/index.md
-      - 1. Por que uma AI Platform?: book/01-why-ai-platform.md
+      - Overview: book/index.md
+      - 1. Why an AI Platform?: book/01-why-ai-platform.md
       - 2. Business Outcomes: book/02-business-outcomes.md
       - 3. Capability Map: book/02-capability-map.md
       - 4. Operating Model: book/03-operating-model.md
-      - 5. Ciclo de vida de agentes: book/04-agent-lifecycle.md
-      - 6. Caso de agente documental: book/05-case-study-document-agent.md
+      - 5. AI Agent lifecycle: book/04-agent-lifecycle.md
+      - 6. Document agent case study: book/05-case-study-document-agent.md
       - 7. Decision Guides: book/06-decision-guides.md
-      - 8. Maturidade e roadmap: book/07-adoption-roadmap.md
-      - 9. Checklists de produção: book/08-production-checklists.md
-      - Glossário: book/glossary.md
-  - Arquitetura:
-      - Princípios: architecture/principles/principles.md
-      - Requisitos não funcionais: architecture/non-functional-requirements.md
-      - Control plane e data plane: architecture/control-plane-data-plane.md
-      - C4 completo e publicação: architecture/c4-complete.md
+      - 8. Maturity and roadmap: book/07-adoption-roadmap.md
+      - 9. Production checklists: book/08-production-checklists.md
+      - Glossary: book/glossary.md
+  - Architecture:
+      - Principles: architecture/principles/principles.md
+      - Non-functional requirements: architecture/non-functional-requirements.md
+      - Control plane and data plane: architecture/control-plane-data-plane.md
+      - Complete C4 model and publishing: architecture/c4-complete.md
       - Trade-off Guides: architecture/trade-off-guides.md
       - Decision Matrix: architecture/ai-decision-matrix.md
       - Model Selection Framework: architecture/model-selection-framework.md
@@ -156,46 +158,46 @@ nav:
       - Hallucination Strategies: architecture/hallucination-strategies.md
       - Event Storming: architecture/diagrams/event-storming.md
   - ADRs:
-      - Visão geral: adrs/index.md
-      - MCP e REST: adrs/001-mcp-vs-rest.md
-      - Memória persistente: adrs/002-persistent-memory.md
+      - Overview: adrs/index.md
+      - MCP and REST: adrs/001-mcp-vs-rest.md
+      - Persistent memory: adrs/002-persistent-memory.md
       - Agent Gateway: adrs/003-agent-gateway.md
       - Agent Runtime: adrs/004-agent-runtime-strategy.md
-      - Busca vetorial e híbrida: adrs/005-vector-search-strategy.md
-      - Observabilidade: adrs/006-observability-strategy.md
-      - Avaliação: adrs/007-evaluation-strategy.md
-  - Casos aplicados:
-      - Visão geral: case-studies/index.md
-      - Plataforma conversacional bancária multi-skill: case-studies/conversational-ai.md
-      - Intelligent Backoffice — contestação bancária: case-studies/intelligent-backoffice.md
-      - Agentic SDLC governado: case-studies/agentic-sdlc.md
+      - Vector and hybrid search: adrs/005-vector-search-strategy.md
+      - Observability: adrs/006-observability-strategy.md
+      - Evaluation: adrs/007-evaluation-strategy.md
+  - Case studies:
+      - Overview: case-studies/index.md
+      - Multi-skill conversational banking platform: case-studies/conversational-ai.md
+      - Intelligent Backoffice — banking dispute: case-studies/intelligent-backoffice.md
+      - Governed agentic SDLC: case-studies/agentic-sdlc.md
   - FinOps:
-      - FinOps para IA: finops/ai-finops.md
-  - Contratos:
-      - Convenções de eventos: contracts/events.md
+      - AI FinOps: finops/ai-finops.md
+  - Contracts:
+      - Event conventions: contracts/events.md
       - APIs: contracts/apis.md
       - MCP: contracts/mcp-contracts.md
       - Data stores: contracts/data-stores.md
-  - Governança:
+  - Governance:
       - Enterprise AI Governance: governance/ai-governance-framework.md
-      - Crosswalk de compliance: governance/compliance-crosswalk.md
+      - Compliance crosswalk: governance/compliance-crosswalk.md
       - Responsible AI: governance/responsible-ai.md
-      - Fluxo de aprovação: governance/approval-workflow.md
+      - Approval workflow: governance/approval-workflow.md
       - AI Risk Framework: governance/ai-risk-framework.md
       - Evaluation Framework: governance/evaluation-framework.md
-      - Catálogo de IA: governance/ai-catalog.md
+      - AI catalog: governance/ai-catalog.md
       - Data, Model, Prompt and Knowledge Lifecycle: governance/model-lifecycle.md
-  - Segurança:
+  - Security:
       - AI Security Architecture: security/ai-security-architecture.md
-      - Autenticação: security/authentication.md
-      - Autorização: security/authorization.md
-      - Segurança de RAG e memória: security/rag-memory-security.md
+      - Authentication: security/authentication.md
+      - Authorization: security/authorization.md
+      - RAG and memory security: security/rag-memory-security.md
       - Threat Model: security/threat-model.md
       - LGPD: security/lgpd.md
-  - Observabilidade:
-      - Tracing e SLOs: observability/tracing.md
+  - Observability:
+      - Tracing and SLOs: observability/tracing.md
       - Dashboards: observability/dashboards.md
-  - Serviços:
+  - Services:
       - Agent Gateway: services/agent-gateway.md
       - Agent Runtime: services/agent-runtime.md
       - Model Gateway: services/model-gateway.md
@@ -204,7 +206,7 @@ nav:
       - Governance Service: services/governance-service.md
       - Evaluation Service: services/evaluation-service.md
   - Runbooks:
-      - Onboarding de agente: runbooks/onboarding-agent.md
-      - Onboarding MCP: runbooks/onboarding-mcp.md
+      - Agent onboarding: runbooks/onboarding-agent.md
+      - MCP onboarding: runbooks/onboarding-mcp.md
       - Troubleshooting: runbooks/troubleshooting-agent-invocation.md
-  - Roadmap técnico: roadmap/implementation-roadmap.md
+  - Technical roadmap: roadmap/implementation-roadmap.md
