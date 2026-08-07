@@ -6,6 +6,7 @@ on:
       - fix/i18n-staged-rollout
     paths:
       - scripts/translate_docs_en.py
+      - scripts/translate_docs_en_safe.py
       - .github/workflows/translate-docs-en.yml
 
 permissions:
@@ -14,7 +15,7 @@ permissions:
 jobs:
   translate:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     steps:
       - name: Checkout translation branch
         uses: actions/checkout@v4
@@ -35,10 +36,20 @@ jobs:
             sacremoses
 
       - name: Translate 96 documentation pages
-        run: python scripts/translate_docs_en.py
+        run: python scripts/translate_docs_en_safe.py
 
       - name: Validate translation coverage
         run: python scripts/validate_docs_i18n.py
+
+      - name: Preserve translated pages
+        uses: actions/upload-artifact@v4
+        with:
+          name: translated-docs-nllb
+          path: |
+            docs/*.en.md
+            docs/**/*.en.md
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Install MkDocs dependencies
         run: |
