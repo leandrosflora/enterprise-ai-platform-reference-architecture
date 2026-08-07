@@ -168,10 +168,10 @@ Uma capacidade compartilhada deve atender à maioria dos critérios:
 
 ## Artefatos de referência
 
-- [Domínios](../domains/)
-- [Serviços](../services/)
-- [Arquitetura C4](../architecture/diagrams/)
-- [Contratos](../contracts/)
+- [Domínios](../domains/agent-platform.md)
+- [Serviços](../services/agent-gateway.md)
+- [Arquitetura C4](../architecture/c4-complete.md)
+- [Contratos](../contracts/apis.md)
 - [Requisitos não funcionais](../architecture/non-functional-requirements.md)
 
 ## Próximo capítulo

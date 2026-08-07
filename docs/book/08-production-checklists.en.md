@@ -219,6 +219,6 @@ Uma versão está pronta quando:
 ## Próximos materiais
 
 - [Glossário](glossary.md)
-- [Runbooks](../runbooks/)
+- [Runbooks](../runbooks/onboarding-agent.md)
 - [AI Risk Framework](../governance/ai-risk-framework.md)
 - [Requisitos não funcionais](../architecture/non-functional-requirements.md)

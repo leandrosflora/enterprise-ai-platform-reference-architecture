@@ -47,15 +47,15 @@ Os capítulos explicam contexto, decisões e consequências. Os diretórios téc
 
 | Assunto | Referência técnica |
 |---|---|
-| Princípios, C4 e NFRs | [`../architecture/`](../architecture/) |
-| APIs, eventos e MCP | [`../contracts/`](../contracts/) |
-| Capacidades e serviços lógicos | [`../services/`](../services/) |
-| Governança e risco | [`../governance/`](../governance/) |
-| Segurança | [`../security/`](../security/) |
-| Observabilidade e SLOs | [`../observability/`](../observability/) |
-| FinOps | [`../finops/`](../finops/) |
-| Runbooks de referência | [`../runbooks/`](../runbooks/) |
-| Amostra de validação | [`../../samples/vertical-slice/`](../../samples/vertical-slice/) |
+| Princípios, C4 e NFRs | [`../architecture/`](../architecture/principles/principles.md) |
+| APIs, eventos e MCP | [`../contracts/`](../contracts/apis.md) |
+| Capacidades e serviços lógicos | [`../services/`](../services/agent-gateway.md) |
+| Governança e risco | [`../governance/`](../governance/ai-governance-framework.md) |
+| Segurança | [`../security/`](../security/ai-security-architecture.md) |
+| Observabilidade e SLOs | [`../observability/`](../observability/tracing.md) |
+| FinOps | [`../finops/`](../finops/ai-finops.md) |
+| Runbooks de referência | [`../runbooks/`](../runbooks/onboarding-agent.md) |
+| Amostra de validação | [`../../samples/vertical-slice/`](https://github.com/leandrosflora/enterprise-ai-platform-demo-arch/tree/main/samples/vertical-slice) |
 
 A amostra técnica existe para verificar contratos e alguns controles documentados. Ela não representa uma arquitetura física recomendada nem uma implementação produtiva da plataforma.
 

@@ -7,26 +7,30 @@ edit_uri: edit/main/docs/
 
 copyright: Enterprise AI Platform Reference Architecture - Leandro Silva Flora
 
+# README files are repository landing pages. The documentation site uses index.md
+# for the same URLs, so exclude the README variants explicitly to avoid collisions.
+exclude_docs: |
+  /README.md
+  /README.en.md
+
 # These pages are intentionally reachable through contextual links rather than the
 # primary navigation. Declaring them here keeps strict builds useful without
 # changing the existing Portuguese navigation hierarchy.
 not_in_nav: |
-  /README.md
   /domains/*
   /examples/*
   /finops/token-costs.md
+  /finops/token-costs.en.md
   /integrations/*
   /reference-architectures/*
   /services/agent-registry.md
+  /services/agent-registry.en.md
   /services/audit-service.md
+  /services/audit-service.en.md
   /services/billing-service.md
+  /services/billing-service.en.md
   /services/mcp-registry.md
-
-# README files duplicate the documentation landing page and should not be emitted
-# as MkDocs pages. Excluding both localized variants prevents strict-build warnings.
-exclude_docs: |
-  README.md
-  README.en.md
+  /services/mcp-registry.en.md
 
 theme:
   name: material

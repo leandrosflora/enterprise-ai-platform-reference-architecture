@@ -56,7 +56,7 @@ O conteúdo editorial não pode redefinir enums, envelopes, policies ou metas di
 | SLOs | [`architecture/non-functional-requirements.md`](architecture/non-functional-requirements.md) |
 | Controles de risco | [`governance/ai-risk-framework.md`](governance/ai-risk-framework.md) |
 | Autorização | [`security/authorization.md`](security/authorization.md) |
-| Segurança de RAG e memória | [`security/rag-memory-security.md`](security/rag-memory-security.md) + [`../policies/rag-memory-security.yaml`](../policies/rag-memory-security.yaml) |
+| Segurança de RAG e memória | [`security/rag-memory-security.md`](security/rag-memory-security.md) + [`../policies/rag-memory-security.yaml`](https://github.com/leandrosflora/enterprise-ai-platform-reference-architecture/blob/main/policies/rag-memory-security.yaml) |
 
 ## Arquitetura
 

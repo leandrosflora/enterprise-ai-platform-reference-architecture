@@ -37,6 +37,9 @@ jobs:
             mkdocs-material==9.5.49 \
             mkdocs-static-i18n==1.3.1
 
+      - name: Validate translation coverage
+        run: python scripts/validate_docs_i18n.py
+
       - name: Build documentation
         run: mkdocs build --clean --strict
 
