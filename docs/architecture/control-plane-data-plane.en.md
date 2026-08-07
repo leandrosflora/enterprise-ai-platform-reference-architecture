@@ -1,70 +1,70 @@
-# Control Plane e Data Plane
+# Control Planeand Data Plane
 
 ## Decision
 
-The template is separate **gest and government**** of online implementation**.
+The platform separates management and governance from online execution.
 
-- **control plane** administers metadata, policies, versions, approvals and evidence.
-- **data plane** executes invokes, recovery, memory, models and tools under published policies.
+- The control plane** manages metadata, policies, versions, approvals and evidence.
+- The data plane** executes invocations, recovery, memory, templates and tools under published policies.
 
-This separation reduces the blast radius, allows each plan to be scaled independently and prevents administrative indisponibilities to interrupt workloads already published.
+This separation reduces the blast radius, allows each plane to be scaled independently and prevents administrative unavailabilities from disrupting already published workloads.
 
 ## Control plane
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
-| Agent Registry | Metadates, imutable versions and state of life cycle. |
-| Governance Service | Workflow, separation of functions and evidence. |
-| Evaluation Service | Datasets, baselines, thresholds and reports. |
-| MCP Registry | Catalog and approved versions of iron. |
-| Policy Administration Point | Autorisation, review and publication of policies. |
-| Model Catalog | Model allowance, regions, capacities and restrictions. |
+| Agent Registry | Metadata, unchanged versions and life cycle status. |
+| Governance Service | Workflow, segregation of functions and evidence. |
+| Evaluation Service | Data sets, baselines, thresholds and reports. |
+| MCP Registry | Catalogue and approved versions of tools. |
+| Policy Administration Point | Author, review and publication of policies. |
+| Model Catalog | Allowlist of models, regions, capabilities and restrictions. |
 | FinOps Administration | Budgets, quotas and cost allocation rules. |
 
 ## Data plane
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
-| Agent Gateway | Autentification, initial authorisation, limit rate and roteament. |
-| Agent Runtime | Order of the execution of the agent. |
-| Policy Enforcement Points | Local application of decisions in Gateway, Runtime, Knowledge and MCP. |
-| Policy Decision Point | Policy decision with low lattice and controlled cache. |
-| Knowledge Service | Retrieval with document and chunk permission filters. |
-| Memory Service | - The session memory and a link to TTL, consent and discharge. |
-| Model Gateway | Rotation, guardrails, quotas, fallback and model telemetry. |
-| MCP Execution | Execusion of allowing, idempotence and auditory machinery. |
+| Agent Gateway | Authentication, initial authorization, rate limit and routing. |
+| Agent Runtime | Orchestration of the execution of the agent. |
+| Policy Enforcement Points | Local decision-making in Gateway, Runtime, Knowledge and MCP. |
+| Policy Decision Point | Policy decision with low latency and cached control. |
+| Knowledge Service | Retrieval with authorization filters by document and chunk. |
+| Memory Service | Session memory and TTL profile, consent and discard. |
+| Model Gateway | Routing, guardrails, quotas, fallback and model telemetry. |
+| MCP Execution | Implementing tools with allowlist, idempotence and audit. |
 
-## Publication flux
+## Flow of publication
 
-1. The developer creates a mutable version of the agent.
-2. Contrats, datasets, budgets and policies are valid.
+1. The developer creates an unchanging version of the agent.
+2. Contracts, datasets, budgets and policies are validated.
 3. Governance Service records the decisions and evidence.
-4. The policies adopted are published in the Policy Decision Point.
-5. Agent Registry changes the version to `PUBLISHED`.
-6. data plane is taking the invitations from that version.
+4. Approved policies are published in the Policy Decision Point.
+5. Agent Registry changes the version to `PUBLISHED`
+6. data plane is now accepting claims for this version.
 
-## Voice flux
+## Invocation flow
 
-1. Agent Gateway valid identity, tenant, escopo and consumption limit.
-2. Runtime only charges a version `PUBLISHED`.
-3. Policy Decision Point assesses agent, user, tool, type and risk.
-4. Knowledge, Memory, Model Gateway e MCP aplicam enforcement local.
-5. Events and trace records, costs and results.
+1. Agent Gateway validates identity, tenant, scope and limit of consumption.
+2. Runtime only carries one version of `PUBLISHED`.
+3. Policy Decision Point assesses agent, user, tool, data and risk.
+4. Knowledge, Memory, Model Gateway and MCP apply local enforcement.
+5. Events and traces record decisions, cost and outcome.
 
 ## Disponibilidade
 
-The data plane does not depend on single names to the control plane during each invitation. Publication and policies are distributed and stored in cache with:
+data plane is not dependent on calls synchronized to control plane during each call. Published settings and policies are distributed and cached with:
 
 - version and checksum;
-- Explanatory TTL;
+- the TTL explicitly;
 - invalidation by event;
-- fallback to the last viable policy;
-- behaviour `deny by default` when there is no applicable policy.
+- fallback to the last valid policy;
+- `deny by default` behaviour where there is no applicable policy.
 
 ## Isolamento
 
-- namesspaces and service accounts separated by plan;
-- metadating banks are not directly accessed by data plane;
-- networks policies restrictlateral communication;
+- plan separate namespaces and service accounts;
+- the metadata banks are not directly accessed by the data plane;
+- network policies restrict lateral communication;
 - workload identities use minimum privilege;
-- Administrative operations require MF and systorage of functions.
+- administrative operations require MFA and segregation of functions.

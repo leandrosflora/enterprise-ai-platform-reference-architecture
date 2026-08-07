@@ -2,31 +2,31 @@
 
 ## General view
 
-Memory Service is only a necessary and authorized context, and it is not a conversation log and does not accept that the model transforms inferience into permanent fats.
+The Memory Service persists only in necessary and authorized context. It is not a conversation log and does not accept the model to turn inferences into permanent facts.
 
-The following shall be required: (Security of RAG and Memory)(../security/rag-memory-security.md).
+Mandatory standard: [Security of RAGand Memory](../security/rag-memory-security.md).
 
 ## Responsabilidades
 
-- keep a memory of sitting, short term, long term and profile;
-- apply tenant and isolation by sujee;
-- validating finality, consent, origin, confidence and classification;
-- impose TTL by type;
+- maintain session memory, short-term, long-term and profile;
+- apply tenant and insulation per subject;
+- validate purpose, consent, origin, trust and classification;
+- imposing TTL by type;
 - detectar memory poisoning;
-- to amend amendments;
-- to exclude or anonimise after expiry or repeal;
-- emit events without sensibel values.
+- to make changes;
+- delete or anonymise after expiry or revocation;
+- broadcast events without sensitive values.
 
-## Memory Tipos
+## Types of memory
 
-| Tipo | Finalidade | TTL maximum | Consentimento |
+| Tipo | Finalidade | Maximum TTL | Consentimento |
 |---|---|---:|---|
 | `SESSION` | Context of the current conversation | 24 horas | Conforme dado |
 | `SHORT_TERM` | Continuidade operacional | 7 dias | Conforme finalidade |
-| `LONG_TERM` | Fatos reutilizados | 365 dias | Thank you. |
-| `PROFILE` | Explanatory preferences | 365 dias | Thank you. |
+| `LONG_TERM` | Fatos reutilizados | 365 dias | Compulsory |
+| `PROFILE` | Explained preferences | 365 dias | Compulsory |
 
-## Model of item
+## Model of Item
 
 ```json
 {
@@ -41,57 +41,57 @@ The following shall be required: (Security of RAG and Memory)(../security/rag-me
 }
 ```
 
-The value is criptografted in reverse and does not appear in logs or events.
+The value is encrypted at rest and does not appear in logs or events.
 
-## Writing Policy
+## Writing policy
 
-The standard decision is to be negated, the writing only occurs when:
+The default decision is to deny.
 
-- the tenant and the suspect see the authentic identity;
-- the finality is allowed;
-- the TTL respects the guy;
-- the classification may be persisted;
+- the tenant and subject come from the authenticated identity;
+- the purpose is permitted;
+- the TTL respects the type;
+- the classification may be continued;
 - the origin is compatible with the type;
-- there is no poisoning indicator;
-- There is consent for `LONG_TERM` and `PROFILE`.
+- there is no indicator of poisoning;
+- there is consent for `LONG_TERM` and `PROFILE`.
 
-### Origin and confidence
+### Origin and Confidence
 
-| Origem | Session | Curto prazo | Longo prazo / Perfil |
+| Origem | Meeting | Curto prazo | Longo prazo / Perfil |
 |---|---:|---:|---:|
 | `USER_CONFIRMED` | Sim | Sim | Sim |
 | `SYSTEM_VERIFIED` | Sim | Sim | Sim |
-| `TOOL_OUTPUT` | Sim | Politically | Not without verification |
-| `MODEL_INFERRED` | Sim | No | No |
+| `TOOL_OUTPUT` | Sim | Political | Not without verification |
+| `MODEL_INFERRED` | Sim | No , it 's not . | No , it 's not . |
 
 `RESTRICTED` is not persistent by default.
 
-## Protection against Memory Poisoning
+## Protection against memory poisoning
 
 The service rejects:
 
-- instructions presented as fats;
-- attempts to create system/develop instructions;
-- containing the application for the application of the iron;
+- instructions presented as facts;
+- attempts to overwrite system/developer instructions;
+- Content requesting the execution of the tool;
 - data derived exclusively from the model for persistent memory;
-- amendment of preference without confirmation;
-- Conflict with a vehement vehement reconciliation.
+- change of preference without confirmation;
+- conflict with verified fact without reconciliation.
 
-Indicators were `policy_denials_total{resource_type="memory"}` and auditory event without the value rejected.
+Indicators generate `policy_denials_total{resource_type="memory"}` and an audit event without the rejected value.
 
 ## Isolamento
 
-The logic key is:
+The logical key is:
 
 ```text
 tenantId + subjectHash + sessionId + memoryType
 ```
 
-- `subjectHash` is derived from identity;
-- calls do not accept an arbitrarily sworn in on the payload;
-- technical workloads use minimum workload identity;
-- administrative consultations are separated and audited;
-- caches preserve the same key of isolation.
+- `subjectHash` is derived from the identity;
+- calls do not accept an arbitrary subject on the payload;
+- technical workloads use workload identity with minimal scope;
+- administrative consultations are separate and audited;
+- caches retain the same lock.
 
 ## APIs
 
@@ -121,46 +121,46 @@ DELETE /v1/sessions/{sessionId}/memory
 }
 ```
 
-## Vida Ciclo
+## Life cycle
 
-1. validating policy;
-2. a mutable version of the file;
-3. update the active version;
+1. validate policy;
+2. recording an unchanged version;
+3. update the active version pointer;
 4. registrar TTL;
-5. emit `memory.updated` without a count;
+5. to issue `memory.updated` without content;
 6. expirar automaticamente;
 7. excluir ou anonimizar;
 8. emitir `memory.deleted`.
 
-Revocation of bloke consent and written before the unauthorized processing.
+Withdrawal of consent blocks reading and writing before the asynchronous processing of exclusion.
 
-## Eventos
+## Events
 
 - `memory.updated`
 - `memory.expired`
 - `memory.deleted`
 - `memory.consent_revoked`
 
-Camps permitted: sitting, sitting in the air, type, quantity, version, expiration and consenting presence.
+Allowed fields: session, hash subject, type, quantity, version, expiration and presence of consent.
 
 ## Armazenamento
 
 MongoDB or equivalent bank with:
 
-- criptography in reverse;
+- encryption at rest;
 - TTL index;
-- a key composed of tenant and supprop;
+- a key composed of tenant and subject;
 - versionamento otimista;
-- compatible backup with excluding;
-- - The fucking shit.
+- a back-up compatible with exclusion;
+- the landfill track.
 
-## Non-functioning requirements
+## Non-functional requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Security | Deny by default e anti-poisoning |
-| Privacidade | Consentiment, minimisation and discharge |
+| Security | Deny by default and anti-poisoning |
+| Privacidade | Consent, minimization and discard |
 | Isolamento | Tenant + subject hash |
-| Rastreabilidade | Origin, confidence, version and finish |
-| Disponibilidade | Degradation without memory when indispotable |
+| Rastreabilidade | Origin, confidence, version and purpose |
+| Disponibilidade | Degradation without memory when unavailable |
 | Consistency | Competition control and reconciliation |

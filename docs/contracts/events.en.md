@@ -1,20 +1,20 @@
-# Event Contratos
+# Contracts for Events
 
-## Canomycin
+## Canonical source
 
-The file (`async-api.yaml`)(async-api.yaml) is the executable source of the events. This document defines the normative conventions. Examples and implementations cannot create envelopes or any alternative.
+The file [`async-api.yaml`](async-api.yaml) is the executable source of events. This document defines normative conventions. Examples and implementations cannot create alternative envelopes or enums.
 
-## Transporte e versionamento
+## Transport and versioning
 
 - Reference transport: Kafka.
-- Reference serialisation: JSON UTF-8.
-- The graphs use the `<evento>.v<major>` format, for example `agent.invoked.v1`.
+- Reference serialization: JSON UTF-8.
+- Topics use the format `<evento>.v<major>`, for example `agent.invoked.v1`.
 - `schemaVersion` usa SemVer.
-- Incompatible changes require new major and new theory.
-- Producers don't remove fields during a major life.
+- Uncompatible changes require a new major and a new topic.
+- Producers don't remove fields during a major's lifetime.
 - Consumidores ignoram campos desconhecidos.
 
-## Obligatory envelope
+## Compulsory envelope
 
 ```json
 {
@@ -32,21 +32,21 @@ The file (`async-api.yaml`)(async-api.yaml) is the executable source of the even
 }
 ```
 
-compulsory fields:
+Compulsory fields:
 
-| Campo | Regra |
+| Campo | Rule |
 |---|---|
-| `eventId` | Only used for decoding. |
-| `eventType` | Nom without verse, same as the subject without the syringe of the tyre. |
-| `schemaVersion` | - No use of `eventVersion`. |
+| `eventId` | Unique UUID used for deduplication. |
+| `eventType` | Name without version, equal to domain without subject suffix. |
+| `schemaVersion` | Do not use `eventVersion`. |
 | `occurredAt` | ISO 8601 UTC. |
-| `correlationId` | Functional correction of all execution. |
-| `tenantId` | Having derived from identity or confidential context. |
+| `correlationId` | Functional correlation of the entire execution. |
+| `tenantId` | Tenant derived from a trusted identity or context. |
 | `source` | Producer service. |
 | `dataClassification` | `PUBLIC`, `INTERNAL`, `CONFIDENTIAL` ou `RESTRICTED`. |
 | `payload` | Payload tipado pelo AsyncAPI. |
 
-`causationId` and `traceparent` are binding when there is a cause or context distributed earlier.
+`causationId` and `traceparent` are mandatory where there is a previous cause or distributed context.
 
 ## Enums compartilhados
 
@@ -54,17 +54,17 @@ compulsory fields:
 
 `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
 
-### Implementation state
+### State of enforcement
 
 `SUCCESS`, `FAILED`, `BLOCKED`, `PARTIAL`.
 
-### Data classification
+### Classification of data
 
 `PUBLIC`, `INTERNAL`, `CONFIDENTIAL`, `RESTRICTED`.
 
-## Graphics catalog
+## Catalogue of topics
 
-| Evento | Symbol | Produtor principal | Typical consumers |
+| Event | Subjects | Produtor principal | Typical consumers |
 |---|---|---|---|
 | `agent.created` | `agent.created.v1` | Agent Registry | Governance, Audit |
 | `agent.updated` | `agent.updated.v1` | Agent Registry | Governance, Audit |
@@ -83,39 +83,39 @@ compulsory fields:
 | `governance.rejected` | `governance.rejected.v1` | Governance | Registry, Audit |
 | `audit.created` | `audit.created.v1` | Audit Service | Observability / Archive |
 
-## Entregation, idempotence and order
+## Delivery, idempotence and ordering
 
-- - 'Secretary: **at-east-one**.
-- Consumptors deduct by `eventId`.
-- Partition key:
-  - agent: `tenantId + agentId`;
+- Standard semantics is at-least-once.
+- Consumers deduct by `eventId`.
+- Partition keys:
+  - Agent: `tenantId + agentId`;
   - session: `tenantId + sessionId`;
   - documento: `tenantId + knowledgeBaseId + documentId`.
-- There is no global guarantee of order between the two.
-- Critical commands use transient outbox in the producer.
-- Consumers remain offset only after the idempotent procedure is completed.
+- There is no overall guarantee of topical ordering.
+- Critical commands use transactional outbox on the manufacturer.
+- Consumers shall continue to offset only after completion of idempotent processing.
 
-## Erros e DLQ
+## Error and DLQ
 
-- Retry with backoff only for transit failures.
-- Invariable events are not repeated indefinitely.
-- DLQ for a subject with original payload, sanitized error and tentative metades.
+- Retry with backoff only for transient failures.
+- Invalid events are not repeated indefinitely.
+- DLQ by domain with original payload, sanitized error and attempted metadata.
 - Reprocessing requires authorisation, audit and preservation of the original `eventId`.
 
 ## Security
 
-- Payloads must not carry full or personal data when metadata are low.
-- Sensible fields are slacked before publication.
-- - The typics are the least privilege.
-- Events `CONFIDENTIAL` and `RESTRICTED` use criptography and retensiveness with classification.
+- Payloads shall not carry complete prompts or personal data when metadata is sufficient.
+- Sensitive fields are masked before publication.
+- Topical ACLs follow least privilege.
+- `CONFIDENTIAL` and `RESTRICTED` events use encryption and retention compatible with the classification.
 
 ## Reference retention
 
-| Classe | Initial retention | Observation |
+| Classe | Initial withholding | The Commission shall adopt implementing acts. |
 |---|---:|---|
-| Operacional | 90 dias | Diagnotic and limited replay. |
-| Billing | 24 meses | Showback e chargeback. |
-| Auditoria | 5 anos | Adjust the applicable regulatory obligation. |
+| Operacional | 90 dias | Diagnosis and limited replay. |
+| Billing | 24 meses | Showback and chargeback. |
+| Auditoria | 5 anos | Adjust to the applicable regulatory obligation. |
 | DLQ | 30 dias | Reprocessamento controlado. |
 
-Time is reference and must be approved by the Court, Security and LGPD for each organisation.
+Timelines are reference and must be approved by Law, Security and LGPD for each organisation.

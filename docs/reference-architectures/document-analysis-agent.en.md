@@ -1,18 +1,18 @@
-# Reference Access - Documentary Analysis Agent
+# This appropriation is intended to cover expenditure on technical assistance for the implementation of the programme.
 
-## Objet
+## Objective
 
-Automate the analysis of corporative documents, extracting information, clapping content, validing rules and supporting operational decisions.
+Automate the analysis of corporate documents, extracting information, classifying content, validating rules and supporting operational decisions.
 
-## Usage casings
+## Cases of use
 
-- Extradition of documents
-- Documentary classification
+- Extraction of data from documents
+- Classification of documents
 - Validation of compulsory fields
-- Comparation with internal policies
-- Message Gerading of a sworn assistant
+- Comparison with internal policies
+- Supported opinion generation
 
-## Componentes Envolvidos
+## Components involved
 
 - Agent Gateway
 - Agent Runtime
@@ -31,27 +31,27 @@ Automate the analysis of corporative documents, extracting information, clapping
 - Workflow / BPM
 - Sistemas transacionais
 
-## High-level flux
+## High-level flow
 
-1. Document is received by upload, fila or corporative system.
-2. Pipeline extrai texto e metadados.
-3. Knowledge Service index or consultable reference.
+1. Document is received by upload, queue or corporate system.
+2. Pipeline extracts text and metadata.
+3. Knowledge Service index or refer to relevant references.
 4. Agent Runtime analyses the document with rules and context.
-5. Evaluation Service valid quality and consistency.
-6. The result is registered and sent to review or workflow.
+5. Evaluation Service validates quality and consistency.
+6. Results are recorded and forwarded for review or workflow.
 
 ## Controls
 
-- Data classification
-- Sensitive information masking
-- Retention conform to corporative policy
-- Audit evidence
+- Classification of data
+- Masking of sensitive information
+- Withholding according to corporate policy
+- Evidence for audit
 - Human review for critical decisions
 
-## Mechanics
+## The following information shall be provided:
 
-- - Extrasion rate
-- Average analysis time
+- Rate of correct extraction
+- Average time of analysis
 - Human review rate
-- - You speak for type of document
-- Care for processed document
+- Failure by type of document
+- Cost per document processed

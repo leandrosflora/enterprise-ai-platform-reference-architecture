@@ -2,21 +2,21 @@
 
 ## General view
 
-The Agent Gateway is the only point of entry for agent calls. Authenticity and authorisation of the call, application rate limiting and rote the call for Agent Runtime.
+The Agent Gateway is the single point of entry for agent invocations, authenticates and authorises the call, applies rate limiting and routes the invocation to the Agent Runtime.
 
 ## Responsabilidades
 
-- Expose the API public voicemail of agents
-- Identifying requirements via Identity Provider (OIDC)
-- Authorize access by agent and escopo
-- Using limit rate and short-term cache
-- Rotate the voice for Agent Runtime
+- Exposure of the API public call for agents
+- Authenticate requests via Identity Provider (OIDC)
+- Authorise access by agent and scope
+- Apply rate limiting and short-term cache
+- Routing the invocation to Agent Runtime
 
-## Out of the scuff
+## Out of scope
 
-- Execution of the agent and prompts, tools and memory
-- Quality assessment of response
-- Life cycle and adsorption of agent
+- Execution of the agent and orchestration of prompts, tools and memory
+- Assessment of the quality of response
+- Approval and life cycle of the agent
 
 ## API Principal
 
@@ -30,19 +30,19 @@ Authorization: Bearer <token>
 
 | Dependence | Uso |
 |---|---|
-| Identity Provider | Autensification and authorisation (OIDC) |
-| Agent Runtime | Rotation of the invocation |
-| Redis | Cache e rate limiting |
+| Identity Provider | Authentication and authorisation (OIDC) |
+| Agent Runtime | Routing the call |
+| Redis | Cache and rate limiting |
 
-## Non-functioning requirements
+## Non-functional requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Latence | Minimum overhead before rote to Agent Runtime |
-| Security | Autendance and authorisation in all requirements |
-| Escalabilidade | horizontal column by volume of calls |
-| Resilience | Limiting rate to protect Agent Runtime against pigs |
+| Latency | Minimum overhead before routing to Agent Runtime |
+| Security | Authentication and authorisation in all applications |
+| Escalabilidade | Horizontal scale by volume of invoices |
+| Resilience | Rate limiting to protect Agent Runtime against peaks |
 
 ## Related Decisions
 
-- (ADR-004 — Agent Runtime with stable and adaptable nerves)(../adrs/004-agent-runtime-strategy.md)
+- [ADR-004 — Agent Runtimewith a stable core and adapters](../adrs/004-agent-runtime-strategy.md)

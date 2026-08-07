@@ -1,10 +1,10 @@
 # Evaluation Platform
 
-## Objet
+## Objective
 
-Assess quality, safety, cost and behaviour of agents and responses based on AI.
+Assess the quality, safety, cost and behaviour of agents and AI-generated responses.
 
-## Capacidades
+## Capacities
 
 - Groundedness Evaluation
 - Relevance Evaluation
@@ -13,31 +13,31 @@ Assess quality, safety, cost and behaviour of agents and responses based on AI.
 - Regression Testing
 - Benchmarking
 
-## Relacionated services
+## Other services
 
 - Evaluation Service
 - Governance Service
 - Agent Runtime
 - Audit Service
 
-## Eventos
+## Events
 
 - evaluation.started
 - evaluation.completed
 
 ## KPIs
 
-| Indicador | Description |
+| Indicador | Other information |
 |---|---|
-| Evaluation Score | consolidated assessment note |
-| Groundedness Score | Accession to sources |
-| Toxicity Rate | Toxic response |
-| Regression Failures | - You speak in regressive tests |
+| Evaluation Score | Consolidated valuation note |
+| Groundedness Score | Adherence to sources |
+| Toxicity Rate | Occurrence of toxic responses |
+| Regression Failures | Failure of regression tests |
 
-## Non-functioning requirements
+## Non-functional requirements
 
-- Sncrone and assncrone evaluation
+- Synchronous and asynchronous assessment
 - Datasets versionados
-- Evidence for government
-- Comparison of agent versions
-- Integration with publication approval
+- Evidence for governance
+- Comparison between agent versions
+- Integration with approval for publication

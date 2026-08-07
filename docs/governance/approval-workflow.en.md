@@ -1,8 +1,8 @@
 # Approval Workflow
 
-## Objet
+## Objective
 
-Make sure that corporate agents are assessed before publication.
+Ensure that corporate agents are evaluated prior to publication.
 
 ## Workflow
 
@@ -35,4 +35,4 @@ Published
 
 - Assessments
 - Logs
-- formal adoption
+- Formal approval

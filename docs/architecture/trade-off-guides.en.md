@@ -1,53 +1,53 @@
 # Trade-off Guides
 
-Guidelines for supporting decisions. They are not universal rules; choice should consider risk, volume, latitude, cost, knowledge mutability and operational capacity.
+Guidelines for supporting decisions. These are not universal rules; the choice must take into account risk, volume, latency, cost, mutability of knowledge and operational capacity.
 
 ## RAG × Fine-tuning × Long Context
 
-| Criteria | RAG | Fine-tuning | Long Context |
+| Criterion of use | RAG | Fine-tuning | Long Context |
 |---|---|---|---|
-| Knowledge changes frequently | Better option | Fraco | Suitable at low volume |
-| Citations and rastreability | Forte | Fraco | Method |
-| Personalizar estilo/comportamento | Method | Forte | Method |
-| Custo operacional | Index + retrieval | treino + hosting | tokens elevados |
-| Source government | Forte | hard to remove fats | Depending on the context sent |
+| Knowledge changes frequently | Best option | Fraco | Suitable for low volume |
+| Citations and traceability | Forte | Fraco | Average |
+| Personalizar estilo/comportamento | Average | Forte | Average |
+| Custo operacional | index + retrieval | treino + hosting | tokens elevados |
+| Governance of sources | Forte | difficult to remove | Depends on the context |
 
-**Pathoro:** start with prompt + RAG; use fine-tuning to behave completely repeatable; use long context for small and controlled groups.
+** Pattern:** start with prompt + RAG; use fine-tuning for proven repetitive behavior; use long context for small, controlled sets.
 
 ## MCP × REST × Event-Driven
 
-| Criteria | MCP | REST | Eventos |
+| Criterion of use | MCP | REST | Events |
 |---|---|---|---|
-| Tool calling by agents | Forte | exige adapter | unadjusted for immediate response |
-| APIs of field | Method | Forte | Method |
-| Long-term processes | Method | polling/callback | Forte |
-| Contract discovery | nativa | OpenAPI | AsyncAPI/catalog |
+| Tool calling by agents | Forte | exige adapter | unsuitable for immediate response |
+| APIsof domain | Average | Forte | Average |
+| Long-term processes | Average | polling/callback | Forte |
+| Discovery of contracts | nativa | OpenAPI | AsyncAPI/catalog |
 | Desacoplamento temporal | Fraco | Fraco | Forte |
 
-**Pathron:** MCP on the agent interface, REST in the field and events for assembly integration and business activities.
+**Standard:** MCP in the agent interface, REST in the domain and events for asynchronous integration and business facts.
 
 ## Multi-Agent × Workflow × Single Agent
 
-| Opt | Use when | Hold on when |
+| Option | Use when | Avoid when |
 |---|---|---|
-| Single Agent | escopo limitado, poucas ferramentas | complex coordination and high risk |
-| Workflow | knowledge, gates and forecast | problema realmente aberto |
-| Multi-Agent | Autônomal specialisations are gaining a little shit | only for organograms |
+| Single Agent | escopo limitado, poucas ferramentas | Complex and high risk coordination |
+| Workflow | Known sequence, gates and predictability | problema realmente aberto |
+| Multi-Agent | Autonomous specialisations bring measurable gains | only to simulate organograms |
 
-**Pathoro:** single agent first; workflow when there is process; multi-agent only after evidence of gain.
+**Standard:** single agent first; workflow when there is a process; multi-agent only after evidence of gain.
 
-## Syncroons  assyncroons
+## Synchronous agents × asynchronous agents
 
-- **Syncron:** short-term interactions, forecast readiness, response needed to the canal.
-- **Assembly:** long-term, fan-out, retries, human approval or lot processing.
-- For long-term operations, re-torn `202 Accepted`, `operationId` and endpoint/eventh of status.
+- **Synchronous:** short interactions, predictable latency, required channel response.
+- **Asynchronous:** long tasks, fan-out, retries, human approval or batch processing.
+- For long operations, return `202 Accepted`, `operationId` and endpoint/event status.
 
 ## Graph DB × Vector DB × SQL
 
-| Banco | Better for | Don't use as a padrister for a shit. |
+| Banco | Better to | Do not use as standard for |
 |---|---|---|
-| Vector DB | symbiosis and retrieval similarity | Exact transactions and relations |
-| Graph DB | deep and thorny relationships | simples lookup documental |
-| SQL | estado transacional, auditoria, metadados | - a saline search without veterinary extension |
+| Vector DB | Semantic similarity and retrieval | Exact transactions and relationships |
+| Graph DB | deep and transversal relationships | simples lookup documental |
+| SQL | The following information is included in the report: | Semantic search without vector extension |
 
-**Pathron:** SQL as a register, vector index for retrieval and graph only when traces are central.
+**Fact:** SQL as a recording system, vector index for retrieval and graph only when crossings are a central requirement.

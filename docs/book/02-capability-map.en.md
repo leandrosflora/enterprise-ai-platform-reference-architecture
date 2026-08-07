@@ -1,10 +1,10 @@
 # 3. Capability Map
 
-## Why start by capacity
+## Why Start With Skills
 
-A plate must not be defined initially by products or technologies. Capacitys describe **what the organisation needs to do** and remain useful even when frameworks, testers and services change.
+A platform should not be defined initially by products or technologies. Capabilities describe what an organization needs to be able to do and remain useful even when frameworks, providers and services change.
 
-The map below organizes the spreadsheet in seven complementary areas.
+The map below organizes the platform into seven complementary domains.
 
 ```mermaid
 flowchart TB
@@ -38,142 +38,142 @@ flowchart TB
 
 ### 1. Experience and Developer Experience
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
-| AI Portal | catalog, onboarding, evidence, status and operational documentation |
-| SDKs e templates | golden paths for agents, RAG, tools and telemetry |
-| Playground controlado | Identity, quotas and appropriate log |
-| Channels | integration with web, mobile, contact center, APIs and message |
+| AI Portal | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
+| SDKs and templates | Golden paths for agents, RAG tools and telemetry |
+| Playground controlado | Experimentation with identity, quotas and logging |
+| Channels | integration with web, mobile, contact center, APIs and messaging |
 | Documentation | book, technical references, examples and runbooks |
 
 ### 2. Agent Platform
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
 | Agent Registry | identity, owner, version, risk, dependencies and status |
-| Agent Runtime | implementation, context, orchestration and application of limits |
-| Agent Gateway | authentication, limit rate, roteament and entry/sale contracts |
-| Prompt and Configuration Management | version, promotion and rollback of instructions and parsemaries |
-| Session Management | correction, effect and continuity of communication |
-| Human Approval | human decisions and decisions in critical actions |
+| Agent Runtime | the implementation, context, orchestration and application of limits |
+| Agent Gateway | Authentication, rate limit, routing and entry/exit contracts |
+| Prompt and Configuration Management | versioning, promotion and rollback of instructions and parameters |
+| Session Management | correlation, ephemeral state and continuity of conversation |
+| Human Approval | Human pauses and decisions in critical actions |
 
 ### 3. Knowledge and Memory
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
-| Knowledge Ingestion | extraction, classification, quarentene, chunking and indexation |
-| Retrieval | syringe, lexical, hybrid, reranking and references |
+| Knowledge Ingestion | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1308/2013. |
+| Retrieval | Semantic, lexical, hybrid, reranking and citation search |
 | Knowledge Authorization | enforcement by tenant, base, document and chunk |
-| Knowledge Lifecycle | version, expiry, reindexation and elimination |
-| Session Memory | efamine context necessary for the current interaction |
-| Long-term Memory | fats and preferentials with finality, consent and TTL |
+| Knowledge Lifecycle | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011.'; |
+| Session Memory | ephemeral context necessary for the current interaction |
+| Long-term Memory | Facts and preferences with purpose, consent and TTL |
 | Data Provenance | origin, checksum, version and transformations applied |
 
 ### 4. Models and Tools
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
-| Model Gateway | absorption of witnesses, policies and observation |
+| Model Gateway | Abstraction of providers, policies and observability |
 | Model Routing | selection by capacity, region, cost, quality and availability |
-| Model Safety | limit, filters, redaction and exit validation |
-| Embeddings | models and versions used for indexing and searching |
-| MCP Registry | Regulatory and authorisation of corporative machinery |
-| Tool Execution | validation of schema, timeout, idempotence and auditory |
-| Compensation | rollback or compensation of effects when applicable |
+| Model Safety | the output limits, filters, wording and validation |
+| Embeddings | Templates and versions used for indexing and searching |
+| MCP Registry | Catalogue and authorisation of corporate tools |
+| Tool Execution | Schedule validation, timeout, idempotence and audit |
+| Compensation | rollback or effect offsetting where applicable |
 
 ### 5. Trust and Governance
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
-| Identity | users, workloads and delegation |
-| Authorization | RBAC, ABAC, scopes, purpose e deny by default |
-| Policy Management | authorisation, distribution, decision and enforcement of policies |
-| AI Risk Management | classification, controls and gates suitable for the risk |
-| Evaluation | quality, stability, safety, retrieval, cost and consistency |
-| Audit | mutable trilaxe of decisions, implementations and amendments |
-| Model Lifecycle | approval, permitted use, revision and withdrawal of models |
+| Identity | Users, workloads and delegation |
+| Authorization | RBAC, ABAC, scopes, purpose and deny by default |
+| Policy Management | authorisation, distribution, decision-making and enforcement of policies |
+| AI Risk Management | risk-proportionate classification, controls and gates |
+| Evaluation | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
+| Audit | the unchanging path of decisions, executions and amendments |
+| Model Lifecycle | approval, permitted use, review and withdrawal of samples |
 
 ### 6. Operations and FinOps
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
-| Observability | logs, methods, trace and correlating events |
-| SLO Management | objectives for the workload class and budget errors |
-| Incident Management | detection, monitoring, diagnostic, communication and review |
-| Capacity Management | competition, backlog, limits and loading tests |
-| Cost Management | cost by agent, model, tenant, area and environment |
-| Budget and Quotas | limites preventivos, alertas, showback e chargeback |
-| Resilience | timeout, retry, circuit breaker, fallback, DR e rollback |
+| Observability | logs, metrics, traces and related events |
+| SLO Management | Objectives by class of workload and error budgets |
+| Incident Management | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
+| Capacity Management | Competition, backlog, limits and load tests |
+| Cost Management | Cost per agent, model, tenant, area and environment |
+| Budget and Quotas | Preventive limits, alerts, showback and chargeback |
+| Resilience | the timeout, retry, circuit breaker, fallback, DR and rollback |
 
 ### 7. Foundation
 
-| Capacidade | Responsabilidade |
+| Capacity | Responsabilidade |
 |---|---|
-| Cloud and Network | contas, VPCs, subnets, private endpoints e egress |
+| Cloud and Network | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
 | Runtime Platform | Kubernetes, serverless ou compute gerenciado |
-| Event Backbone | Canonic events and asymmetrical decomposition |
-| Data Stores | armazenamento operacional, vetorial, cache e object storage |
-| Secrets and Keys | KMS, secrets, rotation and identity workload |
-| CI/CD | tests, policy checks, promotion and evidence of release |
-| Software Supply Chain | - Dependencies, images, SMMO, signature and origin |
+| Event Backbone | canonical events and asynchronous decoupling |
+| Data Stores | Operational, vector, cache and object storage |
+| Secrets and Keys | KMS, secrets, rotation and workload identity |
+| CI/CD | Testing, policy checks, promotion and evidence of release |
+| Software Supply Chain | Subsidies, images, SBOM, signature and provenance |
 
 ## Relationship with control plane and data plane
 
-The capability map does not replace the architectural separation between plans.
+The capability map does not replace the architectural separation between planes.
 
-- **Control plane:** cadastro, configuration, governance, policies, evaluation, catalog and promotion.
-- **Data plane:** invoke, retrieval, memory, models, tools and telemetry in time of execution.
+- **Control plane:** register, configuration, governance, policies, evaluation, catalogue and promotion.
+- **Data plane:** invocation, retrieval, memory, models, tools and telemetry at run time.
 
-A capacity may be able to incorporate components into both plans. For example, Model Management defines policies in control plane while Model Gateway applies those policies in data plane.
+For example, Model Management defines policies in control plane, while Model Gateway applies these policies in data plane.
 
-Consult [Control plane and data plane](../architecture/control-plane-data-plane.md) for the details of separation.
+Consulte [Control planeand data plane](../architecture/control-plane-data-plane.md)for the separation details.
 
-## - ltd-stitch MVP
+## Platform MVP
 
-Not all the capabilities need to exist at the first release. A corporate MVP usually contains:
+Not all capabilities need to exist on the first release.
 
-1. Agent Gateway e Agent Runtime;
+1. Agent Gatewayand Agent Runtime;
 2. Agent Registry;
 3. Model Gateway;
 4. identity and authorisation;
 5. policy enforcement;
-6. observation point to point;
-7. minimum assessment;
-8. CI/CD with gates;
+6. end-to-end observability;
+7. the minimum assessment;
+8. CI/CDwith cats;
 9. a knowledge integration or a real tool;
-10. ownership e suporte definidos.
+10. defined ownership and support.
 
-## Capacitys that must not be centralised early enough
+## Capacities not to be centralized too early
 
-Some responsibility must remain in the product until the product is re-proved:
+Some responsibilities should remain in the product until proven repetition:
 
 - specific business logic;
 - prompts altamente especializados;
 - UX and channel language;
 - exclusive datasets of a product;
 - workflows that will not be reused;
-- transnational rules relating to the register system.
+- transactional rules relating to the registration system.
 
-## Criteria for promoting a capacity at the plate
+## Criteria for promoting capacity at the platform
 
-A comparable capacity must be addressed to most criteria:
+A shared capacity shall meet most of the criteria:
 
-- repurposed by a few products;
+- reused for multiple products;
 - requer controle uniforme;
-- a operational scale economy;
-- has a stable or versional contract;
-- possui owner e SLO definidos;
-- reduces risk or lead time in a reasonable manner;
+- has an operational economies of scale;
+- has a stable or transferable contract;
+- has defined owner and SLO;
+- reduce risk or lead time in a measurable manner;
 - It can evolve without blocking all consumers.
 
-## Reference articles
+## Reference artifacts
 
-- (Dominates)(../domains/agent-platform.md)
-- (Servers)(../services/agent-gateway.md)
-- [Arcadia C4](../architecture/c4-complete.md)
-- [Contratos](../contracts/apis.md)
-- (Not working requirements)(../architecture/non-functional-requirements.md)
+- [The following is a list of the areas covered by this Regulation:](../domains/agent-platform.md)
+- [Services](../services/agent-gateway.md)
+- [Architecture .C4](../architecture/c4-complete.md)
+- [Contract](../contracts/apis.md)
+- [Non-functional requirements](../architecture/non-functional-requirements.md)
 
 ## Next chapter
 
-The [Operating Model](03-operating-model.md) defines who can, govern, operate and consign those capacities.
+The [Operating Model]03-operating-model.md defines who builds, governs, operates and consumes these capabilities.

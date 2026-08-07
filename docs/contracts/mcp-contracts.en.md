@@ -1,20 +1,20 @@
 # MCP Contracts
 
-This document defines the minimum contract for MCP corporatives exposed to Enterprise AI Platform agents.
+This document defines the minimum contract for corporate MCP tools exposed to Enterprise AI Platform agents.
 
 ## Principles
 
-- All tool contract must have`toolName`, `version`, `description`, `inputSchema`, `outputSchema`, `security`, `audit` e `runtimePolicy`.
-- Schemas should use JSON Schema Draft 2020-12.
-- Ferraments are semantically modified.
-- RBAC and essopus are required by iron.
-- All execution must carry `correlationId`, `causationId`, `agentId`, `sessionId` and `tenantId`.
-- Sensible data must be classified and rolled in logs.
-- No critical tool can be executed without explicit policy of timeout, retry and idempotence.
+- Each tool contract shall have `toolName`, `version`, `description`, `inputSchema`, `outputSchema`, `security`, `audit` and `runtimePolicy`.
+- Schemes shall use JSON Schema Draft 2020-12.
+- Tools are versioned semantically.
+- RBAC and brushes are required per tool.
+- Each execution shall include `correlationId`, `causationId`, `agentId`, `sessionId` and `tenantId`.
+- Sensitive data shall be classified and disguised in logs.
+- No critical tool can be run without an explicit policy of timeout, retry and idempotence.
 
 ---
 
-## Tool Pack
+## Standard tool contract envelope
 
 ```json
 {
@@ -52,7 +52,7 @@ This document defines the minimum contract for MCP corporatives exposed to Enter
 
 ### Finalidade
 
-Locate clients in corporate systems to support ad-hoc, credit or backoffice agent.
+Locate customers in corporate systems to support service, credit or back office agents.
 
 ### Contract
 
@@ -131,7 +131,7 @@ Locate clients in corporate systems to support ad-hoc, credit or backoffice agen
 
 ### Finalidade
 
-Execute control on corporative documents via Knowledge Service.
+Run a controlled search on corporate document bases via Knowledge Service.
 
 ### Contract
 
@@ -209,7 +209,7 @@ Execute control on corporative documents via Knowledge Service.
 
 ### Finalidade
 
-Managing an operational case in a corporative system, this tool is written and requires idempotence.
+Updating an operational case in a corporate system.
 
 ### Contract
 
@@ -295,20 +295,20 @@ Managing an operational case in a corporative system, this tool is written and r
 }
 ```
 
-## Expenditure
+## Compulsory events
 
-All implementation must publish `tool.executed` with the minimum fields:
+Each execution shall publish `tool.executed` with the following minimum fields:
 
-| Campo | Thank you. | Observation |
+| Campo | Compulsory | The Commission shall adopt implementing acts. |
 |---|---:|---|
 | `eventId` | Sim | UUID |
 | `eventType` | Sim | `tool.executed` |
 | `schemaVersion` | Sim | SemVer |
-| `correlationId` | Sim | Proper for the agent's invocation |
+| `correlationId` | Sim | Propagation of the agent's summons |
 | `causationId` | Sim | Command or message that caused execution |
-| `agentId` | Sim | Agent requesting |
+| `agentId` | Sim | Applicant agent |
 | `toolName` | Sim | Name of the tool |
-| `toolVersion` | Sim | Executed version |
+| `toolVersion` | Sim | Running version |
 | `status` | Sim | `SUCCESS`, `FAILED` ou `BLOCKED` |
 | `latencyMs` | Sim | Total duration |
-| `errorCode` | No | Thank you when `status != SUCCESS` |
+| `errorCode` | No , it 's not . | Mandatory when `status != SUCCESS` |

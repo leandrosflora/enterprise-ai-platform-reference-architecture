@@ -1,18 +1,18 @@
-# Reference Access - Agent for Customer Support
+# This is the total amount of assigned revenue in accordance with Article 21 (3) of the Financial Regulation.
 
-## Objet
+## Objective
 
-Automate and support customer feedback using agents with RAG, integration of corporate systems and governance of actions.
+Automate and support customer service journeys using agents with RAG, integration into corporate systems and equity governance.
 
-## Usage casings
+## Cases of use
 
-- Customer information consultation
-- Explication of products and contracts
-- I support the renegotiation
-- Triage of requests
-- Creating protocols or calls
+- Consultation of customer information
+- Explanation of products and contracts
+- Support for renegotiation
+- Selection of requests
+- Creation of protocols or calls
 
-## Componentes Envolvidos
+## Components involved
 
 - Channel Adapter
 - Agent Gateway
@@ -28,31 +28,31 @@ Automate and support customer feedback using agents with RAG, integration of cor
 
 - CRM
 - Core Banking
-- Appendix plate
+- Service platform
 - Protocol system
 - Knowledge base
 
-## High-level flux
+## High-level flow
 
-1. Client starts implementing digital channel.
-2. Channel Adapter sends the message to Agent Gateway.
+1. Customer starts service on the digital channel.
+2. Channel Adapter is forwarding the message to Agent Gateway.
 3. Agent Runtime recovers context, knowledge and policies.
 4. MCP Server consulta sistemas corporativos autorizados.
-5. Agent responds or executes the action permitted.
-6. Audit Service registers conversation, tool calls and decisions.
+5. Agent responds or performs a permitted action.
+6. Audit Service records conversation, tool calls and decisions.
 
 ## Controls
 
-- Authorisation for esthetic and canal
-- Sensitive data masking
-- Human-in-the-loop for critical actions
-- Risk-free auto limits
-- Registration of consent when applicable
+- Scope and channel authorisation
+- Masking of sensitive data
+- Human-in-the-loopfor critical actions
+- Risk autonomy limits
+- Registration of consent where applicable
 
-## Mechanics
+## The following information shall be provided:
 
 - Containment rate
-- Average time of application
+- Average attendance time
 - Transfer rate to human
-- error rate in tool calls
-- Care for maintenance
+- Rate of error in tool calls
+- Cost of care

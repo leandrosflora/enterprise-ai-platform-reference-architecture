@@ -1,10 +1,10 @@
 # Knowledge Platform
 
-## Objet
+## Objective
 
-Provide ingest, indexation and recovery of corporative knowledge for solutions RAG.
+Provide enterprise knowledge input, indexing and retrieval for RAG solutions.
 
-## Capacidades
+## Capacities
 
 - Document Ingestion
 - Content Extraction
@@ -14,13 +14,13 @@ Provide ingest, indexation and recovery of corporative knowledge for solutions R
 - Hybrid Search
 - Citation Management
 
-## Relacionated services
+## Other services
 
 - Knowledge Service
 - Evaluation Service
 - Audit Service
 
-## Eventos
+## Events
 
 - knowledge.ingested
 - embedding.generated
@@ -28,18 +28,18 @@ Provide ingest, indexation and recovery of corporative knowledge for solutions R
 
 ## KPIs
 
-| Indicador | Description |
+| Indicador | Other information |
 |---|---|
-| Retrieval Accuracy | Quality of the recovered passes |
-| Groundedness | Adhosion of response to sources |
+| Retrieval Accuracy | Quality of recovered excerpts |
+| Groundedness | Adherence of the response to sources |
 | Indexing Latency | Time to index documents |
-| Search Latency | Time of response of the busses |
+| Search Latency | Time of response of searches |
 | Documents Indexed | Volume of indexed documents |
 
-## Non-functioning requirements
+## Non-functional requirements
 
-- Filters for the field and classification
-- Source size
-- Controlled index
-- Support the knowledge bases
-- Access control on the basis of knowledge
+- Filters by domain and classification
+- Traceability of source
+- Controlled re-indexation
+- Support for multiple knowledge bases
+- Knowledge-based access control

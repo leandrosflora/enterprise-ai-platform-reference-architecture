@@ -1,10 +1,10 @@
 # Agent Platform
 
-## Objet
+## Objective
 
-Provide the central capacity for the creation, implementation, publication and operation of corporative agents.
+Provide the core capabilities for the creation, execution, publication and operation of corporate agents.
 
-## Capacidades
+## Capacities
 
 - Agent Gateway
 - Agent Runtime
@@ -13,7 +13,7 @@ Provide the central capacity for the creation, implementation, publication and o
 - Tool Calling
 - Agent Lifecycle Management
 
-## Relacionated services
+## Other services
 
 - Agent Gateway
 - Agent Runtime
@@ -21,7 +21,7 @@ Provide the central capacity for the creation, implementation, publication and o
 - Governance Service
 - Evaluation Service
 
-## Eventos
+## Events
 
 - agent.created
 - agent.updated
@@ -32,18 +32,18 @@ Provide the central capacity for the creation, implementation, publication and o
 
 ## KPIs
 
-| Indicador | Description |
+| Indicador | Other information |
 |---|---|
 | Invocations | Volume of executions of agents |
-| Success Rate | Percentage of executed successfully |
-| Latency P95 | Per centile 95 per agent |
-| Tool Call Rate | Use of tools for implementation |
-| Cost per Agent | Operational maintenance by agent |
+| Success Rate | Percentage of executions successfully completed |
+| Latency P95 | 95 percent latency per agent |
+| Tool Call Rate | Use of tools by execution |
+| Cost per Agent | Operating cost per agent |
 
-## Non-functioning requirements
+## Non-functional requirements
 
-- Authorisation by agent and scop
-- Point of view
-- Auditoria for execution
+- Authorisation by agent and scope
+- End-to-end visibility
+- Implementing audit
 - Cost control by agent
-- Resistance against model failures and tools
+- Resilience to model and tool failures

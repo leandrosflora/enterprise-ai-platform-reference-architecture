@@ -1,219 +1,219 @@
 # 7. Decision Guides
 
-## How to use this chapter
+## How to Use This Chapter
 
-The upper lines do not replace DDRs, they help identify the most appropriate initial option and the factors that need to be recorded in the final decision.
+The guides below do not replace ADRs. They help identify the most appropriate initial option and the factors that need to be recorded in the final decision.
 
-## 1. deterministic agent or workflow?
+## 1. Deterministic agent or workflow?
 
 | Use agent when | Use workflow when |
 |---|---|
-| entry and language are variable | sequence and rules are known |
-| selection of tools depends on context | steps need to be reproduzable |
+| input and language are variables | sequence and rules are known |
+| tool selection depends on context | steps need to be reproducible |
 | There is a need for interpretation | erro precisa ser praticamente nulo |
-| paths can't be easily outlined | auditory transactions require explicit transactions |
-| result may be evaluated by type | result is valid by objective rule |
+| roads cannot be easily enumerated | Auditing requires explicit transitions |
+| The result can be evaluated by heading | The result is validated by objective rule |
 
 ### Recommendation
 
-Use the lowest autonomy level to solve the problem. An agent can interpret the intention and deleave the execution to a determined workflow.
+Use the lowest level of autonomy that solves the problem. An agent can interpret the intent and delegate execution to a deterministic workflow.
 
-### Alert Sinais
+### Warning signs
 
-- agent used only to set up known APIs;
-- absence of clear limit of autonomy;
-- transatlantic rail without idempotence;
-- a critical decision based only on a written text.
+- agent used only to chain known APIs;
+- the absence of a clear autonomy limit;
+- a transactional tool without idempotence;
+- critical decision based only on generated text.
 
 ## 2. RAG ou fine-tuning?
 
-| Criteria | RAG | Fine-tuning |
+| Criterion of use | RAG | Fine-tuning |
 |---|---|---|
 | Knowledge changes frequently | forte | fraco |
-| need for quotations | forte | fraco |
-| control by document | forte | hard |
-| style or format adjustment | moderado | forte |
-| very special and stable knowledge | possible | strong in some cases |
-| immediate refund of information | forte | hard |
-| preparation cost | ingesting and retrieval | dataset e treinamento |
+| need for citations | forte | fraco |
+| control by document | forte | difficult |
+| adaptation of style or format | moderado | forte |
+| very specialized and stable knowledge | possible | strong in some cases |
+| immediate removal of information | forte | difficult |
+| cost of preparation | ingestion and recovery | Data set and training |
 
 ### Recommendation
 
-Start with RAG for mutable corporative knowledge. Use fine-tuning for behaviour, format, classification or language specialised when there is dataset and profit.
+Start with RAG for changing corporate knowledge. Use fine-tuning for behavior, format, classification, or specialized language when there is a measurable dataset and earnings.
 
 ### Combination
 
-A model adjusted may continue using RAG. Fine-tuning does not eliminate the need for authorisation, quotations and knowledge lifecycle.
+An adjusted model can continue to use RAG. Fine-tuning does not eliminate the need for authorization, citation and lifecycle of knowledge.
 
-## 3. Memory or transacional state?
+## 3. Memory or transactional status?
 
-| IA memory | Estado transacional |
+| AI memory | The amount to be reported shall be reported in the following table: |
 |---|---|
-| preference, context or summary | Saldo, status, contract, request or official decision |
-| may expire or be recalculated | requires consistency and registration system |
-| Trust and origin must be registered | integrity rules are compulsory |
-| may be probabilistic | must be determined |
+| preference, context or summary | Balance, status, contract, application or official decision |
+| may expire or be recalculated | It requires consistency and a record system |
+| Trust and origin must be recorded | Integrity rules are mandatory |
+| It can be probabilistic. | must be deterministic |
 
 ### Recommendation
 
-The agent should never use the memory of the agent as a register system.
+The agent should consult the authoritative system for transactional facts.
 
 ## 4. MCP ou API tradicional?
 
-| MCP is useful when | API right is better when |
+| MCP is useful when | API direct is better when |
 |---|---|
-| miltiplos agents find padronizad tools | There is one single stable consumer |
-| description and schema must be exposed to runtime | integration may already be consolidated |
-| the catalog and authorisation plate | Low latitude and minimum path are priorities |
-| tools need to be adapted by policy | -Damic discovery does not bring value |
+| Multiple agents discover standardized tools | there is only one stable consumer |
+| Description and schema need to be exposed to runtime | integration has a consolidated contract |
+| the platform controls catalogue and authorisation | Low latency and minimum path are priorities |
+| tools need to be enabled by policy | Dynamic discovery does not bring value |
 
 ### Recommendation
 
-Use MCP as a controlled display box for agents, without turning the MCP Server into a new business system. The logic and rules remain in the responsible services.
+Use MCP as a controlled exposure layer for agents, without turning the MCP Server into a new business system.
 
 ## 5. Single-agent ou multi-agent?
 
 | Single-agent | Multi-agent |
 |---|---|
-| menor complexidade | explcital specialisation |
-| simple assessment | a very different field and tool |
-| menos hops e custo | separation of the necessary context |
-| tracing direto | collaboration forged |
+| menor complexidade | explicit specialization |
+| simpler evaluation | Very different domains and tools |
+| less hops and cost | necessary separation of context |
+| tracing direto | Collaboration brings proven gains |
 
 ### Recommendation
 
-Start with a well defined agent and tools. Insert a few agents only when the decomposition improves quality, security or ownership in a timely manner.
+Start with a well-defined agent and tools. Introduce multiple agents only when decomposition improves quality, safety, or ownership in a measurable way.
 
-### Multi-agent costs
+### Hidden costs of multi-agent
 
-- more tokens and latence;
-- handoff failures;
-- difficulty in attribution of responsibility;
-- combination assessment;
-- excessive context propagation;
-- more complex observation.
+- more tokens and latency;
+- handoff failure;
+- difficulty in assigning responsibility;
+- a combined assessment;
+- excessive dissemination of context;
+- more complex observability.
 
-## 6. Sing or sing?
+## 6. Synchronous or asynchronous?
 
-| Sncron | Assyncron |
+| Synchronous | Asynchronous |
 |---|---|
-| human interaction immediately | long-term or in lot |
-| response within the SLO of the channel | varies sensitivity dependents |
-| efeito simples e controlado | marrows and retries |
-| cancellation connected to the session | independent processing of the connection |
+| immediate human interaction | Long-term or batch tasks |
+| the response within the SLO channel | dependencies with variable latency |
+| Simple and controlled effect | Multiple stages and retries |
+| cancellation of the session | Processing independent of the connection |
 
 ### Recommendation
 
-Use assyncron for ingesting, extended evaluations, lot generation and long-term workflows. Retorne `202 Accepted`, a ID and an endpoint or status event.
+Use asynchronous for intake, extensive evaluations, batch generation and long workflows. Return `202 Accepted`, an identifier and an endpoint or status event.
 
 ## 7. Single model or Model Gateway?
 
 | Direct integration | Model Gateway |
 |---|---|
-| experimento isolado | miltiples products or torso |
-| low risk and short duration | regions, costs and approved models |
-| no need for a fallback | common rotation and observation |
+| experimento isolado | Multiple products or suppliers |
+| low risk and short duration | Regional policies, cost and models approved |
+| No need for fallback | Common routing and observability |
 | Local simplicity is more important | portability and governance are necessary |
 
 ### Recommendation
 
-A corporative plate must be referred to Model Gateway, but it does not need to block short-term prottotypes. The transition must occur before production or use of relevant data.
+A corporate platform should converge to Model Gateway but need not block short-lived prototypes.
 
 ## 8. Vector database dedicada ou banco existente?
 
-| Currently available with veterinary surgery | Vector database dedicada |
+| Existing bank with vector search | Vector database dedicada |
 |---|---|
-| volume e throughput moderados | sand or specialty sandbags |
-| consistency with metads is important | indexed and low-level in large scale |
-| the technology is already operating. | advances in resources justify new platform |
-| menor complexidade operacional | isolation and independent tuning are necessary |
+| Moderate volume and throughput | Specialized scale or search patterns |
+| Consistency with metadata is important | Distributed indexation and low latency on a large scale |
+| The team already operates the technology. | Advanced resources justify a new platform |
+| menor complexidade operacional | Independent insulation and tuning are required |
 
 ### Recommendation
 
-It is essential to add a technology only because she's popular.
+Avoid adding a technology just because it's popular, benchmark it with corpus, filters, update, availability, and real cost.
 
-Consult [ADR-005 — Veterinary and Hybrid procurement strategy](../adrs/005-vector-search-strategy.md).
+Consulte [ADR-005  Vector and hybrid search strategy](../adrs/005-vector-search-strategy.md).
 
-## 9. Shut up or not?
+## 9. To hide or not to hide?
 
-Cache can reduce cost and longevity, but it needs to include:
+Cache can reduce cost and latency, but it needs to incorporate:
 
 - identidade ou grupo autorizado;
 - tenant;
-- version of the agent;
+- the agent's version;
 - version of the sources;
-- classification;
+- the classification;
 - finalidade;
 - model and configuration;
-- time of validity.
+- the period of validity.
 
-Do not reuse a response between users when authorisation or context may change the result.
+Do not reuse a user response when authorisation or context may change the result.
 
 ## 10. Build ou buy?
 
 | Pergunta | Favorece build | Favorece buy |
 |---|---|---|
-| - Does it differ from business? | sim | - Not a shit. |
-| Are the integration requirements specific? | sim | - Not a shit. |
-| Is data control critical? | sim | Depending on the supplier |
-| Can I have the time to operate? | sim | - Not a shit. |
-| Time-to-market is absolute priority? | - Not a shit. | sim |
-| - Is madura on the market? | - Not a shit. | sim |
-| Is lock-in acceptable? | - Not a shit. | sim |
+| capacity differentiates the business? | sim | No |
+| are integration requirements specific? | sim | No |
+| is data control critical? | sim | depends on the supplier |
+| Do you have the ability to operate? | sim | No |
+| Time-to-market is a top priority? | No | sim |
+| Is there a mature commodity on the market? | No | sim |
+| Lock-in is acceptable? | No | sim |
 
-### Commonly purchased components
+### Frequently purchased components
 
-- a general observation;
+- managed observability;
 - model APIs;
-- scanners e DLP;
+- scanners and DLP;
 - vector search gerenciada;
-- gateways or catalogs, when they look at politics.
+- gateways or catalogs, when they meet policies.
 
-### Commonly strategic components
+### Often strategic components
 
 - operating model;
-- contratos corporativos;
+- corporate contracts;
 - policies and risk gates;
-- integration with inter-identity and systems;
-- datasets and evaluations of the field;
-- experience of the developer;
-- telemetry and cost allocation.
+- integration with identity and internal systems;
+- domain datasets and assessments;
+- the experience of the developer;
+- the use of telemetry and cost allocation.
 
-## 11. Single driver or multi-provider?
+## 11. Single provider or multi-provider?
 
-Multi-provider must meet a specific requirement:
+The multi-provider shall fulfil a specific requirement:
 
 - disponibilidade;
-- data retention;
+- the data residence;
 - specific capacity;
 - cost negotiation;
-- reduction in concentration;
-- Regulatory need.
+- concentration reduction;
+- the need for regulation.
 
-It does not implement complete portability without consumers. Padronize contracts and telemetry, but accepts differences in capacity between models.
+It doesn't implement complete abstract portability without consumers, it standardizes contracts and telemetry, but it accepts differences in capacity between models.
 
-## 12. Guardrail at the prompt or external enforcement?
+## 12. Guardrail on prompt or external policy enforcement?
 
-Prompts are useful to guide behaviour, but they must not be the only barrier for:
+Prompts are useful for guiding behavior, but they should not be the only barrier to:
 
 - authorisation;
 - access to data;
 - selection of tools;
 - limites financeiros;
 - critical actions;
-- retention and discharge;
-- -Regions and models allowed.
+- retention and disposal;
+- regions and permitted models.
 
-These controls shall be applied by certain components before or after the generation.
+These controls shall be applied by deterministic components before or after generation.
 
 ## 13. Human in the loop ou human on the loop?
 
-- **Human in the loop:** the implementation is paid and requires approval.
-- **Human on the loop:** the execution occurs, but it is monitored and can be interrupted.
+- **Human in the loop:** the implementation pauses and requires approval.
+- **Human on the loop:** execution occurs, but is monitored and may be interrupted.
 
-Use HITL when the effect is irreversible, regulatory, financial or high impact. Use supervision when the volume impeachs individual approval and exists appropriate limits, detection and rollback.
+Use HITL when the effect is irreversible, regulated, financial or high impact; use supervision when the volume prevents individual approval and there are appropriate limits, detection and rollback.
 
-## ADR Template
+## The ADR template
 
 For each relevant decision, register:
 
@@ -234,4 +234,4 @@ Revisit triggers
 
 ## Next chapter
 
-The [model of maturity and roadmap](07-adoption-roadmap.md) organizes these choices in a sequence of sustainable adoption.
+The [maturity model and roadmap](07-adoption-roadmap.md) organizes these choices into a sustainable adoption sequence.

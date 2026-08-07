@@ -1,8 +1,8 @@
-# - Evaluation Results
+# Example - Result of the evaluation
 
-## Objet
+## Objective
 
-Exemple of result produced by Evaluation Service after an agent injection.
+Example of result produced by Evaluation Service after an agent invocation.
 
 ```json
 {
@@ -30,8 +30,8 @@ Exemple of result produced by Evaluation Service after an agent injection.
 
 The result is used for:
 
-- Agents' adsorption
+- Approval of agents
 - Regression between versions
 - Quality monitoring
-- Government evidence
-- Degradation alerts
+- Evidence of governance
+- Alerts for degradation

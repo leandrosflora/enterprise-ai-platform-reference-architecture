@@ -2,18 +2,18 @@
 
 | Service | Banco | Finalidade |
 |---|---|---|
-| Agent Registry | PostgreSQL | Metadates and versions |
-| Governance Service | PostgreSQL | Risks and risks |
-| Billing Service | PostgreSQL | Cost and chargeback |
+| Agent Registry | PostgreSQL | Metadata and versions |
+| Governance Service | PostgreSQL | Approvals and risks |
+| Billing Service | PostgreSQL | Costs and chargeback |
 | Memory Service | MongoDB | Conversational memory |
-| Knowledge Service | OpenSearch | Veterinary surgery |
-| Agent Gateway | Redis | Cache e rate limiting |
-| Platform Events | Kafka | Integrated asymmetric integration |
+| Knowledge Service | OpenSearch | Vector search |
+| Agent Gateway | Redis | Cache and rate limiting |
+| Platform Events | Kafka | Asynchronous integration |
 
 ## Principles
 
-- Service ownership
-- No right access between banks
+- Ownership by service
+- No direct access between banks
 - Integration by APIs and events
-- Audit data
-- Discography
+- Auditable data
+- Encryption at rest

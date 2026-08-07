@@ -1,10 +1,10 @@
 # Memory Platform
 
-## Objet
+## Objective
 
-Managing a conversational and short-term memory for corporate agents.
+Manage conversational context and short- and long-term memory for corporate agents.
 
-## Capacidades
+## Capacities
 
 - Session Memory
 - Short-Term Memory
@@ -13,29 +13,29 @@ Managing a conversational and short-term memory for corporate agents.
 - Context Retrieval
 - Retention Policies
 
-## Relacionated services
+## Other services
 
 - Memory Service
 - Agent Runtime
 - Audit Service
 
-## Eventos
+## Events
 
 - memory.updated
 
 ## KPIs
 
-| Indicador | Description |
+| Indicador | Other information |
 |---|---|
-| Memory Reads | Context laws |
+| Memory Reads | Context readings |
 | Memory Writes | Memory writings |
-| Context Hit Rate | Percentage of re-used context |
-| Storage Growth | - Storage crammed |
+| Context Hit Rate | Percentage of context reused |
+| Storage Growth | Growth in storage |
 
-## Non-functioning requirements
+## Non-functional requirements
 
-- Isolation by tenant
+- Insulation by tenant
 - Configurable expiration
-- Data Criptography
-- Personal data control
-- Auditoria of relevant amendments
+- Data encryption
+- Control of personal data
+- Audit of relevant changes

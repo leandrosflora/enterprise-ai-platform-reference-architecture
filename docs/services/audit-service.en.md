@@ -2,30 +2,30 @@
 
 ## General view
 
-Audit Service maintains the mutable auditory trille of the platform: use of agents, implementation of tools and decisions of government. Concurrent events of practically all the same services and become available for compliance and research.
+Audit Service maintains the unchanging audit trail of the platform: use of agents, implementation of tools and governance decisions. It consumes events from virtually all other services and makes them available for compliance and research.
 
 ## Responsabilidades
 
-- Consume events in all fields (agentes, knowledge, memory, government, evaluation)
-- Maintain a stable and stable auditory trille
-- Publication of auditor confirmation event
-- Provide a trilha for consultation for time of conformity and safety
-- Checking auditor records for Observability Stack
+- Consuming events in all areas (agents, knowledge, memory, governance, evaluation)
+- Continuing the audit trail that is unchanging and researchable
+- Publish an audit confirmation event
+- Provide a consultation track for compliance and safety teams
+- To forward audit records to the Observability Stack
 
-## Out of the scuff
+## Out of scope
 
-- Decision of approval or rejection of agents
-- Cost calculator (Billing Service)
-- Implementation or evaluation of agents
+- Decision approving or rejecting agents
+- Cost calculation (paper from theBilling Service)
+- Execution or evaluation of agents
 
 ## Dependencies
 
 | Dependence | Uso |
 |---|---|
-| Kafka | Confirm events from all areas of the platform |
-| Observability Stack | Public records and auditory journals |
+| Kafka | Consume events from all platform domains |
+| Observability Stack | Publish logs and audit trails |
 
-## Eventos Consumidos
+## Events consumed
 
 - `agent.created`, `agent.updated`, `agent.published`, `agent.retired`
 - `agent.invoked`, `tool.executed`
@@ -34,15 +34,15 @@ Audit Service maintains the mutable auditory trille of the platform: use of agen
 - `evaluation.started`, `evaluation.completed`
 - `governance.approved`, `governance.rejected`
 
-## Eventos Publicados
+## Events Published
 
 - `audit.created`
 
-## Non-functioning requirements
+## Non-functional requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Imutabilidade | Audit records may not be amended or withdrawn |
-| Retention | 5 years, according to regulatory policy (see [docs/contracts/events.md](../contracts/events.md)) |
-| Disponibilidade | Consumption of events can't lose messages (DLQ for the purpose) |
-| Conformidade | Reports and investigations for LGPD and regulatory audits |
+| Imutabilidade | Audit records may not be altered or deleted |
+| Retention | 5 years, according to the regulatory policy (see [docs/contracts/events.md](../contracts/events.md)) |
+| Disponibilidade | Event consumption cannot lose messages (DLQ per domain) |
+| Conformidade | Support research and reporting for LGPD and regulatory audits |

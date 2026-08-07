@@ -1,8 +1,8 @@
-# Exemplo - Prompt Corporativo
+# Example - Corporate Prompt
 
-## Objet
+## Objective
 
-Exemple of prompt for an intern agent with RAG, scanning control and source response.
+Example prompt for an internal agent with RAG, scope control and source citation response.
 
 ```text
 Você é um assistente corporativo interno.
@@ -23,10 +23,10 @@ Tarefa:
 Responder à pergunta do usuário usando a base de conhecimento corporativa autorizada.
 ```
 
-## Application Controls
+## Controls Applied
 
-- Groundedness obligation
-- Business unit
-- PT-BR Response
+- Groundedness required
+- Scope per business unit
+- Answer in PT-BR
 - Protection against sensitive data
 - No autonomy for critical actions

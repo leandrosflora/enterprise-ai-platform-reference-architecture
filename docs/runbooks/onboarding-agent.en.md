@@ -1,36 +1,36 @@
-# Runbook — Onboarding and Agent Publication
+# Runbook  Onboarding and Agent Publishing
 
-## Objet
+## Objective
 
-Publication of a contract-based agent version with risk, security, assessment, observation, budget and rollback valid.
+Publish an agent version with validated contracts, risk, security, valuation, observability, budget and rollback.
 
 ## Pre-requisites
 
-- technical owner and business owner defined;
+- defined technical owner and business owner;
 - Agent Card versionado;
-- sample of the approved assessment;
+- an approved evaluation dataset;
 - knowledge bases and tools already registered;
-- budget and cost centre defined;
-- access `agent.write`, `governance.submit` and test permits.
+- defined budget and cost centre;
+- acesso `agent.write`, `governance.submit`and test permits.
 
 ## Procedimento
 
-### 1. Validate Agent Card
+### Validate the Agent Card
 
-Thank you:
+This is mandatory:
 
-- `agentId`, name and version SemVer;
+- `agentId`, name and version of SemVer;
 - owner and business unit;
-- purpose, users and data used;
+- the target, users and data used;
 - risco inicial;
-- model policy by capacity, without proof of proof;
-- tools e knowledge bases permitidas;
-- workload class and SLO;
-- Memory policy.
+- capacity model policy, without provider credential;
+- tools and knowledge bases permitted;
+- the workload class and SLO;
+- the memory policy.
 
-**Sea-down:** variable schema and no unlocked field.
+**Exit criterion:** Valid scheme and no blocking field missing.
 
-### 2. Register the version in DRAFT
+### 2. Record the version in DRAFT
 
 ```bash
 curl -sS -X POST http://localhost:8080/v1/agents \
@@ -39,39 +39,39 @@ curl -sS -X POST http://localhost:8080/v1/agents \
   -d @agent-card.json
 ```
 
-**Esperado:** HTTP `201`, status `DRAFT` e `ETag`.
+**Expected:** HTTP `201`, status `DRAFT` and `ETag`.
 
-### 3. Validating dependencies
+### 3. Validation of dependencies
 
 - all MCP contracts are approved;
-- KBs apply ACL for document/chunk;
-- models requested are in the Model Catalog;
-- secrets and regions are approved;
-- - The `deny by default` policy was exercised.
+- KBs apply ACL per document/chunk;
+- the models requested are in the Model Catalogue;
+- Secrets and regions are approved;
+- The policy of `deny by default` has been implemented.
 
-### 4. Execute evaluations
+### 4. carry out assessments
 
 Executar ao menos:
 
 - regression;
-- groundedness/retrieval when there is RAG;
+- groundedness/retrieval where there is RAG;
 - safety/adversarial;
-- the latability of the workload class;
-- Cost for a moment.
+- the latency of the workload class;
+- cost per scenario.
 
-**Sea-down report:** reductive report and thresholds reached.
+**Exit criterion:** Reproducible report and thresholds reached.
 
-### 5. Validation of observation
+### 5. Validate the observability
 
-Execute an invocation in the test environment and confirm:
+Run an invocation in a test environment and confirm:
 
 - trace completo;
 - policy decision and version;
-- tokens e custo;
-- events `agent.invoked` and dependents;
-- - No sense of a sensible payload in logs.
+- tokens and cost;
+- Events`agent.invoked`and dependencies;
+- No sensitive payload in logs.
 
-### 6. Submit for government
+### 6. Submitting to governance
 
 ```bash
 curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:submit \
@@ -86,11 +86,11 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:submit \
 
 **Esperado:** HTTP `202`, decision `PENDING`.
 
-### 7. Accept with a function separation
+### 7. Approval by functional segregation
 
-The identity that you submitted cannot be adopted.
+The identity you submitted cannot be approved.
 
-**Early:** decision `APPROVED`, with `approvalId` and auditorium.
+**Expected:** decision `APPROVED`, with `approvalId` and audit trail.
 
 ### 8. Publicar
 
@@ -101,30 +101,30 @@ curl -sS -X POST http://localhost:8080/v1/agents/policy-assistant:publish \
   -d '{"approvalId":"apv-001","releaseNotes":"Primeira versão"}'
 ```
 
-**Esperado:** HTTP `202`, status `PUBLISHED` e evento `agent.published`.
+**Expected:** HTTP `202`, status `PUBLISHED` and event `agent.published`.
 
 ### 9. Smoke test
 
-- authorized re-representation `SUCCESS` or `PARTIAL` inserted;
-- a voice without a re-torning esophagus `403`;
-- not allowed re-torning `BLOCKED`;
-- dashboard shows lativity, tokens and cost;
-- Test alerts come to the right channel.
+- the authorised invocation returns the expected `SUCCESS` or `PARTIAL`;
+- the purposeless invocation returns `403`;
+- the tool not allowed returns `BLOCKED`;
+- dashboard shows latency, tokens and cost;
+- Test alerts are coming to the correct channel.
 
 ## Rollback
 
-1. blocking new voices in the version;
-2. restoring the previously published version;
+1. block new invocations of the version;
+2. restore the previously published version;
 3. invalidate the configuration cache and policies;
 4. desabilitar tools afetadas;
-5. to preserve events, trace and evidence;
-6. abrir incidente e registrar causa.
+5. preserve events, traces and evidence;
+6. Open an incident and file a lawsuit.
 
 ## Erros comuns
 
-| Sintoma | Provisible cause | Action |
+| Sintoma | Probable cause | Action |
 |---|---|---|
-| `409 Conflict` | version or idempotency key already used | Consult state before repeat |
-| `422 Policy Violation` | evidence, budget or absence of dependence | - Correct the gate indicated |
-| approved agent not published | approval ID does not correspond to the version |  Refresh the publication with the correct decision |
-| `BLOCKED` in the voice | policy bundle ausente ou desatualizado | validating distribution and version of the policy |
+| `409 Conflict` | version or idempotency key already used | Check the status before repeating |
+| `422 Policy Violation` | Evidence, budget or dependency absent | correct the indicated gate |
+| approved agent not publishing | approval ID does not match the version | Re-publishing with the correct decision |
+| `BLOCKED` in the appeal | policy bundle ausente ou desatualizado | validate distribution and policy version |

@@ -1,161 +1,161 @@
-# 8. Model of maturity and adoption roadmap
+# 8. Maturity model and adoption roadmap
 
-## Principle
+## This is a principle.
 
-The maturity of a AI Platform is not defined by the number of services implanted. It is demonstrated by the ability to deliver cases of use with quality, control, operation and anticipated cost.
+The maturity of a AI Platform is not determined by the number of services deployed, but by the ability to deliver use cases with predictable quality, control, operation and cost.
 
-## Model of maturity
+## The maturity model
 
-### 0 — Isolated experiments
+### Level 0  Isolated experiments
 
-**Caracteristics**
+**Characteristics**
 
-- notebooks, scripts and SaaS without common pattern;
-- credible and local configurations;
+- Notebooks, scripts and SaaS without a common standard;
+- credentials and local settings;
 - pouca rastreabilidade;
-- manual assessment;
-- costs not allocated;
-- conhecimento e prompts copiados entre projetos.
+- manual evaluation;
+- unallocated costs;
+- knowledge and prompts copied between projects.
 
-**Project to progress**
+** Goal to move forward**
 
-Identify repeated rules, owners and material risks.
+Identify repeated patterns, owners and material risks.
 
-### Level 1 — Minimum pawns
+### Level 1  Minimum standards
 
-**Caracteristics**
+**Characteristics**
 
-- draft templates;
-- identidade e secrets adequados;
-- basiclogging;
-- initial invention of cases;
-- a suitable prototype and model;
-- - A publication checklist.
+- design templates;
+- appropriate identity and secrecy;
+- basic logging;
+- initial case inventory;
+- approved providers and models;
+- the publication checklist.
 
-**Evidence of maturity**
+** Evidence of maturity**
 
-First low-risk cases are aimed at production without additional controls.
+The first low-risk cases reach production without ad hoc controls.
 
-### Level 2 — Executable Golden path
+### Level 2  Golden path executable
 
-**Caracteristics**
+**Characteristics**
 
 - Agent Registry and life cycle;
 - Model Gateway;
-- contratos e eventos versionados;
+- Contracts and versioned events;
 - CI/CD with assessments and policies;
-- observation point to point;
-- runbooks e rollback;
+- end-to-end observability;
+- runbooks and rollback;
 - first knowledge or tools service.
 
-**Evidence of maturity**
+** Evidence of maturity**
 
-Squads can publish controlled versions without relying on manual implementation of the central time.
+Squads can publish controlled versions without relying on manual implementation from the central team.
 
-### Level 3 — Risk-based government
+### Level 3  Risk-based governance
 
-**Caracteristics**
+**Characteristics**
 
 - AI Catalog completo;
-- risk tiers e gates proporcionais;
-- RAG and memory with lifecycle;
-- datasets e baselines versionados;
+- risk tiers and proportional gates;
+- RAG and lifecycle memory;
+- versioned datasets and baselines;
 - approval evidence;
 - periodic review;
 - incident management especializado.
 
-**Evidence of maturity**
+** Evidence of maturity**
 
-The organisation shows that a version was published and can suspend or withdraw quickly.
+The organisation demonstrates why a version has been published and can quickly suspend or withdraw it.
 
-### Level 4 — Failed column
+### Level 4  Federated scale
 
-**Caracteristics**
+**Characteristics**
 
-- miltiples units and tenants;
-- market of capacity;
-- MCP e tools governadas;
+- multiple units and tenants;
+- the capacity marketplace;
+- MCP and controlled tools;
 - chargeback ou showback;
 - capacity management;
 - community of practice;
 - platform product management maduro.
 
-**Evidence of maturity**
+** Evidence of maturity**
 
-Adoption grows without proportional growth of exceptions, incidents or central effort.
+Adoption grows without proportionate growth of exceptions, incidents or central effort.
 
-### Level 5 — Continuous opportunity
+### Level 5  Continuous optimisation
 
-**Caracteristics**
+**Characteristics**
 
-- routing orientated on quality, cost and availability;
-- online and shadow traffic evaluations;
+- quality, cost and availability-oriented routing;
+- online assessments and shadow traffic;
 - error budgets influenciam releases;
-- otimization by outcome;
-- review automapping and evidence;
-- multi-region resilience when justified.
+- the results of the evaluation shall be presented in accordance with the methodology set out in Annex II.
+- automation of review and evidence;
+- multi-regional resilience when justified.
 
-**Evidence of maturity**
+** Evidence of maturity**
 
-Quality, risk, cost and speed are generated as dimensions of the same platelet product.
+Quality, risk, cost and speed are managed as dimensions of the same platform product.
 
-## Mm-hmm.
+## Mature matrix
 
-| Dimensive | N0 | N1 | N2 | N3 | N4 | N5 |
+| Size | N0 | N1 | N2 | N3 | N4 | N5 |
 |---|---|---|---|---|---|---|
-| Delivery | artesanal | templates | golden path | gates for risk | self-service federado | ottition |
-| Government | inexistente | checklist | workflow | evidence and revision | scalability policies | adaptable automapping |
-| Security | the project | baseline | enforcement comum | threat model e testes | isolamento endurecido | continuous assurance |
-| Evaluation | manual | amostras | datasets | baselines and return | online + offline | otimisation by outcome |
-| Operation | best effort | logs | SLOs e runbooks | incidentes e reviews | capacity e DR | error-budget driven |
-| FinOps | fatura agregada | tags | Care by agent | budgets e quotas | showback/chargeback | Economic routing |
-| Organisation | iniciativas | champions | platform team | model federated | CoE e comunidade | product portfolio otimizado |
+| Delivery | artesanal | templates | golden path | Cat at risk | self-service federado | continuous optimisation |
+| Governance | inexistente | Checklist | workflow | Evidence and review | policies at scale | The following information shall be provided: |
+| Security | project to project | baseline | enforcement comum | threat model and testing | isolamento endurecido | continuous assurance |
+| Evaluation | manual | amostras | datasets | Baselines and regression | online + offline | Optimization by outcome |
+| Operations | best effort | logs | SLOs and runbooks | Incidents and reviews | capacity and DR | error-budget driven |
+| FinOps | fatura agregada | tags | Cost per agent | budgets and quotas | showback/chargeback | economic routing |
+| The Commission shall adopt implementing acts. | iniciativas | champions | platform team | Federated model | CoE and Community | product portfolio otimizado |
 
-## Reference Roadmap in 12 months
+## Reference roadmap in 12 months
 
-The calendar must be adjusted to the context, the following should be emphasized operationally before the expansion.
+The timetable should be adapted to the context.The following sequence prioritizes operational learning before expansion.
 
-### Trimestre 1 — Foundation e primeiro golden path
+### Quarter 1  Foundation and first golden path
 
 **Entregas**
 
-- platform charter e owners;
-- capability map e backlog;
-- Agent Registry minimum;
-- Agent Gateway e Runtime;
+- platform charters and owners;
+- capability map and backlog;
+- the minimum Agent Registry;
+- Agent Gatewayand Runtime;
 - Model Gateway;
-- identidade, policies e telemetria;
+- identity, policies and telemetry;
 - CI/CD with contracts;
-- first internal case of low or medium risk.
+- the first low- or medium-risk internal case.
 
-**Resultados**
+** Results**
 
-- first published by pipeline;
-- trace the point;
-- cost for known invocation;
+- the first version published by pipeline;
+- draw a line from end to end;
+- cost per known invocation;
 - rollback exercitado;
-- feedback from the first squad.
+- First squad feedback.
 
-### Table 2 — Knowledge, memory and evaluation
+### Quarter 2  Knowledge, memory and evaluation
 
 **Entregas**
 
-- ingesting with quarentin;
-- ACL for document and chunk;
-- citations e groundedness;
+- ingestion with quarantine;
+- ACL per document and chunk;
+- citations and groundedness;
 - memory with TTL and consent;
-- datasets e baseline;
+- data sets and baseline;
 - risk workflow proporcional;
-- quality dashboards and cost.
+- quality and cost dashboards.
 
-**Resultados**
+** Results**
 
-- documentary agent operating with control access;
-- bloated re-routes in the pipeline;
-- exclusion and test expiry;
-- Revise of 30 or 60 days executed.
+- a documentary agent operating with controlled access;
+- blocked regressions in the pipeline;
+- Tested exclusion and expiration;
+- 30 or 60 day review carried out.
 
-### Table 3 — Tools and corporative integration
+### Quarter 3  Tools and corporate integration
 
 **Entregas**
 
@@ -163,109 +163,109 @@ The calendar must be adjusted to the context, the following should be emphasized
 - onboarding of tools;
 - idempotence, outbox and compensation;
 - HITL for critical actions;
-- tool metrics e audit;
-- second and third cases of use.
+- tool metrics and audits;
+- second and third use cases.
 
-**Resultados**
+** Results**
 
-- a government body action;
-- bloke tools for policy;
-- slacks and retries without doubling effects;
-- re-use approved between squads.
+- governed corporate shares;
+- policy-blocking tools;
+- failures and retries without duplicate effects;
+- proven reuse between squads.
 
-### Trimestre 4 — Escala, FinOps e operating model
+### Quarter 4  Scale, FinOps and operating model
 
 **Entregas**
 
-- quotas and budgets by tenant and agent;
+- quotas and budgets per tenant and agent;
 - showback;
 - marketplace interno;
 - maturity assessment;
 - community of practice;
 - capacity tests;
-- DR e incident simulation;
-- roadmap for the next year based on adoption.
+- DR and incident simulation;
+- the next year's roadmap based on adoption.
 
-**Resultados**
+** Results**
 
-- costs allocated;
+- assigned costs;
 - lead time reduzido;
 - operation with SLOs;
-- growth without a proportional increase in central time.
+- growth without a proportionate increase in the central team.
 
-## Backlog oriented to outcomes
+## Results-oriented backlog
 
-Evite a backlog composed only of components.
+Avoid a backlog composed only of components.
 
-- reduce the onboarding of a squad of four weeks to five days;
-- ensure that no source not authorized is retracted;
-- detects a return of groundness before deployment;
-- to allocate 95% of the costs to agents and areas;
+- reduce the onboarding of a squad from four weeks to five days;
+- ensure that no unauthorised source is returned;
+- detecting groundedness regression prior to deployment;
+- allocate 95% of the costs to agents and areas;
 - suspend a version in less than five minutes;
-- Execute a trans-national action without duplication after retry.
+- execute a transaction without duplicity after retry.
 
-Technical components are delivered necessary to achieve these results.
+The technical components are the necessary deliveries to achieve these results.
 
-## KPIs of the plate
+## Platform KPIs
 
 ### Adoption and experience
 
 - squads onboarded;
-- agents published and active;
+- published agents and assets;
 - time for first deployment;
 - percentage on the golden path;
-- satisfaction of the developer;
-- - a capacity reuse rate.
+- the developer's satisfaction;
+- capacity reuse rate.
 
-### Qualidade e risco
+### Quality and risk
 
-- blocked return;
-- policy of no category;
+- blocked regressions;
+- policy denials by category;
 - security or privacy incidents;
 - respostas grounded;
-- a fallback and abstention rate;
-- - Open and swollen exceptions.
+- fallback and abstention rates;
+- Open and expired exceptions.
 
-### Operation
+### Operations
 
-- available and p95 per workload;
+- Availability and p95 per workload;
 - MTTR;
 - saturation and backlog;
-- a success rate of invocation;
-- incidents by agent and dependency;
-- compliance with periodic checks.
+- the success rate of the invocation;
+- incidents per agent and dependency;
+- compliance with periodic reviews.
 
-### FinOps e valor
+### FinOps and value
 
-- cost by agent, area and model;
-- cost for final task;
+- cost per agent, area and model;
+- cost per completed task;
 - budget variance;
-- time-saving or effort reduction;
-- receive, converse or risk avoided when applicable;
-- Cost of a plate by active consumer.
+- time savings or reduction of effort;
+- revenue, conversion or risk avoided where applicable;
+- the cost of the platform per active consumer.
 
-## Investment rails
+## Investment guardrails
 
-Before expanding a capability, valid:
+Before expanding a capability, validate:
 
-- at least two consumers or a strong body requirement;
-- the owner of the product and operation;
-- SLO e custo esperados;
-- contract and version strategy;
-- plan of deprecation;
-- success method;
-- a generic or comparable alternative analysed.
+- at least two consumers or a strong corporate requirement;
+- owner of the product and operation;
+- SLO and expected cost;
+- contract and versioning strategy;
+- the depreciation plan;
+- the success metric;
+- managed or analyzed purchasable alternative.
 
-## Roadmap anti-blocks
+## Roadmap anti-patterns
 
-- implant all components before the first real case;
-- reducing progress by the amount of iron;
-- a multi-agent, long memory and fine-tuning simultaneously;
-- build a market without consumers;
-- expand to HIGH cases before operating a simple case;
-- to ignore support, incidents and costs during the COP;
-- Treating government as a post-war.
+- deploy all components before the first actual case;
+- measuring progress by number of tools;
+- adopt multi-agent, long memory and fine-tuning at the same time;
+- building a marketplace without consumers;
+- expanding to HIGH cases before operating a simple case;
+- ignore support, incidents and costs during the POC;
+- to treat governance as a later stage.
 
 ## Next chapter
 
-The [production checks](08-production-checklists.md) convert maturity and lifecycle into objective verifications for each release.
+The [production checklists](08-production-checklists.md) convert maturity and lifecycle into objective checks for each release.

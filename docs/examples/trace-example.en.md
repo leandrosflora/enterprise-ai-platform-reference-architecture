@@ -1,8 +1,8 @@
-# - Exemple - Implementation Trace
+# Example - Trace of execution
 
-## Objet
+## Objective
 
-Type of rastreability point to point for an agent injection.
+Example of end-to-end traceability for an agent invoking.
 
 ```text
 traceId: trace-001
@@ -42,12 +42,12 @@ spans:
       relevanceScore: 0.88
 ```
 
-## Application
+## Application of this Regulation
 
-The trace allows diagnostic:
+The trace makes it possible to diagnose:
 
-- - Latability by component
-- Consumption of tokens
+- Latent by component
+- Use of tokens
 - Quality of response
-- Integration gaps
-- - Deleted shit
+- Failure to integrate
+- Other, not further worked than hot-rolled

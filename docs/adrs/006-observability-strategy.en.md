@@ -1,59 +1,59 @@
-# ADR-006 — OpenTelemetry as a warning pad
+# ADR-006  OpenTelemetry as an observability standard
 
 **Status:** Aceito
 
 ## Contexto
 
-Solutions with generic agents and models require rastreability beyond traditional logs. An implementation can reach gateway, runtime, policies, memory, retrieval, models, tools, evaluation and events, with a simulating impact on quality, safety, cost and reliability.
+Solutions with generative agents and models require traceability beyond traditional logs. An execution can go through gateway, runtime, policies, memory, retrieval, models, tools, evaluation and events, with simultaneous impact on quality, security, cost and latency.
 
 ## Decision
 
-Adopt **OpenTelemetry** as trace pattern, methods and correlated logs. Each invoke must have trace point and specific lengths for policy, retrieval, memory, model calls, tool calls, evaluation and audit.
+Adopt **OpenTelemetry** as a pattern of related traces, metrics and logs. Each invocation must have end-to-end traces and specific spans for policy decisions, retrieval, memory, model calls, tool calls, evaluation and audit.
 
-Assembly events shall propagate W3C context and maintain `correlationId` and `causationId` when applicable.
+Asynchronous events shall propagate the W3C context and maintain `correlationId` and `causationId` where applicable.
 
-## Obligatory requirements
+## Mandatory requirements
 
-- `agent.id`, `agent.version`, `tenant.id` and risk classification in execution;
-- model, prompt, policy, tool and knowledge snapshot;
-- tokens, cost, latence, retries and fallback;
-- decision to authorise without registering secrets or a brute-readable payload;
-- mowing before export;
-- a control of the cardinality of the methods;
-- retention and appropriate access to the classification of the child;
-- correction with auditory and evaluation events.
+- the risk classification in the execution of `agent.id`, `agent.version`, `tenant.id`;
+- the actual model version, prompt, policy, tool and knowledge snapshot;
+- The amount of the exposure value of the underlying exposure shall be calculated as follows:
+- an authorisation decision without recording secrets or gross sensitive payload;
+- masking before export;
+- the cardinality control of metrics;
+- retention and access proportional to the classification of the data;
+- correlation with audit and evaluation events.
 
 ## Alternativas
 
 | Alternativa | Vantagem | Limitation |
 |---|---|---|
-| Service logs | simple local implementation | inconsistent correlation and symbiosis |
-| Single property instrument | rapid integration with a supplier | lock-in e portabilidade reduzida |
-| Only auditory events | Good business trip | technical diagnostic and inadequate performance |
+| Customized logs by service | Simple local implementation | inconsistent correlation and semantics |
+| Unique proprietary instrumentation | Rapid integration with a supplier | Lock-in and reduced portability |
+| Audit events only | Good business trail | Technical diagnosis and insufficient performance |
 
 ## Positive consequences
 
-- a cross-section of the cross between capacities;
-- integration with existing corporative stacks;
-- common basis for SRE, security, assessment and FinOps;
-- a backend without changing the main instrumentation.
+- end-to-end correlation between capacities;
+- integration with existing corporate stacks;
+- the common basis for SRE, security, evaluation and FinOps;
+- backend exchange without altering the main instrumentation.
 
 ## Negative consequences
 
-- increase volume and cost of telemetry;
-- requires a government of attributes and cardinality;
-- a faulty instrumentation may be able to collect data or generate false confidence;
+- increase the volume and cost of telemetry;
+- requires governance of attributes and cardinality;
+- incorrect instrumentation may leak data or generate false confidence;
 - sampling needs to preserve critical events.
 
 ## Minimum evidence
 
-- a trace of reference bringing a complete voice;
-- catalogue of spans, attributes and methods;
-- HTTP propagation test and a synchrome test;
-- test of redaction and absence of secrets;
-- dashboards, alertas e SLOs associados;
-- retention, sampling and access policy.
+- a reference line covering a full invocation;
+- the catalogue of spans, attributes and metrics;
+- the HTTP and asynchronous spread test;
+- proof-of-concept and absence of secrets;
+- dashboards, alerts and SLOs associados;
+- the retention, sampling and access policy.
 
-## Review criteria
+## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
 
-Review when the framework does not allow interoperability, volume or security requirements, or when the instrument causes unfavourable operational costs to diagnostics and the government obtained.
+Review when the standard fails to meet interoperability, volume or safety requirements, or when the instrumentation causes an operational cost disproportionate to the diagnosis and governance achieved.

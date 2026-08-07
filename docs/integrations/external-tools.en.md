@@ -1,10 +1,10 @@
 # External Tools Integration
 
-## Objet
+## Objective
 
-Definite criteria for use of external tools by agents and services of the platform.
+Establish criteria for the use of external tools by platform agents and services.
 
-## - Wheels
+## Types of tools
 
 - SaaS APIs
 - Search APIs
@@ -13,27 +13,27 @@ Definite criteria for use of external tools by agents and services of the platfo
 - Communication Channels
 - Ticketing Tools
 
-## Appropriations criteria
+## Criteria for approval
 
-| Criteria | Description |
+| Criterion of use | Other information |
 |---|---|
-| Security | Authentification, authorisation and management of secrets |
-| Data | Classification and location of data |
-| LGPD | Legal basis, retention and comparison |
-| Custo | Cobra and previsibility model |
-| SLA | Disponibilidade e suporte |
+| Security | Authentication, authorisation and management of secrets |
+| The data | Classification and location of data |
+| LGPD | Legal basis, retention and sharing |
+| Custo | Charging model and predictability |
+| SLA | Availability and support |
 
-## Daddy
+## Standards
 
 - Prefer integration via MCP Server controlled
-- Don't give secrets to agents
-- Registring all tool calls
+- Do not expose secrets to agents
+- Record all tool calls
 - Aplicar rate limiting
-- Definite fallback for indisponibility
+- Define fallback to unavailability
 
 ## Requirements
 
-- Governmental improvement for critical tools
-- Contrato versionado
+- Approval of governance for critical tools
+- Versioned contract
 - Observability by external call
-- Plan for a continuation
+- Discontinuation plan

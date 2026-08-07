@@ -1,10 +1,10 @@
 # Observability Stack Integration
 
-## Objet
+## Objective
 
-Integrate the plate with a number of observatory tools for operation, audit and diagnostic.
+Integrate the platform with corporate observability tools for operation, audit and diagnosis.
 
-## Daddy
+## Standards
 
 - OpenTelemetry
 - Structured Logs
@@ -13,7 +13,7 @@ Integrate the plate with a number of observatory tools for operation, audit and 
 - Dashboards
 - Alerts
 
-## Compatibility
+## Compatible tools
 
 - Grafana
 - Prometheus
@@ -23,20 +23,20 @@ Integrate the plate with a number of observatory tools for operation, audit and 
 - Datadog
 - OpenSearch Dashboards
 
-## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Counted data
+## Data collected
 
-- Agent's voice
+- Trace of invocation of agent
 - Tool calls
 - Model calls
 - Retrieval calls
 - Tokens
-- Latence
+- Latency
 - Erros
 - Estimated costs
 
 ## Requirements
 
-- - a compulsory correction
-- Sensitive data masking
-- Retention by type of dad
+- Compulsory correlation
+- Masking of sensitive data
+- Retention by type of data
 - Dashboards by platform, agent and business unit

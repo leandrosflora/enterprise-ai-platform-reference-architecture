@@ -1,10 +1,10 @@
 # Foundation Models Integration
 
-## Objet
+## Objective
 
-Increasing the use of basic models by agents and services of the platform.
+Standardize the consumption of foundation models by platform agents and services.
 
-## Provedores Suportados
+## Supported providers
 
 - Amazon Bedrock
 - Azure OpenAI
@@ -12,27 +12,27 @@ Increasing the use of basic models by agents and services of the platform.
 - Anthropic
 - Google Gemini
 
-## Integrating Pads
+## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
 
-- Model Adapter in Agent Runtime
-- Absorption by provider and model id
+- Model Adapter in the Agent Runtime
+- Abstraction by provider and model id
 - Fallback between compatible models
 - Control of tokens
-- Timeout e retry controlado
+- Timeout and retry controlled
 
 ## Selection criteria
 
-| Criteria | Description |
+| Criterion of use | Other information |
 |---|---|
-| Qualidade | Adhosion to the case of use |
-| Latence | Time of response |
-| Custo | Cost per input/output token |
-| Compliance | Regulations and data requirements |
-| Capacidade | Context window, tool calling e multimodalidade |
+| Qualidade | Adherence to the use case |
+| Latency | Expected response time |
+| Custo | Cost of input/output tokens |
+| Compliance | Regulatory and data requirements |
+| Capacity | Context window, tool calling and multimodality |
 
 ## Requirements
 
-- Use register by agent
-- Observability by type
-- Sensible data masking when applicable
-- Retention policy of prompt responses
+- Registration of use by agent
+- Observability by model call
+- Masking of sensitive data where applicable
+- Prompt and reply retention policy

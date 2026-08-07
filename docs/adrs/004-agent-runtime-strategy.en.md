@@ -1,66 +1,66 @@
-# ADR-004 — Agent Runtime with stable and adaptable content
+# ADR-004  Agent Runtime with stable core and adapters
 
 **Status:** Aceito
 
 ## Contexto
 
-The platform needs to execute corporative agents integrating models, memory, RAG, tools, evaluation, policies and observability. The framework ecosystem changes rapidly; bringing corporative contracts to a specific framework increases lock-in and complicates consistent governance.
+The platform needs to execute corporate agents by integrating models, memory, RAG, tools, evaluation, policies, and observability. The framework ecosystem changes rapidly; linking corporate contracts to a specific framework increases lock-in and makes consistent governance difficult.
 
 ## Decision
 
-Adopt a **Agent Runtime corporative with stable and adaptable content** for frameworks and speakers of origin.
+Adopting a **Agent Runtimea stable core and adapters** for frameworks and orchestration providers.
 
-The code must control:
+The core shall control:
 
-- the identity of the agent and published version;
-- a switchable configuration load;
-- application of policies and limits of autonomy;
-- implementation of prompts, workflows and tools;
-- integration with Model Gateway, Knowledge Service and Memory Service;
-- checkpoint, timeout, retry e cancelamento;
-- events, auditory, evaluation and telemetry.
+- the identity of the agent and the published version;
+- the unchanging configuration load;
+- the implementation of policies and limits of autonomy;
+- execution of prompts, workflows and tools;
+- integration with Model Gateway, Knowledge Serviceand Memory Service;
+- the checkpoint, timeout, retry and cancellation;
+- The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof.
 
-Adapters may integrate LangGraph, Semantic Kernel, managed services of agents or custom-built implementations, provided they preserve the contracts and controls of the nitrate.
+Adapters can integrate LangGraph, Semantic Kernel, agent-managed services or custom implementations, provided they preserve the core contracts and controls.
 
 ## Limites
 
-- business rules remain in the field services;
-- proving credentials remain in Model Gateway;
-- approval and catalog remain in Control Plane;
-- tools are available by government borders, preferably MCP;
-- the framework does not define the canometric format of auditory, events or policies.
+- business rules remain in the domain services;
+- supplier credentials remain in the Model Gateway;
+- approval and catalogue remain in the Control Plane;
+- tools are accessed by governed borders, preferably MCP;
+- the framework does not define the canonical format of audits, events or policies.
 
 ## Alternativas
 
 | Alternativa | Vantagem | Limitation |
 |---|---|---|
-| Single Framework |                                                                                                                                                                                                 | lock-in and control dependent on the framework |
-| Runtime by squad | autonomia local | security fragmentation, telemetry and costs |
-| Single-generation service | simplified operation | portabilidade e extensibilidade limitadas |
+| Single framework | lower initial effort | Lock-in and framework-dependent controls |
+| Runtime by squad | autonomia local | The Commission shall adopt delegated acts in accordance with the opinion of the Standing Committee on Planning and Budgetary Control. |
+| Single managed service | Simplified operation | Limited portability and extensibility |
 
 ## Positive consequences
 
-- corporative contracts remain stable during framework exchanges;
-- policies, observability and FinOps are uniform;
-- technological developments occur by adapters;
-- Agents can use different rules without losing power.
+- corporate contracts remain stable during framework exchanges;
+- the policies, observability and FinOps are uniform;
+- technological development is carried out by adaptors;
+- agents can use distinct standards without losing governance.
 
 ## Negative consequences
 
-- increases the initial complexity of runtime;
-- requires compliance tests for adapters;
-- exclusive resources of frameworks may require control-controlled extension;
-- the crystal may become a slut if it has accumulated domain responsibility.
+- increases the initial complexity of the runtime;
+- require conformity tests for adapters;
+- the unique features of frameworks may require controlled extension;
+- The core can become a bottleneck if it accumulates domain responsibilities.
 
 ## Minimum evidence
 
-- a version-based voice contract;
-- calibration tests of the adapter;
-- traces of model call, retrieval, memory and tool call;
-- timeout test, cancellation, retry and rollback;
-- policy decision registered for implementation;
-- compatibility documented between runtime and adapters.
+- the versioned invocation contract;
+- conformity tests of the adapter;
+- the model call, retrieval, memory and tool call traces;
+- timeout, cancellation, retry and rollback testing;
+- policy decision recorded by execution;
+- documented compatibility between runtime version and adapters.
 
-## Review criteria
+## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
 
-Reconsider when an open or runtime pattern provides portability, control and equivalent observability, or when the adapting chamber generates more cost and risk than the lock-in that attempts to avoid.
+Review when an open or managed runtime standard provides equivalent portability, controls and observability, or when the adaptation layer generates more cost and risk than the lock-in it seeks to avoid.

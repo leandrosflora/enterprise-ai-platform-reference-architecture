@@ -2,11 +2,11 @@
 
 ## Responsabilidades
 
-- MCP Servers
-- Find out about the tools
+- Catalogue of MCP Servers
+- The discovery of tools
 - Versionamento
 - Access policies
-- Tools administration
+- Management of tools
 
 ## Metadados
 

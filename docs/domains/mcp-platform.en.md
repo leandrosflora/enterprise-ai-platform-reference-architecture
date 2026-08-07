@@ -1,10 +1,10 @@
 # MCP Platform
 
-## Objet
+## Objective
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Discreed the production, discovery, administration and implementation of corporative tools by agents.
+Standardize the exposure, discovery, governance and execution of corporate tools by agents.
 
-## Capacidades
+## Capacities
 
 - MCP Registry
 - MCP Discovery
@@ -13,30 +13,30 @@
 - Tool Authorization
 - Tool Auditing
 
-## Relacionated services
+## Other services
 
 - MCP Registry
 - Agent Runtime
 - Governance Service
 - Audit Service
 
-## Eventos
+## Events
 
 - tool.executed
 
 ## KPIs
 
-| Indicador | Description |
+| Indicador | Other information |
 |---|---|
-| Registered Tools | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Dispatch available in the catalog |
-| Tool Calls | Iron machining |
-| Tool Error Rate | - A rate of error by means of a slut |
-| Tool Latency P95 | Per centile tensile 95 per meter |
+| Registered Tools | Tools available in the catalogue |
+| Tool Calls | Execution of tools |
+| Tool Error Rate | Error rate per tool |
+| Tool Latency P95 | 95 per cent latency per tool |
 
-## Non-functioning requirements
+## Non-functional requirements
 
-- Contratos versionados
-- Authorisation by means of iron
-- Obligatory auditory
-- Timeout e circuit breaker
-- Control of the installation of corporative systems
+- Versions of contracts
+- Authorisation by tool
+- Compulsory audit
+- Timeout and circuit breaker
+- Exposure control of corporate systems

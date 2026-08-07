@@ -1,209 +1,209 @@
-# Glossary
+# Glossary of terms
 
 ## ABAC
 
-Access Control based on user attributes, workload, resources, context, tenant, finality and classification.
+Attribute-Based Access Control. Authorisation based on user attributes, workload, resource, context, tenant, purpose, and rating.
 
 ## Agent Gateway
 
-Entry border for agents' voices.
+It applies authentication, rate limit, routing, validation and context propagation.
 
 ## Agent Registry
 
-Technical agent catalog, versions, owners, status, risk, models, tools and knowledge bases allowed.
+Technical catalogue of agents, versions, owners, status, risk, models, tools and knowledge bases allowed.
 
 ## Agent Runtime
 
-Ambient responsible for executing the agent, putting context, applying policies, chasing models, knowledge, memory and tools.
+Environment responsible for executing the agent, setting context, implementing policies, calling models, knowledge, memory and tools.
 
 ## AI Catalog
 
-Corporate inventory of cases of use, agents, models, risks, owners, decisions and life cycle status.
+Corporate inventory of use cases, agents, models, risks, owners, decisions and life cycle status.
 
 ## AI Platform
 
-Combined with capacities, procedures, services and processes that allow to create and operate IA solutions with controlled autonomy.
+A set of capabilities, standards, services and processes enabling AI solutions to be created and operated with controlled autonomy.
 
 ## Baseline
 
-Reference used to compare a version: previous version, human process, more simple model or threshold approved.
+Reference used to compare a version: previous version, human process, simpler model or approved threshold.
 
 ## Capability
 
-Organisational or technical stability describing what the platform needs to do without depending on a specific technology.
+An organizational or technical skill that describes what the platform needs to be able to do without relying on a specific technology.
 
 ## Chunk
 
-- A document for indexing and retrieval should be preserved from origin, classification and authorisation.
+Excerpt derived from a document for indexation and retrieval. It must preserve provenance, classification and authorisation.
 
 ## Control Plane
 
-Responsible for each other, configuration, governance, policies, evaluation, catalogs and promotion of versions.
+Plan responsible for registration, configuration, governance, policies, evaluation, catalogues and promotion of versions.
 
 ## Correlation ID
 
-Identifier distributed between components to rectify a point-to-point execution.
+Identifier propagated between components to correlate end-to-end execution.
 
 ## Data Plane
 
-Plan to execute invokes, retrieval, memory, models, tools and telemetry in time of execution.
+Plan that executes invocations, retrieval, memory, templates, tools and telemetry at runtime.
 
-## Assessment date
+## Assessment data set
 
-Combined version of entries, context, responses, rubrics and negative content used to measure behaviour.
+A versioned set of entries, context, expected responses, headings and negative scenarios used to measure behavior.
 
 ## Deny by default
 
-The principle that access is negated when no explicit rule allows operation.
+Principle that access is denied when no explicit rule allows the operation.
 
 ## Embedding
 
-Veterinary representation of content used in similarity and retrieval. Model and version must be identified.
+Vector representation of content used in similarity and retrieval.
 
 ## Error budget
 
-Miss tolerance of the SLO, used to balance confidentiality and change speed.
+Failure tolerance derived from SLO, used to balance reliability and change speed.
 
 ## Evaluation
 
-Quality, retrieval, stability, safety, tools, performance, reliability and cost.
+Systematic measurement of quality, retrieval, groundedness, safety, tools, performance, reliability and cost.
 
 ## Evidence bundle
 
-Reproduction sheet of paper which supports a publication decision.
+Reproducible packaging of artifacts supporting a publication decision.
 
 ## Fine-tuning
 
-Adjusting parameters of a model using a dataset to change behaviour, format or specific capacity.
+Adjusting parameters of a model using a dataset to change specific behavior, format or capability.
 
 ## Foundation Model
 
-Model of general prophecy trained in large scale and used as a basis for applications and agents.
+A general purpose model trained on a large scale and used as a basis for applications and agents.
 
 ## Golden path
 
-Supported and automated way to build, evaluate, approve, publish and operate a solution.
+Supported and automated path to build, evaluate, approve, publish and operate a solution.
 
 ## Groundedness
 
-It is clear that a response is backed by the evidence available to the model.
+The degree to which an answer is supported by the evidence available to the model.
 
 ## Guardrail
 
-Control which limits entry, exit or behaviour. Probabilistic rails do not replace deterministic authorisation.
+Probability guardrails do not replace deterministic permission.
 
 ## HITL
 
-Human in the loop. Implementation is a matter of human decision.
+Human in the loop. The execution is suspended until a human decision is made.
 
-## Idempotence
+## Impotence
 
-Propriety to allow repeating a operation without producing adverse effects.
+Property that allows repeating an operation without producing additional undue effects.
 
 ## Indirect prompt injection
 
-- Instructing a slut or conflicting in the content recovered, pages, documents or results of machinery.
+Malicious or conflicting instruction inserted into recovered content, pages, documents or tool results.
 
 ## Knowledge Base
 
-Regulatory collection of documents and pieces available for retrieval under specific policies.
+Governed collection of documents and chunks available for retrieval under specific policies.
 
 ## Long-term Memory
 
-Memory persists beyond the present session, exige finality, origin, trust, TTL and consent when applicable.
+Persistent memory beyond the current session. Requires purpose, origin, trust, TTL and consent where applicable.
 
 ## MCP
 
-Protocol for the installation and discovery of a padronized form of tools and resources for models and agents.
+Model Context Protocol, a protocol for standardised exposure and discovery of tools and resources for models and agents.
 
 ## Memory poisoning
 
-Insertment of inappropriate, malicious or unauthorised content in memory to influence future executions.
+Inserting incorrect, malicious or unauthorized content into memory to influence future executions.
 
 ## Model Gateway
 
-Came that I sneezed testers and applied roteament, policies, observability, limits, fallback and cost control.
+Layer that abstracts suppliers and applies routing, policies, observability, limits, fallback and cost control.
 
 ## Model routing
 
-Model selection based on capacity, quality, region, cost, latitude and availability.
+Model selection based on capacity, quality, region, cost, latency and availability.
 
 ## Multi-agent
 
-Arquivalence in which special agents collaborate or deceive ties between you.
+Architecture in which multiple specialized agents collaborate or delegate tasks to each other.
 
 ## NFR
 
-Non-Functional requirement. Safety, confidentiality, performance, privacy, cost, support or operation.
+Non-functional Requirement: Requirement for security, reliability, performance, privacy, cost, support or operation.
 
 ## OIDC
 
-OpenID Connect. Identity protocol built on OAuth 2.0.
+OpenID Connect, an identity protocol built on OAuth 2.0.
 
 ## Policy Decision Point
 
-Component that evaluates policies and makes a decision to authorise or control.
+A component that assesses policies and makes an authorisation or control decision.
 
 ## Policy Enforcement Point
 
-Component to intercept an operation and apply the policy decision.
+A component that intercepts an operation and applies the policy decision.
 
 ## Prompt
 
-A set of instructions, messages and context provided to the model.
+Set of instructions, messages and context provided to the model. It must be versioned when it affects product behavior.
 
 ## Provenance
 
-Information on origin, version, transformations and processing of a given or a knife.
+Information on the origin, version, transformation and chain of processing of a data or artifact.
 
 ## RAG
 
-Retrieval-Augmented Generation. It will restore external evidence and provide the model during generation.
+Retrieval-Augmented Generation. A pattern that retrieves external evidence and supplies it to the model during the generation.
 
 ## RBAC
 
-Role-Based Access Control. Authorisation based on paper.
+Role-based access control, paper-based authorization.
 
 ## Reranking
 
-Re-ordinating the retrieval results using an additional model or algorithm.
+Rearrangement of retrieval results using an additional model or algorithm.
 
 ## Retrieval
 
-Procedure to locate relevant evidence and authorized for a consultation.
+Process of locating relevant and authorised evidence for a consultation.
 
 ## Risk tier
 
-Risk class determining controls, evidence, revisions and gates applicable.
+Risk class determining applicable controls, evidence, reviews and gates.
 
 ## Session Memory
 
-The effect limit to the sitting and the subject authorised.
+Temporary context limited to the session and authorized subject.
 
 ## Shadow evaluation
 
-Implementation of a new version or model in parallel, without using your answer to affect the user, for safe comparison.
+Running a new version or model in parallel without using its response to affect the user for safe comparison.
 
 ## SLO
 
-Service Level Objective. Minimum availability, consistency, success or other operational characteristics.
+Service level objective: measurable objective of availability, latency, success or other operational characteristic.
 
 ## System of record
 
-A centralized database and transaccountable state system, the agent's memory must not cover that role.
+An authoritative system for data and transactional statements.
 
 ## Tenant
 
-Liquid isolation unit, such as company, area, customer or environment.
+Logical isolation unit, such as enterprise, area, customer or environment.
 
 ## Tool
 
-External capacity invoked by the contracting agent.
+External capacity invoked by the agent by structured contract.
 
 ## Vertical slice
 
-Minimum implementation of the maximum use point to demonstrate contracts, flows and controls of the architecture.
+Minimum end-to-end implementation used to demonstrate contracts, flows and controls of the architecture.
 
 ## Workload class
 
-Operational category used to define SLOs and different limits, such as simple interaction, RAG, tool call or assyncron processing.
+Operational category used to define SLOs and different limits such as simple interaction, RAG, tool call or asynchronous processing.

@@ -2,25 +2,25 @@
 
 ## General view
 
-Model Gateway centralizes access to foundation models and prevents agents running directly to call witnesses.
+Model Gateway centralizes access to foundation models and prevents agent runtimes from calling providers directly.
 
 ## Responsabilidades
 
-- implementing the allowlist of producers, models and regions;
-- coding by capacity, cost, reliability, availability and data classification;
-- establishing budgets, quotas and token limits;
-- executing redaction and entry and exit guards;
-- padronizar timeout, retry, circuit breaker e fallback;
-- registrating a fetish version of the model, tokens, cost and consistency;
-- block models or regions not approved;
-- - Supporting single and streaming answers.
+- apply allowlist of providers, models and regions;
+- routing by capacity, cost, latency, availability and data classification;
+- validate budgets, allowances and limits for tokens;
+- carry out redaction and entry and exit guardrails;
+- standardise timeout, retry, circuit breaker and fallback;
+- record the actual model version, tokens, cost and latency;
+- block unapproved models or regions;
+- support synchronous responses and streaming.
 
-## Out of the scuff
+## Out of scope
 
-- the order of the agent;
-- management of the agent catalog;
-- business valuation of the response;
-- Continuity of conversational memory.
+- the orchestration of the agent;
+- the management of the agent catalogue;
+- the response's business assessment;
+- persistent conversational memory.
 
 ## API interna
 
@@ -51,29 +51,29 @@ Content-Type: application/json
 }
 ```
 
-## roteaing policies
+## Routing policies
 
-Order of course:
+Standard order:
 
-1. compatibility with classification and data retention;
-2. model approved for the agent;
-3. the availability of the driver;
-4. minimum quality recorded;
+1. compatibility with data classification and residence;
+2. the model approved for the agent;
+3. availability of the provider;
+4. the minimum recorded quality;
 5. budget restante;
-6. - Lower cost in SLO.
+6. the lower cost within the SLO.
 
 ## Security
 
-- authentication by identity workload;
+- the workload identity authentication;
 - authorisation by agent, model and tenant;
-- no proofer secret is exposed to Runtime;
-- sensitive prompts are not stored by a pattern;
-- logs usam hashes e metadados, nunca secrets;
-- 'Cause you're out of the way by guardrails before you return to Runtime.
+- No provider secrets are exposed to Runtime;
+- sensitive prompts are not stored by default;
+- logs use hashes and metadata, never secret;
+- exit passes through guardrails before returning to Runtime.
 
 ## Observability
 
-- Please:
+Compulsory spans:
 
 - `model.gateway.authorize`
 - `model.gateway.route`
@@ -81,17 +81,17 @@ Order of course:
 - `model.provider.invoke`
 - `model.gateway.guardrail`
 
-Minimum methods:
+Minimum metrics:
 
-- evocations by type and status;
+- invocations by model and status;
 - entry and exit tokens;
-- care by agent and unit;
-- a tyre by the driver;
-- fallback rate;
+- cost per agent and unit;
+- the latency per provider;
+- the fallback rate;
 - political blockades;
-- budget violations.
+- Budget violations.
 
-## Eventos
+## Events
 
 - `model.invoked`
 - `model.fallback.executed`

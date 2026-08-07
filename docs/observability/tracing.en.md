@@ -1,12 +1,12 @@
-# Tracing, Machines and SLOs
+# Tracing, Metrics and SLOs
 
-## Father
+## Standard
 
-- OpenTelemetry for trace, tracing and corralled logs.
+- OpenTelemetry for traces, metrics and related logs.
 - W3C `traceparent` propagated by HTTP and in the envelope Kafka.
-- `traceId`, `spanId`, `correlationId`, `causationId` and `tenant.id` on the applicable borders.
-- Logs stored in JSON.
-- Sensible data are wiped before export.
+- `traceId`, `spanId`, `correlationId`, `causationId`and `tenant.id`within the applicable borders.
+- Logs structured in JSON.
+- Sensitive data are masked before export.
 
 ## Trace principal
 
@@ -35,9 +35,9 @@ agent.invocation
   └─ audit.record
 ```
 
-## - Please, please.
+## Compulsory spans
 
-| Span | Componente | Obligatory attributes |
+| Span | Component | Compulsory attributes |
 |---|---|---|
 | `agent.invocation` | Gateway | `agent.id`, `agent.version`, `tenant.id`, `channel`, `workload.class`, `risk.classification` |
 | `agent.gateway.authenticate` | Gateway | `auth.provider`, `auth.result` |
@@ -63,69 +63,69 @@ agent.invocation
 
 ## Atributos globais
 
-| Atributo | Regra |
+| Atributo | Rule |
 |---|---|
-| `tenant.id` | Thank you, without free cardinality. |
-| `business_unit` | When applicable. |
-| `agent.id` e `agent.version` | Thank you for the execution of the agent. |
-| `session.id.hash` | Hash, it's never felt as if it was. |
-| `user.id.hash` | It's stable only when necessary. |
+| `tenant.id` | Compulsory, without free cardinality. |
+| `business_unit` | Where applicable. |
+| `agent.id`and `agent.version` | Compulsory in the execution of an agent. |
+| `session.id.hash` | Hash, never a sensitive session in the clear. |
+| `user.id.hash` | Hash is stable only when necessary. |
 | `data.classification` | `PUBLIC`, `INTERNAL`, `CONFIDENTIAL`, `RESTRICTED`. |
 | `risk.classification` | `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`. |
-| `workload.class` | Class defined in the NFRs. |
+| `workload.class` | Class defined in NFRs. |
 
-## Mechanics
+## The following information shall be provided:
 
-| Medicinal | Tipo | authorised dimensions |
+| Other information | Tipo | Permitted dimensions |
 |---|---|---|
-| `agent_invocations_total` | Counter | Agent, tenant, status |
-| `agent_invocation_duration_seconds` | Histogram | Agent, workload, status |
+| `agent_invocations_total` | Counter | the number of employees, the number of employees, the number of employees, the number of employees |
+| `agent_invocation_duration_seconds` | Histogram | the number of employees, the workload, the status |
 | `policy_decision_duration_seconds` | Histogram | policy, decision |
 | `policy_denials_total` | Counter | policy, recurso, motivo controlado |
-| `model_invocations_total` | Counter | driver, model, status |
-| `model_tokens_total` | Counter | - a driver, model, type |
-| `model_cost_usd_total` | Counter | Agent, unit, driver |
-| `model_fallback_total` | Counter | provedor origem/destino |
+| `model_invocations_total` | Counter | Provider, model, status |
+| `model_tokens_total` | Counter | Supplier, model, type |
+| `model_cost_usd_total` | Counter | The following information shall be provided: |
+| `model_fallback_total` | Counter | origin/destination provider |
 | `tool_executions_total` | Counter | ferramenta, status, risco |
-| `knowledge_retrieval_duration_seconds` | Histogram | base, strategy |
-| `knowledge_authorization_filtered_total` | Counter | base, classification |
-| `evaluation_score` | Gauge | agent, dataset, method |
-| `dlq_events_total` | Counter | evento, consumidor |
+| `knowledge_retrieval_duration_seconds` | Histogram | Basics, strategy |
+| `knowledge_authorization_filtered_total` | Counter | Based, classification |
+| `evaluation_score` | Gauge | The following information shall be provided: |
+| `dlq_events_total` | Counter | event, consumer |
 
-Don't use user IDs, session, document or ID correlation as metric labels.
+Do not use user, session, document or correlation IDs as metric labels.
 
-## SLOs reference
+## SLOsof reference
 
-| Capacidade | SLI | SLO | Janela |
+| Capacity | SLI | SLO | Janela |
 |---|---|---:|---|
 | `INTERACTIVE_SIMPLE` | P95 end-to-end | <= 5 s | 30 dias |
 | `INTERACTIVE_RAG` | P95 end-to-end | <= 8 s | 30 dias |
 | `INTERACTIVE_TOOL` | P95 end-to-end | <= 15 s | 30 dias |
-| Sncron operation | P95 of ac | <= 2 s | 30 dias |
+| Asynchronous operation | P95 of oil | <= 2 s | 30 dias |
 | Knowledge retrieval | P95 | <= 2 s | 30 dias |
 | Policy decision | P95 | <= 100 ms | 30 dias |
 | Agent Gateway | Disponibilidade | >= 99,95% | 30 dias |
 | Agent Runtime | Disponibilidade | >= 99,9% | 30 dias |
 | Event publishing | Sucesso | >= 99,9% | 30 dias |
-| Critical audit | Sucesso | >= 99,99% | 30 dias |
+| Critical audit recording | Sucesso | >= 99,99% | 30 dias |
 
 ## Alertas
 
 | Alerta | Condition | Severidade | Runbook |
 |---|---|---|---|
 | AgentErrorRateHigh | error > 5% for 10 min | Alta | troubleshooting-agent-invocation |
-| SloBurnRateFast | burn rate > 14,4x for 5 min | Critics | troubleshooting-agent-invocation |
-| ModelProviderLatencyHigh | P95 > limit for 15 min | Medicine | a tampering |
-| ToolExecutionFailures | - 3% for 10 min | Alta | - Deabilitating critical tool |
-| PolicyDenialsSpike | > 3x baseline | Medicine | Re-examine abuse/configure |
-| CostBudgetExceeded | budget >= 100% | Alta | block/degrade agent |
-| AuditRecordingFailure | any failure for 5 min | Critics | reducing critical actions |
-| DLQBacklogGrowing | a growing backlog for 15 min | Alta | reprocessamento controlado |
+| SloBurnRateFast | burn rate > 14.4x per 5 min | Criticism | troubleshooting-agent-invocation |
+| ModelProviderLatencyHigh | P95 > limit for 15 min | Average | the default of the supplier |
+| ToolExecutionFailures | Failure > 3% for 10 min | Alta | disable critical tool |
+| PolicyDenialsSpike | > 3x baseline | Average | Reviewing the abuse/configuration |
+| CostBudgetExceeded | budget >= 100% | Alta | blocking/degrading agent |
+| AuditRecordingFailure | Any failure for 5 min | Criticism | pause critical actions |
+| DLQBacklogGrowing | Growing backlog by 15 min | Alta | reprocessamento controlado |
 
-## Telemetry safety
+## Telemetry security
 
-- not to register complete prompt with personal data or classification `CONFIDENTIAL`/`RESTRICTED`;
-- mascarar CPF, e-mail, telefone, tokens, secrets e identificadores financeiros;
-- auditory preserves functional evidence, not a brute-sensible payload;
-- trace uses technical IDs or hashes;
-- access to sensitive trace requires authorization and is audited.
+- not register a complete prompt with personal data or classification `CONFIDENTIAL`/`RESTRICTED`;
+- The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 of the European Parliament and of the Council [3].
+- the audit preserves functional evidence, not gross sensitive payload;
+- traces use technical IDs or hashes;
+- access to sensitive traces requires authorisation and is audited.

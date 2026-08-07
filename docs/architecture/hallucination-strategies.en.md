@@ -1,8 +1,8 @@
 # Hallucination Mitigation Strategies
 
-## Objet
+## Objective
 
-Reduce probability, detect events and limit the impact of factual errors or without evidence.
+Reducing the likelihood, detecting occurrences and limiting the impact of factually incorrect or unproven responses.
 
 ## Model prevent, detect, recover
 
@@ -16,42 +16,42 @@ flowchart LR
 
 ## Prevent
 
-- limiting the scope of the use case;
-- using RAG with approved, acoustic and rastreave sources;
-- requiring references and evidence passes;
-- to instruct the model to declare context failure;
-- reduce temperature in factual tasks;
-- using structured output and schema validation;
-- choose a suitable model for the field and the language;
-- separate generating a factual response;
-- Use certain methods for calculation, consult and rules.
+- restrict the scope of the use case;
+- use RAG with approved, current and traceable sources;
+- require submissions and evidence;
+- instruct the model to declare a lack of context;
+- reducing temperature in factual tasks;
+- use structured output and schema validation;
+- choose a model appropriate to the domain and language;
+- separate creative generation from factual response;
+- use deterministic tools for calculation, consultation and rules.
 
 ## Detect
 
-| Technical | Application |
+| Technical | Application of this Regulation |
 |---|---|
-| Groundedness | check whether statements are borne out in the context |
-| Citation correctness | confirms that the source cited supports the answer |
-| Entailment | compare affirmation and evidence |
-| Self-check | The second passage identifies inconsistencies |
-| Cross-model review | different model revision the response |
-| Rule validation | valid dates, IDs, calculations and formats |
-| Human review | obligation for high impact decisions |
+| Groundedness | verify that statements are supported by context |
+| Citation correctness | confirms whether the cited source supports the answer |
+| Entailment | Comparison of claim and evidence |
+| Self-check | The second paragraph identifies inconsistencies |
+| Cross-model review | A different model reviews the answer |
+| Rule validation | validates dates, IDs, calculations and formats |
+| Human review | Mandatory for high impact decisions |
 
-Self-check and LLM-as-judge are signs, don't prove, they can repeat the same mistake of the manager.
+Self-check and LLM-as-judge are signals, not evidence.
 
 ## Recover
 
-When confidence or evidence is insufficient, the system shall:
+Where confidence or evidence is insufficient, the system shall:
 
-1. not to invent a response;
-2. requesting additional context where necessary;
-3. retracing found sources and imposing the limit;
-4. to be sent to the human or official system;
-5. imposing tool call based on unconfirming information;
-6. registrating the case for evaluation and correction.
+1. not to invent an answer;
+2. request additional context where necessary;
+3. return found sources and explain the limitation;
+4. refer to a human or an official system;
+5. prevent tool call based on unconfirmed information;
+6. record the case for assessment and correction.
 
-## Security answer pad
+## Safe response pattern
 
 ```text
 Não encontrei evidência suficiente nas fontes autorizadas para confirmar essa informação.
@@ -59,32 +59,32 @@ Fontes consultadas: {fontes}.
 Próxima ação segura: {consulta adicional ou escalonamento}.
 ```
 
-## Strategy for use
+## Strategy by use case
 
-| Caso | Priority checks |
+| Case in point | Priority controls |
 |---|---|
-| Documentary Q&A | RAG, citation, groundedness and abstention |
-| Resumo | coverage, reliability and comparison with changes |
-| Extradition | schema, validation and confidence in the field |
-| Code | tests, lint, sandbox and review |
-| Transnational Agent | confirmation, official source and human approval |
-| Regulation Decision | explanation, deterministic rule and final human decision |
+| Documentary Q&A | RAG, submission, groundedness and abstention |
+| Summary | coverage, fidelity and comparison with excerpts |
+| Mining | Schema, validation and confidence by field |
+| Code | Tests, lint, sandbox and review |
+| Transactional agent | Confirmation, official source and human approval |
+| Regulated decision | Explanation, deterministic rule and final human decision |
 
-## Mechanics
+## The following information shall be provided:
 
 - hallucination rate;
 - unsupported claim rate;
 - citation precision;
-- abstention precision e recall;
+- abstention precision and recall;
 - correction rate;
 - human override rate;
-- Impact on severity.
+- impact by severity.
 
-## Anti-Pawns
+## The following information shall be provided:
 
-- only trust the trust declared by the model;
-- adding RAG without removing it;
-- allowing answers without source in a prescribed context;
-- use a penchant-like syringe;
-- executing irreversible action on the basis of a written text;
-- ocult a fucking user.
+- rely solely on the confidence declared by the model;
+- add RAG without measuring retrieval;
+- allowing sourceless responses in a regulated context;
+- use chain of thought as evidence;
+- execute an irreversible action based on generated text;
+- conceal the user's uncertainty.

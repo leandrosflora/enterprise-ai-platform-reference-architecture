@@ -1,54 +1,54 @@
-# 1. Why a AI Platform?
+# Why a AI Platform?
 
-## The problem is not just accessing a model
+## The problem is not just accessing a model.
 
-The first generation of corporative IA initiatives normally starts with independent experiments: a chatbot in one area, a baby in another, a documentary automapping and some tests with agents. Each initiative can demonstrate its value individually, but the organisation is repeating the same decisions and the same risks.
+The first generation of corporate AI initiatives usually starts with independent experiments: a chatbot in one area, a co-pilot in another, document automation and some testing with agents.
 
 The most common symptoms are:
 
-- different integrations for each model tester;
-- prompts, datasets and assessments without versioning;
-- access to data determined within each application;
-- logs with a sensitive content;
-- difficult to allocate;
+- different integrations for each model provider;
+- The following information shall be provided in accordance with the provisions of this Regulation:
+- access to data decided within each application;
+- logs with sensitive content;
+- costs that are difficult to attribute;
 - publication without comparable evidence;
-- ferrous ferrous privileged;
-- a direct dependence between product, model and infrastructure;
-- a clear deactivation procedure.
+- tools with excessive privileges;
+- direct dependence between product, model and infrastructure;
+- the absence of a clear deactivation process.
 
-This scenario is not merely a framework of agents. The organisation needs a set of ables to transform experiments into operational products.
+This scenario is not solved just by choosing an agent framework. The organization needs shared capabilities to turn experiments into viable products.
 
-## Definition
+## Definition of the term
 
-A **AI Platform corporative** is a set of capacities, procedures, services and processes that allow to create and operate IA solutions with controlled autonomy.
+A corporate AI Platform** is a set of capabilities, standards, services and processes that allows AI solutions to be created and operated with controlled autonomy.
 
-She must provide:
+It shall provide:
 
-- paved paths to build and publish;
-- clear borders between product, platform and government;
+- standardized pathways for building and publishing;
+- clear boundaries between product, platform and governance;
 - policies applied during implementation, not just in documents;
-- portability between models and testers;
-- knowledge and memory with authorisation and life cycle;
-- quality, safety, cost and performance assessment;
-- rastreability point to point;
-- - a re-use, rollback and deactivation mechanisms.
+- portability between models and suppliers;
+- authorised knowledge and memory and life cycle;
+- continuous evaluation of quality, safety, cost and performance;
+- end-to-end traceability;
+- containment, rollback and deactivation mechanisms.
 
-## Plateform is not a single product
+## Platform is not a single product
 
-A plate can contain inter-products, comparable services, contracts and procedures.
+A platform may contain internal products, shared services, contracts and processes.
 
-| It's not. | Why? |
+| It 's not . | Why ? |
 |---|---|
-| a portal with prompts catalog | the portal is just an experience on the most deep capacities |
-| a framework of orqueration | frameworks change; contracts, policies and operations need to survive the trade |
-| a single foundation models test | the plate must reduce the alignment and apply rotating policies |
-| a central time that develops all agents | That creates a line, a little organizational skewed and little business ownership |
-| a approval committee | Government is part of the life cycle and needs to produce verified decisions |
-| a Kubernetes infrastructure | infrastructure is necessary, but it does not define the production and trust capacities. |
+| a portal with a catalogue of prompts | The portal is just an experiment on deeper capabilities. |
+| an orchestration framework | Framework changes; contracts, policies and operations need to survive the exchange |
+| a single supplier of foundation models | the platform shall reduce coupling and implement routing policies; |
+| A central team that develops all the agents | This creates queue, low organizational scale and little business ownership. |
+| an approval committee | Governance is part of the life cycle and needs to produce verifiable decisions |
+| a Kubernetes infrastructure | infrastructure is needed but does not define product capabilities and reliability |
 
-## Central tension: autonomia and control
+## Central voltage: autonomy and control
 
-The objective is not to maximise control and to maximise autonomy. The platform must increase the autonomy of squads while decreasing the risky variation.
+The goal is not to maximize control or maximize autonomy, the platform should increase the autonomy of the squads while reducing dangerous variation.
 
 ```mermaid
 flowchart LR
@@ -58,75 +58,75 @@ flowchart LR
     D --> E[Operação com evidências]
 ```
 
-The balance is obtained by means of:
+The balance is obtained by:
 
-- templates and SDKs instead of mandatoryly centralised implementations;
-- declared policies rather than repeated monthly validations;
+- Templates and SDKs instead of mandatory centralised implementations;
+- declarative policies instead of repetitive manual validations;
 - gates proporcionais ao risco;
-- contratos versionados;
-- observation and auditory performance;
-- ownership of the case of use kept in the squad responsible for the result.
+- versioned contracts;
+- Observability and auditing by default;
+- ownership of the use case kept in the resulting squad.
 
 ## When building a platform
 
-Construction is justified when several signs appear simultaneously:
+The construction becomes justifiable when several signs appear simultaneously:
 
 - three or more squads repeat integrations and controls;
-- agents need to access data or corporative tools;
-- there is more of a model producer or family;
-- the organisation needs to demonstrate conformity and consistency;
-- the cost of AI already needs budget and allocation;
-- solutions may require availability and support;
-- vaccinating risks, prompt injection or unsolved actions are material;
-- the cycle between experiment and production is blocked by non-patronized approvals.
+- agents need access to corporate data or tools;
+- there is more than one supplier or model family;
+- the organisation needs to demonstrate compliance and traceability;
+- AI costs already need budgeting and allocation;
+- solutions have availability and support requirements;
+- leakage risks, prompt injection or wrongful actions are material;
+- the cycle between experiment and production is blocked by non-standard approvals.
 
-## When you don't build
+## When not to build
 
-A complete plate is probably prematurated when:
+A complete platform is likely to be premature when:
 
-- there is only a low risk experiment;
-- no solution shall be made in production;
-- there is no team to keep comparable services;
-- the organisation has not yet defined the ownership of the product;
-- the case may be examined with a approuvé and isolated SaaS;
-- the operational complexity costs more than the reuse.
+- there is only one low-risk experiment;
+- no solution shall be operated in production;
+- there is no team to maintain shared services;
+- the organisation has not yet defined product ownership;
+- the case can be handled with an approved and isolated SaaS;
+- the operational complexity costs more than the expected reuse.
 
-In these cases, the recommendation is to adopt minimum rules and evolve accordingly to the repeat.
+In such cases, the recommendation is to adopt minimum standards and evolve as repetition arises.
 
-## Resultados esperados
+## Expected results
 
-A AI Platform must be measured by the results that enable it, not by the quantity of components implanted.
+A AI Platform shall be measured by the results it enables, not by the number of components implanted.
 
-| Dimensive | Resultado esperado |
+| Size | Expected result |
 |---|---|
-| Time-to-market | Reduced time between approved idea and first controlled version |
-| Security | policies applied in a consistent manner in the implementation borders |
-| Qualidade | relapses detected before and after publication |
-| Portabilidade | model or a producer without rewriting the whole product |
-| Operation | diagnostic incidents by trace, event and evidence |
-| FinOps | cost attributed by agent, area, model and environment |
-| Government | Risk-related and proportional decisions |
-| Reuso | fewer duplication of conectors, pipelines and controls |
+| Time-to-market | reducing the time between an approved idea and the first controlled version |
+| Security | policies consistently implemented at implementing borders |
+| Qualidade | Returns detected before and after publication |
+| Portabilidade | change of model or supplier without rewriting the whole product |
+| Operations | incidents that can be diagnosed by traces, events and evidence |
+| FinOps | costs attributable by agent, area, model and environment |
+| Governance | Traceable and risk-proportionate decisions |
+| Reuso | Less duplication of connectors, pipelines and controls |
 
 ## Antiobjetivos
 
-The plate must not:
+The platform shall not:
 
-- conceal costs or risks behind absorptions;
-- allowing agents to keep records;
-- creating a universal runtime for any problem;
-- turning all the auto into an agent;
-- to eliminate local decisions which belong to the product;
-- replace software, security or data management.
+- concealing costs or risks behind abstractions;
+- allow agents to circumvent registration systems;
+- create a universal runtime for any problem;
+- transform all automation into an agent;
+- eliminate local decisions relating to the product;
+- replace software engineering, security or data management.
 
-## Question of decision
+## Question for a decision
 
-Before adding a capacity, ask:
+Before you add a capability, ask:
 
-> Does this component reduce a relevant repeat or implement a control that needs to be consistent in several products?
+> Does this component reduce a relevant repetition or does it apply a control that needs to be consistent across multiple products?
 
-When the answer is not, the capacity may remain in application until evidence of reuse exists.
+If the answer is no, the capacity should probably remain in use until there is evidence of reuse.
 
 ## Next chapter
 
-The [Business Outcomes Framework](02-business-outcomes.md) connects the platform strategy to the relevant results which justify capacity and investment.
+The [Business Outcomes Framework](02-business-outcomes.md) connects the platform strategy to measurable results that justify capacity and investment.

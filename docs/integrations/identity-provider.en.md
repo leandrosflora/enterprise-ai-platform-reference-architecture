@@ -1,30 +1,30 @@
 # Identity Provider Integration
 
-## Objet
+## Objective
 
-Integrate the plate to the identification material for authenticity, authorisation and audit.
+Integrate the platform with the corporate identity provider for authentication, authorisation and audit.
 
-## Daddy
+## Standards
 
 - OIDC
 - OAuth2
 - JWT
 - Service-to-service authentication
 
-## Compatibility producers
+## Compatible providers
 
 - Microsoft Entra ID
 - Okta
 - Keycloak
 - Auth0
 
-## Fluxos
+## Flows
 
-| Flux | Uso |
+| Flow | Uso |
 |---|---|
-| Authorization Code | User in the AI Portal |
+| Authorization Code | Users on the AI Portal |
 | Client Credentials | Communication between services |
-| Token Exchange | Controlled decompression for ferrous |
+| Token Exchange | Controlled delegation to tools |
 
 ## Claims Relevantes
 
@@ -37,6 +37,6 @@ Integrate the plate to the identification material for authenticity, authorisati
 
 ## Requirements
 
-- token validation in Agent Gateway
-- Identification for auditory
-- Escopos control by agent, tool and knowledge base
+- Validation of the token in Agent Gateway
+- Propagation of identity for audit
+- Scope control by agent, tool and knowledge base

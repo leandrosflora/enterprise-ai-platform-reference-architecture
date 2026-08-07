@@ -1,10 +1,10 @@
 # Governance Platform
 
-## Objet
+## Objective
 
-Control the life cycle, approval, risk and compliance with the IA solutions.
+Control the life cycle, approval, risk and compliance of AI solutions.
 
-## Capacidades
+## Capacities
 
 - AI Catalog
 - Approval Workflow
@@ -13,14 +13,14 @@ Control the life cycle, approval, risk and compliance with the IA solutions.
 - Policy Enforcement
 - Evidence Management
 
-## Relacionated services
+## Other services
 
 - Governance Service
 - Evaluation Service
 - Agent Registry
 - Audit Service
 
-## Eventos
+## Events
 
 - governance.approved
 - governance.rejected
@@ -29,17 +29,17 @@ Control the life cycle, approval, risk and compliance with the IA solutions.
 
 ## KPIs
 
-| Indicador | Description |
+| Indicador | Other information |
 |---|---|
-| Approved Agents | Appropriated agents |
-| Rejected Agents | Rejection agents |
-| Review Lead Time | Mean approval time |
-| High Risk Agents | Classified agents as high risk |
+| Approved Agents | Approved agents |
+| Rejected Agents | Rejected agents |
+| Review Lead Time | Average time of approval |
+| High Risk Agents | Agents classified as high risk |
 
-## Non-functioning requirements
+## Non-functional requirements
 
-- Segregation of functions
-- Raised amplification
-- Continued evidence
-- Integration with auto-evaluation
+- Separation of functions
+- Traceable approval
+- Persistent evidence
+- Integration with automatic evaluation
 - Complete history of decisions

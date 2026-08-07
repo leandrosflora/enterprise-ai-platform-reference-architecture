@@ -1,63 +1,63 @@
-# Casos aplicados
+# Applied cases
 
-The cases applied show how the logic capabilities of Enterprise AI Platform can be materialised in fields, journals and concrete topologies.
+The cases used demonstrate how the logical capabilities of Enterprise AI Platform can be materialized in specific domains, journeys and topologies.
 
-They do not define a single implementation. Each explicit case:
+They don't define a single implementation.
 
 - the business problem;
-- where the AI participates in the newspaper;
-- which the telecommunications capacity is used;
-- which controls remain determined;
-- what is implemented, demonstrated or only planned;
+- where the AI participates in the journey;
+- which platform capabilities are used;
+- which controls remain deterministic;
+- what is being implemented, demonstrated or just planned;
 - the gaps for integration and production.
 
-## Availability
+## Available cases
 
 <div class="grid cards" markdown>
 
--   :material-message-processing-outline: **Multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill multi-skill**
+-   This is the first of a series of reports on the implementation of the European Union's Strategy for Sustainable Development.
 
     ---
 
-    Banks via WhatsApp, mobile skills, Agent Runtimes, MCP, RAG, memory, eventing, auditory and evaluations.
+    Banking days via WhatsApp, multiple skills, Agent Runtimes, tools MCP, RAG, memory, eventing, audit and evals.
 
-    [Open the conversational case](conversational-ai.md)
+    [Open the conversation case](conversational-ai.md)
 
--   :material-clipboard-flow-outline: **Intelligent Backoffice — bank contest**
+-   :material-clipboard-flow-outline: **Intelligent Backoffice  banking dispute**
 
     ---
 
-    Continuous Workflow, document processing, assisted research, recommendation, human adoption, policy enforcement, indecent implementation and reconciliation.
+    This appropriation is intended to cover expenditure relating to the implementation of the common agricultural policy and the management of the common agricultural policy.
 
-    [Open the backoffice case](intelligent-backoffice.md)
+    [Opening the backoffice case](intelligent-backoffice.md)
 
 -   :material-source-branch: **Agentic SDLC governado**
 
     ---
 
-    Special agents of the requirement for production feedback, durable workflow, Model Gateway, MCP, OPA, evidence, digest, observed release and rollback.
+    Specialized agents of the production feedback requirement, durable workflow, Model Gateway, MCP, OPA, evidence, digest approval, observed release and rollback.
 
-    [Open the case of Agentic SDLC](agentic-sdlc.md)
+    [Opening the Agentic SDLC case](agentic-sdlc.md)
 
 </div>
 
-## Quick comparison
+## Rapid comparison
 
-| Caso | Main unit of interaction | Autonomia inteligente | Efeito real governado |
+| Case in point | Main unit of interaction | Autonomia inteligente | Efeito real governado |
 |---|---|---|---|
-| Plataforma conversacional | - Talk and message from the client | selecionar skill, responder e usar tools | Bank operations mediated by field services |
-| Intelligent Backoffice | case, document and evidence | classificar, investigar e recomendar | human approval and execution service |
-| Agentic SDLC | software change and evidence bundle | refinar, desenhar, implementar e revisar | tools via MCP, digest, release and rollback |
+| A conversation platform | Customer conversation and journey | Select skill, respond and use tools | Banking operations mediated by domain services |
+| Intelligent Backoffice | case, document and evidence | classify, investigate and recommend | Human approval and execution service |
+| Agentic SDLC | Software change and evidence bundle | refining, designing, implementing and revising | tools via MCP, approval by digest, release and rollback |
 
-## How to interpret the state
+## How to Interpret States
 
-| Estado | Significado |
+| State of origin | Significado |
 |---|---|
-| `CONTRACT_DEFINED` | Architecture, contract, policy or modified responsibility, still without compropriated integration |
-| `IMPLEMENTATION_STARTED` | Product code initiated, but without sufficient evidence of insertion point to point |
-| `DEMONSTRATED_LOCAL` | Capacity executed locally or in the CI with data and systotic integrations |
-| `VALIDATED_INTEGRATION` | Integration valid against real services in controlled environment |
-| `PASSED_PRODUCTION` | Productivity approved for evidence, operation, safety and ownership |
+| `CONTRACT_DEFINED` | Architecture, contract, policy or versioned liability, yet without proven integration |
+| `IMPLEMENTATION_STARTED` | Product code initiated but without sufficient evidence of end-to-end integration |
+| `DEMONSTRATED_LOCAL` | Capacity executed locally or in CI with synthetic data and integrations |
+| `VALIDATED_INTEGRATION` | Valid integration against real services in controlled environment |
+| `PASSED_PRODUCTION` | Approved production capacity with evidence, operation, safety and ownership |
 
-!!! warning "The application does not mean production"
-    Diagrams, code and local tests demonstrate real decisions and mechanisms. Production requires real integration, auto-discounts, corporative security, operation, SLOs, support, risk and formal approval.
+!!! warning "If applied does not mean production"
+    Local diagrams, code and testing demonstrate decisions and mechanisms.Production requires real integration, authorized data, corporate security, operation, SLOs, support, risk and formal approval.

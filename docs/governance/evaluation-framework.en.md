@@ -1,59 +1,59 @@
 # AI Evaluation Framework
 
-## Objet
+## Objective
 
-Establish a reprodutable approach to assess quality, safety, cost and impact of IA solutions before and after publication.
+Establish a reproducible approach to evaluate the quality, safety, cost and impact of AI solutions before and after publication.
 
-## Assessment calls
+## Layer of evaluation
 
-| Camada | Main question | Methods |
+| Layer | The main issue | Examples of metrics |
 |---|---|---|
-| Componente | The retriever, prompt, model or tool works alone? | recall@k, precision@k, schema validity, tool success |
-| Sistema | The application delivers a correct answer and secures the point? | groundedness, answer relevance, task success, toxicity |
-| Operation | The service at SLO and budget? | ltability, error, tokens, cost, availability |
-| Negocio | The use case generates the result sucked? | converse, economised time, resolution, satisfaction |
+| Component | Does the retriever, prompt, model or tool work in isolation? | recall@k, precision@k, schema validity, tool success |
+| Sistema | Does the application deliver a correct and secure end-to-end response? | groundedness, answer relevance, task success, toxicity |
+| Operations | Does the service meet SLO and budget? | The following information is included in the calculation: |
+| Business | Does the use case produce the desired result? | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 1303/2013. |
 
-## Assessment tips
+## Types of evaluation
 
 ### Offline
 
-Executed on versioned dataset before deployment.
+It must compare candidate, baseline and production version.
 
 ### Online
 
-- Executed with controlled traffic, shadow mode, canary or A/B test. Business methods do not replace security tests.
+Running with controlled traffic, shadow mode, canary or A/B testing.
 
 ### Humana
 
-Used when automatician criteria do not require contextual, utilitarian, tom or impact. Assessments need rubrics and calibrated examples.
+Used when automatic criteria do not capture contextual accuracy, utility, tone or impact.
 
 ### LLM-as-judge
 
-Adequate for a relative scale and comparison, but it must not be the only evidence for high and criterion risks. The judge must be drafted, calibrated against humans and protected against contamination by the evidence evaluated.
+Appropriate for scale and relative comparison, but should not be the only evidence for HIGH and CRITICAL risks.
 
 ## Golden dataset
 
-Each use case shall maintain a set version with:
+Each use case shall maintain a versioned set with:
 
 - happy paths;
-- limothrofe cases;
-- questions without answers;
-- a conflicting content;
-- grupos e idiomas relevantes;
-- falhas conhecidas e incidentes anteriores;
-- tool calls permitidas e proibidas;
-- a citation and source expectancy.
+- boundary cases;
+- unanswered questions
+- adverse content;
+- relevant groups and languages;
+- known failures and previous incidents;
+- permitted and prohibited tool calls;
+- Expectation of citation and source.
 
-## recommendated methods
+## Recommended metrics
 
-| Dimensive | Mechanics |
+| Size | The following information shall be provided: |
 |---|---|
 | RAG | context recall, context precision, groundedness, citation correctness |
 | Resposta | relevance, completeness, factuality, format compliance |
 | Security | attack success rate, leakage rate, toxicity, policy violation |
 | Agents | task success, tool selection accuracy, loop rate, unauthorized action rate |
-| Operation | p50/p95/p99, error rate, tokens, cost per successful task |
-| Responsible AI | disparity by segment, contest, human override |
+| Operations | p50/p95/p99, error rate, tokens, cost per successful task |
+| Responsible AI | The Commission shall adopt delegated acts in accordance with Article 21 of Regulation (EU) No 182/2011 and in accordance with Article 21 thereof. |
 
 ## Pipeline
 
@@ -74,25 +74,25 @@ flowchart LR
 
 ## Release gates
 
-The deployment must be blocked when:
+The deployment shall be blocked when:
 
-- there is a return to tolerance;
-- any critical security test fail;
-- the exit schema or tool contract is ineffective;
+- there is a regression above tolerance;
+- failure of any critical safety test;
+- the output scheme or tool contract is invalid;
 - custo projetado exceder budget;
-- dataset, prompt, model or policy not compiled;
-- Obligatory evidence is not reproduced.
+- the dataset, prompt, template or policy is not versioned;
+- compulsory evidence is not reproducible.
 
-## Contingency monitoring
+## Continuous monitoring
 
-Production must feed new cases for return. Inaccidents, negative assessments, corrected responses and changes in sources must generate new tests.
+Production should fuel new cases for regression. Incidents, negative assessments, corrected responses and changes in sources should generate new testing.
 
-## Minimum report
+## Minimum reporting
 
-- models, prompt, policy and dataset;
-- environment and parasols;
-- methods, thresholds and comparison with baseline;
+- template, prompt, policy and dataset versions;
+- environment and parameters;
+- metrics, thresholds and comparison with baseline;
 - falhas conhecidas;
-- result of adversarial tests;
-- a decision of approval;
-- Waste risk and monitoring plan.
+- the result of the adverse test;
+- the approval decision;
+- residual risks and monitoring plan.

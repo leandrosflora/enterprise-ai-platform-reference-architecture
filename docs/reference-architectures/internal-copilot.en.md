@@ -1,18 +1,18 @@
-# Reference Access - Internal Copilot
+# This is the total amount of the project.
 
-## Objet
+## Objective
 
-Provide an internal supporter to support collaborators in the pursuit of knowledge, operational guidance and assisted execution of tasks.
+Provide an internal corporate assistant to support employees in the pursuit of knowledge, operational guidance and assisted execution of tasks.
 
-## Usage casings
+## Cases of use
 
 - Search for internal policies
-- I support the internal audit
-- Consult the procedures
-- - Redundant response with reference to sources
-- Assisted entry of calls
+- Support for in-house care
+- Consultation of the procedures
+- Generating responses with citation of sources
+- Assisted opening of calls
 
-## Componentes Envolvidos
+## Components involved
 
 - AI Portal
 - Agent Gateway
@@ -24,29 +24,29 @@ Provide an internal supporter to support collaborators in the pursuit of knowled
 - Evaluation Service
 - Audit Service
 
-## High-level flux
+## High-level flow
 
-1. User access to the AI Portal.
-2. Agent Gateway authentic and authorise the request.
+1. The user accesses the AI Portal.
+2. Agent Gateway authenticates and authorises the request.
 3. Agent Runtime executes the agent.
 4. Knowledge Service recupera documentos relevantes.
 5. Memory Service recupera contexto permitido.
-6. Agent Runtime is the basic model.
-7. Evaluation Service evaluates the answer.
-8. Audit Service records execution.
+6. Agent Runtime calls it the foundation model.
+7. Evaluation Service shall assess the response.
+8. Audit Service shall record the execution.
 
-## Government requirements
+## Governance requirements
 
-- Agent amplification in the AI Catalog
-- Risk classification
+- Approval of the agent in the AI Catalog
+- Classification of risk
 - Authorised knowledge base
 - Minimum groundedness assessment
-- Complete audit of the interactions
+- Full audit of interactions
 
-## Mechanics
+## The following information shall be provided:
 
-- Resolution rate without escalating
+- Resolution rate without staggering
 - Groundedness score
-- Latence P95
-- Care for interaction
-- Satisfaction of user
+- P95 latency
+- Cost per interaction
+- User satisfaction

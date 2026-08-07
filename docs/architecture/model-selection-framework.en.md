@@ -1,25 +1,25 @@
 # Model Selection Framework
 
-## Objet
+## Objective
 
-Select models on the basis of evidence of the use case, avoiding decisions based only on genetic benchmark, mark or size.
+Select models based on evidence from the use case, avoiding decisions guided only by generic benchmark, brand or size.
 
-## Criteria
+## Criteria for the application of this Regulation
 
-| Dimensive | Perguntas |
+| Size | Perguntas |
 |---|---|
-| Qualidade | The model hits the thresholds in the golden dataset? |
-| Modalidade | Do you suggest text, image, audio or required documents? |
-| Contexto | The window screams at the case without degraded quality? |
-| Tool use | Do you call the tools with a need and a second schema? |
-| Security | Do you stand up to attacks and take account policies? |
-| Privacidade | What's the retention policy, training and residence? |
-| Latence | Atende p95 e throughput esperados? |
-| Custo | What's the cost for being well-suced, not just for token? |
-| Operation | SLA, observation, quotas and fallback? |
-| Portabilidade | Does the contract reduce lock-in and allow replacement? |
+| Qualidade | Does the model meet the thresholds in the golden dataset? |
+| Modalidade | Does it support required text, image, audio or documents? |
+| Contexto | Does the effective window serve the case without degrading quality? |
+| Tool use | You call tools accurately and follow a pattern? |
+| Security | Resistant to attacks and complying with content policies? |
+| Privacidade | What is the retention, training and residence policy? |
+| Latency | Does it respond to p95 and the expected throughput? |
+| Custo | What's the cost per successful task, not just per token? |
+| Operations | Is there ALS, observability, quotas and fallback? |
+| Portabilidade | The contract reduces lock-in and allows replacement? |
 
-## Procedure
+## The procedure
 
 ```mermaid
 flowchart LR
@@ -34,71 +34,71 @@ flowchart LR
 
 ## Scorecard sugerido
 
-| Criteria | Peso inicial |
+| Criterion of use | Peso inicial |
 |---|---:|
-| Quality in the case of use | 30% |
-| Security and compliance | 20% |
-| Latitude and availability | 15% |
-| Care for task | 15% |
-| Tool use e structured output | 10% |
-| Operabilidade e portabilidade | 10% |
+| Quality in case of use | 30% |
+| Safety and compliance | 20% |
+| Latency and availability | 15% |
+| Cost per task | 15% |
+| Tool use and structured output | 10% |
+| Operational and portability | 10% |
 
-The weight must change according to the risk. In cases of CRITICAL, safety, explanation and compliance, costs should be assessed.
+Weights must change as the risk increases, and for CRITICAL cases, safety, explainability and compliance prevail over cost.
 
 ## Model classes
 
 | Classe | Typical use | Trade-off |
 |---|---|---|
-| Small and quick | classification, coding, simple extraction |                                                                                                                                                                                                 |
-| Geral balanceado | chat, RAG and common automapping | - Care and medium-sized lattice |
-| Reasoning | Planning, complex analysis and code | maior custo e tempo |
-| Embedding | syringe and clustering | Specific assessment of the body |
-| Multimodal | documents, images and audio | costs and additional risk of privacy |
-| Especializado/fine-tuned | a field or restricted format | maintenance and lock-in larger |
+| Small and fast | Classification, routing, simple extraction | Less reasoning ability |
+| Geral balanceado | chat, RAGand common automation | Average cost and latency |
+| Reasoning | planning, complex analysis and coding | higher cost and time |
+| Embedding | Semantic search and clustering | requires a specific assessment of the corpus |
+| Multimodal | Documents, images and audio | cost and additional privacy risks |
+| Especializado/fine-tuned | Restricted domain or format | Larger maintenance and lock-in |
 
-## Model Router
+## Model routers
 
-Model Gateway can be rote by:
+The Model Gateway may be routed by:
 
 - risk and classification of data;
-- complexity of the task;
-- modalidade e idioma;
-- available latability;
+- the complexity of the task;
+- modality and language;
+- the available latency;
 - budget;
-- the availability of the driver;
+- availability of the provider;
 - residence requirements;
 - desempenho observado.
 
-Fallback should not be a relatively low risk or quality. Model changes need to be recorded in the trace and evaluated by return.
+Fallback should not silently reduce safety or quality. Model changes need to be recorded in the trace and evaluated by regression.
 
 ## Benchmark correto
 
-- using real anonimidated or representative statistical data;
-- medir tarefa completa, incluindo retrieval e ferramentas;
-- repeating tests for variability;
-- avaliar idiomas e segmentos relevantes;
-- separate the medium quality of critical statements;
-- reducing costs by a satisfactory response or final task;
-- registrating exat version of the model and slacks.
+- use real anonymised or representative synthetic data;
+- Measuring complete task, including retrieval and tools;
+- repeat tests for variability;
+- evaluate relevant languages and segments;
+- separating average quality from critical defects;
+- measuring cost per approved response or completed task;
+- record the exact version of the model and parameters.
 
 ## Minimum ADR
 
-The decision must document:
+The decision shall document:
 
-- models assessed and the reason for the shortlist;
-- dataset, rubrica e thresholds;
-- quality, safety, cost and consistency;
-- contractual restrictions and data;
-- first model and fallback;
+- the models evaluated and the reason for the shortlist;
+- data set, heading and thresholds;
+- quality, safety, cost and latency results;
+- contractual and data restrictions;
+- primary model and fallback;
 - residual risks;
-- - a re-evaluation pig.
+- triggers for reassessment.
 
-## Revaluation tips
+## Reassessment triggers
 
 - new version of the model;
 - price change or SLA;
-- relapse detected;
-- security incident;
-- new regulatory requirement;
-- volume increase;
-- Change in the domain, language or source of data.
+- detected regression;
+- the safety incident;
+- the new regulatory requirement;
+- a significant increase in volume;
+- change of domain, language or data source.

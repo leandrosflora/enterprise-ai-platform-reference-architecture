@@ -1,8 +1,8 @@
 # 5. Life cycle of agents
 
-## Objet
+## Objective
 
-The life cycle ensures that each agent version has a corresponding identity, owner, evidence, checks and an operation strategy. The government unit shall be the **publicated version**, not just the name of the agent.
+The life cycle ensures that each agent version has identity, owner, evidence, controls and an operating strategy.
 
 ```mermaid
 flowchart LR
@@ -18,122 +18,122 @@ flowchart LR
     R -->|end of life| X[Retire]
 ```
 
-## Canopies
+## Canonical States
 
-| Estado | Significado |
+| State of origin | Significado |
 |---|---|
-| IDEA | a possibility of still without implementing compromise |
-| ASSESSED | a classified case, with owner and risk risk |
-| DRAFT | development version |
-| SUBMITTED | frosted evidence and sent to the decision |
+| IDEA | the possibility of an implementation commitment not yet reached |
+| ASSESSED | classified case with owner and risk route |
+| DRAFT | version in development |
+| SUBMITTED | evidence frozen and sent for decision |
 | APPROVED | authorised version under explicit conditions |
 | PUBLISHED | version available in the defined environment |
-| SUSPENDED | temporarily blocked voice |
-| RETIRED | slack and out of use |
+| SUSPENDED | temporarily blocked invocation |
+| RETIRED | Closed and unused version |
 
-The current contracts use the technical states defined in [`openapi.yaml`](../contracts/openapi.yaml). Previous editories of `DRAFT` may remain in the catalog or in the port process.
+Current contracts use the technical statements as defined in [`openapi.yaml`](../contracts/openapi.yaml. Editorial statements prior to `DRAFT` may remain in the catalogue or portfolio process.
 
 ## Etapa 1 — Idea
 
 ### Perguntas
 
-- - What problem will be solved?
+- What problem will be solved?
 - Who's the user?
-- - What decision or task will be improved?
-- - What method will it prove worth?
-- Why is IA necessary?
+- What decision or task will be improved?
+- What metric will prove value?
+- Why is AI needed?
 
-### Minimum slack
+### Minimum output
 
 - problem statement;
 - sponsor or business owner;
-- value hypothesis;
-- alternative not based on the IA considered.
+- the value hypothesis;
+- the alternative not based on AI is considered.
 
 ### Gate
 
-Don't move when the problem is just “use AI” or when there's no owner for the result.
+Don't move forward when the problem is just using AI or when there's no owner for the result.
 
 ## Etapa 2 — Assessment
 
 ### Atividades
 
 - classificar risco;
-- quoting data;
-- identificar tools e efeitos colaterais;
+- classify data;
+- identify tools and side effects;
 - define the need for RAG and memory;
-- to estimate volume, length and cost;
-- to check existing solutions;
-- define delivery route.
+- estimate volume, latency and cost;
+- verify existing solutions;
+- define the route of delivery.
 
 ### Artefatos
 
-- registre in the AI Catalog;
+- the registration in the AI Catalogue;
 - risk assessment inicial;
 - data classification;
 - technical and business owner;
-- indication of golden path or exception.
+- Golden path or exception.
 
 ### Gate
 
-Where no finality, legal basis applicable, data owner or strategy for critical actions are not set out.
+Cases without purpose, applicable legal basis, data owner or critical action strategy do not follow design.
 
 ## Etapa 3 — Design
 
-### Obligations
+### Compulsory decisions
 
-- agent or determined workflow;
-- syncron or syncron;
-- model and roteaing policy;
-- border between runtime, register systems and tools;
-- authorisation of knowledge and memory;
-- SLO e fallback;
-- telemetria e eventos;
-- assessment strategy;
+- deterministic agent or workflow;
+- synchronous or asynchronous;
+- routing model and policy;
+- boundaries between runtime, recording systems and tools;
+- knowledge and memory authorisation;
+- SLOand fallback;
+- telemetry and events;
+- the evaluation strategy;
 - rollback and deactivation.
 
 ### Artefatos
 
-- diagram of context and containers;
+- context diagram and containers;
 - threat model;
-- API, events and tools;
+- contracts for API, events and tools;
 - NFRs;
 - ADRs for relevant decisions;
-- Assessment plan.
+- the evaluation plan.
 
 ### Gate
 
-The arquivalence must demonstrate how policies are applied during execution. Only documents are not sufficient for material risks.
+The architecture must demonstrate how policies are applied during implementation.
 
 ## Etapa 4 — Build
 
-### Controls by pattern
+### Standard controls
 
-- a job identity;
+- the identity of the workload;
 - minimum scopes;
-- secrets out of code;
+- non-code secrets;
 - correlation ID;
-- logs without a sensible unneeded account;
-- timeouts e limites;
-- idempotence for commands;
-- contratos versionados;
-- dependency e image scanning;
-- Unitary tests, contracts and policies.
+- logs without unnecessary sensitive content;
+- timeouts and limits;
+- incompetence to command;
+- versioned contracts;
+- dependency and image scanning;
+- unitary, contract and policy tests.
 
-### - Automaticly regulated evidence
+### Automatically generated evidence
 
-- commit and build imutable;
-- SMMO or a dependency inventory;
-- result of scanners;
-- prompt and configurable version;
-- version of models and embeddings;
-- datasets used in tests.
+- commit and build immutable;
+- SBOM or inventory of dependencies;
+- the result of the scanners;
+- the prompt version and configuration;
+- version of templates and embeddings;
+- data sets used in the tests.
 
 ## Etapa 5 — Evaluate
 
-The assessment must separate different dimensions to avoid a slack note that hides.
+The assessment shall separate different dimensions to avoid an aggregate note that conceals defects.
 
-| Dimensive | Methods |
+| Size | Examples of metrics |
 |---|---|
 | Task quality | exact match, rubric score, completion rate |
 | Retrieval | recall@k, precision@k, MRR, nDCG |
@@ -141,66 +141,66 @@ The assessment must separate different dimensions to avoid a slack note that hid
 | Safety | prompt injection resistance, leakage, harmful completion |
 | Tool use | selection accuracy, argument validity, side-effect safety |
 | Performance | p50, p95, timeout rate, queue time |
-| Cost | cost for invocation, final task and user |
+| Cost | Cost per invocation, completed task and user |
 | Reliability | success rate, fallback rate, dependency errors |
 
 ### Baseline
 
-The whole version must be compared to a suitable baseline:
+Each version shall be compared to an appropriate baseline:
 
-- previous version;
-- human procedure currently;
+- the previous version;
+- the current human process;
 - deterministic workflow;
-- more simple or a bitch;
-- Minimum limit approved.
+- simpler or cheaper model;
+- approved minimum limit.
 
 ### Gate
 
-The publication is blocked when mandatory thresholds are not reached or when the return cannot be formal.
+Publication is blocked when mandatory thresholds are not met or when regression has no formal exception.
 
-Consult [Evaluation Service](../services/evaluation-service.md) and the [AI Risk Framework](../governance/ai-risk-framework.md).
+See the [Evaluation Service](../services/evaluation-service.md)and the [AI Risk Framework](../governance/ai-risk-framework.md).
 
 ## Etapa 6 — Govern
 
-The submission must contain a version and its evidence.
+The submission must freeze a version and its evidence.
 
 - the identity of the decision-maker;
-- analysated version;
+- the version analysed;
 - risco;
-- evidence taken;
-- decision;
+- the evidence considered;
+- the decision;
 - conditions;
-- time of validity;
-- reavailing cats.
+- the period of validity;
+- the reassessment triggers.
 
-### Segregation of functions
+### Separation of functions
 
-The same identity must not be submerged and approved as the same version when the risk requires independent revision.
+The same identity must not submit and approve the same version when the risk requires independent review.
 
-### Condiţional amplification
+### Conditional approval
 
-Conditions examples:
+Examples of conditions:
 
-- initial use limit;
+- the initial limit of users;
 - canal interno apenas;
 - HITL for a given action;
-- daily budget;
-- restricted model to a region;
-- revision after 30 days;
-- It features a mandatory flag.
+- the daily budget;
+- a model restricted to a region;
+- review after 30 days;
+- feature flag required.
 
 ## Etapa 7 — Publish
 
-The publication must take place on a pipeline and check:
+The publication shall take place by pipeline and verify:
 
-- a valid decision and corresponding to the version;
-- engraved or identified artefacts;
-- available policies;
-- migrations and ready dependency;
-- dashboards e alertas;
-- runbook and support accounts;
+- a valid decision corresponding to the version;
+- signed or identifiable artifacts;
+- the policies available;
+- ready migration and dependencies;
+- dashboards and alerts;
+- runbook and support contacts;
 - rollback testado;
-- quotas and budgets.
+- setting quotas and budgets.
 
 ### Release strategies
 
@@ -217,48 +217,48 @@ The publication must take place on a pipeline and check:
 Operar significa observar simultaneamente:
 
 - technical health;
-- quality of replies;
-- retrieval e groundedness;
+- the quality of the responses;
+- retrieval and groundedness;
 - use of tools;
-- violences of policy;
+- violations of policy;
 - custo;
 - behaviour by model and version;
-- feedback from the user.
+- user feedback.
 
-The correction between `agentId`, `agentVersion`, `modelId`, `sessionId`, `tenantId` and `correlationId` is essential for diagnostics.
+The correlation between `agentId`, `agentVersion`, `modelId`, `sessionId`, `tenantId` and `correlationId` is essential for diagnosis.
 
 ## Etapa 9 — Review
 
-Review tips:
+Revising triggers:
 
-- model change;
-- a major prompt change;
-- new source of data or tool;
-- a final amendment;
+- change of model;
+- change of main prompt;
+- new data source or tool;
+- change of purpose;
 - incidente relevante;
-- degraded quality;
-- risk increase or volume increase;
-- expiry of approval;
+- quality degradation;
+- increased risk or volume;
+- the expiry of the approval;
 - regulatory or contractual change.
 
 The revision may result in a new version, restriction, suspension or withdrawal.
 
 ## Etapa 10 — Retire
 
-The withdrawal must be considered:
+The withdrawal shall take into account:
 
-- block of new voices;
-- migration of consumers;
-- revocation of certificates and scopes;
-- elimination or anonimation of memory;
-- retendance of auditory evidence;
-- remuneration of exclusive sources of knowledge;
-- budget and alerts;
+- blocking new calls;
+- the migration of consumers;
+- revocation of credentials and scopes;
+- removal or anonymisation of memory;
+- the retention of audit evidence;
+- removal of exclusive knowledge sources;
+- closure of budgets and alerts;
 - communication to users and owners.
 
 ## Evidence bundle
 
-Each published version shall have a copy of evidence:
+Each published version shall contain a reproducible evidence package:
 
 ```text
 agent-card.json
@@ -275,21 +275,21 @@ release-manifest.json
 runbook.md
 ```
 
-Not all files need to use these formats, but the information needs to exist and be rastered.
+Not all files need to use these formats, but the information needs to exist and be traceable.
 
-## Quality gates per risk
+## Quality gates at risk
 
 | Gate | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
-| owner and catalog | obligation | obligation | obligation | obligation |
-| Contract tests | obligation | obligation | obligation | obligation |
-| quality assessment | amostra | dataset | dataset + baseline | dataset + independent review |
-| threat model | simplificado | obligation | detalhado | detail + formal review |
-| HITL | opcional | by action | generally compulsory | obligation for permitted actions |
-| independent approval | opcional | in political conformity | obligence | marrows |
-| canary | recomendado | obligation | obligation | environment and restricted population |
-| periodical review | anual | semestral | trimestral | content or event |
+| owner and catalogue | compulsory | compulsory | compulsory | compulsory |
+| Contract tests | compulsory | compulsory | compulsory | compulsory |
+| quality assessment | amostra | dataset | dataset + baseline | Data set + independent review |
+| threat model | simplificado | compulsory | detalhado | Detailed + formal review |
+| HITL | opcional | by share | Generally compulsory | compulsory for permitted actions |
+| independent approval | opcional | policy | compulsory | Multiple functions |
+| canary | recommended | compulsory | compulsory | Restricted environment and population |
+| periodic review | anual | semestral | trimestral | continuous or per event |
 
 ## Next chapter
 
-The [documentary agent case study](05-case-study-document-agent.md) applies the problem cycle to operation.
+The [documentary agent case study]05-case-study-document-agent.md) applies this problem cycle to the operation.

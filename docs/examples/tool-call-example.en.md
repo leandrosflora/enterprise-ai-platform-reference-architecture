@@ -1,8 +1,8 @@
-# Exemplo - Tool Call MCP
+# Example - Tool Call MCP
 
-## Objet
+## Objective
 
-Type of a welded rail referred to via MCP Server.
+Example of a tool call exposed via MCP Server.
 
 ```json
 {
@@ -37,7 +37,7 @@ Type of a welded rail referred to via MCP Server.
 
 ## Controls
 
-- Validation by JSON Schema
-- Scope authorisation
-- Auditorium of tool call
-- Sensitive data masking in logs
+- Validation by JSON Scheme
+- Permission by scope
+- Audit of the tool call
+- Masking of sensitive data in logs

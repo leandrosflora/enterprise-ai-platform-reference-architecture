@@ -1,6 +1,6 @@
-# Exemplo - Evento Kafka
+# Example - Event Kafka
 
-## Evento `agent.invoked`
+## Event .`agent.invoked`
 
 ```json
 {
@@ -27,10 +27,10 @@
 
 ## Uso
 
-Este evento alimenta:
+This event feeds:
 
 - Observability
 - Auditoria
 - FinOps
-- Adoption Dashboards
-- Machines by agent and area
+- Adoption dashboards
+- Metrics by agent and area

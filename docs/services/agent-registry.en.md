@@ -2,16 +2,16 @@
 
 ## Responsabilidades
 
-- Agent catalog
+- Catalogue of agents
 - Versionamento
 - Publication
 - Metadados
 - Ownership
 
-## Armageddon data
+## Stored data
 
 - Nome
-- Verse
+- This is the version.
 - Owner
 - Tags
 - Status
@@ -24,7 +24,7 @@ GET /agents
 GET /agents/{id}
 POST /agents/{id}/publish
 
-## Eventos
+## Events
 
 - agent.created
 - agent.updated

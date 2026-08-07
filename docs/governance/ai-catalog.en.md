@@ -1,6 +1,6 @@
 # AI Catalog
 
-## Corporative Catalogue
+## This is the list of companies.
 
 All agents must be registered.
 
@@ -25,9 +25,9 @@ All agents must be registered.
 - Published
 - Retired
 
-## Objetivos
+## Objectives
 
-- Government
+- Governance
 - Descoberta
 - Auditoria
 - Reuso

@@ -1,186 +1,186 @@
-# 9. Production checks
+# 9. Checklists of production
 
 ## How to use
 
-Checks are verification instruments, not substitutes for analysis. Not applicable checks must be marked with proof. Not-assisted obligations require a formal block or exemption with owner and validity.
+Checklists are verification tools, not substitutes for analysis.Non-applicable items must be marked with a justification.Compulsory items that are not met require a formal blocking or exception with owner and validity.
 
 ## 1. Business readiness
 
 - [ ] problem and user are defined;
-- [ ] outcome and success methods were agreed;
+- [ ] outcome and success metrics have been agreed;
 - [ ] there is a business owner;
 - [ ] there is a technical owner;
-- [ ] the alternative without IA was considered;
-- [ ] impact of incorrect responses was analysed;
-- [ ] feedback process was defined;
-- [ ] communication strategy and adoption;
-- [ ] acrimony criteria are defined.
+- [ ] the AI-free alternative has been considered;
+- [ ] the impact of incorrect responses has been analysed;
+- [ ] feedback process has been defined;
+- [ ] communication and adoption strategy exists;
+- [ ] closure or deactivation criteria are defined.
 
 ## 2. Architecture readiness
 
 - [ ] context and containers are documented;
-- [ ] border between control plane and data plane are explcitative;
-- [ ] registry systems remain ad hoc;
-- [ ] API contracts, events and tools are updated;
-- [ ] agent decision versus workflow is registered;
-- [ ] synchronism and assynchronism are justified;
+- [ ] boundaries between control plane and data plane are explicit;
+- [ ] registration systems remain authoritative;
+- [ ] API contracts, events and tools are versioned;
+- [ ] agent versus workflow decision is recorded;
+- [ ] synchronicity and asynchronous processing are warranted;
 - [ ] timeouts, retries and circuit breakers are defined;
-- [ ] idempotence exists for calamities;
-- [ ] fallback and controlless degradation were discarded;
-- [ ] DDRs cover relevant decisions;
-- [ ] dependencies and failure modes were identified.
+- [ ] impotence exists for side effects;
+- [ ] fallback and controlled degradation have been designed;
+- [ ] ADRs cover relevant decisions;
+- [ ] dependencies and failure modes have been identified.
 
 ## 3. Identity and authorization
 
-- [ ] users are authenticated by approved IdP;
+- [ ] users are authenticated by an approved IDP;
 - [ ] workloads use their own identity;
-- [ ] tokens are valid by the issuer, audience, validity and signature;
+- [ ] tokens are validated by issuer, audience, validity and signature;
 - [ ] minimum scopes are defined;
 - [ ] authorisation is `deny by default`;
-- [ ] tenant and subject are not chosen freely by the client;
+- [ ] tenant and subject are not freely chosen by the client;
 - [ ] access to agents, knowledge bases, memory and tools is independent;
 - [ ] service-to-service utiliza mecanismo aprovado;
-- [ ] a high-quality equestrian was tested;
-- [ ] access revogasion was exercised.
+- [ ] privilege elevation has been tested;
+- [ ] revocation of access has been exercised.
 
 ## 4. Data, RAG and memory
 
-- [ ] sources have ownership and classification;
-- [ ] the use quality is registered;
-- [ ] a pipe of ingesting using quarentine;
+- [ ] sources have owner and classification;
+- [ ] purpose of use is recorded;
+- [ ] intake pipeline uses quarantine;
 - [ ] checksum and provenance are preserved;
-- [ ] malware, active and indirect content prompt injection are treated;
+- [ ] malware, active content and indirect prompt injection are treated;
 - [ ] ACL is applied by document and chunk;
-- [ ] compulsory filters do not depend on the text of the query;
-- [ ] the content recovered is treated as untrustworthy;
-- [ ] references point to access sources to the user;
-- [ ] expiration and excluding removal of the retrieval;
+- [ ] mandatory filters are not dependent on query text;
+- [ ] recovered content is treated as unreliable;
+- [ ] citations point to sources accessible to the user;
+- [ ] expiration and deletion remove content from retrieval;
 - [ ] embeddings and chunking are versioned;
-- [ ] types of memory are expended;
-- [ ] Maximum TTL is applied;
+- [ ] memory types are explicit;
+- [ ] maximum TTL is applied;
 - [ ] consent exists when required;
-- [ ] memory does not replace the register system;
-- [ ] memory poisoning e acesso cross-subject foram testados.
+- [ ] memory does not replace a recording system;
+- [ ] memory poisoning and cross-subject access were tested.
 
-Consult [Security of RAG and memory](../security/rag-memory-security.md).
+Consulte [Security of RAGand memory](../security/rag-memory-security.md).
 
 ## 5. Model and prompt readiness
 
-- [ ] model is in the approved catalogue;
-- [ ] region and process are concerned with policy;
-- [ ] the main prompt is updated;
-- [ ] sluts have limits;
+- [ ] the model is in the approved catalogue;
+- [ ] region and processing are policy-friendly;
+- [ ] the main prompt is versioned;
+- [ ] parameters have limits;
 - [ ] input and output token limits are defined;
-- [ ] the maximum cost for execution is controlled;
-- [ ] model fallback was tested when applicable;
+- [ ] maximum cost per execution is controlled;
+- [ ] model fallback has been tested where applicable;
 - [ ] redaction and filters are configured;
-- [ ] change of model model re-evaluation;
-- [ ] dependencies of property capacity were recorded.
+- [ ] change of model triggers reassessment;
+- [ ] dependency on ownership capacity was recorded.
 
 ## 6. Tool and MCP readiness
 
-- [ ] tool can be owner and version;
-- [ ] entry and exit schema is restrictive;
+- [ ] tool has owner and version;
+- [ ] Entry and exit scheme is restrictive;
 - [ ] scopes are minimal;
-- [ ] reading and writing operations are distinct;
-- [ ] timeout e limites existem;
-- [ ] idempotence was valid;
-- [ ] retries do not double effect;
-- [ ] compensation or rollback was defined;
+- [ ] read and write operations are distinguishable;
+- [ ] timeout and limits exist;
+- [ ] idempotence has been validated;
+- [ ] retries do not duplicate effects;
+- [ ] clearing or rollback has been defined;
 - [ ] HITL exists for critical actions;
-- [ ] arguments are valid outside the model;
-- [ ] tool can be blocked without removing the runtime;
-- [ ] auditors register operations without secret.
+- [ ] arguments are validated outside the template;
+- [ ] tool can be locked without knocking down the runtime;
+- [ ] audit records operation without exposing secrets.
 
 ## 7. Security and privacy
 
 - [ ] threat model is updated;
-- [ ] risk classification was confirmed;
+- [ ] risk classification has been confirmed;
 - [ ] secrets are not in the code or prompt;
-- [ ] sensitive data are minimised;
-- [ ] logs e traces possuem redaction;
-- [ ] retention and discharge were defined;
-- [ ] legal or justifiable basis of finality was analysed;
-- [ ] vassing incidents may runbook;
-- [ ] dependencies and images have been checked;
-- [ ] the exit is controlled;
-- [ ] trajectorium in transit and recurrent is applied;
-- [ ] exceptions may compensate for controls and expiration.
+- [ ] sensitive data shall be minimised;
+- [ ] logs and traces have redaction;
+- [ ] retention and discard have been defined;
+- [ ] legal basis or justification for purpose has been examined;
+- [ ] leakage incidents have runbook;
+- [ ] dependencies and images have been verified;
+- [ ] egress is controlled;
+- [ ] transit and rest encryption is applied;
+- [ ] Exceptions have compensating controls and expiration.
 
 ## 8. Evaluation readiness
 
-- [ ] dataset representa casos reais e edge cases;
+- [ ] dataset represents real cases and edge cases;
 - [ ] dataset and version are identified;
 - [ ] baseline is defined;
 - [ ] the quality of the task is measured separately;
 - [ ] retrieval and groundedness are assessed separately;
 - [ ] prompt injection and leakage are part of the tests;
 - [ ] tool selection and arguments are evaluated;
-- [ ] performance e custo possuem thresholds;
-- [ ] regresses bloated release conform to risk;
-- [ ] results are reproduzable;
-- [ ] food samples are reviewed controlled;
-- [ ] human evaluation has consistent rules and criteria.
+- [ ] performance and cost have thresholds;
+- [ ] regressions block risk-based release;
+- [ ] results are reproducible;
+- [ ] production samples feed controlled review;
+- [ ] Human evaluation has consistent scope and criteria.
 
 ## 9. Observability and SRE
 
-- [ ] ID correlation is propagated;
-- [ ] agent, version, model, tenant and session are correlating;
-- [ ] success, consistency, tokens and cost are required;
-- [ ] policy of refusals is observed;
-- [ ] retrieval, memory e tools possuem spans;
-- [ ] logs do not hold complete prompts by default;
+- [ ] correlation ID is propagated;
+- [ ] agent, version, model, tenant and session are correlated;
+- [ ] success, latency, tokens and cost metrics exist;
+- [ ] policy denials are observable;
+- [ ] retrieval, memory and tools have spans;
+- [ ] logs do not store full prompts by default;
 - [ ] SLO is defined by workload;
-- [ ] alerts may be owned and acted;
-- [ ] dashboards were reviewed with the support team;
-- [ ] capacidade foi testada;
-- [ ] critical dependencies may have circuit breaker or fallback;
+- [ ] alerts have owner and expected action;
+- [ ] dashboards have been reviewed with the support team;
+- [ ] capacity has been tested;
+- [ ] critical dependencies have a circuit breaker or fallback;
 - [ ] runbooks are accessible;
-- [ ] on-call and escalonation are defined;
+- [ ] on-call and staging are defined;
 - [ ] rollback foi exercitado.
 
 ## 10. FinOps readiness
 
-- [ ] costs may be tags or dimensions by agent and tenant;
-- [ ] tokens and cost are medmed by model;
-- [ ] monthly and daily budgets are set;
+- [ ] costs have tags or dimensions per agent and tenant;
+- [ ] tokens and cost are measured by model;
+- [ ] monthly and daily budgets are defined;
 - [ ] quotas preventivas existem;
-- [ ] anomalies alerts are configured;
-- [ ] the cost for a well-known task is accompanied;
-- [ ] reindexation and embeddings enter the cost model;
-- [ ] observation and comparable infrastructure are considered;
-- [ ] showback or chargeback was defined when necessary;
-- [ ] strategy to reduce costs without degrade quality was analysed.
+- [ ] anomaly alerts are set;
+- [ ] cost per successful task is accompanied;
+- [ ] re-indexation and embeddings enter the cost model;
+- [ ] observability and shared infrastructure are considered;
+- [ ] showback or chargeback has been defined where necessary;
+- [ ] strategy to reduce cost without degrading quality was analysed.
 
 ## 11. Governance and release
 
-- [ ] the submetid version is frozen;
-- [ ] evidence corresponds to the published article;
-- [ ] decisions have the authority and independence necessary;
-- [ ] approval conditions are verified;
-- [ ] approval may be valid;
-- [ ] pipeline checks decision before publication;
-- [ ] a tonne or a progressive rollout is defined;
-- [ ] feature flags and kill switch exist when applicable;
-- [ ] release communication was prepared;
-- [ ] post-release revision is scheduled;
-- [ ] reavailing shit are defined.
+- [ ] the submitted version is frozen;
+- [ ] evidence corresponds to the published artifact;
+- [ ] decision-makers shall have the necessary authority and independence;
+- [ ] approval conditions are verifiable;
+- [ ] approval is valid;
+- [ ] pipeline verifies decision before publication;
+- [ ] canary or progressive rollout is defined;
+- [ ] feature flags and kill switch exist where applicable;
+- [ ] release notice has been prepared;
+- [ ] post-release review is scheduled;
+- [ ] reassessment triggers are set.
 
 ## 12. Retirement readiness
 
-- [ ] consumers and users were identified;
-- [ ] migration plan or replacement exists;
-- [ ] new voices may be blocked;
-- [ ] certificates and scopes shall be reviewed;
-- [ ] knowledge and memory will have appropriate destination;
-- [ ] auditory evidence shall be withdrawn in accordance with policy;
+- [ ] consumers and users have been identified;
+- [ ] a migration or replacement plan exists;
+- [ ] new invocations may be blocked;
+- [ ] credentials and scopes shall be revoked;
+- [ ] knowledge and memory shall have an appropriate purpose;
+- [ ] audit evidence shall be retained in accordance with policy;
 - [ ] budgets, dashboards and alerts will be closed;
-- [ ] documentation and catalog will be analyzed;
+- [ ] documentation and catalogue shall be updated;
 - [ ] owner approved the withdrawal.
 
 ## Release decision record
 
-The final decision may be used as follows:
+The final decision may use the following summary:
 
 ```yaml
 agentId: policy-assistant
@@ -209,16 +209,16 @@ owners:
 
 A version is ready when:
 
-- deliver a measurable value;
-- may be a known risk and controlled;
-- may be observed and supported;
+- deliver measurable value;
+- has a known risk and controls applied;
+- can be observed and sustained;
 - tem custo controlado;
-- may be reverted, suspended and withdrawn;
-- I can have evidence to explain why it was published.
+- may be reversed, suspended and withdrawn;
+- has evidence to explain why it was published.
 
-## Materials next
+## Next to materials
 
-- [Glossary](glossary.md)
+- [Glossary of terms](glossary.md)
 - [Runbooks](../runbooks/onboarding-agent.md)
 - [AI Risk Framework](../governance/ai-risk-framework.md)
-- (Not working requirements)(../architecture/non-functional-requirements.md)
+- [Non-functional requirements](../architecture/non-functional-requirements.md)

@@ -1,10 +1,10 @@
 # Corporate Systems Integration
 
-## Objet
+## Objective
 
-Definite rules for integrating agents with inter-personal systems.
+Set standards for the integration of agents with internal corporate systems.
 
-## Technical systems
+## Typical systems
 
 - CRM
 - ERP
@@ -14,26 +14,26 @@ Definite rules for integrating agents with inter-personal systems.
 - Data Platform
 - Workflow/BPM
 
-## Integrating Pads
+## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
 
-| Father | Uso |
+| Standard | Uso |
 |---|---|
-| REST | Single-comanding consultations |
-| gRPC | Internal ties of low-level lativity |
-| Kafka | - Domain and integration events |
-| MCP | Exposed grenades for agents |
+| REST | Synchronous queries and commands |
+| gRPC | Low latency internal integrations |
+| Kafka | Domain events and asynchronous integration |
+| MCP | Tools exposed to agents |
 | Batch | Processamentos programados |
 
 ## Principles
 
 - Agents do not access corporate banks directly
-- Integrations shall pass by APIs, events or MCP
-- Tool calls must be auto-reported and audited
-- Critical systems require government approval
+- Integrations shall be through APIs, events or MCP
+- Tool calls must be authorised and audited
+- Critical systems require governance approval
 
 ## Requirements
 
-- Correlation
-- Timeout e retry controlado
+- End to end correlation
+- Timeout and retry controlled
 - Idempotence for critical commands
-- Integrated observation
+- Observability by integration

@@ -1,27 +1,27 @@
-# Exemplos End-to-End: Agent + RAG + MCP
+# End-to-end examples: Agent + RAG + MCP
 
-This document shows complete flow of use of Enterprise AI Platform combinating agents, RAG, memory, MCP, evaluation, audit and FinOps.
+This document shows complete use flows of Enterprise AI Platform by combining agents, RAG, memory, tools MCP, evaluation, audit and FinOps.
 
 ---
 
-## Example 1: Internal Policy Officer with RAG
+## Example 1: Internal policy agent with RAG
 
-### Objet
+### Objective
 
-Allow a user to consult a body-based policy with cited and rastreactive responses.
+Allow a user to consult approved corporate policies with cited, traceable responses.
 
-### Componentes envolvidos
+### Components involved
 
-| Componente | Papel |
+| Component | Papel |
 |---|---|
-| AI Portal | User interface and autoatendiment. |
-| Agent Gateway | Entry single, authentication, authorisation and limit rate. |
-| Agent Runtime | Quick order, memory, RAG, model and evaluation. |
-| Knowledge Service | Recupera documentos e chunks relevantes. |
-| Foundation Model | - A logical answer on the basis of the context recovered. |
-| Evaluation Service | Avalance of groundedness, relevance and risk of hallucination. |
-| Audit Service | Check the execution line. |
-| Billing Service | I've given the cost by agent/time. |
+| AI Portal | Use interface and self-service. |
+| Agent Gateway | Single entry, authentication, authorization and rate limit. |
+| Agent Runtime | Orchestra prompt, memory,RAG, model and evaluation. |
+| Knowledge Service | Recover relevant documents and chunks. |
+| Foundation Model | It generates a response based on the context recovered. |
+| Evaluation Service | Assess groundedness, relevance and risk of hallucination. |
+| Audit Service | It records execution tracks. |
+| Billing Service | Allocate cost per agent/time. |
 
 ### Agent Card
 
@@ -48,7 +48,7 @@ requiredEvaluations:
   - LATENCY
 ```
 
-### Flux
+### Flow
 
 ```text
 1. Business User envia pergunta no AI Portal.
@@ -135,9 +135,9 @@ Content-Type: application/json
 }
 ```
 
-### Eventos esperados
+### Expected events
 
-| Evento | Produtor | Consumidores |
+| Event | Produtor | Consumidores |
 |---|---|---|
 | `agent.invoked` | Agent Runtime | Audit Service, Billing Service, Evaluation Service |
 | `tool.executed` | Agent Runtime | Audit Service, Billing Service |
@@ -146,22 +146,22 @@ Content-Type: application/json
 
 ---
 
-## Example 2: Operations Officer with MCP of Controlled Writing
+## Example 2: Operating agent with MCP of Controlled Writing
 
-### Objet
+### Objective
 
-Allow an agent to assist in a process of updating cases, but only with human authorization and approval when necessary.
+Allow an agent to assist a service operation by updating cases, but only with human permission and approval when necessary.
 
-### Componentes envolvidos
+### Components involved
 
-| Componente | Papel |
+| Component | Papel |
 |---|---|
-| Agent Runtime | Listen to the flow and apply policies. |
+| Agent Runtime | It orchestrates the flow and implements policies. |
 | MCP Registry | Descobre ferramentas aprovadas. |
-| MCP Server | Expenditure `case-update`. |
-| Corporate System | Operative system that carries cases. |
-| Governance Service | - Definition of high-risk steel. |
-| Audit Service | Check execution and decision. |
+| MCP Server | It exposes `case-update`. |
+| Corporate System | Operating system that stores cases. |
+| Governance Service | It defines policy as a high-risk tool. |
+| Audit Service | It records execution and decision. |
 
 ### Agent Card
 
@@ -186,7 +186,7 @@ humanApproval:
     - case-update
 ```
 
-### Flux
+### Flow
 
 ```text
 1. Usuário solicita atualização de caso via AI Portal.
@@ -245,7 +245,7 @@ humanApproval:
 }
 ```
 
-### Evento `tool.executed`
+### Event .`tool.executed`
 
 ```json
 {
@@ -275,13 +275,13 @@ humanApproval:
 
 ---
 
-## Example 3: Agent Publication Pipeline
+## Example 3: Agent publishing pipeline
 
-### Objet
+### Objective
 
-Publicate an agent only after the validity of contracts, risk, security, assessment, observation and FinOps.
+To publish an agent only after validation of contracts, risk, security, evaluation, traceability and FinOps.
 
-### Flux
+### Flow
 
 ```text
 1. Developer cria Agent Card e tool allowlist.
@@ -295,9 +295,9 @@ Publicate an agent only after the validity of contracts, risk, security, assessm
 9. Agent Runtime passa a aceitar invocações da versão publicada.
 ```
 
-### Publications evidence
+### Evidence of publication
 
-| Evidence | Thank you. |
+| Evidence | Compulsory |
 |---|---:|
 | Agent Card | Sim |
 | OpenAPI/Tool contracts | Sim |
@@ -341,17 +341,17 @@ Publicate an agent only after the validity of contracts, risk, security, assessm
 
 ---
 
-## Checklist End-to-End
+## End-to-end checklist
 
-| Item | Acceptance criteria |
+| Item | Criterion of acceptance |
 |---|---|
-| Agent Card | Type owner, version, risk, model, tools and KBs. |
-| OpenAPI | Endpoint documented with request, response, error and escope. |
+| Agent Card | Define owner, version, risk, model, tools and KBs. |
+| OpenAPI | Documented endpoint with request, response, error and scope. |
 | MCP Contract | Tool with input/output schema, security, audit and runtime policy. |
-| Authorization | - Pitch, escap, resource and defined conditions. |
-| Risk Controls | Printed with control, evidence and ownership. |
-| Observability | Completely with spans and binding attributes. |
-| Evaluation | Definitions and approved report. |
-| FinOps | Budget e cost attribution configurados. |
-| Audit | Eventos `agent.invoked`, `tool.executed` e `audit.created` registrados. |
-| Rollback | Process defined to remove agent or iron. |
+| Authorization | Defined role, scope, recourse and condition. |
+| Risk Controls | Risk mapped with control, evidence and owner. |
+| Observability | Complete strip with spans and mandatory attributes. |
+| Evaluation | Thresholds set and report approved. |
+| FinOps | Budget and cost attribution configured. |
+| Audit | This is the total number of registered events of `agent.invoked`, `tool.executed` and `audit.created`. |
+| Rollback | Defined process for removing agent or tool. |

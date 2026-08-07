@@ -1,56 +1,56 @@
-# Case applied — Multi-skill multi-skill linguistics platform
+# Applied case  Multi-skill banking conversational platform
 
-[                                                                                                                                                                                               AI Platform Architecture](https://leandrosflora.github.io/conversational-ai-platform-architecture/index.html){ .md-button .md-button--primary target="_blank" }
+[ Open published documentation from Conversational AI Platform Architecture](https://leandrosflora.github.io/conversational-ai-platform-architecture/index.html){ .md-button .md-button--primary target="_blank" }
 
-This case shows how the capabilities of the Enterprise AI Platform Reference Architecture can be materialised in a bank-based platform with a minimum skills, governed reports, integration by MCP, RAG, memory, auditory, observability and executed evidence.
+This case demonstrates how the capabilities of Enterprise AI Platform Reference Architecture can be materialized in a banking conversational platform with multiple skills, governed journeys, integration by tools MCP, RAG, memory, auditing, observability and executable evidence.
 
-The current implementation covers two messages via WhatsApp:
+The current implementation covers two days via WhatsApp:
 
-- renegotiation of debts, including consultations, simulation and government confirmation;
-- a limit and letter size, with only reading flux.
+- debt renegotiation, including consultations, simulation and governed confirmation;
+- limit consultation and card invoice, with read-only flow.
 
-!!! info "Estado atual"
-    The solution is a **executive review and a sustained POC**. It offers architecture, contracts, checks and reports with a mock banker Core, but does not represent certification for bank production.
+The Commission shall adopt implementing acts in accordance with the opinion of the European Parliament and of the Council.
+    The solution is an executable reference and a hardened POC. It proves architecture, contracts, controls and routes with a mock core banking but does not represent certification for banking production.
 
 ## Contexto
 
-The platform receives webhooks signed by WhatsApp, persists the entry into Kafka before acceptance, maintains the transaccount status, selects the appropriate skill, consults knowledge, executes authorized tools and registers effects by means of Inbox and Outbox.
+The platform receives signed webhooks from WhatsApp, persists entering Kafka before acceptance, maintains transactional status of the conversation, selects the appropriate skill, query knowledge, runs authorized tools, and records effects through Inbox and Outbox.
 
-The corresponding services provide memory, auditory, handoff, observation, valuation, values and release governance. The Specialised services are subject to rules of renegotiation and letter, avoiding the agent from entering the central bank.
+Shared services provide memory, auditing, handoff, observability, evals and release governance.
 
 ## Jornadas implementadas
 
-| Jornada | Agent Runtime | Tool Service | Integration of field | Natureza |
+| Jornada | Agent Runtime | Tool Service | Integration of the domain | Natureza |
 |---|---|---|---|---|
-| Renegotiation | `agent-runtime-renegotiation` | `tool-service-renegotiation` | `renegotiation-service`  mock banker core | Regulatory consultations and mutable operations |
-| Limit and letter size | `agent-runtime-fatura-cartao` | `tool-service-cartao-credito` | access to Card API of the mock banker Core | somente leitura |
+| Re-negotiation | `agent-runtime-renegotiation` | `tool-service-renegotiation` | `renegotiation-service` → Core banking mock | governed changeable consultations and operations |
+| Card limit and invoice | `agent-runtime-fatura-cartao` | `tool-service-cartao-credito` | Access to the Core Banking Card API mock | somente leitura |
 
-The Orchestrator keeps the state of the story and writes the conversation for the special runtime. The inclusion of a second skill shows that the arquival is not limited to one agent or banker product.
+The Conversation Orchestrator maintains the status of the journey and routes the conversation to the specialized runtime.
 
-## Map of reference space
+## Mapping for reference architecture
 
-| Reference capacity | Implementation in the case | Estado atual |
+| Reference capacity | Implementation in the case | Current status |
 |---|---|---|
-| Channel / Agent Gateway | WhatsApp BFF, Kafka entry and Conversation Orchestrator | Implemented Baseline; gateway responsibility is still distributed |
-| Agent Runtime | special runtimes for renegotiation and letter | Implementado |
-| MCP Tool Service | Tool Services for renegotiation and lettering | Implementado |
-| Workflow / Journey State | a set of seats, lease, version, Inbox and Outbox in the Orchestrator | Implementado |
-| Knowledge Service | OpenSearch with veterinary and PDF search by tenant | Implemented; corporative conector and ACL by document still pending |
-| Memory Service | Redis for session and MongoDB for historical | Implementado |
-| Policy Enforcement | deterministic rules in Tool Services and domain service; executable profile with OPA | Implemented basis; corporative integration still in doubt |
-| Workload Identity | JWT HS256 by side in the padrix profile; RS256 migraço profile, OIDC and JWKS | Parcial; identidade nativa, mTLS e KMS permanecem pendentes |
-| Audit | PostgreSQL with decoding by tenant and key of idempotence | Implementado |
-| Event Backbone | Kafka for hard entry, retry, DLQ and plate event | Developed partially; not all integration is geared towards events |
-| Human Handoff | Conversation Handoff Service | Implemented as a persistent demand; bidirectional transfer to human platform still in doubt |
-| Observability | Jaeger, Loki, Grafana Alloy, Prometheus, Grafana e Alertmanager | Implemented operational base; recurrent methods and receivers are still evolving |
-| Evaluation Service | offline and online versions for both skills | Implemented executable base; continuous production evaluation still in doubt |
-| Release Governance | manifest, lock with exassive SHAs, executable contracts and E2E multi-repository | Implemented Baseline; obligation gate and promotion by images taken still missing |
-| Banking Core Integration | functional doors, canoon models, adapters and profiles for the environment | Ready to be implemented with mock; production contract, certification and reconciliation |
-| Model Gateway | model configured directly in each runtime | Recommendation |
-| AI Catalog / Control Plane | documentation, contracts and configuration by repository | Recommendation |
-| FinOps | cost and tokens provided in the future, without centralised service | Recommendation |
+| Channel / Agent Gateway | WhatsApp BFF, Kafka entry and Conversation Orchestrator | Baseline implemented; gateway responsibilities remain distributed |
+| Agent Runtime | Specialized renegotiation and card runtimes | Implementado |
+| MCP Tool Service | Renegotiation tool services and card | Implementado |
+| Workflow / Journey State | State machine, lease, versioning, Inbox and Outbox in the Orchestrator | Implementado |
+| Knowledge Service | OpenSearch with vector search and PDFs per tenant | Implemented; corporate connector and ACL per document still pending |
+| Memory Service | Redis for session and MongoDB for history | Implementado |
+| Policy Enforcement | deterministic rules in Tool Services and domain service; executable profile with OPA | Baseline implemented; corporate integration still pending |
+| Workload Identity | JWT HS256 per pair in the standard profile; migration profile RS256, OIDC and JWKS | Partial; native identity, mTLS and KMS remain pending |
+| Audit | PostgreSQL with deduplication per tenant and idempotence key | Implementado |
+| Event Backbone | Kafka for durable entry, retry, DLQ and platform events | Partially implemented; not all integration is event-oriented |
+| Human Handoff | Conversation Handoff Service | Implemented as a persistent request; bidirectional transfer to human platform still pending |
+| Observability | Jaeger, Loki, Grafana Alloy, Prometheus, Grafanaand Alertmanager | Implemented executable baseline; actual metrics and receivers coverage still evolving |
+| Evaluation Service | Online and offline evaluations for both skills | Implemented executable baseline; ongoing production evaluation still pending |
+| Release Governance | Manifesto, lock with exact SHAs, executable contracts and multi-repository E2E | Baseline implemented; mandatory gate and promotion by still pending certified images |
+| Banking Core Integration | Functional ports, canonical models, adapters and profiles by environment | Readiness implemented with mock; production contract, certification and reconciliation pending |
+| Model Gateway | Model set directly at each runtime | Recommended development |
+| AI Catalog / Control Plane | documentation, contracts and configuration by repository | Recommended development |
+| FinOps | Cost and tokens foreseen in future evaluations, without centralized service | Recommended development |
 
-## Developed arcade
+## Implemented architecture
 
 ```mermaid
 flowchart LR
@@ -88,9 +88,9 @@ flowchart LR
     OBS -.-> CORE
 ```
 
-The diagram represents the state implemented and the executable profiles. The algorithm can introduce additional core components, such as Agent Gateway, Model Gateway, IA catalog and FinOps.
+The diagram represents the implemented state and executable profiles. The target architecture may introduce additional core components, such as Agent Gateway, Model Gateway, AI catalog and FinOps.
 
-## Simple flow
+## Simplified flow
 
 ```mermaid
 sequenceDiagram
@@ -136,83 +136,83 @@ sequenceDiagram
   BFF-->>WA: mensagem ao cliente
 ```
 
-## Garantias demonstradas
+## Provided guarantees
 
 | Aspecto | Garantia implementada |
 |---|---|
-| Entrada WhatsApp | ACK only after persisting in Kafka |
-| Channel acousticity | webhook HMAC validation |
-| Inbox | idempotent processing by message |
-| State of the newspaper | lease, ottoist version and late message treatment |
-| Side effects | Outbox at least once with decoding |
-| Order | effects of a previous version blocked the release of the next one |
-| Tenant | tenant in the header and claim inserted |
-| Tools | allowlist, stat, version and policy valid before implementation |
-| mutable operations | `Idempotency-Key`, replay and conflict by different payload |
-| Financial confirmation | requires stature and evidence connected to the current message |
-| Memory | separate keys by tenant and converse |
-| Audit e Handoff | deduction by tenant and key of idempotence |
-| Sensible data | tools arguments and CPF are not published in the platform events |
-| RAG | Index and separate consultation by tenant |
+| Entrada WhatsApp | ACK only after persistence in Kafka |
+| Authenticity of the channel | HMAC validation of the webhook |
+| Inbox | idempotent message processing |
+| State of the journey | lease, optimistic version and delayed message processing |
+| Side effects | Outbox at least once with deduplication |
+| Regulation | Effects of an earlier version block the release of the next |
+| Tenant | tenant in the header and in signed claim |
+| Tools | allowlist, stage, version and policy validated before execution |
+| Changing operations | `Idempotency-Key`, replay and conflict by divergent payload |
+| Financial confirmation | requires stage and evidence linked to the current message |
+| The memory | keys segregated by tenant and conversation |
+| Audit and Handoff | deduplication by tenant and idempotence key |
+| Sensitive data | tools and CPF arguments are not published in platform events |
+| RAG | index and query segregated by tenant |
 
 ## Security and Policy Enforcement
 
-The POC profile pattern uses JWT HS256 with independent secrecy by service. This baseline reduces the indifference of credentials, but is still based on simetric secrecy.
+The POC's standard profile uses JWT HS256 with independent pairs-of-service secrecy. This baseline reduces the indiscriminate sharing of credentials but remains based on symmetrical secrecy.
 
-A detailed migration profile shows the evolution for:
+An executable migration profile shall demonstrate the evolution to:
 
-- RS256 emission;
-- discovery OIDC and publication JWKS;
-- short-term tokens by workload and audience;
-- allowlist entre emissor e destino;
-- OP as centralised PDP;
-- failure to close decision;
-- a duty to financial actions.
+- the emission RS256;
+- the discovery of OIDC and the publication of JWKS;
+- Short tokens by workload and audience;
+- allowlist between issuer and destination;
+- the OPA as a centralized PDP;
+- the failure-closed decision;
+- compulsory evidence for financial actions.
 
-This valid profile still requires a national identity of workload, KMS or HSM, rotation, revogatation, mTLS and integration with the IAM corporative.
+This profile validates contracts and migration strategy. Production also requires native workload identity, KMS or HSM, rotation, revocation, mTLS and integration with corporate IAM.
 
-(Details of Workload Identity and PDP)(https://leandrosflora.github.io/conversational-ai-platform-architecture/security/workload-identity-pdp.html) target="_blank" 
+[Details of Workload Identity and PDP](https://leandrosflora.github.io/conversational-ai-platform-architecture/security/workload-identity-pdp.html){ target="_blank" }
 
-## Evaluations and evidence
+## Evalue and evidence
 
-The plate has a suite version of renegotiations and letters, containing:
+The platform has a versioned suite of renegotiation and card scenarios covering:
 
-- apologies and identification of intention;
-- a debt consultation;
-- simulation and renegotiation report;
-- limit and letter size;
+- greeting and identification of intention;
+- debt consultation;
+- the simulation and renegotiation journey;
+- card limit and invoice;
 - handoff humano;
-- messages out of a splinter;
-- Try to ignore rules.
+- out-of-scope messages;
+- Trying to ignore the rules.
 
-The values can be executed offline, without infrastructure, or online against the two Agent Runtimes. The reports register approval, latence, handoff, threshold violations and expectative errors.
+Evaluations can be performed offline, without infrastructure, or online against both Agent Runtimes. Reports record approval, latency, handoff, threshold violations, and expectation errors.
 
-The necessary evolution is not more ‘creating values’, but amplify the assessment for real models, groundedness, selection of tools, cost, tokens, return by model and online production methods.
+The evolution needed is no longer to create evaluations, but to extend the evaluation to real models, groundedness, tool selection, cost, tokens, model regression and online production metrics.
 
-[Evaluations Details](https://leandrosflora.github.io/conversational-ai-platform-architecture/testing/evals.html) target="_blank" 
+[Details of the evaluations](https://leandrosflora.github.io/conversational-ai-platform-architecture/testing/evals.html){ target="_blank" }
 
-## Government to release multi-repository
+## Multi-repository release governance
 
-The solution is composed of the aquacy repository and 12 service repository. The release manifest resolves the references to entry into 13 SHAs exaggerated and produces an imutable `release-lock.yaml`.
+The solution consists of the architecture repository and 12 service repositories. The release manifesto resolves the input references for 13 exact SHAs and produces an immutable `release-lock.yaml`.
 
-The E2E multi-repository pipeline may:
+The multi-repository E2E pipeline may:
 
-1. resolve all the repository for exaggerations;
-2. executar builds e testes;
-3. validar OpenAPI, AsyncAPI e policies;
-4. slush the stack;
-5. launching a slutted webhook;
-6. validating the authenticated Core;
-7. executar evals online e carga;
-8. publish evidence relating to the release lock.
+1. resolve all repositories for exact commits;
+2. perform builds and tests;
+3. the validation of OpenAPI, AsyncAPI and policies;
+4. up the stack;
+5. Inject a signed webhook;
+6. validate the authenticated Core;
+7. carry out online and load evaluations;
+8. publish evidence related to the release lock.
 
-The production promotion should still be used for digesting, assimilating and adjusting images without reconstructing the environment.
+Production promotion must still reuse digested, signed and certified images without rebuilding between environments.
 
-(release details and executable contracts)(https://leandrosflora.github.io/conversational-ai-platform-architecture/governance/release-contract-governance.html) target="_blank" 
+[Release details and enforceable contracts](https://leandrosflora.github.io/conversational-ai-platform-architecture/governance/release-contract-governance.html){ target="_blank" }
 
-## Ready for integration with Core Bank
+## Readiness for integration with Core Banking
 
-The mock banker core is not treated as equivalent to a production system. The application uses domain services, canoon functional ports and adapters selected by the environment:
+Core banking mock is not treated as equivalent to a production system.
 
 ```text
 Agent / Tool Service
@@ -226,47 +226,47 @@ Adapter por ambiente
 Mock | Sandbox | API bancária real
 ```
 
-The doors provide customer identification, debt card, elegitimity, simulation, formalisation and payment.
+The doors cover customer identification, debt portfolio, eligibility, simulation, formalization and card service.
 
-The solution provides for the E2E technical integration with mock, reporting and baseline security. It does not provide real financial rules, production contract, reconciliation or certification of the product.
+The solution proves technical integration of E2E with mock, journey control and safety baseline between workloads.
 
-A product release must be blocked when using the mock provider, statistical data, mutable operation without persistent idempotence or formalisation without reconciliation.
+A productive release must be blocked when using provider mocks, synthetic data, variable operation without persistent idempotence or formalization without reconciliation.
 
-[Details of Banking Core Integration Readiness](https://leandrosflora.github.io/conversational-ai-platform-architecture/integration/banking-core-readiness.html) target="_blank" 
+[Banking Core Integration Readiness details](https://leandrosflora.github.io/conversational-ai-platform-architecture/integration/banking-core-readiness.html){ target="_blank" }
 
 ## Observability and operation
 
-The local environment provides Jaeger, Loki, Grafana Alloy, Prometheus, Grafana and Alertmanager. There are versioned rules for infrastructure, DLQ, process failures, Outbox, authentication and policy negotiations.
+The local environment provides Jaeger, Loki, Grafana Alloy, Prometheus, Grafana and Alertmanager. There are versioned rules for infrastructure, DLQ, processing failures, Outbox, authentication and policy denials.
 
-Initial SLOs was defined for webhook reception, the Orchestrator's processing, Outbox publication, government tools, RAG and observeable infrastructure.
+Initial SLOs were defined for webhook reception, orchestrator processing, Outbox publishing, governed tools, RAG and observable infrastructure.
 
-The baseline does not replace the corporative operation. The real receivers, ownership, escalonation, plant, full coverage of applied methods and approved budget errors will remain.
+The baseline does not replace corporate operations. Real receivers, ownership, scaling, planting, full coverage of application metrics and approved error budgets remain required.
 
-[Details of SLOs and alerts](https://leandrosflora.github.io/conversational-ai-platform-architecture/operations/slo-alerting.html) target="_blank" 
+[Details of SLOsand alerts](https://leandrosflora.github.io/conversational-ai-platform-architecture/operations/slo-alerting.html){ target="_blank" }
 
-## Priority lacunes
+## Priority gaps
 
-1. consolidating Agent Gateway and transverse canal policies;
-2. introduce Model Gateway with routing, fallback, quotas and cost measurement;
-3. centralise AI Catalog, configuration and lifecycle of agents;
-4. integrating a body identity of workload, KMS, rotation and mTLS;
-5. conectar APIsreal banks with a certificate, reconciliation and persistent idempotence;
-6. to increase the values for real models and continuous production monitoring;
-7. ad hoc receivers, ownership and corporative proceedings of incidents;
-8. implementing retention, anonimisation, excluding and regional recovery approved;
-9. promote images accompanied by digesting with a verified provenance;
-10. centralized FinOps by agent, skill, model, tenant and newspaper.
+1. consolidate Agent Gateway and cross-channel policies;
+2. introducing Model Gateway with routing, fallback, quotas and cost measurement;
+3. centralize the AI Catalog, configuration and lifecycle of agents;
+4. integrate workload, KMS, rotation and mTLS corporate identity;
+5. connecting real APIs banking with certification, reconciliation and persistent idempotence;
+6. enhancing evaluations for real models and continuous monitoring of production;
+7. activate incident receivers, ownership and corporate process;
+8. implement approved regional retention, anonymization, exclusion and recovery;
+9. promote digest-signed images with verifiable provenance;
+10. centralize FinOps by agent, skill, model, tenant and journey.
 
-## Resultado arquitetural
+## Architectural result
 
-The case shows that the reference architecture supports a multi-skill multi-skill conversative platform, with comparable components and special agents.
+The case demonstrates that the reference architecture supports a multi-skill conversational platform, with shared components and domain-specialized agents.
 
-Implementation provides flexible entry rules, trans-country, tool calling government, RAG memory, auditory, handoff, values, observation, evolution-proof security and release-government.
+The implementation shall demonstrate sustainable input standards, transactional status, governed tool calling, RAG, memory, audit, handoff, evals, observability, evolutionary security and release governance.
 
-She also leaves the border open between three states:
+It also makes explicit the border between three states:
 
-- **implemented:** valid in code, contracts, Compose or E2E evidence;
-- **executive base:** control demonstrated locally, still dependent on corporative integration;
-- **production:** requires real APIs, strong identity, operation, compliance, resilience and promotion of approved items.
+- **implemented:** validated in code, contracts, composite or E2E evidence;
+- **executable baseline:** locally demonstrated control, still dependent on corporate integration;
+- **production:** requires real APIs, strong identity, operation, compliance, resilience and promotion of approved artefacts.
 
-This separation prevents a technologically advanced COP as a ready-to-production bank platform, without reducing the value of the architecture and evidence already built.
+This separation avoids treating a technically advanced POC as a production-ready banking platform, without reducing the value of the architecture and evidence already built.

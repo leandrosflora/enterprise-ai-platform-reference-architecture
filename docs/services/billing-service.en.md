@@ -2,42 +2,42 @@
 
 ## General view
 
-Billing Service is responsible for the FinOps of the platform: tokens, cost allocation by agent/time/business unit and chargeback/showback generation.
+Billing Service is responsible for the platform FinOps: token tracking, cost allocation per agent/time/business unit and chargeback/showback generation.
 
 ## Responsabilidades
 
-- Consume use events (invocation of agent, machining, insertion)
-- Calculate cost by model, agent, time and business unit
-- - Gerar chargeback and showback reports
-- Alert about consumption above defined limits
+- Consume use events (agent invoking, tool execution, embedding generation)
+- Calculate cost per model, agent, team and business unit
+- Generate chargeback and showback reports
+- Warning of consumption above defined limits
 
-## Out of the scuff
+## Out of scope
 
-- Execution of the agent or the tool
-- Compliance audit (Audit Service)
-- Definition of risk approval limits (Governance Service)
+- Execution of the agent or tool
+- Conformity audit (paper from theAudit Service)
+- Definition of risk approval limits (Governance Service paper)
 
 ## Dependencies
 
 | Dependence | Uso |
 |---|---|
-| Kafka | Confirmed use events for calculation of cost |
-| PostgreSQL | Keep your charges and data |
+| Kafka | Consume use events for cost calculation |
+| PostgreSQL | Persistent costs and chargeback data |
 
-## Eventos Consumidos
+## Events consumed
 
 - `agent.invoked`
 - `tool.executed`
 - `embedding.generated`
 
-## Non-functioning requirements
+## Non-functional requirements
 
 | Requisito | Diretriz |
 |---|---|
-| Retention | 24 months for use data and work, base for chargeback/showback |
-| I need to get a job. | The calculated cost shall reflete real consumption of tokens and tools by invocation |
-| Escalabilidade | High volume of use events without relevant delay in the period closure |
-| Auditoria | Cost calculations must be rastered at the origin event |
+| Retention | 24 months for usage and billing data, basis for chargeback/showback |
+| Accuracy | Calculated cost shall reflect actual consumption of tokens and tools per invocation |
+| Escalabilidade | Processed high volume of use events without significant delay in the closing period |
+| Auditoria | Cost calculations shall be traceable to the event of origin |
 
 ## Related Decisions
 

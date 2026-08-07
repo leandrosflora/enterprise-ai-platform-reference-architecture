@@ -1,18 +1,18 @@
-# Reference - Conversational Analytics
+# This is a summary of the results of the analysis.
 
-## Objet
+## Objective
 
-Identifying a number of conversations in the background to identify the causes of a rash, recurring themes, automapping opportunities and improved experience.
+Analyze conversational interactions at scale to identify root causes, recurring themes, opportunities for automation and experience improvement.
 
-## Usage casings
+## Cases of use
 
-- Classification of accounts
-- Cause identification
-- Feeling analysis
-- Organizing of recurring themes
-- Executive insights generation
+- Classification of reasons for contact
+- Identification of the root cause
+- Analysis of feelings
+- Grouping of recurring themes
+- Generating executive insights
 
-## Componentes Envolvidos
+## Components involved
 
 - Ingestion Pipeline
 - Knowledge Service
@@ -22,35 +22,35 @@ Identifying a number of conversations in the background to identify the causes o
 - Data Platform
 - Observability Stack
 
-## DATE Sources
+## The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation.
 
 - Chat
 - WhatsApp
 - E-mail
-- Voz-transcripts
-- External reclamations
-- Tickets e protocolos
+- Transcripts of voice
+- External claims
+- Tickets and protocols
 
-## High-level flux
+## High-level flow
 
-1. Interactions are inserted from digital channels and historical bases.
-2. Normal pipeline, anonimize and classify the data.
-3. Agents analysed grounds, patterns and probable causes.
-4. Results are consolidated in dashboards and datasets.
-5. Insights are used for better processes, products and testing.
+1. Interactions are ingested from digital channels and historical bases.
+2. Pipeline standardizes, anonymises and classifies the data.
+3. Agents analyze motives, patterns, and probable causes.
+4. Results are consolidated into dashboards and datasets.
+5. Insights are used to improve processes, products and service.
 
 ## Controls
 
-- Personal data analysis
+- Anonymisation of personal data
 - Controlled retention
 - Access control by area
-- - Regression of the origin of data
-- Quality assessment of classifications
+- Traceability of the data source
+- Assessment of the quality of classifications
 
-## Mechanics
+## The following information shall be provided:
 
 - Volume of processed interactions
-- Classification course
-- Top accounts
-- Tendance of critical topics
-- Autonomous features identified
+- Accuracy of classification
+- Top reasons for contact
+- Trend of critical topics
+- Automation opportunities identified

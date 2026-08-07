@@ -1,46 +1,46 @@
 # Architecture Decision Records
 
-The ADRs shall record structural decisions of the platform, its context, alternatives, consequences, evidence and criteria. The `docs/adrs/` pasta is the only canoe source for architectural decisions.
+The ADRs record the platform's structural decisions, their context, alternatives, consequences, evidence and review criteria.`docs/adrs/`It's the only canonical source for architectural decisions.
 
-## Catalog
+## Catalogue
 
 | ADR | Decision | Status |
 |---|---|---|
-| [ADR-001](001-mcp-vs-rest.md) | MCP for tool calling governed; REST for APIs of field | Aceito |
-| [ADR-002](002-persistent-memory.md) | Permanent memory only under explicit criteria | Aceito |
+| [ADR-001](001-mcp-vs-rest.md) | MCP for tool calling governed; REST for APIs domain | Aceito |
+| [ADR-002](002-persistent-memory.md) | Persistent memory only under explicit criteria | Aceito |
 | [ADR-003](003-agent-gateway.md) | Agent Gateway as entry and enforcement point | Aceito |
-| [ADR-004](004-agent-runtime-strategy.md) | Agent Runtime with stable and adaptable content | Aceito |
-| [ADR-005](005-vector-search-strategy.md) | OpenSearch as initial reference for veterinary and hybrid search | Aceito |
-| [ADR-006](006-observability-strategy.md) | OpenTelemetry as a warning pad | Aceito |
+| [ADR-004](004-agent-runtime-strategy.md) | Agent Runtime with stable core and adapters | Aceito |
+| [ADR-005](005-vector-search-strategy.md) | OpenSearch as an initial reference for vector and hybrid search | Aceito |
+| [ADR-006](006-observability-strategy.md) | OpenTelemetry as an observability standard | Aceito |
 | [ADR-007](007-evaluation-strategy.md) | Hybrid, regressive and continuous evaluation | Aceito |
 
 ## Status permitidos
 
 | Status | Uso |
 |---|---|
-| Proposto | Decision in discussion, not yet binding |
-| Aceito | vigourous decision |
-| Depreciado | still existing, but not recommended for new implementations |
-| Substitute | Historical decision replaced by another ID |
-| Rejeitado | alternative analysed and not adopted |
+| Proposto | Decision under consideration, not yet binding |
+| Aceito | Decision in force |
+| Depreciado | still existing but not recommended for new implementations |
+| Substituted | historical decision replaced by another identified ADR |
+| Rejeitado | Alternative analysed and not adopted |
 
-## Regras
+## Rules
 
 - a number identifies a single decision;
-- the number of the file must comply with the title of the ADR;
-- accepted decisions are not written to oculate material changes;
-- changes in direction create new ADR and mark the previous as replaced;
+- the file number shall coincide with the title of the ADR;
+- accepted decisions are not rewritten to conceal material changes;
+- direction changes create a new ADR and mark the previous one as a replacement;
 - each ADR shall record consequences, evidence and review criteria;
-- Intern links must only be placed for `docs/adrs/`.
+- Internal links shall only point to `docs/adrs/`.
 
-## Migration of the legal catalog
+## Migration of the legacy catalogue
 
-| - Legal decision | Canopic destination |
+| Legacy decision | Canonical destiny |
 |---|---|
-| Agent Runtime Strategy | ADR-004 |
-| Veterinary bank selection | ADR-005 |
-| Integration strategy via MCP | consolidated content in ADR-001 |
-| Monitoring strategy | ADR-006 |
-| IA Assessment Strategy | ADR-007 |
+| Strategy of Agent Runtime | ADR-004 |
+| Selection of vector bench | ADR-005 |
+| Integration strategy via MCP | Consolidated content in ADR-001 |
+| Observability strategy | ADR-006 |
+| The Commission shall adopt delegated acts in accordance with Article 21 of this Regulation. | ADR-007 |
 
-The documental validation of bloke pastas competing, double IDs, divergence between name and title and the unused ADRs of this Index.
+Document validation blocks competing folders, duplicate IDs, name and title divergence and ADRs missing from this index.

@@ -1,55 +1,55 @@
-# Runbook — Troubleshooting of Agent Invocation
+# Runbook  Troubleshooting of Agent Invocation
 
 ## Minimum entry
 
-- No sensitive data:
+Collect without exposing sensitive data:
 
-- a UTC office;
+- UTC time;
 - `correlationId`;
 - agent and version;
 - tenant;
-- workload class;
+- the workload class;
 - status HTTP ou `executionStatus`;
-- policy ID/version when there is blockage.
+- policy ID/version when there is a block.
 
 ## Diagnostic sequence
 
-1. locate trace by `correlationId`;
-2. verify authentication and authorization at the Gateway;
-3. confirm `PUBLISHED` version in Runtime cache;
-4. re-examine the Decision Point Policy;
-5. identify first time with an abnormal error or atypical lativity;
-6. verificar backlog e DLQ;
-7. confirmar budget e quota;
-8. aplicar fallback ou bloquear componente afetado.
+1. locate the trace by `correlationId`;
+2. verify authentication and authorisation on the Gateway;
+3. confirm the `PUBLISHED` version in the Runtime cache;
+4. review a decision of the Policy Decision Point;
+5. identify first span with error or abnormal latency;
+6. verify backlog and DLQ;
+7. confirm the budget and quota;
+8. apply fallback or block the affected component.
 
-## Quick tree
+## Fast tree
 
-| Sintoma | Check | Initial action |
+| Sintoma | Verification | Initial action |
 |---|---|---|
-| `401` | token, issuer, audience e clock skew | corrigir identidade |
-| `403` | escopo, tenant e policy decision | reauthorisation, not release bypass |
-| `404` | visibility of the resource and published version | validating catalog and tenant |
-| `409` | idempotence or state | consult original operation |
-| `422` | infringement of policy and failure to prove | adjusting configuration |
+| `401` | token, issuer, audience and clock skew | corrigir identidade |
+| `403` | scope, tenant and policy decision | review authorisation, not release bypass |
+| `404` | visibility of the resource and published version | validate catalogue and tenant |
+| `409` | Impotence or state | to consult original operation |
+| `422` | policy violation and lack of evidence | correct the configuration |
 | `429` | quota, rate limit ou budget | reduzir consumo ou aprovar novo limite |
 | `BLOCKED` | policy/guardrail | confirmar bloqueio esperado |
-| `PARTIAL` | Degraded dependency | inform limitation and follow fallback |
-| timeout | span mais lento e deadline | isolator/tool and use assyncron |
+| `PARTIAL` | degraded dependence | report limitation and trigger fallback |
+| timeout | slower span and deadline | isolate provider/tool and use asynchronous |
 
-## Contenuation
+## Containment
 
-- deactivate the version or specific tool, not the entire platform;
-- forcing fallback only for approved models and regions;
+- disable a specific version or tool, not the entire platform;
+- Forcing fallback only for approved models and regions;
 - preservar `deny by default`;
-- imposing transnational actions if it is indisputable;
-- comunicar impacto, escopo e workaround.
+- to pause transactional actions if the audit is unavailable;
+- communicate impact, scope and workaround.
 
 ## Encerramento
 
 - causa identificada;
-- normalised methods;
-- messages in the DLQ handled;
-- a completed smoke test;
-- timeline and evidence annexed;
-- a preventive action registered.
+- standardised metrics;
+- messages in the treated DLQ;
+- smoke test completed;
+- timeline and attached evidence;
+- registered preventive action.

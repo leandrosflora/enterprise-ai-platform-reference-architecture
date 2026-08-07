@@ -1,10 +1,10 @@
 # Token Costs
 
-## Objet
+## Objective
 
-Control IA costs by agent, area and model.
+Controlling AI costs per agent, area and model.
 
-## Mechanics
+## The following information shall be provided:
 
 - Input Tokens
 - Output Tokens
@@ -13,7 +13,7 @@ Control IA costs by agent, area and model.
 - Cost Per Agent
 - Cost Per Business Unit
 
-## Dimensive
+## The dimensions of the vehicle
 
 - Agent
 - Team
@@ -23,17 +23,17 @@ Control IA costs by agent, area and model.
 
 ## Indicadores
 
-| Indicador | Description |
+| Indicador | Other information |
 |---|---|
-| Cost per Agent | - Cost agregated by agent |
-| Cost per User | - Agregated by user |
-| Cost per Tool | Cost associated with the tools |
-| Cost per Model | Consumption per model |
+| Cost per Agent | Aggregate cost per agent |
+| Cost per User | Aggregate cost per user |
+| Cost per Tool | Cost associated with tools |
+| Cost per Model | Consumption by model |
 
 ## Chargeback
 
-Costs may be allocated to consumers.
+Costs can be attributed to consumer areas.
 
 ## Showback
 
-Costs may be exempt without formal financial cover.
+Costs may be displayed without a formal financial charge.
