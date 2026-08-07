@@ -16,8 +16,7 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 DOCS_DIR = Path("docs")
 MODEL_NAME = "manueldeprada/t5-small-pt-en"
-TASK_PREFIX = ""
-BATCH_SIZE = 24
+BATCH_SIZE = 48
 MAX_INPUT_LENGTH = 512
 MAX_NEW_TOKENS = 384
 
@@ -63,35 +62,57 @@ PLACEHOLDER_RE = re.compile(
     r"Z\s*X\s*Q\s*K\s*E\s*E\s*P\s*0*(\d+)\s*Q\s*X\s*Z",
     re.IGNORECASE,
 )
+PROTECTED_PATTERNS = (INLINE_CODE_RE, LINK_TARGET_RE, RAW_URL_RE, HTML_TAG_RE)
 
 
 def needs_translation(text: str) -> bool:
     return bool(text.strip()) and bool(PORTUGUESE_HINT_RE.search(text))
 
 
-def protect(text: str) -> tuple[str, dict[int, str]]:
-    kept: dict[int, str] = {}
+def technical_term_pattern(term: str) -> re.Pattern[str]:
+    return re.compile(rf"(?<![\w-]){re.escape(term)}(?![\w-])", re.IGNORECASE)
 
-    def store(value: str) -> str:
-        index = len(kept)
-        kept[index] = value
-        return f"ZXQKEEP{index:04d}QXZ"
 
-    for pattern in (INLINE_CODE_RE, LINK_TARGET_RE, RAW_URL_RE, HTML_TAG_RE):
-        text = pattern.sub(lambda match: store(match.group(0)), text)
-
+def protected_ranges(text: str) -> list[tuple[int, int]]:
+    ranges: list[tuple[int, int]] = []
+    for pattern in PROTECTED_PATTERNS:
+        ranges.extend((m.start(), m.end()) for m in pattern.finditer(text))
     for term in TECH_TERMS:
-        text = re.sub(
-            rf"(?<![\w-]){re.escape(term)}(?![\w-])",
-            lambda match: store(match.group(0)),
-            text,
-            flags=re.IGNORECASE,
-        )
+        ranges.extend((m.start(), m.end()) for m in technical_term_pattern(term).finditer(text))
 
-    return text, kept
+    if not ranges:
+        return []
+
+    merged: list[list[int]] = []
+    for start, end in sorted(ranges):
+        if not merged or start >= merged[-1][1]:
+            merged.append([start, end])
+        else:
+            merged[-1][1] = max(merged[-1][1], end)
+    return [(start, end) for start, end in merged]
+
+
+def protect(text: str) -> tuple[str, dict[int, str]]:
+    ranges = protected_ranges(text)
+    if not ranges:
+        return text, {}
+
+    kept: dict[int, str] = {}
+    pieces: list[str] = []
+    cursor = 0
+    for index, (start, end) in enumerate(ranges):
+        pieces.append(text[cursor:start])
+        kept[index] = text[start:end]
+        pieces.append(f"ZXQKEEP{index:04d}QXZ")
+        cursor = end
+    pieces.append(text[cursor:])
+    return "".join(pieces), kept
 
 
 def restore(text: str, kept: dict[int, str]) -> str:
+    if not kept:
+        return text
+
     restored: set[int] = set()
 
     def replace(match: re.Match[str]) -> str:
@@ -104,8 +125,50 @@ def restore(text: str, kept: dict[int, str]) -> str:
     text = PLACEHOLDER_RE.sub(replace, text)
     missing = sorted(set(kept) - restored)
     if missing:
-        raise RuntimeError(f"Translation lost protected tokens {missing}: {text!r}")
+        raise RuntimeError(f"Translation lost protected tokens {missing}")
     return text
+
+
+def generate(batch: list[str], tokenizer, model) -> list[str]:
+    encoded = tokenizer(
+        batch,
+        return_tensors="pt",
+        padding=True,
+        truncation=True,
+        max_length=MAX_INPUT_LENGTH,
+    )
+    with torch.inference_mode():
+        output_ids = model.generate(
+            **encoded,
+            max_new_tokens=MAX_NEW_TOKENS,
+            num_beams=1,
+            do_sample=False,
+        )
+    return tokenizer.batch_decode(output_ids, skip_special_tokens=True)
+
+
+def translate_segmented(text: str, tokenizer, model) -> str:
+    """Fallback that never exposes protected spans to the translation model."""
+
+    ranges = protected_ranges(text)
+    if not ranges:
+        return generate([text], tokenizer, model)[0] if needs_translation(text) else text
+
+    pieces: list[str] = []
+    cursor = 0
+    for start, end in ranges:
+        plain = text[cursor:start]
+        if needs_translation(plain):
+            plain = generate([plain], tokenizer, model)[0]
+        pieces.append(plain)
+        pieces.append(text[start:end])
+        cursor = end
+
+    tail = text[cursor:]
+    if needs_translation(tail):
+        tail = generate([tail], tokenizer, model)[0]
+    pieces.append(tail)
+    return "".join(pieces)
 
 
 def translate_texts(texts: list[str], tokenizer, model) -> list[str]:
@@ -113,29 +176,21 @@ def translate_texts(texts: list[str], tokenizer, model) -> list[str]:
     maps: list[dict[int, str]] = []
     for text in texts:
         value, kept = protect(text)
-        protected.append(TASK_PREFIX + value)
+        protected.append(value)
         maps.append(kept)
 
     outputs: list[str] = []
     for start in range(0, len(protected), BATCH_SIZE):
-        batch = protected[start : start + BATCH_SIZE]
-        encoded = tokenizer(
-            batch,
-            return_tensors="pt",
-            padding=True,
-            truncation=True,
-            max_length=MAX_INPUT_LENGTH,
-        )
-        with torch.inference_mode():
-            generated = model.generate(
-                **encoded,
-                max_new_tokens=MAX_NEW_TOKENS,
-                num_beams=3,
-                early_stopping=True,
-            )
-        outputs.extend(tokenizer.batch_decode(generated, skip_special_tokens=True))
+        outputs.extend(generate(protected[start : start + BATCH_SIZE], tokenizer, model))
 
-    return [restore(output, kept) for output, kept in zip(outputs, maps, strict=True)]
+    results: list[str] = []
+    for original, output, kept in zip(texts, outputs, maps, strict=True):
+        try:
+            results.append(restore(output, kept))
+        except RuntimeError:
+            print(f"Falling back to segmented translation: {original[:120]!r}", flush=True)
+            results.append(translate_segmented(original, tokenizer, model))
+    return results
 
 
 def collect_units(lines: list[str]) -> tuple[list[str], list[tuple[str, object]]]:
