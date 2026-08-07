@@ -30,7 +30,7 @@ This crosswalk is a traceability tool. **it does not replace legal interpretatio
 | ID | Platform control | NIST AI RMF | ISO/IEC 42001 | AI Act | LGPD | Minimum evidence | Primary owner | Gate | Enforcement |
 |---|---|---|---|---|---|---|---|---|---|
 | CTRL-001 | purpose, sponsor and owner defined | Govern / Map | context, leadership and accountability | purpose and role of actors | purpose and accountability | Outcome Card, Agent Card, owner registrado | Business Owner | Intake | automatic |
-| CTRL-002 | Risk classification and impact | Map/ Govern | Risk assessment of AI | Classification and proportional obligations | Impact report where applicable | risk assessment versionado | AI Architect / Risk | Risk | hybrid |
+| CTRL-002 | Risk classification and impact | Map/ Govern | Risk assessment of AI | Classification and proportional obligations | Impact report where applicable | risk assessment versioned | AI Architect / Risk | Risk | hybrid |
 | CTRL-003 | inventory and catalogue of AI assets | Govern | inventory, documentation and operational control | Registry and documentation applicable | Registry of operations and accountability | AI Catalog with versions and owners | Platform Team | Intake / Release | automatic |
 | CTRL-004 | classification, purpose and lineage of data | Map / Manage | Data governance for AI | date governance and quality | purpose, need and quality | date contract, lineage, classification and retention | Data Owner | Design | hybrid |
 | CTRL-005 | Model, prompt, dataset, policy and tool unchangeable versioning | Govern/ Measure | Change control and documented information | Technical documentation and traceability | Responsibility and security | hashes, manifests and release bundle | Platform Team | Build/ Release | automatic |
@@ -81,7 +81,7 @@ Main controls: CTRL-007, CTRL-008, CTRL-011, CTRL-012, CTRL-013.
 
 Expected evidence:
 
-- datesets and databases;
+- datasets and databases;
 - functional, adverse and safety tests;
 - metrics per dimension;
 - observability and sampling;
@@ -101,12 +101,12 @@ Expected evidence:
 
 ## Applicability by risk level
 
-| Controle | LOW | MEDIUM | HIGH | CRITICAL |
+| control | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
 | Owner, purpose and catalogue | Compulsory | Compulsory | Compulsory | Compulsory |
 | Date of lineage and classification | as data | Compulsory | Compulsory | Compulsory + independent review |
 | Threat model | simplified | Compulsory | detailed | detailed + formal review |
-| Evaluation | sample | dates | dateset + baseline | Baseline + independent review |
+| Evaluation | sample | dates | dataset + baseline | Baseline + independent review |
 | Human oversight | optional | by action | mandatory for critical actions | obligatory for permitted actions |
 | Logging and audit | basic | complete | complete | complete + extended retention |
 | Monitoring of drift | periodical | periodical | continuous by metrics | continuous + blocking triggers |

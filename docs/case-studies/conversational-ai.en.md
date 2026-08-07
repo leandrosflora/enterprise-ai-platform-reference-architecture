@@ -18,12 +18,12 @@ The platform receives signed webhooks from WhatsApp, persists the entry into Kaf
 
 Shared services provide memory, audit, handoff, observability, evals and release governance.Specialized services isolate renegotiation rules and card, preventing the agent from directly accessing the bank Core.
 
-## Jornadas implementadas
+## Implemented journeys
 
-| Jornada | Agent Runtime | Tool Service | Domain integration | Natureza |
+| journey | Agent Runtime | Tool Service | Domain integration | Natureza |
 |---|---|---|---|---|
 | Renewal |  `agent-runtime-renegotiation`  |  `tool-service-renegotiation`  |  `renegotiation-service` → Bank mock | governed consultations and changeable operations |
-| Limit and card invoice |  `agent-runtime-fatura-cartao`  |  `tool-service-cartao-credito`  | Access to the bank Core Card API mock | somente leitura |
+| Limit and card invoice |  `agent-runtime-fatura-cartao`  |  `tool-service-cartao-credito`  | Access to the bank Core Card API mock | only leitura |
 
 The Conversation Orchestrator maintains the state of the journey and routes the conversation to the specialized runtime. The inclusion of a second skill demonstrates that architecture is not limited to a single agent or banking product.
 
@@ -34,9 +34,9 @@ The Conversation Orchestrator maintains the state of the journey and routes the 
 | Channel / Agent Gateway | WhatsApp BFF, Input Kafka and Conversation Orchestrator | Implemented baseline; gateway responsibilities remain distributed |
 | Agent Runtime | specialized runtimes for renegotiation and card | Implemented |
 | MCP Tool Service | Tool Services for renegotiation and card | Implemented |
-| Workflow / Journey State | state machine, lease, versioning, Inbox and Outbox in the Orchestrator | Implementado |
+| Workflow / Journey State | state machine, lease, versioning, Inbox and Outbox in the Orchestrator | implemented |
 | Knowledge Service | OpenSearch with vector search and PDFs by tenant | Implemented; corporate connector and ACL by pending document |
-| Memory Service | Redis for session and MongoDB for history | Implementado |
+| Memory Service | Redis for session and MongoDB for history | implemented |
 | Policy Enforcement | Deterministic rules in Tool Services and domain service; feasible profile with PAO | Implemented basis; corporate integration still pending |
 | Workload Identity | JWT HS256 per pair in the standard profile; migration profile RS256, ICDC and JWKS | Part; native identity, mTLS and KMS remain pending |
 | Hearing | PostgreSQL with tenant deduplication and idempotence key | Implemented |
@@ -141,7 +141,7 @@ sequenceDiagram
 | Aspect | Implemented guarantee |
 |---|---|
 | Entry WhatsApp | ACK only after persistence in Kafka |
-| Augmentative canal | HMAC webhook validation |
+| Augmentative channel | HMAC webhook validation |
 | Inbox | processamento idempotente por mensagem |
 | Status of journey | lease, optimistic version and delayed message treatment |
 | Side effects | Outbox at-least-once with deduplication |
@@ -202,7 +202,7 @@ Multi-repository pipeline E2E may:
 3. validate OpenAPI, AsyncAPI and policies;
 4. subir o stack;
 5. injetar um webhook assinado;
-6. validar o Core autenticado;
+6. validate the Core autenticado;
 7. performing evals online and loading;
 8. publish evidence linked to the release lock.
 
@@ -265,7 +265,7 @@ Implementation proves durable entry patterns, transactional status, governed too
 
 It also makes the border between three states explicit:
 
-- **implemented:** validated in code, contract, compost or evidence E2E;
+- **implemented:** validated in code, contract, compose or evidence E2E;
 - **Implementable basis:** locally demonstrated control, still dependent on corporate integration;
 - **production:** it requires real IPAs, strong identity, operation, compliance, resilience and promotion of approved artifacts.
 

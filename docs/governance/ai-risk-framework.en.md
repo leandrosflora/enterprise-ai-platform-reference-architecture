@@ -10,8 +10,8 @@ To classify risks of AI, to define proportional controls and to establish verifi
 |---|---|
 | Security | Prompt injection, tool abuse, exfiltration, excessive agency. |
 | Privacy and compliance | LGPD, retention, consent, international transfer. |
-| Operacional | Unavailability, integration failures, model degradation. |
-| Model | Hallucination, bias, toxicity, regression and low explanability. |
+| operational | Unavailability, integration failures, model degradation. |
+| Model | Hallucination, bias, toxicity, regression and low explainability. |
 | Financial party | Unexpected consumption, lack of quotas and chargeback. |
 | Reputacional | Inadequate responses and opaque decisions. |
 
@@ -32,10 +32,10 @@ To classify risks of AI, to define proportional controls and to establish verifi
 | Data leakage | CRITICAL | classification, masking, tenant isolation, DLP, output filtering | isolation test and classification report |
 | Tool abuse | HIGH | minimum scopes, policy enforcement, inadequacy, human approval | approved contract, authorisation matrix, events |
 | Excessive agency | HIGH | limits of autonomy, transaction boundary, human-in-the-loop | blockage and rollback scenarios |
-| Hallucination | MEDIUM | RAG, citations, groundedness, fallback | dateset and assessment report |
+| Hallucination | MEDIUM | RAG, citations, groundedness, fallback | dataset and assessment report |
 | Poisoned knowledge | HIGH | provenance, quarantine, source approval, controlled re-indexation | checksum, lineage and malicious content test |
 | Memory poisoning | HIGH | origin of facts, TTL, confirmation, user isolation | cross-contamination tests |
-| Bias | HIGH | review of dateset, fairness where applicable, human review | Criteria and report |
+| Bias | HIGH | review of dataset, fairness where applicable, human review | Criteria and report |
 | Use of data without a legal basis | CRITICAL | purpose, minimisation, retention and approval LGPD | IAD/ALI when applicable |
 | Provider outage | MEDIUM | timeout, circuit breaker, bulkhead, fallback | resilience test and runbook |
 | Unexpected cost | MEDIUM | quotas, budgets, rate limits, alerts and blocks | dashboard and limit test |
@@ -45,14 +45,14 @@ To classify risks of AI, to define proportional controls and to establish verifi
 
 ## Level controls
 
-| Controle | LOW | MEDIUM | HIGH | CRITICAL |
+| control | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
 | Owner definido | Obligatory | Obligatory | Obligatory | Obligatory |
 | Automatic assessment | Obligatory | Obligatory | Obligatory | Obligatory |
 | AI Architect Review | Option | Obligatory | Obligatory | Obligatory |
-| Revisão Security | According to scope | According to scope | Obligatory | Obligatory |
+| Security review | According to scope | According to scope | Obligatory | Obligatory |
 | LGPD Review | According to data | According to data | Obligatory | Obligatory |
-| Legal/Regulatory | No | Conforme escopo | Conforme escopo | Obligatory |
+| Legal/Regulatory | No | according to scope | according to scope | Obligatory |
 | Audit | Basic | Complete | Complete | Complete + extended retention |
 | Human-in-the-loop | No | According to action | Obligation for critical writing | Obligatory |
 | Rollback | Recommended | Recommended | Obligatory | Obligatory |
@@ -69,7 +69,7 @@ To classify risks of AI, to define proportional controls and to establish verifi
 - traces, dashboards and alerts;
 - budget and quotas;
 - rollback plane;
-- runbook operacional.
+- runbook operational.
 
 ## Publication banks
 
@@ -85,13 +85,13 @@ To classify risks of AI, to define proportional controls and to establish verifi
 
 ## Quality Thresholds
 
-Thresholds are defined by case of use and dateset.
+Thresholds are defined by case of use and dataset.
 
 | Metrics | LOW | MEDIUM | HIGH | CRITICAL |
 |---|---:|---:|---:|---:|
 | Minimum Groundedness for RAG | 0.80 | 0.85 | 0.90 | 0.95 |
 | Minimum relevance | 0,75 | 0,80 | 0,85 | 0,90 |
-| Hallucination risk máximo | 0.15 | 0.10 | 0.05 | 0.03 |
+| Maximum hallucination risk | 0.15 | 0.10 | 0.05 | 0.03 |
 | Toxicity maximum | 0,05 | 0,03 | 0,02 | 0,01 |
 
 Latency is not a risk threshold, it follows the class of workload defined in non-functional requirements.

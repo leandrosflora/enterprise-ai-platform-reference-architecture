@@ -10,9 +10,9 @@ This document shows full flows of Enterprise AI Platform use combining agents, R
 
 To allow a user to seek approved corporate policies with cited and traceable responses.
 
-### Componentes envolvidos
+### components involved
 
-| Componente | Papel |
+| component | role |
 |---|---|
 | AI Portal | Interface of use and self-service. |
 | Agent Gateway | Single entry, authentication, authorisation and rate limit. |
@@ -137,7 +137,7 @@ Content-Type: application/json
 
 ### Expected events
 
-| Evento | Produtor | Consumidores |
+| event | Produtor | Consumidores |
 |---|---|---|
 |  `agent.invoked`  | Agent Runtime | Audit Service, Billing Service, Evaluation Service |
 |  `tool.executed`  | Agent Runtime | Audit Service, Billing Service |
@@ -152,9 +152,9 @@ Content-Type: application/json
 
 To allow an agent to assist in a care operation updating cases, but only with authorization and human approval when necessary.
 
-### Componentes envolvidos
+### components involved
 
-| Componente | Papel |
+| component | role |
 |---|---|
 | Agent Runtime | The orchestra flows and applies policies. |
 | MCP Registry | Discover approved tools. |
@@ -245,7 +245,7 @@ humanApproval:
 }
 ```
 
-### Evento `tool.executed`
+### event `tool.executed`
 
 ```json
 {
@@ -279,7 +279,7 @@ humanApproval:
 
 ### Objective
 
-Publicate an agent only after validation of contracts, risk, security, assessment, observability and FinOps.
+publish an agent only after validation of contracts, risk, security, assessment, observability and FinOps.
 
 ### Flow
 

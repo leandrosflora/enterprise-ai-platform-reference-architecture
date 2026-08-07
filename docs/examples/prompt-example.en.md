@@ -1,4 +1,4 @@
-# Exemplo - Prompt Corporativo
+# example - Prompt Corporativo
 
 ## Objective
 
@@ -27,6 +27,6 @@ Responder à pergunta do usuário usando a base de conhecimento corporativa auto
 
 - Compulsory Groundedness
 - Score per business unit
-- Resposta em PT-BR
+- response in PT-BR
 - Protection against sensitive data
 - No autonomy for critical actions

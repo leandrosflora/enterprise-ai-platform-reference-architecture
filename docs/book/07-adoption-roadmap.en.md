@@ -44,7 +44,7 @@ First low-risk cases reach production without ad hoc controls.
 - Model Gateway;
 - contracts and events funded;
 - IC/CD with evaluations and policies;
-- tip-to-end observability;
+- end-to-end observability;
 - runbooks and rollbacks;
 - first service of knowledge or tools.
 
@@ -56,10 +56,10 @@ Squads can publish controlled versions without depending on manual implementatio
 
 **Characteristics**
 
-- AI Catalog completo;
+- AI Catalog complete;
 - risk tiers and proportional gates;
 - RAG and lifecycle memory;
-- datesets and versioned baselines;
+- datasets and versioned baselines;
 - approval evidence;
 - periodic review;
 - specialized incident management.
@@ -117,7 +117,7 @@ The calendar should be adapted to the context. The following sequence prioritize
 
 ### Trimester 1 — Foundation and First golden path
 
-**Entregas**
+**deliverables**
 
 - platform charter and owners;
 - capability map and backlog;
@@ -131,20 +131,20 @@ The calendar should be adapted to the context. The following sequence prioritize
 **Results**
 
 - first version published by pipeline;
-- trace ponta a ponta;
+- trace end a end;
 - cost per known invocation;
 - rollback exercitado;
 - feedback of the first squad.
 
 ### Trimester 2 — Knowledge, memory and evaluation
 
-**Entregas**
+**deliverables**
 
 - ingestion with quarantine;
 - ACL by document and chunk;
 - quotions and groundedness;
 - memory with TTL and consent;
-- datesets and baseline;
+- datasets and baseline;
 - risk workflow proporcional;
 - quality and cost dashboards.
 
@@ -157,7 +157,7 @@ The calendar should be adapted to the context. The following sequence prioritize
 
 ### Trimester 3 — Tools and corporate integration
 
-**Entregas**
+**deliverables**
 
 - MCP Registry;
 - onboarding of tools;
@@ -175,11 +175,11 @@ The calendar should be adapted to the context. The following sequence prioritize
 
 ### Trimester 4 — Scale, FinOps and operating model
 
-**Entregas**
+**deliverables**
 
 - quotas and budgets by tenant and agent;
 - showback;
-- marketplace interno;
+- internal marketplace;
 - maturity assessment;
 - community of practice;
 - capacity tests;
@@ -222,7 +222,7 @@ The technical components are the deliveries needed to achieve these outcomes.
 - blocked regressions;
 - policy denials per category;
 - security or privacy incidents;
-- respostas grounded;
+- responses grounded;
 - fallback and abstention rate;
 - exceptions opened and expired.
 

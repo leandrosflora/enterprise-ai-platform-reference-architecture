@@ -29,7 +29,7 @@ Provide traceability, metrics, logs and dashboards for the operation of Enterpri
 
 ## KPIs
 
-| Indicador | Description |
+| indicator | Description |
 |---|---|
 | Latency P95 | Latency by agent and service |
 | Error Rate | Component error rate |

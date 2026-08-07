@@ -68,7 +68,7 @@ Maintains the agent or solution's ownership:
 
 - business results and metrics;
 - UX, domain and integration with registration systems;
-- prompts, datesets and acceptance criteria;
+- prompts, datasets and acceptance criteria;
 - first-level operation;
 - corrections, evolution and deactivation;
 - evidence needed for publication.
@@ -93,7 +93,7 @@ Responsible for making operation and cost explicit:
 - dashboards and alerts;
 - budgets, quotas, showback and chargeback;
 - cost versus value analysis;
-- readiness operacional.
+- readiness operational.
 
 ## Reference IACR
 
@@ -111,8 +111,8 @@ Legenda: **R** responsible for carrying out, **A** accountable for the final dec
 | defining security policies | I | R | C | C | A | C |
 | approve critical exception | I | C | C | C | A/R | I |
 | publish version | I | R | I | A/R | C as risk | C |
-| operating in production | I | R plataforma | I | A/R produto | I | R suporte |
-| responder incidente | I | R plataforma | I | R produto | C | A/R coordination |
+| operating in production | I | R plataforma | I | A/R produto | I | R support |
+| responder incident | I | R plataforma | I | R produto | C | A/R coordination |
 | review cost and value | C | R | I | A/R | I | R |
 | deactivate agent | I | C | I | A/R | C | C |
 
@@ -135,7 +135,7 @@ The output of the intake is not a final approval, it is an initial classificatio
 
 ## Risk proportional routes
 
-| Risk | Exemplo | Recommended route |
+| Risk | example | Recommended route |
 |---|---|---|
 | LOW | Internal summarization without sensitive data | self-service with automatic controls |
 | MEDIUM | Corporate RAG with internal information | evaluation, safety and simplified approval |

@@ -37,7 +37,7 @@ agent.invocation
 
 ## Compulsory Spans
 
-| Span | Componente | Compulsory attributes |
+| Span | component | Compulsory attributes |
 |---|---|---|
 |  `agent.invocation`  | Gateway |  `agent.id`, `agent.version`, `tenant.id`, `channel`, `workload.class`, `risk.classification`  |
 |  `agent.gateway.authenticate`  | Gateway |  `auth.provider`, `auth.result`  |
@@ -63,7 +63,7 @@ agent.invocation
 
 ## Atributos globais
 
-| Atributo | Regra |
+| Atributo | rule |
 |---|---|
 |  `tenant.id`  | Obligatory, without free cardinality. |
 |  `business_unit`  | When applicable. |
@@ -76,7 +76,7 @@ agent.invocation
 
 ## Metrics
 
-| Metrics | Tipo | Dimensions permitted |
+| Metrics | type | Dimensions permitted |
 |---|---|---|
 |  `agent_invocations_total`  | Counter | agent, tenant, status |
 |  `agent_invocation_duration_seconds`  | Histogram | agent, workload, status |
@@ -89,8 +89,8 @@ agent.invocation
 |  `tool_executions_total`  | Counter | tool, status, risk |
 |  `knowledge_retrieval_duration_seconds`  | Histogram | basis, strategy |
 |  `knowledge_authorization_filtered_total`  | Counter | basis, classification |
-|  `evaluation_score`  | Gauge | agent, dateset, metric |
-|  `dlq_events_total`  | Counter | evento, consumidor |
+|  `evaluation_score`  | Gauge | agent, dataset, metric |
+|  `dlq_events_total`  | Counter | event, consumidor |
 
 Do not use user, session, document or correlation IDs as metric labels.
 
@@ -107,7 +107,7 @@ Do not use user, session, document or correlation IDs as metric labels.
 | Agent Gateway | Availability | >= 99.95% | 30 days |
 | Agent Runtime | Availability | >= 99.9% | 30 days |
 | Event publishing | Success | >= 99.9% | 30 days |
-| Audit recording crítico | Success | >= 99.89% | 30 days |
+| Critical audit recording | Success | >= 99.89% | 30 days |
 
 ## Alertas
 
@@ -116,10 +116,10 @@ Do not use user, session, document or correlation IDs as metric labels.
 | AgentErrorRateHigh | erro > 5% por 10 min | Alta | troubleshooting-agent-invocation |
 | SloBurnRateFast | burn rate > 14,4x por 5 min | Criticism | troubleshooting-agent-invocation |
 | ModelProviderLatencyHigh | P95 > limit for 15 minutes | Mean | Provider fallback |
-| ToolExecutionFailures | falha > 3% por 10 min | Alta | disabling critical tool |
+| ToolExecutionFailures | failure > 3% by 10 min | Alta | disabling critical tool |
 | PolicyDenialsSpike | > 3x baseline | Mean | Review abuse/configuration |
 | CostBudgetExceeded | budget >= 100% | Alta | blocking/degrading agent |
-| AuditRecordingFailure | qualquer falha por 5 min | Criticism | stop critical actions |
+| AuditRecordingFailure | qualquer failure by 5 min | Criticism | stop critical actions |
 | DLQBacklogGrowing | backlog crescente por 15 min | Alta | reprocessamento controlado |
 
 ## Safety of telemetry

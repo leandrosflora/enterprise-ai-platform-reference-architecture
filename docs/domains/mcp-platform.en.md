@@ -26,7 +26,7 @@ Standardizing the exposure, discovery, governance and execution of corporate too
 
 ## KPIs
 
-| Indicador | Description |
+| indicator | Description |
 |---|---|
 | Registered Tools | Tools available in the catalogue |
 | Tool Calls | Implementation of tools |

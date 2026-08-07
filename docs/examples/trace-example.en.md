@@ -2,7 +2,7 @@
 
 ## Objective
 
-Example of tip-to-end traceability for agent invocation.
+Example of end-to-end traceability for agent invocation.
 
 ```text
 traceId: trace-001

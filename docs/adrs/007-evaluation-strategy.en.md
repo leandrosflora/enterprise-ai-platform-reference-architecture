@@ -1,6 +1,6 @@
 # ADR-007 — Hybrid and continuous AI assessment
 
-**Status:** Aceito
+**Status:** accepted
 
 ## Context
 
@@ -31,7 +31,7 @@ Results should be versioned, reproducible and traceable to the agent, prompt, mo
 
 ## Alternatives
 
-| Alternativa | Vantagem | Limitation |
+| alternative | advantage | Limitation |
 |---|---|---|
 | Manual assessment only | Contextual judgment | low scale, cost and variability |
 | Production assessment only | real use data | Risk of publication of undetected regressions |
@@ -47,14 +47,14 @@ Results should be versioned, reproducible and traceable to the agent, prompt, mo
 
 ## Negative consequences
 
-- increases the cost of implementing and maintaining dateset;
+- increases the cost of implementing and maintaining dataset;
 - metrics and judges may differ from business perception;
 - outdated dates generate false confidence;
 - critical scenarios remain requiring independent review.
 
 ## Minimum evidence
 
-- Dateset verified and approved;
+- dataset verified and approved;
 - baseline and thresholds per dimension;
 - evaluator and judge version;
 - regression report;
@@ -64,4 +64,4 @@ Results should be versioned, reproducible and traceable to the agent, prompt, mo
 
 ## Review criteria
 
-To review when metrics no longer correlate with real results, when there is drift of the dateset or domain, when evaluation costs become disproportional, or when new methods offer greater validity and reproducibility.
+To review when metrics no longer correlate with real results, when there is drift of the dataset or domain, when evaluation costs become disproportional, or when new methods offer greater validity and reproducibility.

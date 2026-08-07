@@ -15,7 +15,7 @@ Publish a version of an agent with validated contracts, risk, safety, assessment
 
 ## Procedimento
 
-### 1. Validar o Agent Card
+### 1. validate the Agent Card
 
 Obligatory:
 
@@ -44,14 +44,14 @@ curl -sS -X POST http://localhost:8080/v1/agents \
 ### 3. Validating dependencies
 
 - All MCP contracts are approved;
-- KBs aplicam ACL por documento/chunk;
+- KBs aplicam ACL by document/chunk;
 - models requested are in Model Catalog;
 - secrets and regions are approved;
 - Policy `deny by default` foi exercitada.
 
 ### 4. Performing evaluations
 
-Executar ao menos:
+execute to the less:
 
 - regression;
 - groundedness/retrieval when there is RAG;
@@ -65,7 +65,7 @@ Executar ao menos:
 
 Perform an invocation in the test environment and confirm:
 
-- trace completo;
+- trace complete;
 - policy decision and version;
 - tokens and costs;
 - events `agent.invoked` and requirements;

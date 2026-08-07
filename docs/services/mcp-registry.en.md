@@ -1,14 +1,14 @@
 # MCP Registry
 
-## Responsabilidades
+## responsibilities
 
 - MCP Servers catalogue
 - Discovery of tools
-- Versionamento
+- versioning
 - Access policies
 - Tools governance
 
-## Metadados
+## metadata
 
 - Tool Name
 - MCP Server

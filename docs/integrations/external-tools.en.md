@@ -27,8 +27,8 @@ Defining criteria for using external tools by platform agents and services.
 
 - Prefer integration via controlled MCP Server
 - Do not expose secrets to agents
-- Registrar todos os tool calls
-- Aplicar rate limiting
+- record todos the tool calls
+- apply rate limiting
 - Defining fallback for unavailability
 
 ## Requirements

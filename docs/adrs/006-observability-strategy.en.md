@@ -1,6 +1,6 @@
 # ADR-006 — OpenTelemetry as observability standard
 
-**Status:** Aceito
+**Status:** accepted
 
 ## Context
 
@@ -8,7 +8,7 @@ Solutions with generative agents and models require traceability in addition to 
 
 ## Decision
 
-Adopt **OpenTelemetry** as a standard of traces, metrics and correlated logs, each invocation must have tip-to-end trace and spans specific for policy decisions, retrieval, memory, model calls, tool calls, evaluation and audit.
+Adopt **OpenTelemetry** as a standard of traces, metrics and correlated logs, each invocation must have end-to-end trace and spans specific for policy decisions, retrieval, memory, model calls, tool calls, evaluation and audit.
 
 Asynchronous events should spread W3C context and maintain `correlationId` and `causationId` if applicable.
 
@@ -25,7 +25,7 @@ Asynchronous events should spread W3C context and maintain `correlationId` and `
 
 ## Alternatives
 
-| Alternativa | Vantagem | Limitation |
+| alternative | advantage | Limitation |
 |---|---|---|
 | Customized logs per service | Simple local implementation | correlation and inconsistent semantics |
 | Single ownership instrumentation | rapid integration with a supplier | lock-in and reduced portability |

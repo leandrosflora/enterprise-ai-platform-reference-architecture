@@ -20,7 +20,7 @@ Contest processes usually go through different areas, documents and systems.Part
 The main problems treated by the case are:
 
 - high time to gather and validate evidence;
-- retrabalho causado por documentos incompletos;
+- retrabalho causado by documents incompletos;
 - distributed research between different systems;
 - inconsistent or inexplicable decisions;
 - difficulty in applying handle and segregating functions;
@@ -32,17 +32,17 @@ The main problems treated by the case are:
 
 The platform organises dispute as a governed and measurable journey:
 
-| Outcome | Indicador sugerido |
+| Outcome | indicator sugerido |
 |---|---|
 | Reduce cycle time | time between case creation and closure |
-| Reduzir retrabalho documental | percentage of cases with complement request |
+| reduce retrabalho documental | percentage of cases with complement request |
 | Improve consistency | Disagreement between recommendation, approval and applicable rule |
 | Increasing traceability | percentage of decisions with evidence, versions and actors registered |
 | Avoid duplicate effect | conflicts and replays blocked by idempotence |
 | Treating operational uncertainty | time to reconcile ambiguous executions |
 | Controlling the autonomy of the AI | abstention percentage, human review and policy denials |
 
-## Jornada aplicada
+## journey aplicada
 
 ```mermaid
 flowchart TD
@@ -102,7 +102,7 @@ Produces a structured recommendation containing:
 - justificativa;
 - trust;
 - evidence used;
-- regras consideradas;
+- rules consideradas;
 - model version and prompt;
 - `ABSTAIN` grounding is insufficient.
 
@@ -110,7 +110,7 @@ The recommendation follows for policy enforcement and human approval; it does no
 
 ## What remains deterministic
 
-| Responsabilidade | Why should not depend on generative AI |
+| responsibility | Why should not depend on generative AI |
 |---|---|
 | Lifecycle case | transitions and states need to be predictable and auditable. |
 | Competition and splitting | conflicts should be detected objectively in order to avoid these conflicts. |
@@ -130,9 +130,9 @@ The solution already has contracts, extension points and controls for AI, but th
 |---|---|---|---|
 | Documentary classification | Metadata rules and file name | Document record and evidence | RCO and actual document model |
 | Research | evidence-based deterministic engine |  `InvestigationEngine` Deterministic | agent with governed tools |
-| Recommendation |  `APPROVE` or `ABSTAIN` as a rule |  `RecommendationEngine` Deterministic | Decision Support Agent com grounding |
+| Recommendation |  `APPROVE` or `ABSTAIN` as a rule |  `RecommendationEngine` Deterministic | Decision Support Agent with grounding |
 | Model Gateway | defined in target architecture | not yet implemented | gateway provider-agnostic |
-| Knowledge Service | responsabilidade arquitetural | not yet integrated into the product | hybrid search and approved knowledge |
+| Knowledge Service | responsibility arquitetural | not yet integrated into the product | hybrid search and approved knowledge |
 | Evals | dataet and thresholds in baseline | not connected to the backend .NET | evals offline and online by model and prompt |
 
 !!! warning "real AI is still an evolution"
@@ -149,7 +149,7 @@ The solution already has contracts, extension points and controls for AI, but th
 | Knowledge Service | knowledge and rules as approved sources of research |  `TARGET_DEFINED`  |
 | MCP / Tool Execution | governed tools for research consultations |  `CONTRACT_DEFINED`  |
 | Workflow Orchestration | lifecycle persistent, version, timers and transitions |  `DEMONSTRATED_LOCAL` On the basis |
-| Policy Enforcement | External PAO, default deny, alçada, purpose and segregation |  `DEMONSTRATED_LOCAL` in the baseline; started in the backend |
+| Policy Enforcement | External PAO, default deny, approval authority, purpose and segregation |  `DEMONSTRATED_LOCAL` in the baseline; started in the backend |
 | Human Approval | approval, rejection and request for evidence |  `DEMONSTRATED_LOCAL`  |
 | Governed Execution | implementing mock idempotent and reconciliation |  `DEMONSTRATED_LOCAL`  |
 | Event Backbone | Outbox, Inbox, workers, retry, DLQ and replay |  `DEMONSTRATED_LOCAL` On the basis |
@@ -190,7 +190,7 @@ FastAPI is not a product backend, it works as an executable specification to val
 
 ## Implementation repositories
 
-| Repository | Responsabilidade | Classification |
+| Repository | responsibility | Classification |
 |---|---|---|
 |  [intelligent-backoffice-platform-architecture](https://github.com/leandrosflora/intelligent-backoffice-platform-architecture)  | architecture, C4, ADRs, contracts, policies, baseline feasible, evals and readiness |  `CONTRACT_DEFINED` and `DEMONSTRATED_LOCAL`  |
 |  [backoffice-platform-api](https://github.com/leandrosflora/backoffice-platform-api)  | backend .NET 9, domain, PostgreSQL, OPA and APIs of the journey |  `IMPLEMENTATION_STARTED`  |
@@ -198,7 +198,7 @@ FastAPI is not a product backend, it works as an executable specification to val
 
 ## Controls demonstrated
 
-| Risk | Controle aplicado |
+| Risk | control aplicado |
 |---|---|
 | improper autonomous decision | AI only investigates and recommends |
 | self-approval | recommender and approver must be distinct from each other |
@@ -251,7 +251,7 @@ sequenceDiagram
 
 The architectural repository shall publish evidence for:
 
-- walkthrough ponta a ponta;
+- walkthrough end a end;
 - lifecycle and versioning;
 - positive and negative policies;
 - segregation of functions;
@@ -275,11 +275,11 @@ The architectural repository shall publish evidence for:
 | Baseline FastAPI |  `DEMONSTRATED_LOCAL`  |
 | Backend .NET |  `IMPLEMENTATION_STARTED`  |
 | Frontend React |  `IMPLEMENTATION_STARTED`  |
-| Frontend + API + PostgreSQL + OPA em E2E cross-repo | Pendente |
-| Real model, RAG and embodied tools | Pendente |
-| Integration with the actual financial system | Pendente |
-| Corporate identity and mTLS | Pendente |
-| SLOs and on-call operation | Pendente |
+| Frontend + API + PostgreSQL + OPA in E2E cross-repo | pending |
+| Real model, RAG and embodied tools | pending |
+| Integration with the actual financial system | pending |
+| Corporate identity and mTLS | pending |
+| SLOs and on-call operation | pending |
 | Production readiness |  `NOT_PRODUCTION_READY`  |
 
 ## Next developments
@@ -287,7 +287,7 @@ The architectural repository shall publish evidence for:
 ### P8 — Product integration
 
 1. Integrated compose for frontend, API, PostgreSQL and PAO;
-2. E2E cross-rest of the main journey;
+2. E2E cross-repo of the main journey;
 3. Automated compatibility of OpenAPI and implementation;
 4. Recovery of recommendations and approvals for PIA;
 5. identity signed on backend and login on frontend;

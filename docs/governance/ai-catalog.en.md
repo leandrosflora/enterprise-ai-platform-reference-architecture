@@ -4,7 +4,7 @@
 
 All officials shall be registered.
 
-## Metadados
+## metadata
 
 - Agent Id
 - Name
@@ -25,7 +25,7 @@ All officials shall be registered.
 - Published
 - Retired
 
-## Objetivos
+## objectives
 
 - Governance
 - Descoberta

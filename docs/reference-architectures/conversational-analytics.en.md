@@ -12,7 +12,7 @@ To analyze conversational interactions on a scale to identify root causes, recur
 - Grouping of recurrent themes
 - Management of executive insights
 
-## Componentes Envolvidos
+## components involved
 
 - Ingestion Pipeline
 - Knowledge Service
@@ -36,7 +36,7 @@ To analyze conversational interactions on a scale to identify root causes, recur
 1. Interactions are ingested from digital channels and historical bases.
 2. Pipeline normalizes, anonymises and classifies the data.
 3. Agents analyze reasons, patterns and probable causes.
-4. Results are consolidated in dashboards and datesets.
+4. Results are consolidated in dashboards and datasets.
 5. Insights are used to improve processes, products and care.
 
 ## Controls

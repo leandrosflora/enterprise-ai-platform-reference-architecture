@@ -28,7 +28,7 @@ Risk defines controls, approvals and evidence, and does not artificially alter t
 | Publication of events | 99.9% success |
 | Critical audit record | 99.89% success |
 | RTO data plane | <= 2 h |
-| RPO metadados transacionais | <= 15 min |
+| RPO metadata transacionais | <= 15 min |
 
 - critical services are multi-AZ;
 - the data plane uses the latest valid policy when the control plane is unavailable;
@@ -48,9 +48,9 @@ Risk defines controls, approvals and evidence, and does not artificially alter t
 
 Each tool contract defines its own timeout, the standard is 30 s and can only be extended with justification.
 
-## Escalabilidade
+## scalability
 
-- componentes stateless escalam horizontalmente;
+- components stateless escalam horizontalmente;
 - queues disattach intake, evaluation, audit and billing;
 - partition keys preserve aggregate ordering;
 - autoscaling considers competition, latency, backlog and token consumption;

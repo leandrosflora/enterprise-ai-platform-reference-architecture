@@ -44,7 +44,7 @@ flowchart LR
 ### Construction
 
 - use approved and traceable sources;
-- version prompts, models, policies and datesets;
+- version prompts, models, policies and datasets;
 - separate reliable instructions from unreliable content;
 - applying minimisation, masking and access controls;
 - implement proportional explanations to the case of use.
@@ -100,7 +100,7 @@ All experience shall inform:
 
 - Agent Card ou Model Card;
 - risk assessment;
-- dateset and assessment report;
+- dataset and assessment report;
 - authorisation matrix;
 - justification for the level of autonomy;
 - recording of residual limitations and risks;

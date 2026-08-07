@@ -25,7 +25,7 @@ Management of conversational context and short- and long-term memory for corpora
 
 ## KPIs
 
-| Indicador | Description |
+| indicator | Description |
 |---|---|
 | Memory Reads | Contextual readings |
 | Memory Writes | Memory writings |
@@ -34,7 +34,7 @@ Management of conversational context and short- and long-term memory for corpora
 
 ## Non-functional requirements
 
-- Isolamento por tenant
+- isolation by tenant
 - Configurable expiration
 - Data cryptography
 - Control of personal data

@@ -78,7 +78,7 @@ Critérios de qualidade:
 | Stop sequences | use when there is predictable textual contract |
 | Seed | use when supported for reproducible tests |
 
-## Versionamento
+## versioning
 
 Each published prompt shall have:
 

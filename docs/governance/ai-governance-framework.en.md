@@ -20,7 +20,7 @@ flowchart LR
 
 ## Decision-making structure
 
-| Papel | Responsabilidade |
+| role | responsibility |
 |---|---|
 | Business Owner | purpose, benefit, impact and acceptance of residual risk |
 | Product Owner | backlog, metrics and user experience |
@@ -29,7 +29,7 @@ flowchart LR
 | Security | threat model, controls and incident response |
 | Privacy / DPO | LGPD, legal basis, minimization and rights of the holder |
 | Legal / Compliance | regulatory, contractual obligations and intellectual property |
-| Model Risk/ Evaluation | methodology, datesets, thresholds and independence of assessment |
+| Model Risk/ Evaluation | methodology, datasets, thresholds and independence of assessment |
 | Platform Team | guardrails, gateways, observability and policy as code |
 | Operations | SLO, runbook, capacity, continuity and rollback |
 
@@ -40,7 +40,7 @@ flowchart LR
 - risk assessment;
 - Architectural ADRs and model selection;
 - data sources, date contracts and lineage;
-- datesets, prompts, models, embeddings, tools and versioned policies;
+- datasets, prompts, models, embeddings, tools and versioned policies;
 - knowledge snapshot and release manifest;
 - golden dataset and evaluation report;
 - threat model and privacy assessment;
@@ -57,7 +57,7 @@ The detailed lifecycle of these assets is in [Data, Model, Prompt and Knowledge 
 | Risk | impact, data and autonomy | LOW to CRITICAL classification |
 | Design | architecture and contracts | ADRs and defined controls |
 | Assurance | security, privacy, legal and evaluation | Evidence and pending |
-| Release | readiness operacional | approved and unchanged version |
+| Release | readiness operational | approved and unchanged version |
 | Operate | telemetry and feedback | monitoring and corrective actions |
 | Withdraw | closure decision | revoked access, data processed and preserved evidence |
 

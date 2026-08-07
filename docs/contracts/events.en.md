@@ -8,7 +8,7 @@ The archive [`async-api.yaml`](async-api.yaml) is the feasible source of events.
 
 - Reference transport: Kafka.
 - Reference serialization: JSON UTF-8.
-- Topics use the format `<evento>.v<major>`, por exemplo `agent.invoked.v1`.
+- Topics use the format `<evento>.v<major>`, by example `agent.invoked.v1`.
 - `schemaVersion` usa SemVer.
 - Incompatible changes require new major and new topic.
 - Producers do not remove fields during the lifetime of a major.
@@ -34,7 +34,7 @@ The archive [`async-api.yaml`](async-api.yaml) is the feasible source of events.
 
 Compulsory fields:
 
-| Campo | Regra |
+| Campo | rule |
 |---|---|
 |  `eventId`  | Single UID used for deduplication. |
 |  `eventType`  | Name without version, equal to domain without suffix of topic. |
@@ -64,7 +64,7 @@ Compulsory fields:
 
 ## Topic catalogue
 
-| Evento | Topic | Produtor principal | Typical consumers |
+| event | Topic | Produtor principal | Typical consumers |
 |---|---|---|---|
 |  `agent.created`  |  `agent.created.v1`  | Agent Registry | Governance, Audit |
 |  `agent.updated`  |  `agent.updated.v1`  | Agent Registry | Governance, Audit |
@@ -90,7 +90,7 @@ Compulsory fields:
 - Partition keys:
   - Agent: `tenantId + agentId`;
   - session: `tenantId + sessionId`;
-  - documento: `tenantId + knowledgeBaseId + documentId`.
+  - document: `tenantId + knowledgeBaseId + documentId`.
 - There is no overall assurance of ordering between topics.
 - Critical commands use transactional outbox in the producer.
 - Consumers persist offset only after completing the inadequate processing.

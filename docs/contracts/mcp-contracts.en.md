@@ -131,7 +131,7 @@ Locating customers in corporate systems to support agents of service, credit or 
 
 ### Purpose
 
-Executar busca controlada em bases documentais corporativas via Knowledge Service.
+execute busca controlada in bases documentais corporativas via Knowledge Service.
 
 ### Contract
 

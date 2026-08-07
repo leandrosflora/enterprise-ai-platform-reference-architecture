@@ -20,7 +20,7 @@ flowchart LR
 - use RAG with approved, current and traceable sources;
 - require citations and evidence;
 - to instruct the model to declare contextual insufficiency;
-- reduzir temperature em tarefas factuais;
+- reduce temperature in tarefas factuais;
 - use structured output and validation of schema;
 - choose a model suitable for the domain and language;
 - separate creative generation from factual response;

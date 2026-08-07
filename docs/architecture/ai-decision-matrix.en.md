@@ -64,6 +64,6 @@ The decision shall record:
 - latency and volume;
 - expected cost;
 - data and classification;
-- need for explanability
+- need for explainability
 - assessment strategy;
 - fallback and rollback.

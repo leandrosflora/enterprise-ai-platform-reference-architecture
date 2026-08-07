@@ -28,7 +28,7 @@ Providing corporate intake, indexing and recovery of knowledge for RAG solutions
 
 ## KPIs
 
-| Indicador | Description |
+| indicator | Description |
 |---|---|
 | Retrieval Accuracy | Quality of the retrieved fragments |
 | Groundedness | Adherence of response to sources |

@@ -4,7 +4,7 @@
 
 Model Gateway centralizes access to foundation models and prevents agents from calling providers directly.
 
-## Responsabilidades
+## responsibilities
 
 - apply allowlist of providers, models and regions;
 - routing by capacity, cost, latency, availability and data classification;
@@ -22,7 +22,7 @@ Model Gateway centralizes access to foundation models and prevents agents from c
 - response business assessment;
 - persistence of conversational memory.
 
-## API interna
+## API internal
 
 ```http
 POST /internal/v1/model-invocations

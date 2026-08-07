@@ -4,7 +4,7 @@
 
 The Agent Gateway is the only entry point for agent invocations. It authorizes and authorizes the call, applies rate limiting and routs the invocation to the Agent Runtime.
 
-## Responsabilidades
+## responsibilities
 
 - Exposing the public IPA for the invoking of officials
 - Authenticate requisitions via Identity Provider (OIDC)
@@ -40,7 +40,7 @@ Authorization: Bearer <token>
 |---|---|
 | Latency | Minimum overhead before routing to Agent Runtime |
 | Security | Authentication and authorisation in all requests |
-| Escalabilidade | Horizontal scale per volume of invocations |
+| scalability | Horizontal scale per volume of invocations |
 | Resilience | Rate limiting to protect Agent Runtime from peaks |
 
 ## Related Decisions

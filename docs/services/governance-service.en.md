@@ -4,7 +4,7 @@
 
 The Governance Service centralizes the cycle of approval, publication, risk control and compliance of the platform's AI agents and solutions.
 
-## Responsabilidades
+## responsibilities
 
 - Management of approval flows for agents
 - Implementing corporate AI policies
@@ -59,7 +59,7 @@ POST /governance/agents/{agentId}/versions/{version}/reject
 |---|---|
 | Security | Authentication, authorisation, secrecy and data exposure |
 | LGPD | Processing of personal and sensitive data |
-| Risk of AI | Hallucination, bias, explanability and operational impact |
+| Risk of AI | Hallucination, bias, explainability and operational impact |
 | Observability | Logs, metrics, traces and audit |
 | Costs | Model, expected volume and consumption limit |
 | Quality | Minimum result in the defined assessments |
@@ -74,7 +74,7 @@ POST /governance/agents/{agentId}/versions/{version}/reject
 | PostgreSQL | Persist workflows and opinions |
 | Kafka | Publicating governance events |
 
-## Publicated events
+## published events
 
 - `governance.approved`
 - `governance.rejected`
@@ -89,7 +89,7 @@ POST /governance/agents/{agentId}/versions/{version}/reject
 | Segregation | Different papers for creator, approver and operator |
 | Conformity | Store evidence of approval |
 | Security | Applying RBAC by domain, area and criticality |
-| Escalabilidade | Support multiple areas and approval treadmills |
+| scalability | Support multiple areas and approval treadmills |
 
 ## Related Decisions
 

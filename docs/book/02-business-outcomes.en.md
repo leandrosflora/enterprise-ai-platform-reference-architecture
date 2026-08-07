@@ -12,10 +12,10 @@ The success of the platform should be measured by the results produced for custo
 
 A frequent error in AI initiatives is to start discussions about technologies:
 
-- qual LLM utilizar;
-- qual vector database adotar;
+- which LLM utilizar;
+- which vector database adotar;
 - which framework of agents to use;
-- qual cloud provider escolher.
+- which cloud provider escolher.
 
 These decisions are important, but secondary. The main question is:
 
@@ -70,10 +70,10 @@ flowchart TB
 | Examples of application | Result indicators |
 |---|---|
 | assistentes conversacionais | RHR and containment |
-| atendimento omnichannel | Mean duration of care |
+| support omnichannel | Mean duration of care |
 | busca inteligente | Time to resolution |
 | autoatendimento | CSAT and conclusion rate |
-| atendimento assistido | SPL and perceived quality |
+| support assistido | SPL and perceived quality |
 
 ### 4. Risk Management and Compliance
 
@@ -96,7 +96,7 @@ flowchart TB
 | RAG corporativo | time to find information |
 | knowledge graphs | coverage and connection of knowledge |
 | unified search | search success rate |
-| copilots internos | tempo economizado por tarefa |
+| copilots internal | tempo economizado by tarefa |
 | Specialized assistants | satisfaction and re-use of knowledge |
 
 ## Mapeamento Outcome → Capability
@@ -125,7 +125,7 @@ Each case of use must record a measurable hypothesis before implementation.
 | Baseline | current situation, source and period |
 | Target | meta quantitativa ou qualitativa |
 | Horizonte | deadline to assess the result |
-| Indicadores principais | final business metrics |
+| indicators principais | final business metrics |
 | Leading indicators | early signs of progress |
 | Guardrails | quality limits, risk, cost and compliance |
 | Capacities | capacities needed to produce the result |

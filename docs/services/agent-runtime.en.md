@@ -4,7 +4,7 @@
 
 The Agent Runtime is the heart of the Enterprise AI Platform, it executes agents, orchestrates calls for models, consults memory, retrieves knowledge, executes tools via MCP and publishes operational events.
 
-## Responsabilidades
+## responsibilities
 
 - Implementing published agents
 - To orchestrate prompts, tools, memory and RAG
@@ -21,9 +21,9 @@ The Agent Runtime is the heart of the Enterprise AI Platform, it executes agents
 - User management
 - Consolidated financial calculation
 
-## Principais Componentes Internos
+## Principais components internal
 
-| Componente | Responsabilidade |
+| component | responsibility |
 |---|---|
 | Agent Executor | Checks the worker's execution cycle |
 | Prompt Engine | Monta prompts, system instructions and context |
@@ -80,10 +80,10 @@ Authorization: Bearer <token>
 | Memory Service | Persist conversational context |
 | Evaluation Service | Evaluating response |
 | Foundation Models | Perform inference |
-| Kafka | Publicate events |
+| Kafka | publish events |
 | Redis | Cache and rate limit |
 
-## Publicated events
+## published events
 
 - `agent.invoked`
 - `tool.executed`
@@ -97,7 +97,7 @@ Authorization: Bearer <token>
 | Resilience | Controlled retry for transient calls |
 | Security | Authorisation by agent, tool and scope |
 | Observability | Trace por invocation, model call and tool call |
-| Escalabilidade | Horizontal scale per volume of invocations |
+| scalability | Horizontal scale per volume of invocations |
 | Audit | Complete entry, exit and relevant decision record |
 
 ## Related Decisions

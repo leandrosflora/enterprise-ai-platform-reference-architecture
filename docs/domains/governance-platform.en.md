@@ -29,7 +29,7 @@ Controlling the life cycle, approval, risk and compliance of AI solutions.
 
 ## KPIs
 
-| Indicador | Description |
+| indicator | Description |
 |---|---|
 | Approved Agents | Approved agents |
 | Rejected Agents | Agents rejected |

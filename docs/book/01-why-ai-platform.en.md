@@ -7,7 +7,7 @@ The first generation of corporate AI initiatives usually starts with independent
 The most common symptoms are:
 
 - different integrations for each model provider;
-- prompts, datesets and evaluations without versioning;
+- prompts, datasets and evaluations without versioning;
 - access to data determined within each application;
 - logs with sensitive content;
 - difficult to allocate costs;
@@ -30,7 +30,7 @@ She must provide:
 - portability between models and providers;
 - knowledge and memory with authorization and life cycle;
 - continuous assessment of quality, safety, cost and performance;
-- rastreabilidade ponta a ponta;
+- rastreabilidade end a end;
 - containment, rollback and deactivation mechanisms.
 
 ## Platform is not a single product

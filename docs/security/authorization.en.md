@@ -10,7 +10,7 @@ A plataforma usa RBAC + Policy Based Access Control.
 
 ## Papers
 
-| Papel | Description |
+| role | Description |
 |---|---|
 | Platform Admin | It administers platform configuration, tenants, integrations and global policies. |
 | AI Architect | It defines standards, reviews architecture, governance and risk of agents. |
@@ -21,17 +21,17 @@ A plataforma usa RBAC + Policy Based Access Control.
 
 ## Escopos
 
-| Escopo | Uso |
+| scope | Uso |
 |---|---|
 |  `agent.read`  | Refer to catalogue and metadata of agents. |
 |  `agent.write`  | Create or change agent in state draft. |
 |  `agent.invoke`  | Invite a published agent. |
 |  `agent.publish`  | Publication of approved agent. |
 |  `tool.read`  | Read the MCP catalogue. |
-|  `tool.register`  | Registrar tool contract MCP. |
+|  `tool.register`  | record tool contract MCP. |
 |  `tool.execute`  | Perform approved tool. |
 |  `knowledge.read`  | Consultar knowledge bases autorizadas. |
-|  `knowledge.write`  | Ingerir ou atualizar documentos. |
+|  `knowledge.write`  | Ingerir or atualizar documents. |
 |  `memory.read`  | Read session memory/authorised context. |
 |  `memory.write`  | Update session memory/authorised context. |
 |  `governance.submit`  | Submit agent/tool for approval. |
@@ -45,9 +45,9 @@ A plataforma usa RBAC + Policy Based Access Control.
 
 ---
 
-## Matriz Papel x Escopo
+## Matriz role x scope
 
-| Papel | Escopos permitidos |
+| role | Escopos permitidos |
 |---|---|
 | Platform Admin |  `platform.admin`, `agent.read`, `tool.read`, `governance.review`, `audit.read`, `billing.read`  |
 | AI Architect |  `agent.read`, `tool.read`, `governance.review`, `governance.approve`, `evaluation.read`, `audit.read`, `billing.read`  |
@@ -65,10 +65,10 @@ A plataforma usa RBAC + Policy Based Access Control.
 | Agent | Listar |  `agent.read`  | Todos | Respect tenant and business unit. |
 | Agent | Create/release draft |  `agent.write`  | Developer | Obligatory owner. |
 | Agent | Submit approval |  `governance.submit`  | Developer | Test evidence and mandatory risk. |
-| Agent | Aprovar/rejeitar |  `governance.approve`  | AI Architect | It cannot be the same user that submitted. |
+| Agent | approve/rejeitar |  `governance.approve`  | AI Architect | It cannot be the same user that submitted. |
 | Agent | Publicar |  `agent.publish`  | AI Architect, Service Account | Application for a decision `APPROVED`. |
 | Agent | Invocar |  `agent.invoke`  | Business User | Agents should be able to work in any of these areas. `PUBLISHED`. |
-| Tool MCP | Registrar |  `tool.register`  | Developer | Contract with valid schemas. |
+| Tool MCP | record |  `tool.register`  | Developer | Contract with valid schemas. |
 | Tool MCP | Perform |  `tool.execute`  | Service Account via Agent Runtime | Tool approved and linked to the agent. |
 | Knowledge Base | Taking a document |  `knowledge.write`  | Developer | Compulsory classification of data. |
 | Knowledge Base | Consultar |  `knowledge.read`  | Business User, Developer | Policy by classification and tenant. |
@@ -76,7 +76,7 @@ A plataforma usa RBAC + Policy Based Access Control.
 | Memory | Escrever |  `memory.write`  | Service Account | Sensitive data masked when required. |
 | Evaluation | Create |  `evaluation.write`  | Developer, Service Account | Date of approval. |
 | Evaluation | Consultar |  `evaluation.read`  | Developer, AI Architect, Auditor | Respeitar tenant. |
-| Audit | Consultar |  `audit.read`  | Auditor, AI Architect | Consulta registrada em auditoria. |
+| Audit | Consultar |  `audit.read`  | Auditor, AI Architect | Consulta registrada in audit. |
 | Billing | Consulting costs |  `billing.read`  | AI Architect, Auditor, Platform Admin | Limitated view per unit or tenant. |
 
 ---
@@ -105,7 +105,7 @@ A plataforma usa RBAC + Policy Based Access Control.
 
 ## Enforcement
 
-| Componente | Responsabilidade |
+| component | responsibility |
 |---|---|
 | Agent Gateway | Validate JWT, tenant, scopes and rate limit. |
 | Agent Runtime | Apply policy by agent, tool, risk, cost and context. |

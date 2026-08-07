@@ -27,7 +27,7 @@ To evaluate the quality, safety, cost and behavior of agents and responses gener
 
 ## KPIs
 
-| Indicador | Description |
+| indicator | Description |
 |---|---|
 | Evaluation Score | Consolidated assessment note |
 | Groundedness Score | Adherence to sources |

@@ -6,8 +6,8 @@ Guides to support decisions are not universal rules; the choice should consider 
 
 | Criteria | RAG | Fine-tuning | Long Context |
 |---|---|---|---|
-| Knowledge often changes | Best option | Fraco | Adequado em baixo volume |
-| Citations and traceability | Forte | Fraco | Average |
+| Knowledge often changes | Best option | weak | Adequado in baixo volume |
+| Citations and traceability | Forte | weak | Average |
 | Personalizar estilo/comportamento | Average | Forte | Average |
 | Operational cost | index + retrieval | treino + hosting | tokens elevados |
 | Supply governance | Strong | difficult to remove facts | depends on the context sent |
@@ -22,7 +22,7 @@ Guides to support decisions are not universal rules; the choice should consider 
 | Dominant PIAs | Average | Strong | Average |
 | Long-term procedures | Average | polling/callback | Forte |
 | Discovery of contracts | native | OpenAPI | AsyncAPI/catalog |
-| Desacoplamento temporal | Fraco | Fraco | Forte |
+| Desacoplamento temporal | weak | weak | Forte |
 
 **Pattern:** PCM at the agent interface, NRS in the domain and events for asynchronous integration and business facts.
 

@@ -12,7 +12,7 @@ Automate and support client care journeys using RAG agents, integration to corpo
 - Screening of requests
 - Creation of protocols or calls
 
-## Componentes Envolvidos
+## components involved
 
 - Channel Adapter
 - Agent Gateway

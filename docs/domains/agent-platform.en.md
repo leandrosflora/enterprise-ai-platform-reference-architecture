@@ -32,7 +32,7 @@ Providing central capacities for the creation, execution, publication and operat
 
 ## KPIs
 
-| Indicador | Description |
+| indicator | Description |
 |---|---|
 | Invocations | Volume of executions of officials |
 | Success Rate | Percentage of successful executions |

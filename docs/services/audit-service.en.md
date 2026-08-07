@@ -4,7 +4,7 @@
 
 The Audit Service maintains the immutable audit trail of the platform: use of agents, execution of tools and governance decisions. It consumes events of practically all other services and makes them available for conformity and research.
 
-## Responsabilidades
+## responsibilities
 
 - Consume events from all domains (agents, knowledge, memory, governance, evaluation)
 - Persist audit trail immutable and research
@@ -34,7 +34,7 @@ The Audit Service maintains the immutable audit trail of the platform: use of ag
 - `evaluation.started`, `evaluation.completed`
 - `governance.approved`, `governance.rejected`
 
-## Publicated events
+## published events
 
 - `audit.created`
 
@@ -44,5 +44,5 @@ The Audit Service maintains the immutable audit trail of the platform: use of ag
 |---|---|
 | Importability | Audit records cannot be altered or erased |
 | Retention | 5 years, according to regulatory policy (see [docs/contracts/events.md](../contracts/events.md)() |
-| Disponibilidade | Event consumption cannot lose messages (DLQ per domain) |
+| availability | Event consumption cannot lose messages (DLQ per domain) |
 | Conformity | Supports investigation and reports for LGPD and regulatory audits |

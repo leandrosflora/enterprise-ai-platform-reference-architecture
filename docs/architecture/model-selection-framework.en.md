@@ -13,7 +13,7 @@ Select models based on evidence of the case of use, avoiding decisions guided on
 | Context | Does the effective window meet the case without degrading quality? |
 | Tool use | Calls tools with precision and follows schema? |
 | Security | Resist attacks and meet content policies? |
-| Privacidade | What is the retention, training and residency policy? |
+| privacy | What is the retention, training and residency policy? |
 | Latency | Does it meet p95 and expected throughput? |
 | Cost | What is the cost per successful task, not only for token? |
 | Operation | Is there SLA, observability, quotas and fallback? |
@@ -43,7 +43,7 @@ flowchart LR
 | Tool use and structured output | 10% |
 | Operability and portability | 10% |
 
-Weights must change according to risk. For CRITICAL cases, safety, explanability and compliance prevail over cost.
+Weights must change according to risk. For CRITICAL cases, safety, explainability and compliance prevail over cost.
 
 ## Model classes
 
@@ -58,7 +58,7 @@ Weights must change according to risk. For CRITICAL cases, safety, explanability
 
 ## Model Router
 
-O Model Gateway pode rotear por:
+The Model Gateway can route by:
 
 - risk and classification of data;
 - task complexity;
@@ -86,7 +86,7 @@ Fallback should not silently reduce safety or quality.Model changes need to be r
 The decision shall document:
 
 - evaluated models and reason for the shortlist;
-- dateset, heading and thresholds;
+- dataset, heading and thresholds;
 - quality, safety, cost and latency results;
 - contractual and data restrictions;
 - primary model and fallback;

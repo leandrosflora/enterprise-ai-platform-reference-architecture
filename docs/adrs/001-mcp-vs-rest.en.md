@@ -1,6 +1,6 @@
 # ADR-001 — MCP for governed tool calling
 
-**Status:** Aceito
+**Status:** accepted
 
 ## Context
 
@@ -31,7 +31,7 @@ The platform must keep a **MCP Registry** for:
 - policy failure results in deny by default;
 - MCP Servers do not concentrate business rules that belong to domain services.
 
-## Por que
+## Rationale
 
 - standardized discovery of tools and schemes;
 - separation between reasoning of the agent and implementation of the domain;
@@ -41,7 +41,7 @@ The platform must keep a **MCP Registry** for:
 
 ## Alternatives
 
-| Alternativa | Vantagem | Limitation |
+| alternative | advantage | Limitation |
 |---|---|---|
 | Direct REST | simple and universal | requires specific adaptation in each agent and dispersed governance |
 | Events | Uncoupling and scale | inadequate for all interaction request/response |

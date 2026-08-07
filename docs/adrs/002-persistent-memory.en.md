@@ -1,6 +1,6 @@
 # ADR-002 — Persistent memory under explicit criteria
 
-**Status:** Aceito
+**Status:** accepted
 
 ## Context
 

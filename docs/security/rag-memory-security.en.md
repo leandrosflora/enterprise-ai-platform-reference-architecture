@@ -60,7 +60,7 @@ Contexto delimitado como <untrusted_document>
 
 ### Compulsory quarantine
 
-O documento permanece `QUARANTINED` Where any of these conditions occur:
+the document permanece `QUARANTINED` Where any of these conditions occur:
 
 - source not approved;
 - checksum divergente;
@@ -88,9 +88,9 @@ The model's response can only mention chunks that have undergone the same author
 
 ## Secure memory
 
-### Tipos
+### types
 
-| Tipo | Uso | Maximum TTL | Consentimento | Permitted source |
+| type | Uso | Maximum TTL | Consentimento | Permitted source |
 |---|---|---:|---|---|
 |  `SESSION`  | Context of the current conversation | 24 hour | No, except for specific personal data | User, system, tool and model inference |
 |  `SHORT_TERM`  | Short operational continuity | 7 days | For purpose | User, system or tool checked |
@@ -135,7 +135,7 @@ Reading and exclusion use the subject derived from identity. One user does not f
 
 ## Secure observability
 
-Registrar:
+record:
 
 - authorisation decision and reason for blocking;
 - Quarantine status;
@@ -146,7 +146,7 @@ Registrar:
 
 Do not register:
 
-- prompt completo;
+- prompt complete;
 - full text of the document;
 - integral value of memory;
 - dado pessoal em claro;
@@ -160,7 +160,7 @@ Do not register:
 | Retrieval | ACL test by document/chunk, tenant and clearance. |
 | Prompt | Evidence of delimiting and treating the context as non-reliable. |
 | Memory | Consent tests, TTL, origin and poisoning. |
-| Privacidade | Subject exclusion and retention policy. |
+| privacy | Subject exclusion and retention policy. |
 | Audit | Events without sensitive payload and without `policyDecisionId`. |
 
 ## Demonstrative implementation

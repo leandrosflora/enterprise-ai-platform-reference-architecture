@@ -38,7 +38,7 @@ flowchart TB
 
 ### 1. Experience and Developer Experience
 
-| Capacity | Responsabilidade |
+| Capacity | responsibility |
 |---|---|
 | AI Portal | catalog, onboarding, evidence, status and operational documentation |
 | SDKs and templates | golden paths for agents, RAG, tools and telemetry |
@@ -48,7 +48,7 @@ flowchart TB
 
 ### 2. Agent Platform
 
-| Capacity | Responsabilidade |
+| Capacity | responsibility |
 |---|---|
 | Agent Registry | identity, owner, version, risk, dependence and status |
 | Agent Runtime | implementation, context, orchestration and application of limits |
@@ -59,7 +59,7 @@ flowchart TB
 
 ### 3. Knowledge and Memory
 
-| Capacity | Responsabilidade |
+| Capacity | responsibility |
 |---|---|
 | Knowledge Ingestion | extraction, classification, quarantine, chunking and indexing |
 | Retrieval | semantic search, lexical, hybrid, reranking and citations |
@@ -71,7 +71,7 @@ flowchart TB
 
 ### 4. Models and Tools
 
-| Capacity | Responsabilidade |
+| Capacity | responsibility |
 |---|---|
 | Model Gateway | abstraction of providers, policies and observability |
 | Model Routing | selection by capacity, region, cost, quality and availability |
@@ -83,7 +83,7 @@ flowchart TB
 
 ### 5. Trust and Governance
 
-| Capacity | Responsabilidade |
+| Capacity | responsibility |
 |---|---|
 | Identity | users, workloads and delegation |
 | Authorization | RBAC, ABAC, scopes, purpose and deny by default |
@@ -95,7 +95,7 @@ flowchart TB
 
 ### 6. Operations and FinOps
 
-| Capacity | Responsabilidade |
+| Capacity | responsibility |
 |---|---|
 | Observability | logs, metrics, traces and correlated events |
 | SLO Management | objectives by class of workload and error budgets |
@@ -107,7 +107,7 @@ flowchart TB
 
 ### 7. Foundation
 
-| Capacity | Responsabilidade |
+| Capacity | responsibility |
 |---|---|
 | Cloud and Network | accounts, VPCs, subnets, private endpoints and egress |
 | Runtime Platform | Kubernetes, serverless or compute managed |
@@ -126,7 +126,7 @@ The capability map does not replace the architectural separation between planes.
 
 A capacity may have components in both planes, for example, Model Management defines policies in the control plane, while Model Gateway applies these policies in the data plane.
 
-Consultation [Control plan and date plan](../architecture/control-plane-data-plane.md) for separation details.
+Consultation [Control plane and data plane](../architecture/control-plane-data-plane.md) for separation details.
 
 ## Platform MVP
 
@@ -137,7 +137,7 @@ Not all capacities need to exist in the first release. A corporate MVP normally 
 3. Model Gateway;
 4. identity and authorisation;
 5. policy enforcement;
-6. tip-to-end observability;
+6. end-to-end observability;
 7. minimum assessment;
 8. IC/CD with gates;
 9. an integration of knowledge or a real tool;
@@ -159,7 +159,7 @@ Some responsibilities shall remain in the product until there is proven repetiti
 Shared capacity shall meet most of the following criteria:
 
 - re-used for multiple products;
-- requer controle uniforme;
+- requer control uniforme;
 - has an economy of operational scale;
 - has a stable or verifiable contract;
 - has owner and SLO defined;

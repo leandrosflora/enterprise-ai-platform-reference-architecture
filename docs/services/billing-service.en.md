@@ -4,7 +4,7 @@
 
 The Billing Service is responsible for FinOps of the platform: token tracking, cost allocation by agent/time/trade unit and generation of chargeback/showback.
 
-## Responsabilidades
+## responsibilities
 
 - Consume events of use (agent invoking, tool execution, embedding generation)
 - Calculating cost per model, agent, team and business unit
@@ -36,7 +36,7 @@ The Billing Service is responsible for FinOps of the platform: token tracking, c
 |---|---|
 | Retention | 24 months for data on use and charge, base for chargeback/showback |
 | Precision | Calculated cost should reflect actual consumption of tokens and invocation tools |
-| Escalabilidade | It processes a high volume of use events without relevant delay in closing periods |
+| scalability | It processes a high volume of use events without relevant delay in closing periods |
 | Audit | Cost calculations should be traceable to the event of origin |
 
 ## Related Decisions

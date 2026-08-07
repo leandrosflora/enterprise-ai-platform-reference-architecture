@@ -1,4 +1,4 @@
-# Control Plan and Date Plan
+# Control plane and data plane
 
 ## Decision
 
@@ -11,7 +11,7 @@ This separation reduces the blast radius, allows scaling each plan independently
 
 ## Control plane
 
-| Capacity | Responsabilidade |
+| Capacity | responsibility |
 |---|---|
 | Agent Registry | Half-data, immutable versions and life cycle status. |
 | Governance Service | Workflow, segregation of functions and evidence. |
@@ -23,7 +23,7 @@ This separation reduces the blast radius, allows scaling each plan independently
 
 ## Data plane
 
-| Capacity | Responsabilidade |
+| Capacity | responsibility |
 |---|---|
 | Agent Gateway | Authentication, initial authorisation, rate limit and routing. |
 | Agent Runtime | Orchestration of the execution of the agent. |
@@ -37,7 +37,7 @@ This separation reduces the blast radius, allows scaling each plan independently
 ## Flow of publication
 
 1. The deloper creates an immutable version of the agent.
-2. Contracts, datesets, budgets and policies are validated.
+2. Contracts, datasets, budgets and policies are validated.
 3. Governance Service records decisions and evidence.
 4. The approved policies are published in the Policy Decision Point.
 5. Agent Registry changes the version to `PUBLISHED`.
@@ -51,7 +51,7 @@ This separation reduces the blast radius, allows scaling each plan independently
 4. Knowledge, Memory, Model Gateway and MCP apply local enforcement.
 5. Events and traces record decisions, costs and results.
 
-## Disponibilidade
+## availability
 
 The date plane does not depend on synchronous calls to the control plane during each invocation. Publication settings and policies are distributed and stored in cache with:
 
@@ -61,7 +61,7 @@ The date plane does not depend on synchronous calls to the control plane during 
 - fallback to the latest valid policy;
 - comportamento `deny by default` when there is no applicable policy.
 
-## Isolamento
+## isolation
 
 - namespaces and service accounts separated by plane;
 - metadata banks are not accessed directly by the data plane;

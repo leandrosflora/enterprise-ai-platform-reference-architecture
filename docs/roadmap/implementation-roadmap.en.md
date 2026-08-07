@@ -16,7 +16,7 @@ The reference already contains:
 - Container C4 and deployment with control plane/data plane;
 - Explicit model Gateway;
 - feasible RAG security and memory;
-- runbooks operacionais;
+- runbooks operational;
 - vertical slice feasible with Docker Compose;
 - publicizable documentation via MkDocs and GitHub Pages.
 
@@ -28,7 +28,7 @@ The vertical slice is deliberately small. The phases below describe the evolutio
 
 Create the minimum planned date for the controlled execution of agents.
 
-### Entregas
+### deliverables
 
 - Agent Gateway;
 - Agent Runtime;
@@ -43,7 +43,7 @@ Create the minimum planned date for the controlled execution of agents.
 ### Success criteria
 
 - first agent published by pipeline;
-- trace ponta a ponta;
+- trace end a end;
 - published canonical events;
 - authorisation `deny by default` exercitada;
 - rollback validado;
@@ -51,7 +51,7 @@ Create the minimum planned date for the controlled execution of agents.
 
 ## Phase 2 — Knowledge and Memory
 
-### Entregas
+### deliverables
 
 - Knowledge Service;
 - quarantine pipeline;
@@ -71,7 +71,7 @@ Create the minimum planned date for the controlled execution of agents.
 
 ## Phase 3 — PCM and corporate tools
 
-### Entregas
+### deliverables
 
 - MCP Registry;
 - onboarding automatizado;
@@ -89,12 +89,12 @@ Create the minimum planned date for the controlled execution of agents.
 
 ## Phase 4 — Governance and Evaluation
 
-### Entregas
+### deliverables
 
 - AI Catalog;
 - workflow with function segregation;
 - risk assessment automatizado;
-- datesets and databases;
+- datasets and databases;
 - quality gates;
 - immutable evidence;
 - model lifecycle.
@@ -108,12 +108,12 @@ Create the minimum planned date for the controlled execution of agents.
 
 ## Phase 5 — Scale and FinOps
 
-### Entregas
+### deliverables
 
 - multi-tenant isolation endurecido;
 - competition autoscaling and backlog;
 - budgets, quotas and chargeback;
-- marketplace interno;
+- internal marketplace;
 - disaster recovery;
 - dashboards executivos;
 - multi-region operation when justified.

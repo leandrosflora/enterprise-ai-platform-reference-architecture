@@ -135,4 +135,4 @@ The decomposition above is logical, it does not determine the amount of services
 
 ## PDF
 
-O workflow **Book** it generates a consolidated Markdown manuscript, a PDF and rendered previews.The files are available as artifact of the GitHub Actions at each execution of the workflow.
+The workflow **Book** it generates a consolidated Markdown manuscript, a PDF and rendered previews.The files are available as artifact of the GitHub Actions at each execution of the workflow.

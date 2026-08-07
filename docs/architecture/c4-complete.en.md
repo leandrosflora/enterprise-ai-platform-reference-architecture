@@ -79,4 +79,4 @@ The workflow `render-c4-diagrams.yml` it performs the same process when a source
 - definitions of agents are versioned and immutable after publication;
 - promotion between environments depends on evidence, not only manual approval;
 - rollback must select a known version, without editing production;
-- tracing connects canal, agent, model, retrieval and tools.
+- tracing connects channel, agent, model, retrieval and tools.

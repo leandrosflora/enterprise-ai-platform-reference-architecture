@@ -10,7 +10,7 @@ The guides below do not replace ADRs, and they help to identify the most appropr
 |---|---|
 | entry and language are variables | sequence and rules are known |
 | selection of tools depends on context | steps need to be reproducible |
-| there is a need for interpretation | erro precisa ser praticamente nulo |
+| there is a need for interpretation | erro needs ser praticamente nulo |
 | paths cannot be easily listed | audit requires explicit transitions |
 | results can be assessed by heading | the result is validated by objective rule. |
 
@@ -30,16 +30,16 @@ Use the lowest level of autonomy that solves the problem. An agent can interpret
 | Criteria | RAG | Fine-tuning |
 |---|---|---|
 | knowledge often changes | strong | weak |
-| need for citations | forte | fraco |
-| controle por documento | forte | difficult |
+| need for citations | forte | weak |
+| control by document | forte | difficult |
 | style or format adaptation | moderado | forte |
 | very specialized and stable knowledge | Possible | in some cases |
 | Immediate removal of information | strong | difficult |
-| preparation cost | Ingestion and retrieval | dateset and training |
+| preparation cost | Ingestion and retrieval | dataset and training |
 
 ### Recommendation
 
-Start with RAG for changeable corporate knowledge. Use fine-tuning for behavior, format, classification or specialized language when there are dateset and measurable gain.
+Start with RAG for changeable corporate knowledge. Use fine-tuning for behavior, format, classification or specialized language when there are dataset and measurable gain.
 
 ### Combination
 
@@ -126,7 +126,7 @@ A corporate platform should converge to Model Gateway, but it does not need to b
 | volume and throughput moderate | scale or search standards |
 | consistency with metadata is important to achieve the accuracy of the study. | distributed indexation and large-scale low latency |
 | team already operates the technology | advanced resources justify new platform |
-| menor complexidade operacional | independent isolation and tuning are required |
+| menor complexidade operational | independent isolation and tuning are required |
 
 ### Recommendation
 
@@ -175,7 +175,7 @@ Do not reuse a response between users when the authorisation or context can alte
 - corporate contracts;
 - policies and risk gates;
 - integration with identity and internal systems;
-- datesets and domain evaluations;
+- datasets and domain evaluations;
 - developer's experience;
 - telemetry and cost assignment.
 
@@ -183,7 +183,7 @@ Do not reuse a response between users when the authorisation or context can alte
 
 Multi-provider must meet a specific requirement:
 
-- disponibilidade;
+- availability;
 - residence of data;
 - specific capacity;
 - cost negotiation;

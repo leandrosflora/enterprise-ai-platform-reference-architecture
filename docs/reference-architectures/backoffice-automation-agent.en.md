@@ -12,7 +12,7 @@ Automate repetitive operational backoffice tasks using agents integrated to inte
 - Preparation of documents
 - Assisted implementation of operational tasks
 
-## Componentes Envolvidos
+## components involved
 
 - Agent Gateway
 - Agent Runtime

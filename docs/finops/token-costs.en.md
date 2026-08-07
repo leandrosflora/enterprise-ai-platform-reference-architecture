@@ -21,9 +21,9 @@ Controlling AI costs by agent, area and model.
 - Model Provider
 - Model Version
 
-## Indicadores
+## indicators
 
-| Indicador | Description |
+| indicator | Description |
 |---|---|
 | Cost per Agent | Cost added per agent |
 | Cost per User | Cost added per user |

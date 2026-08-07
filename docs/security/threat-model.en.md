@@ -4,7 +4,7 @@
 
 Identify relevant threats using STRIDE and specific controls for agents, RAG, memory, models and tools.
 
-## Escopo
+## scope
 
 - AI Portal, Agent Gateway and Agent Runtime;
 - Model Gateway and providers;
@@ -12,7 +12,7 @@ Identify relevant threats using STRIDE and specific controls for agents, RAG, me
 - Memory Service;
 - MCP Registry and MCP Servers;
 - Governance, Evaluation and Audit Services;
-- supply chain of models, libraries, prompts and datesets.
+- supply chain of models, libraries, prompts and datasets.
 
 ## STRIDE
 
@@ -46,7 +46,7 @@ Identify relevant threats using STRIDE and specific controls for agents, RAG, me
 | Tool Mixuse | Tool receives incorrect argument | JSON Schema, allowlist, idempotence and human approval |
 | Agent Hijacking | Unreliable content changes plan or tool | policy enforcement external to the model and limits of autonomy |
 | Resource Exhaustion | Excessive agent or context loops increase cost | limit of steps, tokens, time, budget and circuit breaker |
-| Hallucination | Resposta incorreta apresentada como fato | citations, groundedness, abstention and fallback |
+| Hallucination | response incorreta apresentada as fato | citations, groundedness, abstention and fallback |
 | Excessive Agency | Agent shall act beyond what is permitted | limits of autonomy, risk tiering and human-in-the-loop |
 
 ## OWASP mapping for MLLs

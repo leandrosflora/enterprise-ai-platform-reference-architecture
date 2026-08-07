@@ -2,11 +2,11 @@
 
 ## Objective
 
-Defining how data, datesets, models, prompts, embeddings and snapshots of knowledge are registered, evaluated, promoted, monitored, altered and removed with traceability point by point.
+Defining how data, datasets, models, prompts, embeddings and snapshots of knowledge are registered, evaluated, promoted, monitored, altered and removed with traceability point by point.
 
 The lifecycle exists to prevent a version of the agent from being published without knowing how to do so. **which assets were used, who approved them, how they were evaluated and how they can be reversed or eliminated.**.
 
-## Escopo governado
+## scope governado
 
 | Type of asset | Examples | Minimum identity |
 |---|---|---|
@@ -91,7 +91,7 @@ lineage:
 changeTicket: AI-1842
 ```
 
-### Regras
+### rules
 
 - published versions are unchangeable;
 - hashes identify the effective content, not only the logical name;
@@ -100,7 +100,7 @@ changeTicket: AI-1842
 - aliases must resolve for a version and record the resolution;
 - unapproved assets cannot be referred to by published versions.
 
-## Lineage ponta a ponta
+## Lineage end a end
 
 The lineage must respond to:
 
@@ -109,7 +109,7 @@ The lineage must respond to:
 - which version of the model or embedding was used?
 - which prompts and policies participated?
 - which dates evaluated the version?
-- qual release consumiu o ativo?
+- which release consumiu the ativo?
 - which users, processes or decisions have been impacted?
 
 ```mermaid
@@ -168,7 +168,7 @@ Synthetic data do not eliminate the need to assess privacy, representativeness a
 | Representativeness | segments, languages, channels and edge cases |
 | Update | period, frequency and cutoff date |
 | Consistency | Duplicity, conflict and divergent labels |
-| Privacidade | minimizing, masking and segregation |
+| privacy | minimizing, masking and segregation |
 | Security | approved origin, malware and poisoning |
 | Leakage | separation between training, evaluation and production |
 
@@ -311,7 +311,7 @@ Possible basis:
 
 ## Drift and re-evaluation triggers
 
-| Tipo | Sinal | Example of action |
+| type | Sinal | Example of action |
 |---|---|---|
 | Data drift | distribution or schema changed | blocking intake, recalibrating dates |
 | Concept drift | relationship between entry and result has changed | review rule, prompt or model |
@@ -352,7 +352,7 @@ Retraining or fine-tuning should not be automatic only because drift has been de
 
 When performed:
 
-- freeze dateset and training code;
+- freeze dataset and training code;
 - register parameters, seed and environment;
 - generate new model artifact and model card;
 - repeat applicable complete assessment;
@@ -384,14 +384,14 @@ change-record.json
 retirement-record.json
 ```
 
-## Responsabilidades
+## responsibilities
 
-| Papel | Responsabilidade |
+| role | responsibility |
 |---|---|
 | Business Owner | residual risk outcome and acceptance |
 | Data Owner | sources, quality, access, retention and exclusion |
 | AI Architect | borders, compatibility and architectural decisions |
-| Model Risk/ Evaluation | methodology, datesets, thresholds and independence |
+| Model Risk/ Evaluation | methodology, datasets, thresholds and independence |
 | Security / Privacy | threats, data, suppliers and controls |
 | Platform Team | registry, manifests, policies and technical promotion |
 | Product Team | prompts, experience, feedback and result metrics |

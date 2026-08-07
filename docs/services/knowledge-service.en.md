@@ -6,7 +6,7 @@ The Knowledge Service ingests, classifies, put in quarantine, indexes and retrie
 
 Compulsory standard: [RAG Security and Memory](../security/rag-memory-security.md).
 
-## Responsabilidades
+## responsibilities
 
 - validate type, size, checksum and origin;
 - execute antivirus and detection of active payload;
@@ -96,7 +96,7 @@ Prompt-injection sanitization
 <untrusted_document> context
 ```
 
-### Regras
+### rules
 
 - tenant and subject are derived from identity, not from payload;
 - ACL shall be applied to the document and the chunk;
@@ -114,7 +114,7 @@ POST /v1/knowledge-bases/{knowledgeBaseId}/documents
 POST /v1/knowledge-bases/{knowledgeBaseId}:search
 ```
 
-## Publicated events
+## published events
 
 - `knowledge.ingested`
 - `knowledge.quarantined`
@@ -128,11 +128,11 @@ Events do not carry full text, and should contain DIs, classification, checksum,
 
 Exclusion removes:
 
-1. documento original;
+1. document original;
 2. chunks;
 3. embeddings;
 4. caches;
-5. references in derived datesets when applicable.
+5. references in derived datasets when applicable.
 
 Re-indexation creates a new immutable version and invalidates the previous one. `documentId` and `tenantId`.
 
@@ -145,7 +145,7 @@ Re-indexation creates a new immutable version and invalidates the previous one. 
 | Policy Decision Point | ACL, purpose and classification |
 | OpenSearch | Vector and hybrid search |
 | PostgreSQL | Half-data, provenance and retention |
-| Foundation Models | Embeddings aprovados |
+| Foundation Models | Embeddings approved |
 | Kafka | Auditable events |
 
 ## Non-functional requirements
@@ -153,11 +153,11 @@ Re-indexation creates a new immutable version and invalidates the previous one. 
 | Requirements | Guideline |
 |---|---|
 | Security | Deny by default, ACL by chunk and quarantine-first |
-| Privacidade | Minimization, retention and verifiable exclusion |
+| privacy | Minimization, retention and verifiable exclusion |
 | Rastreabilidade | Origin, checksum, version and policy decision |
 | Quality | Evaluating retrieval separately from generation |
 | Resilience | Idequate reprocessing and DLQ |
-| Escalabilidade | Asynchronous separate consultation intake |
+| scalability | Asynchronous separate consultation intake |
 
 ## Related Decisions
 

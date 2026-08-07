@@ -7,12 +7,12 @@ To provide an internal corporate assistant to support collaborators in search of
 ## Cases of Use
 
 - Searching for internal policies
-- Apoio a atendimento interno
+- Apoio a internal support
 - Consulta a procedimentos
 - Response generation with citation of sources
 - Assisted call opening
 
-## Componentes Envolvidos
+## components involved
 
 - AI Portal
 - Agent Gateway
@@ -29,7 +29,7 @@ To provide an internal corporate assistant to support collaborators in search of
 1. The user accesses the UA Portal.
 2. Agent Gateway authenticates and authorizes the request.
 3. Agent Runtime performs the agent.
-4. Knowledge Service recupera documentos relevantes.
+4. Knowledge Service recupera documents relevantes.
 5. Memory Service recovers allowed context.
 6. Agent Runtime calls the foundational model.
 7. Evaluation Service assesses the response.

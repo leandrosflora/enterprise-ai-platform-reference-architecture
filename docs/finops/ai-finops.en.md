@@ -58,7 +58,7 @@ Fallback should preserve tool calling compatibility, context size, data policy a
 | cache rate | potential economy |
 | Retries/fallback cost | Unstableness and waste |
 | cost per tool | Integration optimization |
-| budget consumed/projected | controle preventivo |
+| budget consumed/projected | control preventivo |
 
 ## Implementing controls
 

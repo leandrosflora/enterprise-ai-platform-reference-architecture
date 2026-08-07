@@ -1,11 +1,11 @@
 # Agent Registry
 
-## Responsabilidades
+## responsibilities
 
 - Catalogue of officials
-- Versionamento
+- versioning
 - Publication
-- Metadados
+- metadata
 - Ownership
 
 ## Storage Data

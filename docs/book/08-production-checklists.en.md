@@ -39,7 +39,7 @@ Checklists are verification instruments, not substitutes for analysis.Non-applic
 - [ ] authorisation is `deny by default`;
 - [ ] tenant and subject are not freely chosen by the client;
 - [ ] access to agents, knowledge bases, memory and tools is independent;
-- [ ] service-to-service utiliza mecanismo aprovado;
+- [ ] service-to-service uses mecanismo approved;
 - [ ] elevation of privilege was tested;
 - [ ] withdrawal of access was exercised.
 
@@ -110,7 +110,7 @@ Consultation [RAG security and memory](../security/rag-memory-security.md).
 ## 8. Evaluation readiness
 
 - [ ] dataset represent real cases and edge cases;
-- [ ] dateset and version are identified;
+- [ ] dataset and version are identified;
 - [ ] baseline is defined;
 - [ ] quality of the task is measured separately;
 - [ ] retrieval and groundedness are evaluated separately;

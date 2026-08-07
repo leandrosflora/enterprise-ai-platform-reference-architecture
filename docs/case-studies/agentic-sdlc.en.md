@@ -27,7 +27,7 @@ Code generation tools accelerate only part of the software Development Lifecycle
 
 Architecture transforms this flow into a durable, governed and audible journey.
 
-## Jornada aplicada
+## journey aplicada
 
 ```text
 Epic, requisito ou GitHub Issue
@@ -97,7 +97,7 @@ AI enters the activities that require interpretation, synthesis, generation and 
 - generates a structured proposal for amendment;
 - seleciona arquivos permitidos;
 - produces code and tests within the scope;
-- abre somente draft PR.
+- abre only draft PR.
 
 ### Test and Security Agents
 
@@ -117,7 +117,7 @@ The response of a model **has no direct authority**. All side effects go through
 
 ## What remains deterministic
 
-| Responsabilidade | Why should not depend on probabilistic decision |
+| responsibility | Why should not depend on probabilistic decision |
 |---|---|
 | state machine | progression, timeout, retry and compensation need to be reproducible |
 | policy enforcement | authorisation must be explicit and fail-closed |
@@ -125,7 +125,7 @@ The response of a model **has no direct authority**. All side effects go through
 | Human approval | it must refer to identity, decision and exact digest |
 | execution of tools | schemas, grants, paths and environments should be controlled. |
 | CI quality gates | tests, scans and thresholds need to produce objective results for the study of the study. |
-| release | somente o digest aprovado pode ser promovido |
+| release | only the digest approved can ser promoted |
 | idempotency | retries cannot double effects |
 | observation and rollback | decisions should use health checks and versioned SLOs |
 | evidence store | hashes, integrity chain and retention do not depend on the model. |
@@ -141,14 +141,14 @@ The response of a model **has no direct authority**. All side effects go through
 | MCP Gateway | MCP fake for tests and stdio transport JSON-RPC for real servers | implemented; HTTP/SSE remains evolving |
 | Policy Enforcement | grants per paper and OPA in tool loop, remote or CLI | implemented; production requires OPA HA and signed bundles |
 | Knowledge Service | Context Builder, documents, ADRs, contracts and project memory | baseline implemented; knowledge lifecycle corporate pending |
-| Memory Service | checkpoints, approved context and historical change | baseline implementada |
+| Memory Service | checkpoints, approved context and historical change | baseline implemented |
 | Evaluation Service | tests, scans, schemas, groundedness and quality gates | baseline implemented; continuous evaluation with real models still evolving |
 | Governance Service | durable workflow, segregation, approval by digest and policy-as-code | demonstrado localmente |
 | Evidence and Audit | evidence bundles write-once, SHA-256 and manifest with hash chain | implemented locally; outstanding corporate WORM |
-| Workload Identity | suporte a GitHub OIDC nos adapters P7 | implementado como adapter; trust policies reais pendentes |
+| Workload Identity | support a GitHub OIDC in the adapters P7 | implemented as adapter; trust policies actual pending |
 | Observability | Correlated events and exporter OTLP HTTP | implemented adapter; corporate backend and outstanding real SLOs |
-| FinOps | limits per agent and Budget Ledger | implementado como controle; backend compartilhado pendente |
-| Supply Chain | Syft, Cosign, digest and manifesto Kubernetes | implemented adapters; registry and admission verification pending |
+| FinOps | limits per agent and Budget Ledger | implemented as control; shared backend pending |
+| Supply Chain | Syft, Cosign, digest and manifest Kubernetes | implemented adapters; registry and admission verification pending |
 | Sandbox | Restricted Docker, without network, read-only and limits | demonstrated; outstanding production isolation |
 | Event Backbone | events du `change_id`, `project_id` and `agent_run_id`  | database based on archives; managed measurement is evolution |
 
@@ -278,7 +278,7 @@ sequenceDiagram
 | Budgets | reserve and block before exceeding the set limit |
 | Security | OPA fail-closed, sandbox restricted and supply-chain adapters |
 
-## Runtime compartilhado
+## Runtime shared
 
 The [agentic-sdlc-runtime](https://github.com/leandrosflora/agentic-sdlc-runtime) concentrates the execution of agents and provides:
 
@@ -296,7 +296,7 @@ The [agentic-sdlc-runtime](https://github.com/leandrosflora/agentic-sdlc-runtime
 
 ## Case repositories
 
-| Repository | Responsabilidade |
+| Repository | responsibility |
 |---|---|
 |  [agentic-sdlc-reference-architecture](https://github.com/leandrosflora/agentic-sdlc-reference-architecture)  | architecture, contracts, policies, documentation, golden path and governance |
 |  [agentic-sdlc-runtime](https://github.com/leandrosflora/agentic-sdlc-runtime)  | shared runtime, declarative agents, gateways, workflow and adapters |
@@ -350,7 +350,7 @@ The main confidence limits are:
 | GitHub integration |  `DEMONSTRATED_LOCAL`  | Issue, comment, Checks, branch and draft PR |
 | Release and rollback demo |  `DEMONSTRATED_LOCAL`  | healthy path and rollback path |
 | Adapters P7 |  `IMPLEMENTATION_STARTED`  | OIDC, S3, OTLP, SQS, Syft, Cosign and Kubernetes |
-| Corporate operation | Pendente | providers, environments and real controls not yet approved |
+| Corporate operation | pending | providers, environments and real controls not yet approved |
 | Production readiness |  `NOT_PRODUCTION_READY`  | lack of operational evidence and formal approval |
 
 ## Limits declared
@@ -360,14 +360,14 @@ The main confidence limits are:
 - Real MCP supports stdio; other transports are still evolving;
 - evidence store local is tamper-evident, no storage corporate WORM;
 - demo environment persists locally;
-- adapters P7 precisam ser configurados contra providers reais;
-- manifesto Kubernetes possui placeholders;
+- adapters P7 need ser configured contra providers actual;
+- manifest Kubernetes has placeholders;
 - integration, performance, safety and recovery still need to be validated in a representative environment;
 - agents do not have authorization to merge or autonomous productive publication.
 
 ## Next slats
 
-1. executar o workflow completo contra um Model Gateway corporativo;
+1. execute The workflow complete contra a Model Gateway corporativo;
 2. connecting real MCP servers by tool and trust zone;
 3. Implement OPA HA with signed bundles;
 4. using workload identity and just-in-time credentials;

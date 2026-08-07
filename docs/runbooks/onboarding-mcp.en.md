@@ -70,14 +70,14 @@ Register contract, owner, risk, endpoint, workload identity, SLO and evidence.
 
 **Exit criteria:** status `SUBMITTED`, never available for productive discovery.
 
-### 6. Aprovar
+### 6. approve
 
 - Security validates authentication, egress and secrets;
 - LGPD validates purpose and minimization when applicable;
 - AI Architect validates scope and use by agents;
 - owner of the destination system validates capacity and rollback.
 
-### 7. Publicate and bind
+### 7. publish and bind
 
 The publication makes the version uncoverable only for explicitly authorised agents. Do not use wildcard of tool in production.
 

@@ -32,7 +32,7 @@ Collection without exposing sensitive data:
 |  `404`  | Resource visibility and published version | validate catalogue and tenant |
 |  `409`  | uncontrolled or state | See original operation |
 |  `422`  | policy violation and missing evidence | correct configuration |
-|  `429`  | quota, rate limit ou budget | reduzir consumo ou aprovar novo limite |
+|  `429`  | quota, rate limit or budget | reduce consumption or approve novo limit |
 |  `BLOCKED`  | policy/guardrail | confirmar bloqueio esperado |
 |  `PARTIAL`  | degraded dependence | Inform limitation and call for fallback |
 | timeout | span slower and deadline | isolate provider/tool and use asynchronous |

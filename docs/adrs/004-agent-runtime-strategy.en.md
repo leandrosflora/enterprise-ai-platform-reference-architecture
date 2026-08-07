@@ -1,6 +1,6 @@
 # ADR-004 — Agent Runtime with stable core and adapters
 
-**Status:** Aceito
+**Status:** accepted
 
 ## Context
 
@@ -32,7 +32,7 @@ Adapters may integrate LangGraph, Semantic Kernel, managed services of agents or
 
 ## Alternatives
 
-| Alternativa | Vantagem | Limitation |
+| alternative | advantage | Limitation |
 |---|---|---|
 | Single Framework | lower initial effort | lock-in and framework dependent controls |
 | Runtime per squad | Local autonomy | Security fragmentation, telemetry and costs |

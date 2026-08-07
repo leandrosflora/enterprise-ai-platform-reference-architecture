@@ -1,6 +1,6 @@
 # ADR-005 — Vector and hybrid search strategy
 
-**Status:** Aceito
+**Status:** accepted
 
 ## Context
 
@@ -24,11 +24,11 @@ The architecture must maintain an abstraction of index and retrieval to allow ot
 
 ## Alternatives
 
-| Alternativa | Vantagem | Limitation |
+| alternative | advantage | Limitation |
 |---|---|---|
 | OpenSearch | hybrid search, filters and operational maturity | it requires tuning and may have relevant cost |
 | pgvector | simplicity and proximity to relational data | less specialization for large-scale hybrid search |
-| MongoDB Vector Search | integration with documents and memory | acopla retrieval ao datastore operacional |
+| MongoDB Vector Search | integration with documents and memory | acopla retrieval to the datastore operational |
 | Specialised database vector | Advanced vector resources | Additional dependence, cost and own governance |
 
 ## Positive consequences

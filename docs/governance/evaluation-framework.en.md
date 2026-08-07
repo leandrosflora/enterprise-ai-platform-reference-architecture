@@ -8,7 +8,7 @@ Establishing a reproducible approach to assess quality, safety, cost and impact 
 
 | Camada | Main question | Examples of metrics |
 |---|---|---|
-| Componente | Does retriever, prompt, model or tool work in isolation? | recall@k, precision@k, schema validity, tool success |
+| component | Does retriever, prompt, model or tool work in isolation? | recall@k, precision@k, schema validity, tool success |
 | System | Does the application deliver a correct and safe response tip by tip? | groundedness, answer relevance, task success, toxicity |
 | Operation | Does the service meet SLO and budget? | latency, error, tokens, cost, availability |
 | Business | Does the case of use generate the expected result? | conversion, saved time, resolution, satisfaction |
@@ -17,7 +17,7 @@ Establishing a reproducible approach to assess quality, safety, cost and impact 
 
 ### Offline
 
-Performed on dateset versioned before deploy. It must compare candidate, baseline and production version.
+Performed on dataset versioned before deploy. It must compare candidate, baseline and production version.
 
 ### Online
 
@@ -80,7 +80,7 @@ Deploy should be blocked when:
 - any critical safety test fails;
 - schema of outflow or tool contract is invalid;
 - projected cost exceeds budget;
-- dateset, prompt, model or policy is not versioned;
+- dataset, prompt, model or policy is not versioned;
 - obligatory evidence is not reproducible.
 
 ## Continuous monitoring
@@ -89,10 +89,10 @@ Production should feed new cases for regression; incidences, negative assessment
 
 ## Minimum report
 
-- versions of model, prompt, policy and dateset;
+- versions of model, prompt, policy and dataset;
 - environment and parameters;
 - metrics, thresholds and comparison with baseline;
-- falhas conhecidas;
+- failures conhecidas;
 - result of adverse tests;
 - approval decision;
 - residual risks and monitoring plan.

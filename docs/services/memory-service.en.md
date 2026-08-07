@@ -6,12 +6,12 @@ The Memory Service persists only in a necessary and authorized context; it is no
 
 Compulsory standard: [RAG Security and Memory](../security/rag-memory-security.md).
 
-## Responsabilidades
+## responsibilities
 
 - maintain session memory, short-term, long-term and profile;
 - applying tenant and isolation by subject;
 - validate purpose, consent, origin, trust and classification;
-- impor TTL por tipo;
+- impor TTL by type;
 - detectar memory poisoning;
 - changes;
 - expiry or withdraw;
@@ -19,9 +19,9 @@ Compulsory standard: [RAG Security and Memory](../security/rag-memory-security.m
 
 ## Types of Memory
 
-| Tipo | Purpose | Maximum TTL | Consentimento |
+| type | Purpose | Maximum TTL | Consentimento |
 |---|---|---:|---|
-|  `SESSION`  | Context of the current conversation | 24 horas | Conforme dado |
+|  `SESSION`  | Context of the current conversation | 24 horas | according to dado |
 |  `SHORT_TERM`  | Operational continuity | 7 days | For purpose |
 |  `LONG_TERM`  | Reused facts | 365 days | Obligatory |
 |  `PROFILE`  | Explicit preferences | 365 days | Obligatory |
@@ -49,7 +49,7 @@ The standard decision is to deny. Writing only occurs when:
 
 - the tenant and the subject come from the authenticated identity;
 - the purpose is permitted;
-- o TTL respeita o tipo;
+- the TTL respects the type;
 - the classification may be persisted;
 - the origin is compatible with the type;
 - there is no poisoning indicator;
@@ -79,7 +79,7 @@ The Office shall reject:
 
 Indicators generate `policy_denials_total{resource_type="memory"}` and audit event without the rejected value.
 
-## Isolamento
+## isolation
 
 The logical key is:
 
@@ -126,7 +126,7 @@ DELETE /v1/sessions/{sessionId}/memory
 1. validate policy;
 2. record the unchanged version;
 3. update the active version button;
-4. registrar TTL;
+4. record TTL;
 5. emitir `memory.updated` No content;
 6. expirar automaticamente;
 7. excluir ou anonimizar;
@@ -150,7 +150,7 @@ MongoDB or equivalent bank with:
 - resting cryptography;
 - TTL index;
 - composed of tenant and subject;
-- versionamento otimista;
+- versioning otimista;
 - backup compatible with exclusion
 - disposal trail.
 
@@ -159,8 +159,8 @@ MongoDB or equivalent bank with:
 | Requirements | Guideline |
 |---|---|
 | Security | Deny by default and anti-poisoning |
-| Privacidade | Consent, minimisation and disposal |
-| Isolamento | Tenant + subject hash |
+| privacy | Consent, minimisation and disposal |
+| isolation | Tenant + subject hash |
 | Traceability | Origin, trust, version and purpose |
-| Disponibilidade | Memory degradation when unavailable |
+| availability | Memory degradation when unavailable |
 | Consistency | Competition control and reconciliation |

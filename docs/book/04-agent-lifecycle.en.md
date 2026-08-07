@@ -69,7 +69,7 @@ Do not advance when the problem is just “to use AI” or when there is no owne
 ### Artifacts
 
 - registration in AI Catalog;
-- risk assessment inicial;
+- initial risk assessment;
 - data classification;
 - technical and business owner;
 - golden path or exception.
@@ -127,7 +127,7 @@ The architecture must demonstrate how policies are applied during the execution.
 - scanner results;
 - prompt version and configuration;
 - version of models and embeddings;
-- dates used in the tests.
+- datasets used in the tests.
 
 ## Stage 5 — Evaluation
 
@@ -160,7 +160,7 @@ Publication is blocked when mandatory thresholds are not reached or when the reg
 
 Refer to [Evaluation Service](../services/evaluation-service.md) and [AI Risk Framework](../governance/ai-risk-framework.md).
 
-## Stage 6 — Government
+## Stage 6 — Governance
 
 Submission must freeze a version and its evidence. The decision must record:
 
@@ -182,7 +182,7 @@ The same identity should not submit and approve the same version when the risk r
 Examples of conditions:
 
 - initial user limit;
-- canal interno apenas;
+- internal channel only;
 - HITL for a given action;
 - Daily budget;
 - model restricted to one region;
@@ -199,7 +199,7 @@ Publication shall take place by pipeline and shall check:
 - migration and ready-to-use dependencies;
 - dashboards and alerts;
 - runbook and supporting contacts;
-- rollback testado;
+- tested rollback;
 - quota and budget configuration.
 
 ### Release strategies
@@ -210,11 +210,11 @@ Publication shall take place by pipeline and shall check:
 - shadow evaluation;
 - feature flags;
 - blue/green;
-- ramp-up progressivo.
+- progressive ramp-up.
 
 ## Stage 8 — Operate
 
-Operar significa observar simultaneamente:
+Operations require simultaneous observation of:
 
 - technical health;
 - quality of responses;
@@ -235,7 +235,7 @@ Review triggers:
 - change of main prompt;
 - new data source or tool;
 - change of purpose;
-- incidente relevante;
+- significant incident;
 - quality degradation;
 - increased risk or volume;
 - expiry of approval;
@@ -283,7 +283,7 @@ Not all files need to use these formats, but the information needs to exist and 
 |---|---:|---:|---:|---:|
 | owner and catalogue | Compulsory | Compulsory | Compulsory | Compulsory |
 | Contract tests | Compulsory | Compulsory | Compulsory | Compulsory |
-| quality assessment | sample | dates | dateset + baseline | dateset + independent review |
+| quality assessment | sample | dates | dataset + baseline | dataset + independent review |
 | threat model | simplified | Compulsory | detailed | detailed + formal review |
 | HITL | optional | by action | Generally mandatory | obligatory for permitted actions |
 | Independent approval | optional | as policy | Compulsory | multiple functions |

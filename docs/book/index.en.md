@@ -65,7 +65,7 @@ Each chapter seeks to answer five questions:
 
 1. What problem is being solved?
 2. Which decision or model is recommended?
-3. Quais trade-offs foram assumidos?
+3. which trade-offs foram assumidos?
 4. How to check that the decision works?
 5. What is the next technical artifact to consult?
 

@@ -1,6 +1,6 @@
 # ADR-003 — Agent Gateway as entry point
 
-**Status:** Aceito
+**Status:** accepted
 
 ## Context
 
@@ -10,7 +10,7 @@ Channels, agents and model providers evolve at different pace rhythms.Without a 
 
 Introduzir um **Agent Gateway** between channels/BFFs and runtimes, it does not contain business logic or specific prompts of the journey.
 
-## Responsabilidades
+## responsibilities
 
 - authentication, authorisation and resolution of tenant;
 - rate limit, quotas and budget enforcement;

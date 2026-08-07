@@ -28,7 +28,7 @@ Control, assign and optimize AI costs per agent, model, area and case of use.
 
 ## KPIs
 
-| Indicador | Description |
+| indicator | Description |
 |---|---|
 | Cost per Agent | Cost per agent |
 | Cost per Model | Cost per model |

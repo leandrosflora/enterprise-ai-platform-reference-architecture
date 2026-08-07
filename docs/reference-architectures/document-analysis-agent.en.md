@@ -12,7 +12,7 @@ Automate the analysis of corporate documents, extracting information, classifyin
 - Comparison with internal policies
 - Management of assisted opinions
 
-## Componentes Envolvidos
+## components involved
 
 - Agent Gateway
 - Agent Runtime
@@ -53,5 +53,5 @@ Automate the analysis of corporate documents, extracting information, classifyin
 - Correct extraction rate
 - Mean time of analysis
 - Human review rate
-- Falhas por tipo documental
+- failures by type documental
 - Cost per document processed

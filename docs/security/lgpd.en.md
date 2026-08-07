@@ -18,5 +18,5 @@
 ## AI
 
 - Risk assessment
-- Explanability where applicable
+- explainability where applicable
 - Control of exposure of personal data

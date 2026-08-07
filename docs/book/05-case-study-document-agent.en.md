@@ -25,7 +25,7 @@ The objective is to offer an internal agent capable of:
 | Adoption | active users and return rate |
 | Quality | percentage of accepted answers without new manual search |
 | Groundedness | responses supported by authorised citations |
-| Retrieval | recall@k and precision@k on dateset of questions |
+| Retrieval | recall@k and precision@k on dataset of questions |
 | Security | zero cross-tenant or above clearance |
 | Operation | Availability and latency within SLO |
 | Cost | cost per question answered successfully |
@@ -39,7 +39,7 @@ The objective is to offer an internal agent capable of:
 | Data | PUBLIC, INTERNAL and CONFIDENTIAL as clearance |
 | Actions | reading; no writing in the registration system |
 | Memory | SESSION; LONG_TERM disabled in MVP |
-| Canal | portal interno |
+| channel | internal portal |
 | Human in the loop | not mandatory for response; user accesses the cited source |
 | Approval | architecture, security, privacy and owner of the base |
 
@@ -192,7 +192,7 @@ The dates should include:
 - questions with explicit answers;
 - questions that require multiple passages;
 - questions without evidence;
-- documentos expirados;
+- documents expirados;
 - unauthorised documents;
 - ambiguous terms;
 - prompt injection attempts
@@ -205,11 +205,11 @@ The dates should include:
 |---|---|
 | unauthorized retrieval | 0 cases permitted |
 | citation correctness | >= 95% |
-| grounded answer rate | >= 90% on eligible dateset |
+| grounded answer rate | >= 90% on eligible dataset |
 | abstention | if there is insufficient evidence |
 | prompt injection | critical scenarios blocked |
 | retrieval recall@5 | threshold defined with the base owner |
-| p95 latency | conforme classe `INTERACTIVE_RAG`  |
+| p95 latency | according to classe `INTERACTIVE_RAG`  |
 | cost per successful answer | within the approved budget |
 
 The exact Thresholds should be calibrated with the domain and baseline, not copyed without validation.
@@ -219,11 +219,11 @@ The exact Thresholds should be calibrated with the domain and baseline, not copy
 | Indicator | Initial objective |
 |---|---|
 | availability | 99.5% monthly for the internal channel |
-| p95 end-to-end | <= 8 segundos |
-| retrieval p95 | <= 1,5 segundo |
+| p95 end-to-end | <= 8 seconds |
+| retrieval p95 | <= 1.5 seconds |
 | policy decision p95 | <= 100 ms |
 | successful invocation | >= 99% excluding invalid entry |
-| citation presence | 100% das respostas factuais |
+| citation presence | 100% of the responses factuais |
 
 The canonical objectives of workload are: [Non-functional requirements](../architecture/non-functional-requirements.md).
 
@@ -269,13 +269,13 @@ Minimum metrics:
 
 ## Failure modes and response
 
-| Falha | Container |
+| failure | Container |
 |---|---|
 | unavailable model | Permitted fallback or unavailable response |
 | retrieval unavailable | not answering with general knowledge as if it were political |
 | policy engine unavailable | fail closed for non-public content |
 | Expired source | remove from the retrieval and warning the owner |
-| invalid quote | bloquear resposta factual ou retornar warning controlado |
+| invalid quote | block response factual or retornar warning controlado |
 | cost above budget | reduce quota, routing model or suspending expansion |
 | Access incident | to stop agent, preserve evidence and execute runbook |
 
@@ -299,7 +299,7 @@ Minimum metrics:
 - the MVP prioritizes accuracy and authorisation on maximum coverage;
 - there is no long-term memory;
 - answers without evidence are refused;
-- documentos precisam passar por pipeline controlado;
+- documents need passar by pipeline controlado;
 - the official shall not replace the official repository;
 - the user must be able to open the cited source.
 
@@ -308,7 +308,7 @@ Minimum metrics:
 - feedback supervisionado;
 - query rewriting controlado;
 - specialist reranking;
-- suporte multimodal;
+- support multimodal;
 - analytics on knowledge gaps;
 - integration with a policy update workflow;
 - multiple bases with policy routing;

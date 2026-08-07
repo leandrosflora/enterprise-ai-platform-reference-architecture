@@ -1,4 +1,4 @@
-# Exemplo - Tool Call MCP
+# example - Tool Call MCP
 
 ## Objective
 
@@ -22,7 +22,7 @@ Example of exposed tool call via MCP Server.
 }
 ```
 
-## Resposta Esperada
+## response Esperada
 
 ```json
 {
