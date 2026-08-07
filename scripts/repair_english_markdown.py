@@ -32,6 +32,50 @@ def link_targets(line: str) -> list[str]:
     return [match.group("target") for match in MARKDOWN_LINK_RE.finditer(line)]
 
 
+def find_target_position(text: str, target: str, cursor: int) -> int:
+    """Find the destination occurrence, not a same-valued label occurrence."""
+
+    positions: list[int] = []
+    start = cursor
+    while True:
+        position = text.find(target, start)
+        if position < 0:
+            break
+        positions.append(position)
+        start = position + len(target)
+
+    for position in positions:
+        if text.rfind("]", cursor, position) >= cursor:
+            return position
+
+    return positions[-1] if positions else -1
+
+
+def fallback_list_link(
+    source_line: str,
+    english_line: str,
+    target: str,
+    target_pos: int,
+) -> str | None:
+    """Rebuild a malformed bullet link when the model destroyed square brackets."""
+
+    if not source_line.lstrip().startswith("- [") or not english_line.lstrip().startswith("- "):
+        return None
+
+    indent = english_line[: len(english_line) - len(english_line.lstrip())]
+    bullet_prefix = f"{indent}- "
+    raw_label = english_line[len(bullet_prefix) : target_pos].strip()
+    label = raw_label.strip(" []()\t")
+    if not label:
+        return None
+
+    suffix = english_line[target_pos + len(target) :]
+    if suffix.startswith((")", "]")):
+        suffix = suffix[1:]
+
+    return f"{bullet_prefix}[{label}]({target}){suffix}"
+
+
 def repair_link_line(source_line: str, english_line: str) -> tuple[str, list[str]]:
     """Restore canonical link targets while keeping translated English labels/prose."""
 
@@ -45,26 +89,36 @@ def repair_link_line(source_line: str, english_line: str) -> tuple[str, list[str
 
     for index, source_link in enumerate(source_links, start=1):
         target = source_link.group("target")
-        target_pos = repaired.find(target, cursor)
+        target_pos = find_target_position(repaired, target, cursor)
         if target_pos < 0:
             errors.append(f"link {index}: canonical target not found in EN: {target}")
             continue
 
         label_end = repaired.rfind("]", cursor, target_pos)
         if label_end < 0:
-            errors.append(f"link {index}: translated link label has no closing ] for {target}")
+            fallback = fallback_list_link(source_line, repaired, target, target_pos)
+            if fallback is None:
+                errors.append(f"link {index}: translated link label has no closing ] for {target}")
+                continue
+            repaired = fallback
+            cursor = repaired.find(target) + len(target) + 1
             continue
 
         label_start = repaired.rfind("[", cursor, label_end)
         if label_start < 0:
-            errors.append(f"link {index}: translated link label has no opening [ for {target}")
+            fallback = fallback_list_link(source_line, repaired, target, target_pos)
+            if fallback is None:
+                errors.append(f"link {index}: translated link label has no opening [ for {target}")
+                continue
+            repaired = fallback
+            cursor = repaired.find(target) + len(target) + 1
             continue
 
         # Replace whatever the translation model placed between the label and the
         # canonical target (missing/duplicated parentheses, spaces, etc.) with a
         # valid Markdown destination. Preserve translated label and surrounding prose.
         suffix = repaired[target_pos + len(target) :]
-        if suffix.startswith(")"):
+        if suffix.startswith((")", "]")):
             suffix = suffix[1:]
 
         prefix = repaired[: label_end + 1]
@@ -125,12 +179,13 @@ def main() -> int:
     )
     args = parser.parse_args()
 
+    pages = canonical_pages()
     missing: list[Path] = []
     failures: list[str] = []
     changed_files = 0
     changed_lines = 0
 
-    for source in canonical_pages():
+    for source in pages:
         translation = english_variant(source)
         if not translation.exists():
             missing.append(translation)
@@ -143,7 +198,7 @@ def main() -> int:
         for error in errors:
             failures.append(f"{translation}: {error}")
 
-    print(f"Canonical pages checked: {len(canonical_pages())}")
+    print(f"Canonical pages checked: {len(pages)}")
     print(f"Missing English pages: {len(missing)}")
     print(f"English files needing structural repair: {changed_files}")
     print(f"Markdown link lines needing repair: {changed_lines}")
