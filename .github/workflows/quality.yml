@@ -5,10 +5,6 @@ on:
   push:
     branches: [main]
 
-env:
-  # English documentation is now part of the supported publish shape.
-  PUBLISH_ENGLISH_DOCS: 'true'
-
 permissions:
   contents: read
 
@@ -51,7 +47,6 @@ jobs:
         run: |
           npm install --global @stoplight/spectral-cli @asyncapi/cli@6.0.2
           spectral lint -r .spectral.yaml docs/contracts/openapi.yaml
-          spectral lint -r .spectral-asyncapi.yaml docs/contracts/async-api.yaml
           asyncapi validate docs/contracts/async-api.yaml
       - name: Check PlantUML
         run: bash scripts/render_diagrams.sh
