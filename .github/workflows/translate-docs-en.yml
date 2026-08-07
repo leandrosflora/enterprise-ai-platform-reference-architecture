@@ -1,0 +1,70 @@
+name: Translate English documentation
+
+on:
+  push:
+    branches:
+      - fix/i18n-staged-rollout
+    paths:
+      - scripts/translate_docs_en.py
+      - .github/workflows/translate-docs-en.yml
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout translation branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install translation dependencies
+        run: |
+          pip install --disable-pip-version-check torch --index-url https://download.pytorch.org/whl/cpu
+          pip install --disable-pip-version-check \
+            transformers==4.46.3 \
+            sentencepiece \
+            sacremoses
+
+      - name: Translate 96 documentation pages
+        run: python scripts/translate_docs_en.py
+
+      - name: Validate translation coverage
+        run: python scripts/validate_docs_i18n.py
+
+      - name: Install MkDocs dependencies
+        run: |
+          pip install --disable-pip-version-check \
+            mkdocs==1.6.1 \
+            mkdocs-material==9.5.49 \
+            mkdocs-static-i18n==1.3.1
+
+      - name: Prepare bilingual publish configuration
+        env:
+          PUBLISH_ENGLISH_DOCS: 'true'
+        run: python scripts/prepare_mkdocs_publish.py
+
+      - name: Build bilingual documentation in strict mode
+        run: mkdocs build --clean --strict -f mkdocs.publish.yml
+
+      - name: Commit translated pages
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mapfile -t translated_files < <(git diff --name-only -- 'docs/*.en.md' 'docs/**/*.en.md')
+          if [ "${#translated_files[@]}" -eq 0 ]; then
+            echo "No translated documentation changes found"
+            exit 1
+          fi
+          git add -- "${translated_files[@]}"
+          git commit -m "Translate English documentation"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
