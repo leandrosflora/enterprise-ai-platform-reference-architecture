@@ -4,6 +4,8 @@
 
 O Agent Runtime é o coração da Enterprise AI Platform. Ele executa agentes, orquestra chamadas para modelos, consulta memória, recupera conhecimento, executa ferramentas via MCP e publica eventos operacionais.
 
+Os [padrões de design de agentes](../architecture/agent-design-patterns.md) descrevem estratégias de orquestração que podem ser implementadas no runtime conforme o caso de uso; não exigem um serviço separado por padrão.
+
 ## Responsabilidades
 
 - Executar agentes publicados

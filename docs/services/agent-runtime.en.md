@@ -1,5 +1,7 @@
 # Agent Runtime
 
+[Agent design patterns](../architecture/agent-design-patterns.md) describe orchestration strategies that the runtime can implement per use case; they do not require a separate service for each pattern.
+
 ## Overview
 
 The Agent Runtime is the heart of the Enterprise AI Platform, it executes agents, orchestrates calls for models, consults memory, retrieves knowledge, executes tools via MCP and publishes operational events.
