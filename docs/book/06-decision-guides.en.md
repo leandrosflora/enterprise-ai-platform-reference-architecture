@@ -1,10 +1,10 @@
 # 7. Decision Guides
 
-For execution-flow composition after choosing the autonomy level, see [Agent design patterns](../architecture/agent-design-patterns.md).
-
 ## How to use this chapter
 
 The guides below do not replace ADRs, and they help to identify the most appropriate initial option and the factors that need to be recorded in the final decision.
+
+For execution-flow composition after choosing the autonomy level, see [Agent design patterns](../architecture/agent-design-patterns.md).
 
 ## 1. Agent or deterministic workflow?
 
