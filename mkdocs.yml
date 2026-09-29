@@ -81,6 +81,7 @@ plugins:
             Principles: Princípios
             Non-functional requirements: Requisitos não funcionais
             Control plane and data plane: Control plane e data plane
+            Agent design patterns: Padrões de design de agentes
             Complete C4 model and publishing: C4 completo e publicação
             Persistent memory: Memória persistente
             Vector and hybrid search: Busca vetorial e híbrida
@@ -150,6 +151,7 @@ nav:
       - Principles: architecture/principles/principles.md
       - Non-functional requirements: architecture/non-functional-requirements.md
       - Control plane and data plane: architecture/control-plane-data-plane.md
+      - Agent design patterns: architecture/agent-design-patterns.md
       - Complete C4 model and publishing: architecture/c4-complete.md
       - Trade-off Guides: architecture/trade-off-guides.md
       - Decision Matrix: architecture/ai-decision-matrix.md

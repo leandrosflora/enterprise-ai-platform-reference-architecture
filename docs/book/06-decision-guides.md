@@ -4,6 +4,8 @@
 
 Os guias abaixo não substituem ADRs. Eles ajudam a identificar a opção inicial mais adequada e os fatores que precisam ser registrados na decisão final.
 
+Para compor o fluxo de execução após escolher o nível de autonomia, consulte [Padrões de design de agentes](../architecture/agent-design-patterns.md).
+
 ## 1. Agente ou workflow determinístico?
 
 | Use agente quando | Use workflow quando |
